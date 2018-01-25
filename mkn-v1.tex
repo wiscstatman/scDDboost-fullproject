@@ -512,14 +512,14 @@ H1 exp1-H1 exp2 &  0 & 1300 & 2077 & 2841 & 16579\\
   \label{fig:5}
 \end{figure}
 \newpage
-We validate false discovery rate on ten null datasets from the table, we randomly split the cells from one condition into two equal sized subsets and do DE analysis between those subsets. we evaluate the type I error control for the methods returning nominal p-values, by recording the fraction of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (figure 5)\\
+We validate false discovery rate on ten null datasets from the table. For each null dataset, we randomly split the cells from one condition into two equal sized subsets and do DE analysis between those subsets for five times . we evaluate the type I error control for the methods returning nominal p-values, by recording the fraction of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (figure 5).\\
 \begin{figure}[H]
 \includegraphics[scale = 0.3]{FDR.png}
  \caption{FDR of scDDboost, scDD, MAST and DESeq2}
   \label{fig:6}
 \end{figure}
 scDDboost could control FDR since we assume cells are sampled from population composed of different subtypes. Cells from one subtype are equal likely to be assigned to either one of the two subsets. Consequently, proportions of subtypes remain unchanged among the two subsets.\\
-D3E\cite{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters.\\
+D3E\cite{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset EMTAB2805\\
 \begin{figure}[H]
 \minipage{0.3\textwidth}
   \includegraphics[width=\linewidth]{act.png}
@@ -534,7 +534,7 @@ D3E\cite{ref:d3e} is a distributional method that can identify bursting paramete
   \caption{}
   \endminipage
 \end{figure}
-
+We observed that DD genes identified by our methods are driven by the change of activation and inactivation rates. 
 
 
 \section{Appendix}
