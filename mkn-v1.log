@@ -1,0 +1,1044 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  24 JAN 2018 20:13
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**mkn-v1.tex
+(./mkn-v1.tex
+LaTeX2e <2017-04-15>
+Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amscls/amsart.cls
+Document Class: amsart 2015/03/04 v2.20.2
+\linespacing=\dimen102
+\normalparindent=\dimen103
+\normaltopskip=\skip41
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/11/05 v2.16a AMS math features
+\@mathmargin=\skip42
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks14
+\ex@=\dimen104
+))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen105
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count79
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count80
+\leftroot@=\count81
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count82
+\DOTSCASE@=\count83
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count84
+\c@MaxMatrixCols=\count85
+\dotsspace@=\muskip10
+\c@parentequation=\count86
+\dspbrk@lvl=\count87
+\tag@help=\toks15
+\row@=\count88
+\column@=\count89
+\maxfields@=\count90
+\andhelp@=\toks16
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks17
+\multlinegap=\skip43
+\multlinetaggap=\skip44
+\mathdisplay@stack=\toks18
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 388.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+\copyins=\insert199
+\abstractbox=\box28
+\listisep=\skip45
+\c@part=\count91
+\c@section=\count92
+\c@subsection=\count93
+\c@subsubsection=\count94
+\c@paragraph=\count95
+\c@subparagraph=\count96
+\c@figure=\count97
+\c@table=\count98
+\abovecaptionskip=\skip46
+\belowcaptionskip=\skip47
+\captionindent=\dimen113
+\thm@style=\toks19
+\thm@bodyfont=\toks20
+\thm@headfont=\toks21
+\thm@notefont=\toks22
+\thm@headpunct=\toks23
+\thm@preskip=\skip48
+\thm@postskip=\skip49
+\thm@headsep=\skip50
+\dth@everypar=\toks24
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks25
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count99
+\Gm@cntv=\count100
+\c@Gm@tempcnt=\count101
+\Gm@bindingoffset=\dimen114
+\Gm@wd@mp=\dimen115
+\Gm@odd@mp=\dimen116
+\Gm@even@mp=\dimen117
+\Gm@layoutwidth=\dimen118
+\Gm@layoutheight=\dimen119
+\Gm@layouthoffset=\dimen120
+\Gm@layoutvoffset=\dimen121
+\Gm@dimlist=\toks26
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2015/11/12 v1.18 mathematical typesetting tools
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count102
+\calc@Bcount=\count103
+\calc@Adimen=\dimen122
+\calc@Bdimen=\dimen123
+\calc@Askip=\skip51
+\calc@Bskip=\skip52
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count104
+\calc@Cskip=\skip53
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count105
+\l_MT_multwidth_dim=\dimen124
+\origjot=\skip54
+\l_MT_shortvdotswithinadjustabove_dim=\dimen125
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen126
+\l_MT_above_intertext_sep=\dimen127
+\l_MT_below_intertext_sep=\dimen128
+\l_MT_above_shortintertext_sep=\dimen129
+\l_MT_below_shortintertext_sep=\dimen130
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count106
+\float@exts=\toks27
+\float@box=\box29
+\@float@everytoks=\toks28
+\@floatcapt=\box30
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+
+
+Package natbib Warning: The `cite' package should not be used
+(natbib)                with natbib. Use option `sort' instead.
+
+\bibhang=\skip55
+\bibsep=\skip56
+LaTeX Info: Redefining \cite on input line 694.
+LaTeX Info: Redefining \citenum on input line 708.
+\c@NAT@ctr=\count107
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count108
+))
+\Gin@req@height=\dimen131
+\Gin@req@width=\dimen132
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf.sty
+Package: epstopdf 2016/05/15 v2.6 Conversion with epstopdf on the fly (HO)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+)))
+\c@lemma=\count109
+\c@theorem=\count110
+
+(./mkn-v1.aux
+
+LaTeX Warning: Label `fig:scDD' multiply defined.
+
+
+LaTeX Warning: Label `fig:scDDboost' multiply defined.
+
+
+LaTeX Warning: Label `fig:DESeq2' multiply defined.
+
+
+LaTeX Warning: Label `fig:scDD' multiply defined.
+
+
+LaTeX Warning: Label `fig:scDDboost' multiply defined.
+
+
+LaTeX Warning: Label `fig:DESeq2' multiply defined.
+
+
+LaTeX Warning: Label `fig:scDD' multiply defined.
+
+
+LaTeX Warning: Label `fig:scDDboost' multiply defined.
+
+
+LaTeX Warning: Label `fig:DESeq2' multiply defined.
+
+)
+\openout1 = `mkn-v1.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Try loading font information for U+msa on input line 21.
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 21.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(73.71613pt, 430.00462pt, 110.57425pt)
+* v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=430.00462pt
+* \textheight=556.47656pt
+* \oddsidemargin=1.44614pt
+* \evensidemargin=38.30426pt
+* \topmargin=1.12738pt
+* \headheight=8.0pt
+* \headsep=14.0pt
+* \topskip=10.0pt
+* \footskip=12.0pt
+* \marginparwidth=90.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=7.0pt plus 11.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count111
+\scratchdimen=\dimen133
+\scratchbox=\box31
+\nofMPsegments=\count112
+\nofMParguments=\count113
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count114
+\MPscratchDim=\dimen134
+\MPnumerator=\count115
+\makeMPintoPDFobject=\count116
+\everyMPtoPDFconversion=\toks30
+) [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[2]
+Overfull \hbox (11.49895pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
+CELL RNA-SEQ DATA[] []
+ []
+
+[3] [4]
+Overfull \hbox (11.49895pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
+CELL RNA-SEQ DATA[] []
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 367--368
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 369--370
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 388--390
+
+ []
+
+<prop.png, id=35, 981.6675pt x 351.3125pt>
+File: prop.png Graphic file (type png)
+ <use prop.png>
+Package pdftex.def Info: prop.png used on input line 398.
+(pdftex.def)             Requested size: 430.00462pt x 153.88644pt.
+
+<pca2.png, id=37, 614.295pt x 794.97pt>
+File: pca2.png Graphic file (type png)
+ <use pca2.png>
+Package pdftex.def Info: pca2.png used on input line 405.
+(pdftex.def)             Requested size: 122.85681pt x 158.99118pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Splatter_roc.png, id=38, 614.295pt x 794.97pt>
+File: Splatter_roc.png Graphic file (type png)
+ <use Splatter_roc.png>
+Package pdftex.def Info: Splatter_roc.png used on input line 430.
+(pdftex.def)             Requested size: 184.28992pt x 238.49284pt.
+
+Overfull \hbox (46.78668pt too wide) in paragraph at lines 411--436
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 411--436
+
+ []
+
+
+Overfull \hbox (11.49895pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
+CELL RNA-SEQ DATA[] []
+ []
+
+[7 <./prop.png>] [8 <./pca2.png> <./Splatter_roc.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 440--440
+[]\OT1/cmr/m/n/10.95 Compared cell
+ []
+
+
+Underfull \hbox (badness 2334) in paragraph at lines 440--440
+[]\OT1/cmr/m/n/10.95 Number of cells
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 443--443
+[]\OT1/cmr/m/n/10.95 16-cell stage
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 443--443
+\OT1/cmr/m/n/10.95 blas-tomere vs
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 443--443
+\OT1/cmr/m/n/10.95 Mid blas-to-cyst
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 447--447
+[]\OT1/cmr/m/n/10.95 GSE48968-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 447--447
+\OT1/cmr/m/n/10.95 stim-u-la-tion) vs
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 447--447
+\OT1/cmr/m/n/10.95 BMDC(4h LPS
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 449--449
+[]\OT1/cmr/m/n/10.95 GSE48968-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
+[]\OT1/cmr/m/n/10.95 GSE60749-
+ []
+
+
+Underfull \hbox (badness 2564) in paragraph at lines 451--451
+[]\OT1/cmr/m/n/10.95 v6.5 mouse em-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
+\OT1/cmr/m/n/10.95 bry-onic stem
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
+\OT1/cmr/m/n/10.95 cells, cul-ture
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
+\OT1/cmr/m/n/10.95 con-di-tions:
+ []
+
+
+Underfull \hbox (badness 4739) in paragraph at lines 451--451
+\OT1/cmr/m/n/10.95 2i+LIF vs v6.5
+ []
+
+
+Underfull \hbox (badness 4556) in paragraph at lines 451--451
+\OT1/cmr/m/n/10.95 stem cells, cul-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
+\OT1/cmr/m/n/10.95 ture con-di-tions:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
+[]\OT1/cmr/m/n/10.95 GSE60749-
+ []
+
+
+Underfull \hbox (badness 2564) in paragraph at lines 453--453
+[]\OT1/cmr/m/n/10.95 v6.5 mouse em-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
+\OT1/cmr/m/n/10.95 bry-onic stem
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 464--464
+[]\OT1/cmr/m/n/10.95 GSE63818-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 464--464
+\OT1/cmr/m/n/10.95 Cells, develop-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 464--464
+\OT1/cmr/m/n/10.95 week ges-ta-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 464--464
+\OT1/cmr/m/n/10.95 de-vel-op-men-tal
+ []
+
+
+Underfull \hbox (badness 5490) in paragraph at lines 464--464
+\OT1/cmr/m/n/10.95 stage: 7 week
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 466--466
+[]\OT1/cmr/m/n/10.95 GSE71585-
+ []
+
+
+Underfull \hbox (badness 2401) in paragraph at lines 466--466
+[]\OT1/cmr/m/n/10.95 Chrna2 tdT-pos-i-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 468--468
+[]\OT1/cmr/m/n/10.95 GSE71585-
+ []
+
+
+Underfull \hbox (badness 2401) in paragraph at lines 468--468
+[]\OT1/cmr/m/n/10.95 Chrna2 tdT-pos-i-
+ []
+
+
+Underfull \hbox (badness 3746) in paragraph at lines 485--486
+[]\OT1/cmr/m/n/10.95 total num-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 490--490
+[]\OT1/cmr/m/n/10.95 GSE48969-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 492--492
+[]\OT1/cmr/m/n/10.95 GSE60749-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 496--496
+[]\OT1/cmr/m/n/10.95 EMTAB
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 498--498
+[]\OT1/cmr/m/n/10.95 GSE63818-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--500
+[]\OT1/cmr/m/n/10.95 GSE71585-
+ []
+
+<heat2.png, id=49, 614.295pt x 794.97pt>
+File: heat2.png Graphic file (type png)
+ <use heat2.png>
+Package pdftex.def Info: heat2.png used on input line 510.
+(pdftex.def)             Requested size: 122.85681pt x 158.99118pt.
+
+Overfull \hbox (46.78668pt too wide) in paragraph at lines 437--514
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 437--514
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (11.49895pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
+CELL RNA-SEQ DATA[] []
+ []
+
+[9]
+Overfull \vbox (99.52332pt too high) has occurred while \output is active []
+
+
+[10]
+Overfull \hbox (11.49895pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
+CELL RNA-SEQ DATA[] []
+ []
+
+[11 <./heat2.png>] <FDR.png, id=60, 614.295pt x 794.97pt>
+File: FDR.png Graphic file (type png)
+ <use FDR.png>
+Package pdftex.def Info: FDR.png used on input line 517.
+(pdftex.def)             Requested size: 184.28992pt x 238.49284pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 515--520
+
+ []
+
+
+Package natbib Warning: Citation `ref:d3e' on page 12 undefined on input line 5
+22.
+
+<act.png, id=61, 707.64375pt x 475.7775pt>
+File: act.png Graphic file (type png)
+ <use act.png>
+Package pdftex.def Info: act.png used on input line 525.
+(pdftex.def)             Requested size: 129.00269pt x 86.73247pt.
+
+<in_act.png, id=62, 725.71124pt x 457.71pt>
+File: in_act.png Graphic file (type png)
+ <use in_act.png>
+Package pdftex.def Info: in_act.png used on input line 529.
+(pdftex.def)             Requested size: 129.00269pt x 81.35757pt.
+
+<t_rate.png, id=63, 718.685pt x 453.695pt>
+File: t_rate.png Graphic file (type png)
+ <use t_rate.png>
+Package pdftex.def Info: t_rate.png used on input line 533.
+(pdftex.def)             Requested size: 129.00269pt x 81.43312pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 521--536
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12 <./FDR.png>]
+Overfull \hbox (46.44455pt too wide) in paragraph at lines 541--549
+\OT1/cmr/m/n/10.95 Assuming there are in to-tal $\OML/cmm/m/it/10.95 K$ \OT1/cm
+r/m/n/10.95 sub-groups, we have $\OML/cmm/m/it/10.95 n \OT1/cmr/m/n/10.95 = [][
+] \OML/cmm/m/it/10.95 z[] \OT1/cmr/m/n/10.95 = [][] \OML/cmm/m/it/10.95 z[]$\OT
+1/cmr/m/n/10.95 , $\OML/cmm/m/it/10.95 z[] \OMS/cmsy/m/n/10.95 ^^X []\OT1/cmr/m
+/n/10.95 (\OML/cmm/m/it/10.95 ^^^\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; z[] 
+\OMS/cmsy/m/n/10.95 ^^X
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 541--549
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 549--553
+
+ []
+
+
+Overfull \hbox (11.49895pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
+CELL RNA-SEQ DATA[] []
+ []
+
+[13 <./act.png> <./in_act.png> <./t_rate.png>] [14]
+<DEC_NPC_mast.png, id=80, 614.295pt x 794.97pt>
+File: DEC_NPC_mast.png Graphic file (type png)
+ <use DEC_NPC_mast.png>
+Package pdftex.def Info: DEC_NPC_mast.png used on input line 558.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 559--559
+\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (11.7663pt too wide) in paragraph at lines 559--559
+\OT1/cmr/m/sc/10.95 9.\OT1/cmr/m/n/10.95 MAST 
+ []
+
+<DEC_NPC_scdd.png, id=81, 614.295pt x 794.97pt>
+File: DEC_NPC_scdd.png Graphic file (type png)
+ <use DEC_NPC_scdd.png>
+Package pdftex.def Info: DEC_NPC_scdd.png used on input line 562.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 563--563
+\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (11.49246pt too wide) in paragraph at lines 563--563
+\OT1/cmr/m/sc/10.95 10.\OT1/cmr/m/n/10.95 scDD 
+ []
+
+<DEC_NPC_scddb.png, id=82, 614.295pt x 794.97pt>
+File: DEC_NPC_scddb.png Graphic file (type png)
+ <use DEC_NPC_scddb.png>
+Package pdftex.def Info: DEC_NPC_scddb.png used on input line 566.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 567--567
+\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (37.71167pt too wide) in paragraph at lines 567--567
+\OT1/cmr/m/sc/10.95 11.\OT1/cmr/m/n/10.95 scDDboost 
+ []
+
+<DEC_NPC_des.png, id=83, 614.295pt x 794.97pt>
+File: DEC_NPC_des.png Graphic file (type png)
+ <use DEC_NPC_des.png>
+Package pdftex.def Info: DEC_NPC_des.png used on input line 570.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 571--571
+\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (23.5983pt too wide) in paragraph at lines 571--571
+\OT1/cmr/m/sc/10.95 12.\OT1/cmr/m/n/10.95 DESeq2 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 554--573
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 554--573
+
+ []
+
+<DEC_EC_mast.png, id=84, 614.295pt x 794.97pt>
+File: DEC_EC_mast.png Graphic file (type png)
+ <use DEC_EC_mast.png>
+Package pdftex.def Info: DEC_EC_mast.png used on input line 577.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 578--578
+\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (17.81915pt too wide) in paragraph at lines 578--578
+\OT1/cmr/m/sc/10.95 13.\OT1/cmr/m/n/10.95 MAST 
+ []
+
+<DEC_EC_scdd.png, id=85, 614.295pt x 794.97pt>
+File: DEC_EC_scdd.png Graphic file (type png)
+ <use DEC_EC_scdd.png>
+Package pdftex.def Info: DEC_EC_scdd.png used on input line 581.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 582--582
+\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (11.49246pt too wide) in paragraph at lines 582--582
+\OT1/cmr/m/sc/10.95 14.\OT1/cmr/m/n/10.95 scDD 
+ []
+
+<DEC_EC_scddb.png, id=86, 614.295pt x 794.97pt>
+File: DEC_EC_scddb.png Graphic file (type png)
+ <use DEC_EC_scddb.png>
+Package pdftex.def Info: DEC_EC_scddb.png used on input line 585.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 586--586
+\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (37.71167pt too wide) in paragraph at lines 586--586
+\OT1/cmr/m/sc/10.95 15.\OT1/cmr/m/n/10.95 scDDboost 
+ []
+
+<DEC_EC_des.png, id=87, 614.295pt x 794.97pt>
+File: DEC_EC_des.png Graphic file (type png)
+ <use DEC_EC_des.png>
+Package pdftex.def Info: DEC_EC_des.png used on input line 589.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 590--590
+\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (23.5983pt too wide) in paragraph at lines 590--590
+\OT1/cmr/m/sc/10.95 16.\OT1/cmr/m/n/10.95 DESeq2 
+ []
+
+<G45719_mast.png, id=88, 614.295pt x 794.97pt>
+File: G45719_mast.png Graphic file (type png)
+ <use G45719_mast.png>
+Package pdftex.def Info: G45719_mast.png used on input line 596.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 597--597
+\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (17.81915pt too wide) in paragraph at lines 597--597
+\OT1/cmr/m/sc/10.95 17.\OT1/cmr/m/n/10.95 MAST 
+ []
+
+<G45719_scdd.png, id=89, 614.295pt x 794.97pt>
+File: G45719_scdd.png Graphic file (type png)
+ <use G45719_scdd.png>
+Package pdftex.def Info: G45719_scdd.png used on input line 600.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 601--601
+\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (11.49246pt too wide) in paragraph at lines 601--601
+\OT1/cmr/m/sc/10.95 18.\OT1/cmr/m/n/10.95 scDD 
+ []
+
+<G45719_scddb.png, id=90, 614.295pt x 794.97pt>
+File: G45719_scddb.png Graphic file (type png)
+ <use G45719_scddb.png>
+Package pdftex.def Info: G45719_scddb.png used on input line 604.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 605--605
+\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (37.71167pt too wide) in paragraph at lines 605--605
+\OT1/cmr/m/sc/10.95 19.\OT1/cmr/m/n/10.95 scDDboost 
+ []
+
+<G45719_des.png, id=91, 614.295pt x 794.97pt>
+File: G45719_des.png Graphic file (type png)
+ <use G45719_des.png>
+Package pdftex.def Info: G45719_des.png used on input line 608.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 609--609
+\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (23.5983pt too wide) in paragraph at lines 609--609
+\OT1/cmr/m/sc/10.95 20.\OT1/cmr/m/n/10.95 DESeq2 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (11.49895pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
+CELL RNA-SEQ DATA[] []
+ []
+
+[15 <./DEC_NPC_mast.png> <./DEC_NPC_scdd.png> <./DEC_NPC_scddb.png> <./DEC_NPC_
+des.png> <./DEC_EC_mast.png> <./DEC_EC_scdd.png> <./DEC_EC_scddb.png> <./DEC_EC
+_des.png>] <G74596_mast.png, id=103, 614.295pt x 794.97pt>
+File: G74596_mast.png Graphic file (type png)
+
+<use G74596_mast.png>
+Package pdftex.def Info: G74596_mast.png used on input line 615.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 616--616
+\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (17.81915pt too wide) in paragraph at lines 616--616
+\OT1/cmr/m/sc/10.95 21.\OT1/cmr/m/n/10.95 MAST 
+ []
+
+<G74596_scdd.png, id=104, 614.295pt x 794.97pt>
+File: G74596_scdd.png Graphic file (type png)
+ <use G74596_scdd.png>
+Package pdftex.def Info: G74596_scdd.png used on input line 619.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 620--620
+\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (11.49246pt too wide) in paragraph at lines 620--620
+\OT1/cmr/m/sc/10.95 22.\OT1/cmr/m/n/10.95 scDD 
+ []
+
+<G74596_scddb.png, id=105, 614.295pt x 794.97pt>
+File: G74596_scddb.png Graphic file (type png)
+ <use G74596_scddb.png>
+Package pdftex.def Info: G74596_scddb.png used on input line 623.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 624--624
+\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (37.71167pt too wide) in paragraph at lines 624--624
+\OT1/cmr/m/sc/10.95 23.\OT1/cmr/m/n/10.95 scDDboost 
+ []
+
+<G74596_des.png, id=106, 614.295pt x 794.97pt>
+File: G74596_des.png Graphic file (type png)
+ <use G74596_des.png>
+Package pdftex.def Info: G74596_des.png used on input line 627.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 628--628
+\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (23.5983pt too wide) in paragraph at lines 628--628
+\OT1/cmr/m/sc/10.95 24.\OT1/cmr/m/n/10.95 DESeq2 
+ []
+
+[16 <./G45719_mast.png> <./G45719_scdd.png> <./G45719_scddb.png> <./G45719_des.
+png> <./G74596_mast.png> <./G74596_scdd.png> <./G74596_scddb.png> <./G74596_des
+.png>] (./mkn-v1.bbl
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (11.49895pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
+CELL RNA-SEQ DATA[] []
+ []
+
+[17
+
+
+])
+
+Package natbib Warning: There were undefined citations.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18]
+Overfull \hbox (11.49895pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
+CELL RNA-SEQ DATA[] []
+ []
+
+[19] (./mkn-v1.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 4575 strings out of 492995
+ 62565 string characters out of 6132704
+ 154645 words of memory out of 5000000
+ 7872 multiletter control sequences out of 15000+600000
+ 12646 words of font info for 48 fonts, out of 8000000 for 9000
+ 1302 hyphenation exceptions out of 8191
+ 42i,16n,32p,875b,464s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
+></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.p
+fb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pf
+b></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
+usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/l
+ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
+l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/t
+exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
+xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texl
+ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
+e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
+/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2
+017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/201
+7/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on mkn-v1.pdf (19 pages, 1934987 bytes).
+PDF statistics:
+ 187 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+
