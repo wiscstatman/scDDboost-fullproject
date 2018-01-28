@@ -1,0 +1,638 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry,amsmath,amssymb,amsthm,cite,mathtools,float}                % See geometry.pdf to learn the layout options. There are lots.
+\usepackage[numbers, sort&compress]{natbib}
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+
+\title{A compositional model to assess expression changes from
+ single-cell RNA-seq data\footnote{Department of Biostatistics and Medical Informatics, UW Madison, Technical Report TR***-v1, December **, 2017.}} 
+
+\author{Xiuyu Ma,  and Christina Kendziorski, and Michael A. Newton}
+ 
+\email{newton@biostat.wisc.edu}
+\begin{document}
+\maketitle
+\section{Introduction}
+
+The ability to measure genome-wide gene expression at single-cell resolution 
+has accelerated the pace of biological discovery (*cites*).  Overcoming data
+analysis challenges caused by the scale and unique variation properties of single-cell
+data will surely fuel further advances in immunology (cite), developmental
+biology (cite), and cancer (cite).  Computational tools and statistical methodologies 
+created for data of lower-resolution (e.g. bulk RNA-seq) or lower dimension 
+(e.g. flow cytometry)  guide our response to 
+ the data science demands of new measurement platforms,
+but they are not adequate for efficient knowledge discovery in this
+rapidly advancing domain (Bacher and Kendziorski, 2016?; Gottardo?).
+
+An important feature of single-cell studies that could be leveraged better
+statistically is the fact that cells populate distinct, identifiable subtypes
+determined by lineage history, epigenetic state, the activity
+of various transcriptional programs (e.g. burst states), or other 
+distinguishing factors. [**something about sc methods concerned a lot with
+clustering cells into different cell subtypes/subpopulations...tsne...].
+Whether or not a determination of cellular subtypes and their frequencies 
+is a task of interest in a given application, we hypothesize that such
+subytpe information may be injected into other inferences in order
+ to improve their operating characteristics.
+
+Assessing the magnitude and statistical significance of changes in gene
+expression associated with different cellular conditions has been a central
+statistical problem in genomics for which new tools specific to
+the single-cell RNAseq data structure have been deployed: MAST (\cite{ref:MAST}),
+DESEQ2 (\cite{ref:Des}), SCDD (\cite{ref:scDD} ), other.  These tools respond
+to scRNAseq characteristics, such as high prevelance of zero counts and
+gene-level multimodality, but none takes explicit advanatage of cellular subtype
+information.  We present a simple procedure and supporting theoretical
+analyses for this purpose.  A notable technical innovation is a new prior
+distribution over pairs of multinomial probability vectors that conveys
+both marginal Dirichlet conjugacy as well as
+ dependence induced through sharp equalities on aggregated 
+ subtype probabilities, which turns out to be key in formulating 
+ the posterior probability of changes in expression distributions between conditions.
+ **what else do we do...test on a bunch of data sets...
+ find improved sensitivity sometimes??**
+
+
+\section{Modeling}
+\subsection{Data structure, sampling model, and parameters}
+In modeling scRNASeq data, we
+imagine that each cell falls into one of $K>1$ classes, which we think of as
+subtypes or subpopulations of cells.   Knowledge of this class structure
+ prior to measurement is not required, as it will be inferred as necessary from
+ available genomic data.  We also assume that cells arise from multiple
+experimental conditions, such as by treatment-control status or some other factor
+ measured at the cell level, and we present our development for the special
+case of two conditions, noting in Section ** how to proceed more generally.
+Let's say conditions 1 and 2 contain $n_1$ and $n_2$ cells, respectively, and
+let $z^j_k$ denote the number of cells of subtype $k$ in condition $j$.
+Count vectors $z^1 = (z^1_1, z^1_2, \cdots, z^1_K )$ and 
+$z^2 = (z^2_1, z^2_2, \cdots, z^2_K)$ we treat as independent multinomial
+vectors, reflecting the common, two-condition experimental design.
+Explicitly,
+\begin{eqnarray*}
+z^1 \sim \text{Multinomial}_K( n_1, \phi ) \quad {\mbox {\rm and}} \quad
+z^2 \sim \text{Multinomial}_K( n_2, \psi )
+\end{eqnarray*}
+for probability vectors 
+$\phi = (\phi_1, \phi_2, \cdots, \phi_K)$ and 
+ $\psi = ( \psi_1, \psi_2, \cdots, \psi_K)$ that characterize the populations of
+cells from which the $n_1+n_2$ observed cells are sampled.
+As for data, the 
+normalized expression of gene $g$ in cell $c$, say $X_{g,c}$, is one entry
+in a typically large data matrix; and we record cell condition with the binary
+label $y_c$.   
+
+Our working hypothesis is that any differences in the distribution of $X_{g,c}$ 
+between $y_c=1$ and $y_c=2$ (i.e., any condition effects) are attributable 
+to differences between the conditions 
+in the underlying composition of cell types; i.e.,
+owing to $\phi \neq \psi$.  We reckon that cells of any given subtype $k$ will
+present data according to a distribution reflecting technical 
+and biological variation specific to that class of cells, regardless of the 
+condition the cell finds itself in.   Some care is needed in this, as an overly
+broad cell subtype (e.g. {\em epithelial cells}) could have
+further subtypes that show differential response to some treatment, for example,
+and so cellular condition (treatment) would then affect the distribution of 
+expression data within the subtype, which is contrary to our working hypothesis.
+On the other hand, we could then refine the subtype definition to allow more
+population classes $K$ in order to mitigate that problem.
+We revisit the issue in Section **, but for now proceed assuming that cellular 
+condition affects the composition of subtypes but not the distribution of expression
+within a subtype.
+
+With this working hypothesis, let $f_{g,k}(x)$ denote the sampling distribution
+of expression measurement $X_{g,c}$ assuming that cell $c$ is from subtype $k$.
+Then in the two cellular conditions, the marginal distributions over subtypes are
+\begin{eqnarray*}
+f_g^1(x) = \sum_{k=1}^K \phi_k f_{g,k} (x) \quad {\mbox {\rm and}} \quad
+f_g^2(x) = \sum_{k=1}^K \psi_k f_{g,k} (x).
+\end{eqnarray*}
+We say that gene $g$ is {\em differentially distributed}, denote ${\rm DD}_g$,
+if $f_g^1(x) \neq f_g^2(x)$ for some $x$, and otherwise it is equivalently distributed
+(${\rm ED}_g$). Motivated by findings from bulk RNAseq data analysis, we further
+set each $f_{g,k}$ to have a a Negative Binomial form, say with mean $\mu_{g,k}$
+and shape parameter $\alpha_g$ [cites, including Leng et al 2013?]. This choice
+proves to be effective in our numerical experiments though it is not critical to
+the modeling formulation.
+
+We seek a useful methodology to prioritize genes for evidence
+of ${\rm DD}_g$.  Interestingly, even if we have evidence for condition effects
+on the subtype frequencies, it does not follow that a given
+gene will have $f^1_g \neq f^2_g$; that depends on whether or not the subtypes
+show the right pattern of {\em differential expression} at $g$, to use the 
+standard terminology from bulk RNAseq.  For example, if two subtypes have 
+different frequencies between the two conditions ($\phi_1 \neq \psi_1$ and 
+ $\phi_2 \neq \psi_2$) but the same aggregate frequency
+($\phi_1+\phi_2 = \psi_1 + \psi_2$),  and also  if $\mu_{g,1} = \mu_{g,2}$
+then, other things being equal, $f^1_g = f^2_g$ even though $\phi \neq \psi$.
+Simply, a gene that does not distinguish two subtypes will also not distinguish
+the cellular conditions if those subtypes appear in the same aggregate frequency
+in the two conditions, regardless of changes in the individual subtype 
+frequencies. We formalize this idea in order that our methodology
+has the necessary functionality.  First, consider the parameter space 
+\begin{eqnarray*}
+\Theta = \{ (\phi, \psi,\mu, \sigma)  \}
+\end{eqnarray*}
+where $\phi=(\phi_1, \phi_2, \cdots, \phi_K)$ and $\psi=(\psi_1, \psi_2, \cdots, \psi_K)$,
+as before, where $\mu = \{ \mu_{g,k} \}$, all the subtype-and-gene-specific expected
+values, and where $\sigma = \{ \sigma_g \}$ holds all the gene-specific Negative binomial
+shape parameters.  We define special subsets of $\Theta$ using
+partitions of the $K$ cell subtypes.  A single partition, say $\pi$, is a set of
+mutually exclusive and exhaustive blocks, $b$, say, each a subset of $\{1, 2, 
+\cdots, K\}$, and we write $\pi = \{ b \}$.  We recall 
+that the set $\Pi$ containing all partitions $\pi$ of $\{1,2, \cdots, K\}$
+has cardinality that grows rapidly with $K$. 
+ We'll carry along an example
+involving $K=7$ cell types, and one three-block partition taken
+from the set of 877 possible partitions of $\{1, 2, \cdots, 7\}$ (Figure 1).
+
+For any partition $\pi=\{b\}$ we have aggregate subtype frequencies
+\begin{eqnarray*}
+\Phi_b = \sum_{k\in b} \phi_k \quad {\mbox {\rm  and}} \quad 
+ \Psi_b = \sum_{k\in b} \psi_k.
+\end{eqnarray*}
+We'll also use the notation $\Phi_\pi = \{ \Phi_b: b \in \pi \}$ and similarly
+for $\Psi_\pi$.   As long as $\pi$ is not the most refined partition,
+the mapping from $( \phi, \psi )$ to $( \Phi_\pi, \Psi_\pi)$ is many-to-one
+(Figure 2).
+Define
+\begin{eqnarray*}
+A_\pi = \{ \theta\in \Theta: \; \Phi_b = \Psi_b  \, \forall b \in \pi \}.
+\end{eqnarray*}
+and
+\begin{eqnarray*}
+B_\pi = \{ \theta \in \Theta: \; \mu_{g,k} = \mu_{g,k'} \iff k,k' \in b, b \in \pi \}.
+\end{eqnarray*}
+Indeed, these are precisely the
+structures needed to address differential distribution DD$_g$ (and
+it complement, equivalent distribution, ${\rm ED}_g$) at a given gene
+$g$: 
+
+\begin{theorem}  At a given gene, equivalent distribution is
+\begin{eqnarray*}
+\text{ED}_g = \bigcup_{\pi \in \Pi}\left[ A_\pi \cap B_\pi \right].
+\end{eqnarray*}
+\end{theorem}
+
+
+**
+\subsection{Clustering method}
+To identify subtypes of cells, we pool cells from two biological conditions. At each gene level, we do a Poison-Gamma model extended from modal clustering\cite{ref:dahl}. After gene level clustering, we use the cluster-based similarity partition algorithm (CSPA\cite{ref:cspa}). For each individual clustering result, a binary similarity matrix is constructed from the corresponding cell labels: if two cells belong to the same cluster, their similarity is 1; otherwise their similarity is 0. We obtain a consensus similarity matrix $M1$ by averaging all similarity matrices of individual clusterings. Another distance matrix $M2$ calculated by Pearson distance between cells. A final similarity matrix is obtained by weighted combining $M1$ and $M2$. Cells are classified into subtypes by K-means clustering based the final similarity matrix.
+
+
+
+\subsection{Empirical Bayes prior}
+
+**
+Here I describe a prior $p(\phi,\psi)$ that is conjugate to multinomial
+sampling but that also enables downstream gene-specific inferences about
+differential distribution when certain 
+cell types do not differ in their expression
+distributions.  
+
+
+For our purposes, the prior will have a *spike-slab* structure that mixes
+over distinct patterns of equality of $\pi$-associated
+accummulated probabilities:
+\begin{eqnarray*}
+p(\phi,\psi) = \sum_{\pi \in \Pi} P(A_\pi) \, p(\phi,\psi| A_\pi )
+\end{eqnarray*}
+
+
+Upon setting up a prior $p(\phi,\psi)$ that can mix over structures
+$A_\pi$, and by combining cell-type counts $z^1$ and $z^2$ with
+expression data $x_g$ at a gene, we may compute 
+$P(\text{ED}_g|\text{data})$ 
+at each gene:
+\begin{eqnarray*}
+P(\text{ED}_g|\text{data}) = \sum_{\pi \in \Pi} P(A_\pi|z^1, z^2) \, 
+P(B_\pi|x_g).
+\end{eqnarray*}
+
+To discuss the issue of overlapping of parameter space $A_\pi$, we first introduce some notations. The whole space $\Omega = \{ (\phi,\psi), \phi_i,\psi_i > 0 \text{ and } \sum_{i=1}^K \phi_i = \sum_{i=1}^K \psi_i = 1\}$ and subspace that we do not give inference due to lack of proper prior to make an explicit prior predictive function, we only consider inference on space $\Omega \setminus N$, $N = \{ (\phi,\psi), s.t. \exists b_1, b_2 \subset \{1,2, ... , K \}, b_1 \neq b_2, b_1 \cap b_2 \neq  \emptyset \text{ and } \sum_{i\in b_j} \phi_i = \sum_{i\in b_j} \psi_i, j = 1, 2 \}$\\ 
+Next, we define the refinement relationship between partitions, we say a partition $\tilde{\pi}$ refines another partition $\pi$ if $\forall b \in \pi$ there exists $s \subset \tilde{\pi}$  such that $\cup_{x\in s} x = b$. Consequently, if $\tilde{\pi} \text{ refines } \pi$ we would have $A_{\tilde{\pi}} \subset A_\pi$.  Finally, we introduce a thinning constrained parameter space $A_\pi^* = A_\pi \setminus \cup_{\{\tilde{\pi}, \pi \text{ not refines } \tilde{\pi} \}} A_{\tilde{\pi}}$, that is parameter in $A_\pi^*$ only satisfy constraints given by $A_\pi$ and does not satisfy any further constraints.\\
+The reason to introduce such notations is to resolve definition issue of P$(\phi,\psi| A_\pi )$ when $(\phi, \psi)$ satisfy further constraints, e.g. $(\phi,\psi) \in A_{\tilde{\pi}}$ for a $\tilde{\pi}$ refines $\pi$ and $A_{\tilde{\pi}}$ is a lower dimensional subset of $A_\pi$, naturally, we have P$((\phi,\psi) \in A_{\tilde{\pi}} | A_\pi ) = 0$, then P$((\phi,\psi) \in A_{\tilde{\pi}}) \propto  \text{P}( (\phi,\psi) \in A_{\tilde{\pi}}| A_\pi ) *  \text{P}(A_\pi) = 0$. Instead of defining P$(\phi,\psi| A_\pi )$, we separate space $\Omega \setminus N$ into disjoint subspace and define P$(\phi,\psi| A_\pi^* )$ below .
+
+Initially, the multitude of $P(A_\pi^*)$'s will be preset constants.To complete the prior specification $p(\phi,\psi)$, consider further scalers
+$\alpha_k>0$ for each class $k$ and $\beta_b>0$ for each potential block $b$.
+(Extending the notational convention, $\alpha_b$ is the vector of $\alpha_k$
+for $k\in b$, and $\beta_\pi$ is the vector of $\beta_b$ for $b \in \pi$.)
+For any block $b$ consider conditional probabilities
+\begin{eqnarray*}
+\tilde{\phi}_b = \frac{\phi_b}{\Phi_b} \qquad \tilde{\psi}_b = \frac{\psi_b}{\Psi_b}
+\end{eqnarray*}
+which indicate the conditional probability of each class $k$ given that
+the cell is of one of the types in $b$.  Assume that conditional upon 
+$A_\pi$,
+\begin{eqnarray*}
+\Phi_\pi \sim \text{Dirichet}_{N(\pi)}[   \beta_\pi   ]
+\end{eqnarray*}
+where $N(\pi)$ is the number of blocks $b$ in $\pi$,
+and further that accumulated probabilities are the same between
+the two source conditions: $\Phi_\pi = \Psi_\pi$.
+Finally, assume that for each $b \in \pi$,
+\begin{eqnarray*}
+\tilde \phi_b, \tilde \psi_b \sim_{\text{i.i.d.}}
+  \text{Dirichlet}_{N(b)}[ \alpha_b ]
+\end{eqnarray*}
+where $N(b)$ is the number of cell types in block $b$.
+In other words, if $A_\pi$ is the active structure, then
+accumulated probability vectors $\Phi_\pi$ and $\Psi_\pi$ are equal
+between the two source conditions, though the sub-block class-specific
+rates $\phi_k$ and $\psi_k$ may differ, as would (re-normalized)
+independent Dirichlet-distributed vectors.
+Taken together,
+\begin{eqnarray*}
+p(\phi,\psi|A^*_\pi) =
+         p( \Phi_\pi, \Psi_\pi | A^*_\pi ) \, \prod_{b \in \pi}  \left[
+         p( \tilde \phi_b ) p( \tilde \psi_b ) \right]
+\end{eqnarray*}
+with
+\begin{eqnarray*}
+p( \Phi_\pi, \Psi_\pi | A^*_\pi )
+= \frac{\Gamma(\sum_{b\in \pi} \beta_b)}{
+ \prod_{b \in \pi} \Gamma( \beta_b )} \left[\prod_{b \in \pi} \Phi_b^{\beta_b-1} \right] \,
+ 1\left[ \Phi_\pi = \Psi_\pi \right]
+\end{eqnarray*}
+and
+\begin{eqnarray*}
+p( \tilde \phi_b ) =
+\frac{ \Gamma( \sum_{k\in b} \alpha_k ) }{ \prod_{k\in b} \Gamma(\alpha_k) }
+ \prod_{k \in b} \tilde \phi_k^{\alpha_k -1 },
+\qquad
+p( \tilde \psi_b )
+=
+\frac{ \Gamma( \sum_{k\in b} \alpha_k ) }{ \prod_{k\in b} \Gamma(\alpha_k) }
+\prod_{k \in b} \tilde \psi_k^{\alpha_k -1 }.
+\end{eqnarray*}
+
+
+
+\subsection{Predictive and posterior probabilities:}
+For notation, we use $\phi_b$ for the vector of values $\phi_k$ for $k \in b$,
+and similarly for $\psi_b$. Analogously, $\Phi_\pi$ and $\Psi_\pi$
+ are vectors of 
+accumulated class probabilities $\phi_b$ and $\psi_b$ for all $b \in \pi$,
+ respectively. 
+
+Using the Dirichlet-Multinomial conjugacy and the collapsing property of
+these distributions (\cite{ref:Dickey}), we get closed formulas for the predictive
+probability of cell-type counts $z^1$ and $z^2$.  Fixing $\pi$,
+let $t^j_b = \sum_{k\in b} z^j_k$, for cell conditions $j=1,2$, 
+record the total numbers of cells accumulated over all types in block $b$.
+And following our notation convention, $t^j_\pi$ is the vector of these
+counts over $b \in \pi$.  From the prior and model structure
+\begin{eqnarray*}
+p(z^1,z^2|A^*_\pi) = p(z^1 | t^1_\pi)\, p(z^2|  t^2_\pi )
+ \, p( t^1_\pi, t^2_\pi | A^*_\pi ).
+\end{eqnarray*}
+Conditional independence of $z^1$ and $z^2$ given the block-level totals
+$t^1_\pi$ and $t^2_\pi$ on $A_\pi^*$ reflects the possible differential 
+class proportion structure within blocks but between cell conditions.
+For either cellular group $j=1,2$,
+we find, after some simplification, the following Dirichlet-Multinomial masses: 
+\begin{eqnarray*}
+p(z^j|t^j_\pi) = \prod_{b \in \pi} \left\{
+\left[ \frac{ \Gamma(t^j_b +1 ) }{\prod_{k \in b} \Gamma( z^j_k + 1 ) } 
+\right]
+\left[ \frac{\Gamma( \sum_{k \in b} \alpha_k )}{
+		\prod_{k\in b} \Gamma( \alpha_k ) } \right] 
+       \left[        \frac{ \prod_{k \in b} \Gamma(\alpha_k + z^j_k)  }{
+		\Gamma(t^j_b + \sum_{k\in b} \alpha_k ) )}\right]
+ \right\}
+\end{eqnarray*}
+and
+\begin{eqnarray*}
+p(t^1_\pi,t^2_\pi| A^*_\pi) =
+ \left[ \frac{ \Gamma(n_1+1) \Gamma(n_2+1) }{ \prod_{b \in \pi} \Gamma(t^1_b+1) 
+   \Gamma( t^2_b + 1 )} \right] 
+\left[ \frac{\Gamma( \sum_{b \in \pi} \beta_b  )}{
+   \prod_{b \in \pi} \Gamma(\beta_b )} \right] 
+ \left[ \frac{ \prod_{b \in \pi} \Gamma( \beta_b + t^1_b + t^2_b )}{
+	\Gamma( n_1 + n_2 + \sum_{b \in \pi} \beta_b  )} \right].
+\end{eqnarray*}
+
+Let's look at some special cases to dissect this result. 
+
+**Check 1:** If $\pi$ has a single block equal to the entire
+ set of cell types $\{1,2, \cdots, K\}$,  then $t^j_b=n_j$ for both $j=1,2$,
+and the second formula reduces, correctly, to 
+$p(t^1_\pi,t^2_\pi| A_\pi^*) = 1$.  Further,
+\begin{eqnarray*}
+p(z^j|t^j_\pi) = 
+\left[ \frac{ \Gamma(n_j +1 ) }{ \Gamma( n_1 + \sum_{k=1}^K \alpha_k ) }
+\right]
+\left[ \frac{\Gamma( \sum_{k =1}^K \alpha_k )}{
+                \prod_{k=1}^K \Gamma( \alpha_k ) } \right]
+       \left[    \prod_{k=1}^K    \frac{  \Gamma(\alpha_k + z^j_k)}{
+                \Gamma(z^j_k + 1 )}\right]
+\end{eqnarray*}
+which is the well-known Dirichlet-multinomial predictive distribution
+for counts $z^j$ (cite).  E.g, taking $\alpha_k=1$ for all types $k$ 
+we get the uniform distribution
+\begin{eqnarray*}
+p(z^j|t^j_\pi) = 
+ \frac{ \Gamma(n_j +1 ) \Gamma(K) }{ \Gamma( n_j + K ) }.
+\end{eqnarray*}
+
+**Check 2:** At the opposite  extreme, $\pi$  has one block $b$ for each
+ class $k$. Then $t^j_b = z^j_k$, and $p(z^j|t^j_\pi) = 1$, and 
+further, assuming $\beta_b = \alpha_k$,
+\begin{eqnarray*}
+p(t^1_\pi,t^2_\pi| A_\pi^*) =
+ \left[ \frac{ \Gamma(n_1+1) \Gamma(n_2+1) }{ \prod_{k=1}^K 
+   \Gamma(z^1_k+1) 
+   \Gamma( z^2_k + 1 )} \right] 
+\left[ \frac{\Gamma( \sum_{k=1}^K \alpha_k  )}{
+   \prod_{k=1}^K \Gamma(\alpha_k )} \right] 
+ \left[ \frac{ \prod_{k=1}^K \Gamma( \alpha_k + z^1_k + z^2_k )}{
+	\Gamma( n_1 + n_2 + \alpha_k  )} \right].
+\end{eqnarray*}
+\cite{ref:bayesC}
+
+ Regardless of the partition,
+log scale probabilities are readily evaluated 
+given hyper-parameters $\{ \alpha_k \}$ and $\{ \beta_b \}$ and for
+cell-type counts $z^1$ and $z^2$. 
+
+After finishing calculating $p(z^1,z^2|A^*_\pi)$, we obtain posterior $p(A^*_\pi|z^1,z^2)$ by assign weakly informative prior of $A^*_\pi$ ($p(A_\pi^*)$ is constant not depend on $A_\pi^*$) and obtain $p(A_\pi | z^1, z^2)$ by summing over all the posterior units of refinements of $\pi$. \\
+
+\subsection{asymptotic properties}\hfill\\
+\begin{theorem} assuming $\beta_b = \Sigma_{k\in b} \alpha_k$, and $\alpha_k = 1, \forall k$ when $(\phi, \psi)\in \Omega\setminus N $ we have 
+\begin{eqnarray*}
+    p(A_{\pi} | z^1, z^2) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
+                \begin{array}{ll}
+                 1 \quad \text{if }(\phi,\psi) \in A_\pi\\
+                 0 \quad \text{otherwise}\\             
+                \end{array}
+              \right.
+\end{eqnarray*}
+\end{theorem}
+\begin{theorem} when $(\phi, \psi)\in N$,  and  $S_\pi$ = $\{\pi$,  $(\phi, \psi) \in A_\pi\}$, we have 
+\begin{eqnarray*}
+    p(A_{\pi} | z^1, z^2) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
+                \begin{array}{ll}
+                 m(\pi) \quad \text{if }(\phi,\psi) \in A_\pi \text{ and } \pi \in S_\pi\\
+                 0 \quad \text{otherwise}\\             
+                \end{array}
+              \right.
+\end{eqnarray*}
+and $\sum_{\pi\in S_\pi} m(\pi) = 1$\\
+\end{theorem}\hfill\\
+proofs are in the appendix. 
+
+
+\section{Data analysis workflow} 
+\subsection{simulated data}\hfill\\
+Here's an example using the probabilities $\phi$ and $\psi$ from Figure 2;
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{prop.png}
+  \caption{proportion change in different conditions.}
+  \label{fig:1}
+\end{figure}
+We simulate data by splatter\cite{ref:Zappia} with $n_1=n_2=200$, and 7 subtypes among two conditions with proportional constraints: $\phi_1 + \phi_2 = \psi_1 + \psi_2$, $\phi_3 + \phi_4 +\phi_5 = \psi_3 + \psi_4 + \psi_5$ and $\phi_6 + \phi_7 = \psi_6 + \psi_7$
+
+\begin{figure}[h!]
+  \includegraphics[scale = 0.2]{pca2.png}
+  \caption{pca of cells}
+  \label{fig:2}
+\end{figure}
+ 
+
+\subsection{The scDDboost modeling framework}\hfill\\
+We normalized raw transcripts count data by SCnorm\cite{ref:Rhonda} to adjust for technical sources of variation including amplification bias and sequencing depth. We use the clustering method in section 2 to classify cells into subtypes.\\
+After clustering of cells, we obtain posterior inference on differential expression pattern via EBSeq\cite{ref:Leng} and posterior inference on proportion change via the method in section 2 by assuming $\alpha_k=1$ for all $k$ and $\beta_b = \sum_{k\in b}\alpha_k.$. \\
+In the simulation data, there are 7 groups and 10\% genes each group are DE genes. There are in total 9067 DD genes and 8306 ED genes.\\
+Below are numbers of DD or DE genes identified by four methods with target FDR at 5 \%. \\
+\begin{tabular}{ |p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+\hline
+ & scDDboost & scDD & MAST & DESeq2\\
+\hline
+\hline
+DD or DE genes & 6073 & 3038 & 2468 & 2076\\
+\hline
+True positive & 4774 & 2724 & 2442 & 2073\\
+\hline
+false positive & 1299 & 314 & 26 & 3\\
+\hline
+\end{tabular}\\
+And we compare roc curves of scDDboost, scDD, MAST and DESeq2. (figure 3)
+\begin{figure}[h]
+  \includegraphics[scale = 0.3]{Splatter_roc.png}
+  \caption{roc curve of scDDboost, scDD, MAST and DESeq2}
+  \label{fig:3}
+\end{figure}\\
+scDDboost may work poorly, when $\phi$ and $\psi$ satisfy partial overlapping constraints, i.e. there are at least a pair of  $b_1, b_2 \in \{1, 2, ..., K \}$ that $b_1 \neq b_2$, $b_1 \cap b_2 \neq \emptyset$ and $\sum_{i\in b_j} \phi_i = \sum_{i\in b_j} \psi_i, j = 1, 2$. For example, parameter space that$\phi_1 + \phi_2 = \psi_1 + \psi_2$ and $\phi_1 + \phi_3 = \psi_1 + \psi_3$.  Based on the theorem 3, assume we have sufficiently large $n$ cells. When constraints are partially overlapping, we may underestimate the posterior probability of true proportion pattern, which reduce the posterior probabilities of true negative and enlarge false positive rate.\\
+Another situation that the power of scDDboost could be limited is that even though there is no mean expression change among subtypes but the distribution among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus reduce power of detecting DD genes.\\
+ \section{Examples}
+We use ten datasets from conquer\cite{ref:Cq} to test performance of our method on real data. We compare our results with scDD\cite{ref:scDD}, MAST\cite{ref:MAST} and DESeq2\cite{ref:Des}\\
+\begin{tabular}{ |p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+\hline
+ Data set & Compared cell subsets & Number of cells per condition & Organism & Ref\\
+ \hline
+ \hline
+ GSE45719 & 16-cell stage blastomere vs Mid blastocyst cell (92-94h post- fertilization) & 50, 60 & mouse & \cite{Deng193}\\
+ \hline
+ GSE45719null &  16-cell stage blastomere & 50 & mouse &  \cite{Deng193}\\
+ \hline
+ GSE48968-GPL13112 & BMDC (1h LPS stimulation) vs BMDC(4h LPS stimulation) & 96, 95 & mouse & \cite{Shalek}\\
+ \hline
+ GSE48968-GPL13112null & BMDC (1h LPS stimulation) & 96 & mouse & \cite{Shalek}\\
+ \hline
+ GSE60749-GPL13112 & v6.5 mouse embryonic stem cells, culture conditions: 2i+LIF vs v6.5 mouse embryonic stem cells, culture conditions: serum+LIF & 90, 94 & mouse & \cite{Kumar}\\
+ \hline
+ GSE60749-GPL13112null & v6.5 mouse embryonic stem cells, culture conditions: 2i+LIF & 90 & mouse & \cite{Kumar}\\
+ \hline
+ GSE74596 & NKT0 vs NKT17 & 45,44 & mouse & \cite{Engel}\\
+ \hline
+ GSE74596null & NKT0 & 45 & mouse & \cite{Engel}\\
+ \hline
+ 
+ EMTAB2805 & G1 vs G2m & 96,96 & mouse & \cite{EMTAB}\\
+ \hline
+ EMTAB2805null & G1 & 96 & mouse & \cite{EMTAB}\\
+ \hline
+ GSE63818-GPL16791 & Primordial Germ Cells, develop- mental stage: 7 week gestation vs Somatic Cells, developmental stage: 7 week gestation & 39,26 & mouse & \cite{Guo}\\
+ \hline
+ GSE71585-GPL13112 & Chrna2 tdTpositive vs Cux2 tdTpositive & 84, 124 & mouse & \cite{Tasic}\\
+ \hline
+GSE71585-GPL13112null & Chrna2 tdTpositive & 84 & mouse & \cite{Tasic}\\
+\hline
+GSE75748 & NPC vs DEC & 64, 87 & human & \cite{chu}\\
+\hline
+GSE75748 & NPC & 64 & human & \cite{chu}\\
+\hline
+GSE75748 & DEC vs EC & 70, 64 & human & \cite{chu}\\
+\hline
+GSE75748 & DEC & 70 & human & \cite{chu}\\
+\hline
+GSE64016null & H1 vs H9 & 64, 87 & human & \cite{oscope}\\
+\hline
+\end{tabular}\\
+We have table of numbers of differentially expressed genes of each dataset by MAST and DESeq2, and numbers of differentially distributed genes of each dataset by scDDboost and scDD.\\
+\\
+\begin{tabular}{ |p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+\hline
+Data set & scDDboost & scDDboost-sc3 & scDD & MAST & DESeq2 & total number of genes\\
+\hline
+\hline
+GSE45719 & 4278 & 4228 & 6416 &5652 & 11202 & 45686\\
+\hline
+GSE48969-GPL13112 & 11691 & 9819 & 2080 & 3396 & 9542 & 45686\\
+\hline
+GSE60749-GPL13112 & 19215 & 19168 &  18074 & 13674 & 23178 & 45686\\
+\hline
+GSE74596 & 1942 & 1353 & 1099 & 540 & 3796 & 45686\\
+\hline
+EMTAB 2805 & 1194 & 3748 & 760 & 1088 & 5391 & 45686\\
+\hline
+GSE63818-GPL16791 & 3948 & 3480 & 1365 & 873 & 8934 & 45686\\
+\hline
+GSE71585- GPL13112 & 2902 & 1460 & 1622 & 2572 & 7378 & 24057 \\
+\hline
+NPC-DEC & 3237 & 3211 & 5982 & 6666 & 8439 & 19037\\
+\hline
+DEC-EC & 3461 & 3023 & 3818 & 5429 & 8127 & 19037\\
+\hline
+H1 exp1-H1 exp2 &  0 & 0 & 1300 & 2077 & 2841 & 16579\\
+\hline
+\end{tabular}\\
+\begin{figure}[h]
+\includegraphics[scale = 0.2]{heat2.png}
+ \caption{heatmap of log transformed transcripts DD genes uniquely identified by scDDboost}
+  \label{fig:5}
+\end{figure}
+\newpage
+We validate false discovery rate on ten null datasets from the table. For each null dataset, we randomly split the cells from one condition into two equal sized subsets and do DE analysis between those subsets for five times . we evaluate the type I error control for the methods returning nominal p-values, by recording the fraction of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (figure 5).\\
+\begin{figure}[H]
+\includegraphics[scale = 0.3]{FDR.png}
+ \caption{FDR of scDDboost, scDD, MAST and DESeq2}
+  \label{fig:6}
+\end{figure}
+scDDboost could control FDR since we assume cells are sampled from population composed of different subtypes. Cells from one subtype are equal likely to be assigned to either one of the two subsets. Consequently, proportions of subtypes remain unchanged among the two subsets.\\
+D3E\cite{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset EMTAB2805\\
+\begin{figure}[H]
+\minipage{0.3\textwidth}
+  \includegraphics[width=\linewidth]{act.png}
+  \caption{}
+\endminipage\hfill
+\minipage{0.3\textwidth}
+  \includegraphics[width=\linewidth]{in_act.png}
+  \caption{}
+\endminipage\hfill
+\minipage{0.3\textwidth}
+  \includegraphics[width=\linewidth]{t_rate.png}
+  \caption{}
+  \endminipage
+\end{figure}
+We observed that DD genes identified by our methods are driven by the change of activation and inactivation rates. 
+
+
+\section{Appendix}
+proof of theorem 1 and theorem 2: given the condition that $\alpha_k = 1, \forall k$ and $\beta_b = \sum_{k\in b} \alpha_k$, we can simplify $p(z^1, z^2 | A_\pi^*)$ and obtain $$p(z^1, z^2 | A_\pi^*) = \prod_{b\in \pi}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}\frac{\Gamma(n + 1)\Gamma(n+1)\Gamma(K)}{\Gamma(2n + K)}$$
+Assuming there are in total $K$ subgroups, we have $n = \sum_{i = 1}^K z_i^1 = \sum_{i = 1}^K z_i^2 $,  $z^1\sim \text{multinomial}(\phi), z^2\sim \text{multinomial}(\psi)$ and
+$t_b^1 = \sum_{i \in b} z_i^1$ and $t_b^2 = \sum_{i \in b} z_i^2$, so $t_b^1 \sim$ binomial $(n, \Phi_b)$ and $t_b^2 \sim$ binomial $(n, \Psi_b)$, where $\Phi_b = \sum_{i \in b}\phi_i$ and $\Psi_b = \sum_{i \in b}\psi_i$. Let $f(n, b) = \frac{\Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}$, then $p(z^1, z^2 | A_\pi^*) \propto \prod_{b\in \pi} f(n,b)$\\
+ln$f(n, b) = $ln$(\Gamma(\beta_b + t_b^1 + t_b^2))$ - ln$(\Gamma(\beta_b + t_b^1))$ - ln$(\Gamma(\beta_b + t_b^2))$, notice that $t_b^1, t_b^2 \text{and} \beta_b$ are integers, and when $x$ is integer,  $\Gamma(x)$ is the factorial of $(x - 1)$.
+We have ln$f(n, b) = $ln$((\beta_b + t_b^1 + t_b^2 -1)!) - \text{ln}((\beta_b + t_b^1 -1)!) - \text{ln}((\beta_b + t_b^2 -1)!)$  and when $n$ is large we could use Stirling's approximation, i.e. ln$(n!)$ = $n$ln$(n) - n + O(\text{ln}(n))$, we have ln$((\beta_b + t_b^1 + t_b^2 -1)!) - \text{ln}((\beta_b + t_b^1 -1)!) - \text{ln}((\beta_b + t_b^2 -1)!)\approx (\beta_b + t_b^1 + t_b^2-1)\text{ln}(\beta_b + t_b^1 + t_b^2-1) - (\beta_b + t_b^1 -1)\text{ln}(\beta_b + t_b^1 -1) - (\beta_b + t_b^2 -1)\text{ln}(\beta_b + t_b^2 -1) + O(\text{ln}(n))$.plug into $f(n,b)$ we have\\
+$\text{ln}f(n,b) \approx (\beta_b + t_b^1 -1)\text{ln}(1 + \frac{t_b^2}{\beta_b + t_b^1 -1}) + (\beta_b + t_b^2 -1)\text{ln}(1 + \frac{t_b^1}{\beta_b + t_b^2 -1}) + O(\text{ln}(n))$\\
+as $\beta_b \text{ln}(\beta_b + t_b^1 + t_b^2 -1) \sim O(\text{ln}(n))$ and by law of large number, $\text{ln}(1 + \frac{t_b^2}{\beta_b + t_b^1 -1}) \rightarrow \text{ln}(1+\frac{\Psi_b}{\Phi_b})$,
+$\text{ln}(1 + \frac{t_b^1}{\beta_b + t_b^2 -1}) \rightarrow \text{ln}(1+\frac{\Phi_b}{\Psi_b})$ $a.s.$ and $\frac{\text{ln}f(n, b)}{n} \rightarrow \Phi_b\text{ln}(1+\frac{\Psi_b}{\Phi_b}) + \Psi_b\text{ln}(1+\frac{\Phi_b}{\Psi_b})$ a.s.\\
+$$ \frac{\text{ln}(\prod_{b\in \pi} f(n,b))}{n} \rightarrow \sum_b [\Phi_b\text{ln}(1+\frac{\Psi_b}{\Phi_b}) + \Psi_b\text{ln}(1+\frac{\Phi_b}{\Psi_b})] \quad a.s.$$
+To find the maxima $(\Phi, \Psi)$, we fix $\Psi$ and 
+let $C =  \frac{\text{ln}(\prod_{b\in \pi} f(n,b))}{n} + \lambda(\sum_b \Phi_b - 1)$, we have $\frac{\partial C}{\partial \Phi_b} =  \text{ln}(1+\frac{\Psi_b}{\Phi_b}) + \lambda$, stationary point is $\Phi_b = \Psi_b, \forall b$. and for the hessian matrix $\frac{\partial^2 C}{\partial \Phi_b^2} = -\frac{\Psi_b}{\Phi_b^2 + \Phi_b\Psi_b} < 0$ and $\frac{\partial^2 C}{\partial \Phi_{b_1}\partial \Phi_{b_2}} = 0$, that is to say the hessian matrix is diagonal matrix with every diagonal elements to be negative, so it is negative definite, and our objective function is concave. The maxima is the stationary point $\Phi = \Psi$. 
+And when $\Phi = \Psi$ , $\frac{\text{ln}(\prod_{b\in \pi} f(n,b))}{n} = 2\text{ln}(2)$ a constant not dependent on partition $\pi$ and $\Phi$. That is to say if $(\phi,\psi) \in A_{\pi_1}\cap A_{\pi_2}$ and $(\phi,\psi) \notin A_{\pi_3}$. Then we would have $\frac{p(A_{\pi_1^*} | z^1, z^2)}{p(A_{\pi_2^*} | z^1, z^2)} \rightarrow O(1)\quad a.s.$ and $\frac{p(A_{\pi_3^*} | z^1, z^2)}{p(A_{\pi_1^*} | z^1, z^2)} \rightarrow 0\quad a.s.$\\
+\newpage
+we examine log fold change of mean expression across conditions\\
+\\
+\begin{figure}[H]
+\minipage{0.25\textwidth}
+  \includegraphics[width=\linewidth]{DEC_NPC_mast.png}
+  \caption{MAST}
+\endminipage\hfill
+\minipage{0.25\textwidth}
+  \includegraphics[width=\linewidth]{DEC_NPC_scdd.png}
+  \caption{scDD}\label{fig:scDD}
+\endminipage\hfill
+\minipage{0.25\textwidth}
+  \includegraphics[width=\linewidth]{DEC_NPC_scddb.png}
+  \caption{scDDboost}\label{fig:scDDboost}
+\endminipage\hfill
+\minipage{0.25\textwidth}%
+  \includegraphics[width=\linewidth]{DEC_NPC_des.png}
+  \caption{DESeq2}\label{fig:DESeq2}
+\endminipage
+\end{figure}
+
+\begin{figure}[ht]
+\minipage{0.25\textwidth}
+  \includegraphics[width=\linewidth]{DEC_EC_mast.png}
+  \caption{MAST}
+\endminipage\hfill
+\minipage{0.25\textwidth}
+  \includegraphics[width=\linewidth]{DEC_EC_scdd.png}
+  \caption{scDD}\label{fig:scDD}
+\endminipage\hfill
+\minipage{0.25\textwidth}
+  \includegraphics[width=\linewidth]{DEC_EC_scddb.png}
+  \caption{scDDboost}\label{fig:scDDboost}
+\endminipage\hfill
+\minipage{0.25\textwidth}%
+  \includegraphics[width=\linewidth]{DEC_EC_des.png}
+  \caption{DESeq2}\label{fig:DESeq2}
+\endminipage
+\end{figure}
+
+\begin{figure}[H]
+\minipage{0.25\textwidth}
+  \includegraphics[width=\linewidth]{G45719_mast.png}
+  \caption{MAST}
+\endminipage\hfill
+\minipage{0.25\textwidth}
+  \includegraphics[width=\linewidth]{G45719_scdd.png}
+  \caption{scDD}\label{fig:scDD}
+\endminipage\hfill
+\minipage{0.25\textwidth}
+  \includegraphics[width=\linewidth]{G45719_scddb.png}
+  \caption{scDDboost}\label{fig:scDDboost}
+\endminipage\hfill
+\minipage{0.25\textwidth}%
+  \includegraphics[width=\linewidth]{G45719_des.png}
+  \caption{DESeq2}\label{fig:DESeq2}
+\endminipage
+\end{figure}
+
+\begin{figure}[H]
+\minipage{0.25\textwidth}
+  \includegraphics[width=\linewidth]{G74596_mast.png}
+  \caption{MAST}
+\endminipage\hfill
+\minipage{0.25\textwidth}
+  \includegraphics[width=\linewidth]{G74596_scdd.png}
+  \caption{scDD}\label{fig:scDD}
+\endminipage\hfill
+\minipage{0.25\textwidth}
+  \includegraphics[width=\linewidth]{G74596_scddb.png}
+  \caption{scDDboost}\label{fig:scDDboost}
+\endminipage\hfill
+\minipage{0.25\textwidth}%
+  \includegraphics[width=\linewidth]{G74596_des.png}
+  \caption{DESeq2}\label{fig:DESeq2}
+\endminipage
+\end{figure}
+
+
+
+\cleardoublepage
+\bibliographystyle{IEEEtran}
+\bibliography{/Users/xiuyuma/Desktop/paper/references/wlr_ref}
+
+\end{document}  

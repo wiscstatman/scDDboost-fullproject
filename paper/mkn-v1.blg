@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99d (TeX Live 2017)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: mkn-v1.aux
+The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: /Users/xiuyuma/Desktop/paper/references/wlr_ref.bib
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--there's a month but no year in Guo
+
+Done.
+You've used 21 entries,
+            4087 wiz_defined-function locations,
+            996 strings with 14273 characters,
+and the built_in function-call counts, 22209 in all, are:
+= -- 1778
+> -- 843
+< -- 157
++ -- 420
+- -- 180
+* -- 1172
+:= -- 3273
+add.period$ -- 42
+call.type$ -- 21
+change.case$ -- 21
+chr.to.int$ -- 315
+cite$ -- 22
+duplicate$ -- 1523
+empty$ -- 1469
+format.name$ -- 198
+if$ -- 5156
+int.to.chr$ -- 0
+int.to.str$ -- 21
+missing$ -- 316
+newline$ -- 128
+num.names$ -- 21
+pop$ -- 727
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 1685
+stack$ -- 0
+substring$ -- 846
+swap$ -- 1394
+text.length$ -- 52
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 21
+warning$ -- 1
+while$ -- 71
+width$ -- 23
+write$ -- 305
+(There was 1 warning)
