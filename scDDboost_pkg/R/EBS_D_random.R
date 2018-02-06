@@ -13,6 +13,7 @@
 #' @return new distance matrix
 
 EBS_D_random = function(data, K, gcl, sz, D, hp, Posp, iter, lambda){
+    Ebs_D = matrix(0, nrow = ncol(D),ncol = ncol(D))
     for(i in 1:iter){
     E = rexp(ncol(D),rate = lambda)
     n = ncol(D)
