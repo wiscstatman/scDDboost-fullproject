@@ -17,8 +17,10 @@ PDD_random = function(data, cd, K, D, hp, Posp, iter, lambda, seed){
     set.seed(seed)
     E=rexp(ncol(D),rate = lambda)
     n = ncol(D)
-    d_mean = mean(D) * n / (n-1)
+    d_mean = sd(D)
     weights=d_mean*E/2
+    PD = rep(0, nrow(data))
+    for(i in 1:iter){
     R_D = sapply(1:ncol(D), function(i) sapply(1:ncol(D), function(j) {if(i != j){return(D[i,j]+weights[i]+weights[j])}else{return(0)}}))
     ccl = pam(R_D, k = K, diss = T)$clustering
     res = EBS(data,ccl,gcl,sz,iter,hp,Posp)
@@ -37,5 +39,8 @@ PDD_random = function(data, cd, K, D, hp, Posp, iter, lambda, seed){
     modified_p = sapply(1:np,function(i) sum(post[which(ref[[K]][,i] == 1)]))
     PED = DE%*%modified_p
     PDD = 1 - PED
-    return(PDD)
+    PD = PD + PDD
+    }
+    PD = PD/iter
+    return(PD)
 }
