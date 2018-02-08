@@ -367,7 +367,7 @@ cell-type counts $z^1$ and $z^2$.
 After finishing calculating $p(z^1,z^2|A^*_\pi)$, we obtain posterior $p(A^*_\pi|z^1,z^2)$ by assign weakly informative prior of $A^*_\pi$ ($p(A_\pi^*)$ is constant not depend on $A_\pi^*$) and obtain $p(A_\pi | z^1, z^2)$ by summing over all the posterior units of refinements of $\pi$. \\
 
 \subsection{asymptotic properties}\hfill\\
-\begin{theorem} assuming $\beta_b = \Sigma_{k\in b} \alpha_k$, and $\alpha_k = 1, \forall k$ when $(\phi, \psi)\in \Omega\setminus N $ we have 
+\begin{theorem} assuming $\beta_b = \Sigma_{k\in b} \alpha_k$, and $\alpha_k = 1, \forall k$, let $n = min(n_1, n_2)$ be the smaller one of number of cells of two conditions and $\frac{n_1}{n_2} = C(C != 0)$  when $(\phi, \psi)\in \Omega\setminus N $ we have 
 \begin{eqnarray*}
     p(A_{\pi} | z^1, z^2) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
                 \begin{array}{ll}
@@ -523,23 +523,24 @@ D3E\cite{ref:d3e} is a distributional method that can identify bursting paramete
 \begin{figure}[H]
 \minipage{0.3\textwidth}
   \includegraphics[width=\linewidth]{act.png}
-  \caption{}
 \endminipage\hfill
 \minipage{0.3\textwidth}
   \includegraphics[width=\linewidth]{in_act.png}
-  \caption{}
 \endminipage\hfill
 \minipage{0.3\textwidth}
   \includegraphics[width=\linewidth]{t_rate.png}
-  \caption{}
   \endminipage
+\caption{}
 \end{figure}
 We observed that DD genes identified by our methods are driven by the change of activation and inactivation rates. 
 
-
-\section{Appendix}
+\section{Discussion}
+Cluster cells is an unsupervised learning, we do not know the true underlying partition and different number of clusters will lead to large differences in posterior probabilities of genes being differentially distributed (figure 7). We propose a modified bootstrap to stabilize our inferences. Instead of resample the cells, we resample the distance matrices of cells by adding noises to original distance matrix. Denote the original distance matrix as $D = (d_{i,j})$, for each time we random sample a vector $e$ with length equal to number of cells and components are i.i.d. exponentially distributed. let $w$ be the standard deviation of $d_{i,j}$. We resample a new $\hat{D}$ by adding nosies: $\hat{d}_{i,j} = d_{i,j} + e_i * w + e_j *w$\\
+\newpage
+\appendix
+\section{}
 proof of theorem 1 and theorem 2: given the condition that $\alpha_k = 1, \forall k$ and $\beta_b = \sum_{k\in b} \alpha_k$, we can simplify $p(z^1, z^2 | A_\pi^*)$ and obtain $$p(z^1, z^2 | A_\pi^*) = \prod_{b\in \pi}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}\frac{\Gamma(n + 1)\Gamma(n+1)\Gamma(K)}{\Gamma(2n + K)}$$
-Assuming there are in total $K$ subgroups, we have $n = \sum_{i = 1}^K z_i^1 = \sum_{i = 1}^K z_i^2 $,  $z^1\sim \text{multinomial}(\phi), z^2\sim \text{multinomial}(\psi)$ and
+Assuming there are in total $K$ subgroups, since $n_1$ and $n_2$ goes to infinite at same rate, for simplicity we assume $n = \sum_{i = 1}^K z_i^1 = \sum_{i = 1}^K z_i^2 $,  $z^1\sim \text{multinomial}(\phi), z^2\sim \text{multinomial}(\psi)$ and
 $t_b^1 = \sum_{i \in b} z_i^1$ and $t_b^2 = \sum_{i \in b} z_i^2$, so $t_b^1 \sim$ binomial $(n, \Phi_b)$ and $t_b^2 \sim$ binomial $(n, \Psi_b)$, where $\Phi_b = \sum_{i \in b}\phi_i$ and $\Psi_b = \sum_{i \in b}\psi_i$. Let $f(n, b) = \frac{\Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}$, then $p(z^1, z^2 | A_\pi^*) \propto \prod_{b\in \pi} f(n,b)$\\
 ln$f(n, b) = $ln$(\Gamma(\beta_b + t_b^1 + t_b^2))$ - ln$(\Gamma(\beta_b + t_b^1))$ - ln$(\Gamma(\beta_b + t_b^2))$, notice that $t_b^1, t_b^2 \text{and} \beta_b$ are integers, and when $x$ is integer,  $\Gamma(x)$ is the factorial of $(x - 1)$.
 We have ln$f(n, b) = $ln$((\beta_b + t_b^1 + t_b^2 -1)!) - \text{ln}((\beta_b + t_b^1 -1)!) - \text{ln}((\beta_b + t_b^2 -1)!)$  and when $n$ is large we could use Stirling's approximation, i.e. ln$(n!)$ = $n$ln$(n) - n + O(\text{ln}(n))$, we have ln$((\beta_b + t_b^1 + t_b^2 -1)!) - \text{ln}((\beta_b + t_b^1 -1)!) - \text{ln}((\beta_b + t_b^2 -1)!)\approx (\beta_b + t_b^1 + t_b^2-1)\text{ln}(\beta_b + t_b^1 + t_b^2-1) - (\beta_b + t_b^1 -1)\text{ln}(\beta_b + t_b^1 -1) - (\beta_b + t_b^2 -1)\text{ln}(\beta_b + t_b^2 -1) + O(\text{ln}(n))$.plug into $f(n,b)$ we have\\
