@@ -218,9 +218,9 @@ P(\text{ED}_g|\text{data}) = \sum_{\pi \in \Pi} P(A_\pi|z^1, z^2) \,
 P(B_\pi|x_g).
 \end{eqnarray*}
 
-To discuss the issue of overlapping of parameter space $A_\pi$, we first introduce some notations. The whole space $\Omega = \{ (\phi,\psi), \phi_i,\psi_i > 0 \text{ and } \sum_{i=1}^K \phi_i = \sum_{i=1}^K \psi_i = 1\}$ and subspace that we do not give inference due to lack of proper prior to make an explicit prior predictive function, we only consider inference on space $\Omega \setminus N$, $N = \{ (\phi,\psi), s.t. \exists b_1, b_2 \subset \{1,2, ... , K \}, b_1 \neq b_2, b_1 \cap b_2 \neq  \emptyset \text{ and } \sum_{i\in b_j} \phi_i = \sum_{i\in b_j} \psi_i, j = 1, 2 \}$\\ 
+To discuss the issue of overlapping of parameter space $A_\pi$, we first introduce some notations. The whole space $\Omega = \{ (\phi,\psi), \phi_i,\psi_i > 0 \text{ and } \sum_{i=1}^K \phi_i = \sum_{i=1}^K \psi_i = 1\}$ and subspace that we do not give inference due to lack of proper prior to make an explicit prior predictive function, we only consider inference on space $\Omega \setminus Q$, $Q = \{ (\phi,\psi), s.t. \exists b_1, b_2 \subset \{1,2, ... , K \}, b_1 \neq b_2, b_1 \cap b_2 \neq  \emptyset \text{ and } \sum_{i\in b_j} \phi_i = \sum_{i\in b_j} \psi_i,\, j = 1, 2 \}$, we call the constraint that elements in $Q$ satisfied partial intersection constraint.\\ 
 Next, we define the refinement relationship between partitions, we say a partition $\tilde{\pi}$ refines another partition $\pi$ if $\forall b \in \pi$ there exists $s \subset \tilde{\pi}$  such that $\cup_{x\in s} x = b$. Consequently, if $\tilde{\pi} \text{ refines } \pi$ we would have $A_{\tilde{\pi}} \subset A_\pi$.  Finally, we introduce a thinning constrained parameter space $A_\pi^* = A_\pi \setminus \cup_{\{\tilde{\pi}, \pi \text{ not refines } \tilde{\pi} \}} A_{\tilde{\pi}}$, that is parameter in $A_\pi^*$ only satisfy constraints given by $A_\pi$ and does not satisfy any further constraints.\\
-The reason to introduce such notations is to resolve definition issue of P$(\phi,\psi| A_\pi )$ when $(\phi, \psi)$ satisfy further constraints, e.g. $(\phi,\psi) \in A_{\tilde{\pi}}$ for a $\tilde{\pi}$ refines $\pi$ and $A_{\tilde{\pi}}$ is a lower dimensional subset of $A_\pi$, naturally, we have P$((\phi,\psi) \in A_{\tilde{\pi}} | A_\pi ) = 0$, then P$((\phi,\psi) \in A_{\tilde{\pi}}) \propto  \text{P}( (\phi,\psi) \in A_{\tilde{\pi}}| A_\pi ) *  \text{P}(A_\pi) = 0$. Instead of defining P$(\phi,\psi| A_\pi )$, we separate space $\Omega \setminus N$ into disjoint subspace and define P$(\phi,\psi| A_\pi^* )$ below .
+The reason to introduce such notations is to resolve definition issue of P$((\phi,\psi)| A_\pi )$ when $(\phi, \psi)$ satisfy further constraints, e.g. $(\phi,\psi) \in A_{\tilde{\pi}}$ for a $\tilde{\pi}$ refines $\pi$ and $A_{\tilde{\pi}}$ is a lower dimensional subset of $A_\pi$, naturally, we have P$((\phi,\psi) \in A_{\tilde{\pi}} | A_\pi ) = 0$, then P$((\phi,\psi) \in A_{\tilde{\pi}}) \propto  \text{P}( (\phi,\psi) \in A_{\tilde{\pi}}| A_\pi ) *  \text{P}(A_\pi) = 0$. Instead of defining P$((\phi,\psi)| A_\pi )$, we separate space $\Omega \setminus Q$ into disjoint subspace and define P$((\phi,\psi)| A_\pi^* )$ below .
 
 Initially, the multitude of $P(A_\pi^*)$'s will be preset constants.To complete the prior specification $p(\phi,\psi)$, consider further scalers
 $\alpha_k>0$ for each class $k$ and $\beta_b>0$ for each potential block $b$.
@@ -359,15 +359,15 @@ p(t^1_\pi,t^2_\pi| A_\pi^*) =
 \end{eqnarray*}
 \cite{ref:bayesC}
 
- Regardless of the partition,
+Regardless of the partition,
 log scale probabilities are readily evaluated 
 given hyper-parameters $\{ \alpha_k \}$ and $\{ \beta_b \}$ and for
 cell-type counts $z^1$ and $z^2$. 
 
-After finishing calculating $p(z^1,z^2|A^*_\pi)$, we obtain posterior $p(A^*_\pi|z^1,z^2)$ by assign weakly informative prior of $A^*_\pi$ ($p(A_\pi^*)$ is constant not depend on $A_\pi^*$) and obtain $p(A_\pi | z^1, z^2)$ by summing over all the posterior units of refinements of $\pi$. \\
+After finishing calculating $p(z^1,z^2|A^*_\pi)$, we obtain posterior $p(A^*_\pi|z^1,z^2)$ by assign weakly informative prior of $A^*_\pi$ ($p(A_\pi^*)$ is constant not depend on $A_\pi^*$) and obtain $p(A_\pi | z^1, z^2)$ by summing over all the posterior probabilities of $A^*_{\pi'}$, $\pi'$ refines $\pi$.\\
 
 \subsection{asymptotic properties}\hfill\\
-\begin{theorem} assuming $\beta_b = \Sigma_{k\in b} \alpha_k$, and $\alpha_k = 1, \forall k$, let $n = min(n_1, n_2)$ be the smaller one of number of cells of two conditions and $\frac{n_1}{n_2} = C(C != 0)$  when $(\phi, \psi)\in \Omega\setminus N $ we have 
+\begin{theorem} assuming $\beta_b = \Sigma_{k\in b} \alpha_k$, and $\alpha_k = 1, \forall k$, let $n = min(n_1, n_2)$ be the smaller number of cells of two conditions and $\frac{n_1}{n_2} = O(1)$, when parameter $(\phi, \psi)\in \Omega\setminus Q $ we have 
 \begin{eqnarray*}
     p(A_{\pi} | z^1, z^2) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
                 \begin{array}{ll}
@@ -377,17 +377,19 @@ After finishing calculating $p(z^1,z^2|A^*_\pi)$, we obtain posterior $p(A^*_\pi
               \right.
 \end{eqnarray*}
 \end{theorem}
-\begin{theorem} when $(\phi, \psi)\in N$,  and  $S$ = $\{\pi$,  $(\phi, \psi) \in A_\pi\}$, we have 
+If proportions of subtypes(parameter) does not satisfy partial intersection constraints, there is a unique subspace $A^*_\pi$ cover the parameter.  When numbers of cells of condition 1 and 2 go to infinity at same rate, we have the posterior probability of subspace $A_\pi$ that covers the parameter go to 1 almost surely.
+\begin{theorem} Following the setting in theorem 2, when parameter $(\phi, \psi)\in Q$,  and recall $N(\pi)$ represents number of blocks $b$ in $\pi$, $S = \{\pi,  (\phi, \psi) \in A_\pi\}$, $N^* = \underset{\pi\in S}\max$ $N(\pi)$, $S^* = \{\pi,  (\phi, \psi) \in A_\pi \text{ and } N(\pi) = N^*\}$ we have 
 \begin{eqnarray*}
-    p(A_{\pi} | z^1, z^2) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
+    p(A_{\pi}^* | z^1, z^2) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
                 \begin{array}{ll}
-                 m(\pi) \quad \text{if }(\phi,\psi) \in A_\pi \text{ and } \pi \in S\\
+                 m(\pi) \quad  \pi \in S^* \\
                  0 \quad \text{otherwise}\\             
                 \end{array}
               \right.
 \end{eqnarray*}
-and $\sum_{\pi\in S_\pi} m(\pi) = 1$\\
+and $\sum_{\pi\in S^*,} m(\pi) = 1$\\
 \end{theorem}\hfill\\
+Things become more complicate when parameter satisfy partial intersection constraints, unlike the case for theorem 2, for two different subspaces $A_{\pi_1}$ and $A_{\pi_2}$ covering the parameters, they have refinement relation. But now $A_{\pi_1}$ and $A_{\pi_2}$ covering the parameter do not necessarily have refinement relation. Thus, for $\pi\in S^*$ , posterior probability of $A_\pi$ will go to some constant $0< m(\pi)< 1$. 
 proofs are in the appendix. 
 
 
@@ -539,7 +541,6 @@ Cluster cells is an unsupervised learning, we do not know the true underlying pa
 \newpage
 \appendix
 \section{}
-$\frac{p(A_{\pi_1^*} | z^1, z^2)}{p(A_{\pi_2^*} | z^1, z^2)} \rightarrow O(1)\quad a.s.$\newline
 proof of theorem 1 and theorem 2: given the condition that $\alpha_k = 1, \forall k$ and $\beta_b = \sum_{k\in b} \alpha_k$, we can simplify $p(z^1, z^2 | A_\pi^*)$ and obtain $$p(z^1, z^2 | A_\pi^*) = \prod_{b\in \pi}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}\frac{\Gamma(n + 1)\Gamma(n+1)\Gamma(K)}{\Gamma(2n + K)}$$
 Assuming there are in total $K$ subgroups, since $n_1$ and $n_2$ goes to infinite at same rate, for simplicity we assume $n = \sum_{i = 1}^K z_i^1 = \sum_{i = 1}^K z_i^2 $,  $z^1\sim \text{multinomial}(\phi), z^2\sim \text{multinomial}(\psi)$ and
 $t_b^1 = \sum_{i \in b} z_i^1$ and $t_b^2 = \sum_{i \in b} z_i^2$, so $t_b^1 \sim$ binomial $(n, \Phi_b)$ and $t_b^2 \sim$ binomial $(n, \Psi_b)$, where $\Phi_b = \sum_{i \in b}\phi_i$ and $\Psi_b = \sum_{i \in b}\psi_i$. Let $f(n, b) = \frac{\Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}$, then $$p(z^1, z^2 | A_\pi^*) \propto \prod_{b\in \pi} f(n,b)$$\\
@@ -551,19 +552,35 @@ as $\beta_b \text{ln}(\beta_b + t_b^1 + t_b^2 -1) \sim O(\text{ln}(n))$ and by l
 $\text{ln}(1 + \frac{t_b^1}{\beta_b + t_b^2 -1}) \rightarrow \text{ln}(1+\frac{\Phi_b}{\Psi_b})$ $a.s.$ and $\frac{\text{ln}f(n, b)}{n} \rightarrow \Phi_b\text{ln}(1+\frac{\Psi_b}{\Phi_b}) + \Psi_b\text{ln}(1+\frac{\Phi_b}{\Psi_b})$ a.s. We have:\\
 $$ \frac{\text{ln}(\prod_{b\in \pi} f(n,b))}{n} \rightarrow \sum_b [\Phi_b\text{ln}(1+\frac{\Psi_b}{\Phi_b}) + \Psi_b\text{ln}(1+\frac{\Phi_b}{\Psi_b})] \quad a.s.$$
 To find the maxima $(\Phi, \Psi)$, we fix $\Psi$ and 
-let $C =  \frac{\text{ln}(\prod_{b\in \pi} f(n,b))}{n} + \lambda(\sum_b \Phi_b - 1)$, we have $\frac{\partial C}{\partial \Phi_b} =  \text{ln}(1+\frac{\Psi_b}{\Phi_b}) + \lambda$, stationary point is $\Phi_b = \Psi_b, \forall b$. and for the hessian matrix $\frac{\partial^2 C}{\partial \Phi_b^2} = -\frac{\Psi_b}{\Phi_b^2 + \Phi_b\Psi_b} < 0$ and $\frac{\partial^2 C}{\partial \Phi_{b}\partial \Phi_{b'}} = 0, \text{if } b \neq b'$, that is to say the hessian matrix is diagonal matrix with every diagonal elements to be negative, so it is negative definite, and our objective function is concave. The maxima is the stationary point $\Phi = \Psi$. 
+let $C =  \frac{\text{ln}(\prod_{b\in \pi} f(n,b))}{n} + \lambda(\underset{b\in\pi}\sum \Phi_b - 1)$, we have $\frac{\partial C}{\partial \Phi_b} =  \text{ln}(1+\frac{\Psi_b}{\Phi_b}) + \lambda$, stationary point is $\Phi_b = \Psi_b, \forall b$. and for the hessian matrix $\frac{\partial^2 C}{\partial \Phi_b^2} = -\frac{\Psi_b}{\Phi_b^2 + \Phi_b\Psi_b} < 0$ and $\frac{\partial^2 C}{\partial \Phi_{b}\partial \Phi_{b'}} = 0, \text{if } b \neq b'$, that is to say the hessian matrix is diagonal matrix with every diagonal elements to be negative, so it is negative definite, and our objective function is concave. The maxima is the stationary point $\Phi = \Psi$. 
 And when $\Phi = \Psi$ , $\frac{\text{ln}(\prod_{b\in \pi} f(n,b))}{n} = 2\text{ln}(2)$ a constant not dependent on partition $\pi$ and $\Phi$. That is to say if $(\phi,\psi) \in A_{\pi_1}\cap A_{\pi_2}$ and $(\phi,\psi) \notin A_{\pi_3}$. Then we would have 
 $\lim_{n\to\infty}\frac{\text{ln}(\prod_{b\in \pi_1} f(n,b))}{n} = \lim_{n\to\infty}\frac{\text{ln}(\prod_{b\in \pi_2} f(n,b))}{n}$ and  $\lim_{n\to\infty}[\frac{\text{ln}(\prod_{b\in \pi_1} f(n,b))}{n} -  \frac{\text{ln}(\prod_{b\in \pi_3} f(n,b))}{n}]  = c > 0 $, which implies:
-$$\frac{p(A_{\pi_3^*} | z^1, z^2)}{p(A_{\pi_1^*} | z^1, z^2)} \rightarrow 0\quad a.s.$$\\
+\[\frac{p(A_{\pi_3^*} | z^1, z^2)}{p(A_{\pi_1^*} | z^1, z^2)} \rightarrow 0\quad a.s. \tag{A}\]
 To investigate the limit of $\frac{p(A_{\pi_1^*} | z^1, z^2)}{p(A_{\pi_2^*} | z^1, z^2)}$, We use inequalities that $\sqrt{2\pi}n^{n+\frac{1}{2}}e^{-n} \leq n! \leq en^{n+\frac{1}{2}}e^{-n}$ holds for all nonnegative integers $n$. Plug in $f(n,b)$, we have:\\
-$$\beta_b +\text{ln}\sqrt{2\pi} - 3 + g(n,b)\\
-\leq f(n, b)\leq\\
-\beta_b - 2\text{ln}\sqrt{2\pi} + g(n, b)$$\\
-$$g(n,b) =  (\beta_b + t_b^1 - \frac{1}{2})\text{ln}(1 + \frac{t_b^2}{\beta_b + t_b^1 -1}) + (\beta_b + t_b^2 - \frac{1}{2})\text{ln}(1 + \frac{t_b^1}{\beta_b + t_b^2 -1}) - (\beta_b - \frac{1}{2})\text{ln}(\beta_b + t_b^1 + t_b^2 - 1)$$\\
+\[
+\beta_b +\text{ln}\sqrt{2\pi} - 3 + g(n,b) 
+\leq f(n, b)\leq
+\beta_b - 2\text{ln}\sqrt{2\pi} + g(n, b)\tag{1}
+\]\\
+\[g(n,b) =  (\beta_b + t_b^1 - \frac{1}{2})\text{ln}(1 + \frac{t_b^2}{\beta_b + t_b^1 -1}) + (\beta_b + t_b^2 - \frac{1}{2})\text{ln}(1 + \frac{t_b^1}{\beta_b + t_b^2 -1}) - (\beta_b - \frac{1}{2})\text{ln}(\beta_b + t_b^1 + t_b^2 - 1)\]\\
+Based on inequalities (1), $\underset{{b\in\pi}}\sum f(n,b)$ only differ with $\underset{b\in\pi}\sum g(n,b)$ by a constant.
 By Taylor's expansion $\text{ln}(1+x) = \text{ln}2 + \frac{1}{2}(x - 1) + O( (x-1)^2)$, we have $\text{ln}(1 + \frac{t_b^2}{\beta_b + t_b^1 -1}) = \text{ln}2 + \frac{1}{2}(\frac{t_b^1 - t_b^2 + 1 - \beta_b}{\beta_b + t_b^1 -1}) + O_p((\frac{t_b^1 - t_b^2 + 1 - \beta_b}{\beta_b + t_b^1 -1})^2)$ and under condition $\Phi_b = \Psi_b, \frac{t_b^1 - t_b^2 + 1 - \beta_b}{\beta_b + t_b^1 -1}$ is $O_p(\frac{1}{n})$. Plug in $g(n,b)$\\
 $$g(n,b) = \text{ln}2 * t_b^1 + \text{ln}2 * t_b^2  - (\beta_b - \frac{1}{2})\text{ln}(\beta_b + t_b^1 + t_b^2 - 1) + O_p(1) + O_p(\frac{1}{n})$$
 and sum up 
-$$\sum_{b\in\pi} g(n,b) = 2n\text{ln}2 - \sum_{b\in\pi}(\beta_b - \frac{1}{2})\text{ln}(\beta_b + t_b^1 + t_b^2 - 1) + O_p(1) +  O_p(\frac{1}{n})$$
+\[\sum_{b\in\pi} g(n,b) = 2n\text{ln}2 - \sum_{b\in\pi}(\beta_b - \frac{1}{2})\text{ln}(\beta_b + t_b^1 + t_b^2 - 1) + O_p(1) +  O_p(\frac{1}{n})\tag{2} \]
+Notice that when two partition $\pi_1$, $\pi_2$ have same number of blocks $b$ and $\Phi_b = \Psi_b$, $\forall b \in \pi_1\cup\pi_2$, 
+\begin{align*}
+\sum_{b\in\pi_1} g(n,b) - \sum_{b'\in\pi_2} g(n,b') &= \sum_{b'\in\pi_2}(\beta_b' - \frac{1}{2})\text{ln}(\beta_b' + t_{b'}^1 + t_{b'}^2 - 1) - \sum_{b\in\pi_1}(\beta_b - \frac{1}{2})\text{ln}(\beta_b + t_b^1 + t_b^2 - 1) +  O_p(1)\\
+&= \sum_{b'\in\pi_2}(\beta_{b'}- \frac{1}{2})\text{ln}(\frac{\beta_b' + t_{b'}^1 + t_{b'}^2 - 1}{n}) -  \sum_{b\in\pi_1}(\beta_b - \frac{1}{2})\text{ln}(\frac{\beta_b + t_b^1 + t_b^2 - 1}{n})\\
+ &+ \sum_{b'\in\pi_2 - \frac{1}{2}}(\beta_{b'}  - \frac{1}{2})\text{ln}(n) - \sum_{b\in\pi_1 - \frac{1}{2}}(\beta_b - \frac{1}{2})\text{ln}(n) + O_p(1)\\
+&= O_p(1) + \sum_{b'\in\pi_2}\frac{1}{2}\text{ln}(n) - \sum_{b\in\pi_1}\frac{1}{2}\text{ln}(n) \\
+&= O_p(1)
+\end{align*}
+When $\pi_1$ and $\pi_2$ have same number of blocks,  
+\[\frac{p(A_{\pi_1^*} | z^1, z^2)}{p(A_{\pi_2^*} | z^1, z^2)} \rightarrow O_p(1)\quad a.s. \tag{B}\]
+When $\pi_1$ have less blocks than $\pi_2$, $\sum_{b'\in\pi_2} g(n,b') - \sum_{b\in\pi_1} g(n,b) = O_p(\text{ln}(n))$
+\[\frac{p(A_{\pi_1^*} | z^1, z^2)}{p(A_{\pi_2^*} | z^1, z^2)} \rightarrow 0\quad a.s.\tag{C}\]
+
 
 
 \newpage 
