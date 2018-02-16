@@ -242,6 +242,38 @@ RcppExport SEXP new_D(SEXP X, SEXP part, SEXP Y){
 
 
 
+Rcpp::IntegerMatrix g_ref(Rcpp::IntegerMatrix Posp);
+RcppExport SEXP g_ref(SEXP Posp){
+    BEGIN_RCPP
+    IntegerMatrix PP(Posp);
+    const int ng=PP.rows();
+    const int nc=PP.cols();
+    MatrixXi Part(ng,nc);
+    MatrixXi res(ng,ng);
+    copy(PP.begin(),PP.end(),Part.data());
+    VectorXi K1(ng);
+    K1 = Part.rowwise().maxCoeff();
+    vector<int> C(nc);
+    for(int i = 0; i < ng; i++){
+        for(int j = 0; j < ng; j++){
+            vector<int> dif(K1(i), K1(i));
+            for(int t = 0; t < nc; t++)
+                C[t] = Part(i,t) - Part(j,t);
+            res(i,j) = 1;
+            for(int t = 0; t < nc; t++){
+                if(dif[Part(i,t) - 1] == K1(i))
+                    dif[Part(i,t) - 1] = C[t];
+                if(dif[Part(i,t) - 1] != C[t]){
+                    res(i,j) = 0;
+                    break;
+                }
+            }
+        }
+    }
+    return wrap(res);
+    END_RCPP
+}
+
 Rcpp::List pat(int K);
 RcppExport SEXP pat(SEXP K){
     BEGIN_RCPP

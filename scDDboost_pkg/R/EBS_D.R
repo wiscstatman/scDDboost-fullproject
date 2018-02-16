@@ -13,7 +13,7 @@ EBS_D = function(ccl, part, Y){
     Ebs = t(sapply(1:nY, function(i) sapply(ccl,function(j) part[Y[i],j])))
     L = nrow(Ebs)
     ebs_D = sapply(1:nc, function(i) sapply(1:nc, function(j) if(i<j){
-            return(1 - length(which(Ebs[,i]!= Ebs[, j]))/L)}else{return(0)}))
+            return(1 - length(which(Ebs[,i] == Ebs[, j]))/L)}else{return(0)}))
     # ebs_D = matrix(0, nrow = nc, ncol = nc)
     # for(i in 1:nc){
     #    for(j in 1:nc){
