@@ -7,52 +7,52 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Database file #1: /Users/xiuyuma/Desktop/paper/references/wlr_ref.bib
+Database file #1: /Users/xiuyuma/Desktop/scDDboost_paper/scDDboost/paper/references/wlr_ref.bib
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 Warning--there's a month but no year in Guo
 
 Done.
-You've used 21 entries,
+You've used 22 entries,
             4087 wiz_defined-function locations,
-            996 strings with 14273 characters,
-and the built_in function-call counts, 22209 in all, are:
-= -- 1778
-> -- 843
-< -- 157
-+ -- 420
-- -- 180
-* -- 1172
-:= -- 3273
-add.period$ -- 42
-call.type$ -- 21
-change.case$ -- 21
-chr.to.int$ -- 315
-cite$ -- 22
-duplicate$ -- 1523
-empty$ -- 1469
-format.name$ -- 198
-if$ -- 5156
+            1006 strings with 14571 characters,
+and the built_in function-call counts, 23157 in all, are:
+= -- 1865
+> -- 860
+< -- 168
++ -- 430
+- -- 182
+* -- 1222
+:= -- 3422
+add.period$ -- 44
+call.type$ -- 22
+change.case$ -- 22
+chr.to.int$ -- 339
+cite$ -- 23
+duplicate$ -- 1586
+empty$ -- 1532
+format.name$ -- 201
+if$ -- 5374
 int.to.chr$ -- 0
-int.to.str$ -- 21
-missing$ -- 316
-newline$ -- 128
-num.names$ -- 21
-pop$ -- 727
+int.to.str$ -- 22
+missing$ -- 325
+newline$ -- 133
+num.names$ -- 22
+pop$ -- 740
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1685
+skip$ -- 1759
 stack$ -- 0
-substring$ -- 846
-swap$ -- 1394
-text.length$ -- 52
+substring$ -- 903
+swap$ -- 1456
+text.length$ -- 55
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 21
+type$ -- 22
 warning$ -- 1
-while$ -- 71
-width$ -- 23
-write$ -- 305
+while$ -- 76
+width$ -- 24
+write$ -- 319
 (There was 1 warning)

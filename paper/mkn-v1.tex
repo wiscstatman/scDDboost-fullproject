@@ -9,6 +9,7 @@
 \usepackage{epstopdf}
 \newtheorem{lemma}{Lemma}
 \newtheorem{theorem}{Theorem}
+\newtheorem{prop}{Proposition}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
 
@@ -186,7 +187,7 @@ $g$:
 
 **
 \subsection{Clustering method}
-To identify subtypes of cells, we pool cells from two biological conditions. At each gene level, we do a Poison-Gamma model extended from modal clustering\cite{ref:dahl}. After gene level clustering, we use the cluster-based similarity partition algorithm (CSPA\cite{ref:cspa}). For each individual clustering result, a binary similarity matrix is constructed from the corresponding cell labels: if two cells belong to the same cluster, their similarity is 1; otherwise their similarity is 0. We obtain a consensus similarity matrix $M1$ by averaging all similarity matrices of individual clusterings. Another distance matrix $M2$ calculated by Pearson distance between cells. A final similarity matrix is obtained by weighted combining $M1$ and $M2$. Cells are classified into subtypes by K-means clustering based the final similarity matrix.
+To identify subtypes of cells, we pool cells from two biological conditions. At each gene level, we do a Poison-Gamma model extended from modal clustering\cite{ref:dahl}. After gene level clustering, we use the cluster-based similarity partition algorithm (CSPA\cite{ref:cspa}). For each individual clustering result, a binary similarity matrix is constructed from the corresponding cell labels: if two cells belong to the same cluster, their similarity is 1; otherwise their similarity is 0. We obtain a consensus similarity matrix $M1$ by averaging all similarity matrices of individual clusterings. Another distance matrix $M2$ calculated by Pearson distance between cells. A final similarity matrix is obtained by weighted combining $M1$ and $M2$. Cells are classified into subtypes by K-medoids based on the final similarity matrix.
 
 
 
@@ -206,8 +207,7 @@ accummulated probabilities:
 \begin{eqnarray*}
 p(\phi,\psi) = \sum_{\pi \in \Pi} P(A_\pi) \, p(\phi,\psi| A_\pi )
 \end{eqnarray*}
-
-
+Unfortunately, we could not define the prior of $(\phi,\psi)$ on the whole space. 
 Upon setting up a prior $p(\phi,\psi)$ that can mix over structures
 $A_\pi$, and by combining cell-type counts $z^1$ and $z^2$ with
 expression data $x_g$ at a gene, we may compute 
@@ -218,11 +218,7 @@ P(\text{ED}_g|\text{data}) = \sum_{\pi \in \Pi} P(A_\pi|z^1, z^2) \,
 P(B_\pi|x_g).
 \end{eqnarray*}
 
-To discuss the issue of overlapping of parameter space $A_\pi$, we first introduce some notations. The whole space $\Omega = \{ (\phi,\psi), \phi_i,\psi_i > 0 \text{ and } \sum_{i=1}^K \phi_i = \sum_{i=1}^K \psi_i = 1\}$ and subspace that we do not give inference due to lack of proper prior to make an explicit prior predictive function, we only consider inference on space $\Omega \setminus Q$, $Q = \{ (\phi,\psi), s.t. \exists b_1, b_2 \subset \{1,2, ... , K \}, b_1 \neq b_2, b_1 \cap b_2 \neq  \emptyset \text{ and } \sum_{i\in b_j} \phi_i = \sum_{i\in b_j} \psi_i,\, j = 1, 2 \}$, we call the constraint that elements in $Q$ satisfied partial intersection constraint.\\ 
-Next, we define the refinement relationship between partitions, we say a partition $\tilde{\pi}$ refines another partition $\pi$ if $\forall b \in \pi$ there exists $s \subset \tilde{\pi}$  such that $\cup_{x\in s} x = b$. Consequently, if $\tilde{\pi} \text{ refines } \pi$ we would have $A_{\tilde{\pi}} \subset A_\pi$.  Finally, we introduce a thinning constrained parameter space $A_\pi^* = A_\pi \setminus \cup_{\{\tilde{\pi}, \pi \text{ not refines } \tilde{\pi} \}} A_{\tilde{\pi}}$, that is parameter in $A_\pi^*$ only satisfy constraints given by $A_\pi$ and does not satisfy any further constraints.\\
-The reason to introduce such notations is to resolve definition issue of P$((\phi,\psi)| A_\pi )$ when $(\phi, \psi)$ satisfy further constraints, e.g. $(\phi,\psi) \in A_{\tilde{\pi}}$ for a $\tilde{\pi}$ refines $\pi$ and $A_{\tilde{\pi}}$ is a lower dimensional subset of $A_\pi$, naturally, we have P$((\phi,\psi) \in A_{\tilde{\pi}} | A_\pi ) = 0$, then P$((\phi,\psi) \in A_{\tilde{\pi}}) \propto  \text{P}( (\phi,\psi) \in A_{\tilde{\pi}}| A_\pi ) *  \text{P}(A_\pi) = 0$. Instead of defining P$((\phi,\psi)| A_\pi )$, we separate space $\Omega \setminus Q$ into disjoint subspace and define P$((\phi,\psi)| A_\pi^* )$ below .
-
-Initially, the multitude of $P(A_\pi^*)$'s will be preset constants.To complete the prior specification $p(\phi,\psi)$, consider further scalers
+Initially, the multitude of $P(A_\pi)$'s will be preset constants.To complete the prior specification $p(\phi,\psi)$, consider further scalers
 $\alpha_k>0$ for each class $k$ and $\beta_b>0$ for each potential block $b$.
 (Extending the notational convention, $\alpha_b$ is the vector of $\alpha_k$
 for $k\in b$, and $\beta_\pi$ is the vector of $\beta_b$ for $b \in \pi$.)
@@ -252,13 +248,13 @@ rates $\phi_k$ and $\psi_k$ may differ, as would (re-normalized)
 independent Dirichlet-distributed vectors.
 Taken together,
 \begin{eqnarray*}
-p(\phi,\psi|A^*_\pi) =
-         p( \Phi_\pi, \Psi_\pi | A^*_\pi ) \, \prod_{b \in \pi}  \left[
+p(\phi,\psi|A_\pi) =
+         p( \Phi_\pi, \Psi_\pi | A_\pi ) \, \prod_{b \in \pi}  \left[
          p( \tilde \phi_b ) p( \tilde \psi_b ) \right]
 \end{eqnarray*}
 with
 \begin{eqnarray*}
-p( \Phi_\pi, \Psi_\pi | A^*_\pi )
+p( \Phi_\pi, \Psi_\pi | A_\pi )
 = \frac{\Gamma(\sum_{b\in \pi} \beta_b)}{
  \prod_{b \in \pi} \Gamma( \beta_b )} \left[\prod_{b \in \pi} \Phi_b^{\beta_b-1} \right] \,
  1\left[ \Phi_\pi = \Psi_\pi \right]
@@ -282,8 +278,47 @@ For notation, we use $\phi_b$ for the vector of values $\phi_k$ for $k \in b$,
 and similarly for $\psi_b$. Analogously, $\Phi_\pi$ and $\Psi_\pi$
  are vectors of 
 accumulated class probabilities $\phi_b$ and $\psi_b$ for all $b \in \pi$,
- respectively. 
-
+ respectively. \\
+In order to get the posterior probability $p(A_\pi | z^1,z^2)$, we need to calculate 
+\[
+\begin{split}
+p(A_\pi | z^1,z^2)\propto p(A_\pi, z^1,z^2) &= \int_{A_\pi} p(z^1,z^2|\phi,\psi)p(\phi,\psi) d\phi d\psi\\ 
+&= \sum_{\pi'\in \Pi}\int_{A_\pi} p(z^1,z^2|\phi,\psi)p(\phi, \psi | A_{\pi'})p(A_{\pi'})d\phi d\psi
+\end{split}
+\]
+we need to compute any single component:
+\[
+\int_{A_\pi} p(z^1,z^2|\phi,\psi)p(\phi, \psi | A_{\pi'})d\phi d\psi = \int_{A_\pi\cap A_{\pi'}}p(z^1,z^2|\phi,\psi)p(\phi, \psi | A_{\pi'})d\phi d\psi
+\]
+\\
+where $p(z^1,z^2|\phi,\psi) = p(z^1|\phi)p(z^1|\psi)$, $z^1|\phi \sim \text{multinomial}(\phi), z^2|\psi \sim \text{multinomial}(\psi)$. Recall the definition of $A_\pi = \{(\phi,\psi): \Phi_b = \Psi_b\}$ and $A_\pi$ is a simplex. Denote the finest partition as $\pi_{F} = \{ \{1\}, \{2\},...,\{K\}\}$, associated simplex $A_{\pi_{F}} = \{(\phi, \psi): \phi_i = \psi_i, i = 1,...,K\}$ for any two partition $\pi_1$ and $\pi_2$, intersection of their associated simplex must not be empty since $A_{\pi_{F}}\subset A_{\pi_1}\cap A_{\pi_2} \neq \emptyset$.  To discuss the issue of overlapping of simplex $A_\pi$, we first introduce some notations. The whole space $\Omega = \{ (\phi,\psi), \phi_i,\psi_i > 0 \text{ and } \sum_{i=1}^K \phi_i = \sum_{i=1}^K \psi_i = 1\}$ and we define the refinement and coarseness relationship between partitions, we say a partition $\tilde{\pi}$ refines another partition $\pi$ if $\forall b \in \pi$ there exists $s \subset \tilde{\pi}$  such that $\cup_{b'\in s} b' = b$. When $\tilde{\pi}$ refines $\pi$, we say $\tilde{\pi}$ is a refinement of(finer than) $\pi$ or $\pi$ is a coarseness of(coarser than) $\tilde{\pi}$. 
+Observe that if $\pi'$ refines $\pi$, then $A_\pi \cap A_{\pi'} = A_{\pi'}$, $\int_{A_\pi\cap A_{\pi'}} p(z^1,z^2|\phi,\psi)p(\phi, \psi | A_{\pi'})d\phi d\psi = \int_{A_{\pi'}} p(z^1,z^2|\phi,\psi)p(\phi, \psi | A_{\pi'})d\phi d\psi $. When $\pi'$ is not refinement of $\pi$, we need to know the dimension of $A_\pi\cap A_{\pi'}$. Consider a map $f: b \rightarrow v$, which maps the block $b$ to a vector $v\in \{0, 1\}^K$, the ith component of $v$ is $1_{\{i\in b\}}$. And denote $\text{dim}(S)$ be the dimension of space $S$. $A_\pi$ can be equivalently defined as $A_\pi =  \{(\phi,\psi): M_\pi * (\phi - \psi) = 0\}$, $M_\pi$ is a matrix with rows be $v_b = f(b), \forall b\in \pi$, that is to say $(\phi,\psi)$ are in the null space of linear transformation $M_\pi$.  We have following lemma\\
+\begin{lemma}
+If $\pi_2$ is not refinement of $\pi_1$ then $A_{\pi_1} \cap A_{\pi_2}$ is a lower dimensional simplex of $A_{\pi_2}$
+\end{lemma}
+\hfill\\
+Consequently, we have 
+\begin{prop}
+\begin{eqnarray*}
+\int_{A_\pi} p(z^1,z^2|\phi,\psi)p(\phi,\psi | A_{\pi'})d\phi d\psi =  \left\{
+              \begin{array}{ll}
+                 \int_{A_{\pi'}}p(z^1,z^2|\phi,\psi)p(\phi,\psi|A_{\pi'})d\phi d\psi \quad \text{if } \pi' \text{ refines } \pi \\
+                 0 \quad \text{otherwise}\\             
+                \end{array}
+                \right.
+\end{eqnarray*}
+\end{prop}
+\hfill\\
+For posterior probability $p(A_\pi | z^1,z^2)$, let $RF(\pi)$ be the collection of finer partition of $\pi$
+\[
+\begin{split}
+p(A_\pi | z^1,z^2)\propto p(A_\pi, z^1,z^2) &= \int_{A_\pi} p(z^1,z^2 | \phi, \psi) * p(\phi,\psi) d\phi d\psi\\
+&= \int_{A_\pi} p(z^1,z^2 | \phi, \psi) * \sum_{\pi' \in \Pi} p(A_{\pi'}) \, p(\phi,\psi| A_{\pi'} ) d\phi d\psi\\
+&= \sum_{\pi' \in \Pi} \int_{A_\pi} p(z^1,z^2 | \phi, \psi) *p(\phi,\psi| A_{\pi'} )p(A_{\pi'}) d\phi d\psi\\
+&= \sum_{\pi' \in \Pi} \int_{A_\pi\cap A_{\pi'}} p(z^1,z^2 | \phi, \psi) *p(\phi,\psi| A_{\pi'} )p(A_{\pi'}) d\phi d\psi\\
+&= \sum_{\pi' \in RF(\pi)} \int_{A_{\pi'}}p(z^1,z^2 | \phi, \psi) * p(\phi,\psi | A_{\pi'}) p(A_{\pi'}) d\phi d\psi
+\end{split}
+\]
 Using the Dirichlet-Multinomial conjugacy and the collapsing property of
 these distributions (\cite{ref:Dickey}), we get closed formulas for the predictive
 probability of cell-type counts $z^1$ and $z^2$.  Fixing $\pi$,
@@ -292,16 +327,16 @@ record the total numbers of cells accumulated over all types in block $b$.
 And following our notation convention, $t^j_\pi$ is the vector of these
 counts over $b \in \pi$.  From the prior and model structure
 \begin{eqnarray*}
-p(z^1,z^2|A^*_\pi) = p(z^1 | t^1_\pi)\, p(z^2|  t^2_\pi )
- \, p( t^1_\pi, t^2_\pi | A^*_\pi ).
+\int_{A_{\pi'}}p(z^1,z^2 | \phi, \psi) * p(\phi,\psi | A_{\pi'}) p(A_{\pi'}) d\phi d\psi = p(z^1 | t^1_{\pi'})\, p(z^2|  t^2_{\pi'} )
+ \, p( t^1_{\pi'}, t^2_{\pi'} | A_{\pi'} ) p(A_{\pi'}).
 \end{eqnarray*}
 Conditional independence of $z^1$ and $z^2$ given the block-level totals
-$t^1_\pi$ and $t^2_\pi$ on $A_\pi^*$ reflects the possible differential 
+$t^1_{\pi'}$ and $t^2_{\pi'}$ on $A_{\pi'}$ reflects the possible differential 
 class proportion structure within blocks but between cell conditions.
 For either cellular group $j=1,2$,
 we find, after some simplification, the following Dirichlet-Multinomial masses: 
 \begin{eqnarray*}
-p(z^j|t^j_\pi) = \prod_{b \in \pi} \left\{
+p(z^j|t^j_{\pi'}) = \prod_{b \in \pi'} \left\{
 \left[ \frac{ \Gamma(t^j_b +1 ) }{\prod_{k \in b} \Gamma( z^j_k + 1 ) } 
 \right]
 \left[ \frac{\Gamma( \sum_{k \in b} \alpha_k )}{
@@ -312,23 +347,22 @@ p(z^j|t^j_\pi) = \prod_{b \in \pi} \left\{
 \end{eqnarray*}
 and
 \begin{eqnarray*}
-p(t^1_\pi,t^2_\pi| A^*_\pi) =
- \left[ \frac{ \Gamma(n_1+1) \Gamma(n_2+1) }{ \prod_{b \in \pi} \Gamma(t^1_b+1) 
+p(t^1_{\pi'},t^2_{\pi'}| A_{\pi'}) =
+ \left[ \frac{ \Gamma(n_1+1) \Gamma(n_2+1) }{ \prod_{b \in \pi'} \Gamma(t^1_b+1) 
    \Gamma( t^2_b + 1 )} \right] 
-\left[ \frac{\Gamma( \sum_{b \in \pi} \beta_b  )}{
-   \prod_{b \in \pi} \Gamma(\beta_b )} \right] 
- \left[ \frac{ \prod_{b \in \pi} \Gamma( \beta_b + t^1_b + t^2_b )}{
-	\Gamma( n_1 + n_2 + \sum_{b \in \pi} \beta_b  )} \right].
+\left[ \frac{\Gamma( \sum_{b \in \pi'} \beta_b  )}{
+   \prod_{b \in \pi'} \Gamma(\beta_b )} \right] 
+ \left[ \frac{ \prod_{b \in \pi'} \Gamma( \beta_b + t^1_b + t^2_b )}{
+	\Gamma( n_1 + n_2 + \sum_{b \in \pi'} \beta_b  )} \right].
 \end{eqnarray*}
-
-Let's look at some special cases to dissect this result. 
-
-**Check 1:** If $\pi$ has a single block equal to the entire
+\hfill\\
+Let's look at some special cases to dissect this result. \\
+**Check 1:** If $\pi'$ has a single block equal to the entire
  set of cell types $\{1,2, \cdots, K\}$,  then $t^j_b=n_j$ for both $j=1,2$,
 and the second formula reduces, correctly, to 
-$p(t^1_\pi,t^2_\pi| A_\pi^*) = 1$.  Further,
+$p(t^1_{\pi'},t^2_{\pi'}| A_{\pi'}) = 1$.  Further,
 \begin{eqnarray*}
-p(z^j|t^j_\pi) = 
+p(z^j|t^j_{\pi'}) = 
 \left[ \frac{ \Gamma(n_j +1 ) }{ \Gamma( n_1 + \sum_{k=1}^K \alpha_k ) }
 \right]
 \left[ \frac{\Gamma( \sum_{k =1}^K \alpha_k )}{
@@ -337,18 +371,17 @@ p(z^j|t^j_\pi) =
                 \Gamma(z^j_k + 1 )}\right]
 \end{eqnarray*}
 which is the well-known Dirichlet-multinomial predictive distribution
-for counts $z^j$ (cite).  E.g, taking $\alpha_k=1$ for all types $k$ 
+for counts $z^j$ \cite{Wag}.  E.g, taking $\alpha_k=1$ for all types $k$ 
 we get the uniform distribution
 \begin{eqnarray*}
-p(z^j|t^j_\pi) = 
+p(z^j|t^j_{\pi'}) = 
  \frac{ \Gamma(n_j +1 ) \Gamma(K) }{ \Gamma( n_j + K ) }.
 \end{eqnarray*}
-
-**Check 2:** At the opposite  extreme, $\pi$  has one block $b$ for each
- class $k$. Then $t^j_b = z^j_k$, and $p(z^j|t^j_\pi) = 1$, and 
+**Check 2:** At the opposite extreme, $\pi'$  has one block $b$ for each
+ class $k$. Then $t^j_b = z^j_k$, and $p(z^j|t^j_{\pi'}) = 1$, and 
 further, assuming $\beta_b = \alpha_k$,
 \begin{eqnarray*}
-p(t^1_\pi,t^2_\pi| A_\pi^*) =
+p(t^1_{\pi'},t^2_{\pi'}| A_{\pi'}) =
  \left[ \frac{ \Gamma(n_1+1) \Gamma(n_2+1) }{ \prod_{k=1}^K 
    \Gamma(z^1_k+1) 
    \Gamma( z^2_k + 1 )} \right] 
@@ -358,16 +391,31 @@ p(t^1_\pi,t^2_\pi| A_\pi^*) =
 	\Gamma( n_1 + n_2 + \alpha_k  )} \right].
 \end{eqnarray*}
 \cite{ref:bayesC}
-
 Regardless of the partition,
 log scale probabilities are readily evaluated 
 given hyper-parameters $\{ \alpha_k \}$ and $\{ \beta_b \}$ and for
-cell-type counts $z^1$ and $z^2$. 
-
-After finishing calculating $p(z^1,z^2|A^*_\pi)$, we obtain posterior $p(A^*_\pi|z^1,z^2)$ by assign weakly informative prior of $A^*_\pi$ ($p(A_\pi^*)$ is constant not depend on $A_\pi^*$) and obtain $p(A_\pi | z^1, z^2)$ by summing over all the posterior probabilities of $A^*_{\pi'}$, $\pi'$ refines $\pi$.\\
-
+cell-type counts $z^1$ and $z^2$. \\
+Let prior of $A_\pi$ be discrete uniform distribution, we obtain posterior:
+\[
+p(A_\pi | z^1, z^2) = c*\sum_{\pi' \text{ refines } \pi} p(z^1 | t^1_{\pi'})\, p(z^2|  t^2_{\pi'} )
+ \, p( t^1_{\pi'}, t^2_{\pi'} | A_{\pi'} )
+\]
+for a normalizing constant $\frac{1}{c} = \underset{\pi' \in \Pi}\sum p(z^1 | t^1_{\pi'})\, p(z^2|  t^2_{\pi'} )
+ \, p( t^1_{\pi'}, t^2_{\pi'} | A_{\pi'} )$, since for the coarsest partition $\pi$ that contains a single block equal to the entire
+ set of cell types. Every possible partition $\pi'$ is a refinement of $\pi$ and $A_\pi = \Omega$ is the whole space of $(\phi,\psi)$, thus $p(A_\pi | z^1, z^2) = 1$
+\\
 \subsection{asymptotic properties}\hfill\\
-\begin{theorem} assuming $\beta_b = \Sigma_{k\in b} \alpha_k$, and $\alpha_k = 1, \forall k$, let $n = min(n_1, n_2)$ be the smaller number of cells of two conditions and $\frac{n_1}{n_2} = O(1)$, when parameter $(\phi, \psi)\in \Omega\setminus Q $ we have 
+There is a subset of $\Omega$ we lack posterior inference. Let us first see an example\\
+\begin{figure}[h]
+\includegraphics[scale = 0.5]{overlap.png}
+ \caption{Four subtypes of cells,  simplexes of $(\phi,\psi)$ satisfying different constraints.}
+  \label{fig:1}
+\end{figure}
+\hfill\\
+We look at the lines in Figure1, 
+We lack posterior inference for $(\phi,\psi)$ along the purple line(Figure 1) except the black dot. The black dot is the simplex with finest partitions, $\phi_i = \psi_i, \forall i = 1,..,K$. The purple line is the intersection of two simplexes: rectangle with magenta boundary and rectangle with blue boundary. 
+ 
+\begin{theorem}  Assuming  $\beta_b = \Sigma_{i\in b} \alpha_i$, and $\alpha_i = 1, \forall i$, then we have simplified $p(z^1, z^2 | A_\pi) = \prod_{b\in \pi}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}\frac{\Gamma(n + 1)\Gamma(n+1)\Gamma(K)}{\Gamma(2n + K)}$,  let $n = min(n_1, n_2)$ be the smaller number of cells of two conditions and $n_1 = O(n_2)$, when parameter $(\phi, \psi)\in \Omega\setminus Q $ we have 
 \begin{eqnarray*}
     p(A_{\pi} | z^1, z^2) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
                 \begin{array}{ll}
@@ -389,7 +437,7 @@ If proportions of subtypes(parameter) does not satisfy partial intersection cons
 \end{eqnarray*}
 and $\sum_{\pi\in S^*,} m(\pi) = 1$\\
 \end{theorem}\hfill\\
-Things become more complicate when parameter satisfy partial intersection constraints, unlike the case for theorem 2, for two different subspaces $A_{\pi_1}$ and $A_{\pi_2}$ covering the parameters, they have refinement relation. But now $A_{\pi_1}$ and $A_{\pi_2}$ covering the parameter do not necessarily have refinement relation. Thus, for $\pi\in S^*$ , posterior probability of $A_\pi$ will go to some constant $0< m(\pi)< 1$. 
+Things become more complicate when parameter satisfy partial intersection constraints, unlike the case for theorem 2, for two different subspaces $A_{\pi_1}$ and $A_{\pi_2}$ covering the parameters, they have refinement relation. But now $A_{\pi_1}$ and $A_{\pi_2}$ covering the parameter do not necessarily have refinement relation. Consequently, for $\pi\in S^*$ , posterior probability of $A_\pi$ will go to some constant $0< m(\pi)< 1$. 
 proofs are in the appendix. 
 
 
@@ -399,20 +447,38 @@ Here's an example using the probabilities $\phi$ and $\psi$ from Figure 2;
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{prop.png}
   \caption{proportion change in different conditions.}
-  \label{fig:1}
-\end{figure}
-We simulate data by splatter\cite{ref:Zappia} with $n_1=n_2=200$, and 7 subtypes among two conditions with proportional constraints: $\phi_1 + \phi_2 = \psi_1 + \psi_2$, $\phi_3 + \phi_4 +\phi_5 = \psi_3 + \psi_4 + \psi_5$ and $\phi_6 + \phi_7 = \psi_6 + \psi_7$
-
-\begin{figure}[h!]
-  \includegraphics[scale = 0.2]{pca2.png}
-  \caption{pca of cells}
   \label{fig:2}
 \end{figure}
- 
+We simulate data by splatter\cite{ref:Zappia} with $n_1=n_2=200$, and 7 subtypes among two conditions with proportional constraints: $\phi_1 + \phi_2 = \psi_1 + \psi_2$, $\phi_3 + \phi_4 +\phi_5 = \psi_3 + \psi_4 + \psi_5$ and $\phi_6 + \phi_7 = \psi_6 + \psi_7$\\
+We view the differences among subtypes by projecting transcripts profiles of cells into its first two principal components(figure 3)
+\begin{figure}[h!]
+  \includegraphics[height=5cm, width=8cm]{pca2.png}
+  \caption{pca of cells}
+  \label{fig:3}
+\end{figure}
+
 
 \subsection{The scDDboost modeling framework}\hfill\\
-We normalized raw transcripts count data by SCnorm\cite{ref:Rhonda} to adjust for technical sources of variation including amplification bias and sequencing depth. We use the clustering method in section 2 to classify cells into subtypes.\\
-After clustering of cells, we obtain posterior inference on differential expression pattern via EBSeq\cite{ref:Leng} and posterior inference on proportion change via the method in section 2 by assuming $\alpha_k=1$ for all $k$ and $\beta_b = \sum_{k\in b}\alpha_k.$. \\
+1.\textit{Normalization.} Raw transcripts are normalized by SCnorm\cite{ref:Rhonda} adjusted for technical sources of variation including amplification bias and sequencing depth\\
+2.\textit{Distance calculation.} We use the clustering method in section 2 to calculate distances between cells.\\
+3.\textit{Number of subtypes.} Given a number of clusters\\   
+4.\textit{DE analysis.} After clustering of cells, we obtain posterior inference on differential expression pattern among subtypes via EBSeq\cite{ref:Leng}\\
+5.\textit{Posterior of proportion.} We obtain posterior inference on proportion change via the double dirichlet prior in section 2. \\
+6.\textit{Posterior of DD.} Combine results from step 4 and 5 to compute posterior probabilities of genes being differential distributed\\
+We determine the number of clusters by searching a range of candidates (from 1 to 9). Given a number of cluster, we compute the posterior probabilities of genes being differential distributed by step 4 - 6. We visualize the change between posterior probabilities under number of clusters $i$ and $i + 1$($i$ from 1 to 8). It typically remains stable when number of cluster is above a number smaller than 9 (figure 4)\\
+\begin{figure}[H]
+\minipage{0.3\textwidth}
+  \includegraphics[width=\linewidth]{sim_56.png}
+\endminipage\hfill
+\minipage{0.3\textwidth}
+  \includegraphics[width=\linewidth]{sim_67.png}
+\endminipage\hfill
+\minipage{0.3\textwidth}
+  \includegraphics[width=\linewidth]{sim_78.png}
+  \endminipage
+\caption{}
+\end{figure}
+\hfill\\
 In the simulation data, there are 7 groups and 10\% genes each group are DE genes. There are in total 9067 DD genes and 8306 ED genes.\\
 Below are numbers of DD or DE genes identified by four methods with target FDR at 5 \%. \\
 \begin{tabular}{ |p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
@@ -427,17 +493,18 @@ True positive & 4774 & 2724 & 2442 & 2073\\
 false positive & 1299 & 314 & 26 & 3\\
 \hline
 \end{tabular}\\
-And we compare roc curves of scDDboost, scDD, MAST and DESeq2. (figure 3)
+And we compare roc curves of scDDboost, scDD, MAST and DESeq2. (figure 4)
 \begin{figure}[h]
-  \includegraphics[scale = 0.3]{Splatter_roc.png}
+  \includegraphics[height = 6cm, width = 10cm]{Splatter_roc.png}
   \caption{roc curve of scDDboost, scDD, MAST and DESeq2}
-  \label{fig:3}
+  \label{fig:5}
 \end{figure}\\
 scDDboost may work poorly, when $\phi$ and $\psi$ satisfy partial overlapping constraints, i.e. there are at least a pair of  $b_1, b_2 \in \{1, 2, ..., K \}$ that $b_1 \neq b_2$, $b_1 \cap b_2 \neq \emptyset$ and $\sum_{i\in b_j} \phi_i = \sum_{i\in b_j} \psi_i, j = 1, 2$. For example, parameter space that$\phi_1 + \phi_2 = \psi_1 + \psi_2$ and $\phi_1 + \phi_3 = \psi_1 + \psi_3$.  Based on the theorem 3, assume we have sufficiently large $n$ cells. When constraints are partially overlapping, we may underestimate the posterior probability of true proportion pattern, which reduce the posterior probabilities of true negative and enlarge false positive rate.\\
 Another situation that the power of scDDboost could be limited is that even though there is no mean expression change among subtypes but the distribution among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus reduce power of detecting DD genes.\\
  \section{Examples}
 We use ten datasets from conquer\cite{ref:Cq} to test performance of our method on real data. We compare our results with scDD\cite{ref:scDD}, MAST\cite{ref:MAST} and DESeq2\cite{ref:Des}\\
-\begin{tabular}{ |p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{ |p{3cm}|p{6cm}|p{2cm}|p{2cm}|p{1cm}|}
 \hline
  Data set & Compared cell subsets & Number of cells per condition & Organism & Ref\\
  \hline
@@ -473,13 +540,14 @@ GSE75748 & NPC vs DEC & 64, 87 & human & \cite{chu}\\
 \hline
 GSE75748 & NPC & 64 & human & \cite{chu}\\
 \hline
-GSE75748 & DEC vs EC & 70, 64 & human & \cite{chu}\\
+GSE75748 & DEC vs EC & 64 64 & human & \cite{chu}\\
 \hline
 GSE75748 & DEC & 70 & human & \cite{chu}\\
 \hline
 GSE64016null & H1 vs H9 & 64, 87 & human & \cite{oscope}\\
 \hline
-\end{tabular}\\
+\end{tabular}%
+}\\
 We have table of numbers of differentially expressed genes of each dataset by MAST and DESeq2, and numbers of differentially distributed genes of each dataset by scDDboost and scDD.\\
 \\
 \begin{tabular}{ |p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
@@ -487,7 +555,7 @@ We have table of numbers of differentially expressed genes of each dataset by MA
 Data set & scDDboost & scDDboost-sc3 & scDD & MAST & DESeq2 & total number of genes\\
 \hline
 \hline
-GSE45719 & 4278 & 4228 & 6416 &5652 & 11202 & 45686\\
+GSE45719 & 5758 & 4228 & 6416 &5652 & 11202 & 45686\\
 \hline
 GSE48969-GPL13112 & 11691 & 9819 & 2080 & 3396 & 9542 & 45686\\
 \hline
@@ -509,16 +577,16 @@ H1 exp1-H1 exp2 &  0 & 0 & 1300 & 2077 & 2841 & 16579\\
 \hline
 \end{tabular}\\
 \begin{figure}[h]
-\includegraphics[scale = 0.2]{heat2.png}
+\includegraphics[scale = 0.5]{heat2.png}
  \caption{heatmap of log transformed transcripts DD genes uniquely identified by scDDboost}
-  \label{fig:5}
+  \label{fig:6}
 \end{figure}
 \newpage
 We validate false discovery rate on ten null datasets from the table. For each null dataset, we randomly split the cells from one condition into two equal sized subsets and do DE analysis between those subsets for five times . we evaluate the type I error control for the methods returning nominal p-values, by recording the fraction of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (figure 5).\\
 \begin{figure}[H]
-\includegraphics[scale = 0.3]{FDR.png}
+\includegraphics[height = 8cm, width = 10cm]{FDR.png}
  \caption{FDR of scDDboost, scDD, MAST and DESeq2}
-  \label{fig:6}
+  \label{fig:7}
 \end{figure}
 scDDboost could control FDR since we assume cells are sampled from population composed of different subtypes. Cells from one subtype are equal likely to be assigned to either one of the two subsets. Consequently, proportions of subtypes remain unchanged among the two subsets.\\
 D3E\cite{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset EMTAB2805\\
@@ -541,7 +609,7 @@ Cluster cells is an unsupervised learning, we do not know the true underlying pa
 \newpage
 \appendix
 \section{}
-proof of theorem 1 and theorem 2: given the condition that $\alpha_k = 1, \forall k$ and $\beta_b = \sum_{k\in b} \alpha_k$, we can simplify $p(z^1, z^2 | A_\pi^*)$ and obtain $$p(z^1, z^2 | A_\pi^*) = \prod_{b\in \pi}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}\frac{\Gamma(n + 1)\Gamma(n+1)\Gamma(K)}{\Gamma(2n + K)}$$
+proof of theorem 2 and theorem 3: given the condition that $\alpha_k = 1, \forall k$ and $\beta_b = \sum_{k\in b} \alpha_k$, we can simplify $p(z^1, z^2 | A_\pi^*)$ and obtain $$p(z^1, z^2 | A_\pi^*) = \prod_{b\in \pi}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}\frac{\Gamma(n + 1)\Gamma(n+1)\Gamma(K)}{\Gamma(2n + K)}$$
 Assuming there are in total $K$ subgroups, since $n_1$ and $n_2$ goes to infinite at same rate, for simplicity we assume $n = \sum_{i = 1}^K z_i^1 = \sum_{i = 1}^K z_i^2 $,  $z^1\sim \text{multinomial}(\phi), z^2\sim \text{multinomial}(\psi)$ and
 $t_b^1 = \sum_{i \in b} z_i^1$ and $t_b^2 = \sum_{i \in b} z_i^2$, so $t_b^1 \sim$ binomial $(n, \Phi_b)$ and $t_b^2 \sim$ binomial $(n, \Psi_b)$, where $\Phi_b = \sum_{i \in b}\phi_i$ and $\Psi_b = \sum_{i \in b}\psi_i$. Let $f(n, b) = \frac{\Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}$, then $$p(z^1, z^2 | A_\pi^*) \propto \prod_{b\in \pi} f(n,b)$$\\
 ln$f(n, b) = $ln$(\Gamma(\beta_b + t_b^1 + t_b^2))$ - ln$(\Gamma(\beta_b + t_b^1))$ - ln$(\Gamma(\beta_b + t_b^2))$, notice that $t_b^1, t_b^2 \text{ and } \beta_b$ are integers, and when $x$ is integer,  $\Gamma(x)$ is the factorial of $(x - 1)$.
@@ -666,6 +734,6 @@ we examine log fold change of mean expression across conditions\\
 
 \cleardoublepage
 \bibliographystyle{IEEEtran}
-\bibliography{/Users/xiuyuma/Desktop/paper/references/wlr_ref}
+\bibliography{/Users/xiuyuma/Desktop/scDDboost_paper/scDDboost/paper/references/wlr_ref}
 
 \end{document}  
