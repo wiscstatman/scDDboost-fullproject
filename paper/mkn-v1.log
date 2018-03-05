@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  4 MAR 2018 23:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  5 MAR 2018 12:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -385,6 +385,20 @@ CELL RNA-SEQ DATA[] []
  []
 
 [3] [4]
+Overfull \hbox (7.41885pt too wide) in paragraph at lines 292--296
+\OT1/cmr/m/n/10.95 where $\OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/i
+t/10.95 z[]; z[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 ^^^;  \OT1/cmr/m/n/10.
+95 ) = \OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 z[]\OMS/cms
+y/m/n/10.95 j\OML/cmm/m/it/10.95 ^^^\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 p\O
+T1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 z[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.
+95  \OT1/cmr/m/n/10.95 )$, $\OML/cmm/m/it/10.95 z[]\OMS/cmsy/m/n/10.95 j\OML/cm
+m/m/it/10.95 ^^^ \OMS/cmsy/m/n/10.95 ^^X []\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10
+.95 n[]; ^^^\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; z[]\OMS/cmsy/m/n/10.95 j\
+OML/cmm/m/it/10.95   \OMS/cmsy/m/n/10.95 ^^X []\OT1/cmr/m/n/10.95 (\OML/cmm/m/i
+t/10.95 n[];  \OT1/cmr/m/n/10.95 )$.
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 292--296
 
  []
@@ -1094,7 +1108,7 @@ e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
 017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/201
 7/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2017/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mkn-v1.pdf (25 pages, 2784049 bytes).
+Output written on mkn-v1.pdf (25 pages, 2783866 bytes).
 PDF statistics:
  231 PDF objects out of 1000 (max. 8388607)
  115 compressed objects within 2 object streams
