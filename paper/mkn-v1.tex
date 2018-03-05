@@ -429,9 +429,9 @@ When $K >  3$, $p(Q | z^1, z^2) = 0$
 \hfill\\
 But for $(\phi, \psi)\in \Omega\setminus Q$, we have consistent posterior inference. Assuming $\alpha_i = 1, \forall i$ in (2) and $\beta_b = \Sigma_{i\in b} \alpha_i$ in (3), plug in (4) then we have simplified 
 \begin{align}
-p(A_\pi| z^1, z^2) = \frac{1}{c}\sum_{\pi' \in \text{RF}(\pi)}\prod_{b\in \pi'}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}
+p(A_\pi| z^1, z^2) = \frac{1}{c'}\sum_{\pi' \in \text{RF}(\pi)}\prod_{b\in \pi'}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}
 \end{align}
-And we have theorem 2.\\
+$c' = c/\frac{\Gamma(n + 1)\Gamma(n+1)\Gamma(K)}{\Gamma(2n + K)}$ And we have theorem 2.\\
 \begin{theorem} Let $n = min(n_1, n_2)$ be the smaller number of cells of two conditions and $n_1 = O(n_2)$, when parameter $(\phi, \psi)\in \Omega\setminus Q $ we have 
 \begin{eqnarray*}
     p(A_{\pi} | z^1, z^2) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
