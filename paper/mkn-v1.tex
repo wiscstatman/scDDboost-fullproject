@@ -516,7 +516,7 @@ scDDboost identified most true DD genes, the reason is that some DE genes in the
   \label{fig:5}
 \end{figure}
 scDDboost may work poorly, when $(\phi, \psi)\in Q$, like we have discussed in section 2.5, we may underestimate the posterior probability of true proportion change pattern, which reduce the posterior probabilities of true negative and enlarge false positive rate.\\
-Another situation that the power of scDDboost could be limited is that even though there is no mean expression change among subtypes but the distribution among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus reduce power of detecting DD genes.\\
+Since we are modeling gene transcript within each subtype as negative binomial distributed and we only test one parameter(mean) change among subtypes. In some situation, it could be insufficient for modeling the variability within subtype, which leads to another situation that the power of scDDboost could be limited. Even though there is no mean expression change among subtypes but the distribution among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus reduce power of detecting DD genes.\\
 \section{Examples}
 We use ten datasets from conquer\cite{ref:Cq} to test performance of our method on real data. We compare our results with scDD\cite{ref:scDD}, MAST\cite{ref:MAST} and DESeq2\cite{ref:Des}\\
 \begin{center}
