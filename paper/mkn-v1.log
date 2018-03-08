@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  5 MAR 2018 12:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  7 MAR 2018 22:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -185,6 +185,24 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks28
 \@floatcapt=\box30
 )
+(/usr/local/texlive/2017/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen131
+\captionmargin@=\dimen132
+\captionwidth=\dimen133
+\caption@tempdima=\dimen134
+\caption@indent=\dimen135
+\caption@parindent=\dimen136
+\caption@hangindent=\dimen137
+)
+Package caption Info: AMS or SMF document class.
+\c@ContinuedFloat=\count107
+Package caption Info: float package is loaded.
+)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 
@@ -196,7 +214,7 @@ Package natbib Warning: The `cite' package should not be used
 \bibsep=\skip56
 LaTeX Info: Redefining \cite on input line 694.
 LaTeX Info: Redefining \citenum on input line 708.
-\c@NAT@ctr=\count107
+\c@NAT@ctr=\count108
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -220,10 +238,10 @@ Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count108
+\Gread@gobject=\count109
 ))
-\Gin@req@height=\dimen131
-\Gin@req@width=\dimen132
+\Gin@req@height=\dimen138
+\Gin@req@width=\dimen139
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf.sty
 Package: epstopdf 2016/05/15 v2.6 Conversion with epstopdf on the fly (HO)
@@ -274,9 +292,9 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 )))
-\c@lemma=\count109
-\c@theorem=\count110
-\c@prop=\count111
+\c@lemma=\count110
+\c@theorem=\count111
+\c@prop=\count112
 
 (./mkn-v1.aux
 
@@ -364,18 +382,20 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count112
-\scratchdimen=\dimen133
+\scratchcounter=\count113
+\scratchdimen=\dimen140
 \scratchbox=\box31
-\nofMPsegments=\count113
-\nofMParguments=\count114
+\nofMPsegments=\count114
+\nofMParguments=\count115
 \everyMPshowfont=\toks29
-\MPscratchCnt=\count115
-\MPscratchDim=\dimen134
-\MPnumerator=\count116
-\makeMPintoPDFobject=\count117
+\MPscratchCnt=\count116
+\MPscratchDim=\dimen141
+\MPnumerator=\count117
+\makeMPintoPDFobject=\count118
 \everyMPtoPDFconversion=\toks30
 ) [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 [2]
@@ -467,54 +487,209 @@ Underfull \hbox (badness 10000) in paragraph at lines 455--457
 File: prop.png Graphic file (type png)
  <use prop.png>
 Package pdftex.def Info: prop.png used on input line 467.
-(pdftex.def)             Requested size: 430.00462pt x 153.88644pt.
+(pdftex.def)             Requested size: 430.00275pt x 113.81068pt.
 
-<pca2.png, id=46, 614.295pt x 794.97pt>
-File: pca2.png Graphic file (type png)
- <use pca2.png>
-Package pdftex.def Info: pca2.png used on input line 474.
-(pdftex.def)             Requested size: 227.62303pt x 142.26357pt.
+<pca.png, id=46, 574.145pt x 625.33624pt>
+File: pca.png Graphic file (type png)
+ <use pca.png>
+Package pdftex.def Info: pca.png used on input line 474.
+(pdftex.def)             Requested size: 227.62144pt x 227.62083pt.
 
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
 CELL RNA-SEQ DATA[] []
  []
 
-[9] <sim_56.png, id=51, 614.295pt x 794.97pt>
-File: sim_56.png Graphic file (type png)
- <use sim_56.png>
-Package pdftex.def Info: sim_56.png used on input line 490.
-(pdftex.def)             Requested size: 128.99637pt x 85.34843pt.
+[9]
 
-<sim_67.png, id=52, 614.295pt x 794.97pt>
-File: sim_67.png Graphic file (type png)
- <use sim_67.png>
-Package pdftex.def Info: sim_67.png used on input line 493.
-(pdftex.def)             Requested size: 128.99637pt x 85.34843pt.
+Package caption Warning: \captionsetup{type*=...} or \captionof
+(caption)                outside box or environment on input line 502.
+See the caption package documentation for explanation.
 
-<sim_78.png, id=53, 614.295pt x 794.97pt>
-File: sim_78.png Graphic file (type png)
- <use sim_78.png>
-Package pdftex.def Info: sim_78.png used on input line 496.
-(pdftex.def)             Requested size: 128.99637pt x 85.34843pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 480--499
-
- []
-
-[10 <./prop.png> <./pca2.png>] <Splatter_roc.png, id=59, 614.295pt x 794.97pt>
-File: Splatter_roc.png Graphic file (type png)
-
-<use Splatter_roc.png>
-Package pdftex.def Info: Splatter_roc.png used on input line 517.
-(pdftex.def)             Requested size: 284.52878pt x 170.709pt.
-
-Overfull \hbox (46.78668pt too wide) in paragraph at lines 500--523
+Overfull \hbox (46.78668pt too wide) in paragraph at lines 480--502
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 500--523
+Underfull \hbox (badness 10000) in paragraph at lines 480--502
+
+ []
+
+[10 <./prop.png> <./pca.png>] <sim56.png, id=56, 605.26125pt x 510.90875pt>
+File: sim56.png Graphic file (type png)
+
+<use sim56.png>
+Package pdftex.def Info: sim56.png used on input line 506.
+(pdftex.def)             Requested size: 141.90393pt x 170.71307pt.
+ <sim67.png, id=57, 603.25375pt x 526.96875pt>
+File: sim67.png Graphic file (type png)
+ <use sim67.png>
+Package pdftex.def Info: sim67.png used on input line 509.
+(pdftex.def)             Requested size: 141.90273pt x 170.71602pt.
+
+<sim78.png, id=58, 579.16376pt x 512.91624pt>
+File: sim78.png Graphic file (type png)
+ <use sim78.png>
+Package pdftex.def Info: sim78.png used on input line 512.
+(pdftex.def)             Requested size: 141.90077pt x 170.7186pt.
+
+<roc.png, id=59, 777.90625pt x 634.37pt>
+File: roc.png Graphic file (type png)
+ <use roc.png>
+Package pdftex.def Info: roc.png used on input line 517.
+(pdftex.def)             Requested size: 284.53284pt x 170.71107pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (11.49895pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
+CELL RNA-SEQ DATA[] []
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 521--523
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 524--525
+
+ []
+
+[12 <./sim56.png> <./sim67.png> <./sim78.png> <./roc.png>]
+Underfull \hbox (badness 3158) in paragraph at lines 528--528
+[]\OT1/cmr/m/n/10.95 Number of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 528--528
+\OT1/cmr/m/n/10.95 cells per
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 535--535
+[]\OT1/cmr/m/n/10.95 GSE48968-
+ []
+
+
+Underfull \hbox (badness 1400) in paragraph at lines 535--535
+[]\OT1/cmr/m/n/10.95 BMDC (1h LPS stim-u-la-tion) vs
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 537--537
+[]\OT1/cmr/m/n/10.95 GSE48968-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 539--539
+[]\OT1/cmr/m/n/10.95 GSE60749-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 541--541
+[]\OT1/cmr/m/n/10.95 GSE60749-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 552--552
+[]\OT1/cmr/m/n/10.95 GSE63818-
+ []
+
+
+Underfull \hbox (badness 1895) in paragraph at lines 552--552
+[]\OT1/cmr/m/n/10.95 Primordial Germ Cells, develop-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 554--554
+[]\OT1/cmr/m/n/10.95 GSE71585-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 556--556
+[]\OT1/cmr/m/n/10.95 GSE71585-
+ []
+
+
+Overfull \hbox (18.33391pt too wide) in paragraph at lines 526--569
+ [] 
+ []
+
+
+Underfull \vbox (badness 7504) has occurred while \output is active []
+
+
+Overfull \hbox (11.49895pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
+CELL RNA-SEQ DATA[] []
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 571--574
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 571--574
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 577--577
+[]\OT1/cmr/m/n/10.95 scDDboost-
+ []
+
+
+Underfull \hbox (badness 3746) in paragraph at lines 577--578
+[]\OT1/cmr/m/n/10.95 total num-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 582--582
+[]\OT1/cmr/m/n/10.95 GSE48969-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 584--584
+[]\OT1/cmr/m/n/10.95 GSE60749-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 588--588
+[]\OT1/cmr/m/n/10.95 EMTAB
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 590--590
+[]\OT1/cmr/m/n/10.95 GSE63818-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 592--592
+[]\OT1/cmr/m/n/10.95 GSE71585-
+ []
+
+
+Overfull \hbox (38.3339pt too wide) in paragraph at lines 575--601
+ [] 
+ []
+
+<heat.png, id=74, 381.425pt x 503.8825pt>
+File: heat.png Graphic file (type png)
+ <use heat.png>
+Package pdftex.def Info: heat.png used on input line 605.
+(pdftex.def)             Requested size: 227.6229pt x 170.71806pt.
+
+<FDR1.png, id=75, 537.00626pt x 513.92pt>
+File: FDR1.png Graphic file (type png)
+ <use FDR1.png>
+Package pdftex.def Info: FDR1.png used on input line 611.
+(pdftex.def)             Requested size: 284.53001pt x 227.62328pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 603--614
 
  []
 
@@ -522,121 +697,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 500--523
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (11.49895pt too wide) has occurred while \output is active
- \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
-CELL RNA-SEQ DATA[] []
- []
+Underfull \vbox (badness 1609) has occurred while \output is active []
 
-[11 <./sim_56.png> <./sim_67.png> <./sim_78.png>]
-Underfull \hbox (badness 3158) in paragraph at lines 569--569
-[]\OT1/cmr/m/n/10.95 Number of
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 569--569
-\OT1/cmr/m/n/10.95 cells per
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 569--569
-[]\OT1/cmr/m/n/10.95 GSE48968-
- []
-
-
-Underfull \hbox (badness 1400) in paragraph at lines 569--569
-[]\OT1/cmr/m/n/10.95 BMDC (1h LPS stim-u-la-tion) vs
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 569--569
-[]\OT1/cmr/m/n/10.95 GSE48968-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 569--569
-[]\OT1/cmr/m/n/10.95 GSE60749-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 569--569
-[]\OT1/cmr/m/n/10.95 GSE60749-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 569--569
-[]\OT1/cmr/m/n/10.95 GSE63818-
- []
-
-
-Underfull \hbox (badness 1895) in paragraph at lines 569--569
-[]\OT1/cmr/m/n/10.95 Primordial Germ Cells, develop-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 569--569
-[]\OT1/cmr/m/n/10.95 GSE71585-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 569--569
-[]\OT1/cmr/m/n/10.95 GSE71585-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 574--574
-[]\OT1/cmr/m/n/10.95 scDDboost-
- []
-
-
-Underfull \hbox (badness 3746) in paragraph at lines 574--575
-[]\OT1/cmr/m/n/10.95 total num-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 579--579
-[]\OT1/cmr/m/n/10.95 GSE48969-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 581--581
-[]\OT1/cmr/m/n/10.95 GSE60749-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 585--585
-[]\OT1/cmr/m/n/10.95 EMTAB
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 587--587
-[]\OT1/cmr/m/n/10.95 GSE63818-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 589--589
-[]\OT1/cmr/m/n/10.95 GSE71585-
- []
-
-<heat2.png, id=66, 614.295pt x 794.97pt>
-File: heat2.png Graphic file (type png)
- <use heat2.png>
-Package pdftex.def Info: heat2.png used on input line 599.
-(pdftex.def)             Requested size: 227.62303pt x 227.62413pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 524--603
+ [14]
+Underfull \hbox (badness 10000) in paragraph at lines 615--617
 
  []
-
-
-Overfull \hbox (38.3339pt too wide) in paragraph at lines 524--603
-[] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12 <./Splatter_roc.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
@@ -644,38 +710,63 @@ Overfull \hbox (11.49895pt too wide) has occurred while \output is active
 CELL RNA-SEQ DATA[] []
  []
 
-[13] [14 <./heat2.png>] <FDR.png, id=79, 614.295pt x 794.97pt>
-File: FDR.png Graphic file (type png)
- <use FDR.png>
-Package pdftex.def Info: FDR.png used on input line 606.
-(pdftex.def)             Requested size: 284.52878pt x 227.62413pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 604--609
-
- []
-
-<act.png, id=80, 707.64375pt x 475.7775pt>
+[15 <./heat.png> <./FDR1.png>] <act.png, id=84, 707.64375pt x 475.7775pt>
 File: act.png Graphic file (type png)
- <use act.png>
-Package pdftex.def Info: act.png used on input line 614.
-(pdftex.def)             Requested size: 129.00269pt x 86.73247pt.
 
-<in_act.png, id=81, 725.71124pt x 457.71pt>
+<use act.png>
+Package pdftex.def Info: act.png used on input line 620.
+(pdftex.def)             Requested size: 214.9942pt x 170.7135pt.
+ <in_act.png, id=85, 725.71124pt x 457.71pt>
 File: in_act.png Graphic file (type png)
  <use in_act.png>
-Package pdftex.def Info: in_act.png used on input line 617.
-(pdftex.def)             Requested size: 129.00269pt x 81.35757pt.
+Package pdftex.def Info: in_act.png used on input line 623.
+(pdftex.def)             Requested size: 215.00206pt x 170.71194pt.
 
-<t_rate.png, id=82, 718.685pt x 453.695pt>
+<t_rate.png, id=86, 718.685pt x 453.695pt>
 File: t_rate.png Graphic file (type png)
  <use t_rate.png>
-Package pdftex.def Info: t_rate.png used on input line 620.
-(pdftex.def)             Requested size: 129.00269pt x 81.43312pt.
+Package pdftex.def Info: t_rate.png used on input line 626.
+(pdftex.def)             Requested size: 215.00401pt x 170.71672pt.
+ [16 <./act.png> <./in_act.png> <./t_rate.png>] <E28_56.png, id=93, 595.22375pt
+ x 527.9725pt>
+File: E28_56.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 610--623
+<use E28_56.png>
+Package pdftex.def Info: E28_56.png used on input line 637.
+(pdftex.def)             Requested size: 128.99692pt x 142.2564pt.
+ <E28_67.png, id=94, 570.13pt x 506.89375pt>
+File: E28_67.png Graphic file (type png)
+ <use E28_67.png>
+Package pdftex.def Info: E28_67.png used on input line 640.
+(pdftex.def)             Requested size: 128.99577pt x 142.26187pt.
+
+<E28_78.png, id=95, 582.175pt x 512.91624pt>
+File: E28_78.png Graphic file (type png)
+ <use E28_78.png>
+Package pdftex.def Info: E28_78.png used on input line 643.
+(pdftex.def)             Requested size: 129.00275pt x 142.26158pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 634--646
 
  []
 
+<G48_45.png, id=96, 560.0925pt x 514.92375pt>
+File: G48_45.png Graphic file (type png)
+ <use G48_45.png>
+Package pdftex.def Info: G48_45.png used on input line 649.
+(pdftex.def)             Requested size: 128.99803pt x 142.26053pt.
+
+<G48_56.png, id=97, 574.145pt x 523.9575pt>
+File: G48_56.png Graphic file (type png)
+ <use G48_56.png>
+Package pdftex.def Info: G48_56.png used on input line 652.
+(pdftex.def)             Requested size: 129.00183pt x 142.26192pt.
+
+<G48_67.png, id=98, 567.11874pt x 516.93124pt>
+File: G48_67.png Graphic file (type png)
+ <use G48_67.png>
+Package pdftex.def Info: G48_67.png used on input line 655.
+(pdftex.def)             Requested size: 128.99808pt x 142.26302pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -685,57 +776,20 @@ Overfull \hbox (11.49895pt too wide) has occurred while \output is active
 CELL RNA-SEQ DATA[] []
  []
 
-[15 <./FDR.png>] <E28_56.png, id=87, 614.295pt x 794.97pt>
-File: E28_56.png Graphic file (type png)
- <use E28_56.png>
-Package pdftex.def Info: E28_56.png used on input line 630.
-(pdftex.def)             Requested size: 128.99637pt x 85.34843pt.
-
-<E28_67.png, id=88, 614.295pt x 794.97pt>
-File: E28_67.png Graphic file (type png)
- <use E28_67.png>
-Package pdftex.def Info: E28_67.png used on input line 633.
-(pdftex.def)             Requested size: 128.99637pt x 85.34843pt.
-
-<E28_78.png, id=89, 614.295pt x 794.97pt>
-File: E28_78.png Graphic file (type png)
- <use E28_78.png>
-Package pdftex.def Info: E28_78.png used on input line 636.
-(pdftex.def)             Requested size: 128.99637pt x 85.34843pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 627--639
+[17 <./E28_56.png> <./E28_67.png> <./E28_78.png>] [18 <./G48_45.png> <./G48_56.
+png> <./G48_67.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 679--683
 
  []
 
-<G48_45.png, id=90, 614.295pt x 794.97pt>
-File: G48_45.png Graphic file (type png)
- <use G48_45.png>
-Package pdftex.def Info: G48_45.png used on input line 642.
-(pdftex.def)             Requested size: 128.99637pt x 85.34843pt.
 
-<G48_56.png, id=91, 614.295pt x 794.97pt>
-File: G48_56.png Graphic file (type png)
- <use G48_56.png>
-Package pdftex.def Info: G48_56.png used on input line 645.
-(pdftex.def)             Requested size: 128.99637pt x 85.34843pt.
+Underfull \hbox (badness 10000) in paragraph at lines 683--686
 
-<G48_67.png, id=92, 614.295pt x 794.97pt>
-File: G48_67.png Graphic file (type png)
- <use G48_67.png>
-Package pdftex.def Info: G48_67.png used on input line 648.
-(pdftex.def)             Requested size: 128.99637pt x 85.34843pt.
+ []
 
-Underfull \vbox (badness 4699) has occurred while \output is active []
 
- [16 <./act.png> <./in_act.png> <./t_rate.png> <./E28_56.png> <./E28_67.png> <.
-/E28_78.png>]
-Overfull \hbox (5.6483pt too wide) in paragraph at lines 670--670
-[]\OT1/cmr/m/n/10.95 Given the con-di-tion that $\OML/cmm/m/it/10.95 [] \OT1/c
-mr/m/n/10.95 = 1\OML/cmm/m/it/10.95 ; \OMS/cmsy/m/n/10.95 8\OML/cmm/m/it/10.95 
-k$ \OT1/cmr/m/n/10.95 and $\OML/cmm/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 = [][] 
-\OML/cmm/m/it/10.95 []$\OT1/cmr/m/n/10.95 , we can sim-plify $\OML/cmm/m/it/10
-.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 z[]; z[]\OMS/cmsy/m/n/10.95 j\OML/
-cmm/m/it/10.95 A[]\OT1/cmr/m/n/10.95 ) =
+Underfull \hbox (badness 10000) in paragraph at lines 691--693
+
  []
 
 
@@ -744,28 +798,13 @@ Overfull \hbox (11.49895pt too wide) has occurred while \output is active
 CELL RNA-SEQ DATA[] []
  []
 
-[17 <./G48_45.png> <./G48_56.png> <./G48_67.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 672--676
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 697--698
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 676--679
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 684--686
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 690--691
-
- []
-
-
-Overfull \hbox (19.07892pt too wide) detected at line 691
+Overfull \hbox (19.07892pt too wide) detected at line 698
 \OML/cmm/m/it/10.95 g\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n; b\OT1/cmr/m/n/1
 0.95 ) = (\OML/cmm/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[
 ] \OMS/cmsy/m/n/10.95 ^^@ []\OT1/cmr/m/n/10.95 )[](1 + []) + (\OML/cmm/m/it/10.
@@ -776,289 +815,229 @@ m/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[] \OT1/cmr/m/n/10
 .95 + \OML/cmm/m/it/10.95 t[] \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 1)
  []
 
-[18]
-Underfull \hbox (badness 10000) in paragraph at lines 691--694
+
+Underfull \hbox (badness 2689) in paragraph at lines 698--701
+\OT1/cmr/m/n/10.95 Based on in-equal-i-ties (1), $[]\OML/cmm/m/it/10.95 f\OT1/c
+mr/m/n/10.95 (\OML/cmm/m/it/10.95 n; b\OT1/cmr/m/n/10.95 )$ only dif-fer with $
+[]\OML/cmm/m/it/10.95 g\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n; b\OT1/cmr/m/n
+/10.95 )$ by a con-stant.
+ []
+
+
+Underfull \hbox (badness 2478) in paragraph at lines 698--701
+\OT1/cmr/m/n/10.95 By Tay-lor's ex-pan-sion $[](1 + \OML/cmm/m/it/10.95 x\OT1/c
+mr/m/n/10.95 ) = []2 + [](\OML/cmm/m/it/10.95 x \OMS/cmsy/m/n/10.95 ^^@ \OT1/cm
+r/m/n/10.95 1) + \OML/cmm/m/it/10.95 O\OT1/cmr/m/n/10.95 ((\OML/cmm/m/it/10.95 
+x \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 1)[])$, we have
+ []
+
+
+Underfull \hbox (badness 2134) in paragraph at lines 698--701
+[]\OT1/cmr/m/n/10.95 (1 + []) = []2 + []([]) + \OML/cmm/m/it/10.95 O[]\OT1/cmr/
+m/n/10.95 (([])[])$ and un-der con-di-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 698--701
 
  []
 
 
-Overfull \hbox (64.03679pt too wide) in paragraph at lines 704--704
+Overfull \hbox (64.03679pt too wide) in paragraph at lines 711--711
 [] 
  []
 
-
-Overfull \hbox (11.49895pt too wide) has occurred while \output is active
- \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
-CELL RNA-SEQ DATA[] []
- []
-
-[19] <DEC_NPC_mast.png, id=117, 614.295pt x 794.97pt>
+[20] <DEC_NPC_mast.png, id=120, 614.295pt x 794.97pt>
 File: DEC_NPC_mast.png Graphic file (type png)
  <use DEC_NPC_mast.png>
-Package pdftex.def Info: DEC_NPC_mast.png used on input line 717.
+Package pdftex.def Info: DEC_NPC_mast.png used on input line 724.
 (pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
 
-Overfull \hbox (2.048pt too wide) in paragraph at lines 718--718
-\OT1/cmr/m/sc/10.95 Figure
+Overfull \hbox (2.048pt too wide) in paragraph at lines 725--725
+[]\OT1/cmr/m/sc/10.95 Figure
  []
 
 
-Overfull \hbox (17.81915pt too wide) in paragraph at lines 718--718
-\OT1/cmr/m/sc/10.95 11.\OT1/cmr/m/n/10.95 MAST 
+Overfull \hbox (18.397pt too wide) in paragraph at lines 725--725
+\OT1/cmr/m/sc/10.95 11.|\OT1/cmr/m/n/10.95 MAST| 
  []
 
-<DEC_NPC_scdd.png, id=118, 614.295pt x 794.97pt>
+<DEC_NPC_scdd.png, id=121, 614.295pt x 794.97pt>
 File: DEC_NPC_scdd.png Graphic file (type png)
  <use DEC_NPC_scdd.png>
-Package pdftex.def Info: DEC_NPC_scdd.png used on input line 721.
+Package pdftex.def Info: DEC_NPC_scdd.png used on input line 728.
 (pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
 
-Overfull \hbox (2.048pt too wide) in paragraph at lines 722--722
-\OT1/cmr/m/sc/10.95 Figure
+Overfull \hbox (2.048pt too wide) in paragraph at lines 729--729
+[]\OT1/cmr/m/sc/10.95 Figure
  []
 
 
-Overfull \hbox (11.49246pt too wide) in paragraph at lines 722--722
-\OT1/cmr/m/sc/10.95 12.\OT1/cmr/m/n/10.95 scDD 
+Overfull \hbox (12.07031pt too wide) in paragraph at lines 729--729
+\OT1/cmr/m/sc/10.95 12.|\OT1/cmr/m/n/10.95 scDD| 
  []
 
-<DEC_NPC_scddb.png, id=119, 614.295pt x 794.97pt>
+<DEC_NPC_scddb.png, id=122, 614.295pt x 794.97pt>
 File: DEC_NPC_scddb.png Graphic file (type png)
  <use DEC_NPC_scddb.png>
-Package pdftex.def Info: DEC_NPC_scddb.png used on input line 725.
+Package pdftex.def Info: DEC_NPC_scddb.png used on input line 732.
 (pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
 
-Overfull \hbox (2.048pt too wide) in paragraph at lines 726--726
-\OT1/cmr/m/sc/10.95 Figure
+Overfull \hbox (2.048pt too wide) in paragraph at lines 733--733
+[]\OT1/cmr/m/sc/10.95 Figure
  []
 
 
-Overfull \hbox (37.71167pt too wide) in paragraph at lines 726--726
-\OT1/cmr/m/sc/10.95 13.\OT1/cmr/m/n/10.95 scDDboost 
+Overfull \hbox (7.35571pt too wide) in paragraph at lines 733--733
+\OT1/cmr/m/sc/10.95 13.|\OT1/cmr/m/n/10.95 scD-
  []
 
-<DEC_NPC_des.png, id=120, 614.295pt x 794.97pt>
+<DEC_NPC_des.png, id=123, 614.295pt x 794.97pt>
 File: DEC_NPC_des.png Graphic file (type png)
  <use DEC_NPC_des.png>
-Package pdftex.def Info: DEC_NPC_des.png used on input line 729.
-(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
-
-Overfull \hbox (2.048pt too wide) in paragraph at lines 730--730
-\OT1/cmr/m/sc/10.95 Figure
- []
-
-
-Overfull \hbox (23.5983pt too wide) in paragraph at lines 730--730
-\OT1/cmr/m/sc/10.95 14.\OT1/cmr/m/n/10.95 DESeq2 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 713--732
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 713--732
-
- []
-
-<DEC_EC_mast.png, id=121, 614.295pt x 794.97pt>
-File: DEC_EC_mast.png Graphic file (type png)
- <use DEC_EC_mast.png>
-Package pdftex.def Info: DEC_EC_mast.png used on input line 736.
+Package pdftex.def Info: DEC_NPC_des.png used on input line 736.
 (pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
 
 Overfull \hbox (2.048pt too wide) in paragraph at lines 737--737
-\OT1/cmr/m/sc/10.95 Figure
+[]\OT1/cmr/m/sc/10.95 Figure
  []
 
 
-Overfull \hbox (17.81915pt too wide) in paragraph at lines 737--737
-\OT1/cmr/m/sc/10.95 15.\OT1/cmr/m/n/10.95 MAST 
+Overfull \hbox (5.62196pt too wide) in paragraph at lines 737--737
+\OT1/cmr/m/sc/10.95 14.|\OT1/cmr/m/n/10.95 DE-
  []
 
-<DEC_EC_scdd.png, id=122, 614.295pt x 794.97pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 720--739
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 720--739
+
+ []
+
+<DEC_EC_mast.png, id=124, 614.295pt x 794.97pt>
+File: DEC_EC_mast.png Graphic file (type png)
+ <use DEC_EC_mast.png>
+Package pdftex.def Info: DEC_EC_mast.png used on input line 743.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 744--744
+[]\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (18.397pt too wide) in paragraph at lines 744--744
+\OT1/cmr/m/sc/10.95 15.|\OT1/cmr/m/n/10.95 MAST| 
+ []
+
+<DEC_EC_scdd.png, id=125, 614.295pt x 794.97pt>
 File: DEC_EC_scdd.png Graphic file (type png)
  <use DEC_EC_scdd.png>
-Package pdftex.def Info: DEC_EC_scdd.png used on input line 740.
+Package pdftex.def Info: DEC_EC_scdd.png used on input line 747.
 (pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
 
-Overfull \hbox (2.048pt too wide) in paragraph at lines 741--741
-\OT1/cmr/m/sc/10.95 Figure
+Overfull \hbox (2.048pt too wide) in paragraph at lines 748--748
+[]\OT1/cmr/m/sc/10.95 Figure
  []
 
 
-Overfull \hbox (11.49246pt too wide) in paragraph at lines 741--741
-\OT1/cmr/m/sc/10.95 16.\OT1/cmr/m/n/10.95 scDD 
+Overfull \hbox (12.07031pt too wide) in paragraph at lines 748--748
+\OT1/cmr/m/sc/10.95 16.|\OT1/cmr/m/n/10.95 scDD| 
  []
 
-<DEC_EC_scddb.png, id=123, 614.295pt x 794.97pt>
+<DEC_EC_scddb.png, id=126, 614.295pt x 794.97pt>
 File: DEC_EC_scddb.png Graphic file (type png)
  <use DEC_EC_scddb.png>
-Package pdftex.def Info: DEC_EC_scddb.png used on input line 744.
+Package pdftex.def Info: DEC_EC_scddb.png used on input line 751.
 (pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
 
-Overfull \hbox (2.048pt too wide) in paragraph at lines 745--745
-\OT1/cmr/m/sc/10.95 Figure
+Overfull \hbox (2.048pt too wide) in paragraph at lines 752--752
+[]\OT1/cmr/m/sc/10.95 Figure
  []
 
 
-Overfull \hbox (37.71167pt too wide) in paragraph at lines 745--745
-\OT1/cmr/m/sc/10.95 17.\OT1/cmr/m/n/10.95 scDDboost 
+Overfull \hbox (7.35571pt too wide) in paragraph at lines 752--752
+\OT1/cmr/m/sc/10.95 17.|\OT1/cmr/m/n/10.95 scD-
  []
 
-<DEC_EC_des.png, id=124, 614.295pt x 794.97pt>
+<DEC_EC_des.png, id=127, 614.295pt x 794.97pt>
 File: DEC_EC_des.png Graphic file (type png)
  <use DEC_EC_des.png>
-Package pdftex.def Info: DEC_EC_des.png used on input line 748.
-(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
-
-Overfull \hbox (2.048pt too wide) in paragraph at lines 749--749
-\OT1/cmr/m/sc/10.95 Figure
- []
-
-
-Overfull \hbox (23.5983pt too wide) in paragraph at lines 749--749
-\OT1/cmr/m/sc/10.95 18.\OT1/cmr/m/n/10.95 DESeq2 
- []
-
-<G45719_mast.png, id=125, 614.295pt x 794.97pt>
-File: G45719_mast.png Graphic file (type png)
- <use G45719_mast.png>
-Package pdftex.def Info: G45719_mast.png used on input line 755.
+Package pdftex.def Info: DEC_EC_des.png used on input line 755.
 (pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
 
 Overfull \hbox (2.048pt too wide) in paragraph at lines 756--756
-\OT1/cmr/m/sc/10.95 Figure
+[]\OT1/cmr/m/sc/10.95 Figure
  []
 
 
-Overfull \hbox (17.81915pt too wide) in paragraph at lines 756--756
-\OT1/cmr/m/sc/10.95 19.\OT1/cmr/m/n/10.95 MAST 
+Overfull \hbox (5.62196pt too wide) in paragraph at lines 756--756
+\OT1/cmr/m/sc/10.95 18.|\OT1/cmr/m/n/10.95 DE-
  []
 
-<G45719_scdd.png, id=126, 614.295pt x 794.97pt>
+<G45719_mast.png, id=128, 614.295pt x 794.97pt>
+File: G45719_mast.png Graphic file (type png)
+ <use G45719_mast.png>
+Package pdftex.def Info: G45719_mast.png used on input line 762.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 763--763
+[]\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (18.397pt too wide) in paragraph at lines 763--763
+\OT1/cmr/m/sc/10.95 19.|\OT1/cmr/m/n/10.95 MAST| 
+ []
+
+<G45719_scdd.png, id=129, 614.295pt x 794.97pt>
 File: G45719_scdd.png Graphic file (type png)
  <use G45719_scdd.png>
-Package pdftex.def Info: G45719_scdd.png used on input line 759.
+Package pdftex.def Info: G45719_scdd.png used on input line 766.
 (pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
 
-Overfull \hbox (2.048pt too wide) in paragraph at lines 760--760
-\OT1/cmr/m/sc/10.95 Figure
+Overfull \hbox (2.048pt too wide) in paragraph at lines 767--767
+[]\OT1/cmr/m/sc/10.95 Figure
  []
 
 
-Overfull \hbox (11.49246pt too wide) in paragraph at lines 760--760
-\OT1/cmr/m/sc/10.95 20.\OT1/cmr/m/n/10.95 scDD 
+Overfull \hbox (12.07031pt too wide) in paragraph at lines 767--767
+\OT1/cmr/m/sc/10.95 20.|\OT1/cmr/m/n/10.95 scDD| 
  []
 
-<G45719_scddb.png, id=127, 614.295pt x 794.97pt>
+<G45719_scddb.png, id=130, 614.295pt x 794.97pt>
 File: G45719_scddb.png Graphic file (type png)
  <use G45719_scddb.png>
-Package pdftex.def Info: G45719_scddb.png used on input line 763.
+Package pdftex.def Info: G45719_scddb.png used on input line 770.
 (pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
 
-Overfull \hbox (2.048pt too wide) in paragraph at lines 764--764
-\OT1/cmr/m/sc/10.95 Figure
+Overfull \hbox (2.048pt too wide) in paragraph at lines 771--771
+[]\OT1/cmr/m/sc/10.95 Figure
  []
 
 
-Overfull \hbox (37.71167pt too wide) in paragraph at lines 764--764
-\OT1/cmr/m/sc/10.95 21.\OT1/cmr/m/n/10.95 scDDboost 
+Overfull \hbox (7.35571pt too wide) in paragraph at lines 771--771
+\OT1/cmr/m/sc/10.95 21.|\OT1/cmr/m/n/10.95 scD-
  []
 
-<G45719_des.png, id=128, 614.295pt x 794.97pt>
+<G45719_des.png, id=131, 614.295pt x 794.97pt>
 File: G45719_des.png Graphic file (type png)
  <use G45719_des.png>
-Package pdftex.def Info: G45719_des.png used on input line 767.
-(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
-
-Overfull \hbox (2.048pt too wide) in paragraph at lines 768--768
-\OT1/cmr/m/sc/10.95 Figure
- []
-
-
-Overfull \hbox (23.5983pt too wide) in paragraph at lines 768--768
-\OT1/cmr/m/sc/10.95 22.\OT1/cmr/m/n/10.95 DESeq2 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [20 <./DEC_NPC_mast.png> <./DEC_NPC_scdd.png> <./DEC_NPC_scddb.png> <./DEC_NPC
-_des.png> <./DEC_EC_mast.png> <./DEC_EC_scdd.png> <./DEC_EC_scddb.png> <./DEC_E
-C_des.png>] <G74596_mast.png, id=140, 614.295pt x 794.97pt>
-File: G74596_mast.png Graphic file (type png)
- <use G74596_mast.png>
-Package pdftex.def Info: G74596_mast.png used on input line 774.
+Package pdftex.def Info: G45719_des.png used on input line 774.
 (pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
 
 Overfull \hbox (2.048pt too wide) in paragraph at lines 775--775
-\OT1/cmr/m/sc/10.95 Figure
+[]\OT1/cmr/m/sc/10.95 Figure
  []
 
 
-Overfull \hbox (17.81915pt too wide) in paragraph at lines 775--775
-\OT1/cmr/m/sc/10.95 23.\OT1/cmr/m/n/10.95 MAST 
- []
-
-<G74596_scdd.png, id=141, 614.295pt x 794.97pt>
-File: G74596_scdd.png Graphic file (type png)
- <use G74596_scdd.png>
-Package pdftex.def Info: G74596_scdd.png used on input line 778.
-(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
-
-Overfull \hbox (2.048pt too wide) in paragraph at lines 779--779
-\OT1/cmr/m/sc/10.95 Figure
+Overfull \hbox (5.62196pt too wide) in paragraph at lines 775--775
+\OT1/cmr/m/sc/10.95 22.|\OT1/cmr/m/n/10.95 DE-
  []
 
 
-Overfull \hbox (11.49246pt too wide) in paragraph at lines 779--779
-\OT1/cmr/m/sc/10.95 24.\OT1/cmr/m/n/10.95 scDD 
- []
-
-<G74596_scddb.png, id=142, 614.295pt x 794.97pt>
-File: G74596_scddb.png Graphic file (type png)
- <use G74596_scddb.png>
-Package pdftex.def Info: G74596_scddb.png used on input line 782.
-(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
-
-Overfull \hbox (2.048pt too wide) in paragraph at lines 783--783
-\OT1/cmr/m/sc/10.95 Figure
- []
-
-
-Overfull \hbox (37.71167pt too wide) in paragraph at lines 783--783
-\OT1/cmr/m/sc/10.95 25.\OT1/cmr/m/n/10.95 scDDboost 
- []
-
-<G74596_des.png, id=143, 614.295pt x 794.97pt>
-File: G74596_des.png Graphic file (type png)
- <use G74596_des.png>
-Package pdftex.def Info: G74596_des.png used on input line 786.
-(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
-
-Overfull \hbox (2.048pt too wide) in paragraph at lines 787--787
-\OT1/cmr/m/sc/10.95 Figure
- []
-
-
-Overfull \hbox (23.5983pt too wide) in paragraph at lines 787--787
-\OT1/cmr/m/sc/10.95 26.\OT1/cmr/m/n/10.95 DESeq2 
- []
-
-
-Overfull \hbox (15.74901pt too wide) has occurred while \output is active
- \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
-CELL RNA-SEQ DATA[] []
- []
-
-[21 <./G45719_mast.png> <./G45719_scdd.png> <./G45719_scddb.png> <./G45719_des.
-png> <./G74596_mast.png> <./G74596_scdd.png> <./G74596_scddb.png> <./G74596_des
-.png>] [22
-
-
-] (./mkn-v1.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1067,7 +1046,84 @@ Overfull \hbox (15.74901pt too wide) has occurred while \output is active
 CELL RNA-SEQ DATA[] []
  []
 
-[23]
+[21 <./DEC_NPC_mast.png> <./DEC_NPC_scdd.png> <./DEC_NPC_scddb.png> <./DEC_NPC_
+des.png> <./DEC_EC_mast.png> <./DEC_EC_scdd.png> <./DEC_EC_scddb.png> <./DEC_EC
+_des.png>] <G74596_mast.png, id=143, 614.295pt x 794.97pt>
+File: G74596_mast.png Graphic file (type png)
+
+<use G74596_mast.png>
+Package pdftex.def Info: G74596_mast.png used on input line 781.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 782--782
+[]\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (18.397pt too wide) in paragraph at lines 782--782
+\OT1/cmr/m/sc/10.95 23.|\OT1/cmr/m/n/10.95 MAST| 
+ []
+
+<G74596_scdd.png, id=144, 614.295pt x 794.97pt>
+File: G74596_scdd.png Graphic file (type png)
+ <use G74596_scdd.png>
+Package pdftex.def Info: G74596_scdd.png used on input line 785.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 786--786
+[]\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (12.07031pt too wide) in paragraph at lines 786--786
+\OT1/cmr/m/sc/10.95 24.|\OT1/cmr/m/n/10.95 scDD| 
+ []
+
+<G74596_scddb.png, id=145, 614.295pt x 794.97pt>
+File: G74596_scddb.png Graphic file (type png)
+ <use G74596_scddb.png>
+Package pdftex.def Info: G74596_scddb.png used on input line 789.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 790--790
+[]\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (7.35571pt too wide) in paragraph at lines 790--790
+\OT1/cmr/m/sc/10.95 25.|\OT1/cmr/m/n/10.95 scD-
+ []
+
+<G74596_des.png, id=146, 614.295pt x 794.97pt>
+File: G74596_des.png Graphic file (type png)
+ <use G74596_des.png>
+Package pdftex.def Info: G74596_des.png used on input line 793.
+(pdftex.def)             Requested size: 107.50114pt x 139.1097pt.
+
+Overfull \hbox (2.048pt too wide) in paragraph at lines 794--794
+[]\OT1/cmr/m/sc/10.95 Figure
+ []
+
+
+Overfull \hbox (5.62196pt too wide) in paragraph at lines 794--794
+\OT1/cmr/m/sc/10.95 26.|\OT1/cmr/m/n/10.95 DE-
+ []
+
+[22 <./G45719_mast.png> <./G45719_scdd.png> <./G45719_scddb.png> <./G45719_des.
+png> <./G74596_mast.png> <./G74596_scdd.png> <./G74596_scddb.png> <./G74596_des
+.png>] (./mkn-v1.bbl
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (15.74901pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
+CELL RNA-SEQ DATA[] []
+ []
+
+[23
+
+
+]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [24])
@@ -1082,13 +1138,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4636 strings out of 492995
- 63369 string characters out of 6132704
- 154733 words of memory out of 5000000
- 7924 multiletter control sequences out of 15000+600000
+ 5691 strings out of 492995
+ 82561 string characters out of 6132704
+ 160120 words of memory out of 5000000
+ 8973 multiletter control sequences out of 15000+600000
  12646 words of font info for 48 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 42i,17n,32p,1527b,466s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,17n,39p,1527b,462s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
@@ -1108,7 +1164,7 @@ e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
 017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/201
 7/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2017/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mkn-v1.pdf (25 pages, 2783985 bytes).
+Output written on mkn-v1.pdf (25 pages, 3386540 bytes).
 PDF statistics:
  231 PDF objects out of 1000 (max. 8388607)
  115 compressed objects within 2 object streams

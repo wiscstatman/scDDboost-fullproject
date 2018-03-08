@@ -1,5 +1,5 @@
 \documentclass[11pt]{amsart}
-\usepackage{geometry,amsmath,amssymb,amsthm,cite,mathtools,float}                % See geometry.pdf to learn the layout options. There are lots.
+\usepackage{geometry,amsmath,amssymb,amsthm,cite,mathtools,float, caption}                % See geometry.pdf to learn the layout options. There are lots.
 \usepackage[numbers, sort&compress]{natbib}
 \geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
 %\geometry{landscape}                % Activate for for rotated page geometry
@@ -464,16 +464,16 @@ Still using above example, in limiting case, we have $p(A_{\pi_3} | z^1, z^2) = 
 \subsection{simulated data}\hfill\\
 Here's an example using the probabilities $\phi$ and $\psi$ from Figure 2;
 \begin{figure}[h!]
-  \includegraphics[width=\linewidth]{prop.png}
+  \includegraphics[height = 4cm, width=\linewidth]{prop.png}
   \caption{proportion change in different conditions.}
   \label{fig:2}
 \end{figure}
 We simulate data by splatter\cite{ref:Zappia} with $n_1=n_2=200$, and 7 subtypes among two conditions with proportional constraints: $\phi_1 + \phi_2 = \psi_1 + \psi_2$, $\phi_3 + \phi_4 +\phi_5 = \psi_3 + \psi_4 + \psi_5$ and $\phi_6 + \phi_7 = \psi_6 + \psi_7$\\
 We view the differences among subtypes by projecting transcripts profiles of cells into its first two principal components(figure 3)
 \begin{figure}[h!]
-  \includegraphics[height=5cm, width=8cm]{pca2.png}
-  \caption{pca of cells}
-  \label{fig:3}
+  \includegraphics[height=8cm, width=8cm]{pca.png}
+  \caption{first two principal components of transcripts, which demonstrates the difference between subtypes.}
+  \label{fig:4}
 \end{figure}
 
 
@@ -485,20 +485,7 @@ We view the differences among subtypes by projecting transcripts profiles of cel
 5.\textit{Posterior of proportion.} We obtain posterior inference on proportion change via the double dirichlet prior in section 2. \\
 6.\textit{Posterior of DD.} Combine results from step 4 and 5 to compute posterior probabilities of genes being differential distributed\\
 We determine the number of clusters by searching a range of candidates (from 1 to 9 based on our empirical experience). Given a number of cluster, we compute the posterior probabilities of genes being differential distributed by step 4 - 6. We visualize the change between posterior probabilities under number of clusters $i$ and $i + 1$($i$ from 1 to 8). It typically remains stable when number of cluster is above a number smaller than 9 (figure 4)\\
-\begin{figure}[H]
-\minipage{0.3\textwidth}
-  \includegraphics[height = 3cm,width=\linewidth]{sim_56.png}
-\endminipage\hfill
-\minipage{0.3\textwidth}
-  \includegraphics[height = 3cm, width=\linewidth]{sim_67.png}
-\endminipage\hfill
-\minipage{0.3\textwidth}
-  \includegraphics[height = 3cm, width=\linewidth]{sim_78.png}
-  \endminipage
-\caption{}
-\end{figure}
-\hfill\\
-In the simulation data, there are 7 groups and 10\% genes each group are DE genes. There are in total 9067 DD genes and 8306 ED genes.\\
+In the splatter simulation setting, there are 7 groups and 10\% genes each group are DE genes. There are in total 9067 DD genes and 8306 ED genes.\\
 Below are numbers of DD or DE genes identified by four methods with target FDR at 5 \%. \\
 \begin{tabular}{ |p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
 \hline
@@ -512,17 +499,30 @@ True positive & 4774 & 2724 & 2442 & 2073\\
 false positive & 1299 & 314 & 26 & 3\\
 \hline
 \end{tabular}\\
-And we compare roc curves of scDDboost, scDD, MAST and DESeq2. (figure 4)
+\captionof{table}{number of true positive and false positive genes identified by four methods. Target FDR at 5\%}
+scDDboost identified most true DD genes, the reason is that some DE genes in the simulation have small log fold change and make the regular two sample test difficult to detect the change, especially when method did not consider mixture of subtypes, which could further make the change insignificant. scDDboost could correctly identify the subtypes of cells and thus are more sensitive to the mean expression change among subtypes. We also compare roc curves of scDDboost, scDD, MAST and DESeq2. (figure 5)
+\begin{figure}[H]
+\minipage{0.33\textwidth}
+  \includegraphics[height = 6cm,width=\linewidth]{sim56.png}
+\endminipage\hfill
+\minipage{0.33\textwidth}
+  \includegraphics[height = 6cm, width=\linewidth]{sim67.png}
+\endminipage\hfill
+\minipage{0.33\textwidth}
+  \includegraphics[height = 6cm, width=\linewidth]{sim78.png}
+  \endminipage
+\caption{comparison of posterior probabilities of being DD among different number of subtypes}
+\end{figure}
 \begin{figure}[h]
-  \includegraphics[height = 6cm, width = 10cm]{Splatter_roc.png}
+  \includegraphics[height = 6cm, width = 10cm]{roc.png}
   \caption{roc curve of scDDboost, scDD, MAST and DESeq2}
   \label{fig:5}
-\end{figure}\\
+\end{figure}
 scDDboost may work poorly, when $(\phi, \psi)\in Q$, like we have discussed in section 2.5, we may underestimate the posterior probability of true proportion change pattern, which reduce the posterior probabilities of true negative and enlarge false positive rate.\\
 Another situation that the power of scDDboost could be limited is that even though there is no mean expression change among subtypes but the distribution among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus reduce power of detecting DD genes.\\
 \section{Examples}
 We use ten datasets from conquer\cite{ref:Cq} to test performance of our method on real data. We compare our results with scDD\cite{ref:scDD}, MAST\cite{ref:MAST} and DESeq2\cite{ref:Des}\\
-\resizebox{\columnwidth}{!}{%
+\begin{center}
 \begin{tabular}{ |p{3cm}|p{6cm}|p{2cm}|p{2cm}|p{1cm}|}
 \hline
  Data set & Compared cell subsets & Number of cells per condition & Organism & Ref\\
@@ -559,16 +559,19 @@ GSE75748 & NPC vs DEC & 64, 87 & human & \cite{chu}\\
 \hline
 GSE75748 & NPC & 64 & human & \cite{chu}\\
 \hline
-GSE75748 & DEC vs EC & 64 64 & human & \cite{chu}\\
+GSE75748 & DEC vs EC & 70, 64 & human & \cite{chu}\\
 \hline
 GSE75748 & DEC & 70 & human & \cite{chu}\\
 \hline
-GSE64016null & H1 vs H9 & 64, 87 & human & \cite{oscope}\\
+GSE64016null & H1 exp1 vs H1 exp2 & 64, 87 & human & \cite{oscope}\\
 \hline
-\end{tabular}%
-}\\
+\end{tabular}
+\captionof{table}{single cell transcripts profiles used for differential expression or distribution method evaluation}
+\end{center}
+\hfill\\
 We have table of numbers of differentially expressed genes of each dataset by MAST and DESeq2, and numbers of differentially distributed genes of each dataset by scDDboost and scDD.\\
 \\
+\begin{center}
 \begin{tabular}{ |p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
 \hline
 Data set & scDDboost & scDDboost-sc3 & scDD & MAST & DESeq2 & total number of genes\\
@@ -594,60 +597,64 @@ DEC-EC & 3461 & 3023 & 3818 & 5429 & 8127 & 19037\\
 \hline
 H1 exp1-H1 exp2 &  0 & 0 & 1300 & 2077 & 2841 & 16579\\
 \hline
-\end{tabular}\\
+\end{tabular}
+\captionof{table}{number of genes detected as significantly DE or DD}
+\end{center}
+We found that bulk method DESeq2 tends to have the most number of DE genes. But among single cell methods we found that scDDboost usually had the most number of DD genes we indeed increase the power of DD genes detection. Further we observed quite a few genes uniquely identified by scDDboost are likely to have different distribution across conditions. For example, figure 6, we use heatmap to demonstrate the log expression profiles among DEC and EC. \\
 \begin{figure}[h]
-\includegraphics[height = 8cm, width = 8cm]{heat2.png}
- \caption{heatmap of log transformed transcripts DD genes uniquely identified by scDDboost}
+\includegraphics[height = 6cm, width = 8cm]{heat.png}
+ \caption{heatmap of log transformed transcripts DD genes uniquely identified by scDDboost, for data GSE75748, DEC vs. EC}
   \label{fig:6}
 \end{figure}
-\newpage
-We validate false discovery rate on ten null datasets from the table. For each null dataset, we randomly split the cells from one condition into two equal sized subsets and do DE analysis between those subsets for five times . we evaluate the type I error control for the methods returning nominal p-values, by recording the fraction of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (figure 5).\\
+Although bulk methods seems to be the most powerful one, we found it also has a higher false discovery rate comparing to single cell methods. We validate false discovery rate on ten null datasets from table 1. For each null dataset, we randomly split the cells from one condition into two equal sized subsets and do DE analysis between those subsets. Since those two subsets of cells actually came from same condition, there should not be any differential distributed genes, any positive call would be a false positive. We repeat the random split and testing for five times on each null data set. We evaluate the type I error control for the methods returning nominal p-values, by recording the fraction of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (figure 5).\\
 \begin{figure}[H]
-\includegraphics[height = 8cm, width = 10cm]{FDR.png}
- \caption{FDR of scDDboost, scDD, MAST and DESeq2}
+\includegraphics[height = 8cm, width = 10cm]{FDR1.png}
+ \caption{FDR of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1}
   \label{fig:7}
 \end{figure}
 scDDboost could control FDR since we assume cells are sampled from population composed of different subtypes. Cells from one subtype are equal likely to be assigned to either one of the two subsets. Consequently, proportions of subtypes remain unchanged among the two subsets.\\
 D3E\cite{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset EMTAB2805\\
+\begin{center}
 \begin{figure}[H]
-\minipage{0.3\textwidth}
-  \includegraphics[width=\linewidth]{act.png}
+\minipage{0.5\textwidth}
+  \includegraphics[height = 6cm,width =\linewidth]{act.png}
 \endminipage\hfill
-\minipage{0.3\textwidth}
-  \includegraphics[width=\linewidth]{in_act.png}
+\minipage{0.5\textwidth}
+  \includegraphics[height = 6cm,width =\linewidth]{in_act.png}
 \endminipage\hfill
-\minipage{0.3\textwidth}
-  \includegraphics[width=\linewidth]{t_rate.png}
+\minipage{0.5\textwidth}
+  \includegraphics[height = 6cm,width= \linewidth]{t_rate.png}
   \endminipage
-\caption{}
+\caption{2D histogram for comparing estimated parameters of DD genes identified by scDDboost from dataset EMTAB2805: rate of promoter activation, rate of promoter inactivation and rate of transcription when the promoter is in the active state}
 \end{figure}
-We observed that DD genes identified by our methods are driven by the change of activation and inactivation rates. 
+\end{center}
+We observed that DD genes identified by scDDboost tends to have similar transcription rate when the promoter is active across condition,  while there are lots of variabilities in the action and inactivation rate. These results reveal that DD genes identified by scDDboost are driven by the change of activation and inactivation rates. 
 
 \section{Discussion}
 Cluster cells is an unsupervised learning, we do not know the true underlying partition and different number of clusters will lead to large differences in posterior probabilities of genes being differentially distributed (figure 7). We propose a modified bootstrap to stabilize our inferences. Instead of resample the cells, we resample the distance matrices of cells by adding noises to original distance matrix. Denote the original distance matrix as $D = (d_{i,j})$, for each time we random sample a vector $e$ with length equal to number of cells and components are i.i.d. exponentially distributed. let $w$ be the standard deviation of $d_{i,j}$. We resample a new $\hat{D}$ by adding nosies: $\hat{d}_{i,j} = d_{i,j} + e_i * w + e_j *w$. For $\hat{D}$ we still have triangle inequality held as $\hat{d}_{i,j} + \hat{d}_{j,k} \geq \hat{d}_{i,k}$ , it is a valid distance matrix. For a fixed number of clusters, we average posterior probabilities over different distance matrices. And we select number of clusters $K$ that posterior probabilities do not vary too much under $K$ and $K+1$. From our empirical experience, it is typical $K$ will not be larger than 8.\\
 \begin{figure}[H]
 \minipage{0.3\textwidth}
-  \includegraphics[height = 3cm, width=\linewidth]{E28_56.png}
+  \includegraphics[height = 5cm, width=\linewidth]{E28_56.png}
 \endminipage\hfill
 \minipage{0.3\textwidth}
-  \includegraphics[height = 3cm, width=\linewidth]{E28_67.png}
+  \includegraphics[height = 5cm, width=\linewidth]{E28_67.png}
 \endminipage\hfill
 \minipage{0.3\textwidth}
-  \includegraphics[height = 3cm, width=\linewidth]{E28_78.png}
+  \includegraphics[height = 5cm, width=\linewidth]{E28_78.png}
   \endminipage
-\caption{selecting number of subtypes for data E2805}
+\caption{selecting number of subtypes for data EMTAB2805}
 \end{figure}
 \begin{figure}[H]
 \minipage{0.3\textwidth}
-  \includegraphics[height = 3cm, width=\linewidth]{G48_45.png}
+  \includegraphics[height = 5cm, width=\linewidth]{G48_45.png}
 \endminipage\hfill
 \minipage{0.3\textwidth}
-  \includegraphics[height = 3cm, width=\linewidth]{G48_56.png}
+  \includegraphics[height = 5cm, width=\linewidth]{G48_56.png}
 \endminipage\hfill
 \minipage{0.3\textwidth}
-  \includegraphics[height = 3cm, width=\linewidth]{G48_67.png}
+  \includegraphics[height = 5cm, width=\linewidth]{G48_67.png}
   \endminipage
-\caption{selecting number of subtypes for data G48968}
+\caption{selecting number of subtypes for data GSE48968}
 \end{figure}
 
 
