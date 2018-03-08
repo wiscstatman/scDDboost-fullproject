@@ -502,14 +502,11 @@ false positive & 1299 & 314 & 26 & 3\\
 \captionof{table}{number of true positive and false positive genes identified by four methods. Target FDR at 5\%}
 scDDboost identified most true DD genes, the reason is that some DE genes in the simulation have small log fold change and make the regular two sample test difficult to detect the change, especially when method did not consider mixture of subtypes, which could further make the change insignificant. scDDboost could correctly identify the subtypes of cells and thus are more sensitive to the mean expression change among subtypes. We also compare roc curves of scDDboost, scDD, MAST and DESeq2. (figure 5)
 \begin{figure}[H]
-\minipage{0.33\textwidth}
-  \includegraphics[height = 6cm,width=\linewidth]{sim56.png}
+\minipage{0.5\textwidth}
+  \includegraphics[height = 8cm, width=\linewidth]{sim67.png}
 \endminipage\hfill
-\minipage{0.33\textwidth}
-  \includegraphics[height = 6cm, width=\linewidth]{sim67.png}
-\endminipage\hfill
-\minipage{0.33\textwidth}
-  \includegraphics[height = 6cm, width=\linewidth]{sim78.png}
+\minipage{0.5\textwidth}
+  \includegraphics[height = 8cm, width=\linewidth]{sim78.png}
   \endminipage
 \caption{comparison of posterior probabilities of being DD among different number of subtypes}
 \end{figure}
@@ -616,49 +613,41 @@ scDDboost could control FDR since we assume cells are sampled from population co
 D3E\cite{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset EMTAB2805\\
 \begin{center}
 \begin{figure}[H]
-\minipage{0.5\textwidth}
-  \includegraphics[height = 6cm,width =\linewidth]{act.png}
-\endminipage\hfill
-\minipage{0.5\textwidth}
-  \includegraphics[height = 6cm,width =\linewidth]{in_act.png}
-\endminipage\hfill
-\minipage{0.5\textwidth}
-  \includegraphics[height = 6cm,width= \linewidth]{t_rate.png}
-  \endminipage
-\caption{2D histogram for comparing estimated parameters of DD genes identified by scDDboost from dataset EMTAB2805: rate of promoter activation, rate of promoter inactivation and rate of transcription when the promoter is in the active state}
+\includegraphics[height = 6cm,width =\linewidth]{act.png}
 \end{figure}
+\begin{figure}[H]
+\includegraphics[height = 6cm,width =\linewidth]{in_act.png}
+\end{figure}
+\begin{figure}[H]
+\includegraphics[height = 6cm,width= \linewidth]{t_rate.png}
+\end{figure}
+\captionof{figure}{2D histogram for comparing estimated parameters of DD genes identified by scDDboost from dataset EMTAB2805: rate of promoter activation, rate of promoter inactivation and rate of transcription when the promoter is in the active state}
 \end{center}
 We observed that DD genes identified by scDDboost tends to have similar transcription rate when the promoter is active across condition,  while there are lots of variabilities in the action and inactivation rate. These results reveal that DD genes identified by scDDboost are driven by the change of activation and inactivation rates. 
 
 \section{Discussion}
 Cluster cells is an unsupervised learning, we do not know the true underlying partition and different number of clusters will lead to large differences in posterior probabilities of genes being differentially distributed (figure 7). We propose a modified bootstrap to stabilize our inferences. Instead of resample the cells, we resample the distance matrices of cells by adding noises to original distance matrix. Denote the original distance matrix as $D = (d_{i,j})$, for each time we random sample a vector $e$ with length equal to number of cells and components are i.i.d. exponentially distributed. let $w$ be the standard deviation of $d_{i,j}$. We resample a new $\hat{D}$ by adding nosies: $\hat{d}_{i,j} = d_{i,j} + e_i * w + e_j *w$. For $\hat{D}$ we still have triangle inequality held as $\hat{d}_{i,j} + \hat{d}_{j,k} \geq \hat{d}_{i,k}$ , it is a valid distance matrix. For a fixed number of clusters, we average posterior probabilities over different distance matrices. And we select number of clusters $K$ that posterior probabilities do not vary too much under $K$ and $K+1$. From our empirical experience, it is typical $K$ will not be larger than 8.\\
 \begin{figure}[H]
-\minipage{0.3\textwidth}
+\minipage{0.5\textwidth}
   \includegraphics[height = 5cm, width=\linewidth]{E28_56.png}
 \endminipage\hfill
-\minipage{0.3\textwidth}
+\minipage{0.5\textwidth}
   \includegraphics[height = 5cm, width=\linewidth]{E28_67.png}
 \endminipage\hfill
-\minipage{0.3\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{E28_78.png}
-  \endminipage
 \caption{selecting number of subtypes for data EMTAB2805}
 \end{figure}
 \begin{figure}[H]
-\minipage{0.3\textwidth}
+\minipage{0.5\textwidth}
   \includegraphics[height = 5cm, width=\linewidth]{G48_45.png}
 \endminipage\hfill
-\minipage{0.3\textwidth}
+\minipage{0.5\textwidth}
   \includegraphics[height = 5cm, width=\linewidth]{G48_56.png}
 \endminipage\hfill
-\minipage{0.3\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{G48_67.png}
-  \endminipage
 \caption{selecting number of subtypes for data GSE48968}
 \end{figure}
 
 
-
+\newpage
 \appendix
 \section{}
 \hfill\\
