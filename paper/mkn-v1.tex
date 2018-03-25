@@ -24,25 +24,25 @@
 \section{Introduction}
 
 The ability to measure genome-wide gene expression at single-cell resolution 
-has accelerated the pace of biological discovery (*cites*).  Overcoming data
+has accelerated the pace of biological discovery\cite{scs}.  Overcoming data
 analysis challenges caused by the scale and unique variation properties of single-cell
 data will surely fuel further advances in immunology (cite), developmental
-biology (cite), and cancer (cite).  Computational tools and statistical methodologies 
+biology (cite), and cancer (cite)(unsure about which paper to cite).  Computational tools and statistical methodologies 
 created for data of lower-resolution (e.g. bulk RNA-seq) or lower dimension 
 (e.g. flow cytometry)  guide our response to 
  the data science demands of new measurement platforms,
 but they are not adequate for efficient knowledge discovery in this
-rapidly advancing domain (Bacher and Kendziorski, 2016?; Gottardo?).
+rapidly advancing domain\cite{Bacher:2016aa}.
 
 An important feature of single-cell studies that could be leveraged better
 statistically is the fact that cells populate distinct, identifiable subtypes
 determined by lineage history, epigenetic state, the activity
 of various transcriptional programs (e.g. burst states), or other 
-distinguishing factors. [**something about sc methods concerned a lot with
-clustering cells into different cell subtypes/subpopulations...tsne...].
+distinguishing factors. Lots of efforts have been made to clustering cells
+into different cell subtypes, SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}.
 Whether or not a determination of cellular subtypes and their frequencies 
 is a task of interest in a given application, we hypothesize that such
-subytpe information may be injected into other inferences in order
+subtype information may be injected into other inferences in order
  to improve their operating characteristics.
 
 Assessing the magnitude and statistical significance of changes in gene
@@ -59,9 +59,13 @@ both marginal Dirichlet conjugacy as well as
  dependence induced through sharp equalities on aggregated 
  subtype probabilities, which turns out to be key in formulating 
  the posterior probability of changes in expression distributions between conditions.
+ 
  **what else do we do...test on a bunch of data sets...
  find improved sensitivity sometimes??** 
 
+We developed scDDboost utilizing inference on proportions change among subtypes to detect distributional change between two conditions 
+and we found improved sensitivity on simulated and real data(sometimes). Esepcially, scDDboost 
+are sensitive to change of states of burst.
 
 \section{Modeling}
 \subsection{Data structure, sampling model, and parameters}
@@ -465,14 +469,14 @@ Still using above example, in limiting case, we have $p(A_{\pi_3} | z^1, z^2) = 
 Here's an example using the probabilities $\phi$ and $\psi$ from Figure 2;
 \begin{figure}[h!]
   \includegraphics[height = 4cm, width=\linewidth]{prop.png}
-  \caption{proportion change in different conditions.}
+  \caption{proportions of subtypes change in different conditions.}
   \label{fig:2}
 \end{figure}
 We simulate data by splatter\cite{ref:Zappia} with $n_1=n_2=200$, and 7 subtypes among two conditions with constraints of proportions: $\phi_1 + \phi_2 = \psi_1 + \psi_2$, $\phi_3 + \phi_4 +\phi_5 = \psi_3 + \psi_4 + \psi_5$ and $\phi_6 + \phi_7 = \psi_6 + \psi_7$\\
 We view the differences among subtypes by projecting transcripts profiles of cells into its first two principal components(figure 3)
 \begin{figure}[h!]
   \includegraphics[height=8cm, width=8cm]{pca.png}
-  \caption{first two principal components of transcripts, which demonstrates the difference between subtypes.}
+  \caption{first two principal components of transcripts, which demonstrates the difference between subtypes. Even if we projected transcripts of cells into two dimensional space, we observe subtypes are separated.}
   \label{fig:4}
 \end{figure}
 
@@ -512,7 +516,7 @@ scDDboost identified most true DD genes, the reason is that some DE genes in the
 \end{figure}
 \begin{figure}[h]
   \includegraphics[height = 6cm, width = 10cm]{roc.png}
-  \caption{roc curve of scDDboost, scDD, MAST and DESeq2}
+  \caption{Roc curve of scDDboost, scDD, MAST and DESeq2, scDDboost has largest area under the roc curve. Roc curves of Mast and DEseq2 are similar. For those roc curve there is bigger difference at low level of false positive rate, as scDDboost identified twice many true DD genes as other methods.}
   \label{fig:5}
 \end{figure}
 scDDboost may work poorly, when $(\phi, \psi)\in Q$, like we have discussed in section 2.5, we may underestimate the posterior probability of true proportion change pattern, which reduce the posterior probabilities of true negative and enlarge false positive rate.\\

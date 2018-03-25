@@ -21,6 +21,45 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{scs}
+\BIBentryALTinterwordspacing
+T.~Nawy, ``Single-cell sequencing,'' \emph{Nature Methods}, vol.~11, pp. 18 EP
+  --, 12 2013. [Online]. Available: \url{http://dx.doi.org/10.1038/nmeth.2771}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Bacher:2016aa}
+\BIBentryALTinterwordspacing
+R.~Bacher and C.~Kendziorski, ``Design and computational analysis of
+  single-cell rna-sequencing experiments,'' \emph{Genome Biology}, vol.~17,
+  no.~1, p.~63, 2016. [Online]. Available:
+  \url{https://doi.org/10.1186/s13059-016-0927-y}
+\BIBentrySTDinterwordspacing
+
+\bibitem{sc3}
+\BIBentryALTinterwordspacing
+V.~Y. Kiselev, K.~Kirschner, M.~T. Schaub, T.~Andrews, A.~Yiu, T.~Chandra,
+  K.~N. Natarajan, W.~Reik, M.~Barahona, A.~R. Green, and M.~Hemberg, ``Sc3:
+  consensus clustering of single-cell rna-seq data,'' \emph{Nature Methods},
+  vol.~14, pp. 483 EP --, 03 2017. [Online]. Available:
+  \url{http://dx.doi.org/10.1038/nmeth.4236}
+\BIBentrySTDinterwordspacing
+
+\bibitem{CIDR}
+\BIBentryALTinterwordspacing
+P.~Lin, M.~Troup, and J.~W.~K. Ho, ``Cidr: Ultrafast and accurate clustering
+  through imputation for single-cell rna-seq data,'' \emph{Genome Biology},
+  vol.~18, no.~1, p.~59, 2017. [Online]. Available:
+  \url{https://doi.org/10.1186/s13059-017-1188-0}
+\BIBentrySTDinterwordspacing
+
+\bibitem{ZIFA}
+\BIBentryALTinterwordspacing
+E.~Pierson and C.~Yau, ``Zifa: Dimensionality reduction for zero-inflated
+  single-cell gene expression analysis,'' \emph{Genome Biology}, vol.~16,
+  no.~1, p. 241, 2015. [Online]. Available:
+  \url{https://doi.org/10.1186/s13059-015-0805-z}
+\BIBentrySTDinterwordspacing
+
 \bibitem{ref:MAST}
 \BIBentryALTinterwordspacing
 G.~Finak, A.~McDavid, M.~Yajima, J.~Deng, V.~Gersuk, A.~K. Shalek, C.~K.
