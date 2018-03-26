@@ -507,10 +507,10 @@ false positive & 1299 & 314 & 26 & 3\\
 scDDboost identified most true DD genes, the reason is that some DE genes in the simulation have small log fold change and make the regular two sample test difficult to detect the change, especially when method did not consider mixture of subtypes, which could further make the change insignificant. scDDboost could correctly identify the subtypes of cells and thus are more sensitive to the mean expression change among subtypes. We also compare roc curves of scDDboost, scDD, MAST and DESeq2. (figure 5)
 \begin{figure}[h]
 \minipage{0.5\textwidth}
-  \includegraphics[height = 6cm]{sim_67.png}
+  \includegraphics[width=\textwidth]{sim_67.png}
 \endminipage\hfill
 \minipage{0.5\textwidth}
-  \includegraphics[height = 6cm]{sim_78.png}
+  \includegraphics[width=\textwidth]{sim_78.png}
   \endminipage
 \caption{comparison of posterior probabilities of being DD among different number of subtypes, when we underestimate the number of subtypes, the difference is huge, see PDD between 6 subtypes and 7 subtypes. When we overestimate the number of subtypes, though inflating PDD (intercept is greater than 0 in the right panel) but the variation of difference is small, we observe a linear relation between PDD of 7 subtypes and 8 subtypes}
 \end{figure}
