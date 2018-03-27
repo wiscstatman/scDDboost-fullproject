@@ -13,7 +13,7 @@
 #' @return posterior probabilities under random distance matrix
 
 
-PDD_random = function(data, cd, K, D, hp, Posp, iter, lambda, seed){
+PDD_random = function(data, cd, K, D, sz, hp, Posp, iter, lambda, seed){
     set.seed(seed)
     E=rexp(ncol(D),rate = lambda)
     n = ncol(D)
