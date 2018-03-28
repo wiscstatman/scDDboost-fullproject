@@ -42,15 +42,23 @@ r_q DATA::cal_r(MatrixXd& data, vector<MatrixXd>& reorg_data, const VectorXd& sf
     size_t M=reorg_data.size();
     VectorXd whole_mean(G);
     size_t nc=data.cols();
-    whole_mean=data.rowwise().mean();
+//    whole_mean=data.rowwise().mean();
+    int sum = 0;
+    for(int i = 0; i < G; i++){
+        sum = 0;
+        for(int j = 0; j < nc; j++){
+            sum += data(i,j) / sf(j);
+        }
+        whole_mean(i) = sum / nc;
+    }
     
     MatrixXd cond_var(G,M);
     for(int i=0;i<M;++i){
         size_t sub_nc=reorg_data[i].cols();
-        if(sub_nc==1)
-            sub_nc=2;
+//        if(sub_nc==1)
+//            sub_nc=2;
         MatrixXd center=(reorg_data[i].colwise()-reorg_data[i].rowwise().mean());
-        cond_var.col(i)=center.rowwise().squaredNorm()/(sub_nc-1);
+        cond_var.col(i)=center.rowwise().squaredNorm()/ sub_nc;
     }
 
     VectorXd var(G);
