@@ -38,49 +38,64 @@ vector<MatrixXd> DATA::reorgr(const MatrixXd& r, const VectorXi& conditions){
 }
 
 
-r_q DATA::cal_r(MatrixXd& data, vector<MatrixXd>& reorg_data, const VectorXd& sf){
-    size_t M=reorg_data.size();
+r_q DATA::cal_r(MatrixXd& data,const VectorXi& conditions, const VectorXd& sf){
     VectorXd whole_mean(G);
-    size_t nc=data.cols();
-//    whole_mean=data.rowwise().mean();
-    int sum = 0;
-    for(int i = 0; i < G; i++){
-        sum = 0;
-        for(int j = 0; j < nc; j++){
-            sum += data(i,j) / sf(j);
-        }
-        whole_mean(i) = sum / nc;
-    }
+    size_t nc = data.cols();
+    //    whole_mean = data.rowwise().mean();
     
-    MatrixXd cond_var(G,M);
-    for(int i=0;i<M;++i){
-        size_t sub_nc=reorg_data[i].cols();
-//        if(sub_nc==1)
-//            sub_nc=2;
-        MatrixXd center=(reorg_data[i].colwise()-reorg_data[i].rowwise().mean());
-        cond_var.col(i)=center.rowwise().squaredNorm()/ sub_nc;
+    MatrixXd data_dvd(G,nc);
+    for(int i = 0; i < G; i++){
+        for(int j = 0; j < nc; j++){
+            data_dvd(i,j) = data(i,j) / sf(j);
+        }
     }
-
+    whole_mean = data_dvd.rowwise().mean();
+    MatrixXd cond_var(G,K);
+    int tmp_mean = 0;
+    int tmp_var = 0;
+    for(int i = 0; i < G; i++)
+        for(int j = 0; j < K; j++){
+            vector<int> s = which(conditions,j + 1);
+            tmp_mean = 0;
+            tmp_var = 0;
+            for(int t = 0; t < s.size(); t++)
+                tmp_mean += data_dvd(i,t);
+            tmp_mean /= s.size();
+            for(int t = 0; t < s.size(); t++)
+                tmp_var += (data(i,t) - tmp_mean) * (data(i,t) - tmp_mean) / sf(t);
+            cond_var(i,j) = tmp_var / s.size();
+        }
+    
+    
+    
+    //    for(int i = 0; i < M; ++i){
+    //        size_t sub_nc = reorg_data[i].cols();
+    ////        if(sub_nc == 1)
+    ////            sub_nc = 2;
+    //        MatrixXd center = (reorg_data[i].colwise()-reorg_data[i].rowwise().mean());
+    //        cond_var.col(i) = center.rowwise().squaredNorm() / sub_nc;
+    //    }
+    
     VectorXd var(G);
-    var=cond_var.rowwise().mean();
+    var = cond_var.rowwise().mean();
     MatrixXd res(G,nc);
     VectorXd q(G);
     VectorXd I(G);
     I.fill(1.0);
     
-    for(int i=0;i<G;++i){
-        if(abs(var(i)-0)<0.0001)
-            var(i)=1;
-        if(var(i)<=whole_mean(i))
-            q(i)=0.99;
+    for(int i = 0; i < G; ++i){
+        if(abs(var(i) - 0) < 0.0001)
+            var(i) = 1;
+        if(var(i) <= whole_mean(i))
+            q(i) = 0.99;
         else
-            q(i)=whole_mean(i)/var(i);
+            q(i) = whole_mean(i) / var(i);
     }
     
-    res=((whole_mean.cwiseProduct(q)).array()/(I-q).array()).matrix()*sf.transpose();
+    res = ((whole_mean.cwiseProduct(q)).array() / (I - q).array()).matrix() * sf.transpose();
     r_q res_r_q;
-    res_r_q.rrr=res;
-    res_r_q.qqq=q;
+    res_r_q.rrr = res;
+    res_r_q.qqq = q;
     return res_r_q;
 }
 
@@ -127,16 +142,16 @@ MatrixXd DATA::cal_hp(void){
 
 DATA::DATA(MatrixXd& data, const VectorXi& conditions, const VectorXd& sf, const MatrixXi& pp){
     MatrixXd r;
-    this->data=data;
-    this->G=data.rows();
-    this->r_d=reorg(data,conditions);
+    this->data = data;
+    this->G = data.rows();
+    this->r_d = reorg(data,conditions);
+    this->K = r_d.size();
     r_q res_rq;
-    res_rq=cal_r(data,r_d,sf);
-    this->r=res_rq.rrr;
-    this->q=res_rq.qqq;
-    this->r_r=reorgr(this->r,conditions);
-    this->K=r_d.size();
-    this->pat=pp;
+    res_rq = cal_r(data,conditions,sf);
+    this->r = res_rq.rrr;
+    this->q = res_rq.qqq;
+    this->r_r = reorgr(this->r,conditions);
+    this->pat = pp;
     
     MatrixXd td(G,K);
     MatrixXd tr(G,K);

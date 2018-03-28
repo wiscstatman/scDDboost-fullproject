@@ -58,7 +58,7 @@ public:
     
     DATA(MatrixXd&, const VectorXi&, const VectorXd&, const MatrixXi&);
     
-    r_q cal_r(MatrixXd&, vector<MatrixXd>&, const VectorXd&);
+    r_q cal_r(MatrixXd&, const VectorXi&, const VectorXd&);
     
     MatrixXd cal_hp(void);
     
