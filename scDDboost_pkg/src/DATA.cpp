@@ -62,7 +62,7 @@ r_q DATA::cal_r(MatrixXd& data,const VectorXi& conditions, const VectorXd& sf){
                 tmp_mean += data_dvd(i,s[t]);
             tmp_mean /= s.size();
             for(int t = 0; t < s.size(); t++)
-                tmp_var += (data(i,s[t]) - tmp_mean) * (data(i,s[t]) - tmp_mean) / sf(s[t]);
+                tmp_var += (data(i,s[t]) - tmp_mean * sf[s[t]]) * (data(i,s[t]) - tmp_mean * sf[s[t]]) / sf(s[t]);
             cond_var(i,j) = tmp_var / s.size();
         }
     
