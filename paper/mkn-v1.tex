@@ -608,9 +608,9 @@ We found that bulk method DESeq2 tends to have the most number of DE genes. But 
   \label{fig:6}
 \end{figure}
 Although bulk methods seems to be the most powerful one, we found it also has a higher false discovery rate comparing to single cell methods. We validate false discovery rate on ten null datasets from table 1. For each null dataset, we randomly split the cells from one condition into two equal sized subsets and do DE analysis between those subsets. Since those two subsets of cells actually came from same condition, there should not be any differential distributed genes, any positive call would be a false positive. We repeat the random split and testing for five times on each null data set. We evaluate the type I error control for the methods returning nominal p-values, by recording the fraction of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (figure 5).\\
-\begin{figure}[H]
-\includegraphics[height = 8cm]{FDR.png}
- \caption{FDR of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1}
+\begin{figure}[h]
+\includegraphics[width = 8cm]{FDR.png}
+ \caption{FDR of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. ***This procedure for testing FDR,  we randomly split a population into two samples, so it is highly likely proportion of subtypes remain same among these two samples, scDDboost always give small PDD and almost make no false positive call. This is kind different from really examining the FDR of scDDboost, where we have different proportions across conditions, but we do not want false call on those genes without mean expression change even there is proportion change. In this case, it actually reduce to the FDR of EBSeq whether we make correct posterior inference on DE pattern. The test of proportion is only done once, so scDDboost could still control FDR*** }
   \label{fig:7}
 \end{figure}
 scDDboost could control FDR since we assume cells are sampled from population composed of different subtypes. Cells from one subtype are equal likely to be assigned to either one of the two subsets. Consequently, proportions of subtypes remain unchanged among the two subsets.\\
