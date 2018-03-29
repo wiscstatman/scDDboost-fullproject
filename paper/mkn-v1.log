@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  26 MAR 2018 11:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  28 MAR 2018 20:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -724,35 +724,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 616--629
 
  []
 
-[16 <./heat.png> <./FDR.png>] <E28_56.png, id=88, 595.22375pt x 527.9725pt>
-File: E28_56.png Graphic file (type png)
+[16 <./heat.png> <./FDR.png>] <DN_67.png, id=88, 433.62pt x 289.08pt>
+File: DN_67.png Graphic file (type png)
 
-<use E28_56.png>
-Package pdftex.def Info: E28_56.png used on input line 636.
-(pdftex.def)             Requested size: 214.9979pt x 142.2564pt.
- <E28_67.png, id=89, 570.13pt x 506.89375pt>
-File: E28_67.png Graphic file (type png)
- <use E28_67.png>
-Package pdftex.def Info: E28_67.png used on input line 639.
-(pdftex.def)             Requested size: 214.99875pt x 142.26187pt.
+<use DN_67.png>
+Package pdftex.def Info: DN_67.png used on input line 636.
+(pdftex.def)             Requested size: 215.00316pt x 142.26357pt.
+ <DN_78.png, id=89, 433.62pt x 289.08pt>
+File: DN_78.png Graphic file (type png)
+ <use DN_78.png>
+Package pdftex.def Info: DN_78.png used on input line 639.
+(pdftex.def)             Requested size: 215.00316pt x 142.26357pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 633--642
 
  []
-
-<G48_45.png, id=90, 560.0925pt x 514.92375pt>
-File: G48_45.png Graphic file (type png)
- <use G48_45.png>
-Package pdftex.def Info: G48_45.png used on input line 645.
-(pdftex.def)             Requested size: 214.99957pt x 142.26053pt.
-
-<G48_56.png, id=91, 574.145pt x 523.9575pt>
-File: G48_56.png Graphic file (type png)
- <use G48_56.png>
-Package pdftex.def Info: G48_56.png used on input line 648.
-(pdftex.def)             Requested size: 214.99722pt x 142.26192pt.
-
-Underfull \vbox (badness 1308) has occurred while \output is active []
 
 
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
@@ -760,8 +746,19 @@ Overfull \hbox (11.49895pt too wide) has occurred while \output is active
 CELL RNA-SEQ DATA[] []
  []
 
-[17 <./t_rate.png> <./act.png> <./in_act.png>] [18 <./E28_56.png> <./E28_67.png
-> <./G48_45.png> <./G48_56.png>]
+[17 <./t_rate.png> <./act.png> <./in_act.png>]
+<G48_56.png, id=96, 433.62pt x 289.08pt>
+File: G48_56.png Graphic file (type png)
+ <use G48_56.png>
+Package pdftex.def Info: G48_56.png used on input line 645.
+(pdftex.def)             Requested size: 215.00316pt x 142.26357pt.
+
+<G48_67.png, id=97, 433.62pt x 289.08pt>
+File: G48_67.png Graphic file (type png)
+ <use G48_67.png>
+Package pdftex.def Info: G48_67.png used on input line 648.
+(pdftex.def)             Requested size: 215.00316pt x 142.26357pt.
+ [18 <./DN_67.png> <./DN_78.png> <./G48_56.png> <./G48_67.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 672--676
 
  []
@@ -1128,7 +1125,7 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  5691 strings out of 492995
- 82565 string characters out of 6132704
+ 82555 string characters out of 6132704
  161200 words of memory out of 5000000
  8976 multiletter control sequences out of 15000+600000
  12646 words of font info for 48 fonts, out of 8000000 for 9000
@@ -1153,7 +1150,7 @@ e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
 017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/201
 7/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2017/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mkn-v1.pdf (27 pages, 3130279 bytes).
+Output written on mkn-v1.pdf (27 pages, 3032951 bytes).
 PDF statistics:
  231 PDF objects out of 1000 (max. 8388607)
  119 compressed objects within 2 object streams

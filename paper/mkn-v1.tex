@@ -592,7 +592,7 @@ GSE63818-GPL16791 & 3948 & 3480 & 1365 & 873 & 8934 & 45686\\
 \hline
 GSE71585- GPL13112 & 2902 & 1460 & 1622 & 2572 & 7378 & 24057 \\
 \hline
-NPC-DEC & 3237 & 3211 & 5982 & 6666 & 8439 & 19037\\
+NPC-DEC & 4377 & 3211 & 5982 & 6666 & 8439 & 19037\\
 \hline
 DEC-EC & 3461 & 3023 & 3818 & 5429 & 8127 & 19037\\
 \hline
@@ -625,7 +625,7 @@ D3E\cite{ref:d3e} is a distributional method that can identify bursting paramete
  \minipage{0.33\textwidth}
   \includegraphics[width=\textwidth]{in_act.png}
   \endminipage
-\captionof{figure}{2D histogram for bursting parameters of DD genes identified by scDDboost from dataset EMTAB2805 estimated by D3E. Panel A : comparison of rate of promoter activation between two conditions, similarly, panel B : rate of promoter inactivation and panel C : rate of transcription when the promoter is in the active state. We observe that difference between transcription rate is smaller compare to difference between the activation and inactivation rate. **other methods also observe similar phenomena, this is not unique to scDDboost, main reason is D3E tends to estimate bigger difference among  }
+\captionof{figure}{2D histogram for bursting parameters of DD genes identified by scDDboost from dataset EMTAB2805 estimated by D3E. Panel A : comparison of rate of promoter activation between two conditions, similarly, panel B : rate of promoter inactivation and panel C : rate of transcription when the promoter is in the active state. We observe that difference between transcription rate is smaller compare to difference between the activation and inactivation rate. ***other methods also observe similar phenomena, this is not unique to scDDboost, main reason is that estimation from D3E tends to give larger difference in activation and inactivation rate than transcription rate. We may argue the major factor to drive DD genes are activation and inactivation rate (proportions of different subtyps), so it make sense to consider mixture model like scDDboost.***}
 \end{figure}
 We observed that DD genes identified by scDDboost tends to have similar transcription rate when the promoter is active across condition, while there are lots of variabilities in the action and inactivation rate. These results reveal that DD genes identified by scDDboost are driven by the change of activation and inactivation rates. 
 
@@ -633,21 +633,21 @@ We observed that DD genes identified by scDDboost tends to have similar transcri
 Cluster cells is an unsupervised learning, we do not know the true underlying partition and different number of clusters will lead to large differences in posterior probabilities of genes being differentially distributed (figure 7). We propose a modified bootstrap to stabilize our inferences. Instead of resample the cells, we resample the distance matrices of cells by adding noises to original distance matrix. Denote the original distance matrix as $D = (d_{i,j})$, for each time we random sample a vector $e$ with length equal to number of cells and components are i.i.d. exponentially distributed. let $w$ be the standard deviation of $d_{i,j}$. We resample a new $\hat{D}$ by adding nosies: $\hat{d}_{i,j} = d_{i,j} + e_i * w + e_j *w$. For $\hat{D}$ we still have triangle inequality held as $\hat{d}_{i,j} + \hat{d}_{j,k} \geq \hat{d}_{i,k}$ , it is a valid distance matrix. For a fixed number of clusters, we average posterior probabilities over different distance matrices. And we select number of clusters $K$ that posterior probabilities do not vary too much under $K$ and $K+1$. From our empirical experience, it is typical $K$ will not be larger than 8.\\
 \begin{figure}[H]
 \minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{E28_56.png}
+  \includegraphics[height = 5cm, width=\linewidth]{DN_67.png}
 \endminipage\hfill
 \minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{E28_67.png}
+  \includegraphics[height = 5cm, width=\linewidth]{DN_78.png}
 \endminipage\hfill
-\caption{selecting number of subtypes for data EMTAB2805}
+\caption{selecting number of subtypes for data GSE75748, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD.  We select number of subtypes to be 7}
 \end{figure}
 \begin{figure}[H]
 \minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{G48_45.png}
-\endminipage\hfill
-\minipage{0.5\textwidth}
   \includegraphics[height = 5cm, width=\linewidth]{G48_56.png}
 \endminipage\hfill
-\caption{selecting number of subtypes for data GSE48968}
+\minipage{0.5\textwidth}
+  \includegraphics[height = 5cm, width=\linewidth]{G48_67.png}
+\endminipage\hfill
+\caption{selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes}
 \end{figure}
 
 
