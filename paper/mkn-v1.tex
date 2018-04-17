@@ -597,7 +597,7 @@ GSE71585- GPL13112 & 2902 & 1460 & 1622 & 2572 & 7378 & 24057 \\
 \hline
 NPC-DEC & 4377 & 3211 & 5982 & 6666 & 8439 & 19037\\
 \hline
-DEC-EC & 3461 & 3023 & 3818 & 5429 & 8127 & 19037\\
+DEC-EC & 3402 & 3023 & 3818 & 5429 & 8127 & 19037\\
 \hline
 H1 exp1-H1 exp2 &  0 & 0 & 1300 & 2077 & 2841 & 16579\\
 \hline
@@ -607,7 +607,7 @@ H1 exp1-H1 exp2 &  0 & 0 & 1300 & 2077 & 2841 & 16579\\
 We found that bulk method DESeq2 tends to have the most number of DE genes. But among single cell methods we found that scDDboost usually had the most number of DD genes we indeed increase the power of DD genes detection. Further we observed quite a few genes uniquely identified by scDDboost are likely to have different distribution across conditions. For example, figure 6, we use heatmap to demonstrate the log expression profiles among DEC and EC. \\
 \begin{figure}[h]
 \includegraphics[width = \textwidth]{density.pdf}
- \caption{ Densities of log transformed transcripts 25 DD genes uniquely identified by scDDboost, for data GSE75748, DEC vs. EC, We observe some of the genes are different distributed across conditions. *** Need better examples, some genes are quite similar, some genes vanish completely at one condition which is usually not considered in other methods.***}
+ \caption{ Densities of log transformed transcripts 25 DD genes uniquely identified by scDDboost, for data GSE75748, DEC vs. EC, We observe some of the genes are different distributed across conditions. *** may need other plot to further investigate those genes that are appear to be DE but identified as DD***}
   \label{fig:6}
 \end{figure}
 Although bulk methods seems to be the most powerful one, we found it also has a higher false discovery rate comparing to single cell methods. We validate false discovery rate on ten null datasets from table 1. For each null dataset, we randomly split the cells from one condition into two equal sized subsets and do DE analysis between those subsets. Since those two subsets of cells actually came from same condition, there should not be any differential distributed genes, any positive call would be a false positive. We repeat the random split and testing for five times on each null data set. We evaluate the type I error control for the methods returning nominal p-values, by recording the fraction of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (figure 5).\\
