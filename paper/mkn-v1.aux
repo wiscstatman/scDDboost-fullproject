@@ -18,10 +18,10 @@
 \citation{ref:Dickey}
 \citation{Wag}
 \citation{ref:bayesC}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{2.5}{asymptotic properties}}{8}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Four subtypes of cells, simplexes of $(\phi ,\psi )$ satisfying different constraints.\relax }}{8}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:1}{{1}{8}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{2.5}{asymptotic properties}}{8}}
 \citation{ref:Zappia}
 \citation{ref:Rhonda}
 \citation{ref:Leng}
@@ -29,13 +29,11 @@
 \@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.1}{simulated data}}{10}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces proportions of subtypes change in different conditions.\relax }}{10}}
 \newlabel{fig:2}{{2}{10}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.2}{The scDDboost modeling framework}}{10}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces first two principal components of transcripts, which demonstrates the difference between subtypes. Even if we projected transcripts of cells into two dimensional space, we observe subtypes are separated.\relax }}{11}}
 \newlabel{fig:4}{{3}{11}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces number of true positive and false positive genes identified by four methods. Target FDR at 5\%\relax }}{11}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.2}{The scDDboost modeling framework}}{11}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces number of true positive and false positive genes identified by four methods. Target FDR at 5\%\relax }}{12}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces comparison of posterior probabilities of being DD among different number of subtypes, when we underestimate the number of subtypes, the difference is huge, see PDD between 6 subtypes and 7 subtypes. When we overestimate the number of subtypes, though inflating PDD (intercept is greater than 0 in the right panel) but the variation of difference is small, we observe a linear relation between PDD of 7 subtypes and 8 subtypes\relax }}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Roc curve of scDDboost, scDD, MAST and DESeq2, scDDboost has largest area under the roc curve. Roc curves of Mast and scDD are similar. For those roc curve there is bigger difference at low level of false positive rate, as scDDboost identified twice many true DD genes as other methods.\relax }}{12}}
-\newlabel{fig:5}{{5}{12}}
 \citation{ref:Cq}
 \citation{ref:scDD}
 \citation{ref:MAST}
@@ -58,6 +56,8 @@
 \citation{chu}
 \citation{chu}
 \citation{oscope}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Roc curve of scDDboost, scDD, MAST and DESeq2, scDDboost has largest area under the roc curve. Roc curves of Mast and scDD are similar. For those roc curve there is bigger difference at low level of false positive rate, as scDDboost identified twice many true DD genes as other methods.\relax }}{13}}
+\newlabel{fig:5}{{5}{13}}
 \@writefile{toc}{\contentsline {section}{\tocsection {}{4}{Examples}}{13}}
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces single cell transcripts profiles used for differential expression or distribution method evaluation\relax }}{14}}
 \citation{ref:d3e}
@@ -66,39 +66,42 @@
 \newlabel{fig:6}{{6}{16}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces FDR of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. ***This procedure for testing FDR, we randomly split a population into two samples, so it is highly likely proportion of subtypes remain same among these two samples, scDDboost always give small PDD and almost make no false positive call. This is kind different from really examining the FDR of scDDboost, where we have different proportions across conditions, but we do not want false call on those genes without mean expression change even there is proportion change. In this case, it actually reduce to the FDR of EBSeq whether we make correct posterior inference on DE pattern. The test of proportion is only done once, so scDDboost could still control FDR*** \relax }}{17}}
 \newlabel{fig:7}{{7}{17}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces 2D histogram for bursting parameters of DD genes identified by scDDboost from dataset EMTAB2805 estimated by D3E. Panel A : comparison of rate of promoter activation between two conditions, similarly, panel B : rate of promoter inactivation and panel C : rate of transcription when the promoter is in the active state. We observe that difference between transcription rate is smaller compare to difference between the activation and inactivation rate. ***other methods also observe similar phenomena, this is not unique to scDDboost, main reason is that estimation from D3E tends to give larger difference in activation and inactivation rate than transcription rate. We may argue the major factor to drive DD genes are activation and inactivation rate (proportions of different subtyps), so it make sense to consider mixture model like scDDboost.***\relax }}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces A\relax }}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces B\relax }}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces C\relax }}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces 2D histogram for bursting parameters of DD genes identified by scDDboost from dataset EMTAB2805 estimated by D3E. Panel A : comparison of rate of promoter activation between two conditions, similarly, panel B : rate of promoter inactivation and panel C : rate of transcription when the promoter is in the active state. We observe that difference between transcription rate is smaller compare to difference between the activation and inactivation rate. ***other methods also observe similar phenomena, this is not unique to scDDboost, main reason is that estimation from D3E tends to give larger difference in activation and inactivation rate than transcription rate. We may argue the major factor to drive DD genes are activation and inactivation rate (proportions of different subtyps), so it make sense to consider mixture model like scDDboost.***\relax }}{18}}
 \@writefile{toc}{\contentsline {section}{\tocsection {}{5}{Discussion}}{18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces selecting number of subtypes for data GSE75748, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD. We select number of subtypes to be 7\relax }}{19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes\relax }}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces selecting number of subtypes for data GSE75748, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD. We select number of subtypes to be 7\relax }}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes\relax }}{19}}
 \@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{A}{}}{20}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces MAST\relax }}{23}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces scDD\relax }}{23}}
-\newlabel{fig:scDD}{{12}{23}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces scDDboost\relax }}{23}}
-\newlabel{fig:scDDboost}{{13}{23}}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces DESeq2\relax }}{23}}
-\newlabel{fig:DESeq2}{{14}{23}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces MAST\relax }}{23}}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces scDD\relax }}{23}}
-\newlabel{fig:scDD}{{16}{23}}
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces scDDboost\relax }}{23}}
-\newlabel{fig:scDDboost}{{17}{23}}
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces DESeq2\relax }}{23}}
-\newlabel{fig:DESeq2}{{18}{23}}
-\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces MAST\relax }}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces scDD\relax }}{24}}
-\newlabel{fig:scDD}{{20}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces scDDboost\relax }}{24}}
-\newlabel{fig:scDDboost}{{21}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces DESeq2\relax }}{24}}
-\newlabel{fig:DESeq2}{{22}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces MAST\relax }}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces scDD\relax }}{24}}
-\newlabel{fig:scDD}{{24}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces scDDboost\relax }}{24}}
-\newlabel{fig:scDDboost}{{25}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces DESeq2\relax }}{24}}
-\newlabel{fig:DESeq2}{{26}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces MAST\relax }}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces scDD\relax }}{23}}
+\newlabel{fig:scDD}{{15}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces scDDboost\relax }}{23}}
+\newlabel{fig:scDDboost}{{16}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces DESeq2\relax }}{23}}
+\newlabel{fig:DESeq2}{{17}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces MAST\relax }}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces scDD\relax }}{23}}
+\newlabel{fig:scDD}{{19}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces scDDboost\relax }}{23}}
+\newlabel{fig:scDDboost}{{20}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces DESeq2\relax }}{23}}
+\newlabel{fig:DESeq2}{{21}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces MAST\relax }}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces scDD\relax }}{24}}
+\newlabel{fig:scDD}{{23}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces scDDboost\relax }}{24}}
+\newlabel{fig:scDDboost}{{24}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces DESeq2\relax }}{24}}
+\newlabel{fig:DESeq2}{{25}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces MAST\relax }}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {27}{\ignorespaces scDD\relax }}{24}}
+\newlabel{fig:scDD}{{27}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {28}{\ignorespaces scDDboost\relax }}{24}}
+\newlabel{fig:scDDboost}{{28}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {29}{\ignorespaces DESeq2\relax }}{24}}
+\newlabel{fig:DESeq2}{{29}{24}}
 \bibstyle{IEEEtran}
 \bibdata{/Users/xiuyuma/Desktop/scDDboost_paper/scDDboost/paper/references/wlr_ref}
 \bibcite{scs}{{1}{}{{}}{{}}}
