@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  27 APR 2018 18:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  27 APR 2018 18:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -838,7 +838,7 @@ CELL RNA-SEQ DATA[] []
  []
 
 [21]
-Overfull \hbox (40.75844pt too wide) in paragraph at lines 714--714
+Overfull \hbox (73.77013pt too wide) in paragraph at lines 714--714
 [] 
  []
 
@@ -1159,7 +1159,7 @@ e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
 017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/201
 7/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2017/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mkn-v1.pdf (27 pages, 2190491 bytes).
+Output written on mkn-v1.pdf (27 pages, 2190506 bytes).
 PDF statistics:
  242 PDF objects out of 1000 (max. 8388607)
  127 compressed objects within 2 object streams
