@@ -604,7 +604,7 @@ H1 exp1-H1 exp2 &  0 & 0 & 1300 & 2077 & 2841 & 16579\\
 \end{tabular}
 \captionof{table}{number of genes detected as significantly DE or DD}
 \end{center}
-We found that bulk method DESeq2 tends to have the most number of DE genes. But among single cell methods we found that scDDboost usually had the most number of DD genes we indeed increase the power of DD genes detection. Further we observed quite a few genes uniquely identified by scDDboost are likely to have different distribution across conditions. For example, figure 6, we use heatmap to demonstrate the log expression profiles among DEC and EC. \\
+We found that bulk method DESeq2 tends to have the most number of DE genes. But among single cell methods we found that scDDboost usually had the most number of DD genes. Further we observed quite a few genes uniquely identified by scDDboost are likely to have different distribution across conditions. For example, figure 6, we use violin plot to demonstrate the log expression profiles among DEC and EC. \\
 \begin{figure}[h]
 \includegraphics[width = \textwidth]{density.pdf}
  \caption{ Densities of log transformed transcripts 25 DD genes uniquely identified by scDDboost, for data GSE75748, DEC vs. EC, We observe some of the genes are different distributed across conditions. *** may need other plot to further investigate those genes that are appear to be DE but identified as DD***}
