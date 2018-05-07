@@ -177,7 +177,7 @@ A_\pi = \{ \theta\in \Theta: \; \Phi_b = \Psi_b  \, \forall b \in \pi \}.
 \end{eqnarray*}
 and
 \begin{eqnarray*}
-B_\pi = \{ \theta \in \Theta: \; \mu_{g,k} = \mu_{g,k'} \iff k,k' \in b, b \in \pi \}.
+B_{g,\pi} = \{ \theta \in \Theta: \; \mu_{g,k} = \mu_{g,k'} \iff k,k' \in b, b \in \pi \}.
 \end{eqnarray*}
 Indeed, these are precisely the
 structures needed to address differential distribution DD$_g$ (and
@@ -186,7 +186,7 @@ $g$:
 
 \begin{theorem}  At a given gene, equivalent distribution is
 \begin{eqnarray*}
-\text{ED}_g = \bigcup_{\pi \in \Pi}\left[ A_\pi \cap B_\pi \right].
+\text{ED}_g = \bigcup_{\pi \in \Pi}\left[ A_\pi \cap B_{g,\pi} \right].
 \end{eqnarray*}
 \end{theorem}
 
@@ -425,7 +425,7 @@ if $\pi_1 \neq \pi_2$, then $A_{\pi_1}^*\cap A_{\pi_2}^* = \emptyset$
 \hfill\\
 Let $Q = \Omega\setminus \underset{\pi\in \Pi}\cup A_\pi^*$, first thing to check is whether $Q$ exists.\\
 \begin{prop}
-Let $K$ be number of subtypes. When $K >  3, Q_2 \neq \emptyset$, when $K \leq 3, Q_2 = \emptyset$
+Let $K$ be number of subtypes. When $K >  3, Q \neq \emptyset$, when $K \leq 3, Q = \emptyset$
 \end{prop}
 \hfill\\
 When number of subtypes bigger than three, we lack posterior inference on $Q$. To see that we can rewrite $A_\pi^*$ as $A_\pi^* = A_\pi\setminus \underset{\tilde{\pi} \text{ is not coarser than } \pi }\cup (A_{\tilde{\pi}}\cap A_\pi)$, $\tilde{\pi}$ is not coarser than $\pi$, which is equivalently to say $\pi$ is not refinement of $\tilde{\pi}$. By lemma 1, $A_{\tilde{\pi}}\cap A_\pi$ is a lower dimensional subset of $A_\pi$. So $A_\pi \setminus A_\pi^*$ is a lower dimensional subset of $A_\pi$. For posterior on $Q$, it degenerates to integral on a lower dimensional subset of the simplex associating with densities, which will vanish\\
