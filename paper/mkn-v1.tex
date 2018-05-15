@@ -401,8 +401,8 @@ For asymptotic properties of the posterior probabilities, we demonstrated them i
 \begin{algorithmic}[1]
 \Procedure{scDDboost}{$X_1,X_2$}
 \State $Z\gets \text{identify subtypes of pooled cells} (X_1,X_2)$
-\State $P(M_{g,\pi} | X_1, X_2)\gets \text{EBSeq}$
-\State $P(A_\pi | Z)\gets \text{Empirical bayesian via double dirichlet prior}$
+\State $P(M_{g,\pi} | X_1, X_2)\gets \text{EBSeq}\cite{ref:Leng}$
+\State $P(A_\pi | Z)\gets \text{Empirical Bayes via double dirichlet prior}$
 \State $P(\text{ED}_g | X_1, X_2)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X_1, X_2)P(A_\pi | Z)$
 \State $P(\text{DD}_g | X_1, X_2) \gets 1 - P(\text{ED}_g | X_1, X_2)$
 \State \textbf{return} $P(\text{DD}_g | X_1, X_2)$
@@ -410,32 +410,31 @@ For asymptotic properties of the posterior probabilities, we demonstrated them i
 \end{algorithmic}
 \end{algorithm}
 
-In our basic workflow, the input are transcripts processed by normalizing methods e.g. SCnorm \cite{ref:Rhonda}). 
-The first step is to identify subtypes of cells. One advantage of our approach is that the posterior inference can be incorporate with different clustering methods.
+In our basic workflow, the input are transcripts processed by normalizing methods (e.g. SCnorm \cite{ref:Rhonda}). 
+Prior to any bayesian inference, we need to identify subtypes of cells. One advantage of our approach is that the posterior inference can be incorporate with different clustering methods.
 The essential idea is that the mixture structure is estimated using the whole genome information rather than at each gene solely using information of that gene  
-to estimate a gene specific mixture structure. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach scDDboost. Although there is no particular preference of clustering methods, we gave an efficient and effective clustering procedure.
+to estimate a gene specific mixture structure. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach scDDboost. 
 
-We pool cells from two biological conditions. At each gene level, we do a Poison-Gamma model extended from modal clustering\cite{ref:dahl}. After gene level clustering, we use the cluster-based similarity partition algorithm (CSPA\cite{ref:cspa}). For each individual clustering result, a binary similarity matrix is constructed from the corresponding cell labels: if two cells belong to the same cluster, their similarity is 1; otherwise their similarity is 0. We obtain a consensus similarity matrix $M1$ by averaging all similarity matrices of individual clusterings. Another distance matrix $M2$ calculated by Pearson distance between cells. A final similarity matrix is obtained by weighted combining $M1$ and $M2$. Cells are classified into subtypes by K-medoids based on the final similarity matrix. 
+There are many single cell clustering methods(e.g. SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}) that could utilized in the workflow. However, for the integrity of our work and speeding in computation, we present another efficient and effective clustering procedure.
+We pool cells from two conditions. At each gene level, we do a Poisson-Gamma model extended from modal clustering\cite{ref:dahl}. After gene level clustering, we use the cluster-based similarity partition algorithm (CSPA\cite{ref:cspa}). For each individual clustering result, a binary similarity matrix is constructed from the corresponding cell labels: if two cells belong to the same cluster, their similarity is 1; otherwise their similarity is 0. We obtain a consensus similarity matrix $M_1$ by averaging all similarity matrices of individual clusterings. Another distance matrix $M_2$ calculated by Pearson distance between cells. A final similarity matrix is obtained by weighted combining $M_1$ and $M_2$. Cells are classified into subtypes by K-medoids based on the final similarity matrix. 
 
-After estimation of subtypes, we 
+After identification of subtypes, the following two steps use empirical Bayes to provide posterior inference on patterns of differential expression and aggregated proportions of subtypes, which are components of posterior probabilities for a gene being equivalent distributed. Combining those components, final posterior probabilities are obtained.
 
 \subsection{Simulation study}\hfill\\
-Here's an example using the probabilities $\phi$ and $\psi$ from Figure 1;
-We simulate data by splatter\cite{ref:Zappia} with $n_1=n_2=200$, and 7 subtypes among two conditions with constraints of proportions: $\phi_1 + \phi_2 = \psi_1 + \psi_2$, $\phi_3 + \phi_4 +\phi_5 = \psi_3 + \psi_4 + \psi_5$ and $\phi_6 + \phi_7 = \psi_6 + \psi_7$. Gene transcripts from same subtype are sampling through a homogeneous two layer gamma-poison hierarchical model. Thus the distributions of transcripts within subtype tend to be more similar than the distributions between subtypes. \\
-We view the differences among subtypes by projecting transcripts profiles of cells into its first two principal components(figure 3). We observed subtypes are well separated, which is driven by genes with heterogeneous mean expression between subtypes.
+A simulation study was conducted to assess the performance of
+scDDboost in identifying DD genes.
+We simulate data by splatter\cite{ref:Zappia} with approximate 200 cells each condition and 7 subtypes with proportions $\phi$ and $\psi$ from Figure 1 satisfying constraints: $\phi_1 + \phi_2 = \psi_1 + \psi_2$, $\phi_3 + \phi_4 +\phi_5 = \psi_3 + \psi_4 + \psi_5$ and $\phi_6 + \phi_7 = \psi_6 + \psi_7$. Each subtype has 10\% genes to be differential expressed. We view the differences among subtypes by projecting transcripts profiles of cells into its first two principal components(figure 3). We observed subtypes are well separated, which is driven by genes with heterogeneous distribution between subtypes. 
 \begin{figure}[h!]
   \includegraphics[height=8cm, width=8cm]{pca.png}
   \caption{first two principal components of transcripts, which demonstrates the difference between subtypes. Even if we projected transcripts of cells into two dimensional space, we observe subtypes are well separated.}
   \label{fig:4}
 \end{figure}
 
+We determine the number of subtypes by searching a range of candidates(from 1 to 9 based on our empirical experience). Given number of subtypes, we obtain a subtype structure of cells, which will further be fed into computing the posterior probabilities. We visualize the change between posterior probabilities under number of clusters $i$ and $i + 1$($i$ from 1 to 8). It typically remains stable when number of cluster is above a number that is smaller than 9 (figure 4)
+In the simulated data, the posterior probability become stable when we overestimate the number of subtypes. We found the true number of subtypes is 7 and correctly identify the subtypes of cells.   
 
-4.\textit{DE analysis.} After clustering of cells, we obtain posterior inference on differential expression pattern among subtypes via EBSeq\cite{ref:Leng}\\
-5.\textit{Posterior of proportion.} We obtain posterior inference on proportion change via the double dirichlet prior in section 2. \\
-6.\textit{Posterior of DD.} Combine results from step 4 and 5 to compute posterior probabilities of genes being differential distributed\\
-We determine the number of clusters by searching a range of candidates (from 1 to 9 based on our empirical experience). Given a number of cluster, we compute the posterior probabilities of genes being differential distributed by step 4 - 6. We visualize the change between posterior probabilities under number of clusters $i$ and $i + 1$($i$ from 1 to 8). It typically remains stable when number of cluster is above a number smaller than 9 (figure 4)\\
-In the splatter simulation setting, there are 7 groups and 10\% genes each group are DE genes. There are in total 9067 DD genes and 8306 ED genes.\\
-Below are numbers of DD or DE genes identified by four methods with target FDR at 5 \%. \\
+10\% DE genes in each subtype results in total 9067 DD genes and 8306 ED genes in the mixture of the 7 subtypes.
+Table 1 are numbers of DD or DE genes identified by four methods (scDDboost, scDD, MAST and DESeq2) with target FDR at 5 \%. 
 \begin{tabular}{ |p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
 \hline
  & scDDboost & scDD & MAST & DESeq2\\
@@ -449,7 +448,8 @@ false positive & 1299 & 314 & 26 & 3\\
 \hline
 \end{tabular}\\
 \captionof{table}{number of true positive and false positive genes identified by four methods. Target FDR at 5\%}
-scDDboost identified most true DD genes, the reason is that some DE genes in the simulation have small log fold change and make the regular two sample test difficult to detect the change, especially when method did not consider mixture of subtypes, which could further make the change insignificant. scDDboost could correctly identify the subtypes of cells and thus are more sensitive to the mean expression change among subtypes. We also compare roc curves of scDDboost, scDD, MAST and DESeq2. (figure 5)
+
+scDDboost identified most true DD genes, the reason is that mean expression shifts between conditions is not as significant as mean expression shifts between subtypes, which limits the power of MAST and DESeq2. Our approach and scDD considered mixture structure underlying the transcrips but scDD did not use the whole genome information to infer mixture components, which leads to inaccurate clustering at gene level and reduce the power. scDDboost could correctly identify the subtypes of cells and thus are more sensitive to the mean expression change among subtypes. We also compare roc curves of scDDboost, scDD, MAST and DESeq2. (figure 5)
 \begin{figure}[h]
 \vspace{-\parskip}
 \minipage{0.5\textwidth}
@@ -465,8 +465,9 @@ scDDboost identified most true DD genes, the reason is that some DE genes in the
   \caption{Roc curve of scDDboost, scDD, MAST and DESeq2, scDDboost has largest area under the roc curve. Roc curves of Mast and scDD are similar. For those roc curve there is bigger difference at low level of false positive rate, as scDDboost identified twice many true DD genes as other methods.}
   \label{fig:5}
 \end{figure}
-scDDboost may work poorly, when $(\phi, \psi)\in Q$, like we have discussed in section 2.5, we may underestimate the posterior probability of true proportion change pattern, which reduce the posterior probabilities of true negative and enlarge false positive rate.\\
-Since we are modeling gene transcript within each subtype as negative binomial distributed and we only test one parameter(mean) change among subtypes. In some situation, it could be insufficient for modeling the variability within subtype, which leads to another situation that the power of scDDboost could be limited. Even though there is no mean expression change among subtypes but the distribution among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus reduce power of detecting DD genes.\\
+
+Since we are modeling gene transcript within each subtype as negative binomial distributed and we only test one parameter(mean) change among subtypes. In some situation, it could be insufficient for modeling the variability within subtype. Even though there is no mean expression change among subtypes but the distribution among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus reduce power of detecting DD genes.\\
+
 \section{Examples}
 We use ten datasets from conquer\cite{ref:Cq} to test performance of our method on real data. We compare our results with scDD\cite{ref:scDD}, MAST\cite{ref:MAST} and DESeq2\cite{ref:Des}\\
 \begin{center}
@@ -549,18 +550,20 @@ H1 exp1-H1 exp2 &  0 & 0 & 1300 & 2077 & 2841 & 16579\\
 \end{center}
 We found that bulk method DESeq2 tends to have the most number of DE genes. But among single cell methods we found that scDDboost usually had the most number of DD genes. Further we observed quite a few genes uniquely identified by scDDboost are likely to have different distribution across conditions. For example, figure 6, we use violin plot to demonstrate the log expression profiles among DEC and EC. \\
 \begin{figure}[h]
-\includegraphics[width = \textwidth]{density.pdf}
+\includegraphics[width = \textwidth]{density_DEC_scdb_dd.pdf}
  \caption{ Densities of log transformed transcripts 25 DD genes uniquely identified by scDDboost, for data GSE75748, DEC vs. EC, We observe some of the genes are different distributed across conditions. *** may need other plot to further investigate those genes that are appear to be DE but identified as DD***}
   \label{fig:6}
 \end{figure}
 Although bulk methods seems to be the most powerful one, we found it also has a higher false discovery rate comparing to single cell methods. We validate false discovery rate on ten null datasets from table 1. For each null dataset, we randomly split the cells from one condition into two equal sized subsets and do DE analysis between those subsets. Since those two subsets of cells actually came from same condition, there should not be any differential distributed genes, any positive call would be a false positive. We repeat the random split and testing for five times on each null data set. We evaluate the type I error control for the methods returning nominal p-values, by recording the fraction of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (figure 5).\\
+scDDboost could control FDR since we assume cells are sampled from population composed of different subtypes. Cells from one subtype are equal likely to be assigned to either one of the two subsets. Consequently, proportions of subtypes remain unchanged among the two subsets.\\
 \begin{figure}[h]
 \includegraphics[width = 8cm]{FDR.png}
  \caption{FDR of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. ***This procedure for testing FDR,  we randomly split a population into two samples, so it is highly likely proportion of subtypes remain same among these two samples, scDDboost always give small PDD and almost make no false positive call. This is kind different from really examining the FDR of scDDboost, where we have different proportions across conditions, but we do not want false call on those genes without mean expression change even there is proportion change. In this case, it actually reduce to the FDR of EBSeq whether we make correct posterior inference on DE pattern. The test of proportion is only done once, so scDDboost could still control FDR*** }
   \label{fig:7}
 \end{figure}
-scDDboost could control FDR since we assume cells are sampled from population composed of different subtypes. Cells from one subtype are equal likely to be assigned to either one of the two subsets. Consequently, proportions of subtypes remain unchanged among the two subsets.\\
+
 D3E\cite{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset EMTAB2805\\
+
 \begin{figure}[H]
 \vspace{-\parskip}
 \minipage{0.33\textwidth}
@@ -645,6 +648,8 @@ and $\underset{\pi\in S^*}\sum m(\pi) = 1, m(\pi) > 0$\\
 proofs are in the appendix.\\
 Still using above example, in limiting case, we have $p(A_{\pi_3} | z^1, z^2) = 1$, $p(A_{\pi_2} | z^1, z^2) = 1$ and $p(A_{\pi_1}| z^1, z^2) = 0$. When the DE pattern is $B_{\pi_1}$ for some genes. Since our underestimation of $p(A_{\pi_1}| z^1, z^2) = 0$, we will falsely classify those genes as differential distributed.
 
+The asymptotic properties help us gain insight of the performance of our approach,
+scDDboost may work poorly, when $(\phi, \psi)\in Q$, we may underestimate the posterior probability of true proportion change pattern, which reduce the posterior probabilities of true negative and enlarge false positive rate.\\
 
 \section{Discussion}
 Cluster cells is an unsupervised learning, we do not know the true underlying partition and different number of clusters will lead to large differences in posterior probabilities of genes being differentially distributed (figure 7). We propose a modified bootstrap to stabilize our inferences. Instead of resample the cells, we resample the distance matrices of cells by adding noises to original distance matrix. Denote the original distance matrix as $D = (d_{i,j})$, for each time we random sample a vector $e$ with length equal to number of cells and components are i.i.d. exponentially distributed. let $w$ be the standard deviation of $d_{i,j}$. We resample a new $\hat{D}$ by adding nosies: $\hat{d}_{i,j} = d_{i,j} + e_i * w + e_j *w$. For $\hat{D}$ we still have triangle inequality held as $\hat{d}_{i,j} + \hat{d}_{j,k} \geq \hat{d}_{i,k}$ , it is a valid distance matrix. For a fixed number of clusters, we average posterior probabilities over different distance matrices. And we select number of clusters $K$ that posterior probabilities do not vary too much under $K$ and $K+1$. From our empirical experience, it is typical $K$ will not be larger than 8.\\

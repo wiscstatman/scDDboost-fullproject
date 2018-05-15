@@ -20,15 +20,18 @@
 \@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{2.3}{Predictive and posterior probabilities:}}{5}}
 \citation{ref:Dickey}
 \citation{Wag}
+\citation{ref:Leng}
 \citation{ref:Rhonda}
 \@writefile{toc}{\contentsline {section}{\tocsection {}{3}{Data analysis workflow}}{7}}
 \@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.1}{Basic workflow}}{7}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces \relax }}{7}}
 \newlabel{alg:scDDboost}{{1}{7}}
+\citation{sc3}
+\citation{CIDR}
+\citation{ZIFA}
 \citation{ref:dahl}
 \citation{ref:cspa}
 \citation{ref:Zappia}
-\citation{ref:Leng}
 \@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.2}{Simulation study}}{8}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces first two principal components of transcripts, which demonstrates the difference between subtypes. Even if we projected transcripts of cells into two dimensional space, we observe subtypes are well separated.\relax }}{9}}
 \newlabel{fig:4}{{2}{9}}
@@ -60,10 +63,10 @@
 \citation{oscope}
 \@writefile{toc}{\contentsline {section}{\tocsection {}{4}{Examples}}{11}}
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces single cell transcripts profiles used for differential expression or distribution method evaluation\relax }}{11}}
-\citation{ref:d3e}
 \@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces number of genes detected as significantly DE or DD\relax }}{12}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  Densities of log transformed transcripts 25 DD genes uniquely identified by scDDboost, for data GSE75748, DEC vs. EC, We observe some of the genes are different distributed across conditions. *** may need other plot to further investigate those genes that are appear to be DE but identified as DD***\relax }}{13}}
 \newlabel{fig:6}{{5}{13}}
+\citation{ref:d3e}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces FDR of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. ***This procedure for testing FDR, we randomly split a population into two samples, so it is highly likely proportion of subtypes remain same among these two samples, scDDboost always give small PDD and almost make no false positive call. This is kind different from really examining the FDR of scDDboost, where we have different proportions across conditions, but we do not want false call on those genes without mean expression change even there is proportion change. In this case, it actually reduce to the FDR of EBSeq whether we make correct posterior inference on DE pattern. The test of proportion is only done once, so scDDboost could still control FDR*** \relax }}{14}}
 \newlabel{fig:7}{{6}{14}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces A\relax }}{15}}
