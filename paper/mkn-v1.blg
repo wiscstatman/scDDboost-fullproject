@@ -14,45 +14,45 @@ Database file #1: /Users/xiuyuma/Desktop/scDDboost_paper/scDDboost/paper/referen
 Warning--there's a month but no year in Guo
 
 Done.
-You've used 27 entries,
+You've used 26 entries,
             4087 wiz_defined-function locations,
-            1036 strings with 15522 characters,
-and the built_in function-call counts, 27234 in all, are:
-= -- 2238
-> -- 955
-< -- 196
-+ -- 473
-- -- 201
-* -- 1429
-:= -- 4091
-add.period$ -- 54
-call.type$ -- 27
-change.case$ -- 27
-chr.to.int$ -- 384
-cite$ -- 28
-duplicate$ -- 1888
-empty$ -- 1811
-format.name$ -- 224
-if$ -- 6320
+            1026 strings with 15327 characters,
+and the built_in function-call counts, 26373 in all, are:
+= -- 2158
+> -- 944
+< -- 186
++ -- 465
+- -- 200
+* -- 1386
+:= -- 3949
+add.period$ -- 52
+call.type$ -- 26
+change.case$ -- 26
+chr.to.int$ -- 363
+cite$ -- 27
+duplicate$ -- 1830
+empty$ -- 1752
+format.name$ -- 223
+if$ -- 6120
 int.to.chr$ -- 0
-int.to.str$ -- 27
-missing$ -- 377
-newline$ -- 158
-num.names$ -- 27
-pop$ -- 843
+int.to.str$ -- 26
+missing$ -- 369
+newline$ -- 153
+num.names$ -- 26
+pop$ -- 833
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 2088
+skip$ -- 2018
 stack$ -- 0
-substring$ -- 1040
-swap$ -- 1718
-text.length$ -- 68
+substring$ -- 990
+swap$ -- 1664
+text.length$ -- 65
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 27
+type$ -- 26
 warning$ -- 1
-while$ -- 90
-width$ -- 29
-write$ -- 387
+while$ -- 86
+width$ -- 28
+write$ -- 373
 (There was 1 warning)

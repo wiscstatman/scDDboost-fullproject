@@ -87,19 +87,21 @@ K.~D. Korthauer, L.-F. Chu, M.~A. Newton, Y.~Li, J.~Thomson, R.~Stewart, and
   \url{https://doi.org/10.1186/s13059-016-1077-y}
 \BIBentrySTDinterwordspacing
 
-\bibitem{ref:dahl}
+\bibitem{ref:Cq}
 \BIBentryALTinterwordspacing
-D.~B. Dahl, ``Modal clustering in a class of product partition models,''
-  \emph{Bayesian Anal.}, vol.~4, no.~2, pp. 243--264, 06 2009. [Online].
-  Available: \url{https://doi.org/10.1214/09-BA409}
+C.~Soneson and M.~D. Robinson, ``Bias, robustness and scalability in
+  differential expression analysis of single-cell rna-seq data,''
+  \emph{bioRxiv}, 2017. [Online]. Available:
+  \url{https://www.biorxiv.org/content/early/2017/05/28/143289}
 \BIBentrySTDinterwordspacing
 
-\bibitem{ref:cspa}
+\bibitem{ref:Leng}
 \BIBentryALTinterwordspacing
-A.~Strehl and J.~Ghosh, ``Cluster ensembles --- a knowledge reuse framework for
-  combining multiple partitions,'' \emph{J. Mach. Learn. Res.}, vol.~3, pp.
-  583--617, Mar. 2003. [Online]. Available:
-  \url{https://doi.org/10.1162/153244303321897735}
+N.~Leng, J.~A. Dawson, J.~A. Thomson, V.~Ruotti, A.~I. Rissman, B.~M.~G. Smits,
+  J.~D. Haag, M.~N. Gould, R.~M. Stewart, and C.~Kendziorski, ``Ebseq: an
+  empirical bayes hierarchical model for inference in rna-seq experiments,''
+  \emph{Bioinformatics}, vol.~29, no.~8, pp. 1035--1043, 2013. [Online].
+  Available: \url{+ http://dx.doi.org/10.1093/bioinformatics/btt087}
 \BIBentrySTDinterwordspacing
 
 \bibitem{ref:Dickey}
@@ -117,20 +119,6 @@ U.~Wagner and A.~Taudes, ``A multivariate polya model of brand choice and
   Aug. 1986. [Online]. Available: \url{http://dx.doi.org/10.1287/mksc.5.3.219}
 \BIBentrySTDinterwordspacing
 
-\bibitem{ref:bayesC}
-\BIBentryALTinterwordspacing
-H.~I. Weisberg, ``Bayesian comparison of two ordered multinomial populations,''
-  \emph{Biometrics}, vol.~28, no.~3, pp. 859--867, 1972. [Online]. Available:
-  \url{http://www.jstor.org/stable/2528768}
-\BIBentrySTDinterwordspacing
-
-\bibitem{ref:Zappia}
-\BIBentryALTinterwordspacing
-L.~Zappia, B.~Phipson, and A.~Oshlack, ``Splatter: simulation of single-cell
-  rna sequencing data,'' \emph{Genome Biology}, vol.~18, no.~1, p. 174, 2017.
-  [Online]. Available: \url{https://doi.org/10.1186/s13059-017-1305-0}
-\BIBentrySTDinterwordspacing
-
 \bibitem{ref:Rhonda}
 \BIBentryALTinterwordspacing
 R.~Bacher, L.-F. Chu, N.~Leng, A.~P. Gasch, J.~A. Thomson, R.~M. Stewart,
@@ -139,21 +127,26 @@ R.~Bacher, L.-F. Chu, N.~Leng, A.~P. Gasch, J.~A. Thomson, R.~M. Stewart,
   [Online]. Available: \url{http://dx.doi.org/10.1038/nmeth.4263}
 \BIBentrySTDinterwordspacing
 
-\bibitem{ref:Leng}
+\bibitem{ref:dahl}
 \BIBentryALTinterwordspacing
-N.~Leng, J.~A. Dawson, J.~A. Thomson, V.~Ruotti, A.~I. Rissman, B.~M.~G. Smits,
-  J.~D. Haag, M.~N. Gould, R.~M. Stewart, and C.~Kendziorski, ``Ebseq: an
-  empirical bayes hierarchical model for inference in rna-seq experiments,''
-  \emph{Bioinformatics}, vol.~29, no.~8, pp. 1035--1043, 2013. [Online].
-  Available: \url{+ http://dx.doi.org/10.1093/bioinformatics/btt087}
+D.~B. Dahl, ``Modal clustering in a class of product partition models,''
+  \emph{Bayesian Anal.}, vol.~4, no.~2, pp. 243--264, 06 2009. [Online].
+  Available: \url{https://doi.org/10.1214/09-BA409}
 \BIBentrySTDinterwordspacing
 
-\bibitem{ref:Cq}
+\bibitem{ref:cspa}
 \BIBentryALTinterwordspacing
-C.~Soneson and M.~D. Robinson, ``Bias, robustness and scalability in
-  differential expression analysis of single-cell rna-seq data,''
-  \emph{bioRxiv}, 2017. [Online]. Available:
-  \url{https://www.biorxiv.org/content/early/2017/05/28/143289}
+A.~Strehl and J.~Ghosh, ``Cluster ensembles --- a knowledge reuse framework for
+  combining multiple partitions,'' \emph{J. Mach. Learn. Res.}, vol.~3, pp.
+  583--617, Mar. 2003. [Online]. Available:
+  \url{https://doi.org/10.1162/153244303321897735}
+\BIBentrySTDinterwordspacing
+
+\bibitem{ref:Zappia}
+\BIBentryALTinterwordspacing
+L.~Zappia, B.~Phipson, and A.~Oshlack, ``Splatter: simulation of single-cell
+  rna sequencing data,'' \emph{Genome Biology}, vol.~18, no.~1, p. 174, 2017.
+  [Online]. Available: \url{https://doi.org/10.1186/s13059-017-1305-0}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Deng193}
