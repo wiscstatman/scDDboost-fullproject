@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  16 MAY 2018 01:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  16 MAY 2018 11:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -807,12 +807,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 686--691
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 703--707
+Underfull \hbox (badness 10000) in paragraph at lines 704--708
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 707--710
+Underfull \hbox (badness 10000) in paragraph at lines 708--711
 
  []
 
@@ -823,17 +823,17 @@ CELL RNA-SEQ DATA[] []
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 715--717
+Underfull \hbox (badness 10000) in paragraph at lines 716--718
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 721--722
+Underfull \hbox (badness 10000) in paragraph at lines 722--723
 
  []
 
 
-Overfull \hbox (33.67892pt too wide) detected at line 722
+Overfull \hbox (33.67892pt too wide) detected at line 723
 \OML/cmm/m/it/10.95 g\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n; b\OT1/cmr/m/n/1
 0.95 ) = (\OML/cmm/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[
 ] \OMS/cmsy/m/n/10.95 ^^@ []\OT1/cmr/m/n/10.95 )[](1 + []) + (\OML/cmm/m/it/10.
@@ -845,7 +845,7 @@ m/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[] \OT1/cmr/m/n/10
  []
 
 
-Underfull \hbox (badness 2689) in paragraph at lines 722--725
+Underfull \hbox (badness 2689) in paragraph at lines 723--726
 \OT1/cmr/m/n/10.95 Based on in-equal-i-ties (1), $[]\OML/cmm/m/it/10.95 f\OT1/c
 mr/m/n/10.95 (\OML/cmm/m/it/10.95 n; b\OT1/cmr/m/n/10.95 )$ only dif-fer with $
 []\OML/cmm/m/it/10.95 g\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n; b\OT1/cmr/m/n
@@ -853,7 +853,7 @@ mr/m/n/10.95 (\OML/cmm/m/it/10.95 n; b\OT1/cmr/m/n/10.95 )$ only dif-fer with $
  []
 
 
-Underfull \hbox (badness 1688) in paragraph at lines 722--725
+Underfull \hbox (badness 1688) in paragraph at lines 723--726
 \OT1/cmr/m/n/10.95 By Tay-lor's ex-pan-sion $[](1 + \OML/cmm/m/it/10.95 x\OT1/c
 mr/m/n/10.95 ) = []2 + [](\OML/cmm/m/it/10.95 x \OMS/cmsy/m/n/10.95 ^^@ \OT1/cm
 r/m/n/10.95 1) + \OML/cmm/m/it/10.95 O\OT1/cmr/m/n/10.95 ((\OML/cmm/m/it/10.95 
@@ -861,18 +861,18 @@ x \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 1)[])$, we have
  []
 
 
-Underfull \hbox (badness 1152) in paragraph at lines 722--725
+Underfull \hbox (badness 1152) in paragraph at lines 723--726
 []\OT1/cmr/m/n/10.95 (1 + []) = []2 + []([]) + \OML/cmm/m/it/10.95 O[]\OT1/cmr/
 m/n/10.95 (([])[])$ and un-der con-di-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 722--725
+Underfull \hbox (badness 10000) in paragraph at lines 723--726
 
  []
 
 
-Overfull \hbox (73.77013pt too wide) in paragraph at lines 735--735
+Overfull \hbox (73.77013pt too wide) in paragraph at lines 736--736
 [] 
  []
 
@@ -923,7 +923,7 @@ e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
 017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/201
 7/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2017/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mkn-v1.pdf (25 pages, 1645495 bytes).
+Output written on mkn-v1.pdf (25 pages, 1645422 bytes).
 PDF statistics:
  199 PDF objects out of 1000 (max. 8388607)
  118 compressed objects within 2 object streams
