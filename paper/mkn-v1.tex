@@ -71,17 +71,17 @@ Simulation study suggests that the method provides improved power and precision 
 Performance on real data has been investigated through ten previously published experimental data from conquer\cite{ref:Cq}. 
 We also obtained asymptotic properties of posterior inference. 
 
-\section{Modeling}
+\section{Method Structure}
 \subsection{Data structure, sampling model, and parameters}
 In modeling scRNASeq data, we
 imagine that each cell falls into one of $K>1$ classes, which we think of as
-subtypes or subpopulations of cells.   Knowledge of this class structure
+subtypes or subpopulations of cells. Knowledge of this class structure
  prior to measurement is not required, as it will be inferred as necessary from
  available genomic data.  We also assume that cells arise from multiple
 experimental conditions, such as by treatment-control status or some other factor
  measured at the cell level, and we present our development for the special
 case of two conditions.
-Let's say conditions 1 and 2 contain $n_1$ and $n_2$ cells, respectively, and
+Extensions to multiple conditions are discussed in section 6. Let's say conditions 1 and 2 contain $n_1$ and $n_2$ cells, respectively, and
 let $z^j_k$ denote the number of cells of subtype $k$ in condition $j$.
 Count vectors $z^1 = (z^1_1, z^1_2, \cdots, z^1_K )$ and 
 $z^2 = (z^2_1, z^2_2, \cdots, z^2_K)$ we treat as independent multinomial
@@ -113,7 +113,9 @@ further subtypes that show differential response to some treatment, for example,
 and so cellular condition (treatment) would then affect the distribution of 
 expression data within the subtype, which is contrary to our working hypothesis.
 On the other hand, we could then refine the subtype definition to allow more
-population classes $K$ in order to mitigate that problem.
+population classes $K$ in order to mitigate that problem. A risk in this is if K approaches n1+n2, wherein every cell is it's own type.
+In spite of this theoretical possibility, the data sets often encountered appear not to display this phenomenon,
+even when relatively flexible in the within-subtype expression distribution
 We revisit the issue in discussion section, but for now proceed assuming that cellular 
 condition affects the composition of subtypes but not the distribution of expression
 within a subtype.
@@ -191,18 +193,52 @@ structures needed to address differential distribution DD$_g$ (and
 it complement, equivalent distribution, ${\rm ED}_g$) at a given gene
 $g$: 
 
-\begin{theorem}  Let $C_\pi = A_\pi\cap M_{g, \pi}$,  for any different partitions $\pi_1,\pi_2$, $C_{\pi_1} \cap C_{\pi_2} = \emptyset$. At a given gene, equivalent distribution is
+\begin{theorem}  Let $C_{g,\pi} = A_\pi\cap M_{g, \pi}$,  for any different partitions $\pi_1,\pi_2$, $C_{g,\pi_1} \cap C_{g,\pi_2} = \emptyset$. At a given gene, equivalent distribution is
 \begin{eqnarray*}
-\text{ED}_g = \bigcup_{\pi \in \Pi} C_\pi.
+\text{ED}_g = \bigcup_{\pi \in \Pi} C_{g,\pi}.
 \end{eqnarray*}
 \end{theorem}
  
-Our main purpose is to quantify probability of a gene being differentially distributed. Due to theorem 1 and independence between $M_{g, \pi}$ and $A_\pi$, we can achieve our purpose by separate estimations of $M_{g,\pi}$, which has been done in EBSeq\cite{ref:Leng}, and $A_\pi$.
-In the following subsections we developed an empirical bayesian framework to quantify likelihood of $A_\pi$ given estimated subtypes counts. 
+Our first construction is to quantify probability of a gene being differentially distributed, which is equivalent to quantify $C_{g,\pi}$ based on theorem 1.  We further assume the independence of $A_\pi$ and $M_{g,\pi}$ as proportions $(\phi,\psi)$ are unrelated to the mean expression $\{\mu_{g,i}\}$ of subtypes. By combining cell-type counts $z^1$ and $z^2$ with
+expression data $x_g$ at a gene, we may compute 
+$P(\text{ED}_g|\text{data})$ 
+\begin{align}
+P(\text{ED}_g|\text{data}) = \sum_{\pi \in \Pi} P(A_\pi|z^1, z^2) \,
+P(M_{g,\pi}|x_g).
+\end{align}
+The idea is by allowing genome-wide information to inform the posterior of $A_\pi$, then get added benefit from the gene-level data, which primarily drives the posterior of $M_{g,\pi}$. It's a very specific form of information sharing that leverages the compositional structure of single-cell data. 
+
+\subsection{Basic workflow}\hfill\\ 
+Our approach take transcripts processed by normalizing methods (e.g. SCnorm \cite{ref:Rhonda}). 
+Prior to any bayesian inference, we need to identify subtypes of cells. Recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus identification process is blind to conditions and can be done by clustering upon similarities between cells. Denote $X$($G \times (n_1 + n_2)$) as the full data matrix and following is our basic workflow
+\begin{algorithm}
+\caption{}\label{alg:scDDboost}
+\raggedright\hspace*{\algorithmicindent} \textbf{Input}: normalized transcripts profile $X$ and condition label $L$ \\
+\hspace*{\algorithmicindent} \textbf{Output}: posterior probabilities of genes being differential distributed
+\begin{algorithmic}[1]
+\Procedure{scDDboost}{$X$}
+\State $z^1, z^2\gets \text{identify subtypes of pooled cells} (X)$ and $L$
+\State $P(M_{g,\pi} | X)\gets \text{EBSeq}$\cite{ref:Leng}
+\State $P(A_\pi | z^1, z^2)\gets \text{Empirical Bayes}$
+\State $P(\text{ED}_g | X, L)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X)P(A_\pi | z^1, z^2)$
+\State $P(\text{DD}_g | X, L) \gets 1 - P(\text{ED}_g | X, L)$
+\State \textbf{return} $P(\text{DD}_g |X, L)$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+One advantage of our approach is that the posterior inference can be incorporate with different clustering methods.
+The essential idea is that the mixture structure is estimated using the whole genome information rather than at each gene solely using information of that gene  
+to estimate a gene specific mixture structure. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach scDDboost. 
+
+There are many single cell clustering methods(e.g. SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}) that could utilized in the workflow. However, for the integrity of our work and speeding in computation, we present another efficient and effective clustering procedure.
+We pool cells from two conditions. At each gene level, we do a Poisson-Gamma model extended from modal clustering\cite{ref:dahl}. After gene level clustering, we use the cluster-based similarity partition algorithm (CSPA\cite{ref:cspa}). For each individual clustering result, a binary similarity matrix is constructed from the corresponding cell labels: if two cells belong to the same cluster, their similarity is 1; otherwise their similarity is 0. We obtain a consensus similarity matrix $M_1$ by averaging all similarity matrices of individual clusterings. Another distance matrix $M_2$ calculated by Pearson distance between cells. A final similarity matrix is obtained by weighted combining $M_1$ and $M_2$. Cells are classified into subtypes by K-medoids based on the final similarity matrix. 
+
+After identification of subtypes, the following two steps use empirical Bayes to provide posterior inference on patterns of differential expression($M_{g,\pi}$) and aggregated proportions of subtypes($A_\pi$), where $P(M_{g,\pi} | X)$ is done in EBSeq\cite{ref:Leng} and we present details of calculating $P(A_\pi | X)$ in next section. Combining those components, final posterior probabilities are obtained. 
 
 
+\section{Empirical Bayes}
 \subsection{Double Dirichlet prior}
-
 
 Here we describe a prior $p(\phi,\psi)$ that is conjugate to multinomial
 sampling but that also enables downstream gene-specific inferences about
@@ -216,17 +252,9 @@ over distinct patterns of equality of $\pi$-associated
 accummulated probabilities:
 \begin{eqnarray*}
 p(\phi,\psi) = \sum_{\pi \in \Pi} P(A_\pi) \, p(\phi,\psi| A_\pi )
-\end{eqnarray*}
-Unfortunately, we could not define the prior of $(\phi,\psi)$ on the whole space. 
+\end{eqnarray*} 
 Upon setting up a prior $p(\phi,\psi)$ that can mix over structures
-$A_\pi$, and by combining cell-type counts $z^1$ and $z^2$ with
-expression data $x_g$ at a gene, we may compute 
-$P(\text{ED}_g|\text{data})$ 
-at each gene:
-\begin{align}
-P(\text{ED}_g|\text{data}) = \sum_{\pi \in \Pi} P(A_\pi|z^1, z^2) \, 
-P(B_\pi|x_g).
-\end{align}
+$A_\pi$, we can obtain posterior inference $P(A_\pi | z^1, z^2)$
 
 Initially, the multitude of $P(A_\pi)$'s will be preset constants.To complete the prior specification $p(\phi,\psi)$, consider further scalers
 $\alpha_k>0$ for each class $k$ and $\beta_b>0$ for each potential block $b$.
@@ -283,7 +311,7 @@ p( \tilde \psi_b )
 
 
 
-\subsection{Predictive and posterior probabilities:}
+\subsection{Predictive probabilities:}
 For notation, we use $\phi_b$ for the vector of values $\phi_k$ for $k \in b$,
 and similarly for $\psi_b$. Analogously, $\Phi_\pi$ and $\Psi_\pi$
  are vectors of 
@@ -388,44 +416,15 @@ Regardless of the partition,
 log scale probabilities are readily evaluated 
 given hyper-parameters $\{ \alpha_k \}$ and $\{ \beta_b \}$ and for
 cell-type counts $z^1$ and $z^2$. \\
-For asymptotic properties of the posterior probabilities, we demonstrated them in section 5. 
+For asymptotic properties of the posterior probabilities, we demonstrated them in section 6. 
  
-\section{Data analysis workflow} 
+\section{Simulation study} 
 
-\subsection{Basic workflow}\hfill\\ 
-
-\begin{algorithm}
-\caption{}\label{alg:scDDboost}
-\raggedright\hspace*{\algorithmicindent} \textbf{Input}: normalized transcripts profile from two conditions $X_1, X_2$ \\
-\hspace*{\algorithmicindent} \textbf{Output}: posterior probabilities of genes being differential distributed
-\begin{algorithmic}[1]
-\Procedure{scDDboost}{$X_1,X_2$}
-\State $Z\gets \text{identify subtypes of pooled cells} (X_1,X_2)$
-\State $P(M_{g,\pi} | X_1, X_2)\gets \text{EBSeq}$\cite{ref:Leng}
-\State $P(A_\pi | Z)\gets \text{Empirical Bayes via double dirichlet prior}$
-\State $P(\text{ED}_g | X_1, X_2)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X_1, X_2)P(A_\pi | Z)$
-\State $P(\text{DD}_g | X_1, X_2) \gets 1 - P(\text{ED}_g | X_1, X_2)$
-\State \textbf{return} $P(\text{DD}_g | X_1, X_2)$
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
-
-In our basic workflow, the input are transcripts processed by normalizing methods (e.g. SCnorm \cite{ref:Rhonda}). 
-Prior to any bayesian inference, we need to identify subtypes of cells. One advantage of our approach is that the posterior inference can be incorporate with different clustering methods.
-The essential idea is that the mixture structure is estimated using the whole genome information rather than at each gene solely using information of that gene  
-to estimate a gene specific mixture structure. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach scDDboost. 
-
-There are many single cell clustering methods(e.g. SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}) that could utilized in the workflow. However, for the integrity of our work and speeding in computation, we present another efficient and effective clustering procedure.
-We pool cells from two conditions. At each gene level, we do a Poisson-Gamma model extended from modal clustering\cite{ref:dahl}. After gene level clustering, we use the cluster-based similarity partition algorithm (CSPA\cite{ref:cspa}). For each individual clustering result, a binary similarity matrix is constructed from the corresponding cell labels: if two cells belong to the same cluster, their similarity is 1; otherwise their similarity is 0. We obtain a consensus similarity matrix $M_1$ by averaging all similarity matrices of individual clusterings. Another distance matrix $M_2$ calculated by Pearson distance between cells. A final similarity matrix is obtained by weighted combining $M_1$ and $M_2$. Cells are classified into subtypes by K-medoids based on the final similarity matrix. 
-
-After identification of subtypes, the following two steps use empirical Bayes to provide posterior inference on patterns of differential expression and aggregated proportions of subtypes, which are components of posterior probabilities for a gene being equivalent distributed. Combining those components, final posterior probabilities are obtained.
-
-\subsection{Simulation study}\hfill\\
 A simulation study was conducted to assess the performance of
 scDDboost in identifying DD genes.
 We simulate data by splatter\cite{ref:Zappia} with approximate 200 cells each condition and 7 subtypes with proportions $\phi$ and $\psi$ from Figure 1 satisfying constraints: $\phi_1 + \phi_2 = \psi_1 + \psi_2$, $\phi_3 + \phi_4 +\phi_5 = \psi_3 + \psi_4 + \psi_5$ and $\phi_6 + \phi_7 = \psi_6 + \psi_7$. Each subtype has 10\% genes to be differential expressed. We view the differences among subtypes by projecting transcripts profiles of cells into its first two principal components(figure 2). We observed subtypes are well separated, which is driven by genes with heterogeneous distribution between subtypes. 
 \begin{figure}[h!]
-  \includegraphics[ height = 7cm, width =8cm]{pca.png}
+  \includegraphics[ width = 0.4\textwidth]{pca.png}
   \caption{first two principal components of transcripts, which demonstrates the difference between subtypes. Even if we projected transcripts of cells into two dimensional space, we observe subtypes are well separated.}
   \label{fig:4}
 \end{figure}
@@ -435,7 +434,9 @@ In the simulated data, the posterior probability become stable when we overestim
 
 10\% DE genes in each subtype results in total 8704 DD genes and 8669 ED genes in the mixture of the 7 subtypes.
 Table 1 are numbers of DD or DE genes identified by four methods (scDDboost, scDD, MAST and DESeq2) with target FDR at 5 \%. 
-\begin{tabular}{ |p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+\begin{table}
+\centering
+\begin{tabular}{ |p{3cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
 \hline
  & scDDboost & scDD & MAST & DESeq2\\
 \hline
@@ -446,8 +447,10 @@ True positive & 5094 & 1570 & 2508 & 2928\\
 \hline
 false positive & 32 & 23 & 51 & 72\\
 \hline
-\end{tabular}\\
+\end{tabular}
 \captionof{table}{number of true positive and false positive genes identified by four methods. Target FDR at 5\%}
+\end{table}
+
 
 scDDboost identified most true DD genes, the reason is that mean expression shifts between conditions is not as significant as mean expression shifts between subtypes, which limits the power of MAST and DESeq2. Our approach and scDD considered mixture structure underlying the transcrips but scDD did not use the whole genome information to infer mixture components, which leads to inaccurate clustering at gene level and reduce the power. scDDboost could correctly identify the subtypes of cells and thus are more sensitive to the mean expression change among subtypes. We also compare roc curves of scDDboost, scDD, MAST and DESeq2. (figure 4)
 \begin{figure}[h]
@@ -460,17 +463,18 @@ scDDboost identified most true DD genes, the reason is that mean expression shif
   \endminipage
 \caption{comparison of posterior probabilities of being DD among different number of subtypes, when we underestimate the number of subtypes, the difference is huge, see PDD between 6 subtypes and 7 subtypes. When we overestimate the number of subtypes, though inflating PDD but the variation of difference is small, from 6 to 8 subtypes the PDD become more linear related}
 \end{figure}
-\begin{figure}[h]
-  \includegraphics[height = 6cm]{roc.png}
+\begin{figure}[H]
+  \includegraphics[width = 0.4\textwidth]{roc.png}
   \caption{Roc curve of scDDboost, scDD, MAST and DESeq2, scDDboost has largest area under the roc curve. Roc curves of other three methods are similar. For those roc curve there is bigger difference at low level of false positive rate, as scDDboost identified twice many true DD genes as other methods.}
   \label{fig:5}
 \end{figure}
 
-Since we are modeling gene transcript within each subtype as negative binomial distributed and we only test one parameter(mean) change among subtypes. In some senario, it could be insufficient to model the variability within subtype. Even though there is no mean expression change among subtypes but more subtle distributional change occurred among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus limit power of scDDboost.\\
+Since we are modeling gene transcript within each subtype as negative binomial distributed and we only test one parameter(mean) change among subtypes. In some scenario, it could be insufficient to model the variability within subtype. Even though there is no mean expression change among subtypes but more subtle distributional change occurred among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus limit power of scDDboost.\\
 
 \section{Examples}
 We use ten datasets from conquer\cite{ref:Cq} to test performance of our method on real data. We compare our results with scDD\cite{ref:scDD}, MAST\cite{ref:MAST} and DESeq2\cite{ref:Des}\\
-\begin{center}
+\begin{table}
+\centering
 \begin{tabular}{ |p{3cm}|p{6cm}|p{2cm}|p{2cm}|p{1cm}|}
 \hline
  Data set & Compared cell subsets & Number of cells per condition & Organism & Ref\\
@@ -492,7 +496,6 @@ We use ten datasets from conquer\cite{ref:Cq} to test performance of our method 
  \hline
  GSE74596null & NKT0 & 45 & mouse & \cite{Engel}\\
  \hline
- 
  EMTAB2805 & G1 vs G2M & 96,96 & mouse & \cite{EMTAB}\\
  \hline
  EMTAB2805null & G1 & 96 & mouse & \cite{EMTAB}\\
@@ -515,11 +518,12 @@ GSE64016null & H1 exp1 vs H1 exp2 & 64, 87 & human & \cite{oscope}\\
 \hline
 \end{tabular}
 \captionof{table}{single cell transcripts profiles used for differential expression or distribution method evaluation}
-\end{center}
+\end{table}
 \hfill\\
 We have table of numbers of differentially expressed genes of each dataset by MAST and DESeq2, and numbers of differentially distributed genes of each dataset by scDDboost and scDD.\\
 \\
-\begin{center}
+\begin{table}
+\centering
 \begin{tabular}{ |p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
 \hline
 Data set & scDDboost & scDDboost-sc3 & scDD & MAST & DESeq2 & total number of genes\\
@@ -547,17 +551,17 @@ H1 exp1-H1 exp2 &  0 & 0 & 1300 & 2077 & 2841 & 16579\\
 \hline
 \end{tabular}
 \captionof{table}{number of genes detected as significantly DE or DD}
-\end{center}
+\end{table}
 We found that bulk method DESeq2 tends to have the most number of DE genes. But among single cell methods we found that scDDboost usually had the most number of DD genes. Further we observed quite a few genes uniquely identified by scDDboost are likely to have different distribution across conditions. For example, figure 5, we use violin plot to demonstrate the log expression profiles among DEC and EC. \\
-\begin{figure}[h]
-\includegraphics[width = \textwidth]{density_DEC_dd.png}
+\begin{figure}[H]
+\includegraphics[width = 0.6\textwidth]{density_DEC_dd.png}
  \caption{ Densities of log transformed transcripts 6 DD genes uniquely identified by scDDboost, for data GSE75748, DEC vs. EC, We observe some of the genes are different distributed across conditions.}
   \label{fig:6}
 \end{figure}
 Although bulk methods seems to be the most powerful one, we found it also has a higher false discovery rate comparing to single cell methods. We validate false discovery rate on ten null datasets from table 1. For each null dataset, we randomly split the cells from one condition into two equal sized subsets and do DE analysis between those subsets. Since those two subsets of cells actually came from same condition, there should not be any differential distributed genes, any positive call would be a false positive. We repeat the random split and testing for five times on each null data set. We evaluate the type I error control for the methods returning nominal p-values, by recording the fraction of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (figure 5).\\
 scDDboost could control FDR since we assume cells are sampled from population composed of different subtypes. Cells from one subtype are equal likely to be assigned to either one of the two subsets. Consequently, proportions of subtypes remain unchanged among the two subsets.\\
-\begin{figure}[h]
-\includegraphics[width = 8cm]{FDR.png}
+\begin{figure}[H]
+\includegraphics[width = 0.4\textwidth]{FDR.png}
  \caption{FDR of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. ***This procedure for testing FDR,  we randomly split a population into two samples, so it is highly likely proportion of subtypes remain same among these two samples, scDDboost always give small PDD and almost make no false positive call. This is kind different from really examining the FDR of scDDboost, where we have different proportions across conditions, but we do not want false call on those genes without mean expression change even there is proportion change. In this case, it actually reduce to the FDR of EBSeq whether we make correct posterior inference on DE pattern. The test of proportion is only done once, so scDDboost could still control FDR*** }
   \label{fig:7}
 \end{figure}
@@ -595,19 +599,19 @@ p(A_\pi | z^1, z^2) = c*\sum_{\pi' \text{ refines } \pi} p(z^1 | t^1_{\pi'})\, p
 for a normalizing constant $\frac{1}{c} = \underset{\pi' \in \Pi}\sum p(z^1 | t^1_{\pi'})\, p(z^2|  t^2_{\pi'} )
  \, p( t^1_{\pi'}, t^2_{\pi'} | A_{\pi'} )$.
  
-There is a subset of $\Omega$ we lack posterior inference. Let us first see an example:
+Let $\Omega = \{(\phi, \psi): \overset{K}{\underset{i = 1}\sum}\phi_i = \overset{K}{\underset{i = 1}\sum}\psi_i = 1, \phi_i \geq 0, \psi_i \geq 0 , i = 1,..., K\}$ be the whole space. There is a subset of $\Omega$ we lack posterior inference. Let us first see an example:
 \begin{figure}[h]
 \includegraphics[scale = 0.5]{overlap.png}
  \caption{Four subtypes of cells,  simplexes of $(\phi,\psi)$ satisfying different constraints.}
   \label{fig:1}
 \end{figure}
 \hfill\\
-In figure 2, there are four subtypes, the rectangle with magenta boundary is a simplex $A_{\pi_1} = \{(\phi,\psi) : \phi_1 + \phi_2 = \psi_1 + \psi_2\}$, the rectangle with blue boundary is a simplex $A_{\pi_2} = \{(\phi,\psi) : \phi_1 + \phi_3 = \psi_1 + \psi_3\}$. The green line refers to $A_{\pi_3} = \{(\phi,\psi) : \phi_1 = \psi_1, \phi_2 = \psi_2\}$, the yellow line refers to $A_{\pi_4} = \{(\phi,\psi) : \phi_1 = \psi_1, \phi_3 = \psi_3\}$, the purple line refers to $A_{\pi_5} = \{(\phi,\psi) : \phi_1 + \phi_2 = \psi_1 + \psi_2, \phi_1 + \phi_3 = \psi_1 + \psi_3\}$, which is the intersection of $A_{\pi_1}$ and $A_{\pi_2}$, and finally the black dot which is the intersection of those three lines refers to the simplex with finest partitions, $\phi_i = \psi_i, \forall i = 1,..,4$. We lack posterior inference for $(\phi,\psi)$ along the purple line except the black dot. While on the green line, yellow line and black dot, we have consistent posterior inference(theorem 2). To explain why some space lacking posterior inference and define such space, we define a special subset $A_\pi^*$ of simplex $A_\pi$. $A_\pi^* = A_\pi\setminus \underset{\tilde{\pi} \text{ is not coarser than } \pi }\cup A_{\tilde{\pi}}$, $A_\pi^*$ is obtained by removing all intersection with other $A_{\tilde{\pi}}$(excluding those $A_{\tilde{\pi}}$ that is superset of $A_\pi$) from $A_\pi$. Since we removed those intersection parts. It is intuitive that $A_\pi^*$ will be disjoint subsets of $\Omega$.\\
+In figure 11, there are four subtypes, the rectangle with magenta boundary is a simplex $A_{\pi_1} = \{(\phi,\psi) : \phi_1 + \phi_2 = \psi_1 + \psi_2\}$, the rectangle with blue boundary is a simplex $A_{\pi_2} = \{(\phi,\psi) : \phi_1 + \phi_3 = \psi_1 + \psi_3\}$. The green line refers to $A_{\pi_3} = \{(\phi,\psi) : \phi_1 = \psi_1, \phi_2 = \psi_2\}$, the yellow line refers to $A_{\pi_4} = \{(\phi,\psi) : \phi_1 = \psi_1, \phi_3 = \psi_3\}$, the purple line refers to $A_{\pi_5} = \{(\phi,\psi) : \phi_1 + \phi_2 = \psi_1 + \psi_2, \phi_1 + \phi_3 = \psi_1 + \psi_3\}$, which is the intersection of $A_{\pi_1}$ and $A_{\pi_2}$, and finally the black dot which is the intersection of those three lines refers to the simplex with finest partitions, $\phi_i = \psi_i, \forall i = 1,..,4$. We lack posterior inference for $(\phi,\psi)$ along the purple line except the black dot. While on the green line, yellow line and black dot, we have consistent posterior inference(theorem 2). To explain why some space lacking posterior inference and define such space, we define a special subset $A_\pi^*$ of simplex $A_\pi$. $A_\pi^* = A_\pi\setminus \underset{\tilde{\pi} \text{ is not coarser than } \pi }\cup A_{\tilde{\pi}}$, $A_\pi^*$ is obtained by removing all intersection with other $A_{\tilde{\pi}}$(excluding those $A_{\tilde{\pi}}$ that is superset of $A_\pi$) from $A_\pi$. Since we removed those intersection parts. It is intuitive that $A_\pi^*$ will be disjoint subsets of $\Omega$.\\
 \begin{prop}
 if $\pi_1 \neq \pi_2$, then $A_{\pi_1}^*\cap A_{\pi_2}^* = \emptyset$
 \end{prop}
 \hfill\\
-Let $Q = \Omega\setminus \underset{\pi\in \Pi}\cup A_\pi^*$, first thing to check is whether $Q$ exists.\\
+Let $Q = \Omega\setminus \underset{\pi\in \Pi}\cup A_\pi^*$, and we have following proposition of the existence of $Q$.
 \begin{prop}
 Let $K$ be number of subtypes. When $K >  3, Q \neq \emptyset$, when $K \leq 3, Q = \emptyset$
 \end{prop}
@@ -621,7 +625,7 @@ But for $(\phi, \psi)\in \Omega\setminus Q$, we have consistent posterior infere
 \begin{align}
 p(A_\pi| z^1, z^2) = \frac{1}{c'}\sum_{\pi' \in \text{RF}(\pi)}\prod_{b\in \pi'}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}
 \end{align}
-$c' = c/\frac{\Gamma(n + 1)\Gamma(n+1)\Gamma(K)}{\Gamma(2n + K)}$ And we have theorem 2.\\
+$c' = c/\frac{\Gamma(n + 1)\Gamma(n+1)\Gamma(K)}{\Gamma(2n + K)}$ And we have theorem 3.\\
 \begin{theorem} Let $n = min(n_1, n_2)$ be the smaller number of cells of two conditions and $n_1 = O(n_2)$, when parameter $(\phi, \psi)\in \Omega\setminus Q $ we have 
 \begin{eqnarray*}
     p(A_{\pi} | z^1, z^2) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
@@ -633,7 +637,13 @@ $c' = c/\frac{\Gamma(n + 1)\Gamma(n+1)\Gamma(K)}{\Gamma(2n + K)}$ And we have th
 \end{eqnarray*}
 \end{theorem}
 \hfill\\
-Things become more complicate when $(\phi, \psi)$ falling into $Q$, we know $p(Q | z^1, z^2) = 0$, but $p(A_\pi | z^1, z^2)$ may not vanish even the sample size is sufficiently large. Recall $N(\pi)$ represents number of blocks $b$ in $\pi$. Let $S = \{\pi,  (\phi, \psi) \in A_\pi\}$, which is the collection of partitions whose associated simplexes covering $(\phi,\psi)$. Let $N^* = \underset{\pi\in S}\max$ $N(\pi)$, which is the max number of blocks of partitions from $S$. Let $S^* = \{\pi,  (\phi, \psi) \in A_\pi \text{ and } N(\pi) = N^*\}$, which is the collection of partitions that covering $(\phi, \psi)$ with number of blocks equal to the max number $N^*$. For example, when $K = 7$, For a $(\phi, \psi)\in A_{\pi_1} \cap A_{\pi_2} \cap A_{\pi_3}$, $\pi_1 = \{\{1,2,3\}, \{4,5,6,7\}\}, \pi_2 = \{\{1,6,7\}, \{2,4\},\{3,5\}\}, \pi_3 = \{\{1,2,3,4,5,6\}\}$, and also $(\phi, \psi)$ does not belong to any other simplex $A_\pi$. Then $S = \{\pi_1, \pi_2, \pi_3\}$, $N^* = 3$, $S^* = \{\pi_2\}.$ Denote components from right hand side of (5): $\frac{1}{c'}\underset{b\in \pi}\prod\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)} = J(z^1,z^2,\pi).$  We have theorem 3.\\
+Things become more complicate when $(\phi, \psi)$ falling into $Q$, we know $p(Q | z^1, z^2)$ vanishes, but $p(A_\pi | z^1, z^2)$ may not. 
+
+Recall $N(\pi)$ represents number of blocks $b$ in $\pi$. Let $S = \{\pi,  (\phi, \psi) \in A_\pi\}$, which is the collection of partitions whose associated simplexes covering $(\phi,\psi)$. Let $N^* = \underset{\pi\in S}\max$ $N(\pi)$, which is the max number of blocks of partitions from $S$. Let $S^* = \{\pi,  (\phi, \psi) \in A_\pi \text{ and } N(\pi) = N^*\}$, which is the collection of partitions that covering $(\phi, \psi)$ with number of blocks equal to the max number $N^*$. 
+
+For example, when $K = 7$, For a $(\phi, \psi)\in A_{\pi_1} \cap A_{\pi_2} \cap A_{\pi_3}$, $\pi_1 = \{\{1,2,3\}, \{4,5,6,7\}\}, \pi_2 = \{\{1,6,7\}, \{2,4\},\{3,5\}\}, \pi_3 = \{\{1,2,3,4,5,6\}\}$, and also $(\phi, \psi)$ does not belong to any other simplex $A_\pi$. Then $S = \{\pi_1, \pi_2, \pi_3\}$, $N^* = 3$, $S^* = \{\pi_2\}.$ 
+
+Denote components from right hand side of (5): $\frac{1}{c'}\underset{b\in \pi}\prod\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)} = J(z^1,z^2,\pi).$  We have theorem 4.\\
 \begin{theorem} Following the setting in theorem 2, when parameter $(\phi, \psi)\in Q$,  and we have 
 \begin{eqnarray*}
     J(z^1,z^2,\pi) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
