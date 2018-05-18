@@ -1,0 +1,114 @@
+\relax 
+\citation{scs}
+\citation{Bacher:2016aa}
+\citation{sc3}
+\citation{CIDR}
+\citation{ZIFA}
+\citation{ref:MAST}
+\citation{ref:Des}
+\citation{ref:scDD}
+\citation{ref:Cq}
+\@writefile{toc}{\contentsline {section}{\tocsection {}{1}{Introduction}}{1}}
+\@writefile{toc}{\contentsline {section}{\tocsection {}{2}{Method Structure}}{2}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{2.1}{Data structure, sampling model, and parameters}}{2}}
+\citation{ref:Leng}
+\citation{ref:Rhonda}
+\citation{ref:Leng}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces proportions of subtypes change in different conditions. Aggregated proportions of subtype 1 and 2, subtype 3, 4, 5, and subtype 6,7 remained same across conditions while proportion of individual subtype changed\relax }}{4}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:1}{{1}{4}}
+\citation{sc3}
+\citation{CIDR}
+\citation{ZIFA}
+\citation{ref:dahl}
+\citation{ref:cspa}
+\citation{ref:Leng}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{2.2}{Basic workflow}}{5}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces \relax }}{5}}
+\newlabel{alg:scDDboost}{{1}{5}}
+\@writefile{toc}{\contentsline {section}{\tocsection {}{3}{Empirical Bayes}}{6}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.1}{Double Dirichlet prior}}{6}}
+\citation{ref:Dickey}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.2}{Predictive probabilities:}}{7}}
+\citation{Wag}
+\citation{ref:Zappia}
+\@writefile{toc}{\contentsline {section}{\tocsection {}{4}{Simulation study}}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces first two principal components of transcripts, which demonstrates the difference between subtypes. Even if we projected transcripts of cells into two dimensional space, we observe subtypes are well separated.\relax }}{9}}
+\newlabel{fig:4}{{2}{9}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces number of true positive and false positive genes identified by four methods. Target FDR at 5\%\relax }}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces comparison of posterior probabilities of being DD among different number of subtypes, when we underestimate the number of subtypes, the difference is huge, see PDD between 6 subtypes and 7 subtypes. When we overestimate the number of subtypes, though inflating PDD but the variation of difference is small, from 6 to 8 subtypes the PDD become more linear related\relax }}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Roc curve of scDDboost, scDD, MAST and DESeq2, scDDboost has largest area under the roc curve. Roc curves of other three methods are similar. For those roc curve there is bigger difference at low level of false positive rate, as scDDboost identified twice many true DD genes as other methods.\relax }}{10}}
+\newlabel{fig:5}{{4}{10}}
+\citation{ref:Cq}
+\citation{ref:scDD}
+\citation{ref:MAST}
+\citation{ref:Des}
+\citation{Deng193}
+\citation{Deng193}
+\citation{Shalek}
+\citation{Shalek}
+\citation{Kumar}
+\citation{Kumar}
+\citation{Engel}
+\citation{Engel}
+\citation{EMTAB}
+\citation{EMTAB}
+\citation{Guo}
+\citation{Tasic}
+\citation{Tasic}
+\citation{chu}
+\citation{chu}
+\citation{chu}
+\citation{chu}
+\citation{oscope}
+\@writefile{toc}{\contentsline {section}{\tocsection {}{5}{Examples}}{12}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces single cell transcripts profiles used for differential expression or distribution method evaluation\relax }}{12}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces number of genes detected as significantly DE or DD\relax }}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  Densities of log transformed transcripts 6 DD genes uniquely identified by scDDboost, for data GSE75748, DEC vs. EC, We observe some of the genes are different distributed across conditions.\relax }}{14}}
+\newlabel{fig:6}{{5}{14}}
+\citation{ref:d3e}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces FDR of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. ***This procedure for testing FDR, we randomly split a population into two samples, so it is highly likely proportion of subtypes remain same among these two samples, scDDboost always give small PDD and almost make no false positive call. This is kind different from really examining the FDR of scDDboost, where we have different proportions across conditions, but we do not want false call on those genes without mean expression change even there is proportion change. In this case, it actually reduce to the FDR of EBSeq whether we make correct posterior inference on DE pattern. The test of proportion is only done once, so scDDboost could still control FDR*** \relax }}{15}}
+\newlabel{fig:7}{{6}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces 2D histogram for bursting parameters of DD genes identified by scDDboost from dataset EMTAB2805 estimated by D3E. Left panel : comparison of rate of promoter activation between two conditions, similarly, middle panel : rate of promoter inactivation and right panel: rate of transcription when the promoter is in the active state. We observe that difference between transcription rate is smaller compare to difference between the activation and inactivation rate. ***other methods also observe similar phenomena, this is not unique to scDDboost, main reason is that estimation from D3E tends to give larger difference in activation and inactivation rate than transcription rate. We may argue the major factor to drive DD genes are activation and inactivation rate (proportions of different subtyps), so it make sense to consider mixture model like scDDboost.***\relax }}{16}}
+\@writefile{toc}{\contentsline {section}{\tocsection {}{6}{asymptotic properties}}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Four subtypes of cells, simplexes of $(\phi ,\psi )$ satisfying different constraints.\relax }}{17}}
+\newlabel{fig:1}{{8}{17}}
+\@writefile{toc}{\contentsline {section}{\tocsection {}{7}{Discussion}}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces selecting number of subtypes for data GSE75748, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD. We select number of subtypes to be 7\relax }}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes\relax }}{20}}
+\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{A}{}}{21}}
+\bibstyle{IEEEtran}
+\bibdata{/Users/xiuyuma/Desktop/scDDboost_paper/scDDboost/paper/references/wlr_ref}
+\bibcite{scs}{{1}{}{{}}{{}}}
+\bibcite{Bacher:2016aa}{{2}{}{{}}{{}}}
+\bibcite{sc3}{{3}{}{{}}{{}}}
+\bibcite{CIDR}{{4}{}{{}}{{}}}
+\bibcite{ZIFA}{{5}{}{{}}{{}}}
+\bibcite{ref:MAST}{{6}{}{{}}{{}}}
+\bibcite{ref:Des}{{7}{}{{}}{{}}}
+\bibcite{ref:scDD}{{8}{}{{}}{{}}}
+\bibcite{ref:Cq}{{9}{}{{}}{{}}}
+\bibcite{ref:Leng}{{10}{}{{}}{{}}}
+\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{}{References}}{24}}
+\bibcite{ref:Rhonda}{{11}{}{{}}{{}}}
+\bibcite{ref:dahl}{{12}{}{{}}{{}}}
+\bibcite{ref:cspa}{{13}{}{{}}{{}}}
+\bibcite{ref:Dickey}{{14}{}{{}}{{}}}
+\bibcite{Wag}{{15}{}{{}}{{}}}
+\bibcite{ref:Zappia}{{16}{}{{}}{{}}}
+\bibcite{Deng193}{{17}{}{{}}{{}}}
+\bibcite{Shalek}{{18}{}{{}}{{}}}
+\bibcite{Kumar}{{19}{}{{}}{{}}}
+\bibcite{Engel}{{20}{}{{}}{{}}}
+\bibcite{EMTAB}{{21}{}{{}}{{}}}
+\bibcite{Guo}{{22}{}{{}}{{}}}
+\bibcite{Tasic}{{23}{}{{}}{{}}}
+\bibcite{chu}{{24}{}{{}}{{}}}
+\bibcite{oscope}{{25}{}{{}}{{}}}
+\bibcite{ref:d3e}{{26}{}{{}}{{}}}
+\newlabel{tocindent-1}{0pt}
+\newlabel{tocindent0}{64.17928pt}
+\newlabel{tocindent1}{72.39178pt}
+\newlabel{tocindent2}{32.18062pt}
+\newlabel{tocindent3}{0pt}
+\providecommand\NAT@force@numbers{}\NAT@force@numbers
