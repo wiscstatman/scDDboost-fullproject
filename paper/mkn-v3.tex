@@ -71,7 +71,7 @@ Simulation study suggests that the method provides improved power and precision 
 Performance on real data has been investigated through ten previously published experimental data from conquer\cite{ref:Cq}. 
 We also obtained asymptotic properties of posterior inference. 
 
-\section{Method Structure}
+\section{Modeling}
 \subsection{Data structure, sampling model, and parameters}
 In modeling scRNASeq data, we
 imagine that each cell falls into one of $K>1$ classes, which we think of as
@@ -82,8 +82,9 @@ experimental conditions, such as by treatment-control status or some other facto
  measured at the cell level, and we present our development for the special
 case of two conditions.
 Extensions to multiple conditions are discussed in section 6. Let's say conditions 1 and 2 contain $n_1$ and $n_2$ cells, respectively, and
-let $z^j_k$ denote the number of cells of subtype $k$ in condition $j$.
-Count vectors $z^1 = (z^1_1, z^1_2, \cdots, z^1_K )$ and 
+let $z^j_k$ denote the number of cells of subtype $k$ in condition $j$;
+we'll infer something about these counts using genome-wide data. Marginally,
+count vectors $z^1 = (z^1_1, z^1_2, \cdots, z^1_K )$ and 
 $z^2 = (z^2_1, z^2_2, \cdots, z^2_K)$ we treat as independent multinomial
 vectors, reflecting the common, two-condition experimental design.
 Explicitly,
@@ -94,13 +95,13 @@ z^2 \sim \text{Multinomial}_K( n_2, \psi )
 for probability vectors 
 $\phi = (\phi_1, \phi_2, \cdots, \phi_K)$ and 
  $\psi = ( \psi_1, \psi_2, \cdots, \psi_K)$ that characterize the populations of
-cells from which the $n_1+n_2$ observed cells are sampled.
+cells from which the $n=n_1+n_2$ observed cells are sampled.
 As for data, the 
 normalized expression of gene $g$ in cell $c$, say $X_{g,c}$, is one entry
-in a typically large data matrix; and we record cell condition with the binary
-label $y_c$.   
+in a typically large genes by cells data matrix $X$; 
+and we record cell condition with the binary $n$-vector $y=(y_c)$.
 
-Our working hypothesis is that any differences in the distribution of $X_{g,c}$ 
+Our working hypothesis, referred to as the {\em compositional model},  is that any differences in the distribution of $X_{g,c}$ 
 between $y_c=1$ and $y_c=2$ (i.e., any condition effects) are attributable 
 to differences between the conditions 
 in the underlying composition of cell types; i.e.,
@@ -113,14 +114,16 @@ further subtypes that show differential response to some treatment, for example,
 and so cellular condition (treatment) would then affect the distribution of 
 expression data within the subtype, which is contrary to our working hypothesis.
 On the other hand, we could then refine the subtype definition to allow more
-population classes $K$ in order to mitigate that problem. A risk in this is if K approaches n1+n2, wherein every cell is it's own type.
-In spite of this theoretical possibility, the data sets often encountered appear not to display this phenomenon,
+population classes $K$ in order to mitigate that problem. There's a  risk
+ in this approach  if $K$ approaches $n$ (i.e., every cell is it's own type).
+In spite of this theoretical possibility, the data sets often encountered 
+appear not to display this phenomenon,
 even when relatively flexible in the within-subtype expression distribution
-We revisit the issue in discussion section, but for now proceed assuming that cellular 
-condition affects the composition of subtypes but not the distribution of expression
+We revisit the issue in discussion section, but for now proceed assuming 
+that cellular condition affects the composition of subtypes but not the distribution of expression
 within a subtype.
 
-With this working hypothesis, let $f_{g,k}(x)$ denote the sampling distribution
+With this compositional model, let $f_{g,k}(x)$ denote the sampling distribution
 of expression measurement $X_{g,c}$ assuming that cell $c$ is from subtype $k$.
 Then in the two cellular conditions, the marginal distributions over subtypes are
 \begin{eqnarray*}
@@ -131,8 +134,9 @@ We say that gene $g$ is {\em differentially distributed}, denote ${\rm DD}_g$,
 if $f_g^1(x) \neq f_g^2(x)$ for some $x$, and otherwise it is equivalently distributed
 (${\rm ED}_g$). Motivated by findings from bulk RNAseq data analysis, we further
 set each $f_{g,k}$ to have a a Negative Binomial form, say with mean $\mu_{g,k}$
-and shape parameter $\alpha_g$\cite{ref:Leng}. This choice
-proves to be effective in our numerical experiments though it is not critical to
+and shape parameter $\alpha_g$ (\cite{ref:Leng}; add more citations here). 
+This choice proves to be effective in our numerical experiments though it is 
+not critical to
 the modeling formulation.
 
 We seek a useful methodology to prioritize genes for evidence
@@ -166,8 +170,10 @@ has cardinality that grows rapidly with $K$.
 involving $K=7$ cell types, and one three-block partition taken
 from the set of 877 possible partitions of $\{1, 2, \cdots, 7\}$ (Figure 1).
 \begin{figure}[h!]
-  \includegraphics[height = 4cm, width=\linewidth]{prop.png}
-  \caption{proportions of subtypes change in different conditions. Aggregated proportions of subtype 1 and 2, subtype 3, 4, 5, and subtype 6,7 remained same across conditions while proportion of individual subtype changed}
+%%  \includegraphics[height = 4cm, width=\linewidth]{prop.png}
+  \includegraphics[width=\linewidth]{prop.png}
+  \caption{Proportions of $K=7$ cellular subtypes in different conditions. 
+ Aggregated proportions of subtype 1 and 2, subtype 3, 4, 5, and subtype 6,7 remained same across conditions while proportion of individual subtype changed}
   \label{fig:1}
 \end{figure}
 
@@ -193,36 +199,45 @@ structures needed to address differential distribution DD$_g$ (and
 it complement, equivalent distribution, ${\rm ED}_g$) at a given gene
 $g$: 
 
-\begin{theorem}  Let $C_{g,\pi} = A_\pi\cap M_{g, \pi}$,  for any different partitions $\pi_1,\pi_2$, $C_{g,\pi_1} \cap C_{g,\pi_2} = \emptyset$. At a given gene, equivalent distribution is
+\begin{theorem}  Let $C_{g,\pi} = A_\pi\cap M_{g, \pi}$.  For distinct 
+partitions $\pi_1,\pi_2$, $C_{g,\pi_1} \cap C_{g,\pi_2} = \emptyset$. Further,
+ at any gene $g$, equivalent distribution is
 \begin{eqnarray*}
-\text{ED}_g = \bigcup_{\pi \in \Pi} C_{g,\pi}.
+{\rm{ED}}_g = \bigcup_{\pi \in \Pi} C_{g,\pi}.
 \end{eqnarray*}
 \end{theorem}
  
-Our first construction is to quantify probability of a gene being differentially distributed, which is equivalent to quantify $C_{g,\pi}$ based on theorem 1.  We further assume the independence of $A_\pi$ and $M_{g,\pi}$ as proportions $(\phi,\psi)$ are unrelated to the mean expression $\{\mu_{g,i}\}$ of subtypes. By combining cell-type counts $z^1$ and $z^2$ with
-expression data $x_g$ at a gene, we may compute 
-$P(\text{ED}_g|\text{data})$ 
+This representation is central to our empirical Bayes
+posterior probabilities, $P(\text{DD}_g|X,y)$, which we develop below, and
+which we use to score differential distribution per gene. We require a natural
+and simplifying prior assumption:  $A_\pi$ and $M_{g,\pi}$ are independent.
+(I.e., proportions $(\phi,\psi)$ are uninformative about the mean expression
+  $\{\mu_{g,i}\}$). Then,
 \begin{align}
-P(\text{ED}_g|\text{data}) = \sum_{\pi \in \Pi} P(A_\pi|z^1, z^2) \,
-P(M_{g,\pi}|x_g).
+1-P(\text{DD}_g|X,y) = P(\text{ED}_g|X,y) = \sum_{\pi \in \Pi} P(A_\pi|X,y) \,
+P(M_{g,\pi}|X).
 \end{align}
 The idea is by allowing genome-wide information to inform the posterior of $A_\pi$, then get added benefit from the gene-level data, which primarily drives the posterior of $M_{g,\pi}$. It's a very specific form of information sharing that leverages the compositional structure of single-cell data. 
 
-\subsection{Basic workflow}\hfill\\ 
+\subsection{Method structure}
+
+
+
 Our approach take transcripts processed by normalizing methods (e.g. SCnorm \cite{ref:Rhonda}). 
-Prior to any bayesian inference, we need to identify subtypes of cells. Recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus identification process is blind to conditions and can be done by clustering upon similarities between cells. Denote $X$($G \times (n_1 + n_2)$) as the full data matrix and following is our basic workflow
+**improve**Prior to any Bayesian inference, we need to identify subtypes of cells. Recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus identification process is blind to conditions and can be done by clustering upon similarities between cells. 
 \begin{algorithm}
 \caption{}\label{alg:scDDboost}
-\raggedright\hspace*{\algorithmicindent} \textbf{Input}: normalized transcripts profile $X$ and condition label $L$ \\
+\raggedright\hspace*{\algorithmicindent} \textbf{Input}: Expression data matrix $X$ and condition label vector  $y$ \\
 \hspace*{\algorithmicindent} \textbf{Output}: posterior probabilities of genes being differential distributed
 \begin{algorithmic}[1]
-\Procedure{scDDboost}{$X$}
-\State $z^1, z^2\gets \text{identify subtypes of pooled cells} (X)$ and $L$
+\Procedure{scDDboost0}{$X,y$}
+\State partition cells using distances between columns of $X$
+\State $z^1, z^2\gets$ partition of cells and $y$ 
 \State $P(M_{g,\pi} | X)\gets \text{EBSeq}$\cite{ref:Leng}
-\State $P(A_\pi | z^1, z^2)\gets \text{Empirical Bayes}$
-\State $P(\text{ED}_g | X, L)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X)P(A_\pi | z^1, z^2)$
-\State $P(\text{DD}_g | X, L) \gets 1 - P(\text{ED}_g | X, L)$
-\State \textbf{return} $P(\text{DD}_g |X, L)$
+\State $P(A_\pi | X,y)\gets \text{Empirical Bayes}$
+\State $P(\text{ED}_g | X, y)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X)P(A_\pi | z^1, z^2)$
+\State $P(\text{DD}_g | X, y) \gets 1 - P(\text{ED}_g | X, y)$
+\State \textbf{return} $P(\text{DD}_g |X, y)$
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
