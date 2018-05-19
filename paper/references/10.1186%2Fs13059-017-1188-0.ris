@@ -1,0 +1,17 @@
+TY  - JOUR
+AU  - Lin, Peijie
+AU  - Troup, Michael
+AU  - Ho, Joshua W. K.
+PY  - 2017
+DA  - 2017/03/28
+TI  - CIDR: Ultrafast and accurate clustering through imputation for single-cell RNA-seq data
+JO  - Genome Biology
+SP  - 59
+VL  - 18
+IS  - 1
+AB  - Most existing dimensionality reduction and clustering packages for single-cell RNA-seq (scRNA-seq) data deal with dropouts by heavy modeling and computational machinery. Here, we introduce CIDR (Clustering through Imputation and Dimensionality Reduction), an ultrafast algorithm that uses a novel yet very simple implicit imputation approach to alleviate the impact of dropouts in scRNA-seq data in a principled manner. Using a range of simulated and real data, we show that CIDR improves the standard principal component analysis and outperforms the state-of-the-art methods, namely t-SNE, ZIFA, and RaceID, in terms of clustering accuracy. CIDR typically completes within seconds when processing a data set of hundreds of cells and minutes for a data set of thousands of cells. CIDR can be downloaded at                   https://github.com/VCCRI/CIDR                                  .
+SN  - 1474-760X
+UR  - https://doi.org/10.1186/s13059-017-1188-0
+DO  - 10.1186/s13059-017-1188-0
+ID  - Lin2017
+ER  - 
