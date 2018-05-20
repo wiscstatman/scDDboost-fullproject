@@ -4,10 +4,12 @@
 \alias{PDD_random}
 \title{calculate PDD when add random noise in distance matrix}
 \usage{
-PDD_random(data, cd, K, D, hp, Posp, iter, lambda, seed)
+PDD_random(data, cd, K, D, sz, hp, Posp, iter, lambda, seed)
 }
 \arguments{
 \item{data}{normalized preprocessed transcripts}
+
+\item{cd}{condition label}
 
 \item{K}{number of subgroups}
 
@@ -17,11 +19,9 @@ PDD_random(data, cd, K, D, hp, Posp, iter, lambda, seed)
 
 \item{Posp}{parition patterns}
 
-\item{iter}{max number of iterations for EM}
+\item{iter}{max number of iterations for EM in EBSeq}
 
 \item{lambda}{parameter for random noise}
-
-\item{ncores}{number cores for parallel computing}
 }
 \value{
 posterior probabilities under random distance matrix

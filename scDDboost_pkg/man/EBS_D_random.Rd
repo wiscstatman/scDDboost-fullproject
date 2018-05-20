@@ -17,11 +17,13 @@ EBS_D_random(data, K, gcl, sz, D, hp, Posp, iter, lambda)
 
 \item{D}{cell distance matrix}
 
-\item{hp}{hyper parameters}
+\item{hp}{hyper parameters of EBSeq}
 
 \item{Posp}{partition patterns}
 
-\item{iter}{max number of iterations}
+\item{iter}{max number of iterations in EM algorithm in EBSeq}
+
+\item{lambda}{parameter for exponential distributed noise}
 }
 \value{
 new distance matrix

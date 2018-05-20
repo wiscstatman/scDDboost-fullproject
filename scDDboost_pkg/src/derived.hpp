@@ -26,12 +26,14 @@ public:
         for(int i = 0; i < rs.size(); ++i){
             //        res+=R::lbeta(alpha+rs(i),beta+cs(i))-R::lbeta(alpha,beta);
             res += lgamma(alpha + rs(i)) + lgamma(beta + cs(i)) - lgamma(alpha + rs(i) + beta + cs(i)) - lgamma(alpha) - lgamma(beta) + lgamma(alpha + beta);
+            
         }
         return res;
     }
     
     static inline double cb(double& alpha, double& beta, const double& rs,const double& cs){
       return lgamma(alpha + rs)+lgamma(beta + cs)-lgamma(alpha + rs + beta + cs) - lgamma(alpha) - lgamma(beta) + lgamma(alpha + beta);
+        
     }
     static inline double LL(double hp[]){
         double res=0;
@@ -57,6 +59,7 @@ public:
                     }
                 }
             }
+            
             for(int t1 = 0;t1<G;++t1){
                 res += cb(thp[0], thp[gclus[t1]], tmp_r.row(t1), tmp.row(t1)) * gm(t1,i);
             }
@@ -64,6 +67,7 @@ public:
 
             
         }
+
         for(int t1 = 0;t1<G;++t1){
             res += cb(thp[0], thp[gclus[t1]], r.row(t1), data.row(t1)) * gm(t1,0);
         }

@@ -6,10 +6,10 @@
 #' @param gcl gene cluster
 #' @param sz size factor
 #' @param D cell distance matrix
-#' @param hp hyper parameters
+#' @param hp hyper parameters of EBSeq
 #' @param Posp partition patterns
-#' @param iter max number of iterations
-#' @lambda parameters for noise exponential distribution
+#' @param iter max number of iterations in EM algorithm in EBSeq
+#' @param lambda parameter for exponential distributed noise
 #' @return new distance matrix
 
 EBS_D_random = function(data, K, gcl, sz, D, hp, Posp, iter, lambda){

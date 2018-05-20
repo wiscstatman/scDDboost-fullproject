@@ -2,6 +2,7 @@
 #'
 #' @param Posp possible partition of data
 #' @return return a matrix indicate the refinement relation between different partitions.
+#' @export
 
 
 g_ref = function(Posp){

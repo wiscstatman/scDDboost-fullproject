@@ -3,7 +3,7 @@
 #' @param data transcripts
 #' @param ncores number of cores for parallel computing
 #' @return return a matrix whose row represent gene specific cluster
-
+#' @export
 
 g_cl = function(data, ncores){
     MV<-CalcMV(data,Plot = F)

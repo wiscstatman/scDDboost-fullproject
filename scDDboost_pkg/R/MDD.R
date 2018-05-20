@@ -33,6 +33,7 @@ lpt1t2 <- function(z1,z2,pp)
 #' @param z2 counts of each group in condition 2
 #' @param pat partition patterns
 #' @return posterior of proportion change
+#' @export
 
 MDD = function(z1, z2, pat){
     np = nrow(pat)
@@ -46,3 +47,8 @@ MDD = function(z1, z2, pat){
     post <- post/sum(post)
     return(post)
 }
+
+
+
+
+
