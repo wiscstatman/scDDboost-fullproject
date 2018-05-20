@@ -66,7 +66,7 @@ PDD = function(data, cd, ncores, K, D,sz, hp, Posp, iter, random, lambda, nrando
     }
     else{
         bp <- BiocParallel::MulticoreParam(ncores)
-        result = bplapply(1:nrandom, function(i) {PDD_random(data, cd, K, D, hp, Posp, iter, lambda, i)}, BPPARAM = bp)
+        result = bplapply(1:nrandom, function(i) {PDD_random(data, cd, K, D, sz, hp, Posp, iter, lambda, i)}, BPPARAM = bp)
         
         
         boot = matrix(0,nrow=length(result[[1]]),ncol = nrandom)
