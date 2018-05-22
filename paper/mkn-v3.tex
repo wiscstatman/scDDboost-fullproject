@@ -601,6 +601,67 @@ D3E\cite{ref:d3e} is a distributional method that can identify bursting paramete
 \end{figure}
 We observed that DD genes identified by scDDboost tends to have similar transcription rate when the promoter is active across condition, while there are lots of variabilities in the action and inactivation rate. These results reveal that DD genes identified by scDDboost are driven by the change of activation and inactivation rates. 
 
+\section{robustification}\hfill\\
+\subsection{bagging}
+Cluster cells is an unsupervised learning, we do not know the true underlying partition and different number of clusters will lead to large differences in posterior probabilities of genes being differentially distributed (figure 7). We propose a modified bootstrap to stabilize our inferences. Instead of resample the cells, we resample the distance matrices of cells by adding noises to original distance matrix. Denote the original distance matrix as $D = (d_{i,j})$, for each time we random sample a vector $e$ with length equal to number of cells and components are i.i.d. exponentially distributed. let $w$ be the standard deviation of $d_{i,j}$. We resample a new $\hat{D}$ by adding nosies: $\hat{d}_{i,j} = d_{i,j} + e_i * w + e_j *w$. For $\hat{D}$ we still have triangle inequality held as $\hat{d}_{i,j} + \hat{d}_{j,k} \geq \hat{d}_{i,k}$ , it is a valid distance matrix. For a fixed number of clusters, we average posterior probabilities over different distance matrices. And we select number of clusters $K$ that posterior probabilities do not vary too much under $K$ and $K+1$. From our empirical experience, it is typical $K$ will not be larger than 8.\\
+\begin{algorithm}
+\caption{}\label{alg:generate-clustering}
+\raggedright\hspace*{\algorithmicindent} \textbf{Input}: cell by cell distance matrix $D$ number of cluster $K$ and parameter of noises  $\lambda$ \\
+\hspace*{\algorithmicindent} \textbf{Output}: clustering of cells $cl$
+\begin{algorithmic}[1]
+\Procedure{random-c}{$D,K,\lambda$}
+\State sampling noises $e$ from exponential distribution with mean $= \lambda$ 
+\State $\hat{D}_{i,j}\gets D_{i,j} + e_i + e_j$ 
+\State $cl\gets K\text{-medoids on }\hat{D}$
+\State \textbf{return} $cl$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\begin{figure}[H]
+\minipage{0.5\textwidth}
+  \includegraphics[height = 5cm, width=\linewidth]{DN_67.png}
+\endminipage\hfill
+\minipage{0.5\textwidth}
+  \includegraphics[height = 5cm, width=\linewidth]{DN_78.png}
+\endminipage\hfill
+\caption{selecting number of subtypes for data GSE75748, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD.  We select number of subtypes to be 7}
+\end{figure}
+\begin{figure}[H]
+\minipage{0.5\textwidth}
+  \includegraphics[height = 5cm, width=\linewidth]{G48_56.png}
+\endminipage\hfill
+\minipage{0.5\textwidth}
+  \includegraphics[height = 5cm, width=\linewidth]{G48_67.png}
+\endminipage\hfill
+\caption{selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes}
+\end{figure}
+
+
+\begin{algorithm}
+\caption{}\label{alg:scDDboost-robust}
+\raggedright\hspace*{\algorithmicindent} \textbf{Input}: Expression data matrix $X$, condition label vector  $y$, number of clusters and iteration $K, T$, noise parameter $\lambda$   \\
+\hspace*{\algorithmicindent} \textbf{Output}: averaged posterior probabilities of genes being differential distributed 
+\begin{algorithmic}[1]
+\Procedure{scDDboost1}{$X,y, K, T, \lambda$}
+\State $D\gets$ cell by cell distance matrix $X$
+\For {$i = 0, i < T$}  
+\State $cl\gets$ Random-c($D, K$)
+\State $z^1, z^2\gets cl$ and $y$ 
+\State $P(M_{g,\pi} | X)\gets \text{EBSeq}$\cite{ref:Leng}
+\State $P(A_\pi | X,y)\gets \text{Empirical Bayes}$
+\State $P(\text{ED}_g | X, y)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X)P(A_\pi | z^1, z^2)$
+\State $P(\text{DD}_g | X, y) \gets 1 - P(\text{ED}_g | X, y)$
+\State $i\gets i + 1$
+\EndFor
+\State \textbf{return} averaged $P(\text{DD}_g |X, y)$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+
+
 \section{asymptotic properties}\hfill\\
 
 To investigate asymptotic properties we first give the expression of posterior probability. Since there is no information favorable of any particular $A_\pi$, we select discrete uniform distribution as the prior for it, then the posterior probability is
@@ -674,26 +735,7 @@ The asymptotic properties help us gain insight of the performance of our approac
 scDDboost may work poorly, when $(\phi, \psi)\in Q$, we may underestimate the posterior probability of true proportion change pattern, which reduce the posterior probabilities of true negative and enlarge false positive rate.\\
 
 \section{Discussion}
-Cluster cells is an unsupervised learning, we do not know the true underlying partition and different number of clusters will lead to large differences in posterior probabilities of genes being differentially distributed (figure 7). We propose a modified bootstrap to stabilize our inferences. Instead of resample the cells, we resample the distance matrices of cells by adding noises to original distance matrix. Denote the original distance matrix as $D = (d_{i,j})$, for each time we random sample a vector $e$ with length equal to number of cells and components are i.i.d. exponentially distributed. let $w$ be the standard deviation of $d_{i,j}$. We resample a new $\hat{D}$ by adding nosies: $\hat{d}_{i,j} = d_{i,j} + e_i * w + e_j *w$. For $\hat{D}$ we still have triangle inequality held as $\hat{d}_{i,j} + \hat{d}_{j,k} \geq \hat{d}_{i,k}$ , it is a valid distance matrix. For a fixed number of clusters, we average posterior probabilities over different distance matrices. And we select number of clusters $K$ that posterior probabilities do not vary too much under $K$ and $K+1$. From our empirical experience, it is typical $K$ will not be larger than 8.\\
-\begin{figure}[H]
-\minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{DN_67.png}
-\endminipage\hfill
-\minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{DN_78.png}
-\endminipage\hfill
-\caption{selecting number of subtypes for data GSE75748, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD.  We select number of subtypes to be 7}
-\end{figure}
-\begin{figure}[H]
-\minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{G48_56.png}
-\endminipage\hfill
-\minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{G48_67.png}
-\endminipage\hfill
-\caption{selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes}
-\end{figure}
-
+subsection{extension to multi conditions}
 
 \newpage
 \appendix
