@@ -18,6 +18,7 @@ DC::DC(MatrixXd& data, VectorXi& conditions, VectorXd& sf, vector<int>& g_clus, 
 }
 
 
+
 MatrixXd DC::cal_gm(double xmin[]){
     MatrixXd tmpp(G,PT);
     for(int i = 1; i < PT; ++i){

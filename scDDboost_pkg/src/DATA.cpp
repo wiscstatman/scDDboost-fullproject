@@ -11,11 +11,11 @@
 vector<MatrixXd> DATA::reorg(MatrixXd& data, const VectorXi& conditions){
     vector<MatrixXd> tmp;
     int ngr=conditions.maxCoeff();
-    for(int i=0;i<ngr;++i){
-        vector<int> s=which(conditions,i+1);
-        MatrixXd tc(G,s.size());
-        for(int j=0;j<s.size();++j){
-            tc.col(j)=data.col(s[j]);
+    for(int i = 0; i < ngr; ++i){
+        vector<int> s = which(conditions, i + 1);
+        MatrixXd tc(G, s.size());
+        for(int j = 0; j < s.size(); ++j){
+            tc.col(j) = data.col(s[j]);
         }
         tmp.push_back(tc);
     
@@ -27,10 +27,10 @@ vector<MatrixXd> DATA::reorgr(const MatrixXd& r, const VectorXi& conditions){
     vector<MatrixXd> tmp;
     int ngr=conditions.maxCoeff();
     for(int i=0;i<ngr;++i){
-        vector<int> s=which(conditions,i+1);
+        vector<int> s = which(conditions,i+1);
         MatrixXd tr(G,s.size());
-        for(int j=0;j<s.size();++j){
-            tr.col(j)=r.col(s[j]);
+        for(int j = 0; j < s.size(); ++j){
+            tr.col(j) = r.col(s[j]);
         }
         tmp.push_back(tr);
     }
@@ -39,9 +39,10 @@ vector<MatrixXd> DATA::reorgr(const MatrixXd& r, const VectorXi& conditions){
 
 
 r_q DATA::cal_r(MatrixXd& data,const VectorXi& conditions, const VectorXd& sf){
+
     VectorXd whole_mean(G);
     size_t nc = data.cols();
-    //    whole_mean = data.rowwise().mean();
+//    whole_mean = data.rowwise().mean();
     
     MatrixXd data_dvd(G,nc);
     for(int i = 0; i < G; i++){
@@ -66,16 +67,16 @@ r_q DATA::cal_r(MatrixXd& data,const VectorXi& conditions, const VectorXd& sf){
             cond_var(i,j) = tmp_var / s.size();
         }
     
+
     
-    
-    //    for(int i = 0; i < M; ++i){
-    //        size_t sub_nc = reorg_data[i].cols();
-    ////        if(sub_nc == 1)
-    ////            sub_nc = 2;
-    //        MatrixXd center = (reorg_data[i].colwise()-reorg_data[i].rowwise().mean());
-    //        cond_var.col(i) = center.rowwise().squaredNorm() / sub_nc;
-    //    }
-    
+//    for(int i = 0; i < M; ++i){
+//        size_t sub_nc = reorg_data[i].cols();
+////        if(sub_nc == 1)
+////            sub_nc = 2;
+//        MatrixXd center = (reorg_data[i].colwise()-reorg_data[i].rowwise().mean());
+//        cond_var.col(i) = center.rowwise().squaredNorm() / sub_nc;
+//    }
+
     VectorXd var(G);
     var = cond_var.rowwise().mean();
     MatrixXd res(G,nc);
@@ -142,16 +143,16 @@ MatrixXd DATA::cal_hp(void){
 
 DATA::DATA(MatrixXd& data, const VectorXi& conditions, const VectorXd& sf, const MatrixXi& pp){
     MatrixXd r;
-    this->data = data;
-    this->G = data.rows();
-    this->r_d = reorg(data,conditions);
-    this->K = r_d.size();
+    this->data=data;
+    this->G=data.rows();
+    this->r_d=reorg(data,conditions);
+    this->K=r_d.size();
     r_q res_rq;
-    res_rq = cal_r(data,conditions,sf);
-    this->r = res_rq.rrr;
-    this->q = res_rq.qqq;
-    this->r_r = reorgr(this->r,conditions);
-    this->pat = pp;
+    res_rq=cal_r(data,conditions,sf);
+    this->r=res_rq.rrr;
+    this->q=res_rq.qqq;
+    this->r_r=reorgr(this->r,conditions);
+    this->pat=pp;
     
     MatrixXd td(G,K);
     MatrixXd tr(G,K);

@@ -18,7 +18,7 @@
 
 
 \title{A compositional model to assess expression changes from
- single-cell RNA-seq data\footnote{Department of Biostatistics and Medical Informatics, UW Madison, Technical Report TR***-v1, December **, 2017.}} 
+ single-cell RNA-seq data\footnote{Department of Biostatistics and Medical Informatics, UW Madison, Technical Report TR***-v1, May **, 2018.}} 
 
 \author{Xiuyu Ma,  and Christina Kendziorski, and Michael A. Newton}
  
@@ -74,34 +74,33 @@ We also obtained asymptotic properties of posterior inference.
 \section{Modeling}
 \subsection{Data structure, sampling model, and parameters}
 In modeling scRNASeq data, we
-imagine that each cell falls into one of $K>1$ classes, which we think of as
-subtypes or subpopulations of cells. Knowledge of this class structure
+imagine that each cell $c$ falls into one of $K>1$ classes, which we think of as
+subtypes or subpopulations of cells. For notation, $z_c=k$ means that cell $c$ happens to be of subtype $k$, with the vector $z=(z_c)$ recording
+the state of all sampled cells.  Knowledge of this class structure
  prior to measurement is not required, as it will be inferred as necessary from
- available genomic data.  We also assume that cells arise from multiple
+ available genomic data.   We also assume that cells arise from multiple
 experimental conditions, such as by treatment-control status or some other factor
  measured at the cell level, and we present our development for the special
-case of two conditions.
-Extensions to multiple conditions are discussed in section 6. Let's say conditions 1 and 2 contain $n_1$ and $n_2$ cells, respectively, and
-let $z^j_k$ denote the number of cells of subtype $k$ in condition $j$;
-we'll infer something about these counts using genome-wide data. Marginally,
-count vectors $z^1 = (z^1_1, z^1_2, \cdots, z^1_K )$ and 
-$z^2 = (z^2_1, z^2_2, \cdots, z^2_K)$ we treat as independent multinomial
-vectors, reflecting the common, two-condition experimental design.
-Explicitly,
+case of two conditions.  Notationally, $y=(y_c)$ records the experimental condition, say $y_c=1$ or $y_c=2$ initially:
+extensions to multiple conditions are discussed in section 6. Let's say condition $j$ measures $n_j=\sum_{c} 1[y_c=j]$ cells,  and
+in total we have $n=n_1+n_2$ cells in the analysis.  Further let $t^j_k = \sum_c 1[y_c=j, z_c=k]$ denote the number of cells of subtype $k$ in condition $j$;
+we'll infer something about these counts using genome-wide data.  As for molecular data, the 
+normalized expression of gene $g$ in cell $c$, say $X_{g,c}$, is one entry
+in a typically large genes by cells data matrix $X$.  Summing up, the data structure entails an expression matrix
+$X$, a treatment label vector $y$, and a vector of latent subtype labels $z$.
+
+
+We treat subtype counts in the two conditions,  $t^1 = (t^1_1, t^1_2, \cdots, t^1_K )$ and 
+$t^2 = (t^2_1, t^2_2, \cdots, t^2_K)$,  as independent multinomial
+vectors, reflecting the common, two-condition experimental design.  Explicitly,
 \begin{eqnarray*}
-z^1 \sim \text{Multinomial}_K( n_1, \phi ) \quad {\mbox {\rm and}} \quad
-z^2 \sim \text{Multinomial}_K( n_2, \psi )
+t^1 \sim \text{Multinomial}_K( n_1, \phi ) \quad {\mbox {\rm and}} \quad
+t^2 \sim \text{Multinomial}_K( n_2, \psi )
 \end{eqnarray*}
 for probability vectors 
 $\phi = (\phi_1, \phi_2, \cdots, \phi_K)$ and 
  $\psi = ( \psi_1, \psi_2, \cdots, \psi_K)$ that characterize the populations of
-cells from which the $n=n_1+n_2$ observed cells are sampled.
-As for data, the 
-normalized expression of gene $g$ in cell $c$, say $X_{g,c}$, is one entry
-in a typically large genes by cells data matrix $X$; 
-and we record cell condition with the binary $n$-vector $y=(y_c)$.
-
-Our working hypothesis, referred to as the {\em compositional model},  is that any differences in the distribution of $X_{g,c}$ 
+cells from which the $n$ observed cells are sampled.  Our working hypothesis, referred to as the {\em compositional model},  is that any differences in the distribution of expression $X_{g,c}$ 
 between $y_c=1$ and $y_c=2$ (i.e., any condition effects) are attributable 
 to differences between the conditions 
 in the underlying composition of cell types; i.e.,
@@ -227,12 +226,14 @@ Our approach take transcripts processed by normalizing methods (e.g. SCnorm \cit
 **improve**Prior to any Bayesian inference, we need to identify subtypes of cells. Recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus identification process is blind to conditions and can be done by clustering upon similarities between cells. 
 \begin{algorithm}
 \caption{}\label{alg:scDDboost}
-\raggedright\hspace*{\algorithmicindent} \textbf{Input}: Expression data matrix $X$ and condition label vector  $y$ \\
+\raggedright\hspace*{\algorithmicindent} \textbf{Input}: Expression data matrix $X$ condition label vector  $y$ and partition of cells $pt$\\
 \hspace*{\algorithmicindent} \textbf{Output}: posterior probabilities of genes being differential distributed
 \begin{algorithmic}[1]
-\Procedure{scDDboost0}{$X,y$}
-\State partition cells using distances between columns of $X$
-\State $z^1, z^2\gets$ partition of cells and $y$ 
+\Procedure{scDDboost0}{$X,y, pt$}
+\If {$pt$ is not specified}
+ \State $pt \gets$ partition cells using distances between columns of $X$
+\EndIf
+\State $z^1, z^2\gets$ pt and $y$ 
 \State $P(M_{g,\pi} | X)\gets \text{EBSeq}$\cite{ref:Leng}
 \State $P(A_\pi | X,y)\gets \text{Empirical Bayes}$
 \State $P(\text{ED}_g | X, y)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X)P(A_\pi | z^1, z^2)$
@@ -601,6 +602,63 @@ D3E\cite{ref:d3e} is a distributional method that can identify bursting paramete
 \end{figure}
 We observed that DD genes identified by scDDboost tends to have similar transcription rate when the promoter is active across condition, while there are lots of variabilities in the action and inactivation rate. These results reveal that DD genes identified by scDDboost are driven by the change of activation and inactivation rates. 
 
+\section{robustification}\hfill\\
+\subsection{bagging}
+Cluster cells is an unsupervised learning, we do not know the true underlying partition and different number of clusters will lead to large differences in posterior probabilities of genes being differentially distributed (figure 7). We propose a modified bootstrap to stabilize our inferences. Instead of resample the cells, we resample the distance matrices of cells by adding noises to original distance matrix. Denote the original distance matrix as $D = (d_{i,j})$, for each time we random sample a vector $e$ with length equal to number of cells and components are i.i.d. exponentially distributed. let $w$ be the standard deviation of $d_{i,j}$. We resample a new $\hat{D}$ by adding nosies: $\hat{d}_{i,j} = d_{i,j} + e_i * w + e_j *w$. For $\hat{D}$ we still have triangle inequality held as $\hat{d}_{i,j} + \hat{d}_{j,k} \geq \hat{d}_{i,k}$ , it is a valid distance matrix. For a fixed number of clusters, we average posterior probabilities over different distance matrices. And we select number of clusters $K$ that posterior probabilities do not vary too much under $K$ and $K+1$. From our empirical experience, it is typical $K$ will not be larger than 8.\\
+\begin{algorithm}
+\caption{}\label{alg:generate-clustering}
+\raggedright\hspace*{\algorithmicindent} \textbf{Input}: cell by cell distance matrix $D$ number of cluster $K$ and parameter of noises  $\lambda$ \\
+\hspace*{\algorithmicindent} \textbf{Output}: partition of cells $pt$
+\begin{algorithmic}[1]
+\Procedure{random-c}{$D,K,\lambda$}
+\State sampling noises $e$ from exponential distribution with mean $= \lambda$ 
+\State $\hat{D}_{i,j}\gets D_{i,j} + e_i + e_j$ 
+\State $pt\gets K\text{-medoids on }\hat{D}$
+\State \textbf{return} $cl$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\begin{figure}[H]
+\minipage{0.5\textwidth}
+  \includegraphics[height = 5cm, width=\linewidth]{DN_67.png}
+\endminipage\hfill
+\minipage{0.5\textwidth}
+  \includegraphics[height = 5cm, width=\linewidth]{DN_78.png}
+\endminipage\hfill
+\caption{selecting number of subtypes for data GSE75748, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD.  We select number of subtypes to be 7}
+\end{figure}
+\begin{figure}[H]
+\minipage{0.5\textwidth}
+  \includegraphics[height = 5cm, width=\linewidth]{G48_56.png}
+\endminipage\hfill
+\minipage{0.5\textwidth}
+  \includegraphics[height = 5cm, width=\linewidth]{G48_67.png}
+\endminipage\hfill
+\caption{selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes}
+\end{figure}
+
+
+\begin{algorithm}
+\caption{}\label{alg:scDDboost-robust}
+\raggedright\hspace*{\algorithmicindent} \textbf{Input}: Expression data matrix $X$, condition label vector  $y$, number of clusters and iteration $K, T$, noise parameter $\lambda$   \\
+\hspace*{\algorithmicindent} \textbf{Output}: averaged posterior probabilities of genes being differential distributed 
+\begin{algorithmic}[1]
+\Procedure{scDDboost1}{$X,y, K, T, \lambda$}
+\State $D\gets$ cell by cell distance matrix $X$
+\For {$i = 0, i < T$}  
+\State $pt\gets$ Random-c($D, K$)
+\State $P(\text{DD}_g | X, y) \gets$ scDDboost0($X, y, pt$)
+\State $i\gets i + 1$
+\EndFor
+\State \textbf{return} averaged $P(\text{DD}_g |X, y)$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+
+
 \section{asymptotic properties}\hfill\\
 
 To investigate asymptotic properties we first give the expression of posterior probability. Since there is no information favorable of any particular $A_\pi$, we select discrete uniform distribution as the prior for it, then the posterior probability is
@@ -674,26 +732,7 @@ The asymptotic properties help us gain insight of the performance of our approac
 scDDboost may work poorly, when $(\phi, \psi)\in Q$, we may underestimate the posterior probability of true proportion change pattern, which reduce the posterior probabilities of true negative and enlarge false positive rate.\\
 
 \section{Discussion}
-Cluster cells is an unsupervised learning, we do not know the true underlying partition and different number of clusters will lead to large differences in posterior probabilities of genes being differentially distributed (figure 7). We propose a modified bootstrap to stabilize our inferences. Instead of resample the cells, we resample the distance matrices of cells by adding noises to original distance matrix. Denote the original distance matrix as $D = (d_{i,j})$, for each time we random sample a vector $e$ with length equal to number of cells and components are i.i.d. exponentially distributed. let $w$ be the standard deviation of $d_{i,j}$. We resample a new $\hat{D}$ by adding nosies: $\hat{d}_{i,j} = d_{i,j} + e_i * w + e_j *w$. For $\hat{D}$ we still have triangle inequality held as $\hat{d}_{i,j} + \hat{d}_{j,k} \geq \hat{d}_{i,k}$ , it is a valid distance matrix. For a fixed number of clusters, we average posterior probabilities over different distance matrices. And we select number of clusters $K$ that posterior probabilities do not vary too much under $K$ and $K+1$. From our empirical experience, it is typical $K$ will not be larger than 8.\\
-\begin{figure}[H]
-\minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{DN_67.png}
-\endminipage\hfill
-\minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{DN_78.png}
-\endminipage\hfill
-\caption{selecting number of subtypes for data GSE75748, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD.  We select number of subtypes to be 7}
-\end{figure}
-\begin{figure}[H]
-\minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{G48_56.png}
-\endminipage\hfill
-\minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{G48_67.png}
-\endminipage\hfill
-\caption{selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes}
-\end{figure}
-
+subsection{extension to multi conditions}
 
 \newpage
 \appendix
@@ -763,6 +802,6 @@ When $\pi_1$ have less blocks than $\pi_2$, $\sum_{b'\in\pi_2} g(n,b') - \sum_{b
 \end{proof}
 
 \bibliographystyle{IEEEtran}
-\bibliography{/Users/xiuyuma/Desktop/scDDboost_paper/scDDboost/paper/references/wlr_ref}
+\bibliography{./references/wlr_ref}
 
 \end{document}  

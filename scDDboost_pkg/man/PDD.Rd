@@ -4,16 +4,18 @@
 \alias{PDD}
 \title{calculate posterior probabilities of a gene to be differential distributed}
 \usage{
-PDD(data, cd, ncores, K, D, hp, Posp, iter, random, lambda, nrandom)
+PDD(data, cd, ncores, K, D, sz, hp, Posp, iter, random, lambda, nrandom)
 }
 \arguments{
 \item{data}{normalized preprocessed transcripts}
 
-\item{ncores}{number cores for parallel computing}
+\item{cd}{conditions label}
+
+\item{ncores}{number of cores for parallel computing}
 
 \item{K}{number of subgroups}
 
-\item{D}{distance matrix of cells or cluster of cells}
+\item{D}{distance matrix of cells or cluster of cells or a given clustering}
 
 \item{hp}{hyper parameters for EBSeq}
 
@@ -21,7 +23,11 @@ PDD(data, cd, ncores, K, D, hp, Posp, iter, random, lambda, nrandom)
 
 \item{iter}{max number of iterations for EM}
 
+\item{random}{boolean indicator of whether randomzation has been been implemented on distance matrix}
+
 \item{lambda}{parameter for random noise}
+
+\item{nrandom}{number of bagging times}
 }
 \value{
 posterior probabilities of a gene to be differential distributed

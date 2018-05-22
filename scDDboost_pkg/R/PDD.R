@@ -2,22 +2,25 @@
 #' calculate posterior probabilities of a gene to be differential distributed
 #'
 #' @param data normalized preprocessed transcripts
-#' @cd index of conditions of cells
-#' @param ncores number cores for parallel computing
+#' @param cd conditions label
+#' @param ncores number of cores for parallel computing
 #' @param K number of subgroups
-#' @param D distance matrix of cells or cluster of cells
+#' @param D distance matrix of cells or cluster of cells or a given clustering
 #' @param hp hyper parameters for EBSeq
 #' @param Posp parition patterns
 #' @param iter max number of iterations for EM
 #' @param lambda parameter for random noise
+#' @param random boolean indicator of whether randomzation has been been implemented on distance matrix
+#' @param nrandom number of bagging times
 #' @return posterior probabilities of a gene to be differential distributed
 
+#' @export
 
 
-PDD = function(data, cd, ncores, K, D, hp, Posp, iter, random, lambda, nrandom){
+PDD = function(data, cd, ncores, K, D,sz, hp, Posp, iter, random, lambda, nrandom){
     #data(ref.RData)
     gcl = 1:nrow(data)
-    sz = rep(1, ncol(data))
+
     
     #if(hp == 0){
     #    hp = rep(1, 1 + nrow(data))
@@ -52,14 +55,18 @@ PDD = function(data, cd, ncores, K, D, hp, Posp, iter, random, lambda, nrandom){
         }
         post = MDD(z1, z2, Posp)
         np = nrow(Posp)
-        modified_p = sapply(1:np,function(i) sum(post[which(ref[[K]][,i] == 1)]))
+        #modified_p = sapply(1:np,function(i) sum(post[which(ref[[K]][,i] == 1)]))
+        modified_p = t(ref[[K]]) %*% post
         PED = DE%*%modified_p
+        
+        #PDD = (1 - DE[,1]) * post[1]
+        #PDD = PDD / (PED + PDD)
         PDD = 1 - PED
         return(PDD)
     }
     else{
         bp <- BiocParallel::MulticoreParam(ncores)
-        result = bplapply(1:nrandom, function(i) {PDD_random(data, cd, K, D, hp, Posp, iter, lambda, i)}, BPPARAM = bp)
+        result = bplapply(1:nrandom, function(i) {PDD_random(data, cd, K, D, sz, hp, Posp, iter, lambda, i)}, BPPARAM = bp)
         
         
         boot = matrix(0,nrow=length(result[[1]]),ncol = nrandom)

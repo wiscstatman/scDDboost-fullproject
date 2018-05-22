@@ -9,6 +9,7 @@
 #' @param hyper hyper parameters for beta distributions
 #' @param different pattern of partitions
 #' @return posterior probability of mean expression pattern
+#' @export
 
 EBS <- function(data,conditions,gclus,sf,iter = 10,hyper,PP) {
     if(!is.matrix(data)){
