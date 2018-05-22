@@ -227,12 +227,14 @@ Our approach take transcripts processed by normalizing methods (e.g. SCnorm \cit
 **improve**Prior to any Bayesian inference, we need to identify subtypes of cells. Recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus identification process is blind to conditions and can be done by clustering upon similarities between cells. 
 \begin{algorithm}
 \caption{}\label{alg:scDDboost}
-\raggedright\hspace*{\algorithmicindent} \textbf{Input}: Expression data matrix $X$ and condition label vector  $y$ \\
+\raggedright\hspace*{\algorithmicindent} \textbf{Input}: Expression data matrix $X$ condition label vector  $y$ and partition of cells $pt$\\
 \hspace*{\algorithmicindent} \textbf{Output}: posterior probabilities of genes being differential distributed
 \begin{algorithmic}[1]
-\Procedure{scDDboost0}{$X,y$}
-\State partition cells using distances between columns of $X$
-\State $z^1, z^2\gets$ partition of cells and $y$ 
+\Procedure{scDDboost0}{$X,y, pt$}
+\If {$pt$ is not specified}
+ \State $pt \gets$ partition cells using distances between columns of $X$
+\EndIf
+\State $z^1, z^2\gets$ pt and $y$ 
 \State $P(M_{g,\pi} | X)\gets \text{EBSeq}$\cite{ref:Leng}
 \State $P(A_\pi | X,y)\gets \text{Empirical Bayes}$
 \State $P(\text{ED}_g | X, y)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X)P(A_\pi | z^1, z^2)$
@@ -607,12 +609,12 @@ Cluster cells is an unsupervised learning, we do not know the true underlying pa
 \begin{algorithm}
 \caption{}\label{alg:generate-clustering}
 \raggedright\hspace*{\algorithmicindent} \textbf{Input}: cell by cell distance matrix $D$ number of cluster $K$ and parameter of noises  $\lambda$ \\
-\hspace*{\algorithmicindent} \textbf{Output}: clustering of cells $cl$
+\hspace*{\algorithmicindent} \textbf{Output}: partition of cells $pt$
 \begin{algorithmic}[1]
 \Procedure{random-c}{$D,K,\lambda$}
 \State sampling noises $e$ from exponential distribution with mean $= \lambda$ 
 \State $\hat{D}_{i,j}\gets D_{i,j} + e_i + e_j$ 
-\State $cl\gets K\text{-medoids on }\hat{D}$
+\State $pt\gets K\text{-medoids on }\hat{D}$
 \State \textbf{return} $cl$
 \EndProcedure
 \end{algorithmic}
@@ -646,12 +648,8 @@ Cluster cells is an unsupervised learning, we do not know the true underlying pa
 \Procedure{scDDboost1}{$X,y, K, T, \lambda$}
 \State $D\gets$ cell by cell distance matrix $X$
 \For {$i = 0, i < T$}  
-\State $cl\gets$ Random-c($D, K$)
-\State $z^1, z^2\gets cl$ and $y$ 
-\State $P(M_{g,\pi} | X)\gets \text{EBSeq}$\cite{ref:Leng}
-\State $P(A_\pi | X,y)\gets \text{Empirical Bayes}$
-\State $P(\text{ED}_g | X, y)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X)P(A_\pi | z^1, z^2)$
-\State $P(\text{DD}_g | X, y) \gets 1 - P(\text{ED}_g | X, y)$
+\State $pt\gets$ Random-c($D, K$)
+\State $P(\text{DD}_g | X, y) \gets$ scDDboost0($X, y, pt$)
 \State $i\gets i + 1$
 \EndFor
 \State \textbf{return} averaged $P(\text{DD}_g |X, y)$
