@@ -18,7 +18,7 @@
 
 
 \title{A compositional model to assess expression changes from
- single-cell RNA-seq data\footnote{Department of Biostatistics and Medical Informatics, UW Madison, Technical Report TR***-v1, December **, 2017.}} 
+ single-cell RNA-seq data\footnote{Department of Biostatistics and Medical Informatics, UW Madison, Technical Report TR***-v1, May **, 2018.}} 
 
 \author{Xiuyu Ma,  and Christina Kendziorski, and Michael A. Newton}
  
@@ -75,7 +75,7 @@ We also obtained asymptotic properties of posterior inference.
 \subsection{Data structure, sampling model, and parameters}
 In modeling scRNASeq data, we
 imagine that each cell $c$ falls into one of $K>1$ classes, which we think of as
-subtypes or subpopulations of cells. For notation, say $z_c=k$ means that cell $c$ happens to be of subtype $k$, with the vector $z=(z_c)$ recording
+subtypes or subpopulations of cells. For notation, $z_c=k$ means that cell $c$ happens to be of subtype $k$, with the vector $z=(z_c)$ recording
 the state of all sampled cells.  Knowledge of this class structure
  prior to measurement is not required, as it will be inferred as necessary from
  available genomic data.   We also assume that cells arise from multiple
@@ -83,12 +83,16 @@ experimental conditions, such as by treatment-control status or some other facto
  measured at the cell level, and we present our development for the special
 case of two conditions.  Notationally, $y=(y_c)$ records the experimental condition, say $y_c=1$ or $y_c=2$ initially:
 extensions to multiple conditions are discussed in section 6. Let's say condition $j$ measures $n_j=\sum_{c} 1[y_c=j]$ cells,  and
-in total we have $n=n_1+n_2$ cells in the analysis.  Further let $t^j_k = \sum_c 1[y_c=j, z_c=k$ denote the number of cells of subtype $k$ in condition $j$;
-we'll infer something about these counts using genome-wide data. Marginally,
-count vectors $t^1 = (t^1_1, t^1_2, \cdots, t^1_K )$ and 
-$t^2 = (t^2_1, t^2_2, \cdots, t^2_K)$ we treat as independent multinomial
-vectors, reflecting the common, two-condition experimental design.
-Explicitly,
+in total we have $n=n_1+n_2$ cells in the analysis.  Further let $t^j_k = \sum_c 1[y_c=j, z_c=k]$ denote the number of cells of subtype $k$ in condition $j$;
+we'll infer something about these counts using genome-wide data.  As for molecular data, the 
+normalized expression of gene $g$ in cell $c$, say $X_{g,c}$, is one entry
+in a typically large genes by cells data matrix $X$.  Summing up, the data structure entails an expression matrix
+$X$, a treatment label vector $y$, and a vector of latent subtype labels $z$.
+
+
+We treat subtype counts in the two conditions,  $t^1 = (t^1_1, t^1_2, \cdots, t^1_K )$ and 
+$t^2 = (t^2_1, t^2_2, \cdots, t^2_K)$,  as independent multinomial
+vectors, reflecting the common, two-condition experimental design.  Explicitly,
 \begin{eqnarray*}
 t^1 \sim \text{Multinomial}_K( n_1, \phi ) \quad {\mbox {\rm and}} \quad
 t^2 \sim \text{Multinomial}_K( n_2, \psi )
@@ -96,12 +100,7 @@ t^2 \sim \text{Multinomial}_K( n_2, \psi )
 for probability vectors 
 $\phi = (\phi_1, \phi_2, \cdots, \phi_K)$ and 
  $\psi = ( \psi_1, \psi_2, \cdots, \psi_K)$ that characterize the populations of
-cells from which the $n=n_1+n_2$ observed cells are sampled.
-As for data, the 
-normalized expression of gene $g$ in cell $c$, say $X_{g,c}$, is one entry
-in a typically large genes by cells data matrix $X$.  
-
-Our working hypothesis, referred to as the {\em compositional model},  is that any differences in the distribution of $X_{g,c}$ 
+cells from which the $n$ observed cells are sampled.  Our working hypothesis, referred to as the {\em compositional model},  is that any differences in the distribution of expression $X_{g,c}$ 
 between $y_c=1$ and $y_c=2$ (i.e., any condition effects) are attributable 
 to differences between the conditions 
 in the underlying composition of cell types; i.e.,
@@ -803,6 +802,6 @@ When $\pi_1$ have less blocks than $\pi_2$, $\sum_{b'\in\pi_2} g(n,b') - \sum_{b
 \end{proof}
 
 \bibliographystyle{IEEEtran}
-\bibliography{/Users/xiuyuma/Desktop/scDDboost_paper/scDDboost/paper/references/wlr_ref}
+\bibliography{./references/wlr_ref}
 
 \end{document}  
