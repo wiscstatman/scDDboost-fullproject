@@ -86,8 +86,8 @@ extensions to multiple conditions are discussed in section 6. Let's say conditio
 in total we have $n=n_1+n_2$ cells in the analysis.  Further let $t^j_k = \sum_c 1[y_c=j, z_c=k]$ denote the number of cells of subtype $k$ in condition $j$;
 we'll infer something about these counts using genome-wide data.  As for molecular data, the 
 normalized expression of gene $g$ in cell $c$, say $X_{g,c}$, is one entry
-in a typically large genes by cells data matrix $X$.  Summing up, the data structure entails an expression matrix
-$X$, a treatment label vector $y$, and a vector of latent subtype labels $z$.
+in a typically large {\sc{genes}} by {\sc{cells}} data matrix $X$.  Summing up, the data structure entails an expression matrix
+$X$, a treatment label vector $y$, and a vector $z$ of latent subtype labels.
 
 
 We treat subtype counts in the two conditions,  $t^1 = (t^1_1, t^1_2, \cdots, t^1_K )$ and 
@@ -169,10 +169,12 @@ has cardinality that grows rapidly with $K$.
 involving $K=7$ cell types, and one three-block partition taken
 from the set of 877 possible partitions of $\{1, 2, \cdots, 7\}$ (Figure 1).
 \begin{figure}[h!]
-%%  \includegraphics[height = 4cm, width=\linewidth]{prop.png}
+%%  \includegraphics[height = 3.5cm, width=\linewidth]{prop.png}
   \includegraphics[width=\linewidth]{prop.png}
   \caption{Proportions of $K=7$ cellular subtypes in different conditions. 
- Aggregated proportions of subtype 1 and 2, subtype 3, 4, 5, and subtype 6,7 remained same across conditions while proportion of individual subtype changed}
+ Aggregated proportions of subtype 1 and 2, subtype 3, 4, 5, and subtype 6,7 remained same across conditions while proportion of individual subtype changed. A gene, for example, that shows no differential 
+expression between subtypes 1 and 2, and also none among types 3,4, and 5, and none between 6 and 7
+ has the same marginal distribution between the two conditions.}
   \label{fig:1}
 \end{figure}
 
@@ -226,23 +228,22 @@ Our approach take transcripts processed by normalizing methods (e.g. SCnorm \cit
 **improve**Prior to any Bayesian inference, we need to identify subtypes of cells. Recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus identification process is blind to conditions and can be done by clustering upon similarities between cells. 
 \begin{algorithm}
 \caption{}\label{alg:scDDboost}
-\raggedright\hspace*{\algorithmicindent} \textbf{Input}: Expression data matrix $X$ condition label vector  $y$ and partition of cells $pt$\\
-\hspace*{\algorithmicindent} \textbf{Output}: posterior probabilities of genes being differential distributed
+\raggedright\hspace*{\algorithmicindent} \textbf{Input}: Expression data $X$; condition labels $y$; number of cell subtypes $K$ \\
+\hspace*{\algorithmicindent} \textbf{Output}: per gene posterior probability of differential distribution
 \begin{algorithmic}[1]
-\Procedure{scDDboost0}{$X,y, pt$}
-\If {$pt$ is not specified}
- \State $pt \gets$ partition cells using distances between columns of $X$
-\EndIf
-\State $z^1, z^2\gets$ pt and $y$ 
-\State $P(M_{g,\pi} | X)\gets \text{EBSeq}$\cite{ref:Leng}
-\State $P(A_\pi | X,y)\gets \text{Empirical Bayes}$
-\State $P(\text{ED}_g | X, y)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X)P(A_\pi | z^1, z^2)$
-\State $P(\text{DD}_g | X, y) \gets 1 - P(\text{ED}_g | X, y)$
-\State \textbf{return} $P(\text{DD}_g |X, y)$
+\Procedure{scDDboost0}{$X,y,K$}
+\State distance matrix: $Dist(X) \gets$ pairwise distances between cells (columns of $X$)
+\State cell clustering: $\hat z \gets$ labeled parition of cells, computed from $Dist(X)$ and $K$
+\State subtype differential expression: $\forall \pi$,  $P(M_{g,\pi} | X, \hat z)\gets$ using EBSeq\cite{ref:Leng}
+\State cell frequency changes: $\forall \pi$, $P(A_\pi | y, \hat z)\gets$ using Double Dirichlet prior
+\State posterior probability: $P(\text{ED}_g | X, y)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X, \hat z) \,
+ P(A_\pi | y, \hat z)$
+\State \textbf{return} $P(\text{DD}_g |X, y)=1-P(\text{ED}_g| X,y)$
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
 
+**explain more**
 One advantage of our approach is that the posterior inference can be incorporate with different clustering methods.
 The essential idea is that the mixture structure is estimated using the whole genome information rather than at each gene solely using information of that gene  
 to estimate a gene specific mixture structure. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach scDDboost. 
