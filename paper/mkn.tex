@@ -236,7 +236,7 @@ The workflow contains two parts, clustering cells into subtypes and posterior in
 \State distance matrix: $Dist(X) \gets$ pairwise distances between cells (columns of $X$)
 \State cell clustering: $\hat z \gets$ labeled parition of cells, computed from $Dist(X)$ and $K$
 \EndFunction
-\Function{PostI}{$X, y, \hat z$}
+\Function{Post}{$X, y, \hat z$}
 \State subtype differential expression: $\forall \pi$,  $P(M_{g,\pi} | X, \hat z)\gets$ using EBSeq\cite{ref:Leng}
 \State cell frequency changes: $\forall \pi$, $P(A_\pi | y, \hat z)\gets$ using Double Dirichlet prior
 \State posterior probability: $P(\text{ED}_g | X, y)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X, \hat z) \,
@@ -247,8 +247,7 @@ The workflow contains two parts, clustering cells into subtypes and posterior in
 \end{algorithmic}
 \end{algorithm}
 
-One advantage of our approach is that the posterior inference can be incorporate with different clustering methods. The PostI function 
-The essential idea is that the mixture structure is estimated using the whole genome information rather than at each gene solely using information of that gene  
+One advantage of our approach is that the posterior inference can be incorporate with different clustering methods. With the development of technology, new clustering methods with higher accuracy may be discovered and we can substitute those methods with clustering function in our procedure. Relying on appropriate partition results, we gain power in identifying DD genes. No matter what clustering method we are using, the essential idea is that the mixture structure is estimated using the whole genome information rather than at each gene solely using information of that gene  
 to estimate a gene specific mixture structure. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach scDDboost. 
 
 There are many single cell clustering methods(e.g. SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}) that could utilized in the workflow. However, for the integrity of our work and speeding in computation, we present another efficient and effective clustering procedure.
