@@ -232,13 +232,17 @@ Our approach take transcripts processed by normalizing methods (e.g. SCnorm \cit
 \hspace*{\algorithmicindent} \textbf{Output}: per gene posterior probability of differential distribution
 \begin{algorithmic}[1]
 \Procedure{scDDboost0}{$X,y,K$}
+\Function{clustering}{$X, K$}
 \State distance matrix: $Dist(X) \gets$ pairwise distances between cells (columns of $X$)
 \State cell clustering: $\hat z \gets$ labeled parition of cells, computed from $Dist(X)$ and $K$
+\EndFunction
+\Function{PostI}{$X, y, \hat z$}
 \State subtype differential expression: $\forall \pi$,  $P(M_{g,\pi} | X, \hat z)\gets$ using EBSeq\cite{ref:Leng}
 \State cell frequency changes: $\forall \pi$, $P(A_\pi | y, \hat z)\gets$ using Double Dirichlet prior
 \State posterior probability: $P(\text{ED}_g | X, y)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X, \hat z) \,
  P(A_\pi | y, \hat z)$
 \State \textbf{return} $P(\text{DD}_g |X, y)=1-P(\text{ED}_g| X,y)$
+\EndFunction
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
@@ -271,7 +275,7 @@ accummulated probabilities:
 p(\phi,\psi) = \sum_{\pi \in \Pi} P(A_\pi) \, p(\phi,\psi| A_\pi )
 \end{eqnarray*} 
 Upon setting up a prior $p(\phi,\psi)$ that can mix over structures
-$A_\pi$, we can obtain posterior inference $P(A_\pi | z^1, z^2)$
+$A_\pi$, we can obtain posterior inference $P(A_\pi | t^1, t^2)$
 
 Initially, the multitude of $P(A_\pi)$'s will be preset constants.To complete the prior specification $p(\phi,\psi)$, consider further scalers
 $\alpha_k>0$ for each class $k$ and $\beta_b>0$ for each potential block $b$.
@@ -334,15 +338,15 @@ and similarly for $\psi_b$. Analogously, $\Phi_\pi$ and $\Psi_\pi$
  are vectors of 
 accumulated class probabilities $\phi_b$ and $\psi_b$ for all $b \in \pi$,
  respectively. \\
-In order to get the posterior probability $p(A_\pi | z^1,z^2)$, we need to calculate 
+In order to get the posterior probability $p(A_\pi | t^1,t^2)$, we need to calculate 
 \[
 \begin{split}
-p(A_\pi | z^1,z^2)\propto p(A_\pi, z^1,z^2) &= \int_{A_\pi} p(z^1,z^2|\phi,\psi)p(\phi,\psi) d\phi d\psi\\ 
-&= \sum_{\pi'\in \Pi}\int_{A_\pi} p(z^1,z^2|\phi,\psi)p(\phi, \psi | A_{\pi'})p(A_{\pi'})d\phi d\psi
+p(A_\pi | t^1,t^2)\propto p(A_\pi, t^1,t^2) &= \int_{A_\pi} p(t^1,t^2|\phi,\psi)p(\phi,\psi) d\phi d\psi\\ 
+&= \sum_{\pi'\in \Pi}\int_{A_\pi} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi'})p(A_{\pi'})d\phi d\psi
 \end{split}
 \]
-For simplicity of notation, let $w(\pi_1, \pi_2) = \int_{A_{\pi_1}} p(z^1,z^2|\phi,\psi)p(\phi, \psi | A_{\pi_2})p(A_{\pi_2})d\phi d\psi$, then 
-$p(A_\pi | z^1,z^2)\propto \underset{\pi'\in \Pi}\sum w(\pi, \pi')$. To calculate component $w(\pi, \pi')$, recall refinement and coarseness relationship between partitions, we say a partition $\tilde{\pi}$ is a refinement of another partition $\pi$ if $\forall b \in \pi$ there exists $s \subset \tilde{\pi}$  such that $\underset{b'\in s}\cup b' = b$. We say $\pi$ is a coarseness of $\tilde{\pi}$ when $\tilde{\pi}$ refines $\pi$. we have following theorem
+For simplicity of notation, let $w(\pi_1, \pi_2) = \int_{A_{\pi_1}} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi_2})p(A_{\pi_2})d\phi d\psi$, then 
+$p(A_\pi | t^1,t^2)\propto \underset{\pi'\in \Pi}\sum w(\pi, \pi')$. To calculate component $w(\pi, \pi')$, recall refinement and coarseness relationship between partitions, we say a partition $\tilde{\pi}$ is a refinement of another partition $\pi$ if $\forall b \in \pi$ there exists $s \subset \tilde{\pi}$  such that $\underset{b'\in s}\cup b' = b$. We say $\pi$ is a coarseness of $\tilde{\pi}$ when $\tilde{\pi}$ refines $\pi$. we have following theorem
 
 \begin{theorem}
 If $\pi'$ is a refinement of $\pi$ then $w(\pi,\pi') = w(\pi', \pi')$ otherwise $w(\pi,\pi') = 0$
@@ -352,53 +356,53 @@ Consequently, let $RF(\pi)$ be the collection of finer partition of $\pi$, we ha
 the posterior probability: 
 \[
 \begin{split}
-p(A_\pi | z^1,z^2)\propto  \sum_{\pi' \in RF(\pi)} w(\pi',\pi')
+p(A_\pi | t^1,t^2)\propto  \sum_{\pi' \in RF(\pi)} w(\pi',\pi')
 \end{split}
 \]
 Using the Dirichlet-Multinomial conjugacy and the collapsing property of
 these distributions (\cite{ref:Dickey}), we get closed formulas for the predictive
-probability of cell-type counts $z^1$ and $z^2$.  Fixing $\pi$,
-let $t^j_b = \sum_{k\in b} z^j_k$, for cell conditions $j=1,2$, 
+probability of cell-type counts $t^1$ and $t^2$.  Fixing $\pi$,
+let $t^j_b = \sum_{k\in b} t^j_k$, for cell conditions $j=1,2$, 
 record the total numbers of cells accumulated over all types in block $b$.
 And following our notation convention, $t^j_\pi$ is the vector of these
 counts over $b \in \pi$.  From the prior and model structure
 \begin{eqnarray*}
-w(\pi', \pi') = p(z^1 | t^1_{\pi'})\, p(z^2|  t^2_{\pi'} )
- \, p( t^1_{\pi'}, t^2_{\pi'} | A_{\pi'} ) p(A_{\pi'}).
+w(\pi, \pi) = p(t^1 | t^1_{\pi})\, p(t^2|  t^2_{\pi} )
+ \, p( t^1_{\pi}, t^2_{\pi} | A_{\pi} ) p(A_{\pi}).
 \end{eqnarray*}
-Conditional independence of $z^1$ and $z^2$ given the block-level totals
-$t^1_{\pi'}$ and $t^2_{\pi'}$ on $A_{\pi'}$ reflects the possible differential 
+Conditional independence of $t^1$ and $t^2$ given the block-level totals
+$t^1_{\pi}$ and $t^2_{\pi}$ on $A_{\pi}$ reflects the possible differential 
 class proportion structure within blocks but between cell conditions.
 For either cellular group $j=1,2$,
 we find, after some simplification, the following Dirichlet-Multinomial masses: 
 \begin{align}
-p(z^j|t^j_{\pi'}) = \prod_{b \in \pi'} \left\{
-\left[ \frac{ \Gamma(t^j_b +1 ) }{\prod_{k \in b} \Gamma( z^j_k + 1 ) } 
+p(t^j | t^j_{\pi}) = \prod_{b \in \pi} \left\{
+\left[ \frac{ \Gamma(t^j_b +1 ) }{\prod_{k \in b} \Gamma( t^j_k + 1 ) } 
 \right]
 \left[ \frac{\Gamma( \sum_{k \in b} \alpha_k )}{
 		\prod_{k\in b} \Gamma( \alpha_k ) } \right] 
-       \left[        \frac{ \prod_{k \in b} \Gamma(\alpha_k + z^j_k)  }{
+       \left[        \frac{ \prod_{k \in b} \Gamma(\alpha_k + t^j_k)  }{
 		\Gamma(t^j_b + \sum_{k\in b} \alpha_k ) )}\right]
  \right\}
 \end{align}
 and
 \begin{align}
-p(t^1_{\pi'},t^2_{\pi'}| A_{\pi'}) =
- \left[ \frac{ \Gamma(n_1+1) \Gamma(n_2+1) }{ \prod_{b \in \pi'} \Gamma(t^1_b+1) 
+p(t^1_{\pi},t^2_{\pi}| A_{\pi}) =
+ \left[ \frac{ \Gamma(n_1+1) \Gamma(n_2+1) }{ \prod_{b \in \pi} \Gamma(t^1_b+1) 
    \Gamma( t^2_b + 1 )} \right] 
-\left[ \frac{\Gamma( \sum_{b \in \pi'} \beta_b  )}{
-   \prod_{b \in \pi'} \Gamma(\beta_b )} \right] 
- \left[ \frac{ \prod_{b \in \pi'} \Gamma( \beta_b + t^1_b + t^2_b )}{
-	\Gamma( n_1 + n_2 + \sum_{b \in \pi'} \beta_b  )} \right].
+\left[ \frac{\Gamma( \sum_{b \in \pi} \beta_b  )}{
+   \prod_{b \in \pi} \Gamma(\beta_b )} \right] 
+ \left[ \frac{ \prod_{b \in \pi} \Gamma( \beta_b + t^1_b + t^2_b )}{
+	\Gamma( n_1 + n_2 + \sum_{b \in \pi} \beta_b  )} \right].
 \end{align}
 \hfill\\
 Let's look at some special cases to dissect this result. \\
-Case 1. If $\pi'$ has a single block equal to the entire
+Case 1. If $\pi$ has a single block equal to the entire
  set of cell types $\{1,2, \cdots, K\}$,  then $t^j_b=n_j$ for both $j=1,2$,
 and the second formula reduces, correctly, to 
-$p(t^1_{\pi'},t^2_{\pi'}| A_{\pi'}) = 1$.  Further,
+$p(t^1_{\pi},t^2_{\pi}| A_{\pi}) = 1$.  Further,
 \begin{eqnarray*}
-p(z^j|t^j_{\pi'}) = 
+p(t^j | t^j_{\pi}) = 
 \left[ \frac{ \Gamma(n_j +1 ) }{ \Gamma( n_1 + \sum_{k=1}^K \alpha_k ) }
 \right]
 \left[ \frac{\Gamma( \sum_{k =1}^K \alpha_k )}{
@@ -407,17 +411,17 @@ p(z^j|t^j_{\pi'}) =
                 \Gamma(z^j_k + 1 )}\right]
 \end{eqnarray*}
 which is the well-known Dirichlet-multinomial predictive distribution
-for counts $z^j$ \cite{Wag}.  E.g, taking $\alpha_k=1$ for all types $k$ 
+for counts $t^j$ \cite{Wag}.  E.g, taking $\alpha_k=1$ for all types $k$ 
 we get the uniform distribution
 \begin{eqnarray*}
-p(z^j|t^j_{\pi'}) = 
+p(t^j | t^j_{\pi}) = 
  \frac{ \Gamma(n_j +1 ) \Gamma(K) }{ \Gamma( n_j + K ) }.
 \end{eqnarray*}
-Case 2. At the opposite extreme, $\pi'$  has one block $b$ for each
- class $k$. Then $t^j_b = z^j_k$, and $p(z^j|t^j_{\pi'}) = 1$, and 
+Case 2. At the opposite extreme, $\pi$  has one block $b$ for each
+ class $k$. Then $t^j_b = z^j_k$, and $p(t^j | t^j_{\pi}) = 1$, and 
 further, assuming $\beta_b = \alpha_k$,
 \begin{eqnarray*}
-p(t^1_{\pi'},t^2_{\pi'}| A_{\pi'}) =
+p(t^1_{\pi},t^2_{\pi}| A_{\pi}) =
  \left[ \frac{ \Gamma(n_1+1) \Gamma(n_2+1) }{ \prod_{k=1}^K 
    \Gamma(z^1_k+1) 
    \Gamma( z^2_k + 1 )} \right] 
@@ -426,13 +430,13 @@ p(t^1_{\pi'},t^2_{\pi'}| A_{\pi'}) =
  \left[ \frac{ \prod_{k=1}^K \Gamma( \alpha_k + z^1_k + z^2_k )}{
 	\Gamma( n_1 + n_2 + \alpha_k  )} \right].
 \end{eqnarray*}
-which corresponds to Dirichlet-multinomial predictive distribution for counts $z^1 + z^2$ 
-since $z^1$ and $z^2$ are identical distributed in this case.
+which corresponds to Dirichlet-multinomial predictive distribution for counts $t^1 + t^2$ 
+since $t^1$ and $t^2$ are identical distributed in this case.
 
 Regardless of the partition,
 log scale probabilities are readily evaluated 
 given hyper-parameters $\{ \alpha_k \}$ and $\{ \beta_b \}$ and for
-cell-type counts $z^1$ and $z^2$. \\
+cell-type counts $t^1$ and $t^2$. \\
 For asymptotic properties of the posterior probabilities, we demonstrated them in section 6. 
  
 \section{Simulation study} 
@@ -609,13 +613,13 @@ Cluster cells is an unsupervised learning, we do not know the true underlying pa
 \begin{algorithm}
 \caption{}\label{alg:generate-clustering}
 \raggedright\hspace*{\algorithmicindent} \textbf{Input}: cell by cell distance matrix $D$ number of cluster $K$ and parameter of noises  $\lambda$ \\
-\hspace*{\algorithmicindent} \textbf{Output}: partition of cells $pt$
+\hspace*{\algorithmicindent} \textbf{Output}: labelled partition of cells $\hat z$
 \begin{algorithmic}[1]
 \Procedure{random-c}{$D,K,\lambda$}
 \State sampling noises $e$ from exponential distribution with mean $= \lambda$ 
 \State $\hat{D}_{i,j}\gets D_{i,j} + e_i + e_j$ 
-\State $pt\gets K\text{-medoids on }\hat{D}$
-\State \textbf{return} $cl$
+\State $\hat z\gets K\text{-medoids on }\hat{D}$
+\State \textbf{return} $\hat z$
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
@@ -649,7 +653,7 @@ Cluster cells is an unsupervised learning, we do not know the true underlying pa
 \State $D\gets$ cell by cell distance matrix $X$
 \For {$i = 0, i < T$}  
 \State $pt\gets$ Random-c($D, K$)
-\State $P(\text{DD}_g | X, y) \gets$ scDDboost0($X, y, pt$)
+\State $P(\text{DD}_g | X, y) \gets$ PostI($X, y, \hat z$)
 \State $i\gets i + 1$
 \EndFor
 \State \textbf{return} averaged $P(\text{DD}_g |X, y)$
@@ -664,10 +668,10 @@ Cluster cells is an unsupervised learning, we do not know the true underlying pa
 
 To investigate asymptotic properties we first give the expression of posterior probability. Since there is no information favorable of any particular $A_\pi$, we select discrete uniform distribution as the prior for it, then the posterior probability is
 \begin{align}
-p(A_\pi | z^1, z^2) = c*\sum_{\pi' \text{ refines } \pi} p(z^1 | t^1_{\pi'})\, p(z^2|  t^2_{\pi'} )
+p(A_\pi | t^1, t^2) = c*\sum_{\pi' \text{ refines } \pi} p(t^1 | t^1_{\pi'})\, p(t^2 |  t^2_{\pi'} )
  \, p( t^1_{\pi'}, t^2_{\pi'} | A_{\pi'} )
 \end{align}
-for a normalizing constant $\frac{1}{c} = \underset{\pi' \in \Pi}\sum p(z^1 | t^1_{\pi'})\, p(z^2|  t^2_{\pi'} )
+for a normalizing constant $\frac{1}{c} = \underset{\pi' \in \Pi}\sum p(t^1 | t^1_{\pi'})\, p(t^2|  t^2_{\pi'} )
  \, p( t^1_{\pi'}, t^2_{\pi'} | A_{\pi'} )$.
  
 Let $\Omega = \{(\phi, \psi): \overset{K}{\underset{i = 1}\sum}\phi_i = \overset{K}{\underset{i = 1}\sum}\psi_i = 1, \phi_i \geq 0, \psi_i \geq 0 , i = 1,..., K\}$ be the whole space. There is a subset of $\Omega$ we lack posterior inference. Let us first see an example:
@@ -694,12 +698,12 @@ When $K >  3$, $p(Q | z^1, z^2) = 0$
 \hfill\\
 But for $(\phi, \psi)\in \Omega\setminus Q$, we have consistent posterior inference. Assuming $\alpha_i = 1, \forall i$ in (2) and $\beta_b = \Sigma_{i\in b} \alpha_i$ in (3), plug in (4) then we have simplified 
 \begin{align}
-p(A_\pi| z^1, z^2) = \frac{1}{c'}\sum_{\pi' \in \text{RF}(\pi)}\prod_{b\in \pi'}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}
+p(A_\pi | t^1, t^2) = \frac{1}{c'}\sum_{\pi' \in \text{RF}(\pi)}\prod_{b\in \pi'}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}
 \end{align}
 $c' = c/\frac{\Gamma(n + 1)\Gamma(n+1)\Gamma(K)}{\Gamma(2n + K)}$ And we have theorem 3.\\
 \begin{theorem} Let $n = min(n_1, n_2)$ be the smaller number of cells of two conditions and $n_1 = O(n_2)$, when parameter $(\phi, \psi)\in \Omega\setminus Q $ we have 
 \begin{eqnarray*}
-    p(A_{\pi} | z^1, z^2) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
+    p(A_{\pi} | t^1, t^2) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
                 \begin{array}{ll}
                  1 \quad \text{if }(\phi,\psi) \in A_\pi\\
                  0 \quad \text{otherwise}\\             
@@ -708,16 +712,16 @@ $c' = c/\frac{\Gamma(n + 1)\Gamma(n+1)\Gamma(K)}{\Gamma(2n + K)}$ And we have th
 \end{eqnarray*}
 \end{theorem}
 \hfill\\
-Things become more complicate when $(\phi, \psi)$ falling into $Q$, we know $p(Q | z^1, z^2)$ vanishes, but $p(A_\pi | z^1, z^2)$ may not. 
+Things become more complicate when $(\phi, \psi)$ falling into $Q$, we know $p(Q | t^1, t^2)$ vanishes, but $p(A_\pi | t^1, t^2)$ may not. 
 
 Recall $N(\pi)$ represents number of blocks $b$ in $\pi$. Let $S = \{\pi,  (\phi, \psi) \in A_\pi\}$, which is the collection of partitions whose associated simplexes covering $(\phi,\psi)$. Let $N^* = \underset{\pi\in S}\max$ $N(\pi)$, which is the max number of blocks of partitions from $S$. Let $S^* = \{\pi,  (\phi, \psi) \in A_\pi \text{ and } N(\pi) = N^*\}$, which is the collection of partitions that covering $(\phi, \psi)$ with number of blocks equal to the max number $N^*$. 
 
 For example, when $K = 7$, For a $(\phi, \psi)\in A_{\pi_1} \cap A_{\pi_2} \cap A_{\pi_3}$, $\pi_1 = \{\{1,2,3\}, \{4,5,6,7\}\}, \pi_2 = \{\{1,6,7\}, \{2,4\},\{3,5\}\}, \pi_3 = \{\{1,2,3,4,5,6\}\}$, and also $(\phi, \psi)$ does not belong to any other simplex $A_\pi$. Then $S = \{\pi_1, \pi_2, \pi_3\}$, $N^* = 3$, $S^* = \{\pi_2\}.$ 
 
-Denote components from right hand side of (5): $\frac{1}{c'}\underset{b\in \pi}\prod\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)} = J(z^1,z^2,\pi).$  We have theorem 4.\\
+Denote components from right hand side of (5): $\frac{1}{c'}\underset{b\in \pi}\prod\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)} = J(t^1,t^2,\pi).$  We have theorem 4.\\
 \begin{theorem} Following the setting in theorem 2, when parameter $(\phi, \psi)\in Q$,  and we have 
 \begin{eqnarray*}
-    J(z^1,z^2,\pi) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
+    J(t^1,t^2,\pi) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
                 \begin{array}{ll}
                  m(\pi) \quad  \pi \in S^* \\
                  0 \quad \text{otherwise}\\             
@@ -727,7 +731,7 @@ Denote components from right hand side of (5): $\frac{1}{c'}\underset{b\in \pi}\
 and $\underset{\pi\in S^*}\sum m(\pi) = 1, m(\pi) > 0$\\
 \end{theorem}\hfill\\
 proofs are in the appendix.\\
-Still using above example, in limiting case, we have $p(A_{\pi_3} | z^1, z^2) = 1$, $p(A_{\pi_2} | z^1, z^2) = 1$ and $p(A_{\pi_1}| z^1, z^2) = 0$. When the DE pattern is $B_{\pi_1}$ for some genes. Since our underestimation of $p(A_{\pi_1}| z^1, z^2) = 0$, we will falsely classify those genes as differential distributed.
+Still using above example, in limiting case, we have $p(A_{\pi_3} | t^1, t^2) = 1$, $p(A_{\pi_2} | t^1, t^2) = 1$ and $p(A_{\pi_1}| t^1, t^2) = 0$. When the DE pattern is $B_{\pi_1}$ for some genes. Since our underestimation of $p(A_{\pi_1}| z^1, z^2) = 0$, we will falsely classify those genes as differential distributed.
 
 The asymptotic properties help us gain insight of the performance of our approach,
 scDDboost may work poorly, when $(\phi, \psi)\in Q$, we may underestimate the posterior probability of true proportion change pattern, which reduce the posterior probabilities of true negative and enlarge false positive rate.\\
@@ -743,12 +747,12 @@ subsection{extension to multi conditions}
 If $\pi_2$ is not refinement of $\pi_1$ then $A_{\pi_1} \cap A_{\pi_2}$ is a lower dimensional subset of $A_{\pi_2}$
 \end{lemma}
 Proof of theorem 2
-\[
-w(\pi, \pi') = \int_{A_\pi\cap A_{\pi'}}p(z^1,z^2|\phi,\psi)p(\phi, \psi | A_{\pi'})p(A_{\pi'})d\phi d\psi
-\]
-\\
-where $p(z^1,z^2|\phi,\psi) = p(z^1|\phi)p(z^1|\psi)$, $z^1|\phi \sim \text{multinomial}(n_1, \phi), z^2|\psi \sim \text{multinomial}(n_2, \psi)$. Recall the definition of $A_\pi = \{(\phi,\psi): \Phi_b = \Psi_b\}$ and $A_\pi$ is a simplex. Denote the finest partition as $\pi_{F} = \{ \{1\}, \{2\},...,\{K\}\}$, associated simplex $A_{\pi_{F}} = \{(\phi, \psi): \phi_i = \psi_i, i = 1,...,K\}$ for any two partition $\pi_1$ and $\pi_2$, intersection of their associated simplex must not be empty since $A_{\pi_{F}}\subset A_{\pi_1}\cap A_{\pi_2} \neq \emptyset$.  To discuss the issue of overlapping of simplex $A_\pi$, we first introduce some notations. The whole space $\Omega = \{ (\phi,\psi), \phi_i,\psi_i > 0 \text{ and } \sum_{i=1}^K \phi_i = \sum_{i=1}^K \psi_i = 1\}$ and we define the refinement and coarseness relationship between partitions, we say a partition $\tilde{\pi}$ refines another partition $\pi$ if $\forall b \in \pi$ there exists $s \subset \tilde{\pi}$  such that $\cup_{b'\in s} b' = b$. When $\tilde{\pi}$ refines $\pi$, we say $\tilde{\pi}$ is a refinement of(finer than) $\pi$ or $\pi$ is a coarseness of(coarser than) $\tilde{\pi}$. 
-Observe that if $\pi'$ refines $\pi$, then $A_\pi \cap A_{\pi'} = A_{\pi'}$, $\int_{A_\pi\cap A_{\pi'}} p(z^1,z^2|\phi,\psi)p(\phi, \psi | A_{\pi'})d\phi d\psi = \int_{A_{\pi'}} p(z^1,z^2|\phi,\psi)p(\phi, \psi | A_{\pi'})d\phi d\psi $. When $\pi'$ is not refinement of $\pi$, we need to know the dimension of $A_\pi\cap A_{\pi'}$. Consider a map $f: b \rightarrow v$, which maps the block $b$ to a vector $v\in \{0, 1\}^K$, the ith component of $v$ is $1_{\{i\in b\}}$. And denote $\text{dim}(S)$ be the dimension of space $S$. $A_\pi$ can be equivalently defined as $A_\pi =  \{(\phi,\psi): M_\pi * (\phi - \psi) = 0\}$, $M_\pi$ is a matrix with rows be $v_b = f(b), \forall b\in \pi$, that is to say $(\phi,\psi)$ are in the null space of linear transformation $M_\pi$.  We have following lemma\\
+\begin{proof}
+by lemma 1, it is easy to verify.
+\end{proof}
+where $p(t^1,t^2|\phi,\psi) = p(t^1|\phi)p(t^1|\psi)$, $t^1|\phi \sim \text{multinomial}(n_1, \phi), t^2|\psi \sim \text{multinomial}(n_2, \psi)$. Recall the definition of $A_\pi = \{(\phi,\psi): \Phi_b = \Psi_b\}$ and $A_\pi$ is a simplex. Denote the finest partition as $\pi_{F} = \{ \{1\}, \{2\},...,\{K\}\}$, associated simplex $A_{\pi_{F}} = \{(\phi, \psi): \phi_i = \psi_i, i = 1,...,K\}$ for any two partition $\pi_1$ and $\pi_2$, intersection of their associated simplex must not be empty since $A_{\pi_{F}}\subset A_{\pi_1}\cap A_{\pi_2} \neq \emptyset$.  To discuss the issue of overlapping of simplex $A_\pi$, we first introduce some notations. The whole space $\Omega = \{ (\phi,\psi), \phi_i,\psi_i > 0 \text{ and } \sum_{i=1}^K \phi_i = \sum_{i=1}^K \psi_i = 1\}$ and we define the refinement and coarseness relationship between partitions, we say a partition $\tilde{\pi}$ refines another partition $\pi$ if $\forall b \in \pi$ there exists $s \subset \tilde{\pi}$  such that $\cup_{b'\in s} b' = b$. When $\tilde{\pi}$ refines $\pi$, we say $\tilde{\pi}$ is a refinement of(finer than) $\pi$ or $\pi$ is a coarseness of(coarser than) $\tilde{\pi}$. 
+Observe that if $\pi'$ refines $\pi$, then $A_\pi \cap A_{\pi'} = A_{\pi'}$, $\int_{A_\pi\cap A_{\pi'}} p(z^1,z^2|\phi,\psi)p(\phi, \psi | A_{\pi'})d\phi d\psi = \int_{A_{\pi'}} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi'})d\phi d\psi $. When $\pi'$ is not refinement of $\pi$, we need to know the dimension of $A_\pi\cap A_{\pi'}$. Consider a map $f: b \rightarrow v$, which maps the block $b$ to a vector $v\in \{0, 1\}^K$, the ith component of $v$ is $1_{\{i\in b\}}$. And denote $\text{dim}(S)$ be the dimension of space $S$. $A_\pi$ can be equivalently defined as $A_\pi =  \{(\phi,\psi): M_\pi * (\phi - \psi) = 0\}$, $M_\pi$ is a matrix with rows be $v_b = f(b), \forall b\in \pi$, that is to say $(\phi,\psi)$ are in the null space of linear transformation $M_\pi$.  We have following lemma\\
+Proof of lemma 1
 \begin{proof}
 Let $V$ denote the orthogonal space of $\phi - \psi$, when $(\phi,\psi)\in A_{\pi_1} \cap A_{\pi_2}$, and $\text{dim}(A_{\pi_1} \cap A_{\pi_2}) = \text{dim}(\phi - \psi) + \text{dim}(\psi) = 2K - \text{dim}(V) - 1$. Also let $\pi_1 = \{b_1^1,...,b_s^1\}, \pi_2 = \{b_1^2,...,b_t^2\}$. The corresponding vectors are $v_1^1,...,v_s^1$ and $v_1^2,...,v_t^2$. We claim there must be a $b_i^1\in \pi$ whose corresponding $v_i^1$ is linear independent with $v_1^2,...,v_t^2$. If not, for every $v_i^1$ there exists $\alpha_1^i,...,\alpha_t^i$ such that 
 \[
@@ -760,8 +764,8 @@ Consequently there exists $b\in\pi_1$ with $v(b)$ linear independent with $v(b')
 \hfill\\
 Proof of theorem 3 and theorem 4
 \begin{proof}
-Given the condition that $\alpha_k = 1, \forall k$ and $\beta_b = \sum_{k\in b} \alpha_k$, recall $p(A_\pi| z^1, z^2) = \sum_{\pi' \in \text{RF}(\pi)} J(z^1,z^2,\pi')$  and $J(z^1, z^2 ,\pi) = \frac{1}{c'}\prod_{b\in \pi}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}$\\
-Assuming there are $K$ subgroups, since $n_1$ and $n_2$ goes to infinite at same rate, for simplicity we assume $n = \sum_{i = 1}^K z_i^1 = \sum_{i = 1}^K z_i^2 $,  $z^1\sim \text{multinomial}(\phi), z^2\sim \text{multinomial}(\psi)$ and
+Given the condition that $\alpha_k = 1, \forall k$ and $\beta_b = \sum_{k\in b} \alpha_k$, recall $p(A_\pi| t^1, t^2) = \sum_{\pi' \in \text{RF}(\pi)} J(t^1,t^2,\pi')$  and $J(t^1, t^2 ,\pi) = \frac{1}{c'}\prod_{b\in \pi}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}$\\
+Assuming there are $K$ subgroups, since $n_1$ and $n_2$ goes to infinite at same rate, for simplicity we assume $n = \sum_{i = 1}^K t_i^1 = \sum_{i = 1}^K t_i^2 $,  $t^1\sim \text{multinomial}(\phi), t^2\sim \text{multinomial}(\psi)$ and
 $t_b^1 = \sum_{i \in b} z_i^1$ and $t_b^2 = \sum_{i \in b} z_i^2$, so $t_b^1 \sim$ binomial $(n, \Phi_b)$ and $t_b^2 \sim$ binomial $(n, \Psi_b)$, where $\Phi_b = \sum_{i \in b}\phi_i$ and $\Psi_b = \sum_{i \in b}\psi_i$. Let $f(n, b) = \frac{\Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}$, then 
 $$J(z^1, z^2 ,\pi) \propto \prod_{b\in \pi} f(n,b)$$\\
 log$f(n, b) = $log$(\Gamma(\beta_b + t_b^1 + t_b^2))$ - log$(\Gamma(\beta_b + t_b^1))$ - log$(\Gamma(\beta_b + t_b^2))$, notice that $t_b^1, t_b^2 \text{ and } \beta_b$ are integers, and when $x$ is integer,  $\Gamma(x)$ is the factorial of $(x - 1)$.
@@ -775,8 +779,8 @@ To find the maxima $(\Phi, \Psi)$, we fix $\Psi$ and
 let $C =  \frac{\text{log}(\prod_{b\in \pi} f(n,b))}{n} + \lambda(\underset{b\in\pi}\sum \Phi_b - 1)$, we have $\frac{\partial C}{\partial \Phi_b} =  \text{log}(1+\frac{\Psi_b}{\Phi_b}) + \lambda$, stationary point is $\Phi_b = \Psi_b, \forall b$. and for the hessian matrix $\frac{\partial^2 C}{\partial \Phi_b^2} = -\frac{\Psi_b}{\Phi_b^2 + \Phi_b\Psi_b} < 0$ and $\frac{\partial^2 C}{\partial \Phi_{b}\partial \Phi_{b'}} = 0, \text{if } b \neq b'$, that is to say the hessian matrix is a diagonal matrix with every diagonal elements to be negative, so it is negative definite, and our objective function is concave. The maxima is the stationary point $\Phi = \Psi$. 
 And when $\Phi = \Psi$ , $\frac{\text{log}(\prod_{b\in \pi} f(n,b))}{n} = 2\text{ln}(2)$ a constant not dependent on partition $\pi$ and $\Phi$. That is to say if $(\phi,\psi) \in A_{\pi_1}\cap A_{\pi_2}$ and $(\phi,\psi) \notin A_{\pi_3}$. Then we would have 
 $\lim_{n\to\infty}\frac{\text{log}(\prod_{b\in \pi_1} f(n,b))}{n} = \lim_{n\to\infty}\frac{\text{log}(\prod_{b\in \pi_2} f(n,b))}{n}$ and  $\lim_{n\to\infty}[\frac{\text{ln}(\prod_{b\in \pi_1} f(n,b))}{n} -  \frac{\text{log}(\prod_{b\in \pi_3} f(n,b))}{n}]  = c > 0 $, which implies:
-\[\frac{J(z^1, z^2,\pi_3)}{J(z^1, z^2,\pi_1)} \rightarrow 0\quad a.s. \tag{A}\]
-To investigate the limit of $\frac{J(z^1, z^2,\pi_1)}{J(z^1, z^2,\pi_2)}$, We use inequalities that $\sqrt{2\pi}n^{n+\frac{1}{2}}e^{-n} \leq n! \leq en^{n+\frac{1}{2}}e^{-n}$ holds for all nonnegative integers $n$. Plug in $f(n,b)$, we have:\\
+\[\frac{J(t^1, t^2,\pi_3)}{J(t^1, t^2,\pi_1)} \rightarrow 0\quad a.s. \tag{A}\]
+To investigate the limit of $\frac{J(t^1, t^2,\pi_1)}{J(t^1, t^2,\pi_2)}$, We use inequalities that $\sqrt{2\pi}n^{n+\frac{1}{2}}e^{-n} \leq n! \leq en^{n+\frac{1}{2}}e^{-n}$ holds for all nonnegative integers $n$. Plug in $f(n,b)$, we have:\\
 \[
 \beta_b +\text{log}\sqrt{2\pi} - 3 + g(n,b) 
 \leq f(n, b)\leq
@@ -797,9 +801,9 @@ Notice that when two partition $\pi_1$, $\pi_2$ have same number of blocks $b$ a
 &= O_p(1)
 \end{align*}
 When $\pi_1$ and $\pi_2$ have same number of blocks,  
-\[\frac{J(z^1, z^2,\pi_1)}{J(z^1, z^2,\pi_2)} \rightarrow O_p(1)\quad a.s. \tag{B}\]
+\[\frac{J(t^1, t^2,\pi_1)}{J(t^1, t^2,\pi_2)} \rightarrow O_p(1)\quad a.s. \tag{B}\]
 When $\pi_1$ have less blocks than $\pi_2$, $\sum_{b'\in\pi_2} g(n,b') - \sum_{b\in\pi_1} g(n,b) = O_p(\text{log}(n))$
-\[\frac{J(z^1, z^2,\pi_1)}{J(z^1, z^2,\pi_2)} \rightarrow 0\quad a.s.\tag{C}\]
+\[\frac{J(t^1, t^2,\pi_1)}{J(t^1, t^2,\pi_2)} \rightarrow 0\quad a.s.\tag{C}\]
 \end{proof}
 
 \bibliographystyle{IEEEtran}
