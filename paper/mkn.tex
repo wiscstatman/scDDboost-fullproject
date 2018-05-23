@@ -220,38 +220,58 @@ P(M_{g,\pi}|X).
 \end{align}
 The idea is by allowing genome-wide information to inform the posterior of $A_\pi$, then get added benefit from the gene-level data, which primarily drives the posterior of $M_{g,\pi}$. It's a very specific form of information sharing that leverages the compositional structure of single-cell data. 
 
-\subsection{Method structure}
+\subsection{Method structure and clustering}
 
 
 
 Our approach take transcripts processed by normalizing methods (e.g. SCnorm \cite{ref:Rhonda}). 
-The workflow contains two parts, clustering cells into subtypes and posterior inference on distributional change. Recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus identification process is blind to conditions and can be done by clustering upon similarities between cells. 
+The workflow contains two parts, classify cells into subtypes and posterior inference on distributional change. In the first part, recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus classification process is blind to conditions and can be done by clustering upon similarities between cells(supplementary material). 
 \begin{algorithm}
 \caption{}\label{alg:scDDboost}
 \raggedright\hspace*{\algorithmicindent} \textbf{Input}: Expression data $X$; condition labels $y$; number of cell subtypes $K$ \\
 \hspace*{\algorithmicindent} \textbf{Output}: per gene posterior probability of differential distribution
 \begin{algorithmic}[1]
 \Procedure{scDDboost0}{$X,y,K$}
-\Function{clustering}{$X, K$}
 \State distance matrix: $Dist(X) \gets$ pairwise distances between cells (columns of $X$)
 \State cell clustering: $\hat z \gets$ labeled parition of cells, computed from $Dist(X)$ and $K$
-\EndFunction
-\Function{Post}{$X, y, \hat z$}
 \State subtype differential expression: $\forall \pi$,  $P(M_{g,\pi} | X, \hat z)\gets$ using EBSeq\cite{ref:Leng}
 \State cell frequency changes: $\forall \pi$, $P(A_\pi | y, \hat z)\gets$ using Double Dirichlet prior
 \State posterior probability: $P(\text{ED}_g | X, y)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X, \hat z) \,
  P(A_\pi | y, \hat z)$
 \State \textbf{return} $P(\text{DD}_g |X, y)=1-P(\text{ED}_g| X,y)$
-\EndFunction
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
 
-One advantage of our approach is that the posterior inference can be incorporate with different clustering methods. With the development of technology, new clustering methods with higher accuracy may be discovered and we can substitute those methods with clustering function in our procedure. Relying on appropriate partition results, we gain power in identifying DD genes. No matter what clustering method we are using, the essential idea is that the mixture structure is estimated using the whole genome information rather than at each gene solely using information of that gene  
-to estimate a gene specific mixture structure. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach scDDboost. 
+One advantage of our approach is that the posterior inference can be incorporate with different clustering methods. With the development of technology, clustering methods taking care of newly discovered characteristic of scRNA seq data (e.g. SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}) could be substituted with our default one. No matter what clustering method is used, we estimate the mixture structure utilizing the whole genome information rather than estimating a gene specific mixture structure solely using information of that gene. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach scDDboost. 
 
-There are many single cell clustering methods(e.g. SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}) that could utilized in the workflow. However, for the integrity of our work and speeding in computation, we present another efficient and effective clustering procedure.
-We pool cells from two conditions. At each gene level, we do a Poisson-Gamma model extended from modal clustering\cite{ref:dahl}. After gene level clustering, we use the cluster-based similarity partition algorithm (CSPA\cite{ref:cspa}). For each individual clustering result, a binary similarity matrix is constructed from the corresponding cell labels: if two cells belong to the same cluster, their similarity is 1; otherwise their similarity is 0. We obtain a consensus similarity matrix $M_1$ by averaging all similarity matrices of individual clusterings. Another distance matrix $M_2$ calculated by Pearson distance between cells. A final similarity matrix is obtained by weighted combining $M_1$ and $M_2$. Cells are classified into subtypes by K-medoids based on the final similarity matrix. 
+Although there are various options for clustering methods, none of them guarantee the accuracy and posterior inference can be sensitive to the initial partition. Here we provide a bagging method to make our inferences robust to partitions. Given number of subtypes $K$, the final posterior probabilities is obtained by averaging results from iterative run of scDDboost0 with randomly generated subtype labels $\hat z$. Taking account of information contained in $Dist(X)$ , instead of purely random assigning subtype labels, we generate the distance matrices of cells$(\hat D)$ by adding noises to the original one and assign labels based on $\hat D$. Specifically,  we random sample a noise vector $e$ with length equal to number of cells and components are i.i.d. exponentially distributed with mean parameter $\lambda$. We obtain $\hat{D}$ by adding nosies: $\hat{d}_{i,j} = Dist(X)_{i,j} + e_i  + e_j$. For $\hat{D}$ we still have triangle inequality held as $\hat{d}_{i,j} + \hat{d}_{j,k} \geq \hat{d}_{i,k}$ , it is still a valid distance matrix.
+After robustification, we select number of clusters $K$ that posterior probabilities do not vary too much under $K$ and $K+1$.  We validate our procedure in simulated and real data
+
+
+\begin{algorithm}
+\caption{}\label{alg:scDDboost-robust}
+\raggedright\hspace*{\algorithmicindent} \textbf{Input}: Expression data matrix $X$; condition label vector $y$; number of clusters $K$; number of iteration $T$; noise parameter $\lambda$   
+\\
+\hspace*{\algorithmicindent} \textbf{Output}: averaged per gene posterior probability of differential distribution 
+\begin{algorithmic}[2]
+\Procedure{scDDboost1}{$X,y, K, T, \lambda$}
+\State distance matrix: $Dist(X) \gets$ pairwise distances between cells (columns of $X$)
+\State $i \gets 0$
+\While{$i < T$}
+\State sampling noise vector: $e$, whose component $\sim \text{exp}(\lambda)$
+\State randomized distance matrix: $\hat D \gets Dist(X), e$ 
+\State cell clustering: $\hat z \gets$ labeled parition of cells, computed from $\hat D$ and $K$
+\State subtype differential expression: $\forall \pi$,  $P(M_{g,\pi} | X, \hat z)\gets$ using EBSeq\cite{ref:Leng}
+\State cell frequency changes: $\forall \pi$, $P(A_\pi | y, \hat z)\gets$ using Double Dirichlet prior
+\State posterior probability: $P(\text{ED}_g | X, y)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X, \hat z) \,
+ P(A_\pi | y, \hat z)$
+\State $i\gets i + 1$
+\EndWhile
+\State \textbf{return} averaged $P(\text{DD}_g |X, y)$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
 
 After identification of subtypes, the following two steps use empirical Bayes to provide posterior inference on patterns of differential expression($M_{g,\pi}$) and aggregated proportions of subtypes($A_\pi$), where $P(M_{g,\pi} | X)$ is done in EBSeq\cite{ref:Leng} and we present details of calculating $P(A_\pi | X)$ in next section. Combining those components, final posterior probabilities are obtained. 
 
@@ -480,7 +500,7 @@ scDDboost identified most true DD genes, the reason is that mean expression shif
 \minipage{0.5\textwidth}
   \includegraphics[width=\textwidth]{sim_78.png}
   \endminipage
-\caption{comparison of posterior probabilities of being DD among different number of subtypes, when we underestimate the number of subtypes, the difference is huge, see PDD between 6 subtypes and 7 subtypes. When we overestimate the number of subtypes, though inflating PDD but the variation of difference is small, from 6 to 8 subtypes the PDD become more linear related}
+\caption{comparison of posterior probabilities of being DD among different number of subtypes, when we underestimate the number of subtypes, the difference is huge, see PDD between 6 subtypes and 7 subtypes. There is an approximate horizontal line with massive points at the top of left panel, which indicate that we underestimate lots of DD genes due to underestimate the number of subtypes. While in the case when we overestimate the number of subtypes 7 subtypes vs. 8 subtypes, though inflating PDD but the variation of difference is small, from 6 to 8 subtypes the PDD become more linear related.}
 \end{figure}
 \begin{figure}[H]
   \includegraphics[width = 0.4\textwidth]{roc.png}
@@ -491,6 +511,7 @@ scDDboost identified most true DD genes, the reason is that mean expression shif
 Since we are modeling gene transcript within each subtype as negative binomial distributed and we only test one parameter(mean) change among subtypes. In some scenario, it could be insufficient to model the variability within subtype. Even though there is no mean expression change among subtypes but more subtle distributional change occurred among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus limit power of scDDboost.\\
 \newpage
 \section{Examples}
+\subsection{real data}
 We use ten datasets from conquer\cite{ref:Cq} to test performance of our method on real data. We compare our results with scDD\cite{ref:scDD}, MAST\cite{ref:MAST} and DESeq2\cite{ref:Des}\\
 \begin{table}[ht]
 \centering
@@ -579,6 +600,7 @@ We found that bulk method DESeq2 tends to have the most number of DE genes. But 
   \label{fig:6}
 \end{figure}
 
+\subsection{FDR}
 Although bulk methods seems to be the most powerful one, we found it also has a higher false discovery rate comparing to single cell methods. We validate false discovery rate on ten null datasets from table 1. For each null dataset, we randomly split the cells from one condition into two equal sized subsets and do DE analysis between those subsets. Since those two subsets of cells actually came from same condition, there should not be any differential distributed genes, any positive call would be a false positive. We repeat the random split and testing for five times on each null data set. We evaluate the type I error control for the methods returning nominal p-values, by recording the fraction of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (figure 5).\\
 scDDboost could control FDR since we assume cells are sampled from population composed of different subtypes. Cells from one subtype are equal likely to be assigned to either one of the two subsets. Consequently, proportions of subtypes remain unchanged among the two subsets.
 
@@ -588,40 +610,8 @@ scDDboost could control FDR since we assume cells are sampled from population co
   \label{fig:7}
 \end{figure}
 
-D3E\cite{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset EMTAB2805\\
-
-\begin{figure}[H]
-\vspace{-\parskip}
-\minipage{0.33\textwidth}
-  \includegraphics[clip,width=\textwidth]{act.png}
-\endminipage
-\minipage{0.33\textwidth}
-  \includegraphics[clip,width=\textwidth]{in_act.png}
-  \endminipage
- \minipage{0.33\textwidth}
-  \includegraphics[clip,width=\textwidth]{t_rate.png}
-  \endminipage
-\captionof{figure}{2D histogram for bursting parameters of DD genes identified by scDDboost from dataset EMTAB2805 estimated by D3E. Left panel  : comparison of rate of promoter activation between two conditions, similarly, middle panel  : rate of promoter inactivation and right panel: rate of transcription when the promoter is in the active state. We observe that difference between transcription rate is smaller compare to difference between the activation and inactivation rate. ***other methods also observe similar phenomena, this is not unique to scDDboost, main reason is that estimation from D3E tends to give larger difference in activation and inactivation rate than transcription rate. We may argue the major factor to drive DD genes are activation and inactivation rate (proportions of different subtyps), so it make sense to consider mixture model like scDDboost.***}
-\end{figure}
-We observed that DD genes identified by scDDboost tends to have similar transcription rate when the promoter is active across condition, while there are lots of variabilities in the action and inactivation rate. These results reveal that DD genes identified by scDDboost are driven by the change of activation and inactivation rates. 
-
-\section{robustification}\hfill\\
-\subsection{bagging}
-Cluster cells is an unsupervised learning, we do not know the true underlying partition and different number of clusters will lead to large differences in posterior probabilities of genes being differentially distributed (figure 7). We propose a modified bootstrap to stabilize our inferences. Instead of resample the cells, we resample the distance matrices of cells by adding noises to original distance matrix. Denote the original distance matrix as $D = (d_{i,j})$, for each time we random sample a vector $e$ with length equal to number of cells and components are i.i.d. exponentially distributed. let $w$ be the standard deviation of $d_{i,j}$. We resample a new $\hat{D}$ by adding nosies: $\hat{d}_{i,j} = d_{i,j} + e_i * w + e_j *w$. For $\hat{D}$ we still have triangle inequality held as $\hat{d}_{i,j} + \hat{d}_{j,k} \geq \hat{d}_{i,k}$ , it is a valid distance matrix. For a fixed number of clusters, we average posterior probabilities over different distance matrices. And we select number of clusters $K$ that posterior probabilities do not vary too much under $K$ and $K+1$. From our empirical experience, it is typical $K$ will not be larger than 8.\\
-\begin{algorithm}
-\caption{}\label{alg:generate-clustering}
-\raggedright\hspace*{\algorithmicindent} \textbf{Input}: cell by cell distance matrix $D$ number of cluster $K$ and parameter of noises  $\lambda$ \\
-\hspace*{\algorithmicindent} \textbf{Output}: labelled partition of cells $\hat z$
-\begin{algorithmic}[1]
-\Procedure{random-c}{$D,K,\lambda$}
-\State sampling noises $e$ from exponential distribution with mean $= \lambda$ 
-\State $\hat{D}_{i,j}\gets D_{i,j} + e_i + e_j$ 
-\State $\hat z\gets K\text{-medoids on }\hat{D}$
-\State \textbf{return} $\hat z$
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
-
+\subsection{number of subtypes}
+From our empirical experience, it is typical $K$ will not be larger than 8.
 \begin{figure}[H]
 \minipage{0.5\textwidth}
   \includegraphics[height = 5cm, width=\linewidth]{DN_67.png}
@@ -641,24 +631,23 @@ Cluster cells is an unsupervised learning, we do not know the true underlying pa
 \caption{selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes}
 \end{figure}
 
+\subsection{bursting parameters}
+D3E\cite{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset EMTAB2805\\
 
-\begin{algorithm}
-\caption{}\label{alg:scDDboost-robust}
-\raggedright\hspace*{\algorithmicindent} \textbf{Input}: Expression data matrix $X$, condition label vector  $y$, number of clusters and iteration $K, T$, noise parameter $\lambda$   \\
-\hspace*{\algorithmicindent} \textbf{Output}: averaged posterior probabilities of genes being differential distributed 
-\begin{algorithmic}[1]
-\Procedure{scDDboost1}{$X,y, K, T, \lambda$}
-\State $D\gets$ cell by cell distance matrix $X$
-\For {$i = 0, i < T$}  
-\State $pt\gets$ Random-c($D, K$)
-\State $P(\text{DD}_g | X, y) \gets$ PostI($X, y, \hat z$)
-\State $i\gets i + 1$
-\EndFor
-\State \textbf{return} averaged $P(\text{DD}_g |X, y)$
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
-
+\begin{figure}[H]
+\vspace{-\parskip}
+\minipage{0.33\textwidth}
+  \includegraphics[clip,width=\textwidth]{act.png}
+\endminipage
+\minipage{0.33\textwidth}
+  \includegraphics[clip,width=\textwidth]{in_act.png}
+  \endminipage
+ \minipage{0.33\textwidth}
+  \includegraphics[clip,width=\textwidth]{t_rate.png}
+  \endminipage
+\captionof{figure}{2D histogram for bursting parameters of DD genes identified by scDDboost from dataset EMTAB2805 estimated by D3E. Left panel  : comparison of rate of promoter activation between two conditions, similarly, middle panel  : rate of promoter inactivation and right panel: rate of transcription when the promoter is in the active state. We observe that difference between transcription rate is smaller compare to difference between the activation and inactivation rate. ***other methods also observe similar phenomena, this is not unique to scDDboost, main reason is that estimation from D3E tends to give larger difference in activation and inactivation rate than transcription rate. We may argue the major factor to drive DD genes are activation and inactivation rate (proportions of different subtyps), so it make sense to consider mixture model like scDDboost.***}
+\end{figure}
+We observed that DD genes identified by scDDboost tends to have similar transcription rate when the promoter is active across condition, while there are lots of variabilities in the action and inactivation rate. These results reveal that DD genes identified by scDDboost are driven by the change of activation and inactivation rates. 
 
 
 
@@ -735,7 +724,8 @@ The asymptotic properties help us gain insight of the performance of our approac
 scDDboost may work poorly, when $(\phi, \psi)\in Q$, we may underestimate the posterior probability of true proportion change pattern, which reduce the posterior probabilities of true negative and enlarge false positive rate.\\
 
 \section{Discussion}
-subsection{extension to multi conditions}
+\subsection{extension to multi conditions}
+
 
 \newpage
 \appendix
