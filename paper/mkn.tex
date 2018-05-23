@@ -225,7 +225,7 @@ The idea is by allowing genome-wide information to inform the posterior of $A_\p
 
 
 Our approach take transcripts processed by normalizing methods (e.g. SCnorm \cite{ref:Rhonda}). 
-**improve**Prior to any Bayesian inference, we need to identify subtypes of cells. Recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus identification process is blind to conditions and can be done by clustering upon similarities between cells. 
+The workflow contains two parts, clustering cells into subtypes and posterior inference on distributional change. Recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus identification process is blind to conditions and can be done by clustering upon similarities between cells. 
 \begin{algorithm}
 \caption{}\label{alg:scDDboost}
 \raggedright\hspace*{\algorithmicindent} \textbf{Input}: Expression data $X$; condition labels $y$; number of cell subtypes $K$ \\
@@ -247,8 +247,7 @@ Our approach take transcripts processed by normalizing methods (e.g. SCnorm \cit
 \end{algorithmic}
 \end{algorithm}
 
-**explain more**
-One advantage of our approach is that the posterior inference can be incorporate with different clustering methods.
+One advantage of our approach is that the posterior inference can be incorporate with different clustering methods. The PostI function 
 The essential idea is that the mixture structure is estimated using the whole genome information rather than at each gene solely using information of that gene  
 to estimate a gene specific mixture structure. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach scDDboost. 
 
@@ -423,11 +422,11 @@ further, assuming $\beta_b = \alpha_k$,
 \begin{eqnarray*}
 p(t^1_{\pi},t^2_{\pi}| A_{\pi}) =
  \left[ \frac{ \Gamma(n_1+1) \Gamma(n_2+1) }{ \prod_{k=1}^K 
-   \Gamma(z^1_k+1) 
-   \Gamma( z^2_k + 1 )} \right] 
+   \Gamma(t^1_k+1) 
+   \Gamma( t^2_k + 1 )} \right] 
 \left[ \frac{\Gamma( \sum_{k=1}^K \alpha_k  )}{
    \prod_{k=1}^K \Gamma(\alpha_k )} \right] 
- \left[ \frac{ \prod_{k=1}^K \Gamma( \alpha_k + z^1_k + z^2_k )}{
+ \left[ \frac{ \prod_{k=1}^K \Gamma( \alpha_k + t^1_k + t^2_k )}{
 	\Gamma( n_1 + n_2 + \alpha_k  )} \right].
 \end{eqnarray*}
 which corresponds to Dirichlet-multinomial predictive distribution for counts $t^1 + t^2$ 
