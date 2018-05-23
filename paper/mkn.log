@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  22 MAY 2018 22:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  22 MAY 2018 22:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -332,7 +332,11 @@ LaTeX Warning: Command \@starttoc  has changed.
 \c@lemma=\count118
 \c@theorem=\count119
 \c@prop=\count120
- (./mkn.aux)
+ (./mkn.aux
+
+LaTeX Warning: Label `fig:1' multiply defined.
+
+)
 \openout1 = `mkn.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
@@ -405,46 +409,8 @@ Package caption Info: End \AtBeginDocument code.
 \MPnumerator=\count125
 \makeMPintoPDFobject=\count126
 \everyMPtoPDFconversion=\toks31
-)
-
-Package natbib Warning: Citation `scs' on page 1 undefined on input line 31.
-
-
-Package natbib Warning: Citation `Bacher:2016aa' on page 1 undefined on input l
-ine 39.
-
-
-Package natbib Warning: Citation `sc3' on page 1 undefined on input line 46.
-
-
-Package natbib Warning: Citation `CIDR' on page 1 undefined on input line 46.
-
-
-Package natbib Warning: Citation `ZIFA' on page 1 undefined on input line 46.
-
-
-Package natbib Warning: Citation `ref:MAST' on page 1 undefined on input line 5
-5.
-
-
-Package natbib Warning: Citation `ref:Des' on page 1 undefined on input line 56
-.
-
-
-Package natbib Warning: Citation `ref:scDD' on page 1 undefined on input line 5
-6.
-
-
-Package natbib Warning: Citation `ref:Cq' on page 1 undefined on input line 71.
-
-
-[1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2]
-
-Package natbib Warning: Citation `ref:Leng' on page 3 undefined on input line 1
-36.
-
-<prop.png, id=19, 981.6675pt x 351.3125pt>
+) [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[2] <prop.png, id=19, 981.6675pt x 351.3125pt>
 File: prop.png Graphic file (type png)
  <use prop.png>
 Package pdftex.def Info: prop.png used on input line 173.
@@ -460,66 +426,22 @@ CELL RNA-SEQ DATA[] []
  []
 
 [3] [4 <./prop.png>]
-
-Package natbib Warning: Citation `ref:Rhonda' on page 5 undefined on input line
- 227.
-
-
-Package natbib Warning: Citation `ref:Leng' on page 5 undefined on input line 2
-40.
-
-
-Package natbib Warning: Citation `sc3' on page 5 undefined on input line 255.
-
-
-Package natbib Warning: Citation `CIDR' on page 5 undefined on input line 255.
-
-
-Package natbib Warning: Citation `ZIFA' on page 5 undefined on input line 255.
-
-
-Package natbib Warning: Citation `ref:dahl' on page 5 undefined on input line 2
-56.
-
-
-Package natbib Warning: Citation `ref:cspa' on page 5 undefined on input line 2
-56.
-
-
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
 CELL RNA-SEQ DATA[] []
  []
 
-[5]
-
-Package natbib Warning: Citation `ref:Leng' on page 6 undefined on input line 2
-58.
-
-[6]
-
-Package natbib Warning: Citation `ref:Dickey' on page 7 undefined on input line
- 363.
-
-
+[5] [6]
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
 CELL RNA-SEQ DATA[] []
  []
 
 [7]
-
-Package natbib Warning: Citation `Wag' on page 8 undefined on input line 414.
-
-
 Overfull \hbox (13.80554pt too wide) in paragraph at lines 436--441
 []\OT1/cmr/m/n/10.95 Regardless of the par-ti-tion, log scale prob-a-bil-i-ties
  are read-ily eval-u-ated given hyper-parameters
  []
-
-
-Package natbib Warning: Citation `ref:Zappia' on page 8 undefined on input line
- 446.
 
 <pca.png, id=42, 477.785pt x 476.78125pt>
 File: pca.png Graphic file (type png)
@@ -565,23 +487,6 @@ CELL RNA-SEQ DATA[] []
  []
 
 [11 <./roc.png>]
-
-Package natbib Warning: Citation `ref:Cq' on page 12 undefined on input line 49
-6.
-
-
-Package natbib Warning: Citation `ref:scDD' on page 12 undefined on input line 
-496.
-
-
-Package natbib Warning: Citation `ref:MAST' on page 12 undefined on input line 
-496.
-
-
-Package natbib Warning: Citation `ref:Des' on page 12 undefined on input line 4
-96.
-
-
 Underfull \hbox (badness 3158) in paragraph at lines 501--501
 []\OT1/cmr/m/n/10.95 Number of
  []
@@ -602,17 +507,9 @@ Overfull \hbox (1.41646pt too wide) in paragraph at lines 504--504
  []
 
 
-Package natbib Warning: Citation `Deng193' on page 12 undefined on input line 5
-04.
-
-
 Overfull \hbox (1.41646pt too wide) in paragraph at lines 506--506
 []\OT1/cmr/m/n/10.95 mouse| 
  []
-
-
-Package natbib Warning: Citation `Deng193' on page 12 undefined on input line 5
-06.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 508--508
@@ -630,10 +527,6 @@ Overfull \hbox (1.41646pt too wide) in paragraph at lines 508--508
  []
 
 
-Package natbib Warning: Citation `Shalek' on page 12 undefined on input line 50
-8.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 510--510
 []\OT1/cmr/m/n/10.95 GSE48968-
  []
@@ -642,10 +535,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 510--510
 Overfull \hbox (1.41646pt too wide) in paragraph at lines 510--510
 []\OT1/cmr/m/n/10.95 mouse| 
  []
-
-
-Package natbib Warning: Citation `Shalek' on page 12 undefined on input line 51
-0.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 512--512
@@ -658,10 +547,6 @@ Overfull \hbox (1.41646pt too wide) in paragraph at lines 512--512
  []
 
 
-Package natbib Warning: Citation `Kumar' on page 12 undefined on input line 512
-.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 514--514
 []\OT1/cmr/m/n/10.95 GSE60749-
  []
@@ -672,17 +557,9 @@ Overfull \hbox (1.41646pt too wide) in paragraph at lines 514--514
  []
 
 
-Package natbib Warning: Citation `Kumar' on page 12 undefined on input line 514
-.
-
-
 Overfull \hbox (1.41646pt too wide) in paragraph at lines 516--516
 []\OT1/cmr/m/n/10.95 mouse| 
  []
-
-
-Package natbib Warning: Citation `Engel' on page 12 undefined on input line 516
-.
 
 
 Overfull \hbox (1.41646pt too wide) in paragraph at lines 518--518
@@ -690,26 +567,14 @@ Overfull \hbox (1.41646pt too wide) in paragraph at lines 518--518
  []
 
 
-Package natbib Warning: Citation `Engel' on page 12 undefined on input line 518
-.
-
-
 Overfull \hbox (1.41646pt too wide) in paragraph at lines 520--520
 []\OT1/cmr/m/n/10.95 mouse| 
  []
 
 
-Package natbib Warning: Citation `EMTAB' on page 12 undefined on input line 520
-.
-
-
 Overfull \hbox (1.41646pt too wide) in paragraph at lines 522--522
 []\OT1/cmr/m/n/10.95 mouse| 
  []
-
-
-Package natbib Warning: Citation `EMTAB' on page 12 undefined on input line 522
-.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 524--524
@@ -727,9 +592,6 @@ Overfull \hbox (1.41646pt too wide) in paragraph at lines 524--524
  []
 
 
-Package natbib Warning: Citation `Guo' on page 12 undefined on input line 524.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 526--526
 []\OT1/cmr/m/n/10.95 GSE71585-
  []
@@ -738,10 +600,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 526--526
 Overfull \hbox (1.41646pt too wide) in paragraph at lines 526--526
 []\OT1/cmr/m/n/10.95 mouse| 
  []
-
-
-Package natbib Warning: Citation `Tasic' on page 12 undefined on input line 526
-.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 528--528
@@ -754,16 +612,9 @@ Overfull \hbox (1.41646pt too wide) in paragraph at lines 528--528
  []
 
 
-Package natbib Warning: Citation `Tasic' on page 12 undefined on input line 528
-.
-
-
 Overfull \hbox (4.09312pt too wide) in paragraph at lines 530--530
 []\OT1/cmr/m/n/10.95 human| 
  []
-
-
-Package natbib Warning: Citation `chu' on page 12 undefined on input line 530.
 
 
 Overfull \hbox (4.09312pt too wide) in paragraph at lines 532--532
@@ -771,15 +622,9 @@ Overfull \hbox (4.09312pt too wide) in paragraph at lines 532--532
  []
 
 
-Package natbib Warning: Citation `chu' on page 12 undefined on input line 532.
-
-
 Overfull \hbox (4.09312pt too wide) in paragraph at lines 534--534
 []\OT1/cmr/m/n/10.95 human| 
  []
-
-
-Package natbib Warning: Citation `chu' on page 12 undefined on input line 534.
 
 
 Overfull \hbox (4.09312pt too wide) in paragraph at lines 536--536
@@ -787,16 +632,9 @@ Overfull \hbox (4.09312pt too wide) in paragraph at lines 536--536
  []
 
 
-Package natbib Warning: Citation `chu' on page 12 undefined on input line 536.
-
-
 Overfull \hbox (4.09312pt too wide) in paragraph at lines 538--538
 []\OT1/cmr/m/n/10.95 human| 
  []
-
-
-Package natbib Warning: Citation `oscope' on page 12 undefined on input line 53
-8.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 496--545
@@ -871,11 +709,6 @@ Package pdftex.def Info: FDR.png used on input line 588.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14 <./density_DEC_dd.png>]
-
-Package natbib Warning: Citation `ref:d3e' on page 15 undefined on input line 5
-93.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 593--594
 
  []
@@ -1059,33 +892,24 @@ CELL RNA-SEQ DATA[] []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [26])
-
-Package natbib Warning: There were undefined citations.
-
-
 Overfull \hbox (15.74901pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
 CELL RNA-SEQ DATA[] []
  []
 
-[27] (./mkn.aux
+[27] (./mkn.aux)
 
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
  6181 strings out of 492995
  89515 string characters out of 6132704
- 167990 words of memory out of 5000000
+ 168529 words of memory out of 5000000
  9465 multiletter control sequences out of 15000+600000
  12646 words of font info for 48 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 42i,16n,39p,1525b,444s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,16n,39p,1525b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
@@ -1105,7 +929,7 @@ e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
 017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/201
 7/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2017/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mkn.pdf (27 pages, 1649534 bytes).
+Output written on mkn.pdf (27 pages, 1648916 bytes).
 PDF statistics:
  205 PDF objects out of 1000 (max. 8388607)
  122 compressed objects within 2 object streams
