@@ -724,9 +724,29 @@ The asymptotic properties help us gain insight of the performance of our approac
 scDDboost may work poorly, when $(\phi, \psi)\in Q$, we may underestimate the posterior probability of true proportion change pattern, which reduce the posterior probabilities of true negative and enlarge false positive rate.\\
 
 \section{Discussion}
-\subsection{extension to multi conditions}
-
-
+\subsection{extension to multiple conditions}
+ScRNA seq data is a time course data, it is more natural to consider inference of distributional changes across multiple conditions. Assume there are$T$ conditions, $K$ subtypes,  Let $f_g^c$ denotes distribution of expression of gene $g$ at condition $c$. Partition of conditions are $\pi^1,...,\pi^{n_T}$ with superscripts, and $\pi_1,...,\pi_{n_K}$ with subscripts refer to partition of subtypes. Then, given a partition of conditions, say $\pi^1$, the corresponding distribution change of a gene $g$ is $D_g^{\pi^c} = \{\forall b\in \pi^c, f_g^i = f_g^j, f_g^i \neq f_g^m \forall i,j \in b, \forall m \notin b, \}$. Similar in two conditions case, to express distributional change in terms of parameters change, we consider parameter space 
+\begin{eqnarray*}
+\Theta = \{\phi^1, ..., \phi^T, \mu^1, ..., \mu^K\}
+\end{eqnarray*}
+where $\phi^c$ is proportions of subtypes at condition $c$ and $\mu_k = \{\mu_{g,k\}}$ is gene-specific expected values at subtype $k$. \\
+Define
+\begin{eqnarray*}
+A_{\pi_k}^{\pi^c} = \{\forall b \in \pi^c, \forall i \in b, \forall m \notin b, \exists b' \in \pi_k, \underset{s\in b'}{\sum}\phi_s^i \neq \underset{s\in b'}\sum\phi_s^m;
+\forall b' \in \pi_k, \forall i, j \in b. \underset{s\in b'}\sum\phi_s^i = \underset{s\in b'}\sum\phi_s^j\}
+\end{eqnarray*}
+Indeed, $A_{\pi_k}^{\pi^c}$ and $M_{g,\pi_k}$ are precisely the structures needed to address differential distribution $D_g^{\pi^c}$
+\begin{theorem}
+\begin{eqnarray*}
+    D_g^{\pi^c} = \left\{
+                \begin{array}{ll}
+                 \underset{\pi_k \neq \pi_0}\bigcup A_{\pi_k}^{\pi^c}\cap M_{g,\pi_k} \quad \text{if } \pi^c \neq \pi^0 \\
+                 \quad \underset{\pi_k}\bigcup A_{\pi_k}^{\pi^c}\cap M_{g,\pi_k}\quad \text{if } \pi^c = \pi^0\\             
+                \end{array}
+              \right.
+\end{eqnarray*}
+where $\pi_0 = \{1, 2, ..., K\}$ and $\pi^0 = \{1, 2, ..., T\}$
+\end{theorem}
 \newpage
 \appendix
 \section{}
