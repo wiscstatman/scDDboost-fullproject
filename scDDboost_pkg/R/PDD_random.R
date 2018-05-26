@@ -16,10 +16,10 @@ PDD_random = function(data, cd, K, D, sz, hp, Posp, iter, lambda, seed){
     set.seed(seed)
     E=rexp(ncol(D),rate = lambda)
     n = ncol(D)
-    d_mean = 1
-    weights = d_mean*E/2
+    d_mean = mean(D)
+    weights = d_mean * E
     PD = rep(0, nrow(data))
-    R_D = sapply(1:ncol(D), function(i) sapply(1:ncol(D), function(j) {if(i != j){return(D[i,j]+weights[i]+weights[j])}else{return(0)}}))
+    R_D = D_c + weights %o% rep(1,n) + rep(1,n) %o% weights
     ccl = pam(R_D, k = K, diss = T)$clustering
     n1 = table(cd)[1]
     z1<-c(1:K)
