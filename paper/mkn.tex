@@ -236,43 +236,44 @@ The workflow contains two parts, classify cells into subtypes and posterior infe
 \State cell clustering: $\hat z \gets$ labeled parition of cells, computed from $Dist(X)$ and $K$
 \State subtype differential expression: $\forall \pi$,  $P(M_{g,\pi} | X, \hat z)\gets$ using EBSeq\cite{ref:Leng}
 \State cell frequency changes: $\forall \pi$, $P(A_\pi | y, \hat z)\gets$ using Double Dirichlet prior
-\State posterior probability: $P(\text{ED}_g | X, y)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X, \hat z) \,
+\State posterior probability: $P(\text{ED}_g | X, y, \hat z)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X, \hat z) \,
  P(A_\pi | y, \hat z)$
-\State \textbf{return} $P(\text{DD}_g |X, y)=1-P(\text{ED}_g| X,y)$
+\State \textbf{return} $P(\text{DD}_g |X, y, \hat z)=1-P(\text{ED}_g| X,y)$
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
 
 One advantage of our approach is that the posterior inference can be incorporate with different clustering methods. With the development of technology, clustering methods taking care of newly discovered characteristic of scRNA seq data (e.g. SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}) could be substituted with our default one. No matter what clustering method is used, we estimate the mixture structure utilizing the whole genome information rather than estimating a gene specific mixture structure solely using information of that gene. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach scDDboost. 
 
-Although there are various options for clustering methods, none of them guarantee the accuracy and posterior inference can be sensitive to the initial partition. Here we provide a bagging method to make our inferences robust to partitions. Given number of subtypes $K$, the final posterior probabilities is obtained by averaging results from iterative run of scDDboost0 with randomly generated subtype labels $\hat z$. Taking account of information contained in $Dist(X)$ , instead of purely random assigning subtype labels, we generate the distance matrices of cells$(\hat D)$ by adding noises to the original one and assign labels based on $\hat D$. Specifically,  we random sample a noise vector $e$ with length equal to number of cells and components are i.i.d. exponentially distributed. We obtain $\hat{D}$ by adding nosies: $\hat{d}_{i,j} = Dist(X)_{i,j} + e_i  + e_j$. For $\hat{D}$ we still have triangle inequality held as $\hat{d}_{i,j} + \hat{d}_{j,k} \geq \hat{d}_{i,k}$ , it is still a valid distance matrix.
+Although there are various options for clustering methods, none of them guarantee the accuracy and posterior inference can be sensitive to the initial partition. Here we provide a bagging method to make our inferences robust to partitions. Given number of subtypes $K$, the final posterior probabilities is obtained by averaging results from iterative run of scDDboost0 with randomly generated subtype labels $\hat z$. Taking account of information contained in $D = Dist(X)$ , instead of purely random assigning subtype labels, we generate the distance matrices of cells$(\hat D)$ by adding noises to the original one and assign labels based on $\hat D$. Specifically,  we random sample a noise vector $e$ with length equal to number of cells and components are i.i.d. exponentially distributed. We obtain $\hat{D}$ by adding nosies: $\hat{d} = D + e\textbf{1}^T  + \textbf{1}e^T$. For $\hat{D}$ we still have triangle inequality held as $\hat{d}_{i,j} + \hat{d}_{j,k} \geq \hat{d}_{i,k}$ , it is still a valid distance matrix.
 After robustification, we select number of clusters $K$ that posterior probabilities do not vary too much under $K$ and $K+1$.  We validate our procedure in simulated and real data
 
 
 \begin{algorithm}
 \caption{}\label{alg:scDDboost-robust}
-\raggedright\hspace*{\algorithmicindent} \textbf{Input}: Expression data matrix $X$; condition label vector $y$; number of clusters $K$; number of iteration $T$; noise parameter $\lambda$   
+\raggedright\hspace*{\algorithmicindent} 
+\textbf{Input}: Expression data matrix $X$; condition label vector $y$; number of clusters $K$; \\
+\hspace*{\algorithmicindent} number of randomized clusterings $n_r$; regularization parameter $\lambda$   
 \\
-\hspace*{\algorithmicindent} \textbf{Output}: averaged per gene posterior probability of differential distribution 
+\hspace*{\algorithmicindent} \textbf{Output}: per gene posterior probability of differential distribution 
 \begin{algorithmic}[2]
-\Procedure{scDDboost1}{$X,y, K, T, \lambda$}
-\State distance matrix: $Dist(X) \gets$ pairwise distances between cells (columns of $X$)
-\State $i \gets 0$
-\While{$i < T$}
-\State sampling noise vector: $e$, whose component $\sim \text{exp}(\lambda)$
-\State randomized distance matrix: $\hat D \gets Dist(X), e$ 
-\State cell clustering: $\hat z \gets$ labeled parition of cells, computed from $\hat D$ and $K$
-\State subtype differential expression: $\forall \pi$,  $P(M_{g,\pi} | X, \hat z)\gets$ using EBSeq\cite{ref:Leng}
-\State cell frequency changes: $\forall \pi$, $P(A_\pi | y, \hat z)\gets$ using Double Dirichlet prior
-\State posterior probability: $P(\text{ED}_g | X, y)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X, \hat z) \,
- P(A_\pi | y, \hat z)$
-\State $i\gets i + 1$
-\EndWhile
-\State \textbf{return} averaged $P(\text{DD}_g |X, y)$
+\Procedure{scDDboost1}{$X,y, K, n_r, \lambda$}
+\State distance matrix: $D=Dist(X) \gets$ pairwise distances between cells (columns of $X$)
+\Repeat
+\State Exponential noise vector: $e$, with components $\sim \text{Exp}(\lambda)$
+\State randomized distance matrix: $D^* \gets D + e e^T$
+\State cell clustering: $z^* \gets$ labeled parition of cells, computed from $D^*$ and $K$
+\State subtype differential expression: $\forall \pi$,  $P(M_{g,\pi} | X, z^*)\gets$ using EBSeq\cite{ref:Leng}
+\State cell frequency changes: $\forall \pi$, $P(A_\pi | y, z^*)\gets$ using Double Dirichlet prior
+\State posterior probability: $P(\text{ED}_g | X, y, z^*)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X, z^*) \,
+ P(A_\pi | y, z^*)$
+\Until{$n_r$ randomized clusterings $z^*$}
+\State \textbf{return} $1-\frac{1}{n_r} \sum_{z^*} P(\text{ED}_g |X, y,z^*)$
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
 
+**needs further refinement**
 After identification of subtypes, the second part of our procedure involving two steps use empirical Bayes to provide posterior inference on patterns of differential expression($M_{g,\pi}$) and aggregated proportions of subtypes($A_\pi$), where $P(M_{g,\pi} | X)$ is done in EBSeq\cite{ref:Leng} and we present details of calculating $P(A_\pi | X)$ in next section. Combining those components, final posterior probabilities are obtained. 
 
 
