@@ -1,58 +1,58 @@
 This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
-The top-level auxiliary file: mkn-v3.aux
+The top-level auxiliary file: mkn.aux
 The style file: IEEEtran.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Database file #1: /Users/xiuyuma/Desktop/scDDboost_paper/scDDboost/paper/references/wlr_ref.bib
+Database file #1: ./references/wlr_ref.bib
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 Warning--there's a month but no year in Guo
 
 Done.
-You've used 26 entries,
+You've used 27 entries,
             4087 wiz_defined-function locations,
-            1026 strings with 15327 characters,
-and the built_in function-call counts, 26373 in all, are:
-= -- 2158
-> -- 944
-< -- 186
-+ -- 465
-- -- 200
-* -- 1386
-:= -- 3949
-add.period$ -- 52
-call.type$ -- 26
-change.case$ -- 26
-chr.to.int$ -- 363
-cite$ -- 27
-duplicate$ -- 1830
-empty$ -- 1752
-format.name$ -- 223
-if$ -- 6120
+            1034 strings with 15504 characters,
+and the built_in function-call counts, 27445 in all, are:
+= -- 2260
+> -- 961
+< -- 197
++ -- 473
+- -- 202
+* -- 1439
+:= -- 4114
+add.period$ -- 54
+call.type$ -- 27
+change.case$ -- 28
+chr.to.int$ -- 387
+cite$ -- 28
+duplicate$ -- 1904
+empty$ -- 1822
+format.name$ -- 226
+if$ -- 6376
 int.to.chr$ -- 0
-int.to.str$ -- 26
-missing$ -- 369
-newline$ -- 153
-num.names$ -- 26
-pop$ -- 833
+int.to.str$ -- 27
+missing$ -- 379
+newline$ -- 158
+num.names$ -- 27
+pop$ -- 848
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 2018
+skip$ -- 2106
 stack$ -- 0
-substring$ -- 990
-swap$ -- 1664
-text.length$ -- 65
+substring$ -- 1055
+swap$ -- 1737
+text.length$ -- 68
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 26
+type$ -- 27
 warning$ -- 1
-while$ -- 86
-width$ -- 28
-write$ -- 373
+while$ -- 89
+width$ -- 29
+write$ -- 388
 (There was 1 warning)

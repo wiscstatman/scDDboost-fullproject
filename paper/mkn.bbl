@@ -27,6 +27,30 @@ T.~Nawy, ``Single-cell sequencing,'' \emph{Nature Methods}, vol.~11, pp. 18 EP
   --, 12 2013. [Online]. Available: \url{http://dx.doi.org/10.1038/nmeth.2771}
 \BIBentrySTDinterwordspacing
 
+\bibitem{immune}
+\BIBentryALTinterwordspacing
+E.~Papalexi and R.~Satija, ``Single-cell rna sequencing to explore immune cell
+  heterogeneity,'' \emph{Nature Reviews Immunology}, vol.~18, pp. 35 EP --, 08
+  2017. [Online]. Available: \url{http://dx.doi.org/10.1038/nri.2017.76}
+\BIBentrySTDinterwordspacing
+
+\bibitem{dv}
+\BIBentryALTinterwordspacing
+J.~C. Marioni and D.~Arendt, ``How single-cell genomics is changing
+  evolutionary and developmental biology,'' \emph{Annual Review of Cell and
+  Developmental Biology}, vol.~33, no.~1, pp. 537--553, Oct 2017, pMID:
+  28813177. [Online]. Available:
+  \url{https://doi.org/10.1146/annurev-cellbio-100616-060818}
+\BIBentrySTDinterwordspacing
+
+\bibitem{cancer}
+\BIBentryALTinterwordspacing
+N.~E. Navin, ``The first five years of single-cell cancer genomics and
+  beyond,'' \emph{Genome Research}, vol.~25, no.~10, pp. 1499--1507, 10 2015.
+  [Online]. Available:
+  \url{http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4579335/}
+\BIBentrySTDinterwordspacing
+
 \bibitem{Bacher:2016aa}
 \BIBentryALTinterwordspacing
 R.~Bacher and C.~Kendziorski, ``Design and computational analysis of
@@ -110,21 +134,6 @@ R.~Bacher, L.-F. Chu, N.~Leng, A.~P. Gasch, J.~A. Thomson, R.~M. Stewart,
   M.~Newton, and C.~Kendziorski, ``Scnorm: robust normalization of single-cell
   rna-seq data,'' \emph{Nature Methods}, vol.~14, pp. 584 EP --, 04 2017.
   [Online]. Available: \url{http://dx.doi.org/10.1038/nmeth.4263}
-\BIBentrySTDinterwordspacing
-
-\bibitem{ref:dahl}
-\BIBentryALTinterwordspacing
-D.~B. Dahl, ``Modal clustering in a class of product partition models,''
-  \emph{Bayesian Anal.}, vol.~4, no.~2, pp. 243--264, 06 2009. [Online].
-  Available: \url{https://doi.org/10.1214/09-BA409}
-\BIBentrySTDinterwordspacing
-
-\bibitem{ref:cspa}
-\BIBentryALTinterwordspacing
-A.~Strehl and J.~Ghosh, ``Cluster ensembles --- a knowledge reuse framework for
-  combining multiple partitions,'' \emph{J. Mach. Learn. Res.}, vol.~3, pp.
-  583--617, Mar. 2003. [Online]. Available:
-  \url{https://doi.org/10.1162/153244303321897735}
 \BIBentrySTDinterwordspacing
 
 \bibitem{ref:Dickey}
