@@ -31,7 +31,7 @@ The ability to measure genome-wide gene expression at single-cell resolution
 has accelerated the pace of biological discovery\cite{scs}.  Overcoming data
 analysis challenges caused by the scale and unique variation properties of single-cell
 data will surely fuel further advances in immunology (cite), developmental
-biology (cite), and cancer (cite)(unsure about which paper to cite).  Computational tools and statistical methodologies 
+biology (cite), and cancer (cite)(not sure about which paper to cite).  Computational tools and statistical methodologies 
 created for data of lower-resolution (e.g. bulk RNA-seq) or lower dimension 
 (e.g. flow cytometry)  guide our response to 
  the data science demands of new measurement platforms,
@@ -725,7 +725,8 @@ The asymptotic properties help us gain insight of the performance of our approac
 scDDboost may work poorly, when $(\phi, \psi)\in Q$, we may underestimate the posterior probability of true proportion change pattern, which reduce the posterior probabilities of true negative and enlarge false positive rate.\\
 
 \section{Discussion}
-\subsection{extension to multiple conditions}
+We have presented scDDboost, a compositional model for the analysis of scRNA-seq data. scDDboost make whole genome information shared at gene level inference and is flexible of integrating with different cell clustering methods. scDDboost accounts for the over-dispersion and multi-modality of single-cell data by modeling expression data as mixture of subtypes. Information from the change of subtypes' proportions and mean expressions is combined to infer distributional changes of gene expression. We developed a prior distribution that can be used to estimate sharp equalities on aggregated subtype probabilities. Using simulation studies, we have demonstrated that our method outperforms existing approaches when there existing multiple cell types. 
+\subsection{future work |:extension to multiple conditions}
 ScRNA seq data is a time course data, it is more natural to consider inference of distributional changes across multiple conditions. Assume there are$T$ conditions, $K$ subtypes,  Let $f_g^c$ denotes distribution of expression of gene $g$ at condition $c$. Partition of conditions are $\pi^1,...,\pi^{n_T}$ with superscripts, and $\pi_1,...,\pi_{n_K}$ with subscripts refer to partition of subtypes. Then, given a partition of conditions, say $\pi^1$, the corresponding distribution change of a gene $g$ is $D_g^{\pi^c} = \{\forall b\in \pi^c, f_g^i = f_g^j, f_g^i \neq f_g^m \forall i,j \in b, \forall m \notin b, \}$. Similar in two conditions case, to express distributional change in terms of parameters change, we consider parameter space 
 \begin{eqnarray*}
 \Theta = \{\phi^1, ..., \phi^T, \mu^1, ..., \mu^K\}
@@ -748,6 +749,9 @@ Indeed, $A_{\pi_k}^{\pi^c}$ and $M_{g,\pi_k}$ are precisely the structures neede
 \end{eqnarray*}
 where $\pi_0 = \{1, 2, ..., K\}$ and $\pi^0 = \{1, 2, ..., T\}$
 \end{theorem}
+\subsection{future work ||: theoretical support for randomized distance matrix}
+
+
 \newpage
 \appendix
 \section{}
