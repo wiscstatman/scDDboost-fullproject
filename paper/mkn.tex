@@ -245,7 +245,7 @@ The workflow contains two parts, classify cells into subtypes and posterior infe
 
 One advantage of our approach is that the posterior inference can be incorporate with different clustering methods. With the development of technology, clustering methods taking care of newly discovered characteristic of scRNA seq data (e.g. SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}) could be substituted with our default one. No matter what clustering method is used, we estimate the mixture structure utilizing the whole genome information rather than estimating a gene specific mixture structure solely using information of that gene. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach scDDboost. 
 
-Although there are various options for clustering methods, none of them guarantee the accuracy and posterior inference can be sensitive to the initial partition. Here we provide a bagging method to make our inferences robust to partitions. Given number of subtypes $K$, the final posterior probabilities is obtained by averaging results from iterative run of scDDboost0 with randomly generated subtype labels $\hat z$. Taking account of information contained in $D = Dist(X)$ , instead of purely random assigning subtype labels, we generate the distance matrices of cells $D^*$ by adding noises to the original one and assign labels based on $D^*$. Specifically,  we random sample a noise vector $e$ with length equal to number of cells and components are i.i.d. exponentially distributed. We obtain $D^*$ by adding nosies: $D^* = D + e\textbf{1}^T  + \textbf{1}e^T$. For $D^*$ we still have triangle inequality held as $d_{i,j}^* + d_{j,k}^* \geq d_{i,k}^*$ , it is still a valid distance matrix.
+Although there are various options for clustering methods, none of them guarantee the accuracy and posterior inference can be sensitive to the initial partition. Here we provide a bagging method to make our inferences robust to partitions. Given number of subtypes $K$, the final posterior probabilities is obtained by averaging results from iterative run of scDDboost0 with randomly generated subtype labels $z^*$. Taking account of information contained in $D = Dist(X)$ , instead of purely random assigning subtype labels, we generate the distance matrices of cells $D^*$ by adding noises to the original one and assign labels based on $D^*$. Specifically,  we random sample a noise vector $e$ with length equal to number of cells and components are i.i.d. exponentially distributed. We obtain $D^*$ by adding nosies: $D^* = D + e\textbf{1}^T  + \textbf{1}e^T$. For $D^*$ we still have triangle inequality held as $d_{i,j}^* + d_{j,k}^* \geq d_{i,k}^*$ , it is still a valid distance matrix.
 After robustification, we select number of clusters $K$ that posterior probabilities do not vary too much under $K$ and $K+1$.  We validate our procedure in simulated and real data
 
 
@@ -261,7 +261,7 @@ After robustification, we select number of clusters $K$ that posterior probabili
 \State distance matrix: $D=Dist(X) \gets$ pairwise distances between cells (columns of $X$)
 \Repeat
 \State Exponential noise vector: $e$, with components $\sim \text{Exp}(\lambda)$
-\State randomized distance matrix: $D^* \gets D + e e^T$
+\State randomized distance matrix: $D^* \gets D + e\textbf{1}^T +  \textbf{1}e^T$
 \State cell clustering: $z^* \gets$ labeled parition of cells, computed from $D^*$ and $K$
 \State subtype differential expression: $\forall \pi$,  $P(M_{g,\pi} | X, z^*)\gets$ using EBSeq\cite{ref:Leng}
 \State cell frequency changes: $\forall \pi$, $P(A_\pi | y, z^*)\gets$ using Double Dirichlet prior
@@ -612,7 +612,7 @@ scDDboost could control FDR since we assume cells are sampled from population co
 \end{figure}
 
 \subsection{number of subtypes}
-From our empirical experience, it is typical $K$ will not be larger than 8.
+From our empirical experience, it is typical $K$ will not be larger than 8. We demonstrate the change of posterior probabilities of differential distribution given different number of subtypes at data GSE75748 and GSE48968. In both cases, if allowing one more subtype would result in a lot increases in posterior probabilities, which suggests that the number of subtypes is underestimated since we found more distribution differences between conditions given one more mixture component. If posterior inference is stable after increasing the number of subtypes, then we consider previous number of subtypes to be optimal. 
 \begin{figure}[H]
 \minipage{0.5\textwidth}
   \includegraphics[height = 5cm, width=\linewidth]{DN_67.png}
