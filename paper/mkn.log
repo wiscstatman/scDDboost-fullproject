@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  28 MAY 2018 17:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  29 MAY 2018 14:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -829,24 +829,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 724--726
  []
 
 
-Overfull \hbox (17.63658pt too wide) in alignment at lines 736--739
- [][][] []
- []
-
-
 Overfull \hbox (15.74901pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
 CELL RNA-SEQ DATA[] []
  []
 
 [21]
-Overfull \hbox (1.91423pt too wide) in paragraph at lines 755--755
- \OT1/cmr/m/n/10.95 7.2.\OT1/cmr/bx/n/10.95 future work ||: the-o-ret-i-cal sup
--port for ran-dom-ized dis-tance ma-trix.[] 
+Overfull \hbox (16.587pt too wide) in alignment at lines 737--740
+ [][][] []
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 758--759
+Underfull \hbox (badness 10000) in paragraph at lines 777--778
 
  []
 
@@ -857,27 +851,27 @@ CELL RNA-SEQ DATA[] []
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 783--787
+Underfull \hbox (badness 10000) in paragraph at lines 802--806
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 787--790
+Underfull \hbox (badness 10000) in paragraph at lines 806--809
 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 795--797
+Underfull \hbox (badness 10000) in paragraph at lines 814--816
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 801--802
+Underfull \hbox (badness 10000) in paragraph at lines 820--821
 
  []
 
 
-Overfull \hbox (33.67892pt too wide) detected at line 802
+Overfull \hbox (33.67892pt too wide) detected at line 821
 \OML/cmm/m/it/10.95 g\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n; b\OT1/cmr/m/n/1
 0.95 ) = (\OML/cmm/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[
 ] \OMS/cmsy/m/n/10.95 ^^@ []\OT1/cmr/m/n/10.95 )[](1 + []) + (\OML/cmm/m/it/10.
@@ -889,12 +883,12 @@ m/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[] \OT1/cmr/m/n/10
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 802--805
+Underfull \hbox (badness 10000) in paragraph at lines 821--824
 
  []
 
 
-Overfull \hbox (73.77013pt too wide) in paragraph at lines 815--815
+Overfull \hbox (73.77013pt too wide) in paragraph at lines 834--834
 [] 
  []
 
@@ -945,7 +939,7 @@ e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
 017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/201
 7/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2017/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mkn.pdf (28 pages, 1567847 bytes).
+Output written on mkn.pdf (28 pages, 1571176 bytes).
 PDF statistics:
  208 PDF objects out of 1000 (max. 8388607)
  124 compressed objects within 2 object streams
