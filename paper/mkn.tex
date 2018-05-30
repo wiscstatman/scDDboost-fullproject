@@ -516,7 +516,7 @@ scDDboost identified most true DD genes, the reason is that mean expression shif
 \end{figure}
 
 Since we are modeling gene transcript within each subtype as negative binomial distributed and we only test one parameter(mean) change among subtypes. In some scenario, it could be insufficient to model the variability within subtype. Even though there is no mean expression change among subtypes but more subtle distributional change occurred among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus limit power of scDDboost.\\
-
+\newpage
 \section{EXAMPLES}
 \subsection{Empirical study}
 We use ten datasets from conquer\cite{ref:Cq} to test performance of our method on empirical data. We compare our results with scDD\cite{ref:scDD}, MAST\cite{ref:MAST} and DESeq2\cite{ref:Des}, we have also investigated performance of scDDboost under different clustering method, here sc3\cite{sc3} is used to couple with scDDboost0, as sc3 did not provide user accessible distance matrix.\\
