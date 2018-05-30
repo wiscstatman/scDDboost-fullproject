@@ -225,7 +225,7 @@ P(M_{g,\pi}|X).
 \end{align}
 The idea is by allowing genome-wide information to inform the posterior of $A_\pi$, then get added benefit from the gene-level data, which primarily drives the posterior of $M_{g,\pi}$. It's a very specific form of information sharing that leverages the compositional structure of single-cell data. 
 
-\subsection{method structure and clustering}
+\subsection{Method structure and clustering}
 
 
 
@@ -619,7 +619,7 @@ scDDboost could control FDR since we assume cells are sampled from population co
   \label{fig:7}
 \end{figure}
 
-\subsection{number of subtypes}
+\subsection{Number of subtypes}
 From our empirical experience, it is typical $K$ will not be larger than 8. We demonstrate the change of posterior probabilities of differential distribution given different number of subtypes at data GSE75748 and GSE48968. In both cases, if allowing one more subtype would result in a lot increases in posterior probabilities, which suggests that the number of subtypes is underestimated since we found more distribution differences between conditions given one more mixture component. If posterior inference is stable after increasing the number of subtypes, then we consider previous number of subtypes to be optimal. 
 \begin{figure}[H]
 \minipage{0.5\textwidth}
@@ -640,7 +640,7 @@ From our empirical experience, it is typical $K$ will not be larger than 8. We d
 \caption{selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes}
 \end{figure}
 
-\subsection{bursting parameters}
+\subsection{Bursting parameters}
 D3E\cite{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset EMTAB2805\\
 
 \begin{figure}[H]
