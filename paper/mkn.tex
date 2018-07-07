@@ -81,17 +81,17 @@ structural information into each gene-level calculation
 In modeling scRNASeq data, we
 imagine that each cell $c$ falls into one of $K>1$ classes, which we think of as
 subtypes or subpopulations of cells. For notation, $z_c=k$ means that cell $c$ happens to be of subtype $k$, with the vector $z=(z_c)$ recording
-the state of all sampled cells.  Knowledge of this class structure
+the states of all sampled cells.  Knowledge of this class structure
  prior to measurement is not required, as it will be inferred as necessary from
  available genomic data.   We also assume that cells arise from multiple
-experimental conditions, such as by treatment-control status or some other factor
- measured at the cell level, and we present our development for the special
+experimental conditions, such as by treatment-control status or some other factors
+ measured at the cell level, but we present our development for the special
 case of two conditions.  Notationally, $y=(y_c)$ records the experimental condition, say $y_c=1$ or $y_c=2$ initially:
 extensions to multiple conditions are discussed in section 6. Let's say condition $j$ measures $n_j=\sum_{c} 1[y_c=j]$ cells,  and
 in total we have $n=n_1+n_2$ cells in the analysis.  Further let $t^j_k = \sum_c 1[y_c=j, z_c=k]$ denote the number of cells of subtype $k$ in condition $j$;
-we'll infer something about these counts using genome-wide data.  As for molecular data, the 
+we infer something about these counts using genome-wide data.  As for molecular data, the 
 normalized expression of gene $g$ in cell $c$, say $X_{g,c}$, is one entry
-in a typically large {\sc{genes}} by {\sc{cells}} data matrix $X$.  Summing up, the data structure entails an expression matrix
+in a typically large {\sc{genes}} by {\sc{cells}} data matrix $X$.  In review, the data structure entails an expression matrix
 $X$, a treatment label vector $y$, and a vector $z$ of latent subtype labels.
 
 
@@ -117,24 +117,26 @@ broad cell subtype (e.g. {\em epithelial cells}) could have
 further subtypes that show differential response to some treatment, for example,
 and so cellular condition (treatment) would then affect the distribution of 
 expression data within the subtype, which is contrary to our working hypothesis.
-On the other hand, we could then refine the subtype definition to allow more
-population classes $K$ in order to mitigate that problem. There's a  risk
- in this approach  if $K$ approaches $n$ (i.e., every cell is it's own type).
-In spite of this theoretical possibility, the data sets often encountered 
-appear not to display this phenomenon,
-even when relatively flexible in the within-subtype expression distribution
+Were that the case,  we could have refined the subtype definition to allow a greater
+number of population classes $K$ in order to mitigate the problem of within-subtype 
+heterogeneity. A  risk in this approach is that $K$ could approach $n$, as if  
+every cell were  its own subtype.  We find, however,
+that data sets often encountered do not display this theoretical phenomenon
+when considering a broad class of within-subtype expression distributions.
 We revisit the issue in discussion section, but for now proceed assuming 
 that cellular condition affects the composition of subtypes but not the distribution of expression
 within a subtype.
 
-With this compositional model, let $f_{g,k}(x)$ denote the sampling distribution
+Within the compositional model, let $f_{g,k}$ denote the sampling distribution
 of expression measurement $X_{g,c}$ assuming that cell $c$ is from subtype $k$.
-Then in the two cellular conditions, the marginal distributions over subtypes are
+Then for the two cellular conditions, and at some expression level $x$, 
+the marginal distributions over subtypes are finite mixtures:
 \begin{eqnarray*}
 f_g^1(x) = \sum_{k=1}^K \phi_k f_{g,k} (x) \quad {\mbox {\rm and}} \quad
 f_g^2(x) = \sum_{k=1}^K \psi_k f_{g,k} (x).
 \end{eqnarray*}
-We say that gene $g$ is {\em differentially distributed}, denote ${\rm DD}_g$,
+We say that gene $g$ is {\em differentially distributed}, denote ${\rm DD}_g$ and indicated
+$f_g^1 \neq f_g^2$,
 if $f_g^1(x) \neq f_g^2(x)$ for some $x$, and otherwise it is equivalently distributed
 (${\rm ED}_g$). Motivated by findings from bulk RNAseq data analysis, we further
 set each $f_{g,k}$ to have a a Negative Binomial form, say with mean $\mu_{g,k}$
@@ -157,22 +159,20 @@ Simply, a gene that does not distinguish two subtypes will also not distinguish
 the cellular conditions if those subtypes appear in the same aggregate frequency
 in the two conditions, regardless of changes in the individual subtype 
 frequencies. We formalize this idea in order that our methodology
-has the necessary functionality.  First, consider the parameter space 
-\begin{eqnarray*}
-\Theta = \{ (\phi, \psi,\mu, \sigma)  \}
-\end{eqnarray*}
-where $\phi=(\phi_1, \phi_2, \cdots, \phi_K)$ and $\psi=(\psi_1, \psi_2, \cdots, \psi_K)$,
-as before, where $\mu = \{ \mu_{g,k} \}$, all the subtype-and-gene-specific expected
+has the necessary functionality.  To do so,  first consider the parameter space 
+$\Theta = \{ (\phi, \psi,\mu, \sigma)  \}$,
+where $\phi=(\phi_1, \phi_2, \cdots, \phi_K)$ and $\psi=(\psi_1, \psi_2, \cdots, \psi_K)$ 
+are as before, where $\mu = \{ \mu_{g,k} \}$ holds  all the subtype-and-gene-specific expected
 values, and where $\sigma = \{ \sigma_g \}$ holds all the gene-specific Negative binomial
-shape parameters.  We define special subsets of $\Theta$ using
-partitions of the $K$ cell subtypes.  A single partition, say $\pi$, is a set of
+shape parameters.  Critical to our construction are special subsets of $\Theta$ corresponding
+to partitions of the $K$ cell subtypes.  A single partition, say $\pi$, is a set of
 mutually exclusive and exhaustive blocks, $b$, say, each a subset of $\{1, 2, 
-\cdots, K\}$, and we write $\pi = \{ b \}$.  We recall 
-that the set $\Pi$ containing all partitions $\pi$ of $\{1,2, \cdots, K\}$
-has cardinality that grows rapidly with $K$. 
- We'll carry along an example
+\cdots, K\}$, and we write $\pi = \{ b \}$.  Of course,
+the set $\Pi$ containing all partitions $\pi$ of $\{1,2, \cdots, K\}$
+ has cardinality that grows rapidly with $K$. 
+ We carry along an example
 involving $K=7$ cell types, and one three-block partition taken
-from the set of 877 possible partitions of $\{1, 2, \cdots, 7\}$ (Fig 1).
+from the set of 877 possible partitions of $\{1, 2, \cdots, 7\}$ (Figure 1).
 \begin{figure}[h!]
 %%  \includegraphics[height = 3.5cm, width=\linewidth]{prop.png}
   \includegraphics[scale = 0.3]{prop.png}
@@ -189,7 +189,7 @@ For any partition $\pi=\{b\}$ we have aggregate subtype frequencies
 \Phi_b = \sum_{k\in b} \phi_k \quad {\mbox {\rm  and}} \quad 
  \Psi_b = \sum_{k\in b} \psi_k.
 \end{eqnarray*}
-We'll also use the notation $\Phi_\pi = \{ \Phi_b: b \in \pi \}$ and similarly
+We also use the notation $\Phi_\pi = \{ \Phi_b: b \in \pi \}$ and similarly
 for $\Psi_\pi$.   As long as $\pi$ is not the most refined partition,
 the mapping from $( \phi, \psi )$ to $( \Phi_\pi, \Psi_\pi)$ is many-to-one (Figure 1)
 Define
@@ -200,10 +200,10 @@ and
 \begin{eqnarray*}
 M_{g,\pi} = \{ \theta \in \Theta: \; \mu_{g,k} = \mu_{g,k'} \iff k,k' \in b, b \in \pi \}.
 \end{eqnarray*}
-Indeed, these are precisely the
+These are precisely the
 structures needed to address differential distribution DD$_g$ (and
 it complement, equivalent distribution, ${\rm ED}_g$) at a given gene
-$g$: 
+$g$, since:
 
 \begin{theorem}  Let $C_{g,\pi} = A_\pi\cap M_{g, \pi}$.  For distinct 
 partitions $\pi_1,\pi_2$, $C_{g,\pi_1} \cap C_{g,\pi_2} = \emptyset$. Further,
@@ -213,17 +213,17 @@ partitions $\pi_1,\pi_2$, $C_{g,\pi_1} \cap C_{g,\pi_2} = \emptyset$. Further,
 \end{eqnarray*}
 \end{theorem}
  
-This representation is central to our empirical Bayes
+The partition representation is central to our empirical Bayes
 posterior probabilities, $P(\text{DD}_g|X,y)$, which we develop below, and
-which we use to score differential distribution per gene. We require a natural
-and simplifying prior assumption:  $A_\pi$ and $M_{g,\pi}$ are independent.
-(I.e., proportions $(\phi,\psi)$ are uninformative about the mean expression
-  $\{\mu_{g,i}\}$). Then,
+which we use to score differential distribution per gene. We require a 
+simplifying prior assumption:  $A_\pi$ and $M_{g,\pi}$ are independent.
+This expresses the idea that  subtype proportions $(\phi,\psi)$ are 
+uninformative about the mean expression levels   $\{\mu_{g,i}\}$). Under this assumption:
 \begin{align}
 1-P(\text{DD}_g|X,y) = P(\text{ED}_g|X,y) = \sum_{\pi \in \Pi} P(A_\pi|X,y) \,
 P(M_{g,\pi}|X).
 \end{align}
-The idea is by allowing genome-wide information to inform the posterior of $A_\pi$, then get added benefit from the gene-level data, which primarily drives the posterior of $M_{g,\pi}$. It's a very specific form of information sharing that leverages the compositional structure of single-cell data. 
+The methodological  idea is by allowing genome-wide information to inform the posterior of $A_\pi$, then get added benefit from the gene-level data, which primarily drives the posterior of $M_{g,\pi}$. It's a very specific form of information sharing that leverages the compositional structure of single-cell data. 
 
 \subsection{Method structure and clustering}
 
