@@ -18,7 +18,7 @@
 
 
 \title{A compositional model to assess expression changes from
- single-cell RNA-seq data\footnote{Department of Biostatistics and Medical Informatics, UW Madison, Technical Report TR***-v1, May **, 2018.}} 
+ single-cell RNA-seq data\footnote{Department of Biostatistics and Medical Informatics, UW Madison, Technical Report TR***-v1, July **, 2018.}} 
 
 \author{Xiuyu Ma,  and Christina Kendziorski, and Michael A. Newton}
  
@@ -65,8 +65,9 @@ both marginal Dirichlet conjugacy as well as
  the posterior probability of changes in expression distributions between conditions.
  
  
-In our compositional model, subtype that inferred from whole genome are fed into gene level expression. 
-We utilize the mixture of subtypes to characterize transcripts profile and identify differential distributed genes across conditions in an scRNA-seq experiment.
+Using the proposed compositional model, subtypes inferred from whole genome data 
+improve the analysis of gene-level expression.  We utilize the mixture of subtypes to 
+characterize transcripts profile and identify differential distributed genes across conditions in an scRNA-seq experiment.
 Simulation study suggests that the method provides improved power and precision for identifying differentially distributed genes. 
 Performance on empirical data has been investigated through ten previously published experimental data from conquer\cite{ref:Cq}. 
 We also obtained asymptotic properties of posterior inference. 
@@ -83,7 +84,7 @@ imagine that each cell $c$ falls into one of $K>1$ classes, which we think of as
 subtypes or subpopulations of cells. For notation, $z_c=k$ means that cell $c$ happens to be of subtype $k$, with the vector $z=(z_c)$ recording
 the states of all sampled cells.  Knowledge of this class structure
  prior to measurement is not required, as it will be inferred as necessary from
- available genomic data.   We also assume that cells arise from multiple
+ available genomic data.   We expect that cells arise from multiple
 experimental conditions, such as by treatment-control status or some other factors
  measured at the cell level, but we present our development for the special
 case of two conditions.  Notationally, $y=(y_c)$ records the experimental condition, say $y_c=1$ or $y_c=2$ initially:
@@ -143,7 +144,8 @@ set each $f_{g,k}$ to have a a Negative Binomial form, say with mean $\mu_{g,k}$
 and shape parameter $\alpha_g$ (\cite{ref:Leng};\cite{DES};\cite{ref:Des}). 
 This choice proves to be effective in our numerical experiments though it is 
 not critical to
-the modeling formulation.
+the modeling formulation. **maybe a sentence citing previous papers that use finite mixtures
+per gene; our angle is to extend by allowing genome-wide data to inform mixing proportions**
 
 We seek a useful methodology to prioritize genes for evidence
 of ${\rm DD}_g$.  Interestingly, even if we have evidence for condition effects
@@ -184,15 +186,16 @@ expression between subtypes 1 and 2, and also none among types 3,4, and 5, and n
 \end{figure}
 
 
-For any partition $\pi=\{b\}$ we have aggregate subtype frequencies
+For any partition $\pi=\{b\}$, consider aggregate subtype frequencies
 \begin{eqnarray*}
 \Phi_b = \sum_{k\in b} \phi_k \quad {\mbox {\rm  and}} \quad 
- \Psi_b = \sum_{k\in b} \psi_k.
+ \Psi_b = \sum_{k\in b} \psi_k,
 \end{eqnarray*}
-We also use the notation $\Phi_\pi = \{ \Phi_b: b \in \pi \}$ and similarly
-for $\Psi_\pi$.   As long as $\pi$ is not the most refined partition,
-the mapping from $( \phi, \psi )$ to $( \Phi_\pi, \Psi_\pi)$ is many-to-one (Figure 1)
-Define
+and extend the notation, allowing vectors $\Phi_\pi = \{ \Phi_b: b \in \pi \}$ and similarly
+for $\Psi_\pi$. Recall the partial ordering of partitions based on refinement, and note that
+as long as $\pi$ is not the most refined partition (every cell type its own block),
+then the mapping from $( \phi, \psi )$ to $( \Phi_\pi, \Psi_\pi)$ is many-to-one.
+Further, define sets
 \begin{eqnarray*}
 A_\pi = \{ \theta\in \Theta: \; \Phi_b = \Psi_b  \, \forall b \in \pi \}.
 \end{eqnarray*}
@@ -200,7 +203,9 @@ and
 \begin{eqnarray*}
 M_{g,\pi} = \{ \theta \in \Theta: \; \mu_{g,k} = \mu_{g,k'} \iff k,k' \in b, b \in \pi \}.
 \end{eqnarray*}
-These are precisely the
+Under $A_\pi$ there are constraints on cell subtype frequencies; under $M_{g,\pi}$ there is 
+equivalence in the gene-level distribution of expression between certain subtypes.
+These sets are precisely the
 structures needed to address differential distribution DD$_g$ (and
 it complement, equivalent distribution, ${\rm ED}_g$) at a given gene
 $g$, since:
@@ -212,18 +217,20 @@ partitions $\pi_1,\pi_2$, $C_{g,\pi_1} \cap C_{g,\pi_2} = \emptyset$. Further,
 {\rm{ED}}_g = \bigcup_{\pi \in \Pi} C_{g,\pi}.
 \end{eqnarray*}
 \end{theorem}
- 
-The partition representation is central to our empirical Bayes
-posterior probabilities, $P(\text{DD}_g|X,y)$, which we develop below, and
-which we use to score differential distribution per gene. We require a 
-simplifying prior assumption:  $A_\pi$ and $M_{g,\pi}$ are independent.
-This expresses the idea that  subtype proportions $(\phi,\psi)$ are 
-uninformative about the mean expression levels   $\{\mu_{g,i}\}$). Under this assumption:
+Under the simplifying prior assumption that  $A_\pi$ and $M_{g,\pi}$ are independent, 
+we  have directly from Theorem~1 that:
 \begin{align}
-1-P(\text{DD}_g|X,y) = P(\text{ED}_g|X,y) = \sum_{\pi \in \Pi} P(A_\pi|X,y) \,
-P(M_{g,\pi}|X).
+1-P(\text{DD}_g|X,y) = P(\text{ED}_g|X,y) = \sum_{\pi \in \Pi} P(A_\pi|X,y) \, P(M_{g,\pi}|X).
 \end{align}
-The methodological  idea is by allowing genome-wide information to inform the posterior of $A_\pi$, then get added benefit from the gene-level data, which primarily drives the posterior of $M_{g,\pi}$. It's a very specific form of information sharing that leverages the compositional structure of single-cell data. 
+Thus, the partition representation guides an empirical Bayesian 
+method for scoring  differential distribution.
+The following sections develop  modeling and computational elements necessary  to efficiently evaluate
+$P(\text{DD}_g|X,y)$.  In overview, 
+the methodological  idea is that genome-wide data globally inform
+the cell subtypes via $A_\pi$, and then gene-level data
+locally drive the posterior of $M_{g,\pi}$. The model provides a specific form of information 
+sharing that leverages the compositional structure of single-cell data. 
+
 
 \subsection{Method structure and clustering}
 
@@ -285,6 +292,15 @@ In general, we observed that averaged adjusted rand index as well as rand index 
 
 \section{EMPIRICAL BAYES}
 \subsection{Double Dirichlet prior}
+
+
+** ON THE PRIOR INDEPENDENCE**
+This expresses the idea that  subtype proportions $(\phi,\psi)$ are
+uninformative about the mean expression levels   $\{\mu_{g,i}\}$). Under this assumption:
+**
+
+
+
 
 Here we describe a prior $p(\phi,\psi)$ that is conjugate to multinomial
 sampling but that also enables downstream gene-specific inferences about
