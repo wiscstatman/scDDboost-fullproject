@@ -229,7 +229,7 @@ $P(\text{DD}_g|X,y)$.  In overview,
 the methodological  idea is that genome-wide data globally inform
 the cell subtypes via $A_\pi$, and then gene-level data
 locally drive the posterior of $M_{g,\pi}$. The model provides a specific form of information 
-sharing that leverages the compositional structure of single-cell data. 
+sharing between genes  that leverages the compositional structure of single-cell data. 
 
 
 \subsection{Method structure and clustering}
@@ -241,9 +241,9 @@ The workflow contains two parts, classify cells into subtypes and posterior infe
 \begin{algorithm}
 \caption{}\label{alg:scDDcore}
 \raggedright\hspace*{\algorithmicindent} \textbf{Input}: \begin{list}{}{}
- \item \textsc{genes} by \textsc{cells} expression data matrix $X$
- \item \textsc{cells} by \textsc{cells} distance matrix $D$
- \item  cell condition labels $y$ 
+ \item \textsc{genes} by \textsc{cells} expression data matrix $X=(X_{g,c})$
+ \item \textsc{cells} by \textsc{cells} distance matrix $D=(D_{c,c'})$
+ \item  cell condition labels $y=(y_c)$ 
  \item  number of cell subtypes $K$ 
  \end{list}
 \hspace*{\algorithmicindent} 
@@ -272,8 +272,8 @@ After robustification, we select number of clusters $K$ that posterior probabili
 \begin{algorithm}
 \caption{}\label{alg:scDDboost}
 \raggedright\hspace*{\algorithmicindent} \textbf{Input}: \begin{list}{}{}
- \item  \textsc{genes} by \textsc{cells} expression data matrix $X$
- \item  cell condition labels $y$
+ \item  \textsc{genes} by \textsc{cells} expression data matrix $X=(X_{g,c})$
+ \item  cell condition labels $y=(y_c)$
  \item  number of cell subtypes $K$
  \item number of randomized clusterings $n_r$ 
  \item regularization parameter $\lambda$   
