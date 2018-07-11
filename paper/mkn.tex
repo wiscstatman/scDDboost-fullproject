@@ -25,7 +25,7 @@
 \email{newton@biostat.wisc.edu}
 \begin{document}
 \maketitle
-\section{INTRODUCTION}
+\section{Introduction}
 
 The ability to measure genome-wide gene expression at single-cell resolution 
 has accelerated the pace of biological discovery\cite{scs}.  Overcoming data
@@ -77,8 +77,9 @@ The extension provided by the present work is to recognize that this mixture is 
 Thus genome-wide data provide information on mixing proportions, thereby providing useful
 structural information into each gene-level calculation
 
-\section{MODELING}
+\section{Modeling}
 \subsection{Data structure, sampling model, and parameters}
+
 In modeling scRNASeq data, we
 imagine that each cell $c$ falls into one of $K>1$ classes, which we think of as
 subtypes or subpopulations of cells. For notation, $z_c=k$ means that cell $c$ happens to be of subtype $k$, with the vector $z=(z_c)$ recording
@@ -234,7 +235,7 @@ sharing between genes  that leverages the compositional structure of single-cell
 
 \subsection{Method structure and clustering}
 
-
+**still has no details on clustering methods**
 
 Our approach take transcripts processed by normalizing methods (e.g. SCnorm \cite{ref:Rhonda}). 
 The workflow contains two parts, classify cells into subtypes and posterior inference on distributional change. In the first part, recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus classification process is blind to conditions and can be done by clustering upon similarities between cells(supplementary material). 
@@ -295,7 +296,7 @@ After robustification, we select number of clusters $K$ that posterior probabili
 
 In general, we observed that averaged adjusted rand index as well as rand index of mode of partitions based on randomized distance matrices is higher (better estimation) than that of partition based on original distance matrix (supplementary material). We view algorithm scDDboost1 as an advanced version of scDDboost0 as it gives improved result depends on finer estimated partition of cells. All the results of scDDboost from simulation and empirical studies are obtained via scDDboost1. 
 
-\section{EMPIRICAL BAYES}
+\section{Empirical Bayes}
 \subsection{Double Dirichlet model}
 
 
@@ -485,7 +486,9 @@ given hyper-parameters $\{ \alpha_k \}$ and $\{ \beta_b \}$ and for
 cell-type counts $t^1$ and $t^2$. \\
 For asymptotic properties of the posterior probabilities, we demonstrated them in section 6. 
  
-\section{SIMULATION STUDY} 
+\section{Operating Characteristics}
+
+\subsection{Splatter Simulation} 
 
 A simulation study was conducted to assess the performance of
 scDDboost in identifying DD genes.
@@ -537,9 +540,11 @@ scDDboost identified most true DD genes, the reason is that mean expression shif
 \end{figure}
 
 Since we are modeling gene transcript within each subtype as negative binomial distributed and we only test one parameter(mean) change among subtypes. In some scenario, it could be insufficient to model the variability within subtype. Even though there is no mean expression change among subtypes but more subtle distributional change occurred among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus limit power of scDDboost.\\
-\newpage
-\section{EXAMPLES}
+
 \subsection{Empirical study}
+
+**Conquer examples...null and alternative**
+
 We use ten datasets from conquer\cite{ref:Cq} to test performance of our method on empirical data. We compare our results with scDD\cite{ref:scDD}, MAST\cite{ref:MAST} and DESeq2\cite{ref:Des}, we have also investigated performance of scDDboost under different clustering method, here sc3\cite{sc3} is used to couple with scDDboost0, as sc3 did not provide user accessible distance matrix.\\
 \begin{table}[ht]
 \small
@@ -630,7 +635,7 @@ We found that bulk method DESeq2 tends to have the most number of DE genes. But 
   \label{fig:6}
 \end{figure}
 
-\subsection{FDR}
+\subsection{Empirical study: null cases}
 Although bulk methods seems to be the most powerful one, we found it also has a higher false discovery rate comparing to single cell methods. We validate false discovery rate on ten null datasets from table 1. For each null dataset, we randomly split the cells from one condition into two subsets and test difference of gene expression between those subsets. Since the two subsets of cells actually came from same condition, there should not be any differential distributed genes, any positive call would be a false positive. We repeat the random split and testing for five times on each null data set. We evaluate the type I error control for the methods returning nominal p-values, by recording the fraction of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (Fig 6).\\
 scDDboost could control FDR since we assume cells are sampled from population composed of different subtypes. Cells from one subtype are equal likely to be assigned to either one of the two subsets. Consequently, it is very likely that proportions of subtypes remain unchanged among the two subsets.
 
@@ -681,7 +686,8 @@ We observed that DD genes identified by scDDboost tends to have similar transcri
 
 
 
-\section{ASYMPTOTIC PROPERTIES}\hfill\\
+\section{Theoretical issues}
+\subsection{Posterior consistency}
 Under some parameters settings, the double dirichlet prior will have limited resolution and lead to inconsistency of posterior probabilities, which we investigate with the following asymptotic analysis.
 
 We first give the expression of posterior probability. Since there is no information favorable of any particular $A_\pi$, we select discrete uniform distribution as the prior for it, then the posterior probability is
@@ -754,7 +760,9 @@ Still using above example, in limiting case, we have $p(A_{\pi_3} | t^1, t^2) = 
 The asymptotic properties help us gain insight of the performance of our approach,
 scDDboost may work poorly, when $(\phi, \psi)\in Q$, we may underestimate the posterior probability of true proportion change pattern, which reduce the posterior probabilities of true negative and enlarge false positive rate.\\
 
-\section{DISCUSSION AND FUTURE WORK}
+\subsection{Random weighting}
+
+\section{Discussion and future work}
 We have presented scDDboost, a compositional model for the analysis of scRNA-seq data. scDDboost make whole genome information shared at gene level inference and is flexible of integrating with different cell clustering methods. scDDboost accounts for the over-dispersion and multi-modality of single-cell data by modeling expression data as mixture of subtypes. Information from the change of subtypes' proportions and mean expressions is combined to infer distributional changes of gene expression. We developed a prior distribution that can be used to estimate sharp equalities on aggregated subtype probabilities. Using simulation studies, we have demonstrated that our method outperforms existing approaches when there existing multiple cell types. 
 \subsection{Multi-conditions}
 One direction for future work is to extend the compositional model to multi-conditions case. As scRNA seq data is a time course data, it may be more interested to  consider inference of distributional changes across multiple conditions.  We outline our procedure in the following.\\
