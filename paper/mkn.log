@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  3 JUN 2018 00:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  11 JUL 2018 22:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -414,11 +414,11 @@ Package caption Info: End \AtBeginDocument code.
 
 Package natbib Warning: Citation `DES' on page 3 undefined on input line 141.
 
-<prop.png, id=19, 981.6675pt x 351.3125pt>
+<prop.png, id=19, 660.4675pt x 433.62pt>
 File: prop.png Graphic file (type png)
  <use prop.png>
 Package pdftex.def Info: prop.png used on input line 178.
-(pdftex.def)             Requested size: 294.50252pt x 105.39455pt.
+(pdftex.def)             Requested size: 198.14177pt x 130.087pt.
 
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
@@ -879,7 +879,7 @@ ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2017/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2017/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mkn.pdf (29 pages, 1606900 bytes).
+Output written on mkn.pdf (29 pages, 1555389 bytes).
 PDF statistics:
  215 PDF objects out of 1000 (max. 8388607)
  129 compressed objects within 2 object streams
