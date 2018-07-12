@@ -18,14 +18,14 @@
 
 
 \title{A compositional model to assess expression changes from
- single-cell RNA-seq data\footnote{Department of Biostatistics and Medical Informatics, UW Madison, Technical Report TR***-v1, May **, 2018.}} 
+ single-cell RNA-seq data\footnote{Department of Biostatistics and Medical Informatics, UW Madison, Technical Report TR***-v1, July **, 2018.}} 
 
 \author{Xiuyu Ma,  and Christina Kendziorski, and Michael A. Newton}
  
 \email{newton@biostat.wisc.edu}
 \begin{document}
 \maketitle
-\section{INTRODUCTION}
+\section{Introduction}
 
 The ability to measure genome-wide gene expression at single-cell resolution 
 has accelerated the pace of biological discovery\cite{scs}.  Overcoming data
@@ -65,8 +65,9 @@ both marginal Dirichlet conjugacy as well as
  the posterior probability of changes in expression distributions between conditions.
  
  
-In our compositional model, subtype that inferred from whole genome are fed into gene level expression. 
-We utilize the mixture of subtypes to characterize transcripts profile and identify differential distributed genes across conditions in an scRNA-seq experiment.
+Using the proposed compositional model, subtypes inferred from whole genome data 
+improve the analysis of gene-level expression.  We utilize the mixture of subtypes to 
+characterize transcripts profile and identify differential distributed genes across conditions in an scRNA-seq experiment.
 Simulation study suggests that the method provides improved power and precision for identifying differentially distributed genes. 
 Performance on empirical data has been investigated through ten previously published experimental data from conquer\cite{ref:Cq}. 
 We also obtained asymptotic properties of posterior inference. 
@@ -76,22 +77,23 @@ The extension provided by the present work is to recognize that this mixture is 
 Thus genome-wide data provide information on mixing proportions, thereby providing useful
 structural information into each gene-level calculation
 
-\section{MODELING}
+\section{Modeling}
 \subsection{Data structure, sampling model, and parameters}
+
 In modeling scRNASeq data, we
 imagine that each cell $c$ falls into one of $K>1$ classes, which we think of as
 subtypes or subpopulations of cells. For notation, $z_c=k$ means that cell $c$ happens to be of subtype $k$, with the vector $z=(z_c)$ recording
-the state of all sampled cells.  Knowledge of this class structure
+the states of all sampled cells.  Knowledge of this class structure
  prior to measurement is not required, as it will be inferred as necessary from
- available genomic data.   We also assume that cells arise from multiple
-experimental conditions, such as by treatment-control status or some other factor
- measured at the cell level, and we present our development for the special
+ available genomic data.   We expect that cells arise from multiple
+experimental conditions, such as by treatment-control status or some other factors
+ measured at the cell level, but we present our development for the special
 case of two conditions.  Notationally, $y=(y_c)$ records the experimental condition, say $y_c=1$ or $y_c=2$ initially:
 extensions to multiple conditions are discussed in section 6. Let's say condition $j$ measures $n_j=\sum_{c} 1[y_c=j]$ cells,  and
 in total we have $n=n_1+n_2$ cells in the analysis.  Further let $t^j_k = \sum_c 1[y_c=j, z_c=k]$ denote the number of cells of subtype $k$ in condition $j$;
-we'll infer something about these counts using genome-wide data.  As for molecular data, the 
+we infer something about these counts using genome-wide data.  As for molecular data, the 
 normalized expression of gene $g$ in cell $c$, say $X_{g,c}$, is one entry
-in a typically large {\sc{genes}} by {\sc{cells}} data matrix $X$.  Summing up, the data structure entails an expression matrix
+in a typically large {\sc{genes}} by {\sc{cells}} data matrix $X$.  In review, the data structure entails an expression matrix
 $X$, a treatment label vector $y$, and a vector $z$ of latent subtype labels.
 
 
@@ -117,31 +119,34 @@ broad cell subtype (e.g. {\em epithelial cells}) could have
 further subtypes that show differential response to some treatment, for example,
 and so cellular condition (treatment) would then affect the distribution of 
 expression data within the subtype, which is contrary to our working hypothesis.
-On the other hand, we could then refine the subtype definition to allow more
-population classes $K$ in order to mitigate that problem. There's a  risk
- in this approach  if $K$ approaches $n$ (i.e., every cell is it's own type).
-In spite of this theoretical possibility, the data sets often encountered 
-appear not to display this phenomenon,
-even when relatively flexible in the within-subtype expression distribution
+Were that the case,  we could have refined the subtype definition to allow a greater
+number of population classes $K$ in order to mitigate the problem of within-subtype 
+heterogeneity. A  risk in this approach is that $K$ could approach $n$, as if  
+every cell were  its own subtype.  We find, however,
+that data sets often encountered do not display this theoretical phenomenon
+when considering a broad class of within-subtype expression distributions.
 We revisit the issue in discussion section, but for now proceed assuming 
 that cellular condition affects the composition of subtypes but not the distribution of expression
 within a subtype.
 
-With this compositional model, let $f_{g,k}(x)$ denote the sampling distribution
+Within the compositional model, let $f_{g,k}$ denote the sampling distribution
 of expression measurement $X_{g,c}$ assuming that cell $c$ is from subtype $k$.
-Then in the two cellular conditions, the marginal distributions over subtypes are
+Then for the two cellular conditions, and at some expression level $x$, 
+the marginal distributions over subtypes are finite mixtures:
 \begin{eqnarray*}
 f_g^1(x) = \sum_{k=1}^K \phi_k f_{g,k} (x) \quad {\mbox {\rm and}} \quad
 f_g^2(x) = \sum_{k=1}^K \psi_k f_{g,k} (x).
 \end{eqnarray*}
-We say that gene $g$ is {\em differentially distributed}, denote ${\rm DD}_g$,
+We say that gene $g$ is {\em differentially distributed}, denote ${\rm DD}_g$ and indicated
+$f_g^1 \neq f_g^2$,
 if $f_g^1(x) \neq f_g^2(x)$ for some $x$, and otherwise it is equivalently distributed
 (${\rm ED}_g$). Motivated by findings from bulk RNAseq data analysis, we further
 set each $f_{g,k}$ to have a a Negative Binomial form, say with mean $\mu_{g,k}$
 and shape parameter $\alpha_g$ (\cite{ref:Leng};\cite{DES};\cite{ref:Des}). 
 This choice proves to be effective in our numerical experiments though it is 
 not critical to
-the modeling formulation.
+the modeling formulation. **maybe a sentence citing previous papers that use finite mixtures
+per gene; our angle is to extend by allowing genome-wide data to inform mixing proportions**
 
 We seek a useful methodology to prioritize genes for evidence
 of ${\rm DD}_g$.  Interestingly, even if we have evidence for condition effects
@@ -157,22 +162,20 @@ Simply, a gene that does not distinguish two subtypes will also not distinguish
 the cellular conditions if those subtypes appear in the same aggregate frequency
 in the two conditions, regardless of changes in the individual subtype 
 frequencies. We formalize this idea in order that our methodology
-has the necessary functionality.  First, consider the parameter space 
-\begin{eqnarray*}
-\Theta = \{ (\phi, \psi,\mu, \sigma)  \}
-\end{eqnarray*}
-where $\phi=(\phi_1, \phi_2, \cdots, \phi_K)$ and $\psi=(\psi_1, \psi_2, \cdots, \psi_K)$,
-as before, where $\mu = \{ \mu_{g,k} \}$, all the subtype-and-gene-specific expected
+has the necessary functionality.  To do so,  first consider the parameter space 
+$\Theta = \{ (\phi, \psi,\mu, \sigma)  \}$,
+where $\phi=(\phi_1, \phi_2, \cdots, \phi_K)$ and $\psi=(\psi_1, \psi_2, \cdots, \psi_K)$ 
+are as before, where $\mu = \{ \mu_{g,k} \}$ holds  all the subtype-and-gene-specific expected
 values, and where $\sigma = \{ \sigma_g \}$ holds all the gene-specific Negative binomial
-shape parameters.  We define special subsets of $\Theta$ using
-partitions of the $K$ cell subtypes.  A single partition, say $\pi$, is a set of
+shape parameters.  Critical to our construction are special subsets of $\Theta$ corresponding
+to partitions of the $K$ cell subtypes.  A single partition, say $\pi$, is a set of
 mutually exclusive and exhaustive blocks, $b$, say, each a subset of $\{1, 2, 
-\cdots, K\}$, and we write $\pi = \{ b \}$.  We recall 
-that the set $\Pi$ containing all partitions $\pi$ of $\{1,2, \cdots, K\}$
-has cardinality that grows rapidly with $K$. 
- We'll carry along an example
+\cdots, K\}$, and we write $\pi = \{ b \}$.  Of course,
+the set $\Pi$ containing all partitions $\pi$ of $\{1,2, \cdots, K\}$
+ has cardinality that grows rapidly with $K$. 
+ We carry along an example
 involving $K=7$ cell types, and one three-block partition taken
-from the set of 877 possible partitions of $\{1, 2, \cdots, 7\}$ (Fig 1).
+from the set of 877 possible partitions of $\{1, 2, \cdots, 7\}$ (Figure 1).
 \begin{figure}[h!]
 %%  \includegraphics[height = 3.5cm, width=\linewidth]{prop.png}
   \includegraphics[scale = 0.3]{prop.png}
@@ -184,15 +187,16 @@ expression between subtypes 1 and 2, and also none among types 3,4, and 5, and n
 \end{figure}
 
 
-For any partition $\pi=\{b\}$ we have aggregate subtype frequencies
+For any partition $\pi=\{b\}$, consider aggregate subtype frequencies
 \begin{eqnarray*}
 \Phi_b = \sum_{k\in b} \phi_k \quad {\mbox {\rm  and}} \quad 
- \Psi_b = \sum_{k\in b} \psi_k.
+ \Psi_b = \sum_{k\in b} \psi_k,
 \end{eqnarray*}
-We'll also use the notation $\Phi_\pi = \{ \Phi_b: b \in \pi \}$ and similarly
-for $\Psi_\pi$.   As long as $\pi$ is not the most refined partition,
-the mapping from $( \phi, \psi )$ to $( \Phi_\pi, \Psi_\pi)$ is many-to-one (Figure 1)
-Define
+and extend the notation, allowing vectors $\Phi_\pi = \{ \Phi_b: b \in \pi \}$ and similarly
+for $\Psi_\pi$. Recall the partial ordering of partitions based on refinement, and note that
+as long as $\pi$ is not the most refined partition (every cell type its own block),
+then the mapping from $( \phi, \psi )$ to $( \Phi_\pi, \Psi_\pi)$ is many-to-one.
+Further, define sets
 \begin{eqnarray*}
 A_\pi = \{ \theta\in \Theta: \; \Phi_b = \Psi_b  \, \forall b \in \pi \}.
 \end{eqnarray*}
@@ -200,10 +204,12 @@ and
 \begin{eqnarray*}
 M_{g,\pi} = \{ \theta \in \Theta: \; \mu_{g,k} = \mu_{g,k'} \iff k,k' \in b, b \in \pi \}.
 \end{eqnarray*}
-Indeed, these are precisely the
+Under $A_\pi$ there are constraints on cell subtype frequencies; under $M_{g,\pi}$ there is 
+equivalence in the gene-level distribution of expression between certain subtypes.
+These sets are precisely the
 structures needed to address differential distribution DD$_g$ (and
 it complement, equivalent distribution, ${\rm ED}_g$) at a given gene
-$g$: 
+$g$, since:
 
 \begin{theorem}  Let $C_{g,\pi} = A_\pi\cap M_{g, \pi}$.  For distinct 
 partitions $\pi_1,\pi_2$, $C_{g,\pi_1} \cap C_{g,\pi_2} = \emptyset$. Further,
@@ -212,38 +218,45 @@ partitions $\pi_1,\pi_2$, $C_{g,\pi_1} \cap C_{g,\pi_2} = \emptyset$. Further,
 {\rm{ED}}_g = \bigcup_{\pi \in \Pi} C_{g,\pi}.
 \end{eqnarray*}
 \end{theorem}
- 
-This representation is central to our empirical Bayes
-posterior probabilities, $P(\text{DD}_g|X,y)$, which we develop below, and
-which we use to score differential distribution per gene. We require a natural
-and simplifying prior assumption:  $A_\pi$ and $M_{g,\pi}$ are independent.
-(I.e., proportions $(\phi,\psi)$ are uninformative about the mean expression
-  $\{\mu_{g,i}\}$). Then,
+Under the simplifying prior assumption that  $A_\pi$ and $M_{g,\pi}$ are independent, 
+we  have directly from Theorem~1 that:
 \begin{align}
-1-P(\text{DD}_g|X,y) = P(\text{ED}_g|X,y) = \sum_{\pi \in \Pi} P(A_\pi|X,y) \,
-P(M_{g,\pi}|X).
+1-P(\text{DD}_g|X,y) = P(\text{ED}_g|X,y) = \sum_{\pi \in \Pi} P(A_\pi|X,y) \, P(M_{g,\pi}|X).
 \end{align}
-The idea is by allowing genome-wide information to inform the posterior of $A_\pi$, then get added benefit from the gene-level data, which primarily drives the posterior of $M_{g,\pi}$. It's a very specific form of information sharing that leverages the compositional structure of single-cell data. 
+Thus, the partition representation guides an empirical Bayesian 
+method for scoring  differential distribution.
+In what follows, we develop the  modeling and computational elements necessary  to efficiently evaluate
+$P(\text{DD}_g|X,y)$.  In overview, 
+the methodological  idea is that genome-wide data globally inform
+the cell subtypes via $A_\pi$, and then gene-level data
+locally drive the posterior of $M_{g,\pi}$. The model provides a specific form of information 
+sharing between genes  that leverages the compositional structure of single-cell data. 
+
 
 \subsection{Method structure and clustering}
 
-
+**still has no details on clustering methods**
 
 Our approach take transcripts processed by normalizing methods (e.g. SCnorm \cite{ref:Rhonda}). 
 The workflow contains two parts, classify cells into subtypes and posterior inference on distributional change. In the first part, recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus classification process is blind to conditions and can be done by clustering upon similarities between cells(supplementary material). 
 \begin{algorithm}
-\caption{}\label{alg:scDDboost}
-\raggedright\hspace*{\algorithmicindent} \textbf{Input}: Expression data $X$; condition labels $y$; number of cell subtypes $K$ \\
-\hspace*{\algorithmicindent} \textbf{Output}: per gene posterior probability of differential distribution
+\caption{}\label{alg:scDDcore}
+\raggedright\hspace*{\algorithmicindent} \textbf{Input}: \begin{list}{}{}
+ \item \textsc{genes} by \textsc{cells} expression data matrix $X=(X_{g,c})$
+ \item \textsc{cells} by \textsc{cells} distance matrix $D=(D_{c,c'})$
+ \item  cell condition labels $y=(y_c)$ 
+ \item  number of cell subtypes $K$ 
+ \end{list}
+\hspace*{\algorithmicindent} 
+\textbf{Output}:  posterior probabilities of differential distribution from estimated subtypes
 \begin{algorithmic}[1]
-\Procedure{scDDboost0}{$X,y,K$}
-\State distance matrix: $Dist(X) \gets$ pairwise distances between cells (columns of $X$)
-\State cell clustering: $\hat z \gets$ labeled parition of cells, computed from $Dist(X)$ and $K$
-\State subtype differential expression: $\forall \pi$,  $P(M_{g,\pi} | X, \hat z)\gets$ using EBSeq\cite{ref:Leng}
-\State cell frequency changes: $\forall \pi$, $P(A_\pi | y, \hat z)\gets$ using Double Dirichlet prior
-\State posterior probability: $P(\text{ED}_g | X, y, \hat z)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X, \hat z) \,
+\Procedure{scDDBoost-core}{$X,y,D,K$}
+\State cell clustering: $\hat z = \hat z(D,K) \gets$ labeled parition of cells into $K$ classes
+\State subtype differential expression: $\forall g,\pi$ compute  $P(M_{g,\pi} | X, \hat z)$ using EBSeq\cite{ref:Leng}
+\State cell frequency changes: $\forall \pi$ compute  $P(A_\pi | y, \hat z)$ using Double Dirichlet model 
+\State posterior probability: $\forall g,  \, P(\text{ED}_g | X, y, \hat z)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X, \hat z) \,
  P(A_\pi | y, \hat z)$
-\State \textbf{return} $P(\text{DD}_g |X, y, \hat z)=1-P(\text{ED}_g| X,y)$
+\State \textbf{return} $\forall g, \, P(\text{DD}_g |X, y, \hat z)=1-P(\text{ED}_g| X,y, \hat z)$
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
@@ -251,40 +264,49 @@ The workflow contains two parts, classify cells into subtypes and posterior infe
 After identification of subtypes, the second part of our procedure infers patterns of differential expression($M_{g,\pi}$) and aggregated proportions of subtypes($A_\pi$)
 through empirical Bayes. Specifically, $P(M_{g,\pi} | X, \hat{z})$ is done with EBSeq\cite{ref:Leng} and we present details of calculating $P(A_\pi | \hat{z})$ in next section. Combining those components, per gene differential distributed probability is obtained.
 
-One advantage of our approach is that the posterior inference can be incorporate with different clustering methods. With the development of technology, clustering methods taking care of newly discovered characteristic of scRNA seq data (e.g. SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}) could be substituted with our default one. No matter what clustering method is used, we estimate the mixture structure utilizing the whole genome information rather than estimating a gene specific mixture structure solely using information of that gene. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach scDDboost. 
+One advantage of our approach is that the posterior inference can be incorporate with different clustering methods. With the development of technology, clustering methods taking care of newly discovered characteristic of scRNA seq data (e.g. SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}) could be substituted with our default one. No matter what clustering method is used, we estimate the mixture structure utilizing the whole genome information rather than estimating a gene specific mixture structure solely using information of that gene. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach \textsc{scDDboost}. 
 
-Although there are various options for clustering methods, none of them guarantee the accuracy and posterior inference can be sensitive to the initial partition. Here we provide a method to make our inferences robust to partitions. Given number of subtypes $K$, the final posterior probabilities is obtained by averaging results from iterative run of scDDboost0 with randomly generated subtype labels $z^*$. Taking account of information contained in $D = Dist(X)$ , instead of purely random assigning subtype labels, we generate the distance matrices of cells $D^*$ by adding noises to the original one and assign labels based on $D^*$. Specifically,  we random sample a noise vector $e$ with length equal to number of cells and components are i.i.d. exponentially distributed. We obtain $D^*$ by adding nosies: $D^* = D + e\textbf{1}^T  + \textbf{1}e^T$. For $D^*$ we still have triangle inequality held as $d_{i,j}^* + d_{j,k}^* \geq d_{i,k}^*$ , it is still a valid distance matrix.
+Although there are various options for clustering methods, none of them guarantee the accuracy and posterior inference can be sensitive to the initial partition. Here we provide a method to make our inferences robust to partitions. Given number of subtypes $K$, the final posterior probabilities is obtained by averaging results from iterative run of \textsc{scDDboost-core}  with randomly generated subtype labels $z^*$. Taking account of information contained in $D = dist(X)$ , instead of purely random assigning subtype labels, we generate the distance matrices of cells $D^*$ by adding noises to the original one and assign labels based on $D^*$. Specifically,  we random sample a noise vector $e$ with length equal to number of cells and components are i.i.d. exponentially distributed. We obtain $D^*$ by adding nosies: $D^* = D + e\textbf{1}^T  + \textbf{1}e^T$. For $D^*$ we still have triangle inequality held as $d_{i,j}^* + d_{j,k}^* \geq d_{i,k}^*$ , it is still a valid distance matrix.
 After robustification, we select number of clusters $K$ that posterior probabilities do not vary too much under $K$ and $K+1$.  We validate our procedure in simulated and empirical data
 
 
 \begin{algorithm}
-\caption{}\label{alg:scDDboost-robust}
-\raggedright\hspace*{\algorithmicindent} 
-\textbf{Input}: Expression data matrix $X$; condition label vector $y$; number of clusters $K$; \\
-\hspace*{\algorithmicindent} number of randomized clusterings $n_r$; regularization parameter $\lambda$   
-\\
-\hspace*{\algorithmicindent} \textbf{Output}: per gene posterior probability of differential distribution 
+\caption{}\label{alg:scDDboost}
+\raggedright\hspace*{\algorithmicindent} \textbf{Input}: \begin{list}{}{}
+ \item  \textsc{genes} by \textsc{cells} expression data matrix $X=(X_{g,c})$
+ \item  cell condition labels $y=(y_c)$
+ \item  number of cell subtypes $K$
+ \item number of randomized clusterings $n_r$ 
+ \item regularization parameter $\lambda$   
+ \end{list}
+\hspace*{\algorithmicindent} \textbf{Output}: posterior probabilities of differential distribution 
 \begin{algorithmic}[2]
-\Procedure{scDDboost1}{$X,y, K, n_r, \lambda$}
-\State distance matrix: $D=Dist(X) \gets$ pairwise distances between cells (columns of $X$)
+\Procedure{scDDboost}{$X,y, K, n_r, \lambda$}
+\State distance matrix: $D=\rm{dist}(X) \gets$ pairwise distances between cells (columns of $X$)
 \Repeat
 \State Exponential noise vector: $e$, with components $\sim \text{Exp}(\lambda)$
 \State randomized distance matrix: $D^* \gets D + e\textbf{1}^T +  \textbf{1}e^T$
-\State cell clustering: $z^* \gets$ labeled parition of cells, computed from $D^*$ and $K$
-\State subtype differential expression: $\forall \pi$,  $P(M_{g,\pi} | X, z^*)\gets$ using EBSeq\cite{ref:Leng}
-\State cell frequency changes: $\forall \pi$, $P(A_\pi | y, z^*)\gets$ using Double Dirichlet prior
-\State posterior probability: $P(\text{ED}_g | X, y, z^*)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X, z^*) \,
- P(A_\pi | y, z^*)$
-\Until{$n_r$ randomized clusterings $z^*$}
-\State \textbf{return} $1-\frac{1}{n_r} \sum_{z^*} P(\text{ED}_g |X, y,z^*)$
+\State $P^* \gets\;$ \textsc{scDDboost-core}$(X,y,D^*,K)$
+\Until{$n_r$ randomized distance matrices}
+\State \textbf{return} $\forall \text{genes} \, g, \, P(\text{DD}_g|X,y) = \frac{1}{n_r} 
+   \sum_{D^*} P^*_g$
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
 
 In general, we observed that averaged adjusted rand index as well as rand index of mode of partitions based on randomized distance matrices is higher (better estimation) than that of partition based on original distance matrix (supplementary material). We view algorithm scDDboost1 as an advanced version of scDDboost0 as it gives improved result depends on finer estimated partition of cells. All the results of scDDboost from simulation and empirical studies are obtained via scDDboost1. 
 
-\section{EMPIRICAL BAYES}
-\subsection{Double Dirichlet prior}
+\section{Empirical Bayes}
+\subsection{Double Dirichlet model}
+
+
+** ON THE PRIOR INDEPENDENCE**
+This expresses the idea that  subtype proportions $(\phi,\psi)$ are
+uninformative about the mean expression levels   $\{\mu_{g,i}\}$). Under this assumption:
+**
+
+
+
 
 Here we describe a prior $p(\phi,\psi)$ that is conjugate to multinomial
 sampling but that also enables downstream gene-specific inferences about
@@ -464,7 +486,9 @@ given hyper-parameters $\{ \alpha_k \}$ and $\{ \beta_b \}$ and for
 cell-type counts $t^1$ and $t^2$. \\
 For asymptotic properties of the posterior probabilities, we demonstrated them in section 6. 
  
-\section{SIMULATION STUDY} 
+\section{Operating Characteristics}
+
+\subsection{Splatter Simulation} 
 
 A simulation study was conducted to assess the performance of
 scDDboost in identifying DD genes.
@@ -516,9 +540,11 @@ scDDboost identified most true DD genes, the reason is that mean expression shif
 \end{figure}
 
 Since we are modeling gene transcript within each subtype as negative binomial distributed and we only test one parameter(mean) change among subtypes. In some scenario, it could be insufficient to model the variability within subtype. Even though there is no mean expression change among subtypes but more subtle distributional change occurred among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus limit power of scDDboost.\\
-\newpage
-\section{EXAMPLES}
+
 \subsection{Empirical study}
+
+**Conquer examples...null and alternative**
+
 We use ten datasets from conquer\cite{ref:Cq} to test performance of our method on empirical data. We compare our results with scDD\cite{ref:scDD}, MAST\cite{ref:MAST} and DESeq2\cite{ref:Des}, we have also investigated performance of scDDboost under different clustering method, here sc3\cite{sc3} is used to couple with scDDboost0, as sc3 did not provide user accessible distance matrix.\\
 \begin{table}[ht]
 \small
@@ -609,7 +635,7 @@ We found that bulk method DESeq2 tends to have the most number of DE genes. But 
   \label{fig:6}
 \end{figure}
 
-\subsection{FDR}
+\subsection{Empirical study: null cases}
 Although bulk methods seems to be the most powerful one, we found it also has a higher false discovery rate comparing to single cell methods. We validate false discovery rate on ten null datasets from table 1. For each null dataset, we randomly split the cells from one condition into two subsets and test difference of gene expression between those subsets. Since the two subsets of cells actually came from same condition, there should not be any differential distributed genes, any positive call would be a false positive. We repeat the random split and testing for five times on each null data set. We evaluate the type I error control for the methods returning nominal p-values, by recording the fraction of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (Fig 6).\\
 scDDboost could control FDR since we assume cells are sampled from population composed of different subtypes. Cells from one subtype are equal likely to be assigned to either one of the two subsets. Consequently, it is very likely that proportions of subtypes remain unchanged among the two subsets.
 
@@ -660,7 +686,8 @@ We observed that DD genes identified by scDDboost tends to have similar transcri
 
 
 
-\section{ASYMPTOTIC PROPERTIES}\hfill\\
+\section{Theoretical issues}
+\subsection{Posterior consistency}
 Under some parameters settings, the double dirichlet prior will have limited resolution and lead to inconsistency of posterior probabilities, which we investigate with the following asymptotic analysis.
 
 We first give the expression of posterior probability. Since there is no information favorable of any particular $A_\pi$, we select discrete uniform distribution as the prior for it, then the posterior probability is
@@ -733,7 +760,9 @@ Still using above example, in limiting case, we have $p(A_{\pi_3} | t^1, t^2) = 
 The asymptotic properties help us gain insight of the performance of our approach,
 scDDboost may work poorly, when $(\phi, \psi)\in Q$, we may underestimate the posterior probability of true proportion change pattern, which reduce the posterior probabilities of true negative and enlarge false positive rate.\\
 
-\section{DISCUSSION AND FUTURE WORK}
+\subsection{Random weighting}
+
+\section{Discussion and future work}
 We have presented scDDboost, a compositional model for the analysis of scRNA-seq data. scDDboost make whole genome information shared at gene level inference and is flexible of integrating with different cell clustering methods. scDDboost accounts for the over-dispersion and multi-modality of single-cell data by modeling expression data as mixture of subtypes. Information from the change of subtypes' proportions and mean expressions is combined to infer distributional changes of gene expression. We developed a prior distribution that can be used to estimate sharp equalities on aggregated subtype probabilities. Using simulation studies, we have demonstrated that our method outperforms existing approaches when there existing multiple cell types. 
 \subsection{Multi-conditions}
 One direction for future work is to extend the compositional model to multi-conditions case. As scRNA seq data is a time course data, it may be more interested to  consider inference of distributional changes across multiple conditions.  We outline our procedure in the following.\\
