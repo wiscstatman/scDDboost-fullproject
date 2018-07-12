@@ -128,6 +128,14 @@ N.~Leng, J.~A. Dawson, J.~A. Thomson, V.~Ruotti, A.~I. Rissman, B.~M.~G. Smits,
   Available: \url{+ http://dx.doi.org/10.1093/bioinformatics/btt087}
 \BIBentrySTDinterwordspacing
 
+\bibitem{DES}
+\BIBentryALTinterwordspacing
+S.~Anders and W.~Huber, ``Differential expression analysis for sequence count
+  data,'' \emph{Genome Biology}, vol.~11, no.~10, pp. R106--R106, 2010.
+  [Online]. Available:
+  \url{http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3218662/}
+\BIBentrySTDinterwordspacing
+
 \bibitem{ref:Rhonda}
 \BIBentryALTinterwordspacing
 R.~Bacher, L.-F. Chu, N.~Leng, A.~P. Gasch, J.~A. Thomson, R.~M. Stewart,

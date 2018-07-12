@@ -541,6 +541,7 @@ scDDboost identified most true DD genes, the reason is that mean expression shif
 
 Since we are modeling gene transcript within each subtype as negative binomial distributed and we only test one parameter(mean) change among subtypes. In some scenario, it could be insufficient to model the variability within subtype. Even though there is no mean expression change among subtypes but more subtle distributional change occurred among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus limit power of scDDboost.\\
 
+\newpage
 \subsection{Empirical study}
 
 **Conquer examples...null and alternative**
@@ -549,37 +550,25 @@ We use ten datasets from conquer\cite{ref:Cq} to test performance of our method 
 \begin{table}[ht]
 \small
 \centering
-\begin{tabular}{ |p{3cm}|p{6cm}|p{2cm}|p{1cm}|p{1cm}|}
+\begin{tabular}{ |p{3cm}|p{5cm}|p{3cm}|p{1.5cm}|p{1.5cm}|}
 \hline
  Data set & Compared cell subsets & Number of cells/condition & Organism & Ref\\
  \hline
  \hline
  GSE45719 & 16-cell stage blastomere vs Mid blastocyst cell (92-94h post- fertilization) & 50, 60 & mouse & \cite{Deng193}\\
  \hline
- GSE45719null &  16-cell stage blastomere & 50 & mouse &  \cite{Deng193}\\
- \hline
  GSE48968-GPL13112 & BMDC (1h LPS stimulation) vs BMDC(4h LPS stimulation) & 96, 95 & mouse & \cite{Shalek}\\
- \hline
- GSE48968-GPL13112null & BMDC (1h LPS stimulation) & 96 & mouse & \cite{Shalek}\\
  \hline
  GSE60749-GPL13112 & v6.5 mouse embryonic stem cells, culture conditions: 2i+LIF vs v6.5 mouse embryonic stem cells, culture conditions: serum+LIF & 90, 94 & mouse & \cite{Kumar}\\
  \hline
- GSE60749-GPL13112null & v6.5 mouse embryonic stem cells, culture conditions: 2i+LIF & 90 & mouse & \cite{Kumar}\\
- \hline
  GSE74596 & NKT0 vs NKT17 & 45,44 & mouse & \cite{Engel}\\
  \hline
- GSE74596null & NKT0 & 45 & mouse & \cite{Engel}\\
- \hline
  EMTAB2805 & G1 vs G2M & 96,96 & mouse & \cite{EMTAB}\\
- \hline
- EMTAB2805null & G1 & 96 & mouse & \cite{EMTAB}\\
  \hline
  GSE63818-GPL16791 & Primordial Germ Cells, develop- mental stage: 7 week gestation vs Somatic Cells, developmental stage: 7 week gestation & 39,26 & mouse & \cite{Guo}\\
  \hline
  GSE71585-GPL13112 & Chrna2 tdTpositive vs Cux2 tdTpositive & 84, 124 & mouse & \cite{Tasic}\\
  \hline
-GSE71585-GPL13112null & Chrna2 tdTpositive & 84 & mouse & \cite{Tasic}\\
-\hline
 GSE75748 & NPC vs DEC & 64, 87 & human & \cite{chu}\\
 \hline
 GSE75748 & NPC & 64 & human & \cite{chu}\\
@@ -587,8 +576,6 @@ GSE75748 & NPC & 64 & human & \cite{chu}\\
 GSE75748 & DEC vs EC & 70, 64 & human & \cite{chu}\\
 \hline
 GSE75748 & DEC & 70 & human & \cite{chu}\\
-\hline
-GSE64016null & H1 exp1 vs H1 exp2 & 64, 87 & human & \cite{oscope}\\
 \hline
 \end{tabular}
 \captionof{table}{single cell transcripts profiles used for differential expression or distribution method evaluation}
@@ -622,8 +609,6 @@ NPC-DEC & 4377 & 3211 & 5982 & 5624 & 8439 & 19037\\
 \hline
 DEC-EC & 3402 & 3023 & 3818 & 5429 & 8127 & 19037\\
 \hline
-H1 exp1-H1 exp2 &  0 & 0 & 1300 & 2077 & 2841 & 16579\\
-\hline
 \end{tabular}
 \captionof{table}{number of DD genes detected by different methods}
 \end{table}
@@ -638,6 +623,35 @@ We found that bulk method DESeq2 tends to have the most number of DE genes. But 
 \subsection{Empirical study: null cases}
 Although bulk methods seems to be the most powerful one, we found it also has a higher false discovery rate comparing to single cell methods. We validate false discovery rate on ten null datasets from table 1. For each null dataset, we randomly split the cells from one condition into two subsets and test difference of gene expression between those subsets. Since the two subsets of cells actually came from same condition, there should not be any differential distributed genes, any positive call would be a false positive. We repeat the random split and testing for five times on each null data set. We evaluate the type I error control for the methods returning nominal p-values, by recording the fraction of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (Fig 6).\\
 scDDboost could control FDR since we assume cells are sampled from population composed of different subtypes. Cells from one subtype are equal likely to be assigned to either one of the two subsets. Consequently, it is very likely that proportions of subtypes remain unchanged among the two subsets.
+
+\begin{table}[ht]
+\small
+\centering
+\begin{tabular}{ |p{3cm}|p{5cm}|p{3cm}|p{2cm}|}
+\hline
+ Data set & Compared cell subsets & Number of cells/condition & Organism \\
+\hline
+\hline
+GSE45719null &  16-cell stage blastomere & 50 & mouse \\
+\hline
+GSE45719null &  16-cell stage blastomere & 50 & mouse \\
+\hline
+GSE48968-GPL13112null & BMDC (1h LPS stimulation) & 96 & mouse \\
+\hline
+ GSE60749-GPL13112null & v6.5 mouse embryonic stem cells, culture conditions: 2i+LIF & 90 & mouse \\
+ \hline
+ GSE74596null & NKT0 & 45 & mouse\\
+ \hline
+ EMTAB2805null & G1 & 96 & mouse\\
+ \hline
+GSE71585-GPL13112null & Chrna2 tdTpositive & 84 & mouse \\
+\hline
+GSE64016null & H1 exp1 vs H1 exp2 & 64, 87 & human \\
+\hline
+\end{tabular}
+\captionof{table}{datasets used for null cases, as cells are coming from same biological condition, there should not be any differential distributed genes, any positive call is false positive}
+\end{table}
+
 
 \begin{figure}[H]
 \includegraphics[width = 0.4\textwidth]{FDR.png}
