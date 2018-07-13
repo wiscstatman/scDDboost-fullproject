@@ -67,7 +67,7 @@ boot.clust <- matrix(NA, B, n )
 for( b in 1:B )
  {
   print(b)
-  e <- 2*sqrt(lam)*rgamma(n,shape=1)
+  e <- 3*sqrt(lam)*rgamma(n,shape=1)
   ##   bar <- dst.m + e %o% e
   bar <- dst.m + outer(e,e,"+")
   dst.star <- as.dist(bar)
@@ -83,7 +83,10 @@ library(mcclust) ## looks at lots of clusterings and summarizes
 
 diag(ABayes) <- 1; diag(Aboot) <- 1 ## removing some numerical inaccuracies
 mode.bayes <- minbinder(ABayes)$cl
-mode.boot <- minbinder(Aboot)$cl   ## slightly different modal clusters
+
+# having trouble with Aboot
+tmp <- .99*Aboot + .01*diag(n)
+mode.boot <- minbinder(tmp)$cl   ## slightly different modal clusters
 
 prand.bayes <- numeric( nrow(bayes.clust))
 prand.boot <- numeric( nrow(boot.clust))
@@ -100,23 +103,23 @@ for( b in 1:length(prand.boot) )
 
 ## distributions under random partitions, for comparison
 
-#B <- 1000
-#Arand <- matrix(0,n,n)
-#rand.clust <- matrix(NA, B, n )
-#prand.rand <- numeric( nrow(rand.clust))
-#for( b in 1:B )
-# {
-#  print(b)
-#  e <- rgamma(n,shape=1)
-#  ##  bar <-  e %o% e
-##  bar <- outer( e, e, "+" )
-#  dst.star <- as.dist(bar)
-#  cstar <- pam(dst.star, k=5 )
-#  tmp <- outer(cstar$clustering,cstar$clustering,"==")
-#  rand.clust[b,] <- cstar$clustering
-#  Arand <- Arand + tmp/B
-#  prand.rand[b] <- arandi( rand.clust[b,] , true.clust )
-# }
+B <- 1000
+Arand <- matrix(0,n,n)
+rand.clust <- matrix(NA, B, n )
+prand.rand <- numeric( nrow(rand.clust))
+for( b in 1:B )
+ {
+  print(b)
+  e <- rgamma(n,shape=1)
+  ##  bar <-  e %o% e
+  bar <- outer( e, e, "+" )
+  dst.star <- as.dist(bar)
+  cstar <- pam(dst.star, k=5 )
+  tmp <- outer(cstar$clustering,cstar$clustering,"==")
+  rand.clust[b,] <- cstar$clustering
+  Arand <- Arand + tmp/B
+  prand.rand[b] <- arandi( rand.clust[b,] , true.clust )
+ }
 
 ## some plots
 
@@ -140,9 +143,5 @@ dev.off()
 ## also do `plot(y)` to see the data and 5 groups
 ## or plot(y,mu)
 ## also, cor( c(Aboot), c(ABayes) ) is high (0.95 )
-
-
-
-
 
 
