@@ -1,4 +1,6 @@
 
+## idea..like try1, but let's add a random matrix instead of deconvolving 
+
 library(DPpackage)  ## for MCMC
 
 
@@ -67,11 +69,9 @@ boot.clust <- matrix(NA, B, n )
 for( b in 1:B )
  {
   print(b)
-  e <- 3*sqrt(lam)*rgamma(n,shape=1)
-  ##   bar <- dst.m + e %o% e
-  bar <- dst.m + outer(e,e,"+")
-  ###diag(bar) <- 0   # doesn't help much?
-  ### bar <- bar - 2*e   ## remove some to make the diagonal's 0; doesn't work!
+  tmp <- 1*sqrt(lam)*matrix(rgamma(n*n,shape=1),n,n)
+  bar <- dst.m + (tmp+t(tmp))   ##symmtrize  ; compare to try1.pdf
+  diag(bar) <- 0
   dst.star <- as.dist(bar)
   cstar <- pam(dst.star, k=5 )
   tmp <- outer(cstar$clustering,cstar$clustering,"==")
@@ -125,12 +125,12 @@ for( b in 1:B )
 
 ## some plots
 
-pdf( file="try1.pdf" )
+pdf( file="try2.pdf" )
 par(mfrow=c(2,2), mgp=c(2.5,.5,0), mar=c(4,4,1,1) )
 
-image(ABayes, axes=FALSE, main="Bayes")
+image(ABayes, axes=FALSE)
 
-image(Aboot, axes=FALSE, main="Random weight")
+image(Aboot, axes=FALSE)
 
 plot( ABayes, Aboot )
 abline(0,1,col="red", lwd=2 )
