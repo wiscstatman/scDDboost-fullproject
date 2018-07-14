@@ -67,7 +67,7 @@ boot.clust <- matrix(NA, B, n )
 for( b in 1:B )
  {
   print(b)
-  e <- 3*sqrt(lam)*rgamma(n,shape=1)
+  e <- 3.5*sqrt(lam)*rgamma(n,shape=1)
   ##   bar <- dst.m + e %o% e
   bar <- dst.m + outer(e,e,"+")
   ###diag(bar) <- 0   # doesn't help much?
