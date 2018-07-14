@@ -146,4 +146,4 @@ dev.off()
 ## or plot(y,mu)
 ## also, cor( c(Aboot), c(ABayes) ) is high (0.95 )
 
-
+# check : plot( dst, Aboot ) and plot( dst, ABayes )
