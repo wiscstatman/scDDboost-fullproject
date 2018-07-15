@@ -1,0 +1,454 @@
+---
+output: 
+  pdf_document:
+    includes:
+      before_body: doc_prefix.tex
+ 
+fontsize: 12pt
+
+---
+
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=8, fig.height=3, fig.path='Figs/',
+                      echo=FALSE, warning=FALSE, message=FALSE,
+			fig.align="center" )
+```
+
+
+## A note on a prior for multinomial vector pairs
+
+
+### Version 12/17/16, by MAN
+
+
+*Set up:* In modeling single-cell RNASeq data, we
+imagine that cells fall into one of $K>1$ cell-type classes,
+and further that we have cells from two source conditions, giving
+$n_1$ and $n_2$ cells respectively.  Let $z^1 = \{ z^1_k \}$ be
+ multinomial counts recording the number of cells of each cell type
+in the first condition, and $z^2 = \{z^2_k \}$ be similar counts
+for the second condition.  One task may be to infer something about
+possible equalities in the underlying probability vectors, which
+here I denote $\phi = \{ \phi_k \}$ and $\psi = \{ \psi_k \}$.
+I.e. 
+$$
+z^1 \sim \text{Multinomial}_K( n_1, \phi )
+$$
+and
+$$
+z^2 \sim \text{Multinomial}_K( n_2, \psi )
+$$
+
+Here I describe a prior $p(\phi,\psi)$ that is conjugate to multinomial
+sampling but that also enables downstream gene-specific inferences about
+differential distribution when certain 
+cell types do not differ in their expression
+distributions.  To provide this functionality, we need to work with
+partitions of the cell-type classes, 
+say $\pi = \{ b \}$ of $\{1, 2, \cdots, K\}$. Here $b$ indicates a block
+in the partition $\pi$, and of course different blocks do not overlap and
+ they cover the whole set of classes: 
+$\cup_{b \in \pi} b = \{1, 2, \cdots, K\}$.  We recall there is a large
+number of such partitions $\pi$, say constituting the 
+set $\Pi$ of cardinality Bell$(K)$.  We'll carry along an example
+involving $K=7$ cell types, and one three-block partition, shown in Figure 1, taken
+from the set of 877 possible partitions of $\{1, 2, \cdots, 7\}$.
+
+```{r, fig.cap="Example partition of $7$ cell types, $k$, into $3$ blocks, $b$", fig.height=3}
+
+set.seed(75751)
+x <- 1:7
+##types <- sample(x)
+types <- c( 3,4,2,5,6,1,7)  ## order within block
+plot( x, rep(1,7), axes=FALSE, xlab="",ylab="", type="n", xlim=c(0,8),
+	ylim=c(0,3)  )
+u <- 1.6; v <- .4
+polygon( c(1/2,2.5, 2.5,.5) , c( rep(u,2), rep(v,2) ), col="grey",
+	border=FALSE )
+polygon( c(2.5, 5.5,5.5, 2.5) , c( rep(u,2), rep(v,2) ), col="green",
+	border=FALSE )
+polygon( c(5.5, 7.5,7.5, 5.5) , c( rep(u,2), rep(v,2) ), col="magenta",
+	border=FALSE )
+text( x, rep(1,7), labels=types )
+```
+
+*Mixture prior:* For our purposes, the prior will have a *spike-slab* structure that mixes
+over distinct patterns of equality of $\pi$-associated
+accummulated probabilities:
+$$
+p(\phi,\psi) = \sum_{\pi \in \Pi} p(c_\pi) \, p(\phi,\psi| c_\pi )
+$$
+where 
+$$
+c_\pi = \{ (\phi,\psi): \Phi_b = \Psi_b  \, \forall b \in \pi \}
+$$
+where $\Phi_b = \sum_{k\in b} \phi_k$ and $\Psi_b = \sum_{k\in b} \psi_k$.
+Figure 2 shows one pair $(\phi, \psi)$ within $c_\pi$, where $\pi$ is from
+Figure 1. 
+
+Indeed, $c_\pi$ is precisely the
+structure needed to address differential distribution DD$_g$ at a given gene
+$g$ from expression data.
+Briefly, 
+if the class probabilities satisfy $c_\pi$, and if the class-specific expression
+distributions are constant among classes $k$ within each $b \in \pi$,
+then even if there are differential proportions $\phi_k \neq \psi_k$ on
+such classes, this will not lead to differential distribution.
+More specifically, we say 
+cell class specific means  $\mu = \{ \mu_k \}$ satisfy
+expression pattern $d_\pi$  if
+$$
+ \mu_j = \mu_k  \quad \forall j,k \in b, \quad \forall b \in \pi
+$$
+EBSeq computed over the identified cell classes computes the posterior
+probability of $d_\pi$ given expression data,
+for all $\pi$ and at each gene. With ED$_g$ denoting *equivalent distribution*,
+which is the complement of DD$_g$,
+
+*Conjecture:* At a given gene, equivalent distribution is
+$$
+\text{ED}_g = \bigcup_{\pi \in \Pi}\left[ c_\pi \cap d_\pi \right].
+$$
+
+The central point 
+is that even allowing for 
+cell-type probabilities to change between source conditions,
+there is no differential distribution at a given gene if 
+the relevant cell types are not differentially expressed at that gene.
+Upon setting up a prior $p(\phi,\psi)$ that can mix over structures
+$c_\pi$, and by combining cell-type counts $z^1$ and $z^2$ with
+expression data $x_g$ at a gene, we may compute 
+$P(\text{ED}_g|\text{data})$ 
+at each gene:
+$$
+P(\text{ED}_g|\text{data}) = \sum_{\pi \in \Pi} P(c_\pi|z^1, z^2) \, 
+P(d_\pi|x_g).
+$$
+
+
+*Side issue:* Each structure $c_\pi$ is a closed subset of 
+ the product simplex holding all possible pairs of multinomial vectors
+ $(\phi,\psi)$. As constructed, structures corresponding to different
+ partitions are not disjoint, though we could refine the definition
+ to encode disjointness.  Consider the case where the partition 
+ $\pi$ has a refinement $\pi^*$, say
+ (i.e. unions of blocks in $\pi^*$ lead to blocks in $\pi$). Then
+  $c_{\pi^*} \subset c_\pi$ because of the aggregation constraint.  Essentially the overlap represents a lower dimensional subset. 
+ Our approach is to define 
+  $p(\phi,\psi|c_\pi)$ in such a way that points in lower dimensional
+ subsets receive zero probability mass in that mixture component, 
+ so that we don't need to strictly
+ enforce disjointness.   It's analogous to the spike-slab issue of 
+ a parameter $\theta$ that either equals 0 or does not; conditional on 
+ the latter case
+ we might uses a Gaussian prior for $\theta$, which gives zero mass but
+positive density to the subset $\theta=0$. Another approach might be
+to force disjointness of $c_\pi$ (giving up closed sets) by removing 
+from $c_\pi$ the $c_{\pi^*}$ corresponding to partition refinements of 
+$\pi$. [needs to be worked out]
+
+*Mixture components:*
+For notation, we use $\phi_b$ for the vector of values $\phi_k$ for $k \in b$,
+and similarly for $\psi_b$. Analogously, $\Phi_\pi$ and $\Psi_\pi$
+ are vectors of 
+accumulated class probabilities $\phi_b$ and $\psi_b$ for all $b \in \pi$,
+ respectively. 
+
+```{r, fig.cap="Multinomial probability vectors for two conditions arranged according to a fixed partition", fig.height=4}
+library(RColorBrewer)
+scols <- brewer.pal(7,"Set1")
+set.seed(75751)
+x <- 1:7
+types <- sample(x)
+plot( x, rep(1,7), axes=FALSE, xlab="",ylab="", type="n", xlim=c(0,8),
+        ylim=c(0,5)  )
+u <- 1.8; v <- .4
+u2 <- 1.1; v2 <- .4
+polygon( c(1/2,3.5, 3.5,.5) , c( rep(u,2), rep(v,2) ), col="lightgrey",
+        border=FALSE )
+   text( 2, (3*u+v)/4, expression(Psi[34]) )
+   polygon( c(1/2,2.2,2.2,.5) , c( rep(u2,2), rep(v2,2) ), col=scols[1],
+        border=FALSE )
+        text( 2.7/2, (u+3*v)/4, expression(psi[3]) )
+   polygon( c(2.2,3.5,3.5,2.2) , c( rep(u2,2), rep(v2,2) ), col=scols[2],
+        border=FALSE )
+        text( 5.7/2, (u+3*v)/4, expression(psi[4]) )
+
+polygon( c(3.5, 6.5,6.5, 3.5) , c( rep(u,2), rep(v,2) ), col="green",
+        border=FALSE )
+   text( 5, (3*u+v)/4, expression(Psi[256]) )
+   polygon( c(3.5,4,4,3.5) , c( rep(u2,2), rep(v2,2) ), col=scols[3],
+        border=FALSE )
+        text( 7.5/2, (u+3*v)/4, expression(psi[2]) )
+   polygon( c(4,5.8,5.8,4) , c( rep(u2,2), rep(v2,2) ), col=scols[4],
+        border=FALSE )
+        text( 9.8/2, (u+3*v)/4, expression(psi[5]) )
+   polygon( c(5.8,6.5,6.5,5.8) , c( rep(u2,2), rep(v2,2) ), col=scols[5],
+        border=FALSE )
+        text( 12.3/2, (u+3*v)/4, expression(psi[6]) )
+
+
+polygon( c(6.5, 7.5,7.5, 6.5) , c( rep(u,2), rep(v,2) ), col="magenta",
+        border=FALSE )
+   text( 7, (3*u+v)/4, expression(Psi[17]) )
+   polygon( c(6.5,7.1,7.1,6.5) , c( rep(u2,2), rep(v2,2) ), col=scols[6],
+        border=FALSE )
+        text( 13.6/2, (u+3*v)/4, expression(psi[1]) )
+   polygon( c(7.1,7.5,7.5,7.1) , c( rep(u2,2), rep(v2,2) ), col=scols[7],
+        border=FALSE )
+        text( 14.6/2, (u+3*v)/4, expression(psi[7]) )
+
+z1 <- c(1/2,2.2,3.5,4,5.8,6.5,7.1,7.5)
+z1 <- (z1-1/2)
+z1 <- z1/max(z1)
+psi <- diff(z1)
+
+u <- u + 2
+v <- v + 2
+u2 <- u2 + 2; v2 <- v2+2
+
+#text( x, rep(1,7), labels=types )
+polygon( c(1/2,3.5, 3.5,.5) , c( rep(u,2), rep(v,2) ), col="lightgrey",
+        border=FALSE )
+   text( 2, (3*u+v)/4, expression(Phi[34]) )
+   polygon( c(1/2,1,1,.5) , c( rep(u2,2), rep(v2,2) ), col=scols[1],
+        border=FALSE )
+        text( 3/4, (u+3*v)/4, expression(phi[3]) )
+   polygon( c(1,3.5,3.5,1) , c( rep(u2,2), rep(v2,2) ), col=scols[2],
+        border=FALSE )
+        text( 4.5/2, (u+3*v)/4, expression(phi[4]) )
+polygon( c(3.5, 6.5,6.5, 3.5) , c( rep(u,2), rep(v,2) ), col="green",
+        border=FALSE )
+   text( 5, (3*u+v)/4, expression(Phi[256]) )
+   polygon( c(3.5,5,5,3.5) , c( rep(u2,2), rep(v2,2) ), col=scols[3],
+        border=FALSE )
+        text( 8.5/2, (u+3*v)/4, expression(phi[2]) )
+   polygon( c(5,5.5,5.5,5) , c( rep(u2,2), rep(v2,2) ), col=scols[4],
+        border=FALSE )
+        text( 10.5/2, (u+3*v)/4, expression(phi[5]) )
+   polygon( c(5.5,6.5,6.5,5.5) , c( rep(u2,2), rep(v2,2) ), col=scols[5],
+        border=FALSE )
+        text( 6, (u+3*v)/4, expression(phi[6]) )
+polygon( c(6.5, 7.5,7.5, 6.5) , c( rep(u,2), rep(v,2) ), col="magenta",
+        border=FALSE )
+   text( 7, (3*u+v)/4, expression(Phi[17]) )
+   polygon( c(6.5,6.9,6.9,6.5) , c( rep(u2,2), rep(v2,2) ), col=scols[6],
+        border=FALSE )
+        text( 13.4/2, (u+3*v)/4, expression(phi[1]) )
+   polygon( c(6.9,7.5,7.5,6.9) , c( rep(u2,2), rep(v2,2) ), col=scols[7],
+        border=FALSE )
+        text( 14.4/2, (u+3*v)/4, expression(phi[7]) )
+axis( side=1, at=c(.5, .5+7/4, .5+7/2, .5+3*7/4,  7.5),
+		labels=c(0,1/4,1/2,3/4,1) )
+z2 <- c(1/2,1,3.5,5,5.5,6.5,6.9,7.5)
+z2 <- z2-1/2
+z2 <- z2/max(z2)
+phi <- diff(z2)
+
+```
+
+
+Initially, the multitude of $p(c_\pi)$'s will be preset constants. 
+To complete the prior specification $p(\phi,\psi)$, consider further 
+scalers
+$\alpha_k>0$ for each class $k$ and $\beta_b>0$ for each potential block $b$.
+(Extending the notational convention, $\alpha_b$ is the vector of $\alpha_k$
+for $k\in b$, and $\beta_\pi$ is the vector of $\beta_b$ for $b \in \pi$.)
+For any block $b$ consider conditional probabilities
+$$
+\tilde{\phi}_b = \frac{\phi_b}{\Phi_b} \qquad \tilde{\psi}_b = \frac{\psi_b}{\Psi_b} 
+$$
+which indicate the conditional probability of each class $k$ given that
+the cell is of one of the types in $b$.  Assume that conditional upon $(\phi,\psi) \in c_\pi$, 
+$$
+\Phi_\pi \sim \text{Dirichet}_{N(\pi)}[   \beta_\pi   ]
+$$
+where $N(\pi)$ is the number of blocks $b$ in $\pi$,
+and further that accumulated probabilities are the same between
+the two source conditions: $\Phi_\pi = \Psi_\pi$.
+Finally, assume that for each $b \in \pi$,
+$$
+\tilde \phi_b, \tilde \psi_b \sim_{\text{i.i.d.}} 
+  \text{Dirichlet}_{N(b)}[ \alpha_b ]
+$$
+where $N(b)$ is the number of cell types in block $b$.
+In other words, if $c_\pi$ is the active structure, then
+accumulated probability vectors $\Phi_\pi$ and $\Psi_\pi$ are equal
+between the two source conditions, though the sub-block class-specific
+rates $\phi_k$ and $\psi_k$ may differ, as would (re-normalized)
+independent Dirichlet-distributed vectors.
+Taken together,
+$$
+p(\phi,\psi|c_\pi) = 
+         p( \Phi_\pi, \Psi_\pi | c_\pi ) \, \prod_{b \in \pi}  \left[
+         p( \tilde \phi_b ) p( \tilde \psi_b ) \right]
+$$
+with
+$$
+p( \Phi_\pi, \Psi_\pi | c_\pi )
+= \frac{\Gamma(\sum_{b\in \pi} \beta_b)}{
+ \prod_{b \in \pi} \Gamma( \beta_b )} \left[\prod_{b \in \pi} \Phi_b^{\beta_b-1} \right] \,
+ 1\left[ \Phi_\pi = \Psi_\pi \right]
+$$
+and
+$$
+p( \tilde \phi_b ) = 
+\frac{ \Gamma( \sum_{k\in b} \alpha_k ) }{ \prod_{k\in b} \Gamma(\alpha_k) }
+ \prod_{k \in b} \tilde \phi_k^{\alpha_k -1 },
+\qquad 
+p( \tilde \psi_b ) 
+=
+\frac{ \Gamma( \sum_{k\in b} \alpha_k ) }{ \prod_{k\in b} \Gamma(\alpha_k) }
+\prod_{k \in b} \tilde \psi_k^{\alpha_k -1 }.
+$$
+
+*Distributional consequences:*
+Using the Dirichlet-Multinomial conjugacy and the collapsing property of
+these distributions (cite), we get closed formulas for the predictive
+probability of cell-type counts $z^1$ and $z^2$.  Fixing $\pi$,
+let $t^j_b = \sum_{k\in b} z^j_k$, for cell conditions $j=1,2$, 
+record the total numbers of cells accumulated over all types in block $b$.
+And following our notation convention, $t^j_\pi$ is the vector of these
+counts over $b \in \pi$.  From the prior and model structure
+$$
+p(z^1,z^2|c_\pi) = p(z^1 | t^1_\pi)\, p(z^2|  t^2_\pi )
+ \, p( t^1_\pi, t^2_\pi | c_\pi ).
+$$
+Conditional independence of $z^1$ and $z^2$ given the block-level totals
+$t^1_\pi$ and $t^2_\pi$ on $c_\pi$ reflects the possible differential 
+class proportion structure within blocks but between cell conditions.
+For either cellular group $j=1,2$,
+we find, after some simplification, the following Dirichlet-Multinomial masses: 
+$$
+p(z^j|t^j_\pi) = \prod_{b \in \pi} \left\{
+\left[ \frac{ \Gamma(t^j_b +1 ) }{\prod_{k \in b} \Gamma( z^j_k + 1 ) } 
+\right]
+\left[ \frac{\Gamma( \sum_{k \in b} \alpha_k )}{
+		\prod_{k\in b} \Gamma( \alpha_k ) } \right] 
+       \left[        \frac{ \prod_{k \in b} \Gamma(\alpha_k + z^j_k)  }{
+		\Gamma(t^j_b + \sum_{k\in b} \alpha_k ) )}\right]
+ \right\}
+$$
+and
+$$
+p(t^1_\pi,t^2_\pi| c_\pi) =
+ \left[ \frac{ \Gamma(n_1+1) \Gamma(n_2+1) }{ \prod_{b \in \pi} \Gamma(t^1_b+1) 
+   \Gamma( t^2_b + 1 )} \right] 
+\left[ \frac{\Gamma( \sum_{b \in \pi} \beta_b  )}{
+   \prod_{b \in \pi} \Gamma(\beta_b )} \right] 
+ \left[ \frac{ \prod_{b \in \pi} \Gamma( \beta_b + t^1_b + t^2_b )}{
+	\Gamma( n_1 + n_2 + \sum_{b \in \pi} \beta_b  )} \right].
+$$
+
+Let's look at some special cases to dissect this result. 
+
+**Check 1:** If $\pi$ has a single block equal to the entire
+ set of cell types $\{1,2, \cdots, K\}$,  then $t^j_b=n_j$ for both $j=1,2$,
+and the second formula reduces, correctly, to 
+$p(t^1_\pi,t^2_\pi| c_\pi) = 1$.  Further,
+$$
+p(z^j|t^j_\pi) = 
+\left[ \frac{ \Gamma(n_j +1 ) }{ \Gamma( n_1 + \sum_{k=1}^K \alpha_k ) }
+\right]
+\left[ \frac{\Gamma( \sum_{k =1}^K \alpha_k )}{
+                \prod_{k=1}^K \Gamma( \alpha_k ) } \right]
+       \left[    \prod_{k=1}^K    \frac{  \Gamma(\alpha_k + z^j_k)}{
+                \Gamma(z^j_k + 1 )}\right]
+$$
+which is the well-known Dirichlet-multinomial predictive distribution
+for counts $z^j$ (cite).  E.g, taking $\alpha_k=1$ for all types $k$ 
+we get the uniform distribution
+$$
+p(z^j|t^j_\pi) = 
+ \frac{ \Gamma(n_j +1 ) \Gamma(K) }{ \Gamma( n_j + K ) }.
+$$
+
+**Check 2:** At the opposite  extreme, $\pi$  has one block $b$ for each
+ class $k$. Then $t^j_b = z^j_k$, and $p(z^j|t^j_\pi) = 1$, and 
+further, assuming $\beta_b = \alpha_k$,
+$$
+p(t^1_\pi,t^2_\pi| c_\pi) =
+ \left[ \frac{ \Gamma(n_1+1) \Gamma(n_2+1) }{ \prod_{k=1}^K 
+   \Gamma(z^1_k+1) 
+   \Gamma( z^2_k + 1 )} \right] 
+\left[ \frac{\Gamma( \sum_{k=1}^K \alpha_k  )}{
+   \prod_{k=1}^K \Gamma(\alpha_k )} \right] 
+ \left[ \frac{ \prod_{k=1}^K \Gamma( \alpha_k + z^1_k + z^2_k )}{
+	\Gamma( n_1 + n_2 + \alpha_k  )} \right].
+$$
+ *comment: cite a Bayes comparison of two multinomials*
+
+
+Regardless of the partition,
+ log scale probabilities are readily evaluated 
+given hyper-parameters $\{ \alpha_k \}$ and $\{ \beta_b \}$ and for
+cell-type counts $z^1$ and $z^2$.
+
+
+### Example
+
+Here's an example using the probabilities $\phi$ and $\psi$ from Figure 2;
+with $n_1=n_2=500$, and $\alpha_k=1$ for all $k$ and $\beta_b = \sum_{k\in b}
+\alpha_k$.
+
+```{r}
+u1 <- c(1/2,2.2,3.5,4,5.8,6.5,7.1,7.5)
+u1 <- (u1-1/2)
+u1 <- u1/max(u1)
+psi <- diff(u1)
+
+u2 <- c(1/2,1,3.5,5,5.5,6.5,6.9,7.5)
+u2 <- u2-1/2
+u2 <- u2/max(u2)
+phi <- diff(u2)
+
+set.seed(22)
+ss  <- 500
+z1 <- rmultinom(n=1,size=ss, prob=phi)
+z2 <- rmultinom(n=1,size=ss, prob=psi)
+print(rbind(c(z1),c(z2)))
+
+library(partitions)
+Pi <- setparts(7) ## 877 
+
+lpzgt <- function(z,pp)
+ {
+  # log prob
+  # z a vector of counts
+  # pp a partition
+  # p(z|t) assuming alpha_k=1; beta_b=sum_k alpha_k
+  tt <- tapply(z,pp,sum) ## sufficient stats over blocks
+  nn <- table(pp)  ## counts block sizes
+  res <- sum(lgamma(tt+1)) + sum(lgamma(nn)) - sum(lgamma(tt+nn))
+  res
+ }
+
+lpt1t2 <- function(z1,z2,pp)
+ {
+  K <- length(z1)
+  n1 <- sum(z1); n2 <- sum(z2)
+  t1 <- tapply(z1,pp,sum) ## sufficient stats over blocks
+  t2 <- tapply(z2,pp,sum) ## sufficient stats over blocks
+  nn <- table(pp)  ## counts block sizes
+  tmp1 <- lgamma(n1+1) + lgamma(n2+1) - sum(lgamma(t1+1)) - sum(lgamma(t2+1))
+  tmp2 <- lgamma(K) - sum( lgamma(nn) )
+  tmp3 <- sum(lgamma(t1+t2+nn))-lgamma(n1+n2+K)
+  res <- tmp1+tmp2+tmp3
+  res
+ }
+
+lpz <- numeric( ncol(Pi) )
+for( j in 1:length(lpz) )
+ {
+  pp <- Pi[,j]
+  lpz[j] <- lpzgt(z1,pp)+lpzgt(z2,pp)+lpt1t2(z1,z2,pp)
+ }
+
+post <- exp(lpz-max(lpz))
+post <- post/sum(post)
+plot(post, xlab="partition"); abline(v=378)
+u <- Pi[,378]
+print(u)
+print( rbind( tapply(z1,u,sum), tapply(z2,u,sum)  ) )
+```
