@@ -31,7 +31,8 @@ The ability to measure genome-wide gene expression at single-cell resolution
 has accelerated the pace of biological discovery\cite{scs}.  Overcoming data
 analysis challenges caused by the scale and unique variation properties of single-cell
 data will surely fuel further advances in immunology\cite{immune}, developmental
-biology\cite{dv}, and cancer\cite{cancer} .  Computational tools and statistical methodologies 
+biology\cite{dv}, cancer\cite{cancer}, and other areas. 
+ Computational tools and statistical methodologies 
 created for data of lower-resolution (e.g. bulk RNA-seq) or lower dimension 
 (e.g. flow cytometry)  guide our response to 
  the data science demands of new measurement platforms,
@@ -41,13 +42,13 @@ rapidly advancing domain\cite{Bacher:2016aa}.
 An important feature of single-cell studies that could be leveraged better
 statistically is the fact that cells populate distinct, identifiable subtypes
 determined by lineage history, epigenetic state, the activity
-of various transcriptional programs (e.g. burst states), or other 
+of various transcriptional programs, or other 
 distinguishing factors. Lots of efforts have been made to clustering cells
 into different cell subtypes, SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}.
 Whether or not a determination of cellular subtypes and their frequencies 
 is a task of interest in a given application, we hypothesize that such
 subtype information may be injected into other inferences in order
-to improve their operating characteristics.
+to improve their operating characteristics. *cumbersome sentence*
 
 Assessing the magnitude and statistical significance of changes in gene
 expression associated with different cellular conditions has been a central
@@ -93,7 +94,7 @@ extensions to multiple conditions are discussed in section 6. Let's say conditio
 in total we have $n=n_1+n_2$ cells in the analysis.  Further let $t^j_k = \sum_c 1[y_c=j, z_c=k]$ denote the number of cells of subtype $k$ in condition $j$;
 we infer something about these counts using genome-wide data.  As for molecular data, the 
 normalized expression of gene $g$ in cell $c$, say $X_{g,c}$, is one entry
-in a typically large {\sc{genes}} by {\sc{cells}} data matrix $X$.  In review, the data structure entails an expression matrix
+in a typically large {\sc{genes}} by {\sc{cells}} data matrix $X$.  Thus, the data structure entails an expression matrix
 $X$, a treatment label vector $y$, and a vector $z$ of latent subtype labels.
 
 
@@ -240,18 +241,17 @@ sharing between genes  that leverages the compositional structure of single-cell
 Our approach take transcripts processed by normalizing methods (e.g. SCnorm \cite{ref:Rhonda}). 
 The workflow contains two parts, classify cells into subtypes and posterior inference on distributional change. In the first part, recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus classification process is blind to conditions and can be done by clustering upon similarities between cells(supplementary material). 
 \begin{algorithm}
-\caption{}\label{alg:scDDcore}
+\caption{scDDBoost-core}\label{alg:scDDcore}
 \raggedright\hspace*{\algorithmicindent} \textbf{Input}: \begin{list}{}{}
  \item \textsc{genes} by \textsc{cells} expression data matrix $X=(X_{g,c})$
- \item \textsc{cells} by \textsc{cells} distance matrix $D=(D_{c,c'})$
  \item  cell condition labels $y=(y_c)$ 
- \item  number of cell subtypes $K$ 
+ \item  cell subtype labels (estimated)  $\hat z$
  \end{list}
 \hspace*{\algorithmicindent} 
 \textbf{Output}:  posterior probabilities of differential distribution from estimated subtypes
 \begin{algorithmic}[1]
-\Procedure{scDDBoost-core}{$X,y,D,K$}
-\State cell clustering: $\hat z = \hat z(D,K) \gets$ labeled parition of cells into $K$ classes
+\Procedure{scDDBoost-core}{$X,y,\hat z$}
+ \item  number of cell subtypes $K = \rm{length}( \rm{unique}( \hat z ) )$  
 \State subtype differential expression: $\forall g,\pi$ compute  $P(M_{g,\pi} | X, \hat z)$ using EBSeq\cite{ref:Leng}
 \State cell frequency changes: $\forall \pi$ compute  $P(A_\pi | y, \hat z)$ using Double Dirichlet model 
 \State posterior probability: $\forall g,  \, P(\text{ED}_g | X, y, \hat z)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X, \hat z) \,
