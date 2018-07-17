@@ -178,7 +178,7 @@ involving $K=7$ cell types, and one three-block partition taken
 from the set of 877 possible partitions of $\{1, 2, \cdots, 7\}$ (Figure 1).
 \begin{figure}[h!]
 %%  \includegraphics[height = 3.5cm, width=\linewidth]{prop.png}
-  \includegraphics[scale = 0.3]{prop.png}
+  \includegraphics[scale = 0.3]{Figs/prop.png}
   \caption{Proportions of $K=7$ cellular subtypes in different conditions. 
  Aggregated proportions of subtype 1 and 2, subtype 3, 4, 5, and subtype 6,7 remained same across conditions while proportion of individual subtype changed. A gene, for example, that shows no differential 
 expression between subtypes 1 and 2, and also none among types 3,4, and 5, and none between 6 and 7
@@ -494,7 +494,7 @@ A simulation study was conducted to assess the performance of
 scDDboost in identifying DD genes.
 We simulate data by splatter\cite{ref:Zappia} with approximate 200 cells each condition and 7 subtypes with proportions $\phi$ and $\psi$ from Fig 1 satisfying constraints: $\phi_1 + \phi_2 = \psi_1 + \psi_2$, $\phi_3 + \phi_4 +\phi_5 = \psi_3 + \psi_4 + \psi_5$ and $\phi_6 + \phi_7 = \psi_6 + \psi_7$. Each subtype has 10\% genes to be differential expressed. We view the differences among subtypes by projecting transcripts profiles of cells into its first two principal components(Fig 2). We observed subtypes are well separated, which is driven by genes with heterogeneous distribution between subtypes. 
 \begin{figure}[h!]
-  \includegraphics[ width = 0.4\textwidth]{pca.png}
+  \includegraphics[ width = 0.4\textwidth]{Figs/pca.png}
   \caption{first two principal components of transcripts, which demonstrates the difference between subtypes. Even if we projected transcripts of cells into two dimensional space, we observe subtypes are well separated.}
   \label{fig:4}
 \end{figure}
@@ -526,15 +526,15 @@ scDDboost identified most true DD genes, the reason is that mean expression shif
 \begin{figure}[h]
 \vspace{-\parskip}
 \minipage{0.5\textwidth}
-  \includegraphics[width=\textwidth]{sim_67.png}
+  \includegraphics[width=\textwidth]{Figs/sim_67.png}
 \endminipage\hfill
 \minipage{0.5\textwidth}
-  \includegraphics[width=\textwidth]{sim_78.png}
+  \includegraphics[width=\textwidth]{Figs/sim_78.png}
   \endminipage
 \caption{comparison of posterior probabilities of being DD among different number of subtypes, when we underestimate the number of subtypes, the difference is huge, see PDD between 6 subtypes and 7 subtypes. There is an approximate horizontal line with massive points at the top of left panel, which indicate that we underestimate lots of DD genes due to underestimate the number of subtypes. While in the case when we overestimate the number of subtypes 7 subtypes vs. 8 subtypes, though inflating PDD but the variation of difference is small, from 6 to 8 subtypes the PDD become more linear related.}
 \end{figure}
 \begin{figure}[H]
-  \includegraphics[width = 0.4\textwidth]{roc.png}
+  \includegraphics[width = 0.4\textwidth]{Figs/roc.png}
   \caption{Roc curve of scDDboost, scDD, MAST and DESeq2, scDDboost has largest area under the roc curve. Roc curves of other three methods are similar. For those roc curve there is bigger difference at low level of false positive rate, as scDDboost identified twice many true DD genes as other methods.}
   \label{fig:5}
 \end{figure}
@@ -615,7 +615,7 @@ DEC-EC & 3402 & 3023 & 3818 & 5429 & 8127 & 19037\\
 
 We found that bulk method DESeq2 tends to have the most number of DE genes. But among single cell methods, scDDboost usually identified the most DD genes. Further we observed quite a few genes uniquely identified by scDDboost are likely to have different distribution across conditions. For example, Fig 5, we use violin plot to demonstrate the log expression profiles among DEC and EC. \\
 \begin{figure}[H]
-\includegraphics[width = 0.6\textwidth]{density_DEC_dd.png}
+\includegraphics[width = 0.6\textwidth]{Figs/density_DEC_dd.png}
  \caption{ Densities of log transformed transcripts, 6 DD genes uniquely identified by scDDboost, for data GSE75748, DEC vs. EC, We observe some of the genes are different distributed across conditions.}
   \label{fig:6}
 \end{figure}
@@ -654,7 +654,7 @@ GSE64016null & H1 exp1 vs H1 exp2 & 64, 87 & human \\
 
 
 \begin{figure}[H]
-\includegraphics[width = 0.4\textwidth]{FDR.png}
+\includegraphics[width = 0.4\textwidth]{Figs/FDR.png}
  \caption{FDR of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. }
   \label{fig:7}
 \end{figure}
@@ -663,19 +663,19 @@ GSE64016null & H1 exp1 vs H1 exp2 & 64, 87 & human \\
 From our empirical experience, it is typical $K$ will not be larger than 8. We demonstrate the change of posterior probabilities of differential distribution given different number of subtypes at data GSE75748 and GSE48968. In both cases, if allowing one more subtype would result in a lot increases in posterior probabilities, which suggests that the number of subtypes is underestimated since we found more distribution differences between conditions given one more mixture component. If posterior inference is stable after increasing the number of subtypes, then we consider previous number of subtypes to be optimal. 
 \begin{figure}[H]
 \minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{DN_67.png}
+  \includegraphics[height = 5cm, width=\linewidth]{Figs/DN_67.png}
 \endminipage\hfill
 \minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{DN_78.png}
+  \includegraphics[height = 5cm, width=\linewidth]{Figs/DN_78.png}
 \endminipage\hfill
 \caption{selecting number of subtypes for data GSE75748, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD.  We select number of subtypes to be 7}
 \end{figure}
 \begin{figure}[H]
 \minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{G48_56.png}
+  \includegraphics[height = 5cm, width=\linewidth]{Figs/G48_56.png}
 \endminipage\hfill
 \minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{G48_67.png}
+  \includegraphics[height = 5cm, width=\linewidth]{Figs/G48_67.png}
 \endminipage\hfill
 \caption{selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes}
 \end{figure}
@@ -686,13 +686,13 @@ D3E\cite{ref:d3e} is a distributional method that can identify bursting paramete
 \begin{figure}[H]
 \vspace{-\parskip}
 \minipage{0.33\textwidth}
-  \includegraphics[clip,width=\textwidth]{act.png}
+  \includegraphics[clip,width=\textwidth]{Figs/act.png}
 \endminipage
 \minipage{0.33\textwidth}
-  \includegraphics[clip,width=\textwidth]{in_act.png}
+  \includegraphics[clip,width=\textwidth]{Figs/in_act.png}
   \endminipage
  \minipage{0.33\textwidth}
-  \includegraphics[clip,width=\textwidth]{t_rate.png}
+  \includegraphics[clip,width=\textwidth]{Figs/t_rate.png}
   \endminipage
 \captionof{figure}{2D histogram for bursting parameters of DD genes identified by scDDboost from dataset EMTAB2805 estimated by D3E. Left panel  : comparison of rate of promoter activation between two conditions, similarly, middle panel  : rate of promoter inactivation and right panel: rate of transcription when the promoter is in the active state. We observe that difference between transcription rate is smaller compare to difference between the activation and inactivation rate.}
 \end{figure}
@@ -714,7 +714,7 @@ for a normalizing constant $\frac{1}{c} = \underset{\pi' \in \Pi}\sum p(t^1 | t^
  
 Let $\Omega = \{(\phi, \psi): \overset{K}{\underset{i = 1}\sum}\phi_i = \overset{K}{\underset{i = 1}\sum}\psi_i = 1, \phi_i \geq 0, \psi_i \geq 0 , i = 1,..., K\}$ be the whole space. There is a subset of $\Omega$ we lack posterior inference. Let us first see an example:
 \begin{figure}[h]
-\includegraphics[scale = 0.5]{overlap.png}
+\includegraphics[scale = 0.5]{Figs/overlap.png}
  \caption{Four subtypes of cells,  simplexes of $(\phi,\psi)$ satisfying different constraints.}
   \label{fig:1}
 \end{figure}
