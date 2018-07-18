@@ -242,15 +242,6 @@ L.-F. Chu, N.~Leng, J.~Zhang, Z.~Hou, D.~Mamott, D.~T. Vereide, J.~Choi,
   Available: \url{https://doi.org/10.1186/s13059-016-1033-x}
 \BIBentrySTDinterwordspacing
 
-\bibitem{oscope}
-\BIBentryALTinterwordspacing
-N.~Leng, L.-F. Chu, C.~Barry, Y.~Li, J.~Choi, X.~Li, P.~Jiang, R.~M. Stewart,
-  J.~A. Thomson, and C.~Kendziorski, ``Oscope identifies oscillatory genes in
-  unsynchronized single-cell rna-seq experiments,'' \emph{Nature Methods},
-  vol.~12, pp. 947 EP --, 08 2015. [Online]. Available:
-  \url{http://dx.doi.org/10.1038/nmeth.3549}
-\BIBentrySTDinterwordspacing
-
 \bibitem{ref:d3e}
 \BIBentryALTinterwordspacing
 M.~Delmans and M.~Hemberg, ``Discrete distributional differential expression
