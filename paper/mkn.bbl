@@ -144,6 +144,21 @@ R.~Bacher, L.-F. Chu, N.~Leng, A.~P. Gasch, J.~A. Thomson, R.~M. Stewart,
   [Online]. Available: \url{http://dx.doi.org/10.1038/nmeth.4263}
 \BIBentrySTDinterwordspacing
 
+\bibitem{ref:cspa}
+\BIBentryALTinterwordspacing
+A.~Strehl and J.~Ghosh, ``Cluster ensembles --- a knowledge reuse framework for
+  combining multiple partitions,'' \emph{J. Mach. Learn. Res.}, vol.~3, pp.
+  583--617, Mar. 2003. [Online]. Available:
+  \url{https://doi.org/10.1162/153244303321897735}
+\BIBentrySTDinterwordspacing
+
+\bibitem{ref:dahl}
+\BIBentryALTinterwordspacing
+D.~B. Dahl, ``Modal clustering in a class of product partition models,''
+  \emph{Bayesian Anal.}, vol.~4, no.~2, pp. 243--264, 06 2009. [Online].
+  Available: \url{https://doi.org/10.1214/09-BA409}
+\BIBentrySTDinterwordspacing
+
 \bibitem{ref:Dickey}
 \BIBentryALTinterwordspacing
 B.~Dickey~J., Lientz, ``The weighted likelihood ratio, sharp hypotheses, and
