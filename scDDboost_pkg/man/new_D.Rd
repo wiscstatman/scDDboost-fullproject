@@ -9,7 +9,7 @@ new_D(X, part, Y)
 \arguments{
 \item{X}{cell clusters}
 
-\item{part}{partition patterns}
+\item{part}{partition patterns, obtained through Posp function}
 
 \item{Y}{index of map pattern}
 }
