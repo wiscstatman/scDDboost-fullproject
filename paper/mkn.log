@@ -1,34 +1,35 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.5.8)  17 JUL 2018 15:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  18 JUL 2018 00:20
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **mkn.tex
 (./mkn.tex
-LaTeX2e <2017/01/01> patch level 3
-Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amscls/amsart.cls
+LaTeX2e <2017-04-15>
+Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amscls/amsart.cls
 Document Class: amsart 2015/03/04 v2.20.2
 \linespacing=\dimen102
 \normalparindent=\dimen103
 \normaltopskip=\skip41
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2016/11/05 v2.16a AMS math features
 \@mathmargin=\skip42
 
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsgen.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks14
 \ex@=\dimen104
 ))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen105
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count79
@@ -71,10 +72,10 @@ LaTeX Info: Redefining \] on input line 2818.
 )
 LaTeX Font Info:    Try loading font information for U+msa on input line 388.
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
@@ -105,21 +106,21 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 \thm@headsep=\skip50
 \dth@everypar=\toks24
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks25
 )
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 )
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-(/usr/local/texlive/2016/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+(/usr/local/texlive/2017/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count99
@@ -135,18 +136,18 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen121
 \Gm@dimlist=\toks26
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/cite/cite.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/cite/cite.sty
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/mathtools/mathtools.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2015/11/12 v1.18 mathematical typesetting tools
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/calc.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count102
 \calc@Bcount=\count103
@@ -159,7 +160,7 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count104
 \calc@Cskip=\skip53
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/mathtools/mhsetup.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
 )
 LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
@@ -176,7 +177,7 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_above_shortintertext_sep=\dimen129
 \l_MT_below_shortintertext_sep=\dimen130
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/float/float.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count106
 \float@exts=\toks27
@@ -184,10 +185,10 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks28
 \@floatcapt=\box30
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
 \captionmargin=\dimen131
@@ -202,7 +203,7 @@ Package caption Info: AMS or SMF document class.
 \c@ContinuedFloat=\count107
 Package caption Info: float package is loaded.
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/natbib/natbib.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 
 
@@ -214,27 +215,27 @@ Package natbib Warning: The `cite' package should not be used
 LaTeX Info: Redefining \cite on input line 694.
 LaTeX Info: Redefining \citenum on input line 708.
 \c@NAT@ctr=\count108
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/10/09 v1.0u Standard LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/trig.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-def/pdftex.def
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
 
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count109
@@ -242,20 +243,20 @@ Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen138
 \Gin@req@width=\dimen139
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/algorithms/algorithm.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/algorithms/algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks29
 \c@algorithm=\count110
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
@@ -271,28 +272,28 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \ALG@tmplength=\skip59
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf.sty
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf.sty
 Package: epstopdf 2016/05/15 v2.6 Conversion with epstopdf on the fly (HO)
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/grfext.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
 ))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
@@ -301,7 +302,7 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
@@ -316,11 +317,11 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+(/usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 )))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/parskip/parskip.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2001/04/09 non-zero parskip adjustments
 
 
@@ -331,7 +332,11 @@ LaTeX Warning: Command \@starttoc  has changed.
 \c@lemma=\count118
 \c@theorem=\count119
 \c@prop=\count120
- (./mkn.aux)
+ (./mkn.aux
+
+LaTeX Warning: Label `fig:1' multiply defined.
+
+)
 \openout1 = `mkn.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
@@ -347,12 +352,12 @@ LaTeX Font Info:    ... okay on input line 26.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
 LaTeX Font Info:    ... okay on input line 26.
 LaTeX Font Info:    Try loading font information for U+msa on input line 26.
- (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 26.
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 *geometry* driver: auto-detecting
@@ -391,7 +396,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count121
 \scratchdimen=\dimen140
@@ -404,68 +409,8 @@ Package caption Info: End \AtBeginDocument code.
 \MPnumerator=\count125
 \makeMPintoPDFobject=\count126
 \everyMPtoPDFconversion=\toks31
-)
-
-Package natbib Warning: Citation `scs' on page 1 undefined on input line 31.
-
-
-Package natbib Warning: Citation `immune' on page 1 undefined on input line 33.
-
-
-
-Package natbib Warning: Citation `dv' on page 1 undefined on input line 34.
-
-
-Package natbib Warning: Citation `cancer' on page 1 undefined on input line 34.
-
-
-
-Package natbib Warning: Citation `Bacher:2016aa' on page 1 undefined on input l
-ine 40.
-
-
-Package natbib Warning: Citation `sc3' on page 1 undefined on input line 47.
-
-
-Package natbib Warning: Citation `CIDR' on page 1 undefined on input line 47.
-
-
-Package natbib Warning: Citation `ZIFA' on page 1 undefined on input line 47.
-
-
-Package natbib Warning: Citation `ref:MAST' on page 1 undefined on input line 5
-6.
-
-
-Package natbib Warning: Citation `ref:Des' on page 1 undefined on input line 57
-.
-
-
-Package natbib Warning: Citation `ref:scDD' on page 1 undefined on input line 5
-7.
-
-
-Package natbib Warning: Citation `ref:Cq' on page 1 undefined on input line 73.
-
-
-[1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-
-Package natbib Warning: Citation `ref:scDD' on page 2 undefined on input line 7
-6.
-
-[2]
-
-Package natbib Warning: Citation `ref:Leng' on page 3 undefined on input line 1
-46.
-
-
-Package natbib Warning: Citation `DES' on page 3 undefined on input line 146.
-
-
-Package natbib Warning: Citation `ref:Des' on page 3 undefined on input line 14
-6.
-
-<Figs/prop.png, id=19, 660.4675pt x 433.62pt>
+) [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[2] <Figs/prop.png, id=19, 660.4675pt x 433.62pt>
 File: Figs/prop.png Graphic file (type png)
  <use Figs/prop.png>
 Package pdftex.def Info: Figs/prop.png used on input line 182.
@@ -483,35 +428,13 @@ Overfull \hbox (18.56134pt too wide) in paragraph at lines 239--240
  []
 
 
-Package natbib Warning: Citation `ref:Rhonda' on page 5 undefined on input line
- 241.
-
-
-Package natbib Warning: Citation `ref:Leng' on page 5 undefined on input line 2
-55.
-
-
-Package natbib Warning: Citation `ref:Leng' on page 5 undefined on input line 2
-65.
-
-
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
 CELL RNA-SEQ DATA[] []
  []
 
 [5]
-
-Package natbib Warning: Citation `sc3' on page 6 undefined on input line 267.
-
-
-Package natbib Warning: Citation `CIDR' on page 6 undefined on input line 267.
-
-
-Package natbib Warning: Citation `ZIFA' on page 6 undefined on input line 267.
-
-
-Underfull \vbox (badness 2809) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [6]
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
@@ -519,55 +442,49 @@ Overfull \hbox (11.49895pt too wide) has occurred while \output is active
 CELL RNA-SEQ DATA[] []
  []
 
-[7]
+[7] [8]
+Overfull \hbox (11.49895pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
+CELL RNA-SEQ DATA[] []
+ []
 
-Package natbib Warning: Citation `ref:Dickey' on page 8 undefined on input line
- 410.
-
-[8]
-
-Package natbib Warning: Citation `Wag' on page 9 undefined on input line 461.
-
-
-Overfull \hbox (13.80554pt too wide) in paragraph at lines 483--488
+[9]
+Overfull \hbox (13.80554pt too wide) in paragraph at lines 485--490
 []\OT1/cmr/m/n/10.95 Regardless of the par-ti-tion, log scale prob-a-bil-i-ties
  are read-ily eval-u-ated given hyper-parameters
  []
 
-
-Package natbib Warning: Citation `ref:Zappia' on page 9 undefined on input line
- 495.
-
-<Figs/pca.png, id=45, 477.785pt x 476.78125pt>
+<Figs/pca.png, id=48, 477.785pt x 476.78125pt>
 File: Figs/pca.png Graphic file (type png)
  <use Figs/pca.png>
-Package pdftex.def Info: Figs/pca.png used on input line 497.
+Package pdftex.def Info: Figs/pca.png used on input line 499.
 (pdftex.def)             Requested size: 171.99922pt x 171.63383pt.
-
-Overfull \hbox (11.49895pt too wide) has occurred while \output is active
- \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
-CELL RNA-SEQ DATA[] []
- []
-
-[9] <Figs/sim_67.png, id=49, 379.8993pt x 275.3487pt>
+ [10 <./Figs/pca.png>] <Figs/sim_67.png, id=53, 379.8993pt x 275.3487pt>
 File: Figs/sim_67.png Graphic file (type png)
- <use Figs/sim_67.png>
-Package pdftex.def Info: Figs/sim_67.png used on input line 529.
-(pdftex.def)             Requested size: 215.0023pt x 155.83278pt.
 
-<Figs/sim_78.png, id=50, 379.8993pt x 275.3487pt>
+<use Figs/sim_67.png>
+Package pdftex.def Info: Figs/sim_67.png used on input line 531.
+(pdftex.def)             Requested size: 215.0023pt x 155.83278pt.
+ <Figs/sim_78.png, id=54, 379.8993pt x 275.3487pt>
 File: Figs/sim_78.png Graphic file (type png)
- <use Figs/sim_78.png>
-Package pdftex.def Info: Figs/sim_78.png used on input line 532.
-(pdftex.def)             Requested size: 215.0023pt x 155.83278pt.
 
-<Figs/roc.png, id=51, 446.66875pt x 402.50375pt>
+<use Figs/sim_78.png>
+Package pdftex.def Info: Figs/sim_78.png used on input line 534.
+(pdftex.def)             Requested size: 215.0023pt x 155.83278pt.
+ <Figs/roc.png, id=55, 446.66875pt x 402.50375pt>
 File: Figs/roc.png Graphic file (type png)
- <use Figs/roc.png>
-Package pdftex.def Info: Figs/roc.png used on input line 537.
+
+<use Figs/roc.png>
+Package pdftex.def Info: Figs/roc.png used on input line 539.
 (pdftex.def)             Requested size: 171.99922pt x 154.99205pt.
- [10 <./Figs/pca.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 544--545
+
+ []
 
 
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
@@ -575,142 +492,78 @@ Overfull \hbox (11.49895pt too wide) has occurred while \output is active
 CELL RNA-SEQ DATA[] []
  []
 
-[11 <./Figs/sim_67.png> <./Figs/sim_78.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 542--543
-
- []
-
-[12 <./Figs/roc.png>]
-
-Package natbib Warning: Citation `ref:Cq' on page 13 undefined on input line 54
-9.
-
-
-Package natbib Warning: Citation `ref:scDD' on page 13 undefined on input line 
-549.
-
-
-Package natbib Warning: Citation `ref:MAST' on page 13 undefined on input line 
-549.
-
-
-Package natbib Warning: Citation `ref:Des' on page 13 undefined on input line 5
-49.
-
-
-Package natbib Warning: Citation `sc3' on page 13 undefined on input line 549.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 555--555
+[11 <./Figs/roc.png>] [12 <./Figs/sim_67.png> <./Figs/sim_78.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 557--557
 []\OT1/cmr/m/n/10 Number of
  []
 
 
-Package natbib Warning: Citation `Deng193' on page 13 undefined on input line 5
-58.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 560--560
+Underfull \hbox (badness 10000) in paragraph at lines 562--562
 []\OT1/cmr/m/n/10 GSE48968-
  []
 
 
-Package natbib Warning: Citation `Shalek' on page 13 undefined on input line 56
-0.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 562--562
+Underfull \hbox (badness 10000) in paragraph at lines 564--564
 []\OT1/cmr/m/n/10 GSE60749-
  []
 
 
-Package natbib Warning: Citation `Kumar' on page 13 undefined on input line 562
-.
-
-
-Package natbib Warning: Citation `Engel' on page 13 undefined on input line 564
-.
-
-
-Package natbib Warning: Citation `EMTAB' on page 13 undefined on input line 566
-.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 568--568
+Underfull \hbox (badness 10000) in paragraph at lines 570--570
 []\OT1/cmr/m/n/10 GSE63818-
  []
 
 
-Package natbib Warning: Citation `Guo' on page 13 undefined on input line 568.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 570--570
+Underfull \hbox (badness 10000) in paragraph at lines 572--572
 []\OT1/cmr/m/n/10 GSE71585-
  []
 
 
-Underfull \hbox (badness 4205) in paragraph at lines 570--570
+Underfull \hbox (badness 4205) in paragraph at lines 572--572
 []\OT1/cmr/m/n/10 Chrna2 tdT-pos-i-tive vs Cux2
  []
 
 
-Package natbib Warning: Citation `Tasic' on page 13 undefined on input line 570
-.
-
-
-Package natbib Warning: Citation `chu' on page 13 undefined on input line 572.
-
-
-Package natbib Warning: Citation `chu' on page 13 undefined on input line 574.
-
-
-Package natbib Warning: Citation `chu' on page 13 undefined on input line 576.
-
-
-Package natbib Warning: Citation `chu' on page 13 undefined on input line 578.
-
-
-Overfull \hbox (18.33392pt too wide) in paragraph at lines 553--581
+Overfull \hbox (18.33392pt too wide) in paragraph at lines 555--583
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 549--585
+Underfull \hbox (badness 10000) in paragraph at lines 551--587
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 593--593
 []\OT1/cmr/m/n/10 scDDboost-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 596--596
+Underfull \hbox (badness 10000) in paragraph at lines 598--598
 []\OT1/cmr/m/n/10 GSE48969-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 598--598
+Underfull \hbox (badness 10000) in paragraph at lines 600--600
 []\OT1/cmr/m/n/10 GSE60749-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 602--602
+Underfull \hbox (badness 10000) in paragraph at lines 604--604
 []\OT1/cmr/m/n/10 EMTAB
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 604--604
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 []\OT1/cmr/m/n/10 GSE63818-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 606--606
+Underfull \hbox (badness 10000) in paragraph at lines 608--608
 []\OT1/cmr/m/n/10 GSE71585-
  []
 
 
-Overfull \hbox (38.3339pt too wide) in paragraph at lines 589--613
+Overfull \hbox (38.3339pt too wide) in paragraph at lines 591--615
  [][] 
  []
 
@@ -718,10 +571,10 @@ Overfull \hbox (38.3339pt too wide) in paragraph at lines 589--613
 File: Figs/density_DEC_dd.png Graphic file (type png)
 
 <use Figs/density_DEC_dd.png>
-Package pdftex.def Info: Figs/density_DEC_dd.png used on input line 618.
+Package pdftex.def Info: Figs/density_DEC_dd.png used on input line 620.
 (pdftex.def)             Requested size: 258.00539pt x 258.0082pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 616--621
+Underfull \hbox (badness 10000) in paragraph at lines 618--623
 
  []
 
@@ -732,29 +585,29 @@ CELL RNA-SEQ DATA[] []
  []
 
 [13] [14 <./Figs/density_DEC_dd.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 632--632
+Underfull \hbox (badness 10000) in paragraph at lines 634--634
 []\OT1/cmr/m/n/10 Number of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 639--639
+Underfull \hbox (badness 10000) in paragraph at lines 641--641
 []\OT1/cmr/m/n/10 GSE48968-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 641--641
+Underfull \hbox (badness 10000) in paragraph at lines 643--643
 []\OT1/cmr/m/n/10 GSE60749-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 647--647
+Underfull \hbox (badness 10000) in paragraph at lines 649--649
 []\OT1/cmr/m/n/10 GSE71585-
  []
 
 <Figs/FDR.png, id=75, 505.89pt x 505.89pt>
 File: Figs/FDR.png Graphic file (type png)
  <use Figs/FDR.png>
-Package pdftex.def Info: Figs/FDR.png used on input line 657.
+Package pdftex.def Info: Figs/FDR.png used on input line 659.
 (pdftex.def)             Requested size: 171.99922pt x 172.00032pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -768,55 +621,50 @@ CELL RNA-SEQ DATA[] []
 [15] <Figs/DN_67.png, id=79, 379.8993pt x 275.3487pt>
 File: Figs/DN_67.png Graphic file (type png)
  <use Figs/DN_67.png>
-Package pdftex.def Info: Figs/DN_67.png used on input line 666.
+Package pdftex.def Info: Figs/DN_67.png used on input line 668.
 (pdftex.def)             Requested size: 215.0029pt x 142.26201pt.
 
 <Figs/DN_78.png, id=80, 379.8993pt x 275.3487pt>
 File: Figs/DN_78.png Graphic file (type png)
  <use Figs/DN_78.png>
-Package pdftex.def Info: Figs/DN_78.png used on input line 669.
+Package pdftex.def Info: Figs/DN_78.png used on input line 671.
 (pdftex.def)             Requested size: 215.0029pt x 142.26201pt.
 
 <Figs/G48_56.png, id=81, 379.8993pt x 275.3487pt>
 File: Figs/G48_56.png Graphic file (type png)
  <use Figs/G48_56.png>
-Package pdftex.def Info: Figs/G48_56.png used on input line 675.
+Package pdftex.def Info: Figs/G48_56.png used on input line 677.
 (pdftex.def)             Requested size: 215.0029pt x 142.26201pt.
 
 <Figs/G48_67.png, id=82, 379.8993pt x 275.3487pt>
 File: Figs/G48_67.png Graphic file (type png)
  <use Figs/G48_67.png>
-Package pdftex.def Info: Figs/G48_67.png used on input line 678.
+Package pdftex.def Info: Figs/G48_67.png used on input line 680.
 (pdftex.def)             Requested size: 215.0029pt x 142.26201pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [16 <./Figs/FDR.png>]
-
-Package natbib Warning: Citation `ref:d3e' on page 17 undefined on input line 6
-84.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 684--685
+Underfull \hbox (badness 10000) in paragraph at lines 686--687
 
  []
 
 <Figs/act.png, id=87, 356.0502pt x 251.9814pt>
 File: Figs/act.png Graphic file (type png)
  <use Figs/act.png>
-Package pdftex.def Info: Figs/act.png used on input line 689.
+Package pdftex.def Info: Figs/act.png used on input line 691.
 (pdftex.def)             Requested size: 141.9023pt x 100.42549pt.
 
 <Figs/in_act.png, id=89, 356.0502pt x 251.9814pt>
 File: Figs/in_act.png Graphic file (type png)
  <use Figs/in_act.png>
-Package pdftex.def Info: Figs/in_act.png used on input line 692.
+Package pdftex.def Info: Figs/in_act.png used on input line 694.
 (pdftex.def)             Requested size: 141.9023pt x 100.42549pt.
 
 <Figs/t_rate.png, id=91, 364.4817pt x 251.9814pt>
 File: Figs/t_rate.png Graphic file (type png)
  <use Figs/t_rate.png>
-Package pdftex.def Info: Figs/t_rate.png used on input line 695.
+Package pdftex.def Info: Figs/t_rate.png used on input line 697.
 (pdftex.def)             Requested size: 141.9023pt x 98.10316pt.
 
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
@@ -828,10 +676,10 @@ CELL RNA-SEQ DATA[] []
 g>] <Figs/overlap.png, id=100, 770.88pt x 443.6575pt>
 File: Figs/overlap.png Graphic file (type png)
  <use Figs/overlap.png>
-Package pdftex.def Info: Figs/overlap.png used on input line 717.
+Package pdftex.def Info: Figs/overlap.png used on input line 719.
 (pdftex.def)             Requested size: 385.43906pt x 221.8282pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 715--723
+Underfull \hbox (badness 10000) in paragraph at lines 717--725
 
  []
 
@@ -839,7 +687,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 715--723
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [18 <./Figs/act.png> <./Figs/in_act.png> <./Figs/t_rate.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 731--733
+Underfull \hbox (badness 10000) in paragraph at lines 733--735
 
  []
 
@@ -850,27 +698,27 @@ CELL RNA-SEQ DATA[] []
  []
 
 [19 <./Figs/overlap.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 740--742
+Underfull \hbox (badness 10000) in paragraph at lines 742--744
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 759--760
+Underfull \hbox (badness 10000) in paragraph at lines 761--762
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 768--770
+Underfull \hbox (badness 10000) in paragraph at lines 770--772
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 774--776
+Underfull \hbox (badness 10000) in paragraph at lines 776--778
 
  []
 
 
-Overfull \hbox (16.587pt too wide) in alignment at lines 789--792
+Overfull \hbox (16.587pt too wide) in alignment at lines 791--794
  [][][] []
  []
 
@@ -899,17 +747,17 @@ CELL RNA-SEQ DATA[] []
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 831--832
+Underfull \hbox (badness 10000) in paragraph at lines 833--834
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 856--860
+Underfull \hbox (badness 10000) in paragraph at lines 858--862
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 860--863
+Underfull \hbox (badness 10000) in paragraph at lines 862--865
 
  []
 
@@ -920,17 +768,17 @@ CELL RNA-SEQ DATA[] []
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 868--870
+Underfull \hbox (badness 10000) in paragraph at lines 870--872
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 874--875
+Underfull \hbox (badness 10000) in paragraph at lines 876--877
 
  []
 
 
-Overfull \hbox (33.67892pt too wide) detected at line 875
+Overfull \hbox (33.67892pt too wide) detected at line 877
 \OML/cmm/m/it/10.95 g\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n; b\OT1/cmr/m/n/1
 0.95 ) = (\OML/cmm/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[
 ] \OMS/cmsy/m/n/10.95 ^^@ []\OT1/cmr/m/n/10.95 )[](1 + []) + (\OML/cmm/m/it/10.
@@ -942,64 +790,55 @@ m/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[] \OT1/cmr/m/n/10
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 875--878
+Underfull \hbox (badness 10000) in paragraph at lines 877--880
 
  []
 
 
-Overfull \hbox (73.77013pt too wide) in paragraph at lines 888--888
+Overfull \hbox (73.77013pt too wide) in paragraph at lines 890--890
 [] 
  []
 
 [28]
-
-Package natbib Warning: There were undefined citations.
-
-
 Overfull \hbox (15.74901pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
 CELL RNA-SEQ DATA[] []
  []
 
-[29] (./mkn.aux
+[29] (./mkn.aux)
 
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6193 strings out of 493013
- 89879 string characters out of 6133344
- 173554 words of memory out of 5000000
- 9465 multiletter control sequences out of 15000+600000
- 14629 words of font info for 56 fonts, out of 8000000 for 9000
+ 6195 strings out of 492995
+ 89918 string characters out of 6132704
+ 174569 words of memory out of 5000000
+ 9476 multiletter control sequences out of 15000+600000
+ 14321 words of font info for 55 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 42i,16n,39p,1522b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
-></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.p
-fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pf
-b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/l
-ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive
-/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2
-016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/20
-16/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2016
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2016/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2016/tex
+ 42i,16n,39p,1522b,474s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
+></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.p
+fb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pf
+b></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
+usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/l
+ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loca
+l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
+exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texl
+ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive
+/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2
+017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/20
+17/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2017
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2017/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2017/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mkn.pdf (29 pages, 1583901 bytes).
+Output written on mkn.pdf (29 pages, 1556515 bytes).
 PDF statistics:
  215 PDF objects out of 1000 (max. 8388607)
  129 compressed objects within 2 object streams
