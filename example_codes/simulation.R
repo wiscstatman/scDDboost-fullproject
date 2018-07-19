@@ -91,3 +91,24 @@ abline(0,1, lwd = 8)
 
 
 
+
+
+
+###pca plot
+pc = prcomp(t(log(data_count + 1)))
+library(ggfortify)
+pdf("pc.pdf")
+autoplot(pc, colour = as.factor(gp_label))+
+theme(panel.background = element_rect(
+fill = 'white', colour = 'black'),
+panel.grid.major = element_line(colour = "grey"),
+axis.text.x = element_blank(),
+axis.text.y = element_blank())+ guides(fill = F)
+dev.off()
+
+
+
+
+
+
+

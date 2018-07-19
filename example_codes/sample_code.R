@@ -149,4 +149,50 @@ pp<-ggplot(df,aes(factor(x),y))+ geom_violin(aes(colour = factor(x))) + geom_poi
 pp + facet_wrap( ~ z, ncol = 2)
 dev.off()
 
+###FDR boxplot
+##based on previous experiments on random splitting one condition data into groups and count number of false postive.
+deseq_tasic = c(1775, 1703, 1886, 1708, 1695) / 24057
+deseq_chu = c(1878,1668,1776,1911,1692,
+1699,1872,1900,1874,1836) / 19037
+deseq_c = 2841 / 16579
+deseq = c(1875, 1793, 2146, 1990, 1956, 2183, 2482, 2179,
+2140, 2364, 1329, 1357, 1459, 1440, 944, 3481,
+3419, 3483, 3521, 2845, 1419, 1465, 1130, 1065,
+1393, 15,66,25,54,70 ) / 45686
 
+deseq = c(deseq,deseq_c,deseq_tasic, deseq_chu)
+mast = rep(0, length(deseq))
+mast[1] = 2821/45686
+mast[2] = mast[1]
+mast[3] = 3/45686
+mast[4] = 12/45686
+
+scd = rep(0,length(deseq))
+
+scdb = scd
+
+scdb[1:6] = c(60, 60, 12, 5, 20, 1) /45686
+
+df_fdr = data.frame(methods = rep(c("DESeq2", "MAST", "scDD", "scDDboost"),each = length(mast)),
+y = c(deseq, mast, scd, scdb))
+
+p = ggplot(df_fdr,aes(methods,y, color = methods)) + geom_boxplot(alpha = 0.7,
+outlier.colour = "#1F3552", outlier.shape = 20) + geom_jitter()
+pdf("fdr.pdf")
+p + theme(panel.background = element_rect(
+fill = 'white', colour = 'black'),
+axis.text.x = element_text( color="black",
+size= 14),
+axis.text.y = element_text(face="bold", color="#993333",
+size=14),
+legend.text=element_text(size = 14),
+legend.title = element_blank(),
+axis.title.x=element_blank(),
+axis.title=element_text(size=14,face="bold"),
+panel.grid.minor.x = element_line(size = 0.5),
+panel.grid.minor.y = element_line(size = 0.5),
+panel.grid.major.x = element_line(size = 0.5),
+panel.grid.major.y = element_line(size = 0.5),
+panel.grid.major = element_line(colour = "grey"))+ ylab("FDR")
+
+dev.off()
