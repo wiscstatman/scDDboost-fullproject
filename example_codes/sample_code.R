@@ -80,6 +80,13 @@ gcl = 1:nrow(data_count) ##gene cluster are set to be each gene form one cluster
 
 K = 5 ##number of subtypes 
 Posp = pat(K)[[1]] ##possible partitions
+
+###generate refinement relation of partitions, number of cluster from 2 to 8
+ref = list()
+for(K in 2:8){
+    ref[[K]] = g_ref(pat(K)[[1]])
+}
+
 pdd5 = PDD(data_count,cd, ncores = 10,K, D_c, sz, hp, pat(K)[[1]],iter = 10, random = T, lambda = 1, nrandom = 100)
 EDDb = which(pdd5 > 0.95)
 
