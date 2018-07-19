@@ -2,6 +2,14 @@
 load("example_DEC_EC.RData")
 
 
+##
+##data_count: transcripts data
+##cd: condition label
+##
+
+
+
+
 ##fitting DESeq model on raw data(unnormalized)
 library(DESeq2)
 coldata = matrix(0,nrow = length(cd), ncol =1) ##cd is the condition label
@@ -60,6 +68,7 @@ EDDM = which(Mp < 0.05)
 
 ###fitting SCDD
 library(scDD)
+##default prior parameter
 prior_param=list(alpha=0.01, mu0=0, s0=0.01, a0=0.01, b0=0.01)
 condition = factor(cd)
 X =  SingleCellExperiment(assays = list(normcounts = data_count), 
@@ -77,7 +86,7 @@ library(scDDboost)
 D_c = cal_D(data_count, 10) ##calculate distance matrix using 10 cores
 hp = c(1, rep(1,nrow(data_count))) ## set default hyper parameter of EBSeq to be 1
 gcl = 1:nrow(data_count) ##gene cluster are set to be each gene form one cluster
-
+sz = MedianNorm(data_count) ##size factor in EBSeq
 K = 5 ##number of subtypes 
 Posp = pat(K)[[1]] ##possible partitions
 
@@ -87,6 +96,8 @@ for(K in 2:8){
     ref[[K]] = g_ref(pat(K)[[1]])
 }
 
+##iter: number of iteration in EM algorithm in EBSeq, typically converge in 5 times
+##nrandom: number of randomized distance matrices, typically PDD get stable when average on 100 randomized PDD.
 pdd5 = PDD(data_count,cd, ncores = 10,K, D_c, sz, hp, pat(K)[[1]],iter = 10, random = T, lambda = 1, nrandom = 100)
 EDDb = which(pdd5 > 0.95)
 
