@@ -17,7 +17,7 @@ Posp = pat(K)[[1]] #possible partition for 7 groups
 
 
 ##first only consider DD genes between G1 vs G2
-ccl = pam(D_c,K, T)$clustering[1:167]  ##get clustering
+ccl = pam(D_all,K, T)$clustering[1:167]  ##get clustering
 data_count = data_all[,1:167]
 D_c = D_all[1:167,1:167]
 ccl ##can view the different composition of subtypes between G1 and G2
