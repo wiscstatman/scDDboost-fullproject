@@ -3,7 +3,7 @@ load("sctrim.RData")
 library(SummarizedExperiment)
 library(scDDboost)
 library(SCnorm)
-
+library(SingleCellExperiment)
 ##first normalize the data
 cd = rep(1,247) ##treat all cells to be in one condition for normalization
 DataNorm<-SCnorm(Data=data_count,Conditions=cd,PrintProgressPlots=F,FilterCellNum=10,NCores = 4)
@@ -11,8 +11,8 @@ data_all = assays(DataNorm)$Counts
 
 ##generate distance matrix
 D_all = cal_D(data_all, 10)
-##7 subtypes
-K = 7  
+##8 subtypes
+K = 8
 Posp = pat(K)[[1]] #possible partition for 7 groups
 
 
@@ -31,7 +31,7 @@ length(EDDb) ##having 252 DD genes
 pDD7_no_random = PDD(data = data_count, cd = cd, ncores = 1, K = K, D = D_c,
                      sz = sz, hp, pat(K)[[1]], 10, random = F, lambda = 1, nrandom = 0)
 length(which(pDD7_no_random > 0.95))
-##having 1156 DD genes without randomization by set
+##having 1352 DD genes without randomization by set
 
 
 
