@@ -21,6 +21,7 @@ PDD_random = function(data, cd, K, D, sz, hp, Posp, iter, lambda, seed){
     PD = rep(0, nrow(data))
     R_D = D_c + weights %o% rep(1,n) + rep(1,n) %o% weights
     ccl = pam(R_D, k = K, diss = T)$clustering
+    gcl = 1:nrow(data)
     n1 = table(cd)[1]
     z1<-c(1:K)
     z2<-c(1:K)
