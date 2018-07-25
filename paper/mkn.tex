@@ -588,32 +588,35 @@ We have table of numbers of differentially expressed genes of each dataset by MA
 \begin{table}[ht]
 \small
 \centering
-\begin{tabular}{ |p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+\begin{tabular}{ |p{2cm}|p{2cm}|p{2cm}|p{1cm}|p{1cm}|p{1cm}|p{2cm}|p{2cm}|}
 \hline
-Data set & scDDboost & scDDboost-sc3 & scDD & MAST & DESeq2 & total number of genes\\
+Data set & scDDboost & scDDboost-sc3 & scDD & MAST & DESeq2 & total number of genes & number of subtypes\\
 \hline
 \hline
-GSE45719 & 5758 & 4228 & 6416 &5652 & 11202 & 45686\\
+GSE45719 & 5758 & 4228 & 6416 &5652 & 11202 & 45686 & 6\\
 \hline
-GSE48969-GPL13112 & 8083 & 9819 & 2080 & 3396 & 9542 & 45686\\
+GSE48969-GPL13112 & 8083 & 9819 & 2080 & 3396 & 9542 & 45686 & 6\\
 \hline
-GSE60749-GPL13112 & 19215 & 19168 &  25154 & 13674 & 23178 & 45686\\
+GSE60749-GPL13112 & 19215 & 19168 &  25154 & 13674 & 23178 & 45686 & 6 \\
 \hline
-GSE74596 & 2012 & 1355 & 1409 & 540 & 3796 & 45686\\
+GSE74596 & 2012 & 1355 & 1409 & 540 & 3796 & 45686 & 5\\
 \hline
-EMTAB 2805 & 5295 & 3748 & 2202 & 1088 & 5391 & 45686\\
+EMTAB 2805 & 5295 & 3748 & 2202 & 1088 & 5391 & 45686 & 6\\
 \hline
-GSE63818-GPL16791 & 7760 & 6900 & 2784 & 873 & 8934 & 45686\\
+GSE63818-GPL16791 & 7760 & 6900 & 2784 & 873 & 8934 & 45686 & 5\\
 \hline
-GSE71585- GPL13112 & 2902 & 1460 & 1622 & 2572 & 7378 & 24057 \\
+GSE71585- GPL13112 & 2902 & 1460 & 1622 & 2572 & 7378 & 24057 & 7 \\
 \hline
-NPC-DEC & 4377 & 3211 & 5982 & 5624 & 8439 & 19037\\
+NPC-DEC & 4377 & 3211 & 5982 & 5624 & 8439 & 19037 & 7\\
 \hline
-DEC-EC & 3402 & 3023 & 3818 & 5429 & 8127 & 19037\\
+DEC-EC & 3402 & 3023 & 3818 & 5429 & 8127 & 19037 & 4 \\
 \hline
 \end{tabular}
 \captionof{table}{number of DD genes detected by different methods}
 \end{table}
+
+
+
 
 We found that bulk method DESeq2 tends to have the most number of DE genes. But among single cell methods, scDDboost usually identified the most DD genes. Further we observed quite a few genes uniquely identified by scDDboost are likely to have different distribution across conditions. For example, Fig 5, we use violin plot to demonstrate the log expression profiles among DEC and EC. \\
 \begin{figure}[H]
