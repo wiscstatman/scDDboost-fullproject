@@ -1,19 +1,18 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  27 JUL 2018 01:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.2.6)  27 JUL 2018 13:04
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
 **mkn.tex
 (./mkn.tex
 LaTeX2e <2017-04-15>
-Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
+Babel <3.17> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amscls/amsart.cls
-Document Class: amsart 2015/03/04 v2.20.2
+Document Class: amsart 2017/10/31 v2.20.4
 \linespacing=\dimen102
 \normalparindent=\dimen103
 \normaltopskip=\skip41
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2016/11/05 v2.16a AMS math features
+Package: amsmath 2017/09/02 v2.17a AMS math features
 \@mathmargin=\skip42
 
 For additional information on amsmath, use the `?' option.
@@ -70,7 +69,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 388.
+LaTeX Font Info:    Try loading font information for U+msa on input line 398.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -145,7 +144,7 @@ LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/mathtools/mathtools.sty
-Package: mathtools 2015/11/12 v1.18 mathematical typesetting tools
+Package: mathtools 2018/01/08 v1.21 mathematical typesetting tools
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
@@ -161,7 +160,7 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Cskip=\skip53
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/mathtools/mhsetup.sty
-Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
 )
 LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
@@ -216,10 +215,10 @@ LaTeX Info: Redefining \cite on input line 694.
 LaTeX Info: Redefining \citenum on input line 708.
 \c@NAT@ctr=\count108
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
@@ -230,15 +229,7 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 Package graphics Info: Driver file: pdftex.def on input line 99.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
-
-(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
-(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count109
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen138
 \Gin@req@width=\dimen139
@@ -251,7 +242,7 @@ nment
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks29
-\c@algorithm=\count110
+\c@algorithm=\count109
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
@@ -260,15 +251,15 @@ Package: algpseudocode
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count111
-\c@ALG@rem=\count112
-\c@ALG@nested=\count113
+\c@ALG@line=\count110
+\c@ALG@rem=\count111
+\c@ALG@nested=\count112
 \ALG@tlm=\skip57
 \ALG@thistlm=\skip58
-\c@ALG@Lnr=\count114
-\c@ALG@blocknr=\count115
-\c@ALG@storecount=\count116
-\c@ALG@tmpcounter=\count117
+\c@ALG@Lnr=\count113
+\c@ALG@blocknr=\count114
+\c@ALG@storecount=\count115
+\c@ALG@tmpcounter=\count116
 \ALG@tmplength=\skip59
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
@@ -278,12 +269,18 @@ Package: epstopdf 2016/05/15 v2.6 Conversion with epstopdf on the fly (HO)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-))
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
 (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 
@@ -303,7 +300,7 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -313,7 +310,7 @@ Package pdftexcmds Info: \pdfdraftmode found.
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 38.
 Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 
@@ -329,9 +326,9 @@ LaTeX Warning: Command \@starttoc  has changed.
                Check if current package is valid.
 
 )
-\c@lemma=\count118
-\c@theorem=\count119
-\c@prop=\count120
+\c@lemma=\count117
+\c@theorem=\count118
+\c@prop=\count119
  (./mkn.aux
 
 LaTeX Warning: Label `fig:1' multiply defined.
@@ -398,22 +395,23 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count121
+\scratchcounter=\count120
 \scratchdimen=\dimen140
 \scratchbox=\box31
-\nofMPsegments=\count122
-\nofMParguments=\count123
+\nofMPsegments=\count121
+\nofMParguments=\count122
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count124
+\MPscratchCnt=\count123
 \MPscratchDim=\dimen141
-\MPnumerator=\count125
-\makeMPintoPDFobject=\count126
+\MPnumerator=\count124
+\makeMPintoPDFobject=\count125
 \everyMPtoPDFconversion=\toks31
 ) [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] <Figs/prop.png, id=19, 660.4675pt x 433.62pt>
+[2]
+<Figs/prop.png, id=19, 660.4675pt x 433.62pt>
 File: Figs/prop.png Graphic file (type png)
- <use Figs/prop.png>
-Package pdftex.def Info: Figs/prop.png used on input line 182.
+<use Figs/prop.png>
+Package pdftex.def Info: Figs/prop.png  used on input line 182.
 (pdftex.def)             Requested size: 198.14177pt x 130.087pt.
 
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
@@ -456,26 +454,24 @@ Overfull \hbox (13.80554pt too wide) in paragraph at lines 485--490
 
 <Figs/pca.png, id=48, 477.785pt x 476.78125pt>
 File: Figs/pca.png Graphic file (type png)
- <use Figs/pca.png>
-Package pdftex.def Info: Figs/pca.png used on input line 499.
+<use Figs/pca.png>
+Package pdftex.def Info: Figs/pca.png  used on input line 499.
 (pdftex.def)             Requested size: 171.99922pt x 171.63383pt.
- [10 <./Figs/pca.png>] <Figs/sim_67.png, id=53, 379.8993pt x 275.3487pt>
+[10 <./Figs/pca.png>]
+<Figs/sim_67.png, id=53, 379.8993pt x 275.3487pt>
 File: Figs/sim_67.png Graphic file (type png)
-
 <use Figs/sim_67.png>
-Package pdftex.def Info: Figs/sim_67.png used on input line 531.
+Package pdftex.def Info: Figs/sim_67.png  used on input line 531.
 (pdftex.def)             Requested size: 215.0023pt x 155.83278pt.
- <Figs/sim_78.png, id=54, 379.8993pt x 275.3487pt>
+<Figs/sim_78.png, id=54, 379.8993pt x 275.3487pt>
 File: Figs/sim_78.png Graphic file (type png)
-
 <use Figs/sim_78.png>
-Package pdftex.def Info: Figs/sim_78.png used on input line 534.
+Package pdftex.def Info: Figs/sim_78.png  used on input line 534.
 (pdftex.def)             Requested size: 215.0023pt x 155.83278pt.
- <Figs/roc.png, id=55, 446.66875pt x 402.50375pt>
+<Figs/roc.png, id=55, 446.66875pt x 402.50375pt>
 File: Figs/roc.png Graphic file (type png)
-
 <use Figs/roc.png>
-Package pdftex.def Info: Figs/roc.png used on input line 539.
+Package pdftex.def Info: Figs/roc.png  used on input line 539.
 (pdftex.def)             Requested size: 171.99922pt x 154.99205pt.
 
 
@@ -533,38 +529,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 551--587
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 593--593
-[]\OT1/cmr/m/n/10 scDDboost-
- []
-
-
-Overfull \hbox (6.26955pt too wide) in paragraph at lines 593--593
-[]\OT1/cmr/m/n/10 DESeq2| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 593--594
-[]\OT1/cmr/m/n/10 number of
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 598--598
-[]\OT1/cmr/m/n/10 GSE48969-
+Underfull \hbox (badness 10000) in paragraph at lines 595--595
+[]\OT1/cmr/m/n/10 Number of
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 600--600
-[]\OT1/cmr/m/n/10 GSE60749-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 604--604
-[]\OT1/cmr/m/n/10 EMTAB
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 606--606
 []\OT1/cmr/m/n/10 GSE63818-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 602--602
+[]\OT1/cmr/m/n/10 GSE48968-
  []
 
 
@@ -573,18 +549,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 608--608
  []
 
 
-Overfull \hbox (19.88112pt too wide) in paragraph at lines 591--615
+Underfull \hbox (badness 4205) in paragraph at lines 608--608
+[]\OT1/cmr/m/n/10 Chrna2 tdT-pos-i-tive vs Cux2
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 617--618
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 626--626
+[]\OT1/cmr/m/n/10 scDDboost-
+ []
+
+
+Overfull \hbox (6.26955pt too wide) in paragraph at lines 626--626
+[]\OT1/cmr/m/n/10 DESeq2| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 626--627
+[]\OT1/cmr/m/n/10 number of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 631--631
+[]\OT1/cmr/m/n/10 GSE48969-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 633--633
+[]\OT1/cmr/m/n/10 GSE60749-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
+[]\OT1/cmr/m/n/10 EMTAB
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 639--639
+[]\OT1/cmr/m/n/10 GSE63818-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 641--641
+[]\OT1/cmr/m/n/10 GSE71585-
+ []
+
+
+Overfull \hbox (19.88112pt too wide) in paragraph at lines 624--648
  [][] 
  []
 
 <Figs/density_DEC_dd.png, id=65, 505.89pt x 505.89pt>
 File: Figs/density_DEC_dd.png Graphic file (type png)
-
 <use Figs/density_DEC_dd.png>
-Package pdftex.def Info: Figs/density_DEC_dd.png used on input line 623.
+Package pdftex.def Info: Figs/density_DEC_dd.png  used on input line 656.
 (pdftex.def)             Requested size: 258.00539pt x 258.0082pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 621--626
+Underfull \hbox (badness 10000) in paragraph at lines 654--659
 
  []
 
@@ -594,87 +619,78 @@ Overfull \hbox (11.23502pt too wide) has occurred while \output is active
 CELL RNA-SEQ DATA[] []
  []
 
-[13] [14 <./Figs/density_DEC_dd.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 637--637
+[13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 670--670
 []\OT1/cmr/m/n/10 Number of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 644--644
+Underfull \hbox (badness 10000) in paragraph at lines 677--677
 []\OT1/cmr/m/n/10 GSE48968-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 646--646
+Underfull \hbox (badness 10000) in paragraph at lines 679--679
 []\OT1/cmr/m/n/10 GSE60749-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 652--652
+Underfull \hbox (badness 10000) in paragraph at lines 685--685
 []\OT1/cmr/m/n/10 GSE71585-
  []
 
-<Figs/FDR.png, id=75, 505.89pt x 505.89pt>
+<Figs/FDR.png, id=74, 505.89pt x 505.89pt>
 File: Figs/FDR.png Graphic file (type png)
- <use Figs/FDR.png>
-Package pdftex.def Info: Figs/FDR.png used on input line 662.
+<use Figs/FDR.png>
+Package pdftex.def Info: Figs/FDR.png  used on input line 695.
 (pdftex.def)             Requested size: 171.99922pt x 172.00032pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 
 Overfull \hbox (11.23502pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
 CELL RNA-SEQ DATA[] []
  []
 
-[15] <Figs/DN_67.png, id=79, 379.8993pt x 275.3487pt>
+[15 <./Figs/density_DEC_dd.png>]
+<Figs/DN_67.png, id=79, 379.8993pt x 275.3487pt>
 File: Figs/DN_67.png Graphic file (type png)
- <use Figs/DN_67.png>
-Package pdftex.def Info: Figs/DN_67.png used on input line 671.
+<use Figs/DN_67.png>
+Package pdftex.def Info: Figs/DN_67.png  used on input line 704.
 (pdftex.def)             Requested size: 215.0029pt x 142.26201pt.
-
 <Figs/DN_78.png, id=80, 379.8993pt x 275.3487pt>
 File: Figs/DN_78.png Graphic file (type png)
- <use Figs/DN_78.png>
-Package pdftex.def Info: Figs/DN_78.png used on input line 674.
+<use Figs/DN_78.png>
+Package pdftex.def Info: Figs/DN_78.png  used on input line 707.
 (pdftex.def)             Requested size: 215.0029pt x 142.26201pt.
-
-<Figs/G48_56.png, id=81, 379.8993pt x 275.3487pt>
-File: Figs/G48_56.png Graphic file (type png)
- <use Figs/G48_56.png>
-Package pdftex.def Info: Figs/G48_56.png used on input line 680.
-(pdftex.def)             Requested size: 215.0029pt x 142.26201pt.
-
-<Figs/G48_67.png, id=82, 379.8993pt x 275.3487pt>
-File: Figs/G48_67.png Graphic file (type png)
- <use Figs/G48_67.png>
-Package pdftex.def Info: Figs/G48_67.png used on input line 683.
-(pdftex.def)             Requested size: 215.0029pt x 142.26201pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [16 <./Figs/FDR.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 689--690
+<Figs/G48_56.png, id=85, 379.8993pt x 275.3487pt>
+File: Figs/G48_56.png Graphic file (type png)
+<use Figs/G48_56.png>
+Package pdftex.def Info: Figs/G48_56.png  used on input line 713.
+(pdftex.def)             Requested size: 215.0029pt x 142.26201pt.
+<Figs/G48_67.png, id=86, 379.8993pt x 275.3487pt>
+File: Figs/G48_67.png Graphic file (type png)
+<use Figs/G48_67.png>
+Package pdftex.def Info: Figs/G48_67.png  used on input line 716.
+(pdftex.def)             Requested size: 215.0029pt x 142.26201pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 722--723
 
  []
 
 <Figs/act.png, id=87, 356.0502pt x 251.9814pt>
 File: Figs/act.png Graphic file (type png)
- <use Figs/act.png>
-Package pdftex.def Info: Figs/act.png used on input line 694.
+<use Figs/act.png>
+Package pdftex.def Info: Figs/act.png  used on input line 727.
 (pdftex.def)             Requested size: 141.9023pt x 100.42549pt.
-
 <Figs/in_act.png, id=89, 356.0502pt x 251.9814pt>
 File: Figs/in_act.png Graphic file (type png)
- <use Figs/in_act.png>
-Package pdftex.def Info: Figs/in_act.png used on input line 697.
+<use Figs/in_act.png>
+Package pdftex.def Info: Figs/in_act.png  used on input line 730.
 (pdftex.def)             Requested size: 141.9023pt x 100.42549pt.
-
 <Figs/t_rate.png, id=91, 364.4817pt x 251.9814pt>
 File: Figs/t_rate.png Graphic file (type png)
- <use Figs/t_rate.png>
-Package pdftex.def Info: Figs/t_rate.png used on input line 700.
+<use Figs/t_rate.png>
+Package pdftex.def Info: Figs/t_rate.png  used on input line 733.
 (pdftex.def)             Requested size: 141.9023pt x 98.10316pt.
 
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
@@ -683,13 +699,14 @@ CELL RNA-SEQ DATA[] []
  []
 
 [17 <./Figs/DN_67.png> <./Figs/DN_78.png> <./Figs/G48_56.png> <./Figs/G48_67.pn
-g>] <Figs/overlap.png, id=100, 770.88pt x 443.6575pt>
+g>]
+<Figs/overlap.png, id=100, 770.88pt x 443.6575pt>
 File: Figs/overlap.png Graphic file (type png)
- <use Figs/overlap.png>
-Package pdftex.def Info: Figs/overlap.png used on input line 722.
+<use Figs/overlap.png>
+Package pdftex.def Info: Figs/overlap.png  used on input line 755.
 (pdftex.def)             Requested size: 385.43906pt x 221.8282pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 720--728
+Underfull \hbox (badness 10000) in paragraph at lines 753--761
 
  []
 
@@ -697,7 +714,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 720--728
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [18 <./Figs/act.png> <./Figs/in_act.png> <./Figs/t_rate.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 736--738
+Underfull \hbox (badness 10000) in paragraph at lines 769--771
 
  []
 
@@ -708,27 +725,27 @@ CELL RNA-SEQ DATA[] []
  []
 
 [19 <./Figs/overlap.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 745--747
+Underfull \hbox (badness 10000) in paragraph at lines 778--780
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 764--765
+Underfull \hbox (badness 10000) in paragraph at lines 797--798
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 773--775
+Underfull \hbox (badness 10000) in paragraph at lines 806--808
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 779--781
+Underfull \hbox (badness 10000) in paragraph at lines 812--814
 
  []
 
 
-Overfull \hbox (16.587pt too wide) in alignment at lines 794--797
+Overfull \hbox (16.587pt too wide) in alignment at lines 827--830
  [][][] []
  []
 
@@ -757,17 +774,17 @@ CELL RNA-SEQ DATA[] []
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 836--837
+Underfull \hbox (badness 10000) in paragraph at lines 869--870
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 861--865
+Underfull \hbox (badness 10000) in paragraph at lines 894--898
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 865--868
+Underfull \hbox (badness 10000) in paragraph at lines 898--901
 
  []
 
@@ -778,17 +795,17 @@ CELL RNA-SEQ DATA[] []
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 873--875
+Underfull \hbox (badness 10000) in paragraph at lines 906--908
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 879--880
+Underfull \hbox (badness 10000) in paragraph at lines 912--913
 
  []
 
 
-Overfull \hbox (33.67892pt too wide) detected at line 880
+Overfull \hbox (33.67892pt too wide) detected at line 913
 \OML/cmm/m/it/10.95 g\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n; b\OT1/cmr/m/n/1
 0.95 ) = (\OML/cmm/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[
 ] \OMS/cmsy/m/n/10.95 ^^@ []\OT1/cmr/m/n/10.95 )[](1 + []) + (\OML/cmm/m/it/10.
@@ -800,13 +817,13 @@ m/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[] \OT1/cmr/m/n/10
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 880--883
+Underfull \hbox (badness 10000) in paragraph at lines 913--916
 
  []
 
 
-Overfull \hbox (73.77013pt too wide) in paragraph at lines 893--893
-[] 
+Overfull \hbox (73.77013pt too wide) detected at line 926
+[]
  []
 
 [28]
@@ -821,10 +838,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6195 strings out of 492995
- 89918 string characters out of 6132704
- 175561 words of memory out of 5000000
- 9476 multiletter control sequences out of 15000+600000
+ 6147 strings out of 492980
+ 89416 string characters out of 6132510
+ 178424 words of memory out of 5000000
+ 9443 multiletter control sequences out of 15000+600000
  14321 words of font info for 55 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  42i,16n,39p,1522b,474s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -848,7 +865,7 @@ ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2017/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2017/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mkn.pdf (29 pages, 1556689 bytes).
+Output written on mkn.pdf (29 pages, 1557778 bytes).
 PDF statistics:
  215 PDF objects out of 1000 (max. 8388607)
  129 compressed objects within 2 object streams
