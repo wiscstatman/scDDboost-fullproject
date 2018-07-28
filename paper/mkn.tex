@@ -222,7 +222,7 @@ partitions $\pi_1,\pi_2$, $C_{g,\pi_1} \cap C_{g,\pi_2} = \emptyset$. Further,
 Under the simplifying prior assumption that  $A_\pi$ and $M_{g,\pi}$ are independent, 
 we  have directly from Theorem~1 that:
 \begin{align}
-1-P(\text{DD}_g|X,y) = P(\text{ED}_g|X,y) = \sum_{\pi \in \Pi} P(A_\pi|X,y) \, P(M_{g,\pi}|X).
+1-P(\text{DD}_g|X,y) = P(\text{ED}_g|X,y) = \sum_{\pi \in \Pi} P(A_\pi|X,y) \, P(M_{g,\pi}|X,y).
 \end{align}
 Thus, the partition representation guides an empirical Bayesian 
 method for scoring  differential distribution.
@@ -273,7 +273,7 @@ After robustification, we select number of clusters $K$ that posterior probabili
 
 
 \begin{algorithm}
-\caption{}\label{alg:scDDboost}
+\caption{scDDboost}\label{alg:scDDboost}
 \raggedright\hspace*{\algorithmicindent} \textbf{Input}: \begin{list}{}{}
  \item  \textsc{genes} by \textsc{cells} expression data matrix $X=(X_{g,c})$
  \item  cell condition labels $y=(y_c)$
@@ -667,7 +667,7 @@ scDDboost could control FDR since we assume cells are sampled from population co
 \centering
 \begin{tabular}{ |p{3cm}|p{5cm}|p{3cm}|p{2cm}|}
 \hline
- Data set & Compared cell subsets & Number of cells/condition & Organism \\
+ Data set & Conditions & Number of cells/condition & Organism \\
 \hline
 \hline
 GSE45719null &  16-cell stage blastomere & 25,25 & mouse \\
