@@ -13,11 +13,10 @@ logcounts(X) <- log2(normcounts(X) + 1)
 rowData(X)$feature_symbol = rownames(edat)
 X <- sc3_prepare(X)
 dst.sc3 = sc3_calc_dists(X)
-tran.D = sc3_calc_transfs(X)
-pre_output = sc3_kmeans(X)
-consen.D = sc3_calc_consens(X)
-consen.D
-
-####consen.D does not contain the final consensus distance matrix
-### need to use github source code to rewrite to get distance matrix
+tran.D = sc3_calc_transfs(dst.sc3)
+pre_output = sc3_kmeans(tran.D,3)
+consen.D = sc3_calc_consens(pre_output)
+print(names(metadata(consen.D)$sc3))
+consen_matrix = metadata(consen.D)$sc3$consensus[[1]]$consensus
+dim(consen_matrix)
 
