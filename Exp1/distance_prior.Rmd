@@ -5,4 +5,4 @@ output: html_document
 
 When using dirichlet process to model the prior of partitions. It is convenient to use an equivalent representation
 
-$$
+$$P(\pi) \propto $$
