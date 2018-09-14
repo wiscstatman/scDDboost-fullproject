@@ -5,4 +5,19 @@ output: html_document
 
 When using dirichlet process to model the prior of partitions. It is convenient to use an equivalent representation
 
-$$P(\pi) \propto $$
+$$P(\pi) \propto \prod_{i = 1} ^ K \theta \Gamma(q_i)$$. 
+
+Assuming there are $K$ clusters and $q_i$ is number of elements in cluster $i$. 
+Now let $K$ fixed, dirichlet prior gave more weights to the paritions that assign more number of elements within few number of clusters than assign elements uniformly acrossing each cluster. 
+
+Which is intuitively caused by the dirichlet process of assign partitions sequentially. 
+
+We want to approximate dirichlet process(chinese restaurant) prior on partitions through a random distance matrix manner. 
+
+###
+We mimic the way of chinese restaurant process of assign paritions label to data sequentially. 
+First let us set up some notations. $n$ is the total number of elements, $K$ is the number of clusters$, $e_1, e_2, ... , e_n$ are the elements, $D$ is the distance matrix with entries as $d_{ij}$.
+
+Starting from one point $e_1$. We add $e_2$ by random sample a distance $d_{12}$ between $e1$ and $e_2$. As it should be similar as dirichlet process. There is $1 / (1 +theta)$ probability that $e_2$ and $e_1$ have been assigned to the same cluster. We sample $d_{12}$ from gamma distribution ($\Gamma(\alpha,\beta))$ with small mean. Also there is chance $\theta / (\theta + 1)$ that $e_2$ has been assigned to a new cluster. We sample $d_{12}$ from a $Gamma$ distribution with large mean. Then we add the third point $e_3$.
+
+
