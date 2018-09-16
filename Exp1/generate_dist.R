@@ -3,7 +3,7 @@
 ###generate dist based on dirichlet process
 require(partitions)
 
-get_invariant = function(pt){
+get_max_seq = function(pt){
   #! param pt, a valid parition
   #return a mapped array m of pt. e.g. m[i] = max_{j <= i} pt[j]
   n = length(pt)
@@ -15,7 +15,6 @@ get_invariant = function(pt){
   }
   return(m)
 }
-
 
 
 get_first_partition = function(n,K){
@@ -41,8 +40,26 @@ get_next_partition = function(n, K, current_pt){
   #! param K, number of groups
   #! param current_pt, current partition of n elements into K groups
   #return, next partition of n elements into K groups
-  
-  
+  m = get_max_seq(current_pt)
+  for(i in n:2){
+    if( (current_pt[i] <= K - 1) && (current_pt[i] <= m[i - 1]) ){
+      current_pt[i] = current_pt[i] + 1
+      m[i] = max(m[i], current_pt[i])
+      j = i + 1
+      while(j  <= (n - K + m[i])){
+        current_pt[j] = 1
+        m[j] = m[i]
+        j = j + 1
+      }
+      j = (n - K + m[i] + 1)
+      while(j <= n){
+        m[j] = K - n + j
+        current_pt[j] = m[j]
+        j = j + 1
+      }
+    }
+  }
+  return(current_pt)
 }
 
 
