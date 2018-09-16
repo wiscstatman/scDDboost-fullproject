@@ -74,19 +74,30 @@ get_next_partition = function(n, K, current_pt){
 
 
 get_post = function(n,K){
+  #! param n, number of elements
+  #! param K, number of groups
+  # return distance matrix of elements that two elements belong to same cluster 
   
-  ##total number of paritions
-  N = chooae(n,K)
-  weight = rep(0,N)
-  
+  weight = c()
+  D_ = matrix(0,nrow = n, ncol = n)
   start = get_first_partition(n,K)
   end = get_last_partition(n,K)
   first = paste(start,collapse = "")
   last = paste(end,collapse = "")
+  ##index for weight
+  i_ = 1
   while(first < last){
     D = 1 * outer(start,start,"==")
-    weight = 
+    weight = c(weight,sum(lgamma(table(start))))
+    D_ = D_ + D * weight[i_]
+    start = get_next_partition(n,K,start)
+    first = paste(start,collapse = "")
+    i_ = i_ + 1
   }
+  res = list()
+  res[[1]] = D_
+  res[[2]] = weight
+  return(res)
 }
 
 
