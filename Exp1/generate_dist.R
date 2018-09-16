@@ -149,7 +149,7 @@ EB_prob = function(n,k){
 
 
 
-boot = function(n, K, x, B, gm){
+boot = function(n, K, x, B){
   p_ = EB_prob(n,K)
   D_ = as.matrix(dist(x))
   rand_boot = rep(0,B)
@@ -160,8 +160,8 @@ boot = function(n, K, x, B, gm){
     up_ = 1 * upper.tri(noise, diag = FALSE)
     noise = noise * up_
     noise = noise + t(noise)
-    weight = gm
-    noise = noise * sum(D_) / (n * (n - 1)) 
+    weight = sum(D_) / (n * (n - 1)) + 1
+    noise = noise * weight
     bar = noise + D_
     dst.star <- as.dist( bar )
     hc = hclust(dst.star)
