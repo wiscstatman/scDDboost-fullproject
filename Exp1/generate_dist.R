@@ -7,8 +7,8 @@ get_max_seq = function(pt){
   #! param pt, a valid parition
   #return a mapped array m of pt. e.g. m[i] = max_{j <= i} pt[j]
   n = length(pt)
-  m = rep(1,n)
-  tmp_max = 1
+  m = rep(1L,n)
+  tmp_max = 1L
   for(i in 1:n){
     tmp_max = max(tmp_max,pt[i])
     m[i] = tmp_max
@@ -21,8 +21,11 @@ get_first_partition = function(n,K){
   #! param n, number of elements
   #! param K, number of groups
   #return, first partititon of n elements into K groups
-  pt = rep(1,n)
-  pt[(n - K + 1):n] = 1:K
+  if(typeof(K) != "integer"){
+    K = as.integer(K)
+  }
+  pt = rep(1L,n)
+  pt[(n - K + 1):n] = 1L:K
   return(pt)
 }
 
@@ -30,8 +33,11 @@ get_last_partition = function(n, K){
   #! param n, number of elements
   #! param K, number of groups
   #return, last partition of n elements into K groups
+  if(typeof(K) != "integer"){
+    K = as.integer(K)
+  }
   pt = rep(K,n)
-  pt[1:K] = 1:K
+  pt[1:K] = 1L:K
   return(pt)
 }
 
@@ -41,21 +47,24 @@ get_next_partition = function(n, K, current_pt){
   #! param current_pt, current partition of n elements into K groups
   #return, next partition of n elements into K groups
   m = get_max_seq(current_pt)
+  if(typeof(K) != "integer"){
+    K = as.integer(K)
+  }
   for(i in n:2){
-    if( (current_pt[i] <= K - 1) && (current_pt[i] <= m[i - 1]) ){
-      current_pt[i] = current_pt[i] + 1
+    if( (current_pt[i] <= K - 1L) && (current_pt[i] <= m[i - 1]) ){
+      current_pt[i] = current_pt[i] + 1L
       m[i] = max(m[i], current_pt[i])
-      j = i + 1
+      j = i + 1L
       while(j  <= (n - K + m[i])){
-        current_pt[j] = 1
+        current_pt[j] = 1L
         m[j] = m[i]
-        j = j + 1
+        j = j + 1L
       }
-      j = (n - K + m[i] + 1)
+      j = (n - K + m[i] + 1L)
       while(j <= n){
         m[j] = K - n + j
         current_pt[j] = m[j]
-        j = j + 1
+        j = j + 1L
       }
     }
   }
@@ -64,10 +73,23 @@ get_next_partition = function(n, K, current_pt){
 
 
 
-get_dist = function(n,K){
-  partitions_space = setparts(K)
-  point_mass = apply(partitions_space, 2, )
+get_post = function(n,K){
+  
+  ##total number of paritions
+  N = chooae(n,K)
+  weight = rep(0,N)
+  
+  start = get_first_partition(n,K)
+  end = get_last_partition(n,K)
+  first = paste(start,collapse = "")
+  last = paste(end,collapse = "")
+  while(first < last){
+    D = 1 * outer(start,start,"==")
+    weight = 
+  }
 }
+
+
 
 
 
