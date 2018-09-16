@@ -160,8 +160,8 @@ boot = function(n, K, x, B, gm){
     up_ = 1 * upper.tri(noise, diag = FALSE)
     noise = noise * up_
     noise = noise + t(noise)
-    weight = rexp(1 / gm)
-    noise = noise * weight #sum(D_) / (n * (n - 1)) 
+    weight = gm
+    noise = noise * sum(D_) / (n * (n - 1)) 
     bar = noise + D_
     dst.star <- as.dist( bar )
     hc = hclust(dst.star)
