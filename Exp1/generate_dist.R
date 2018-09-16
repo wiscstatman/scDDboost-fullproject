@@ -101,6 +101,16 @@ get_post = function(n,K){
 }
 
 
+boot = function(n, K, res){
+  
+  
+  p_ = res[[1]] / res[[1]][1,1]
+  
+}
+
+
+
+
 
 
 
