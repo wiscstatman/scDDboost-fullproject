@@ -108,25 +108,74 @@ count_partitions = function(n,k){
   #! param n, number of elements
   #! param k, number of groups
   # return number of partitions of n elements into k groups
-  if(n == 0 || k == 0 || k > n){
-    return(0)
+  dp = matrix(0, nrow = n + 1, ncol = k + 1)
+  
+  for (i in 2:(n + 1)){
+    for (j in 2:(k + 1)){
+      if (j == 2 || i == j){
+        dp[i,j] = 1
+      }
+      else{
+        dp[i,j] = (j - 1) * dp[i-1,j] + dp[i-1,j-1]
+      }
+    }
   }
+      
+  return(dp[n + 1 , k + 1])
   
-  if (k == 1 || k == n){
-    return(1)
-  }
+}
+
+
+EB_prob = function(n,k){
+  ##typically n is much larger than k
+  #return the posterior prob that two elements belong to same cluster
   
-  return(k*count_partitions(n-1, k) + count_partitions(n-1, k-1))
   
+  # base = count_partitions(n,k)
+  ##
+  # a = count_partitions(n - 2, k - 1)
+  ##
+  # b = count_partitions(n - 2, k)
+  
+  
+  # return((b * k + a) / base)
+  
+  
+  return( 1 / k)
 }
 
 
 
 
-boot = function(n, K, res){
+
+
+boot = function(n, K, x, B, gm){
+  p_ = EB_prob(n,K)
+  D_ = as.matrix(dist(x))
+  rand_boot = rep(0,B)
+  Aboot <- matrix(0,n,n)
   
+  for(b_ in 1:B){
+    noise = matrix(rbinom(n^2, prob=1-p_,size=1),nrow=n)
+    up_ = 1 * upper.tri(noise, diag = FALSE)
+    noise = noise * up_
+    noise = noise + t(noise)
+    noise = noise * gm #sum(D_) / (n * (n - 1)) 
+    bar = noise + D_
+    dst.star <- as.dist( bar )
+    hc = hclust(dst.star)
+    clus = cutree(hc, k = K)
+    # clus = pam(bar,K,diss = T)$clustering
+    rand_boot[b_] = adjustedRandIndex(clus, true.clust)
+    tmp = outer(clus,clus, "==")
+    Aboot <- Aboot + tmp/B
+    
+  }
+  res = list()
+  res[[1]] = Aboot
+  res[[2]] = rand_boot
+  return(res)
   
-  p_ = res[[1]] / res[[1]][1,1]
   
 }
 
