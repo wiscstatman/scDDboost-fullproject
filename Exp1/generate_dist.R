@@ -51,7 +51,7 @@ get_next_partition = function(n, K, current_pt){
     K = as.integer(K)
   }
   for(i in n:2){
-    if( (current_pt[i] <= K - 1L) && (current_pt[i] <= m[i - 1]) ){
+    if( (current_pt[i] < K) && (current_pt[i] <= m[i - 1]) ){
       current_pt[i] = current_pt[i] + 1L
       m[i] = max(m[i], current_pt[i])
       j = i + 1L
@@ -66,9 +66,9 @@ get_next_partition = function(n, K, current_pt){
         current_pt[j] = m[j]
         j = j + 1L
       }
+      return(current_pt)
     }
   }
-  return(current_pt)
 }
 
 
@@ -88,17 +88,21 @@ get_post = function(n,K){
   i_ = 1
   while(first < last){
     D = 1 * outer(start,start,"==")
-    weight = c(weight,sum(lgamma(table(start))))
+    weight = c(weight,exp(sum(lgamma(table(start)))))
     D_ = D_ + D * weight[i_]
     start = get_next_partition(n,K,start)
     first = paste(start,collapse = "")
     i_ = i_ + 1
   }
+  D = 1 * outer(start,start,"==")
+  weight = c(weight,exp(sum(lgamma(table(start)))))
+  D_ = D_ + D * weight[i_]
   res = list()
   res[[1]] = D_
   res[[2]] = weight
   return(res)
 }
+
 
 
 boot = function(n, K, res){
