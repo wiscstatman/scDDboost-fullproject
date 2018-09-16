@@ -1,6 +1,8 @@
 ---
 title: "distance prior"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 When using dirichlet process to model the prior of partitions. It is convenient to use an equivalent representation
@@ -18,6 +20,11 @@ We want to approximate dirichlet process(chinese restaurant) prior on partitions
 We mimic the way of chinese restaurant process of assign paritions label to data sequentially. 
 First let us set up some notations. $n$ is the total number of elements, $K$ is the number of clusters, $e_1, e_2, ... , e_n$ are the elements, $D$ is the distance matrix with entries as $d_{ij}$.
 
-Starting from one point $e_1$. We add $e_2$ by random sample a distance $d_{12}$ between $e1$ and $e_2$. As it should be similar as dirichlet process. There is $1 / (1 + \theta)$ probability that $e_2$ and $e_1$ have been assigned to the same cluster. We sample $d_{12}$ from gamma distribution ($\Gamma(\alpha,\beta))$ with small mean. Also there is chance $\theta / (\theta + 1)$ that $e_2$ has been assigned to a new cluster. We sample $d_{12}$ from a $Gamma$ distribution with large mean. Then we add the third point $e_3$.
+Starting from one point $e_1$. We add $e_2$ by random sample a distance $d_{12}$ between $e1$ and $e_2$. As it should be similar as dirichlet process. There is $1 / (1 + \theta)$ probability that $e_2$ and $e_1$ have been assigned to the same cluster. We sample $d_{12}$ from exponential distribution ($Exp(\lambda_1))$ with small mean. Also there is chance $\theta / (\theta + 1)$ that $e_2$ has been assigned to a new cluster. We sample $d_{12}$ from a exponential distribution ($Exp(\lambda_2)$) with a large mean. Then we add the third point $e_3$.
 
+##Algorithm
+
+for j in 2 to n:
+
+for i in 1 to (j - 1):
 
