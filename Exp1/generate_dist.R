@@ -104,6 +104,24 @@ get_post = function(n,K){
 }
 
 
+count_partitions = function(n,k){
+  #! param n, number of elements
+  #! param k, number of groups
+  # return number of partitions of n elements into k groups
+  if(n == 0 || k == 0 || k > n){
+    return(0)
+  }
+  
+  if (k == 1 || k == n){
+    return(1)
+  }
+  
+  return(k*count_partitions(n-1, k) + count_partitions(n-1, k-1))
+  
+}
+
+
+
 
 boot = function(n, K, res){
   
