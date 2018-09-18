@@ -146,11 +146,38 @@ EB_prob = function(n,k){
 
 
 
+mimic_dp = function(n, K){
+  #! param n, number of elements
+  #! param K, number of clusters
+  alp = K - 1
+  if(alp < 1){
+    print("error, K should be greater than 1")
+    return(0)
+  }
+  noise = matrix(0,n,n)
+  p_ = rep(0,n)
+  #number of elements added, start with 1 element
+  num = 1
+  #number of elements per group
+  num_per_cl = rep(0,n)
+  num_per_cl[1] = 1
+  #initial prob for assigning class under dirichlet process
+  p_[1] = num / (num + alp)
+  p_[2] = alp / (num + alp)
+  
+  for(i in 2:n){
+    idx_ = rmultinom(1,1,p_)
+    
+  }
+  
+  
+}
+
 
 
 
 boot = function(n, K, x, B){
-  p_ = EB_prob(n,K)
+  p_ = 1 / K
   D_ = as.matrix(dist(x))
   rand_boot = rep(0,B)
   Aboot <- matrix(0,n,n)
@@ -160,7 +187,7 @@ boot = function(n, K, x, B){
     up_ = 1 * upper.tri(noise, diag = FALSE)
     noise = noise * up_
     noise = noise + t(noise)
-    weight = sum(D_) / (n * (n - 1)) + 1
+    weight = mean(D_) + mean(noise)
     noise = noise * weight
     bar = noise + D_
     dst.star <- as.dist( bar )
