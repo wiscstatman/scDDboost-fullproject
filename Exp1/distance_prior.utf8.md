@@ -16,7 +16,8 @@ Now we only interested in the case that $K$ is known(fixed). We want to approxim
 An intuitive idea is that we sample partitions of data using the probability in (1).
 We then generate a distance matrix $\hat{D} = \{\hat{d_{ij}}\}$ based on the sampled partition. $\hat{d_{ij}}$ is 1 if point $i$ and $j$ come from different cluster, 0 otherwise. Then we convert the prior of partitions to prior of distance matrices. And using those prior on distance matrices should have approximately same posterior inference as using dirichlet process. Unfortunately, this is computational intractable. For example (below)
 
-```{r}
+
+```r
 ##function to calculate number of possible ways to partition n subjects to k groups
 count_partitions = function(n,k){
   #! param n, number of elements
@@ -39,6 +40,10 @@ count_partitions = function(n,k){
 
 count_partitions(100,5)
 ```
+
+```
+## [1] 6.573841e+67
+```
 We found that the possible number of ways to classify 100 subjects to 5 sets is 6.5e+67. Also there is not an explicit way to generate partitions, partitions are generated sequentially. Given that amount of possible paritions, both time complexity and storage problem make it infeasible. 
 
 Another simple idea is that no matter what prior we put on partitions, the marginal probability that subject $i$ and $j$ under no information about their similarity belong to same cluster is $1/K$($K$: number of clusters)
@@ -49,7 +54,8 @@ Then we could sample distance matrix $\hat{D} = \{\hat{d_{ij}}\}$, that $\hat{d_
 is bernoulli distributed with $p = 1 - 1/K$. 
 
 Below we have functions to generate $p(c_i = c_j | x)$ based on random distance method. $c_i, c_j$ are the parition label of subject $i$ and $j$, $x$ is the data
-```{r}
+
+```r
 mimic_dp = function(n, K){
   #! param n, number of elements
   #! param K, number of clusters
@@ -125,7 +131,8 @@ boot = function(n, K, x, B){
 
 Also we have functions to generate $p(c_i = c_j | x)$ based on dirichlet process
 
-```{r}
+
+```r
 DP_bayes = function(x, mcmc, prior, K){
   n = length(x)
   state = NULL
@@ -152,10 +159,69 @@ DP_bayes = function(x, mcmc, prior, K){
 ```
 
 Then we compare the results of two methods
-```{r}
+
+```r
 library(DPpackage)  ## for MCMC
+```
+
+```
+## Warning: package 'DPpackage' was built under R version 3.4.3
+```
+
+```
+## 
+```
+
+```
+## DPpackage 1.1-7.4
+```
+
+```
+## 
+```
+
+```
+## Copyright (C) 2006 - 2012, Alejandro Jara
+```
+
+```
+## Department of Statistics
+```
+
+```
+## P.U. Catolica de Chile
+```
+
+```
+## 
+```
+
+```
+## Support provided by Fondecyt
+```
+
+```
+## 11100144 grant.
+```
+
+```
+## 
+```
+
+```r
 library(cluster)
 library(mclust)
+```
+
+```
+## Package 'mclust' version 5.3
+```
+
+```
+## Type 'citation("mclust")' for citing this R package in publications.
+```
+
+```r
 set.seed(75751)
 
 # a toy data set
@@ -188,6 +254,23 @@ res_dist = boot(length(y),5,y,500)
 Aboot = res_dist[[1]]
 rand_boot = res_dist[[2]]
 res_bayes = DP_bayes(y, mcmc, prior, 5)
+```
+
+```
+## 
+## MCMC scan 100 of 1000 (CPU time: 2.153 s)
+## MCMC scan 200 of 1000 (CPU time: 4.273 s)
+## MCMC scan 300 of 1000 (CPU time: 6.422 s)
+## MCMC scan 400 of 1000 (CPU time: 8.525 s)
+## MCMC scan 500 of 1000 (CPU time: 10.630 s)
+## MCMC scan 600 of 1000 (CPU time: 12.748 s)
+## MCMC scan 700 of 1000 (CPU time: 14.850 s)
+## MCMC scan 800 of 1000 (CPU time: 16.951 s)
+## MCMC scan 900 of 1000 (CPU time: 19.066 s)
+## MCMC scan 1000 of 1000 (CPU time: 21.172 s)
+```
+
+```r
 ABayes = res_bayes[[1]]
 rand_bayes = res_bayes[[2]]
 
@@ -201,8 +284,9 @@ abline(0,1,col="red", lwd=2 )
 boxplot( rev(list( Bayes_MCMC=rand_bayes, Random_Dist=rand_boot 
 )), horizontal=TRUE, las=1, cex.axis=.5, cex.label=.8,
 xlab="adjusted Rand index to true clustering" )
-
 ```
+
+<img src="distance_prior_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 
 

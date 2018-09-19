@@ -177,16 +177,18 @@ mimic_dp = function(n, K){
 
 
 boot = function(n, K, x, B){
-  p_ = 1 / K
+  # p_ = 1 / K
   D_ = as.matrix(dist(x))
   rand_boot = rep(0,B)
   Aboot <- matrix(0,n,n)
   
   for(b_ in 1:B){
-    noise = matrix(rbinom(n^2, prob=1-p_,size=1),nrow=n)
-    up_ = 1 * upper.tri(noise, diag = FALSE)
-    noise = noise * up_
-    noise = noise + t(noise)
+    # noise = matrix(rbinom(n^2, prob=1-p_,size=1),nrow=n)
+    # up_ = 1 * upper.tri(noise, diag = FALSE)
+    # noise = noise * up_
+    # noise = noise + t(noise)
+    noise = mimic_dp(n,K)
+    weight = 0.3
     weight = mean(D_) + mean(noise)
     noise = noise * weight
     bar = noise + D_
