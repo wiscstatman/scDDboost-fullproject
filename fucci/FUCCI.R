@@ -47,7 +47,7 @@ table(ccl[which(cells == 'G2')])
 sz = MedianNorm(data_count)
 hp = c(1, rep(1,nrow(data_count))) ##get hyper parameter
 
-pDD8 = PDD(data = data_count, cd = cd, ncores = 1, K = K, D = D_c,
+pDD4 = PDD(data = data_count, cd = cd, ncores = 10, K = K, D = D_c,
            sz = sz, hp, pat(K)[[1]], 10, random = T, lambda = 0.5, nrandom = 20)
 EDDb = which(pDD8 > 0.95)
 length(EDDb)
