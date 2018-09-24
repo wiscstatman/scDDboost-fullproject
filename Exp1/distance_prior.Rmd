@@ -1,8 +1,8 @@
 ---
 title: "distance prior"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 When using dirichlet process to model the prior of partitions. It is convenient to use an equivalent representation
@@ -82,9 +82,12 @@ mimic_dp = function(n, K){
     p_[pos] = alp / (num + alp)
     cl_label[i] = idx_
   }
-  noise = 1 * outer(cl_label,cl_label,"==")
   
-  return(noise)
+  noise = 1 * outer(cl_label,cl_label,"==")
+  result = list()
+  result[[1]] = noise
+  result[[2]] = max(cl_label)
+  return(result)
   
 }
 
@@ -103,7 +106,7 @@ boot = function(n, K, x, B){
     noise = noise * up_
     noise = noise + t(noise)
     # noise = mimic_dp(n,K)
-    weight = 1
+    weight = matrix(rexp(n ^ 2, 1/D_), ncol = n)
     noise = noise * weight
     bar = noise + D_
     dst.star <- as.dist( bar )
@@ -120,6 +123,98 @@ boot = function(n, K, x, B){
   res[[2]] = rand_boot
   return(res)
 }
+
+
+
+
+
+
+
+boot2 = function(n, K, x, B){
+  p_ = 1 / K
+  D_ = as.matrix(dist(x))
+  rand_boot = rep(0,B)
+  Aboot <- matrix(0,n,n)
+  count = 0
+  for(b_ in 1:B){
+    result = mimic_dp(n,K)
+    noise = result[[1]]
+    numc = result[[2]]
+    # if(numc != K){
+    #   next
+    # }
+    count = count + 1
+    # weight = matrix(runif(n ^ 2, 0, 20), ncol = n)
+    weight = matrix(rexp(n ^ 2, 1/D_), ncol = n)
+    noise = noise * weight
+    bar = noise + D_
+    dst.star <- as.dist( bar )
+    hc = hclust(dst.star,"complete")
+    clus = cutree(hc, k = K)
+    # clus = pam(bar,K,diss = T)$clustering
+    rand_boot[b_] = adjustedRandIndex(clus, true.clust)
+    tmp = outer(clus,clus, "==")
+    Aboot <- Aboot + tmp
+    
+  }
+  Aboot = Aboot/ count
+  rand_boot = rand_boot[which(rand_boot > 0)]
+  res = list()
+  res[[1]] = Aboot
+  res[[2]] = rand_boot
+  return(res)
+}
+
+
+boot4 = function(x, K, B, gm){
+  #mu = c(1,1)
+  #sig = diag(2) * 0.1
+  n = length(x)
+  rand_boot = rep(0,B)
+  Aboot <- matrix(0,n,n)
+  D_ = as.matrix(dist(x))
+  for(b_ in 1:B){
+    noise = matrix(0, n, n)
+    noise[1,] = runif(n,0,.2/D_[1,])
+    noise[1,1] = 0
+    for(j in 2:n){
+        if(j < 3){
+          next
+        }
+        for(i in 2:(j -1)){
+          a = 0
+          b = 2000
+          for(t_ in 1:(i - 1)){
+            if(abs(noise[t_,i] - noise[t_,j]) > a){
+              a = abs(noise[t_,i] - noise[t_,j])
+            }
+            if(noise[t_,i] + noise[t_,j] < b){
+              b = noise[t_,i] + noise[t_,j]
+            }
+          }
+          tmp_e = runif(1,a,b)
+          noise[i,j] = tmp_e
+        }
+      }
+    
+    
+    noise = noise + t(noise)
+    noise = noise * gm #sum(D_) / (n * (n - 1)) 
+    bar = noise + D_
+    dst.star <- as.dist( bar )
+    hc = hclust(dst.star)
+    clus = cutree(hc, k = K)
+    # clus = pam(bar,K,diss = T)$clustering
+    rand_boot[b_] = adjustedRandIndex(clus, true.clust)
+    tmp = outer(clus,clus, "==")
+    Aboot <- Aboot + tmp/B
+  }
+  res = list()
+  res[[1]] = Aboot
+  res[[2]] = rand_boot
+  return(res)
+}
+
 ```
 
 
@@ -159,7 +254,7 @@ library(mclust)
 set.seed(75751)
 
 # a toy data set
-size = 5
+size = 1
 mu <- 2*c( rep(-3,15 * size), rep(-1,20 * size), rep(0,20 * size), rep(1,30 * size), rep(5,15 * size) ) 
 sig <- 1
 true.clust <- match(mu, unique(mu))
@@ -184,7 +279,8 @@ mcmc <- list(nburn=nburn,nsave=nsave,nskip=nskip,ndisplay=ndisplay)
 ######data set up complete
 
 ###get results from random_distance and dirichlet process
-res_dist = boot(length(y),5,y,500)
+# res_dist = boot(length(y),5,y,500)
+res_dist = boot4(y,5,100,5)
 Aboot = res_dist[[1]]
 rand_boot = res_dist[[2]]
 res_bayes = DP_bayes(y, mcmc, prior, 5)
@@ -204,5 +300,63 @@ xlab="adjusted Rand index to true clustering" )
 
 ```
 
+
+###Let us try random sampled y 
+
+loose the constraint that posterior(two elements belong to same cluster | given obs) is not exactly the same as optimized result from traditional clustering (hierarchical, k-medoids) that purely based on distance. And it should since likelihood contains more information of data than the euclidean distance. 
+
+let us consider the P(i,j being same class | marginal mixture distribution)
+
+```{r,eval = F}
+
+# boot_mt = matrix(0,n,n)
+# boot2_mt = matrix(0,n,n)
+# Bayes_mt = matrix(0,n,n)
+# for(i in 1:100){
+#   #random sample y
+#   y <- rnorm(n,mean=mu, sd=sig)
+#   res_dist = boot(length(y),5,y,100)
+#   res_dist2 = boot4(y,5,100,5)
+#   Aboot = res_dist[[1]]
+#   Aboot2 = res_dist2[[1]]
+#   #rand_boot = res_dist[[2]]
+#   res_bayes = DP_bayes(y, mcmc, prior, 5)
+#   ABayes = res_bayes[[1]]
+#   #rand_bayes = res_bayes[[2]]
+#   boot_mt = boot_mt + Aboot
+#   Bayes_mt = Bayes_mt + ABayes
+#   boot2_mt = boot2_mt + Aboot2
+# }
+# # par(mfrow = c(3,1))
+# # hist(boot_mt / 100)
+# # hist(Bayes_mt / 100)
+# # hist(boot2_mt/100)
+# hist(boot_mt / 100)
+# hist(boot2_mt / 100)
+# hist(Bayes_mt / 100)
+
+```
+
+<!-- pdf("post_dist.pdf") -->
+<!-- par(mfrow = c(3,1)) -->
+<!-- hist(boot_mt / 100) -->
+<!-- hist(Bayes_mt / 100) -->
+<!-- hist(boot2_mt/100) -->
+<!-- dev.off() -->
+
+<!-- pdf("heat.pdf") -->
+<!-- par(mfrow = c(2,2)) -->
+<!-- image(ABayes, axes=FALSE, main="Bayes") -->
+<!-- image(Aboot,axes = F, main = "Random_Dist") -->
+<!-- plot( ABayes, Aboot ) -->
+<!-- abline(0,1,col="red", lwd=2 ) -->
+
+<!-- boxplot( rev(list( Bayes_MCMC=rand_bayes, Random_Dist=rand_boot  -->
+<!-- )), horizontal=TRUE, las=1, cex.axis=.5, cex.label=.8, -->
+<!-- xlab="adjusted Rand index to true clustering" ) -->
+
+<!-- dev.off() -->
+
+###try first apply modal cluster and then using random distance matrix
 
 

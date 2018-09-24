@@ -154,7 +154,6 @@ mimic_dp = function(n, K){
     print("error, K should be greater than 1")
     return(0)
   }
-  noise = matrix(0,n,n)
   p_ = rep(0,n)
   #number of elements added, start with 1 element
   num = 1
@@ -162,17 +161,28 @@ mimic_dp = function(n, K){
   num_per_cl = rep(0,n)
   num_per_cl[1] = 1
   #initial prob for assigning class under dirichlet process
-  p_[1] = num / (num + alp)
+  p_[1] = num_per_cl[1] / (num + alp)
   p_[2] = alp / (num + alp)
   
+  #class label
+  cl_label = rep(0, n)
+  cl_label[0] = 1
+  pool = 1:n
   for(i in 2:n){
-    idx_ = rmultinom(1,1,p_)
-    
+    idx_ = sample(pool,1,F,p_)
+    num_per_cl[idx_] = num_per_cl[idx_] + 1
+    num = num + 1
+    p_ = num_per_cl / (num + alp)
+    # position for staring new class
+    pos = which(p_ == 0)[1]
+    p_[pos] = alp / (num + alp)
+    cl_label[i] = idx_
   }
+  noise = 1 * outer(cl_label,cl_label,"==")
   
+  return(noise)
   
 }
-
 
 
 
@@ -206,7 +216,6 @@ boot = function(n, K, x, B){
   res[[2]] = rand_boot
   return(res)
   
-  
 }
 
 
@@ -218,14 +227,14 @@ boot = function(n, K, x, B){
 
 
 ####not working
-boot = function(x, K, B, in_lam, out_lam, gm, theta){
+boot3 = function(x, K, B, in_lam, out_lam, gm, theta){
   #mu = c(1,1)
   #sig = diag(2) * 0.1
   n = length(x)
   rand_boot = rep(0,B)
   Aboot <- matrix(0,n,n)
   D_ = as.matrix(dist(x))
-  for( b_ in 1:B){
+  for(b_ in 1:B){
     noise = matrix(0, n, n)
     count = 1
     for(j in 2:n){
@@ -237,35 +246,15 @@ boot = function(x, K, B, in_lam, out_lam, gm, theta){
           next
         }
         for(i in 2:(j -1)){
-          # print("I")
-          # print(i - 1)
           a = 0
           b = 2000
           for(t_ in 1:(i - 1)){
             if(abs(noise[t_,i] - noise[t_,j]) > a){
               a = abs(noise[t_,i] - noise[t_,j])
-              # print("noise_sub")
-              # print("j")
-              # print(j)
-              # print("t_")
-              # print(t_)
-              # print("i")
-              # print(i)
-              # print(noise[t_,i])
-              # print(noise[t_,j])
             }
             
             if(noise[t_,i] + noise[t_,j] < b){
               b = noise[t_,i] + noise[t_,j]
-              # print("noise_add")
-              # print("j")
-              # print(j)
-              # print("t_")
-              # print(t_)
-              # print("i")
-              # print(i)
-              # print(noise[t_,i])
-              # print(noise[t_,j])
             }
           }
           tmp_e = runif(1,a,b)
@@ -279,41 +268,17 @@ boot = function(x, K, B, in_lam, out_lam, gm, theta){
           next
         }
         for(i in 2:(j -1)){
-          # print("I")
-          # print(i - 1)
           a = 0
           b = 2000
           for(t_ in 1:(i - 1)){
             if(abs(noise[t_,i] - noise[t_,j]) > a){
               a = abs(noise[t_,i] - noise[t_,j])
-              # print("noise_sub")
-              # print("j")
-              # print(j)
-              # print("t_")
-              # print(t_)
-              # print("i")
-              # print(i)
-              # print(noise[t_,i])
-              # print(noise[t_,j])
             }
               
-            
-        
-            #print(noise[t_,i] + noise[t_,j])
             if(noise[t_,i] + noise[t_,j] < b){
               b = noise[t_,i] + noise[t_,j]
-              # print("noise_add")
-              # print("j")
-              # print(j)
-              # print("t_")
-              # print(t_)
-              # print("i")
-              # print(i)
-              # print(noise[t_,i])
-              # print(noise[t_,j])
             }
             
-            # b = min(noise[t_,i] + noise[t_,j], b)
           }
         if(a > b){
           print(a)
@@ -329,10 +294,10 @@ boot = function(x, K, B, in_lam, out_lam, gm, theta){
     noise = noise + t(noise)
     noise = noise * gm #sum(D_) / (n * (n - 1)) 
     bar = noise + D_
-    #dst.star <- as.dist( bar )
-    #hc = hclust(dst.star)
-    #clus = cutree(hc, k = K)
-    clus = pam(bar,K,diss = T)$clustering
+    dst.star <- as.dist( bar )
+    hc = hclust(dst.star)
+    clus = cutree(hc, k = K)
+    # clus = pam(bar,K,diss = T)$clustering
     rand_boot[b_] = adjustedRandIndex(clus, true.clust)
     tmp = outer(clus,clus, "==")
     Aboot <- Aboot + tmp/B
@@ -343,4 +308,56 @@ boot = function(x, K, B, in_lam, out_lam, gm, theta){
   return(res)
 }
 
-  
+
+##simple uniform
+boot4 = function(x, K, B, gm){
+  #mu = c(1,1)
+  #sig = diag(2) * 0.1
+  n = length(x)
+  rand_boot = rep(0,B)
+  Aboot <- matrix(0,n,n)
+  D_ = as.matrix(dist(x))
+  for(b_ in 1:B){
+    noise = matrix(0, n, n)
+    noise[1,] = runif(n,0,1)
+    noise[1,1] = 0
+    for(j in 2:n){
+        if(j < 3){
+          next
+        }
+        for(i in 2:(j -1)){
+          a = 0
+          b = 2000
+          for(t_ in 1:(i - 1)){
+            if(abs(noise[t_,i] - noise[t_,j]) > a){
+              a = abs(noise[t_,i] - noise[t_,j])
+            }
+            if(noise[t_,i] + noise[t_,j] < b){
+              b = noise[t_,i] + noise[t_,j]
+            }
+          }
+          tmp_e = runif(1,a,b)
+          noise[i,j] = tmp_e
+        }
+      }
+    
+    
+    noise = noise + t(noise)
+    noise = noise * gm #sum(D_) / (n * (n - 1)) 
+    bar = noise + D_
+    dst.star <- as.dist( bar )
+    hc = hclust(dst.star)
+    clus = cutree(hc, k = K)
+    # clus = pam(bar,K,diss = T)$clustering
+    rand_boot[b_] = adjustedRandIndex(clus, true.clust)
+    tmp = outer(clus,clus, "==")
+    Aboot <- Aboot + tmp/B
+  }
+  res = list()
+  res[[1]] = Aboot
+  res[[2]] = rand_boot
+  return(res)
+}
+
+
+
