@@ -175,7 +175,7 @@ boot4 = function(x, K, B, gm){
   D_ = as.matrix(dist(x))
   for(b_ in 1:B){
     noise = matrix(0, n, n)
-    noise[1,] = runif(n,0,.2/D_[1,])
+    noise[1,2:n] = runif(n - 1,0,1)
     noise[1,1] = 0
     for(j in 2:n){
         if(j < 3){
