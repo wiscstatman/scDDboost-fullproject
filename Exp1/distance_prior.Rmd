@@ -106,7 +106,7 @@ boot = function(n, K, x, B){
     noise = noise * up_
     noise = noise + t(noise)
     # noise = mimic_dp(n,K)
-    weight = matrix(rexp(n ^ 2, 1/D_), ncol = n)
+    weight = matrix(rexp(n ^ 2, 1), ncol = n)
     noise = noise * weight
     bar = noise + D_
     dst.star <- as.dist( bar )
@@ -279,8 +279,8 @@ mcmc <- list(nburn=nburn,nsave=nsave,nskip=nskip,ndisplay=ndisplay)
 ######data set up complete
 
 ###get results from random_distance and dirichlet process
-# res_dist = boot(length(y),5,y,500)
-res_dist = boot4(y,5,100,5)
+res_dist = boot(length(y),5,y,500)
+# res_dist = boot4(y,5,100,5)
 Aboot = res_dist[[1]]
 rand_boot = res_dist[[2]]
 res_bayes = DP_bayes(y, mcmc, prior, 5)
