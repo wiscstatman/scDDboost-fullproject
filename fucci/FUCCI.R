@@ -36,7 +36,7 @@ for(i in 2:9){
 ##first only consider DD genes between G1 vs G2
 label_ = c(which(cells == 'G1'),which(cells == 'G2'))
 cd = c(rep(1,length(which(cells == 'G1'))),rep(2,length(which(cells == 'G2'))))
-data_count = cbind(G1,G2)
+data_counts = cbind(G1,G2)
 D_c = D_all[label_,label_]
 ccl = pam(D_c,K, T)$clustering  
 ##can view the different composition of subtypes between G1 and G2
