@@ -18,9 +18,9 @@
 
 
 \title{A compositional model to assess expression changes from
- single-cell RNA-seq data\footnote{Department of Biostatistics and Medical Informatics, UW Madison, Technical Report TR***-v1, July **, 2018.}} 
+ single-cell RNA-seq data\footnote{Department of Biostatistics and Medical Informatics, UW Madison, Technical Report TR***-v1, December **, 2018.}} 
 
-\author{Xiuyu Ma,  Christina Kendziorski, and Michael A. Newton}
+\author{Xiuyu Ma,  Keegan Korthauer, Christina Kendziorski, and Michael A. Newton}
  
 \email{newton@biostat.wisc.edu}
 \begin{document}
@@ -100,7 +100,7 @@ $X$, a treatment label vector $y$, and a vector $z$ of latent subtype labels.
 
 We treat subtype counts in the two conditions,  $t^1 = (t^1_1, t^1_2, \cdots, t^1_K )$ and 
 $t^2 = (t^2_1, t^2_2, \cdots, t^2_K)$,  as independent multinomial
-vectors, reflecting the common, two-condition experimental design.  Explicitly,
+vectors, reflecting the elementary experimental design.  Explicitly,
 \begin{eqnarray*}
 t^1 \sim \text{Multinomial}_K( n_1, \phi ) \quad {\mbox {\rm and}} \quad
 t^2 \sim \text{Multinomial}_K( n_2, \psi )
@@ -138,6 +138,8 @@ the marginal distributions over subtypes are finite mixtures:
 f_g^1(x) = \sum_{k=1}^K \phi_k f_{g,k} (x) \quad {\mbox {\rm and}} \quad
 f_g^2(x) = \sum_{k=1}^K \psi_k f_{g,k} (x).
 \end{eqnarray*}
+In alternative notation, $X_{g,c} | y_c=j  \sim f_g^j$ and also $X_{g,c} | z_c=k \sim f_{g,k}$.
+
 We say that gene $g$ is {\em differentially distributed}, denote ${\rm DD}_g$ and indicated
 $f_g^1 \neq f_g^2$,
 if $f_g^1(x) \neq f_g^2(x)$ for some $x$, and otherwise it is equivalently distributed
@@ -177,15 +179,19 @@ the set $\Pi$ containing all partitions $\pi$ of $\{1,2, \cdots, K\}$
  We carry along an example
 involving $K=7$ cell types, and one three-block partition taken
 from the set of 877 possible partitions of $\{1, 2, \cdots, 7\}$ (Figure 1).
+
 \begin{figure}[h!]
-%%  \includegraphics[height = 3.5cm, width=\linewidth]{prop.png}
-  \includegraphics[scale = 0.3]{Figs/prop.png}
+  \includegraphics[width=\linewidth]{Figs/schematic-1.png}
   \caption{Proportions of $K=7$ cellular subtypes in different conditions. 
- Aggregated proportions of subtype 1 and 2, subtype 3, 4, 5, and subtype 6,7 remained same across conditions while proportion of individual subtype changed. A gene, for example, that shows no differential 
-expression between subtypes 1 and 2, and also none among types 3,4, and 5, and none between 6 and 7
- has the same marginal distribution between the two conditions.}
+ Aggregated proportions of subtypes 3 and 4, subtypes 2, 5, and 6, and subtypes 1, and 7 
+ remain same across conditions, while individual subtype frequencies change.  }
   \label{fig:1}
 \end{figure}
+
+%% Xiuyu, the alternative figure you had offered gives the suggestion that blocks of the
+%% partition may need to be contiguous classes, which is not so...; with some other
+%% stylistic differences, I decided to go back to the original; I realize your simulation
+%% was not based on this one, but maybe that's ok
 
 
 For any partition $\pi=\{b\}$, consider aggregate subtype frequencies
