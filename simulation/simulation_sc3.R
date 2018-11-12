@@ -31,28 +31,7 @@ length(rowData(dat)$BaseGeneMean)
 rowData(dat)$BaseGeneMean[1:10]
 
 
-###get index of DD genes 
-tmp = c()
-for(i in 1:K){
-  a = paste0("rowData(dat)$DEFacGroup",i)
-  tmp = union(tmp,which(eval(parse(text = a)) != 1))
-}
 
-DD = tmp
-ED = setdiff(1:nrow(data_counts),DD)
-
-###split into two conditions
-g1 = sample(1:ncol(data_counts),200)
-g2 = setdiff(1:ncol(data_counts),400)
-
-data_counts = data_counts_all[,c(g1,g2)]
-cd = c(rep(1,200),rep(2,200))
-
-
-savefile_ = paste0("simdata",i)
-savefile = paste0(savefile_,".rds")
-
-saveRDS(dat,data_counts,cd,g1,g2,group,DD,ED, file = savefile)
 
 loc = -2
 scale = 2
