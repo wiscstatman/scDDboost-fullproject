@@ -5,6 +5,7 @@ output: html_document
 
 ##Generating simulated data 
 
+ 
 ```{r}
 source_DIR = "~/Desktop/scDDboost/simulation/splatter_data/synData.R"
 source(source_DIR)
@@ -13,12 +14,14 @@ root_DIR = "~/Downloads/data/"
 save_DIR = "~/Desktop/"
 
 params = est_param(root_DIR, 10)
-loc = -2
-scale = 5
+loc = c(-0.1, -0.1, -2, -3)
+scale = c(0.3, 2, 2, 2)
 group_prob <- c(0.3,0.2,0.1,0.15,0.05,0.05,0.15)
-synData(loc, scale, params, group_prob, save_DIR,
+for(i in 1:4){
+  synData(loc[i], scale[i], params, group_prob, save_DIR,
                     nrep = 2, Seed = 10,
                     ncells = 400, de_prob = 0.1)
+}
 
 ```
 
