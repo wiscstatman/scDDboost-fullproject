@@ -134,7 +134,7 @@ split_data = function(loc,scale,n){
 }
 
 ###test for significance
-D_c = cal_D(data_counts, 10)
+D_c = cal_D(data_counts, 2)
 K = 7
 
 sz = MedianNorm(dat)
@@ -203,7 +203,7 @@ run_de = function(loc,scale,n){
     print(names(metadata(consen.D)$sc3))
     consen_matrix = metadata(consen.D)$sc3$consensus[[1]]$consensus
   
-    pDD_sc3 = PDD(data_counts,cd, ncores = 10, K, consen_matrix, sz, hp, pat(K)[[1]],iter = 10, random = F, lambda = mean(consen_matrix), nrandom = 30)
+    pDD_sc3 = PDD(data_counts,cd, ncores = 2, K, consen_matrix, sz, hp, pat(K)[[1]],iter = 1, random = T, lambda = 0.2 * mean(consen_matrix), nrandom = 30)
     
     if(loc < 0){
       save_vec = c("res","_","neg",abs(loc),'_',scale,'_',II,".RData")
@@ -220,6 +220,29 @@ run_de = function(loc,scale,n){
   
   
 }
+
+
+
+####
+X <- SingleCellExperiment(assays = list(normcounts = data_counts),
+colData = colnames(data_counts))
+counts(X) <- normcounts(X)
+logcounts(X) <- log2(normcounts(X) + 1)
+##prepare for further sc3 reladted cal
+rowData(X)$feature_symbol = rownames(data_counts)
+X <- sc3_prepare(X)
+sce <- sc3_estimate_k(X)
+K = metadata(sce)$sc3$k_estimation
+K = 7
+dst.sc3 = sc3_calc_dists(X)
+tran.D = sc3_calc_transfs(dst.sc3)
+pre_output = sc3_kmeans(tran.D,K)
+consen.D = sc3_calc_consens(pre_output)
+print(names(metadata(consen.D)$sc3))
+consen_matrix = metadata(consen.D)$sc3$consensus[[1]]$consensus
+###
+pDD_sc3_nr = PDD(data_counts,cd, ncores = 4, K, consen_matrix, sz, hp, pat(K)[[1]],iter = 1, random = F, lambda = mean(consen_matrix), nrandom = 1)
+
 
 
 
