@@ -2,6 +2,9 @@ library(splatter)
 library(Oscope)
 library(scater)
 library(BiocParallel)
+library(readr)
+library(magrittr)
+library(SingleCellExperiment)
 
 
 loadDataset <- function(dataset, root) {
@@ -144,20 +147,12 @@ synData <- function(loc, scale, params, group_prob, save_DIR,
   K = length(group_prob)
   
   for(i in 1:nrep){
-      ###get index of DD genes
-      tmp = c()
-      for(i in 1:K){
-          a = paste0("rowData(dat)$DEFacGroup",i)
-          tmp = union(tmp,which(eval(parse(text = a)) != 1))
-      }
-      
-      DD = tmp
-      ED = setdiff(1:nrow(data_counts),DD)
+      dat = sims[[i]]
       
       ##get simulated counts and group label
-      data_counts_all = assays(sim[[i]])$counts
+      data_counts_all = assays(dat)$counts
       
-      group = colData(sim[[i]])$Group
+      group = colData(dat)$Group
       
       ###make group1 belong to condition 1 and group 7 belong to condition2
       g11 = which(group == 1)
@@ -181,9 +176,18 @@ synData <- function(loc, scale, params, group_prob, save_DIR,
       data_counts = data_counts_all[,c(g1,g2)]
       cd = c(rep(1,200),rep(2,200))
       
+      ###get index of DD genes
+      tmp = c()
+      for(I in 1:K){
+          a = paste0("rowData(dat)$DEFacGroup",I)
+          tmp = union(tmp,which(eval(parse(text = a)) != 1))
+      }
+      
+      DD = tmp
+      ED = setdiff(1:nrow(data_counts),DD)
       
       
-      if(Loc < 0){
+      if(loc < 0){
         name_vec = c("sim","_","neg",abs(loc),'_',scale,'_',i,".rds")
         filename = paste(name_vec,collapse = '')
       }
@@ -192,6 +196,6 @@ synData <- function(loc, scale, params, group_prob, save_DIR,
         filename = paste(name_vec,collapse = '')
       }
       saveDir = paste0(save_DIR, filename)
-      saveRDS(sim[[i]],data_counts,cd,g1,g2,group,DD,ED,label1,label2, file = saveDir)
+      save(dat,data_counts,cd,g1,g2,group,DD,ED,label1,label2, file = saveDir)
   }
 }
