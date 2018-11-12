@@ -5,6 +5,7 @@
 #!param K number of clusters
 #!param nrd number of how many random dist are generated.
 
+suppressPackageStartupMessages(library(scDDboost))
 
 eval_scDDboost <- function(data_counts, cd, ncores, K, nrd = 30){
   #distance matrix
@@ -26,5 +27,11 @@ eval_scDDboost <- function(data_counts, cd, ncores, K, nrd = 30){
   pDD_nr = PDD(data = data_counts, cd = cd, ncores = 1, K = K, D = D_c,
                sz = sz, hp, pat(K)[[1]], 1, random = F,
                lambda = 1, nrandom = 0)
+  
+  res = list()
+  res$rPDD = pDD
+  res$PDD = pDD_nr
+  return(res)
+  
   
 }
