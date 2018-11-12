@@ -29,7 +29,7 @@ eval_scDDboost <- function(data_counts, cd, ncores, K, nrd = 30){
                lambda = 1, nrandom = 0)
   
   res = list()
-  res$rPDD = pDD
+  res$RPDD = pDD
   res$PDD = pDD_nr
   return(res)
   
