@@ -1,9 +1,8 @@
-#####run deseq2
+#####run DESeq2
 #!param data_counts is a matrix of single cell counts
 #!param cd is condition label 
 
-suppressPackageStartupMessages(library(devtools))
-devtools::load_all("software/DESeq2")
+suppressPackageStartupMessages(library(DESeq2))
 
 eval_DESeq2 = function(data_counts, cd){
   cd = factor(cd)
