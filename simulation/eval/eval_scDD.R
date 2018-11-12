@@ -1,4 +1,6 @@
-
+#####run scDD
+#!param data_counts is a matrix of single cell counts
+#!param cd is condition label
 
 suppressPackageStartupMessages(library(scDD))
 
