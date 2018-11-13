@@ -37,7 +37,7 @@ eval_scDDboost_sc3 <- function(data_counts, cd, ncores, nrd = 30){
             sz = sz, hp, pat(K)[[1]], 1, random = T, 
             lambda = mean(D_c), nrandom = nrd)
   ##posterior based on non random dist
-  pDD_nr = PDD(data = data_counts, cd = cd, ncores = 1, K = K, D = consen_matrix,
+  pDD_sc3_nr = PDD(data = data_counts, cd = cd, ncores = 1, K = K, D = consen_matrix,
                sz = sz, hp, pat(K)[[1]], 1, random = F,
                lambda = 1, nrandom = 0)
   
