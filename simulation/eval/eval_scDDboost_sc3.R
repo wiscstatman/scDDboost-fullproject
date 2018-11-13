@@ -5,7 +5,7 @@
 #!param nrd number of how many random dist are generated.
 
 suppressPackageStartupMessages(library(scDDboost))
-
+suppressPackageStartupMessages(library(SC3))
 eval_scDDboost_sc3 <- function(data_counts, cd, ncores, nrd = 30){
   #distance matrix
   X <- SingleCellExperiment(assays = list(normcounts = data_counts), 
