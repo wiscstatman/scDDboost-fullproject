@@ -4,7 +4,7 @@
 
 suppressPackageStartupMessages(library(DESeq2))
 
-eval_DESeq2 = function(data_counts, cd){
+eval_DESeq2nb = function(data_counts, cd){
   cd = factor(cd)
   dds <- DESeqDataSetFromMatrix(countData = round(data_counts), 
                                 colData = data.frame(condition = cd), 
