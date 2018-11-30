@@ -77,7 +77,7 @@ for( b in 1:B )
 #   e <- rgamma(n,shape=(1))   # makes Gamma[2,] weights;  -c.pdf
 #   e <- rgamma(n,shape=(1/4), rate=(1/4) )   # makes Gamma[1/2,1/2] weights;  -d.pdf
 #   e <- rgamma(n,shape=(1/5), rate=(1/5) )   # makes Gamma[2/5,2/5] weights;  -e.pdf
-   e <- rgamma(n,shape=(1/8), rate=(1/8) )   # makes Gamma[1/4,1/4] weights;  -f.pdf
+   e <- rgamma(n,shape=(5.25), rate=(5.25) )   # makes Gamma[1/4,1/4] weights;  -f.pdf
 
   bar <- dst.m/outer(e,e,"+")
   dst.star <- as.dist(bar)
