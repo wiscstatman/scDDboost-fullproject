@@ -28,15 +28,15 @@ $$P(\Delta_{i,j}) = \frac{(d_0)^{a_0}}{\Gamma(a_0)} (1 / \Delta_{i,j})^{a_0 + 1}
 
 And we have the joint pdf 
 
-$$P(d_{i,j}, \Delta_{i,j}) = \frac{(d_0a_1)^{a_1}d_{i,j}^{a_1 - 1}}{\Gamma(a_0)\Gamma(a_1)} (1 / \Delta_{i,j}) ^ {a_1 + a_0 + 1} e^{-(d_0 + a_1 d_{i,j}) / \Delta{i,j}}$$
+$$P(d_{i,j}, \Delta_{i,j}) = \frac{d_0^{a_0}a_1^{a_1}d_{i,j}^{a_1 - 1}}{\Gamma(a_0)\Gamma(a_1)} (1 / \Delta_{i,j}) ^ {a_1 + a_0 + 1} e^{-(d_0 + a_1 d_{i,j}) / \Delta{i,j}}$$
 
 We integral out $\Delta_{i,j}$. 
 
-$$P(d_{i,j} | a_0, a_1, d_0) = \frac{\Gamma(a_0 + a_1)}{\Gamma(a_0)\Gamma(a_1)} \frac{d_0^{a_1} d_{i,j}^{a_1 - 1}a_1^{a_1}}{(d_0 + a_1 * d_{i,j})^{a_0 + a_1 - 1}}$$
+$$P(d_{i,j} | a_0, a_1, d_0) = \frac{\Gamma(a_0 + a_1)}{\Gamma(a_0)\Gamma(a_1)} \frac{d_0^{a_0} d_{i,j}^{a_1 - 1}a_1^{a_1}}{(d_0 + a_1 * d_{i,j})^{a_0 + a_1}}$$
 
 Taking log and sum over $d_{i,j}$, we obtain the objective function
 
-$$L = \sum_{i, j} \text{log}(P(d_{i,j} | a_0, a_1, d_0)) = \text{log}(\Gamma(a_0 + a_1)) - \text{log}(\Gamma(a_0)) - \text{log}(\Gamma(a_1)) + a_1 \text{log}(d_0) + (a_1 - 1) \text{log}(d_i,j) - $$
+$$L = \sum_{i, j} \text{log}(P(d_{i,j} | a_0, a_1, d_0)) = \text{log}(\Gamma(a_0 + a_1)) - \text{log}(\Gamma(a_0)) - \text{log}(\Gamma(a_1)) + a_1 \text{log}(d_0) + (a_1 - 1) \text{log}(d_{i,j}) - $$
 
 
 
@@ -48,7 +48,24 @@ LL = function(param, x){
   
   n = length(x)
   
+  C = d0 + a1 * x
+  
+  res = n * (lgamma(a0 + a1) - lgamma(a0) - lgamma(a1) + a0 * log(d0) + a1 * log(a1)) + sum((a1 - 1) * log(x)) - sum((a0 + a1) * log(C))
+  
+  return(-res)
+  
 }
+
+a0 = 3
+d0 = 100
+a1 = 20
+
+wt <- 1 / rgamma( 10000, shape=a0, rate= d0 ) 
+dt <- rgamma( 10000, shape=a1, rate=(a1/wt) )
+fit3 <- nlminb( start=c(1,5,10), objective=LL, x=dt, lower=c(0,0,0) )
+LL(c(1,5,10), dt)
+
+```
 
 
 
