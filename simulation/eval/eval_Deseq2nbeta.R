@@ -9,7 +9,7 @@ eval_DESeq2nb = function(data_counts, cd){
   dds <- DESeqDataSetFromMatrix(countData = round(data_counts), 
                                 colData = data.frame(condition = cd), 
                                 design = ~condition)
-  dds <- DESeq(dds,betaPrior = False)
+  dds <- DESeq(dds,betaPrior = F)
   res <- DESeq2::results(dds, contrast = c("condition", levels(factor(cd))[1], 
                                            levels(factor(cd))[2]), alpha = 0.05)
   
