@@ -56,14 +56,30 @@ LL = function(param, x){
   
 }
 
+###true parameter
 a0 = 3
-d0 = 100
-a1 = 20
+d0 = 10
+a1 = 8
 
-wt <- 1 / rgamma( 10000, shape=a0, rate= d0 ) 
-dt <- rgamma( 10000, shape=a1, rate=(a1/wt) )
-fit3 <- nlminb( start=c(1,5,10), objective=LL, x=dt, lower=c(0,0,0) )
-LL(c(1,5,10), dt)
+###optimize N = 100times
+N = 100
+est.a0 = rep(0,N)
+est.d0 = rep(0,N)
+est.a1 = rep(0,N)
+
+for(i in 1:100){
+  wt <- 1 / rgamma( 10000, shape=a0, rate= d0 ) 
+  dt <- rgamma( 10000, shape=a1, rate=(a1/wt) )
+  fit3 <- suppressMessages(nlminb( start=c(1,5,10), objective=LL, x=dt, lower=c(0,0,0) ))
+  est.a0[i] = fit3$par[1]
+  est.d0[i] = fit3$par[2]
+  est.a1[i] = fit3$par[3]
+}
+
+plot(c(rep(c(a0,d0,a1),each = N)) ,c(est.a0,est.d0,est.a1), xlab = "true param", ylab = "estimate param")
+points(a0,a0,col = "red", pch = 19, lwd = 2)
+points(d0,d0,col = "red", lwd = 2)
+points(a1,a1,col = "red", lwd = 2)
 
 ```
 
