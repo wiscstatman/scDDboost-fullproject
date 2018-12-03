@@ -22,8 +22,12 @@ Then the posterior probability that $i$ and $j$ should be clustered is the poste
 
 We consider estimating those hyper parameters through optimizing the likelihood function. 
 
-$$P(d_ij | \Delta_{i,j}) = (a_1 / \Delta_{i,j}) ^ {a_1} / \Gamma(a_1) d_{i,j}^{a_1 - 1} e^{-a_1 / \Delta_{i,j} * d_ij}$$
+$$P(d_ij | \Delta_{i,j}) = \frac{(a_1 / \Delta_{i,j}) ^ {a_1}}{\Gamma(a_1)} d_{i,j}^{a_1 - 1} e^{-\frac{a_1}{\Delta_{i,j}}d_{i,j}}$$
 
+$$P(\Delta_{i,j}) = \frac{(d_0)^{a_0}}{\Gamma(a_0)} (1 / \Delta_{i,j})^{a_0 + 1} e^{-d_0/\Delta_{i,j}}$$
 
+And we have the joint pdf 
+
+$$P(d_{i,j}, \Delta_{i,j}) = \frac{(d_0a_1)^{a_1}d_{i,j}^{a_1 - 1}}{\Gamma(a_0)\Gamma(a_1)} (1 / \Delta_{i,j}) ^ {a_1 + a_0 + 1} e^{-(d_0 + a_1 d_{i,j}) / \Delta{i,j}}$$
 
 
