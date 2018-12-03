@@ -76,10 +76,11 @@ for(i in 1:100){
   est.a1[i] = fit3$par[3]
 }
 
-plot(c(rep(c(a0,d0,a1),each = N)) ,c(est.a0,est.d0,est.a1), xlab = "true param", ylab = "estimate param")
+plot(c(rep(c(a0,d0,a1),each = N)) ,c(est.a0,est.d0,est.a1), 
+     xlab = "true param", ylab = "estimate param")
 points(a0,a0,col = "red", pch = 19, lwd = 2)
-points(d0,d0,col = "red", lwd = 2)
-points(a1,a1,col = "red", lwd = 2)
+points(d0,d0,col = "red", pch = 19, lwd = 2)
+points(a1,a1,col = "red", pch = 19, lwd = 2)
 
 ```
 
