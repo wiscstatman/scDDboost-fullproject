@@ -7,8 +7,8 @@ library(DPpackage)  ## for MCMC
 set.seed(75751)
 
 # a toy data set
-
-mu <- 2*c( rep(-3,15), rep(-1,20), rep(0,20), rep(1,30), rep(5,15) )
+sz = 1
+mu <- 2*c( rep(-3,15 * sz), rep(-1,20 * sz), rep(0,20 * sz), rep(1,30 * sz), rep(5,15 * sz) )
 sig <- 1
 true.clust <- match(mu, unique(mu))
 
@@ -77,9 +77,11 @@ for( b in 1:B )
 #   e <- rgamma(n,shape=(1))   # makes Gamma[2,] weights;  -c.pdf
 #   e <- rgamma(n,shape=(1/4), rate=(1/4) )   # makes Gamma[1/2,1/2] weights;  -d.pdf
 #   e <- rgamma(n,shape=(1/5), rate=(1/5) )   # makes Gamma[2/5,2/5] weights;  -e.pdf
-   e <- rgamma(n,shape=(5.25), rate=(5.25) )   # makes Gamma[1/4,1/4] weights;  -f.pdf
-
-  bar <- dst.m/outer(e,e,"+")
+   #e1 <- rgamma(n^2,shape=(1 / 8 + 1), rate=(1 / 8) )   # makes Gamma[1/4,1/4] weights;  -f.pdf
+   e2 = rgamma(n, shape = 1/8 + 1, rate = 1/8)
+  # e3 = outer(e2, e2, "+")
+  bar <- dst.m/outer(e2,e2,"+")
+  #bar = dst.m/(matrix(e1, ncol = n) + e3)
   dst.star <- as.dist(bar)
   cstar <- pam(dst.star, k=5 )
   tmp <- outer(cstar$clustering,cstar$clustering,"==")
