@@ -63,7 +63,50 @@ library(cluster)
 
 dst <- dist(y)
 
-dst.m <- as.matrix(dst)
+dst.m <- (as.matrix(dst))^2
+
+//LOG_u = function(x){
+//    if(x > 0){
+//        return(log(x))
+//    }
+//    else{
+//        return(0)
+//    }
+//}
+//
+//LOG = function(x){
+//    sapply(x,LOG_u)
+//}
+
+LL = function(param, x){
+    a0 = param[1]   #shape for prior
+    #d0 = param[2]   #rate for prior
+    a1 = param[2]   #shape for sampling model
+    d0 = 2 * sqrt(a0)
+    
+    
+    n = length(x)
+    
+    nc = ncol(x)
+    
+    I = matrix(1,nc,nc)
+    
+    I = I - diag(nc)
+    
+    C = d0 + a1 * x
+    
+    res = (n - nc) * (lgamma(a0 + a1) - lgamma(a0) - lgamma(a1) + a0 * log(d0) + a1 * log(a1)) + sum((a1 - 1) * log(x + diag(nc))) - sum((a0 + a1) * log(C) * I)
+    
+    return(-res)
+}
+
+fit3 <- suppressMessages(nlminb( start=c(2,2), objective=LL, x=dst.m, lower=c(0,0) ))
+
+a0 = fit3$par[1]
+#d0 = fit3$par[2]
+a1 = fit3$par[2]
+
+a = a0 + a1
 
 B <- 1000
 Aboot <- matrix(0,n,n)
@@ -77,15 +120,16 @@ for( b in 1:B )
 #   e <- rgamma(n,shape=(1))   # makes Gamma[2,] weights;  -c.pdf
 #   e <- rgamma(n,shape=(1/4), rate=(1/4) )   # makes Gamma[1/2,1/2] weights;  -d.pdf
 #   e <- rgamma(n,shape=(1/5), rate=(1/5) )   # makes Gamma[2/5,2/5] weights;  -e.pdf
-   #e1 <- rgamma(n^2,shape=(1 / 8 + 1), rate=(1 / 8) )   # makes Gamma[1/4,1/4] weights;  -f.pdf
-   e2 = rgamma(n, shape = 1/8 + 1, rate = 1/8)
-  # e3 = outer(e2, e2, "+")
-  bar <- dst.m/outer(e2,e2,"+")
+#e1 <- rgamma(n^2,shape=(a + 1), rate=(a) )   # makes Gamma[1/4,1/4] weights;  -f.pdf
+  e2 = rgamma(n, shape =  (a + 1) , rate = a)
+  e3 = outer(e2, e2, "+")
+  bar <- dst.m/e2
   #bar = dst.m/(matrix(e1, ncol = n) + e3)
   dst.star <- as.dist(bar)
-  cstar <- pam(dst.star, k=5 )
-  tmp <- outer(cstar$clustering,cstar$clustering,"==")
-  boot.clust[b,] <- cstar$clustering
+  #cstar <- pam(dst.star, k=5 ,diss =T)$clustering
+  cstar = cutree(hclust(dst.star), k = 5)
+  tmp <- outer(cstar,cstar,"==")
+  boot.clust[b,] <- cstar
   Aboot <- Aboot + tmp/B
  }
 

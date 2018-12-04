@@ -22,7 +22,7 @@ Then the posterior probability that $i$ and $j$ should be clustered is the poste
 
 We consider estimating those hyper parameters through optimizing the likelihood function. 
 
-$$P(d_ij | \Delta_{i,j}) = \frac{(a_1 / \Delta_{i,j}) ^ {a_1}}{\Gamma(a_1)} d_{i,j}^{a_1 - 1} e^{-\frac{a_1}{\Delta_{i,j}}d_{i,j}}$$
+$$P(d_{i,j} | \Delta_{i,j}) = \frac{(a_1 / \Delta_{i,j}) ^ {a_1}}{\Gamma(a_1)} d_{i,j}^{a_1 - 1} e^{-\frac{a_1}{\Delta_{i,j}}d_{i,j}}$$
 
 $$P(\Delta_{i,j}) = \frac{(d_0)^{a_0}}{\Gamma(a_0)} (1 / \Delta_{i,j})^{a_0 + 1} e^{-d_0/\Delta_{i,j}}$$
 
@@ -70,7 +70,7 @@ est.a1 = rep(0,N)
 for(i in 1:100){
   wt <- 1 / rgamma( 10000, shape=a0, rate= d0 ) 
   dt <- rgamma( 10000, shape=a1, rate=(a1/wt) )
-  fit3 <- suppressMessages(nlminb( start=c(1,5,10), objective=LL, x=dt, lower=c(0,0,0) ))
+  fit3 <- suppressMessages(nlminb( start=c(2,2,2), objective=LL, x=dt, lower=c(0,0,0) ))
   est.a0[i] = fit3$par[1]
   est.d0[i] = fit3$par[2]
   est.a1[i] = fit3$par[3]
@@ -86,9 +86,11 @@ points(a1,a1,col = "red", pch = 19, lwd = 2)
 
 
 
+##Method of moments
 
+We can also consider method of moments, let $p = \frac{a_1 d_{i,j}}{d_0 + a_1 d_{i,j}}$, then $P(d_{i,j} | a_0, a_1, d_0) = \frac{\Gamma(a_0 + a_1)}{\Gamma(a_0)\Gamma(a_1)} p^{a_1 - 1} (1 - p)^{a_0 - 1} * \frac{a_1 d_0}{(d_0 + a_1 d_{i,j})^2}$
 
-```
+Then E$d_{i,j} = d_0 / (a_0 - 1)$ and E$(d_{i,j})^2 = (a_1 + 1)d_0^2 / (a_0 - 1)(a_0 - 2) a_1$
 
 
 
