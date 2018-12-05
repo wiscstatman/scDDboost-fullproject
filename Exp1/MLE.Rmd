@@ -17,7 +17,7 @@ Further, the simple analysis would ignore any issues about the $d$'s or $\Delta$
 
 $1 / \Delta_{i,j} \sim$ Gamma($a_0, d_0$). The scaling is such that E$(1 / \Delta_{i,j}) = a_0 \ d_0$. The posterior, by conjugacy, has $1 / \Delta_{i,j} | d_{i,j} \sim$ Gamma($a_0 + a_1, d_0 + d_{i,j}$).
 
-Then the posterior probability that $i$ and $j$ should be clustered is the posterior probability that $\Delta_{i,j} < c$, which is $P($Gamma($(a_0 + a_1),(a_0 + a_1)) > (d_0 + a_1 * d_{i,j}) / (a_0 + a_1) * 1/c )
+Then the posterior probability that $i$ and $j$ should be clustered is the posterior probability that $\Delta_{i,j} < c$, which is $P($Gamma($(a_0 + a_1),(a_0 + a_1)) > (d_0 + a_1 * d_{i,j}) / (a_0 + a_1) * 1/c )$
 
 
 We consider estimating those hyper parameters through optimizing the likelihood function. 
