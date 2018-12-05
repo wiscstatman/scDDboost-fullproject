@@ -7,7 +7,7 @@ We consider dividing some weighting random variables to the original distance ma
 
 Alternative we could make $1 / w_{i,j}$ having unit-mean. 
 
-As an approximation, suppose units $i$ and $j$ are merged into a common cluster if (and only if) $d_{i,j} < c$. 
+As an approximation, suppose units $i$ and $j$ are merged into a common cluster if (and only if) $d_{i,j} < c$. Then $P(d^*_{i,j} < c) = P(w_{i,j} > c / d_{i,j})$, $w_{i,j} \sim$ Gamma$(a, a)$
 
 
 
@@ -17,7 +17,7 @@ Further, the simple analysis would ignore any issues about the $d$'s or $\Delta$
 
 $1 / \Delta_{i,j} \sim$ Gamma($a_0, d_0$). The scaling is such that E$(1 / \Delta_{i,j}) = a_0 \ d_0$. The posterior, by conjugacy, has $1 / \Delta_{i,j} | d_{i,j} \sim$ Gamma($a_0 + a_1, d_0 + d_{i,j}$).
 
-Then the posterior probability that $i$ and $j$ should be clustered is the posterior probability that $\Delta_{i,j} < c$, which is ...
+Then the posterior probability that $i$ and $j$ should be clustered is the posterior probability that $\Delta_{i,j} < c$, which is 
 
 
 We consider estimating those hyper parameters through optimizing the likelihood function. 
@@ -36,7 +36,7 @@ $$P(d_{i,j} | a_0, a_1, d_0) = \frac{\Gamma(a_0 + a_1)}{\Gamma(a_0)\Gamma(a_1)} 
 
 Taking log and sum over $d_{i,j}$, we obtain the objective function
 
-$$L = \sum_{i, j} \text{log}(P(d_{i,j} | a_0, a_1, d_0)) = \text{log}(\Gamma(a_0 + a_1)) - \text{log}(\Gamma(a_0)) - \text{log}(\Gamma(a_1)) + a_1 \text{log}(d_0) + (a_1 - 1) \text{log}(d_{i,j}) - $$
+$$L = \sum_{i, j} \text{log}(P(d_{i,j} | a_0, a_1, d_0)) $$
 
 
 
@@ -91,7 +91,6 @@ points(a1,a1,col = "red", pch = 19, lwd = 2)
 We can also consider method of moments, let $p = \frac{a_1 d_{i,j}}{d_0 + a_1 d_{i,j}}$, then $P(d_{i,j} | a_0, a_1, d_0) = \frac{\Gamma(a_0 + a_1)}{\Gamma(a_0)\Gamma(a_1)} p^{a_1 - 1} (1 - p)^{a_0 - 1} * \frac{a_1 d_0}{(d_0 + a_1 d_{i,j})^2}$
 
 Then E$d_{i,j} = d_0 / (a_0 - 1)$ and E$(d_{i,j})^2 = (a_1 + 1)d_0^2 / (a_0 - 1)(a_0 - 2) a_1$
-
 
 
 

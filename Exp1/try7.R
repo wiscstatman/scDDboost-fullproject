@@ -65,25 +65,25 @@ dst <- dist(y)
 
 dst.m <- (as.matrix(dst))^2
 
-//LOG_u = function(x){
-//    if(x > 0){
-//        return(log(x))
-//    }
-//    else{
-//        return(0)
-//    }
-//}
-//
-//LOG = function(x){
-//    sapply(x,LOG_u)
-//}
+LOG_u = function(x){
+    if(x > 0){
+        return(log(x))
+    }
+    else{
+        return(0)
+    }
+}
+
+LOG = function(x){
+    sapply(x,LOG_u)
+}
 
 LL = function(param, x){
     a0 = param[1]   #shape for prior
-    #d0 = param[2]   #rate for prior
-    a1 = param[2]   #shape for sampling model
-    d0 = 2 * sqrt(a0)
-    
+    d0 = param[2]   #rate for prior
+    #a1 = param[3]   #shape for sampling model
+    #d0 = 2 * sqrt(a0)
+    a1 = 1
     
     n = length(x)
     
@@ -100,13 +100,16 @@ LL = function(param, x){
     return(-res)
 }
 
-fit3 <- suppressMessages(nlminb( start=c(2,2), objective=LL, x=dst.m, lower=c(0,0) ))
+fit3 <- suppressMessages(nlminb( start=c(0.1,0.1), objective=LL, x=dst.m, lower=c(0,0,0) , upper = c(2,Inf)))
+
+fit3 <- suppressMessages(nlminb( start=c(0.1,0.1), objective=LL, x=D_c, lower=c(0,0,0) , upper = c(2,Inf)))
+
 
 a0 = fit3$par[1]
-#d0 = fit3$par[2]
-a1 = fit3$par[2]
+d0 = fit3$par[2]
+#a1 = fit3$par[3]
 
-a = a0 + a1
+a = a0 + 1
 
 B <- 1000
 Aboot <- matrix(0,n,n)
@@ -121,9 +124,10 @@ for( b in 1:B )
 #   e <- rgamma(n,shape=(1/4), rate=(1/4) )   # makes Gamma[1/2,1/2] weights;  -d.pdf
 #   e <- rgamma(n,shape=(1/5), rate=(1/5) )   # makes Gamma[2/5,2/5] weights;  -e.pdf
 #e1 <- rgamma(n^2,shape=(a + 1), rate=(a) )   # makes Gamma[1/4,1/4] weights;  -f.pdf
-  e2 = rgamma(n, shape =  (a + 1) , rate = a)
-  e3 = outer(e2, e2, "+")
-  bar <- dst.m/e2
+
+
+  e2 = rgamma(n^2, shape =  (a0 + 1) , rate = a0)
+  bar <- dst.m/matrix(e2, ncol = n)
   #bar = dst.m/(matrix(e1, ncol = n) + e3)
   dst.star <- as.dist(bar)
   #cstar <- pam(dst.star, k=5 ,diss =T)$clustering
@@ -184,7 +188,7 @@ for( b in 1:B )
 #pdf( file="try7-c.pdf" )   ## Gamma[2,] weights; cor = 0.915
 #pdf( file="try7-d.pdf" )   ## Gamma[1/2,] weights;  cor = 0.94
 #pdf( file="try7-e.pdf" )   ## Gamma[2/5,2/5] weights;  cor = 0.945
-pdf( file="try7-f.pdf" )   ## Gamma[1/4,1/4] weights;  cor = 0.947
+pdf( file="try7-g.pdf" )   ## Gamma[1/4,1/4] weights;  cor = 0.947
 
 par(mfrow=c(2,2), mgp=c(2.5,.5,0), mar=c(4,4,1,1) )
 
