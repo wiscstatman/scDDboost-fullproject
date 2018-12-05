@@ -30,7 +30,7 @@ PDD_random = function(data, cd, K, D, sz, hp, Posp, iter, lambda, seed){
     z2<-c(1:K)
     for(i in 1:K){
         ##current index
-        cur<-which(ccl==i)
+        cur<-which(cstar==i)
         z1[i]<-length(which(cur<=n1))
         z2[i]<-length(which(cur>n1))
     }
@@ -38,7 +38,7 @@ PDD_random = function(data, cd, K, D, sz, hp, Posp, iter, lambda, seed){
     np = nrow(Posp)
     #modified_p = sapply(1:np,function(i) sum(post[which(ref[[K]][,i] == 1)]))
     modified_p = t(ref[[K]]) %*% post
-    res = EBS(data,ccl,gcl,sz,iter,hp,Posp)
+    res = EBS(data,cstar,gcl,sz,iter,hp,Posp)
     DE = res$DEpattern
     PED = DE%*%modified_p
     #PDD = (1 - DE[,1]) * post[1]
