@@ -100,9 +100,9 @@ LL = function(param, x){
     return(-res)
 }
 
-fit3 <- suppressMessages(nlminb( start=c(0.1,0.1), objective=LL, x=dst.m, lower=c(0,0,0) , upper = c(2,Inf)))
+fit3 <- suppressMessages(nlminb( start=c(0.1,0.1), objective=LL, x=dst.m, lower=c(0,0) , upper = c(2,Inf)))
 
-fit3 <- suppressMessages(nlminb( start=c(0.1,0.1), objective=LL, x=D_c, lower=c(0,0,0) , upper = c(2,Inf)))
+fit3 <- suppressMessages(nlminb( start=c(0.1,0.1), objective=LL, x=D_c, lower=c(0,0) , upper = c(1,Inf)))
 
 
 a0 = fit3$par[1]
