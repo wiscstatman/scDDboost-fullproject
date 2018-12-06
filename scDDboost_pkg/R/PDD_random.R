@@ -12,13 +12,9 @@
 #' @return posterior probabilities under random distance matrix
 #' @export
 
-PDD_random = function(data, cd, K, D, sz, hp, Posp, iter, lambda, seed){
+PDD_random = function(data, cd, K, D, a, sz, hp, Posp, iter, lambda, seed){
     set.seed(seed)
     n = ncol(D)
-    fit3 <- suppressMessages(nlminb( start=c(0.1,0.1), objective=LL, x=D, lower=c(0,0) , upper = c(2,Inf)))
-    a0 = fit3$par[1]
-    d0 = fit3$par[2]
-    a = a0 + 1
     e <- rgamma(n,shape=(a + 1), rate=(a) )
     bar = D/outer(e,e,"+")
     dst.star <- as.dist(bar)
