@@ -6,7 +6,7 @@
 
 suppressPackageStartupMessages(library(scDDboost))
 suppressPackageStartupMessages(library(SC3))
-eval_scDDboost_sc3 <- function(data_counts, cd, ncores, nrd = 30){
+eval_scDDboost_sc3 <- function(data_counts, cd, ncores, UP, nrd = 30){
   #distance matrix
   X <- SingleCellExperiment(assays = list(normcounts = data_counts), 
                             colData = colnames(data_counts))
@@ -35,11 +35,11 @@ eval_scDDboost_sc3 <- function(data_counts, cd, ncores, nrd = 30){
   ##posterior based on random dist
   pDD_sc3 = PDD(data = data_counts, cd = cd, ncores = ncores, K = K, D = consen_matrix,
             sz = sz, hp, pat(K)[[1]], 1, random = T, 
-            lambda = mean(D_c), nrandom = nrd)
+            UP = UP, nrandom = nrd)
   ##posterior based on non random dist
   pDD_sc3_nr = PDD(data = data_counts, cd = cd, ncores = 1, K = K, D = consen_matrix,
                sz = sz, hp, pat(K)[[1]], 1, random = F,
-               lambda = 1, nrandom = 0)
+               UP = UP, nrandom = 0)
   
   res = list()
   res$RPDD = pDD_sc3
