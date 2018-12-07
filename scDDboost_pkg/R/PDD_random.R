@@ -12,7 +12,7 @@
 #' @return posterior probabilities under random distance matrix
 #' @export
 
-PDD_random = function(data, cd, K, D, a, sz, hp, Posp, iter, lambda, seed){
+PDD_random = function(data, cd, K, D, a, sz, hp, Posp, iter, seed){
     set.seed(seed)
     n = ncol(D)
     e <- rgamma(n,shape=(a + 1), rate=(a) )
