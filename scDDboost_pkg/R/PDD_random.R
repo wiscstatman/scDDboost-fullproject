@@ -18,7 +18,7 @@ PDD_random = function(data, cd, K, D, a, sz, hp, Posp, iter, seed){
     e <- rgamma(n,shape=(a + 1), rate=(a) )
     bar = D/outer(e,e,"+")
     dst.star <- as.dist(bar)
-    cstar = cutree(hclust(dst.star), k = K)
+    cstar = pam(dst.star, k = K)$clustering
     
     gcl = 1:nrow(data)
     n1 = table(cd)[1]
