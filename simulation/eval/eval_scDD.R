@@ -4,7 +4,7 @@
 
 suppressPackageStartupMessages(library(scDD))
 
-eval_scDD = function(data_counts, cd){
+eval_scDD = function(data_counts, cd, ncores){
   
   prior_param=list(alpha=0.01, mu0=0, s0=0.01, a0=0.01, b0=0.01)
   condition = factor(cd)
@@ -12,7 +12,7 @@ eval_scDD = function(data_counts, cd){
                             colData = data.frame(condition))
   
   
-  X_scDD <- scDD(X, prior_param=prior_param, testZeroes=T)
+  X_scDD <- scDD(X, prior_param=prior_param, testZeroes=T, param = BioParallel::MulticoreParam(workers = ncores))
   RES = scDD::results(X_scDD)
   # EDD_sc = which(RES$nonzero.pvalue.adj < 0.05)
   return(RES)

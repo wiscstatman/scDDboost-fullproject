@@ -26,7 +26,7 @@ run_de = function(loc,scale,nrep, ncores, DIR){
     
     des = eval_DESeq2(data_counts, cd)
     
-    scddres = eval_scDD(data_counts, cd)
+    scddres = eval_scDD(data_counts, cd, ncores)
      
     U = 3 
      
@@ -58,7 +58,7 @@ nrep = 2
 ncores = 10
 DIR = "~/Desktop/simu/"
 for(i in 1:4){
-  run_de(loc[i],scale[i],nrep,DIR)
+  run_de(loc[i],scale[i],nrep, ncores, DIR)
 }
 ```
 
