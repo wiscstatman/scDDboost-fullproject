@@ -7,7 +7,6 @@ output: html_document
 
 function to run different DE or DD methods on simulated data.
 ```{r}
-
 run_de = function(loc,scale,nrep, ncores, DIR){
   for(II in 1:nrep){
     if(loc < 0){
@@ -29,9 +28,11 @@ run_de = function(loc,scale,nrep, ncores, DIR){
     
     scddres = eval_scDD(data_counts, cd)
      
-    scddboost_res = eval_scDDboost(data_counts, cd, ncores, K = 7, nrd = 30)
+    U = 3 
+     
+    scddboost_res = eval_scDDboost(data_counts, cd, ncores, K = 7, U, nrd = 30)
     
-    scddboost_sc3_res = eval_scDDboost_sc3(data_counts, cd, ncores, nrd = 30)
+    scddboost_sc3_res = eval_scDDboost_sc3(data_counts, cd, ncores, U, nrd = 30, K = 7)
 
     if(loc < 0){
       save_vec = c("res","_","neg",abs(loc),'_',scale,'_',II,".RData")
@@ -46,6 +47,7 @@ run_de = function(loc,scale,nrep, ncores, DIR){
          DD,ED,mast,des,scddres,scddboost_res,scddboost_sc3_res)
   }
 }
+
 
 ```
 
