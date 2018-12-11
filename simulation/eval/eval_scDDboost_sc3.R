@@ -43,7 +43,7 @@ eval_scDDboost_sc3 <- function(data_counts, cd, ncores, UP, nrd = 30){
   
   res = list()
   res$RPDD = pDD_sc3
-  res$PDD = pDD_nr
+  res$PDD = pDD_sc3_nr
   return(res)
   
 }
