@@ -66,10 +66,10 @@ PDD = function(data, cd, ncores, K, D,sz, hp, Posp, iter, random, UP, nrandom){
     }
     else{
         
-        fit3 <- suppressMessages(nlminb( start=c(0.1,0.1), objective=LL, x=D, lower=c(0,0) , upper = c(UP,Inf)))
-        a0 = fit3$par[1]
-        d0 = fit3$par[2]
-        a = a0 + 1
+        fit3 <- suppressMessages(nlminb( start=c(0.1,0.1), objective=LL, x=D, lower=c(0,0) , upper = c(Inf,UP)))
+        d0 = fit3$par[1]
+        a1 = fit3$par[2]
+        a = a1
         
         
         bp <- BiocParallel::MulticoreParam(ncores)

@@ -7,9 +7,9 @@
 
 
 LL = function(param, x){
-    a0 = param[1]   #shape for prior
-    d0 = param[2]   #rate for prior
-    a1 = 1  #shape for sampling model, consistent with dividing
+    a0 = 1   #shape for prior
+    d0 = param[1]   #rate for prior
+    a1 = param[2]  #shape for sampling model, consistent with dividing
     
     n = length(x)
     
