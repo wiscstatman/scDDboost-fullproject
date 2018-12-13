@@ -1,11 +1,11 @@
 ---
-output: 
+fontsize: 12pt
+output:
+  html_document:
+    df_print: paged
   pdf_document:
     includes:
       before_body: doc_prefix.tex
- 
-fontsize: 12pt
-
 ---
 
 
@@ -155,12 +155,15 @@ and similarly for $\psi_b$. Analogously, $\Phi_\pi$ and $\Psi_\pi$
 accumulated class probabilities $\phi_b$ and $\psi_b$ for all $b \in \pi$,
  respectively. 
 
-```{r, fig.cap="Multinomial probability vectors for two conditions arranged according to a fixed partition", fig.height=4}
+```{r, schematic,  fig.cap="Multinomial probability vectors for two conditions arranged according to a fixed partition", fig.height=4}
 library(RColorBrewer)
 scols <- brewer.pal(7,"Set1")
 set.seed(75751)
 x <- 1:7
 types <- sample(x)
+
+par( mar=c(3,1/2,1/2,1/2) )
+
 plot( x, rep(1,7), axes=FALSE, xlab="",ylab="", type="n", xlim=c(0,8),
         ylim=c(0,5)  )
 u <- 1.8; v <- .4

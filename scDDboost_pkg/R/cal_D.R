@@ -15,9 +15,14 @@ cal_D = function(data,ncores){
     D_cor = matrix(0, nrow = nc, ncol = nc)
     
     D_cor = sapply(1:nc, function(x) sapply(1:nc, function(y) {if(x < y){
-        #tmp = which(cl[,x] != cl[,y])
-        #return(1 - cor(data[tmp, x], data[tmp, y]))
-        return(1 - cor(data[,x], data[,y]))
+        tmpx = data[,x]
+        tmpy = data[,y]
+        tmp = which(tmpx > 0)
+        tmpx[tmp] = log(tmpx[tmp])
+        tmp = which(tmpy > 0)
+        tmpy[tmp] = log(tmpy[tmp])
+        
+        return(1 - cor(tmpx, tmpy))
     }
     else{
         return(0)
