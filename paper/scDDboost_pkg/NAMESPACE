@@ -1,4 +1,0 @@
-useDynLib(scDDboost)
-import(RcppEigen)
-importFrom(Rcpp, evalCpp)
-exportPattern("^[[:alpha:]]+")
