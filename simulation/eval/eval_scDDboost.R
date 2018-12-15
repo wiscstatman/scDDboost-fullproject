@@ -7,7 +7,7 @@
 
 suppressPackageStartupMessages(library(scDDboost))
 
-eval_scDDboost <- function(data_counts, cd, ncores, K, UP, nrd = 30){
+eval_scDDboost <- function(data_counts, cd, ncores, K, U, niter, nrd = 30){
   #distance matrix
   D_c = cal_D(data_counts, ncores)
   #refinement relation
@@ -21,12 +21,12 @@ eval_scDDboost <- function(data_counts, cd, ncores, K, UP, nrd = 30){
   sz = rep(1, ncol(data_counts))
   ##posterior based on random dist
   pDD = PDD(data = data_counts, cd = cd, ncores = ncores, K = K, D = D_c,
-            sz = sz, hp, pat(K)[[1]], 1, random = T, 
-            UP = UP, nrandom = nrd)
+            sz = sz, hp, pat(K)[[1]], niter, random = T, 
+            Upper = U, nrandom = nrd)
   ##posterior based on non random dist
   pDD_nr = PDD(data = data_counts, cd = cd, ncores = 1, K = K, D = D_c,
-               sz = sz, hp, pat(K)[[1]], 1, random = F,
-               UP = UP, nrandom = 0)
+               sz = sz, hp, pat(K)[[1]], niter, random = F,
+               Upper = U, nrandom = 0)
   
   res = list()
   res$RPDD = pDD

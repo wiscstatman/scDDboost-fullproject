@@ -6,7 +6,7 @@
 
 suppressPackageStartupMessages(library(scDDboost))
 suppressPackageStartupMessages(library(SC3))
-eval_scDDboost_sc3 <- function(data_counts, cd, ncores, UP, nrd = 30){
+eval_scDDboost_sc3 <- function(data_counts, cd, ncores, U, niter, nrd = 30, K = 0){
   #distance matrix
   X <- SingleCellExperiment(assays = list(normcounts = data_counts), 
                             colData = colnames(data_counts))
@@ -15,7 +15,9 @@ eval_scDDboost_sc3 <- function(data_counts, cd, ncores, UP, nrd = 30){
   rowData(X)$feature_symbol = rownames(data_counts)
   X <- sc3_prepare(X)
   sce <- sc3_estimate_k(X)
-  K = metadata(sce)$sc3$k_estimation
+  if(K == 0){
+    K = metadata(sce)$sc3$k_estimation
+  }
   dst.sc3 = sc3_calc_dists(X)
   tran.D = sc3_calc_transfs(dst.sc3)
   pre_output = sc3_kmeans(tran.D,K)
@@ -34,12 +36,12 @@ eval_scDDboost_sc3 <- function(data_counts, cd, ncores, UP, nrd = 30){
   sz = rep(1, ncol(data_counts))
   ##posterior based on random dist
   pDD_sc3 = PDD(data = data_counts, cd = cd, ncores = ncores, K = K, D = consen_matrix,
-            sz = sz, hp, pat(K)[[1]], 1, random = T, 
-            UP = UP, nrandom = nrd)
+            sz = sz, hp, pat(K)[[1]], niter, random = T, 
+            Upper = U, nrandom = nrd)
   ##posterior based on non random dist
   pDD_sc3_nr = PDD(data = data_counts, cd = cd, ncores = 1, K = K, D = consen_matrix,
-               sz = sz, hp, pat(K)[[1]], 1, random = F,
-               UP = UP, nrandom = 0)
+               sz = sz, hp, pat(K)[[1]], niter, random = F,
+               Upper = U, nrandom = 0)
   
   res = list()
   res$RPDD = pDD_sc3
