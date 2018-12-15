@@ -7,6 +7,7 @@ output: html_document
 
 function to run different DE or DD methods on simulated data.
 ```{r}
+
 run_de = function(loc,scale,nrep, ncores, DIR){
   for(II in 1:nrep){
     if(loc < 0){
@@ -26,13 +27,13 @@ run_de = function(loc,scale,nrep, ncores, DIR){
     
     des = eval_DESeq2(data_counts, cd)
     
-    scddres = eval_scDD(data_counts, cd, ncores)
+    scddres = eval_scDD(data_counts, cd)
      
     U = 3 
      
-    scddboost_res = eval_scDDboost(data_counts, cd, ncores, K = 7, U, nrd = 30)
+    scddboost_res = eval_scDDboost(data_counts, cd, ncores, K = 7, U, niter = 20, nrd = 30)
     
-    scddboost_sc3_res = eval_scDDboost_sc3(data_counts, cd, ncores, U, nrd = 30, K = 7)
+    scddboost_sc3_res = eval_scDDboost_sc3(data_counts, cd, ncores, U, niter = 20, nrd = 30, K = 7)
 
     if(loc < 0){
       save_vec = c("res","_","neg",abs(loc),'_',scale,'_',II,".RData")
@@ -48,7 +49,6 @@ run_de = function(loc,scale,nrep, ncores, DIR){
   }
 }
 
-
 ```
 
 ```{r}
@@ -58,7 +58,7 @@ nrep = 2
 ncores = 10
 DIR = "~/Desktop/simu/"
 for(i in 1:4){
-  run_de(loc[i],scale[i],nrep, ncores, DIR)
+  run_de(loc[i],scale[i],nrep,DIR)
 }
 ```
 
