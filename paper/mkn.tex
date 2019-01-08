@@ -225,7 +225,7 @@ partitions $\pi_1,\pi_2$, $C_{g,\pi_1} \cap C_{g,\pi_2} = \emptyset$. Further,
 {\rm{ED}}_g = \bigcup_{\pi \in \Pi} C_{g,\pi}.
 \end{eqnarray*}
 \end{theorem}
-With some additional 
+With additional 
 probability structure on the parameter space,  we immediately obtain from Theorem~1 
 a formula for local false discovery rates:
 \begin{align}
@@ -242,7 +242,10 @@ the proposed compositional model and the partition-reliant prior specification.
 \begin{figure}[h!]
   \includegraphics[trim={2.5cm 2.5cm 2.5cm 2.5cm}, clip, width=\linewidth]{Figs/dag.png}
   \caption{Directed acyclic graph structure of compositional 
-model and partition-reliant prior. }
+model and partition-reliant prior. The plate on the right side indicates i.i.d.
+copies over cells $c$, conditionally on mixing proportions and mixing components.
+ Observed data are indicated in rectangles/squares, and unobserved variables
+are in circles/ovals. }
   \label{fig:2}
 \end{figure}
 
