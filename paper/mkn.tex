@@ -225,17 +225,24 @@ partitions $\pi_1,\pi_2$, $C_{g,\pi_1} \cap C_{g,\pi_2} = \emptyset$. Further,
 {\rm{ED}}_g = \bigcup_{\pi \in \Pi} C_{g,\pi}.
 \end{eqnarray*}
 \end{theorem}
-**not right; indepence is given $z$**
-Under the simplifying prior assumption that  $A_\pi$ and $M_{g,\pi}$ are independent, 
-we  have directly from Theorem~1 that:
+With some additional 
+probability structure on the parameter space,  we immediately obtain from Theorem~1 
+a formula for local false discovery rates:
 \begin{align}
 1-P(\text{DD}_g|X,y) = 
- P(\text{ED}_g|X,y) = \sum_{\pi \in \Pi} P\left(A_\pi \cap M_{g,\pi} |X,y 
- \right).
+ P(\text{ED}_g|X,y) = \sum_{\pi \in \Pi} P\left(A_\pi \cap M_{g,\pi} |X,y \right).
 \end{align}
-Thus, the partition representation guides an empirical Bayesian 
-method for scoring  differential distribution.
-**further**
+The partition representation guides construction of a prior distribution (Section 3.1) and an empirical Bayesian 
+method (Section 2.3) for scoring  differential distribution.   Setting the stage, 
+Figure ** shows the dependency structure of 
+the proposed compositional model and the partition-reliant prior specification.
+
+**DAG Figure**
+
+
+
+**on Theorem 2**
+
 \begin{eqnarray*}
   P\left(A_\pi \cap M_{g,\pi} |X,y \right) &=& 
   E\left\{ \left.  P\left(A_\pi \cap M_{g,\pi} |X,y,z \right) \right| X,y 
