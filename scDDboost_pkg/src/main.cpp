@@ -42,31 +42,31 @@ typedef vector<int> V;
 
 
 
-MatrixXd DATA::data;
+// MatrixXd DATA::data;
 
-vector<MatrixXd> DATA::r_d;
+// vector<MatrixXd> DATA::r_d;
 
-vector<MatrixXd> DATA::r_r;
+// vector<MatrixXd> DATA::r_r;
 
-size_t DATA::G;
+// size_t DATA::G;
 
-size_t DATA::K;
+// size_t DATA::K;
 
-MatrixXd DATA::r;
+// MatrixXd DATA::r;
 
-VectorXd DATA::q;
+// VectorXd DATA::q;
 
-VectorXd DC::p;;
+// VectorXd DC::p;;
 
-int DC::gc;
+// int DC::gc;
 
-size_t DC::PT;
+// size_t DC::PT;
 
-vector<int> DC::gclus;
+// vector<int> DC::gclus;
 
-MatrixXi DATA::pat;
+// MatrixXi DATA::pat;
 
-MatrixXd DC::gm;
+// MatrixXd DC::gm;
 
 
 Rcpp::IntegerVector MCP(Rcpp::IntegerVector X, double MASS, Rcpp::NumericVector PARAM);
@@ -340,7 +340,7 @@ RcppExport SEXP EBS(SEXP X, SEXP Y, SEXP Z, SEXP W, SEXP iter, SEXP hyper,SEXP p
         hp[i + 1] = hyp[i + 1];
     
 //        DATA init(data,conditions,sf);
-    DC init(data, conditions, sf, gclus, hp, Part);
+    DC init(data, conditions, sf, gclus, Part);
     
     cout<<"first init"<<endl;
 

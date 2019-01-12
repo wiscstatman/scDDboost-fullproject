@@ -1,0 +1,67 @@
+---
+title: "eval"
+output: html_document
+---
+
+#eval different DE or DD methods
+
+function to run different DE or DD methods on simulated data.
+```{r}
+
+run_de = function(loc,scale,nrep, ncores, DIR){
+  for(II in 1:nrep){
+    if(loc < 0){
+      save_vec = c("simdata","_","neg",abs(loc),'_',scale,'_',II,".RData")
+      filename = paste(save_vec,collapse = '')
+    }
+    else{
+      save_vec = c("simdata","_",abs(loc),'_',scale,'_',II,".RData")
+      filename = paste(save_vec,collapse = '')
+    }
+    
+    readDIR = paste0("/ua/xiuyu/simulation_data/",filename)
+    
+    load(readDIR)
+    
+    mast = eval_MAST(data_counts, cd)
+    
+    des = eval_DESeq2(data_counts, cd)
+    
+    scddres = eval_scDD(data_counts, cd)
+     
+    U = 3 
+     
+    scddboost_res = eval_scDDboost(data_counts, cd, ncores, K = 7, U, niter = 20, nrd = 30)
+    
+    scddboost_sc3_res = eval_scDDboost_sc3(data_counts, cd, ncores, U, niter = 20, nrd = 30, K = 7)
+
+    if(loc < 0){
+      save_vec = c("res","_","neg",abs(loc),'_',scale,'_',II,".RData")
+      savename = paste(save_vec,collapse = '')
+    }
+    else{
+      save_vec = c("res","_",abs(loc),'_',scale,'_',II,".RData")
+      savename = paste(save_vec,collapse = '')
+    }
+    
+    save(file = paste0(DIR,savename),                
+         DD,ED,mast,des,scddres,scddboost_res,scddboost_sc3_res)
+  }
+}
+
+```
+
+```{r}
+loc = c(-0.1, -0.1, -2, -3)
+scale = c(0.3, 2, 2, 2)
+nrep = 2
+ncores = 10
+DIR = "~/Desktop/simu/"
+for(i in 1:4){
+  run_de(loc[i],scale[i],nrep,DIR)
+}
+```
+
+
+
+

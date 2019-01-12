@@ -18,9 +18,9 @@
 
 
 \title{A compositional model to assess expression changes from
- single-cell RNA-seq data\footnote{Department of Biostatistics and Medical Informatics, UW Madison, Technical Report TR***-v1, July **, 2018.}} 
+ single-cell RNA-seq data\footnote{Department of Biostatistics and Medical Informatics, UW Madison, Technical Report TR***-v1, December **, 2018.}} 
 
-\author{Xiuyu Ma,  Christina Kendziorski, and Michael A. Newton}
+\author{Xiuyu Ma,  Keegan Korthauer, Christina Kendziorski, and Michael A. Newton}
  
 \email{newton@biostat.wisc.edu}
 \begin{document}
@@ -100,7 +100,7 @@ $X$, a treatment label vector $y$, and a vector $z$ of latent subtype labels.
 
 We treat subtype counts in the two conditions,  $t^1 = (t^1_1, t^1_2, \cdots, t^1_K )$ and 
 $t^2 = (t^2_1, t^2_2, \cdots, t^2_K)$,  as independent multinomial
-vectors, reflecting the common, two-condition experimental design.  Explicitly,
+vectors, reflecting the elementary experimental design.  Explicitly,
 \begin{eqnarray*}
 t^1 \sim \text{Multinomial}_K( n_1, \phi ) \quad {\mbox {\rm and}} \quad
 t^2 \sim \text{Multinomial}_K( n_2, \psi )
@@ -116,7 +116,7 @@ owing to $\phi \neq \psi$.  We reckon that cells of any given subtype $k$ will
 present data according to a distribution reflecting technical 
 and biological variation specific to that class of cells, regardless of the 
 condition the cell finds itself in.   Some care is needed in this, as an overly
-broad cell subtype (e.g. {\em epithelial cells}) could have
+broad cell subtype (e.g., {\em epithelial cells}) could have
 further subtypes that show differential response to some treatment, for example,
 and so cellular condition (treatment) would then affect the distribution of 
 expression data within the subtype, which is contrary to our working hypothesis.
@@ -138,6 +138,8 @@ the marginal distributions over subtypes are finite mixtures:
 f_g^1(x) = \sum_{k=1}^K \phi_k f_{g,k} (x) \quad {\mbox {\rm and}} \quad
 f_g^2(x) = \sum_{k=1}^K \psi_k f_{g,k} (x).
 \end{eqnarray*}
+In alternative notation, $X_{g,c} | y_c=j  \sim f_g^j$ and also $X_{g,c} | z_c=k \sim f_{g,k}$.
+
 We say that gene $g$ is {\em differentially distributed}, denote ${\rm DD}_g$ and indicated
 $f_g^1 \neq f_g^2$,
 if $f_g^1(x) \neq f_g^2(x)$ for some $x$, and otherwise it is equivalently distributed
@@ -162,9 +164,10 @@ then, other things being equal, $f^1_g = f^2_g$ even though $\phi \neq \psi$.
 Simply, a gene that does not distinguish two subtypes will also not distinguish
 the cellular conditions if those subtypes appear in the same aggregate frequency
 in the two conditions, regardless of changes in the individual subtype 
-frequencies. We formalize this idea in order that our methodology
+frequencies. (A second, pedagogical example is presented in the Supplementary
+Material file.)  We formalize the idea in order that our methodology
 has the necessary functionality.  To do so,  first consider the parameter space 
-$\Theta = \{ (\phi, \psi,\mu, \sigma)  \}$,
+$\Theta = \{ \theta=(\phi, \psi,\mu, \sigma)  \}$,
 where $\phi=(\phi_1, \phi_2, \cdots, \phi_K)$ and $\psi=(\psi_1, \psi_2, \cdots, \psi_K)$ 
 are as before, where $\mu = \{ \mu_{g,k} \}$ holds  all the subtype-and-gene-specific expected
 values, and where $\sigma = \{ \sigma_g \}$ holds all the gene-specific Negative binomial
@@ -177,15 +180,19 @@ the set $\Pi$ containing all partitions $\pi$ of $\{1,2, \cdots, K\}$
  We carry along an example
 involving $K=7$ cell types, and one three-block partition taken
 from the set of 877 possible partitions of $\{1, 2, \cdots, 7\}$ (Figure 1).
+
 \begin{figure}[h!]
-%%  \includegraphics[height = 3.5cm, width=\linewidth]{prop.png}
-  \includegraphics[scale = 0.3]{Figs/prop.png}
+  \includegraphics[width=\linewidth]{Figs/schematic-1.png}
   \caption{Proportions of $K=7$ cellular subtypes in different conditions. 
- Aggregated proportions of subtype 1 and 2, subtype 3, 4, 5, and subtype 6,7 remained same across conditions while proportion of individual subtype changed. A gene, for example, that shows no differential 
-expression between subtypes 1 and 2, and also none among types 3,4, and 5, and none between 6 and 7
- has the same marginal distribution between the two conditions.}
+ Aggregated proportions of subtypes 3 and 4, subtypes 2, 5, and 6, and subtypes 1, and 7 
+ remain same across conditions, while individual subtype frequencies change.  }
   \label{fig:1}
 \end{figure}
+
+%% Xiuyu, the alternative figure you had offered gives the suggestion that blocks of the
+%% partition may need to be contiguous classes, which is not so...; with some other
+%% stylistic differences, I decided to go back to the original; I realize your simulation
+%% was not based on this one, but maybe that's ok
 
 
 For any partition $\pi=\{b\}$, consider aggregate subtype frequencies
@@ -219,39 +226,61 @@ partitions $\pi_1,\pi_2$, $C_{g,\pi_1} \cap C_{g,\pi_2} = \emptyset$. Further,
 {\rm{ED}}_g = \bigcup_{\pi \in \Pi} C_{g,\pi}.
 \end{eqnarray*}
 \end{theorem}
-**not right; indepence is given $z$**
-Under the simplifying prior assumption that  $A_\pi$ and $M_{g,\pi}$ are independent, 
-we  have directly from Theorem~1 that:
+With additional 
+probability structure on the parameter space,  we immediately obtain from Theorem~1 
+a formula for local false discovery rates:
 \begin{align}
+\label{eq:lfdr}
 1-P(\text{DD}_g|X,y) = 
- P(\text{ED}_g|X,y) = \sum_{\pi \in \Pi} P\left(A_\pi \cap M_{g,\pi} |X,y 
- \right).
+ P(\text{ED}_g|X,y) = \sum_{\pi \in \Pi} P\left(A_\pi \cap M_{g,\pi} |X,y \right).
 \end{align}
-Thus, the partition representation guides an empirical Bayesian 
-method for scoring  differential distribution.
-**further**
-\begin{eqnarray*}
-  P\left(A_\pi \cap M_{g,\pi} |X,y \right) &=& 
-  E\left\{ \left.  P\left(A_\pi \cap M_{g,\pi} |X,y,z \right) \right| X,y 
-   \right\} \\
-  &=&  E\left\{ \left.  P\left(A_\pi |y,z \right) \, 
-                      P\left(M_{g,\pi}| X,z \right)  \right| X,y 
-   \right\} 
-\end{eqnarray*}
-Thus, the partition representation guides an empirical Bayesian 
+**{\em maybe a sentence and citations about lfdr}**
+The partition representation guides construction of a prior distribution (Section 3.1) and an empirical Bayesian 
+method (Section 2.3) for scoring  differential distribution.   Setting the stage, 
+Figure~2 shows the dependency structure of 
+the proposed compositional model and the partition-reliant prior specification.
 
+\begin{figure}[h!]
+\includegraphics[trim={4cm 6cm 4cm 6cm}, clip, width=5in]{Figs/dag.png}
+  \caption{Directed acyclic graph structure of compositional 
+model and partition-reliant prior. The plate on the right side indicates i.i.d.
+copies over cells $c$, conditionally on mixing proportions and mixing components.
+ Observed data are indicated in rectangles/squares, and unobserved variables
+are in circles/ovals. }
+  \label{fig:2}
+\end{figure}
 
-In what follows, we develop the  modeling and computational elements necessary  to efficiently evaluate
-$P(\text{DD}_g|X,y)$.  In overview, 
-the methodological  idea is that genome-wide data globally inform
-the cell subtypes via $A_\pi$, and then gene-level data
-locally drive the posterior of $M_{g,\pi}$. The model provides a specific form of information 
-sharing between genes  that leverages the compositional structure of single-cell data. 
+Key to computing the gene-specific 
+local false discovery rate $P(\text{ED}_g|X,y)$ is
+evaluating probabilities $P\left(A_\pi \cap M_{g,\pi} |X,y \right)$ for
+any subtype partition $\pi$ and gene $g$.
+The dependence structure (Figure~2) implies a useful reduction of this
+quantity, at least conditionally upon subtype labels $z=(z_c)$.
+
+\begin{theorem}  
+$  P\left(A_\pi \cap M_{g,\pi} |X,y,z \right) 
+  =  P\left(A_\pi |y,z \right) \, 
+                      P\left(M_{g,\pi}| X,z \right).  $
+\end{theorem}
+
+In what follows, we develop the  modeling and computational elements necessary  to efficiently evaluate inference summaries~(\ref{eq:lfdr}) taking advantage of 
+Theorems~1 and~2.  Roughly, the methodological idea is that subtype labels $z$
+have relatively low uncertainty, and may be estimated from genome-wide 
+clustering of cells in the absence of condition information $y$. The modest bit of uncertainty in $z$
+we handle through a computationally efficient randomized clustering scheme
+(Section 5.2). Theorem~2 indicates that our computational task then separates into
+two parts given $z$.  On one hand, cell subtype frequencies 
+combine with condition labels to give
+$P\left(A_\pi |y,z \right)$. Then gene-level data
+locally drive the posterior probabilities $P\left(M_{g,\pi}| X,z \right)$ that
+measure differential expression between subtypes. 
+Essentially, the model provides a specific form of information 
+sharing between genes  that leverages the compositional structure of single-cell 
+data in order to sharpen our assessments of between-condition expression changes. 
 
 
 \subsection{Method structure and clustering}
 
-**still has no details on clustering methods**
 
 Our approach take transcripts processed by normalizing methods (e.g. SCnorm \cite{ref:Rhonda}). 
 The workflow contains two parts, classify cells into subtypes and posterior inference on distributional change. In the first part, recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus classification process is blind to conditions and can be done by clustering upon similarities between cells(supplementary material). 

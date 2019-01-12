@@ -17,7 +17,7 @@
 #' @export
 
 
-PDD = function(data, cd, ncores, K, D,sz, hp, Posp, iter, random, lambda, nrandom){
+PDD = function(data, cd, ncores, K, D,sz, hp, Posp, iter, random, Upper, nrandom){
     #data(ref.RData)
     gcl = 1:nrow(data)
 
@@ -65,8 +65,15 @@ PDD = function(data, cd, ncores, K, D,sz, hp, Posp, iter, random, lambda, nrando
         return(PDD)
     }
     else{
+        
+        fit3 <- suppressMessages(nlminb( start=c(0.1,0.1), objective=LL, x=D, lower=c(0,0) , upper = c(Inf,Upper)))
+        d0 = fit3$par[1]
+        a1 = fit3$par[2]
+        a = a1
+        
+        
         bp <- BiocParallel::MulticoreParam(ncores)
-        result = bplapply(1:nrandom, function(i) {PDD_random(data, cd, K, D, sz, hp, Posp, iter, lambda, i)}, BPPARAM = bp)
+        result = bplapply(1:nrandom, function(i) {PDD_random(data, cd, K, D, a, sz, hp, Posp, iter, i)}, BPPARAM = bp)
         
         
         boot = matrix(0,nrow=length(result[[1]]),ncol = nrandom)

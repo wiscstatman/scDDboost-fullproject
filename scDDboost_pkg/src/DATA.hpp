@@ -28,25 +28,25 @@ struct hyperparam{
 class DATA{
 public:
     
-    static vector<MatrixXd> r_d;
+    vector<MatrixXd> r_d;
     
-    static vector<MatrixXd> r_r;
+    vector<MatrixXd> r_r;
     
-    static VectorXd c_1;
+    VectorXd c_1;
     
-    static VectorXd r_1;
+    VectorXd r_1;
     
-    static size_t G;
+    size_t G;
     
-    static MatrixXd r;
+    MatrixXd r;
     
-    static size_t K;
+    size_t K;
     
-    static MatrixXd data;
+    MatrixXd data;
     
-    static VectorXd q;
+    VectorXd q;
     
-    static MatrixXi pat;
+    MatrixXi pat;
     
     MatrixXd d_s;
     

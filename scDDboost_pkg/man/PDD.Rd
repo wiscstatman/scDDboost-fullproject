@@ -4,7 +4,7 @@
 \alias{PDD}
 \title{calculate posterior probabilities of a gene to be differential distributed}
 \usage{
-PDD(data, cd, ncores, K, D, sz, hp, Posp, iter, random, lambda, nrandom)
+PDD(data, cd, ncores, K, D, sz, hp, Posp, iter, random, Upper, nrandom)
 }
 \arguments{
 \item{data}{normalized preprocessed transcripts}
@@ -25,9 +25,9 @@ PDD(data, cd, ncores, K, D, sz, hp, Posp, iter, random, lambda, nrandom)
 
 \item{random}{boolean indicator of whether randomzation has been been implemented on distance matrix}
 
-\item{lambda}{parameter for random noise}
-
 \item{nrandom}{number of bagging times}
+
+\item{lambda}{parameter for random noise}
 }
 \value{
 posterior probabilities of a gene to be differential distributed

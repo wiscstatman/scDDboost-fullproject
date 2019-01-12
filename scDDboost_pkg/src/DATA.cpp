@@ -142,7 +142,7 @@ MatrixXd DATA::cal_hp(void){
 
 
 DATA::DATA(MatrixXd& data, const VectorXi& conditions, const VectorXd& sf, const MatrixXi& pp){
-    MatrixXd r;
+    //MatrixXd r;
     this->data=data;
     this->G=data.rows();
     this->r_d=reorg(data,conditions);
