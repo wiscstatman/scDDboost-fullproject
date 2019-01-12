@@ -93,20 +93,21 @@ mimic_dp = function(n, K){
 
 
 
-boot = function(n, K, x, B){
+boot = function(n, K, x, B, wt){
   p_ = 1 / K
   D_ = as.matrix(dist(x))
   rand_boot = rep(0,B)
   Aboot <- matrix(0,n,n)
   
   for(b_ in 1:B){
-    noise = matrix(rbinom(n^2, prob=1-p_,size=1),nrow=n)
+    noise = matrix(rbinom(n^2, prob=1-p_,size=1) + 1,nrow=n) * 0.5
     ## to make noise be a symmetric matrix
     up_ = 1 * upper.tri(noise, diag = FALSE)
     noise = noise * up_
     noise = noise + t(noise)
     # noise = mimic_dp(n,K)
-    weight = matrix(rexp(n ^ 2, 1), ncol = n)
+    weight = matrix(rexp(n ^ 2, wt), ncol = n)
+    #weight = matrix(rep(1 / wt,n^2), ncol = n)
     noise = noise * weight
     bar = noise + D_
     dst.star <- as.dist( bar )
@@ -130,7 +131,7 @@ boot = function(n, K, x, B){
 
 
 
-boot2 = function(n, K, x, B){
+boot2 = function(n, K, x, B,wt){
   p_ = 1 / K
   D_ = as.matrix(dist(x))
   rand_boot = rep(0,B)
@@ -145,7 +146,7 @@ boot2 = function(n, K, x, B){
     # }
     count = count + 1
     # weight = matrix(runif(n ^ 2, 0, 20), ncol = n)
-    weight = matrix(rexp(n ^ 2, 1/D_), ncol = n)
+    weight = matrix(rexp(n ^ 2, wt), ncol = n)
     noise = noise * weight
     bar = noise + D_
     dst.star <- as.dist( bar )
@@ -165,6 +166,160 @@ boot2 = function(n, K, x, B){
   return(res)
 }
 
+pij = function(xi,xj,MU,sig,prob){
+  dsi = dnorm(xi,mean = MU, sd = sig)
+  dsj = dnorm(xj,mean = MU, sd = sig)
+  probi = dsi * prob
+  probj = dsj * prob
+  return(sum(probi * probj) / (sum(probi) * sum(probj)))
+}
+
+
+post = function(D, clus, K){
+  n = ncol(D)
+  class_label = list()
+  prop = rep(0,n)
+  for(i in 1:K){
+    class_label[[i]] = which(clus == i)
+    prop[i] = length(class_label[[i]])
+  }
+  
+  S = matrix(0,n,K)
+  for(i in 1:n){
+    tmp = D[i,]
+    cur_min = 0
+    for(j in 1:K){
+      tmpj = tmp[class_label[[j]]]
+      S[i,j] = sum( tmpj ) / prop[j]
+      cur_min = min(cur_min, S[i,j])
+    }
+    cur_sum = 0
+    for(j in 1:K){
+      tmpp = cur_min - S[i,j]
+      S[i,j] = exp(cur_min - S[i,j])
+      cur_sum = cur_sum + S[i,j]
+    }
+    for(j in 1:K){
+      S[i,j] = S[i,j] / cur_sum
+    }
+  }
+  return(S %*% t(S))
+  
+}
+
+
+boot1 = function(n,K, x, B, wt){
+  D_ = as.matrix(dist(x))
+  est = pam(D_,K,diss = T)
+  mds = as.numeric(est$medoids)
+  mlabel = rep(0,n)
+  for(II in 1:K){
+    mlabel[which(est$clustering == II)] = mds[II]
+  }
+  #tmp_res = pam(D_,K,diss = T)
+  #clus = tmp_res$clustering
+  #P = post(D_, clus, K)
+  #for(i in 1:n){
+    #P[i,i] = 1
+  #}
+  rand_boot = rep(0,B)
+  Aboot <- matrix(0,n,n)
+  D <- matrix(0,n,n)
+  count = 0
+  for(b_ in 1:B){
+    #noise = rexp(n,wt)
+    #NS = 2 * outer(noise, noise , "+")
+    smds = mds[sample(1:K,n,replace = T)]
+    noise = rexp(n * 1,wt)
+    noise = matrix(noise,nrow = n) 
+    NS = matrix(0,n,n)
+    for(i in 1:n){
+      #others = max(noise[i,1], noise[i,2]) + 10
+      others = noise[i,1]
+      NS[i,] = others
+      #NS[i,smds[i]] = noise[i,1]
+      NS[i,smds[i]] = 0
+      #NS[i,mlabel[i]] = noise[i,2]
+    }
+    NS[upper.tri(NS)] = 0
+    diag(NS) = 0
+    NS = NS + t(NS)
+    NS = NS * 2
+    for(i in 1:n){
+      for(j in 1:n){
+        #D[i,j] = (1 - rbinom(1,1, P[i,j])) * wt
+        if(j != smds[i]){
+          #D[i,j] = ((D_[i,j])^2 + NS[i,j])
+          D[i,j] = NS[i,j]
+        }
+        else{
+          D[i,j] = D_[i,j]^2
+        }
+      }
+    }
+    count = count + 1
+    #dst.star <- as.dist( D )
+    #hc = hclust(dst.star,"average")
+    #clus = cutree(hc, k = K)
+    clus = pam(D,K,diss = T)$clustering
+    rand_boot[b_] = adjustedRandIndex(clus, true.clust)
+    tmp = outer(clus,clus, "==")
+    Aboot <- Aboot + tmp
+  }
+  Aboot = Aboot/ count
+  rand_boot = rand_boot[which(rand_boot > 0)]
+  res = list()
+  res[[1]] = Aboot
+  res[[2]] = rand_boot
+  return(res)
+}
+
+
+
+boot3 = function(n, K, x, B, wt, sig, prob){
+  
+    D_ = as.matrix(dist(x))
+    tmp_res = pam(D_,K,diss = T)
+    clus = tmp_res$clustering
+    centers = x[as.numeric(tmp_res$medoids)]
+    
+    tmp_res = kmeans(x, centers)
+    MU = tmp_res$centers
+    
+    p_ = matrix(0,n,n)
+    for(i in 1:(n -1) ){
+      for(j in (i + 1):n){
+        p_[i,j] = pij(x[i],x[j], MU, sig, prob)
+      }
+    }
+    p_ = diag(n) + p_ + t(p_)
+    
+    rand_boot = rep(0,B)
+    Aboot <- matrix(0,n,n)
+    D <- matrix(0,n,n)
+    count = 0
+    for(b_ in 1:B){
+      for(i in 1:n){
+        for(j in 1:n){
+          D[i,j] = (1 - rbinom(1,1, p_[i,j])) * wt
+        }
+      }
+    count = count + 1
+    dst.star <- as.dist( D )
+    hc = hclust(dst.star,"average")
+    clus = cutree(hc, k = K)
+    rand_boot[b_] = adjustedRandIndex(clus, true.clust)
+    tmp = outer(clus,clus, "==")
+    Aboot <- Aboot + tmp
+    
+  }
+  Aboot = Aboot/ count
+  rand_boot = rand_boot[which(rand_boot > 0)]
+  res = list()
+  res[[1]] = Aboot
+  res[[2]] = rand_boot
+  return(res)
+}
 
 boot4 = function(x, K, B, gm){
   #mu = c(1,1)
@@ -221,7 +376,7 @@ boot4 = function(x, K, B, gm){
 Also we have functions to generate $p(c_i = c_j | x)$ based on dirichlet process
 
 ```{r}
-DP_bayes = function(x, mcmc, prior, K){
+DP_bayes = function(x, mcmc, prior, K, f){
   n = length(x)
   state = NULL
   fit = DPlmm( fixed=x~1, random=~1|f, mcmc=mcmc, state=state, status=TRUE, prior=prior )
@@ -229,6 +384,7 @@ DP_bayes = function(x, mcmc, prior, K){
   ok <- fit$save.state$thetasave[,5] == K
   u <- fit$save.state$randsave[ok,-(n+1)]
   B <- sum(ok)
+  prob <- matrix(0, B, K)
   ABayes <- matrix(0, n,n )
   rand_bayes = rep(0,B)
   for( b in 1:B )
@@ -238,10 +394,12 @@ DP_bayes = function(x, mcmc, prior, K){
     tmp = u[b,]
     tt <- match( tmp, unique(tmp) )
     rand_bayes[b] = adjustedRandIndex(tt,true.clust)
+    prob[b,] = table(tmp) / n
   }
   res = list()
   res[[1]] = ABayes
   res[[2]] = rand_bayes
+  res[[3]] = prob
   return(res)
 }
 ```
@@ -254,11 +412,12 @@ library(mclust)
 set.seed(75751)
 
 # a toy data set
-size = 1
+size = 2
 mu <- 2*c( rep(-3,15 * size), rep(-1,20 * size), rep(0,20 * size), rep(1,30 * size), rep(5,15 * size) ) 
-sig <- 1
+sig <-1
 true.clust <- match(mu, unique(mu))
-
+prob = c(0.15,0.2,0.2,0.3,0.15)
+MU = 2 * c(-3,-1,0,1,5)
 n <- length(mu)
 y <- rnorm(n,mean=mu, sd=sig)
 f <- as.factor(1:n)
@@ -270,7 +429,7 @@ f <- as.factor(1:n)
 prior <- list( alpha=1, nu0=1, tau1=0.1, tau2=0.1, tinv=diag(1), mub=0, Sb=diag(1) )
 
 nburn <-50
-nsave <- 1e3
+nsave <- 2e3
 nskip <-100
 ndisplay <-100
 mcmc <- list(nburn=nburn,nsave=nsave,nskip=nskip,ndisplay=ndisplay)
@@ -279,16 +438,26 @@ mcmc <- list(nburn=nburn,nsave=nsave,nskip=nskip,ndisplay=ndisplay)
 ######data set up complete
 
 ###get results from random_distance and dirichlet process
-res_dist = boot(length(y),5,y,500)
+K = 5
+D_ = as.matrix(dist(y))
+tmp_res = pam(D_,K,diss = T)
+clus = tmp_res$clustering
+P = post(D_, clus, K)
+for(i in 1:n){
+  P[i,i] = 1
+}
+#Aboot = P
+res_dist = boot1(length(y),5,y,500,0.5)
 # res_dist = boot4(y,5,100,5)
 Aboot = res_dist[[1]]
 rand_boot = res_dist[[2]]
-res_bayes = DP_bayes(y, mcmc, prior, 5)
+res_bayes = DP_bayes(y, mcmc, prior, 5, f)
 ABayes = res_bayes[[1]]
 rand_bayes = res_bayes[[2]]
+#p = res_bayes[[3]]
+#p_ = apply(p, 2, mean)
 
-
-par(mfrow = c(2,2))
+#par(mfrow = c(2,2))
 image(ABayes, axes=FALSE, main="Bayes")
 image(Aboot,axes = F, main = "Random_Dist")
 plot( ABayes, Aboot )
