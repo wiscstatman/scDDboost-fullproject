@@ -28,16 +28,14 @@ PDD_random = function(data, cd, K, D, sz, hp, Posp, iter, lambda, seed){
     ## weights = d_mean * E
     PD = rep(0, nrow(data))
     #R_D = D_c + weights %o% rep(1,n) + rep(1,n) %o% weights
-<<<<<<< HEAD
     R_D = R_D + noise * 0.0005
 //    ccl = pam(R_D, k = K, diss = T)$clustering
     R_D = as.dist(R_D)
     hc = hclust(R_D)
     ccl = cutree(hc,k = K)
-=======
     R_D = D + noise
     ccl = pam(R_D, k = K, diss = T)$clustering
->>>>>>> a4ad6d55c98147aea98972b75060a2fae1fd1e80
+
     gcl = 1:nrow(data)
     n1 = table(cd)[1]
     z1<-c(1:K)
