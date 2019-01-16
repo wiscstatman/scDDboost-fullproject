@@ -12,7 +12,7 @@ eval_scDD = function(data_counts, cd, ncores){
                             colData = data.frame(condition))
   
   
-  X_scDD <- scDD(X, prior_param=prior_param, testZeroes=T, param = BioParallel::MulticoreParam(workers = ncores))
+  X_scDD <- scDD(X, prior_param=prior_param, testZeroes=T, param = MulticoreParam(workers = ncores))
   RES = scDD::results(X_scDD)
   # EDD_sc = which(RES$nonzero.pvalue.adj < 0.05)
   return(RES)
