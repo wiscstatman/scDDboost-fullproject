@@ -44,12 +44,12 @@ table(ccl[which(cells == 'G1')])
 table(ccl[which(cells == 'G2')])
 
 ##size factor for EBSeq
-sz = MedianNorm(data_count)
-hp = c(1, rep(1,nrow(data_count))) ##get hyper parameter
+sz = MedianNorm(data_counts)
+hp = c(1, rep(1,nrow(data_counts))) ##get hyper parameter
 
-pDD4 = PDD(data = data_count, cd = cd, ncores = 10, K = K, D = D_c,
-           sz = sz, hp, pat(K)[[1]], 10, random = T, lambda = 0.5, nrandom = 20)
-EDDb = which(pDD8 > 0.95)
+pDD = PDD(data = data_counts, cd = cd, ncores = 10, K = K, D = D_c,
+           sz = sz, hp, pat(K)[[1]], 10, random = T, lambda = 100, nrandom = 20)
+EDDb = which(pDD > 0.95)
 length(EDDb)
 #scDD has 6805 DD genes
 
@@ -158,6 +158,134 @@ dev.off()
 pdf("sub7_vs_sub8.pdf")
 plot(pDD7,pDD8)
 dev.off()
+
+
+###check result
+load("~/Desktop/simu/simdata_neg2_2_1.RData")
+load("~/Desktop/simu/res_neg2_2_1.RData")
+library(scDDboost)
+library(MAST)
+
+listsize <- function(pDD, FDR=0.01)
+  
+{
+  
+  ee <- 1-pDD
+  
+  oe <- sort(ee)
+  
+  ff <- cumsum(oe)/(1:length(oe))
+  
+  return( sum( ff <= FDR ) )
+  
+}
+
+
+adj_DD = function(pDD, FDR = 0.01){
+ 
+  ee <- 1-pDD
+  
+  oe <- sort(ee)
+  
+  ff <- cumsum(oe)/(1:length(oe))
+  
+  return( which( ff <= FDR ) )
+}
+#DD_scb = adj_DD(pDD_nr, 0.05)
+alpha = 0.9
+DD_scb = which(pDD_nr > alpha)
+
+DD_des = which(des$pvalue < 1 - alpha)
+
+DD_sc = which(scddres$nonzero.pvalue < 1 - alpha)
+
+DD_mast = which(mast[, "hurdle", "Pr(>Chisq)"] < 1 - alpha)
+
+
+DD_common = intersect(DD_scb,DD_des)
+
+DD_common = intersect(DD_common, DD_sc)
+
+DD_common = intersect(DD_common, DD_mast)
+
+##only those genes that are significant among all methods
+plot(density(pDD_nr[DD_common]), lwd = 2)
+lines(density(1 - des$pvalue[DD_common]), lwd = 2, col = "red")
+lines(density(1 - scddres$nonzero.pvalue[DD_common]), lwd = 2, col = "blue")
+lines(density(1 - mast[DD_common, 'hurdle', 'Pr(>Chisq)'] ) , lwd = 2, col = "green")
+
+
+##valid 
+
+des_v = which(des$pvalue > 0)
+
+sc_v = which(scddres$nonzero.pvalue > 0)
+
+valid = intersect(des_v, sc_v)
+
+DD_valid = intersect(DD, valid)
+
+ED_valid = intersect(ED, valid)
+
+##overall distribution of DD 
+
+plot(density(pDD_nr[DD_valid]), lwd = 2)
+lines(density(1 - des$pvalue[DD_valid]), lwd = 2, col = "red")
+lines(density(1 - scddres$nonzero.pvalue[DD_valid]), lwd = 2, col = "blue")
+lines(density(1 - mast[DD_valid, 'hurdle', 'Pr(>Chisq)'] ) , lwd = 2, col = "green")
+
+##overall distribution of ED
+plot(density(pDD_nr[ED_valid]), lwd = 2)
+lines(density(1 - des$pvalue[ED_valid]), lwd = 2, col = "red")
+lines(density(1 - scddres$nonzero.pvalue[ED_valid]), lwd = 2, col = "blue")
+lines(density(1 - mast[ED_valid, 'hurdle', 'Pr(>Chisq)'] ) , lwd = 2, col = "green")
+
+#scDDboost, DD vs ED
+plot(density(pDD_nr[ED_valid]), lwd = 2)
+lines(density(pDD_nr[DD_valid]), lwd = 2, col = 'red')
+
+plot(density(pDD[ED_valid]), lwd = 2)
+lines(density(pDD[DD_valid]), lwd = 2, col = 'red')
+
+
+plot(density(pDD_sc3[ED_valid]), lwd = 2)
+lines(density(pDD_sc3[DD_valid]), lwd = 2, col = 'red')
+
+plot(density(pDD_sc3_nr[ED_valid]), lwd = 2)
+lines(density(pDD_sc3_nr[DD_valid]), lwd = 2, col = 'red')
+
+pDD = PDD(data = data_counts, cd = cd, ncores = 2, K = K, D = D_c,
+          sz = sz, hp, pat(K)[[1]], 1, random = T, lambda = 5, nrandom = 10)
+
+
+##scDD, DD vs ED
+plot(density(1 - scddres$nonzero.pvalue[ED_valid]), lwd = 2)
+lines(density(1 - scddres$nonzero.pvalue[DD_valid]), lwd = 2, col = "red")
+
+##mast, DD vs ED
+plot(density(1 - mast[ED_valid,'hurdle','Pr(>Chisq)']), lwd = 2)
+lines(density(1 - mast[DD_valid,'hurdle','Pr(>Chisq)']), lwd = 2, col = "res")
+
+##Deseq, DD vs ED
+plot(density(1- des$pvalue[ED_valid]), lwd = 2)
+lines(density(1 - des$pvalue[DD_valid]), lwd = 2, col = 'red')
+
+plot(density(1- desnb_res$pvalue[ED_valid]), lwd = 2)
+lines(density(1 - desnb_res$pvalue[DD_valid]), lwd = 2, col = 'red')
+## DD genes 
+x = 17380
+x %in% DD
+
+I = 300
+plot(density(data_counts[I,which(cd == 1)]), lwd = 2)
+lines(density(data_counts[I, which(cd == 2)]), lwd = 2, col = 'red')
+
+p1 = hist(data_counts[I,which(cd == 1)])
+p2 = hist(data_counts[I, which(cd == 2)])
+plot( p1, col=rgb(0,0,1,1/4), xlim=c(0,40))
+plot( p2, col=rgb(1,0,0,1/4), add=T) 
+
+
 
 
 
