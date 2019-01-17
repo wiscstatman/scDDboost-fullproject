@@ -159,6 +159,14 @@ D.~B. Dahl, ``Modal clustering in a class of product partition models,''
   Available: \url{https://doi.org/10.1214/09-BA409}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Cor}
+\BIBentryALTinterwordspacing
+T.~Kim, I.~R. Chen, Y.~Lin, A.~Y.-Y. Wang, J.~Y.~H. Yang, and P.~Yang, ``Impact
+  of similarity metrics on single-cell rna-seq data clustering,''
+  \emph{Briefings in Bioinformatics}, p. bby076, 2018. [Online]. Available:
+  \url{http://dx.doi.org/10.1093/bib/bby076}
+\BIBentrySTDinterwordspacing
+
 \bibitem{ref:Dickey}
 \BIBentryALTinterwordspacing
 B.~Dickey~J., Lientz, ``The weighted likelihood ratio, sharp hypotheses, and

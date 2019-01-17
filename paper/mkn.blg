@@ -14,45 +14,45 @@ Database file #1: ./references/wlr_ref.bib
 Warning--there's a month but no year in Guo
 
 Done.
-You've used 29 entries,
+You've used 30 entries,
             4087 wiz_defined-function locations,
-            1052 strings with 15758 characters,
-and the built_in function-call counts, 29026 in all, are:
-= -- 2420
-> -- 960
-< -- 221
-+ -- 478
-- -- 197
-* -- 1521
-:= -- 4387
-add.period$ -- 58
-call.type$ -- 29
-change.case$ -- 30
+            1060 strings with 16015 characters,
+and the built_in function-call counts, 29769 in all, are:
+= -- 2486
+> -- 985
+< -- 222
++ -- 490
+- -- 203
+* -- 1555
+:= -- 4502
+add.period$ -- 60
+call.type$ -- 30
+change.case$ -- 31
 chr.to.int$ -- 441
-cite$ -- 30
-duplicate$ -- 2006
-empty$ -- 1929
-format.name$ -- 222
-if$ -- 6732
+cite$ -- 31
+duplicate$ -- 2066
+empty$ -- 1982
+format.name$ -- 229
+if$ -- 6907
 int.to.chr$ -- 0
-int.to.str$ -- 29
-missing$ -- 388
-newline$ -- 168
-num.names$ -- 29
-pop$ -- 847
+int.to.str$ -- 30
+missing$ -- 399
+newline$ -- 173
+num.names$ -- 30
+pop$ -- 876
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 2232
+skip$ -- 2294
 stack$ -- 0
-substring$ -- 1176
-swap$ -- 1837
-text.length$ -- 74
+substring$ -- 1189
+swap$ -- 1882
+text.length$ -- 75
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 29
+type$ -- 30
 warning$ -- 1
-while$ -- 100
-width$ -- 31
-write$ -- 416
+while$ -- 102
+width$ -- 32
+write$ -- 428
 (There was 1 warning)
