@@ -596,40 +596,7 @@ Since we are modeling gene transcript within each subtype as negative binomial d
 **Conquer examples...null and alternative**
 
 We use ten datasets from conquer\cite{ref:Cq} to test performance of our method on empirical data. We compare our results with scDD\cite{ref:scDD}, MAST\cite{ref:MAST} and DESeq2\cite{ref:Des}, we have also investigated performance of scDDboost under different clustering method, here sc3\cite{sc3} is used to couple with scDDboost0, as sc3 did not provide user accessible distance matrix.\\
-\begin{table}[ht]
-\small
-\centering
-\begin{tabular}{ |p{3cm}|p{5cm}|p{3cm}|p{1.5cm}|p{1.5cm}|}
-\hline
- Data set & Compared cell subsets & Number of cells/condition & Organism & Ref\\
- \hline
- \hline
- GSE45719 & 16-cell stage blastomere vs Mid blastocyst cell (92-94h post- fertilization) & 50, 60 & mouse & \cite{Deng193}\\
- \hline
- GSE48968-GPL13112 & BMDC (1h LPS stimulation) vs BMDC(4h LPS stimulation) & 96, 95 & mouse & \cite{Shalek}\\
- \hline
- GSE60749-GPL13112 & v6.5 mouse embryonic stem cells, culture conditions: 2i+LIF vs v6.5 mouse embryonic stem cells, culture conditions: serum+LIF & 90, 94 & mouse & \cite{Kumar}\\
- \hline
- GSE74596 & NKT0 vs NKT17 & 45,44 & mouse & \cite{Engel}\\
- \hline
- EMTAB2805 & G1 vs G2M & 96,96 & mouse & \cite{EMTAB}\\
- \hline
- GSE63818-GPL16791 & Primordial Germ Cells, develop- mental stage: 7 week gestation vs Somatic Cells, developmental stage: 7 week gestation & 39,26 & mouse & \cite{Guo}\\
- \hline
- GSE71585-GPL13112 & Chrna2 tdTpositive vs Cux2 tdTpositive & 84, 124 & mouse & \cite{Tasic}\\
- \hline
-GSE75748 & NPC vs DEC & 64, 87 & human & \cite{chu}\\
-\hline
-GSE75748 & NPC & 64 & human & \cite{chu}\\
-\hline
-GSE75748 & DEC vs EC & 70, 64 & human & \cite{chu}\\
-\hline
-GSE75748 & DEC & 70 & human & \cite{chu}\\
-\hline
-\end{tabular}
-\captionof{table}{single cell transcripts profiles used for differential expression or distribution method evaluation}
-\end{table}
-\hfill\\
+
 We have table of numbers of differentially expressed genes of each dataset by MAST and DESeq2, and numbers of differentially distributed genes of each dataset by scDDboost and scDD.\\
 
 **TEMPORARY..for JSM**
@@ -642,13 +609,17 @@ We have table of numbers of differentially expressed genes of each dataset by MA
  Data set & Conditions & Number of cells/condition & Organism \\
  \hline
  \hline
- GSE74596 & NKT0 vs NKT17 & 45,44 & mouse  \\
+ GSE74596 & NKT1 vs NKT2 & 46, 68 & mouse  \\
  \hline
- GSE63818-GPL16791 & Primordial Germ Cells, develop- mental stage: 7 week gestation vs Somatic Cells, developmental stage: 7 week gestation & 39,26 & mouse  \\
+ GSE63818-GPL16791 & Primordial Germ Cells, develop- mental stage: 7 week gestation vs Somatic Cells, developmental stage: 7 week gestation & 40,26 & mouse  \\
  \hline
- GSE48968-GPL13112 & BMDC (1h LPS stimulation) vs BMDC(4h LPS stimulation) & 96, 95 & mouse \\
+ GSE48968-GPL13112 & BMDC (2h LPS stimulation) vs BMDC(6h LPS stimulation) & 96, 96 & mouse \\
  \hline
  GSE45719 & 16-cell stage blastomere vs Mid blastocyst cell (92-94h post- fertilization) & 50, 60 & mouse \\
+ \hline
+ GSE52529 & T0 vs T24 & 96,96 & human \\
+ \hline
+ GSE60749 & serum+LIF vs 2i+LIF & 90,94 & mouse\\
  \hline
  EMTAB2805 & G1 vs G2M & 96,96 & mouse \\
  \hline
@@ -721,21 +692,23 @@ scDDboost could control FDR since we assume cells are sampled from population co
  Data set & Conditions & Number of cells/condition & Organism \\
 \hline
 \hline
-GSE45719null &  16-cell stage blastomere & 25,25 & mouse \\
+GSE57872null & patient1 & 96,96 & mouse \\
 \hline
-GSE63818null &  7 week gestation & 20,19 & mouse \\
+GSE52529null & T0 & 48, 48 & human \\
 \hline
-GSE48968-GPL13112null & BMDC (1h LPS stimulation) & 48,48 & mouse \\
+GSE48968-GPL13112null & BMDC (2h LPS stimulation) & 48,48 & mouse \\
 \hline
  GSE60749-GPL13112null & v6.5 mouse embryonic stem cells, culture conditions: 2i+LIF & 45,45 & mouse \\
  \hline
- GSE74596null & NKT0 & 23,22 & mouse\\
+ GSE74596null & NKT1 & 23,23 & mouse\\
  \hline
  EMTAB2805null & G1 & 48,48 & mouse\\
  \hline
-GSE71585-GPL13112null & Chrna2 tdTpositive & 42,42 & mouse \\
+GSE71585-GPL13112null &Gad2tdTpositive  & 40,40 & mouse \\
 \hline
-GSE64016null & H1 exp1 vs H1 exp2 & 64, 87 & human \\
+GSE64016null & G1 & 46,45 & human \\
+\hline
+GSE79102null & patient1 & 26, 25 & human\\
 \hline
 \end{tabular}
 \captionof{table}{datasets used for null cases, as cells are coming from same biological condition, there should not be any differential distributed genes, any positive call is false positive}
