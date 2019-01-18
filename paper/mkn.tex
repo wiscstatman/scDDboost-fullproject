@@ -333,8 +333,8 @@ After robustification, we select number of clusters $K$ that posterior probabili
 \Procedure{scDDboost}{$X,y, K, n_r, \lambda$}
 \State distance matrix: $D=\rm{dist}(X) \gets$ pairwise distances between cells (columns of $X$)
 \Repeat
-\State Exponential noise vector: $e$, with components $\sim \text{Exp}(\lambda)$
-\State randomized distance matrix: $D^* \gets D + e\textbf{1}^T +  \textbf{1}e^T$
+\State Gamma noise vector: $e$, with components $\sim \text{Gamma}(a,b)$
+\State randomized distance matrix: $D^* \gets D / (e\textbf{1}^T +  \textbf{1}e^T)$
 \State $P^* \gets\;$ \textsc{scDDboost-core}$(X,y,D^*,K)$
 \Until{$n_r$ randomized distance matrices}
 \State \textbf{return} $\forall \text{genes} \, g, \, P(\text{DD}_g|X,y) = \frac{1}{n_r} 
