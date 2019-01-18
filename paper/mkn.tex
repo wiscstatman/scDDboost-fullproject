@@ -1,5 +1,5 @@
 \documentclass[11pt]{amsart}
-\usepackage{geometry,amsmath,amssymb,amsthm,cite,mathtools,float, caption}                % See geometry.pdf to learn the layout options. There are lots.
+\usepackage{geometry,amsmath,amssymb,amsthm,cite,mathtools,float, caption, comment}                % See geometry.pdf to learn the layout options. There are lots.
 \usepackage[numbers, sort&compress]{natbib}
 \geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
 %\geometry{landscape}                % Activate for for rotated page geometry
@@ -543,13 +543,15 @@ A simulation study was conducted to assess the performance of
 scDDboost in identifying DD genes.
 We simulate data by splatter\cite{ref:Zappia} with approximate 200 cells each condition and 7 subtypes with proportions $\phi$ and $\psi$ from Fig 1 satisfying constraints: $\phi_1 + \phi_2 = \psi_1 + \psi_2$, $\phi_3 + \phi_4 +\phi_5 = \psi_3 + \psi_4 + \psi_5$ and $\phi_6 + \phi_7 = \psi_6 + \psi_7$. Each subtype has 10\% genes to be differential expressed. We view the differences among subtypes by projecting transcripts profiles of cells into its first two principal components(Fig 2). We observed subtypes are well separated, which is driven by genes with heterogeneous distribution between subtypes. 
 \begin{figure}[h!]
-  \includegraphics[ width = 0.4\textwidth]{Figs/pca.png}
-  \caption{first two principal components of transcripts, which demonstrates the difference between subtypes. Even if we projected transcripts of cells into two dimensional space, we observe subtypes are well separated.}
+  \includegraphics[ width = 0.8\textwidth]{Figs/pca.pdf}
+  \caption{first two principal components of transcripts under different parameters for simulated data. Different parameters resulted in different degree of separation of subtypes.}
   \label{fig:4}
 \end{figure}
 
 We determine the number of subtypes by searching a range of candidates(from 1 to 9 based on our empirical experience). Given number of subtypes, we obtain a subtype structure of cells, which will further be fed into computing the posterior probabilities. We visualize the change between posterior probabilities under number of clusters $i$ and $i + 1$($i$ from 1 to 8). It typically remains stable when number of cluster is above a number that is smaller than 9 (Fig 3)
 In the simulated data, the posterior probability become stable when we overestimate the number of subtypes. We found the true number of subtypes is 7 and correctly identify the subtypes of cells.   
+
+\begin{comment}
 
 10\% DE genes in each subtype results in total 8704 DD genes and 8669 ED genes in the mixture of the 7 subtypes.
 Table 1 are numbers of DD or DE genes identified by four methods (scDDboost, scDD, MAST and DESeq2) with target FDR at 5 \%. 
@@ -570,6 +572,8 @@ false positive & 32 & 23 & 51 & 72\\
 \captionof{table}{number of true positive and false positive genes identified by four methods. Target FDR at 5\%}
 \end{table}
 
+\end{comment}
+
 
 scDDboost identified most true DD genes, the reason is that mean expression shifts between conditions is not as significant as mean expression shifts between subtypes, which limits the power of MAST and DESeq2. Our approach and scDD considered mixture structure underlying the transcrips but scDD did not use the whole genome information to infer mixture components, which leads to inaccurate clustering at gene level and reduce the power. Under randomized distance, scDDboost gave an accurate estimation of subtypes and thus are more sensitive to the mean expression change among subtypes. We also compare roc curves of scDDboost, scDD, MAST and DESeq2. (Fig 4)
 \begin{figure}[h]
@@ -583,7 +587,7 @@ scDDboost identified most true DD genes, the reason is that mean expression shif
 \caption{comparison of posterior probabilities of being DD among different number of subtypes, when we underestimate the number of subtypes, the difference is huge, see PDD between 6 subtypes and 7 subtypes. There is an approximate horizontal line with massive points at the top of left panel, which indicate that we underestimate lots of DD genes due to underestimate the number of subtypes. While in the case when we overestimate the number of subtypes 7 subtypes vs. 8 subtypes, though inflating PDD but the variation of difference is small, from 6 to 8 subtypes the PDD become more linear related.}
 \end{figure}
 \begin{figure}[H]
-  \includegraphics[width = 0.4\textwidth]{Figs/roc.png}
+  \includegraphics[width = 0.8\textwidth]{Figs/roc.png}
   \caption{Roc curve of scDDboost, scDD, MAST and DESeq2, scDDboost has largest area under the roc curve. Roc curves of other three methods are similar. For those roc curve there is bigger difference at low level of false positive rate, as scDDboost identified twice many true DD genes as other methods.}
   \label{fig:5}
 \end{figure}
@@ -716,7 +720,7 @@ GSE79102null & patient1 & 26, 25 & human\\
 
 
 \begin{figure}[H]
-\includegraphics[width = 0.4\textwidth]{Figs/FDR.png}
+\includegraphics[width = 0.7\textwidth]{Figs/fdr.pdf}
  \caption{FDR of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. }
   \label{fig:7}
 \end{figure}
