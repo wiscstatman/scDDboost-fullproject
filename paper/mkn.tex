@@ -544,7 +544,7 @@ scDDboost in identifying DD genes.
 We simulate data by splatter\cite{ref:Zappia} with approximate 200 cells each condition and 7 subtypes with proportions $\phi$ and $\psi$ from Fig 1 satisfying constraints: $\phi_1 + \phi_2 = \psi_1 + \psi_2$, $\phi_3 + \phi_4 +\phi_5 = \psi_3 + \psi_4 + \psi_5$ and $\phi_6 + \phi_7 = \psi_6 + \psi_7$. Each subtype has 10\% genes to be differential expressed. We view the differences among subtypes by projecting transcripts profiles of cells into its first two principal components(Fig 2). We observed subtypes are well separated, which is driven by genes with heterogeneous distribution between subtypes. 
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/pca.pdf}
-  \caption{first two principal components of transcripts under different parameters for simulated data. Different parameters resulted in different degree of separation of subtypes.}
+  \caption{first two principal components of transcripts under different parameters for simulated data. Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation, each setting has 2 replicates}
   \label{fig:4}
 \end{figure}
 
@@ -588,7 +588,7 @@ scDDboost identified most true DD genes, the reason is that mean expression shif
 \end{figure}
 \begin{figure}[H]
   \includegraphics[width = 0.8\textwidth]{Figs/roc.png}
-  \caption{Roc curve of scDDboost, scDD, MAST and DESeq2, scDDboost has largest area under the roc curve. Roc curves of other three methods are similar. For those roc curve there is bigger difference at low level of false positive rate, as scDDboost identified twice many true DD genes as other methods.}
+  \caption{Roc curve of scDDboost, scDD, MAST and DESeq2, scDDboost has largest area under the roc curve. Roc curves of other three methods are similar. For those roc curve there is bigger difference at low level of false positive rate, as scDDboost identified twice many true DD genes as other methods.  Roc curves are obtained under different settings of hyper parameters of simulations.}
   \label{fig:5}
 \end{figure}
 
