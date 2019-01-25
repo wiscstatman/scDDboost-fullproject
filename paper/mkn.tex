@@ -737,23 +737,41 @@ GSE79102null & patient1 & 26, 25 & human\\
 \subsection{Number of subtypes}
 From our empirical experience, it is typical $K$ will not be larger than 8. We demonstrate the change of posterior probabilities of differential distribution given different number of subtypes at data GSE75748 and GSE48968. In both cases, if allowing one more subtype would result in a lot increases in posterior probabilities, which suggests that the number of subtypes is underestimated since we found more distribution differences between conditions given one more mixture component. If posterior inference is stable after increasing the number of subtypes, then we consider previous number of subtypes to be optimal. 
 \begin{figure}[H]
+
+\includegraphics[width = 0.7\textwidth]{Figs/s_78_GSE57872.pdf}
+
+\begin{comment}
+
 \minipage{0.5\textwidth}
   \includegraphics[height = 5cm, width=\linewidth]{Figs/DN_67.png}
 \endminipage\hfill
 \minipage{0.5\textwidth}
   \includegraphics[height = 5cm, width=\linewidth]{Figs/DN_78.png}
 \endminipage\hfill
-\caption{selecting number of subtypes for data GSE75748, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD.  We select number of subtypes to be 7}
+
+\end{comment}
+
+\caption{selecting number of subtypes for data GSE57872, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD.  We select number of subtypes to be 7}
 \end{figure}
+
+
 \begin{figure}[H]
+
+\begin{comment}
+
 \minipage{0.5\textwidth}
   \includegraphics[height = 5cm, width=\linewidth]{Figs/G48_56.png}
 \endminipage\hfill
 \minipage{0.5\textwidth}
   \includegraphics[height = 5cm, width=\linewidth]{Figs/G48_67.png}
 \endminipage\hfill
+\end{comment}
+
+\includegraphics[width = 1\textwidth]{Figs/s_789_GSE48968.pdf}
+
 \caption{selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes}
 \end{figure}
+
 
 \subsection{Bursting parameters}
 D3E\cite{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset EMTAB2805\\
