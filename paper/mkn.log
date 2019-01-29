@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  25 JAN 2019 11:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  28 JAN 2019 23:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -550,10 +550,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 644--645
  []
 
 Excluding 'comment' comment.
-<Figs/DDprop.pdf, id=79, 722.7pt x 361.35pt>
-File: Figs/DDprop.pdf Graphic file (type pdf)
-<use Figs/DDprop.pdf>
-Package pdftex.def Info: Figs/DDprop.pdf  used on input line 683.
+<Figs/DD95.pdf, id=79, 722.7pt x 361.35pt>
+File: Figs/DD95.pdf Graphic file (type pdf)
+<use Figs/DD95.pdf>
+Package pdftex.def Info: Figs/DD95.pdf  used on input line 683.
 (pdftex.def)             Requested size: 258.00539pt x 128.9997pt.
 
 Overfull \hbox (11.23502pt too wide) has occurred while \output is active
@@ -575,7 +575,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 690--695
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [16 <./Figs/DDprop.pdf>]
+ [16 <./Figs/DD95.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 706--706
 []\OT1/cmr/m/n/10 Number of
  []
@@ -785,7 +785,7 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  6162 strings out of 492649
- 90001 string characters out of 6129622
+ 89991 string characters out of 6129622
  171255 words of memory out of 5000000
  9769 multiletter control sequences out of 15000+600000
  14321 words of font info for 55 fonts, out of 8000000 for 9000
@@ -811,7 +811,7 @@ ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2018/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2018/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mkn.pdf (31 pages, 1573397 bytes).
+Output written on mkn.pdf (31 pages, 1573305 bytes).
 PDF statistics:
  280 PDF objects out of 1000 (max. 8388607)
  185 compressed objects within 2 object streams
