@@ -281,8 +281,27 @@ data in order to sharpen our assessments of between-condition expression changes
 
 \subsection{Method structure and clustering}
 
-Our approach take transcripts processed by normalizing methods (e.g. SCnorm \cite{ref:Rhonda}). 
-The workflow contains two parts, classify cells into subtypes and posterior inference on distributional change. In the first part, recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus classification process is blind to conditions and can be done by clustering upon similarities between cells(supplementary material). 
+**{\em i still am working on the order of material here...not right yet} **
+We leverage the extensive research on how to cluster cells into subtypes using scRNA-seq data (e.g., 
+ SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}).   We perform clustering on the full set
+of profiles in a way that is blind to the condition label $y$, in order to have as many cells as possible
+to inform the subtype structure.  We investigate several clustering schemes in our numerical experiments and allow 
+flexibility in this choice within the \verb+scDDboost+ software. 
+Associating clusters with subtype labels $\hat z_c$  estimates
+the actual subtypes $z_c$, and prepares us to use Theorems~1 and~2 in order to compute separate
+posterior probabilities $P(A_\pi|y, \hat z)$ and $P(M_{g, \pi}| X, \hat z)$ necessary for scoring
+differential distribution. The first probability concerns patterns of cell counts over subtypes in the two conditions,
+and has a convenient closed form within the {\em double Dirichlet} model introduced in Section~3.1.
+The second probability concerns patterns of changes in expected expression levels among subtypes, and this is
+also conveniently computed for negative binomial counts using \verb+EBSeq+\cite{ref:Leng}. For completeness
+we review in Appendix~A the empirical Bayes model underlying \verb+EBSeq+.  Algorithm~(\ref{alg:scDDcore})
+summarizes how these elements combine to get the posterior probability of differential distribution per gene,
+conditional on an estimate of the subtype labels.
+
+
+%Our approach take transcripts processed by normalizing methods (e.g. SCnorm \cite{ref:Rhonda}). 
+%The workflow contains two parts, classify cells into subtypes and posterior inference on distributional change. In the first part, recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus classification process is blind to conditions and can be done by clustering upon similarities between cells(supplementary material). 
+
 \begin{algorithm}
 \caption{scDDBoost-core}\label{alg:scDDcore}
 \raggedright\hspace*{\algorithmicindent} \textbf{Input}: \begin{list}{}{}
@@ -305,10 +324,8 @@ The workflow contains two parts, classify cells into subtypes and posterior infe
 \end{algorithm}
 
 
-After identification of subtypes, the second part of our procedure infers patterns of differential expression($M_{g,\pi}$) and aggregated proportions of subtypes($A_\pi$)
-through empirical Bayes. Specifically, $P(M_{g,\pi} | X, \hat{z})$ is done with EBSeq\cite{ref:Leng} and we present details of calculating $P(A_\pi | \hat{z})$ in next section. Combining those components, per gene differential distributed probability is obtained.
 
-One advantage of our approach is that the posterior inference can be incorporate with different clustering methods. With the development of technology, clustering methods taking care of newly discovered characteristic of scRNA seq data (e.g. SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}) could be substituted with our default one. No matter what clustering method is used, we estimate the mixture structure utilizing the whole genome information rather than estimating a gene specific mixture structure solely using information of that gene. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach \textsc{scDDboost}. 
+%One advantage of our approach is that the posterior inference can be incorporate with different clustering methods. With the development of technology, clustering methods taking care of newly discovered characteristic of scRNA seq data (e.g. SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}) could be substituted with our default one. No matter what clustering method is used, we estimate the mixture structure utilizing the whole genome information rather than estimating a gene specific mixture structure solely using information of that gene. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach \textsc{scDDboost}. 
 
 We defined distance between cells by weighted average of two metrics. First metrics ensembled gene level information by cluster-based similarity partitioning algorithm(\cite{ref:cspa}) where we applied modal cluster (\cite{ref:dahl}) for each gene to obtain a partition of cells and defined the dissimilarity between cells as proportion of genes that the two cells are assigned to different clusters. 
 Second metrics defined dissimilarity by 1 - Pearson correlation between cells. There are two reasons we considered these two metrics, first reason is that such cluster based distance is more stable to the outlier than Eculidean distance, faster to compute than many current distance in other clustering method(e.g. sc3 and CIDR). Second reason is that correlation based metrics (e.g Pearson correlation) generally outperformed the distance based metrics (e.g. Euclidean distance)(\cite{Cor}) and considering correlation can add extra information about subtypes between cells. The weights of the two metrics is given by $w_C = \frac{\sigma_C}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_E$. where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster based distance and Pearson correlation distance accordingly.  
@@ -941,7 +958,13 @@ From simulation and empirical studies, we obtained stabilized posterior probabil
 \bibliography{./references/wlr_ref}
 
 \newpage
+
 \appendix
+\section{}
+
+*review EBseq model*
+
+
 \section{}
 \hfill\\
 \begin{lemma}
