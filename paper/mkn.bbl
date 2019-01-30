@@ -136,13 +136,9 @@ S.~Anders and W.~Huber, ``Differential expression analysis for sequence count
   \url{http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3218662/}
 \BIBentrySTDinterwordspacing
 
-\bibitem{ref:Rhonda}
-\BIBentryALTinterwordspacing
-R.~Bacher, L.-F. Chu, N.~Leng, A.~P. Gasch, J.~A. Thomson, R.~M. Stewart,
-  M.~Newton, and C.~Kendziorski, ``Scnorm: robust normalization of single-cell
-  rna-seq data,'' \emph{Nature Methods}, vol.~14, pp. 584 EP --, 04 2017.
-  [Online]. Available: \url{http://dx.doi.org/10.1038/nmeth.4263}
-\BIBentrySTDinterwordspacing
+\bibitem{kmedoids}
+L.~Kaufman and P.~Rousseeuw, \emph{Clustering by means of medoids}.\hskip 1em
+  plus 0.5em minus 0.4em\relax North-Holland, 1987.
 
 \bibitem{ref:cspa}
 \BIBentryALTinterwordspacing

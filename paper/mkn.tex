@@ -292,8 +292,8 @@ posterior probabilities $P(A_\pi|y, \hat z)$ and $P(M_{g, \pi}| X, \hat z)$ nece
 differential distribution. The first probability concerns patterns of cell counts over subtypes in the two conditions,
 and has a convenient closed form within the {\em double Dirichlet} model introduced in Section~3.1.
 The second probability concerns patterns of changes in expected expression levels among subtypes, and this is
-also conveniently computed for negative binomial counts using \verb+EBSeq+\cite{ref:Leng}. For completeness
-we review in Appendix~A the empirical Bayes model underlying \verb+EBSeq+.  Algorithm~\ref{alg:scDDcore}
+also conveniently computed for negative binomial counts using \textsc{EBSeq} \cite{ref:Leng}. For completeness
+we review in Appendix~A the empirical Bayes model underlying \textsc{EBSeq}.  Algorithm~\ref{alg:scDDcore}
 summarizes how these elements combine to get the posterior probability of differential distribution per gene,
 conditional on an estimate of the subtype labels.
 
@@ -326,10 +326,10 @@ conditional on an estimate of the subtype labels.
 
 %%One advantage of our approach is that the posterior inference can be incorporate with different clustering methods. With the development of technology, clustering methods taking care of newly discovered characteristic of scRNA seq data (e.g. SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}) could be substituted with our default one. No matter what clustering method is used, we estimate the mixture structure utilizing the whole genome information rather than estimating a gene specific mixture structure solely using information of that gene. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach \textsc{scDDboost}. 
 
-We invoke distance-based $K-$medoids (cite) 
+We invoke $K-$medoids (\cite{kmedoids}) 
 as the default clustering method in \textsc{scDDboost}, and customize the cell-cell distance by integrating two metrics.  
 The first metric assembles gene-level information by cluster-based-similarity partitioning (\cite{ref:cspa}).
- Separately at each gene,   modal clustering (\cite{ref:dahl}) partitions the cells, and
+ Separately at each gene,   modal clustering (\cite{ref:dahl} and Appendix B) partitions the cells, and
 then we define dissimilarity between cells as the proportion of genes at which the cells are assigned to different clusters. 
 A second metric defines dissimilarity by 1 - Pearson correlation between cells, which is computationally inexpensive,
 less sensitive to outliers than Euclidean distance, and effective at detecting cellular clusters in scRNA-seq(\cite{Cor}).
@@ -343,7 +343,7 @@ randomized clusterings $\hat z^*$.  These are not uniformly random, but rather a
 to a randomized distance matrix $D^*=\left( d_{i,j}\times w_{i,j}\right)$, 
 where $w_{i,j}$ are  unit mean, non-negative weights
 $w_{i,j} = 1/( e_i + e_j )$, and where $( e_i) $ are independent and identically Gamma$(\hat a, \hat b)$ distributed
-deviates for hyper-parameters $(\hat a, \hat b)$ derived from $D$.   We argue (Appendix B) that the distribution of
+deviates for hyper-parameters $(\hat a, \hat b)$ derived from $D$.   We argue (Appendix C) that the distribution of
 clusterings induced by this simple scheme approximates a Bayesian posterior analysis.   Pseudo-code for the resulting
 \textsc{scDDboost} is in Algorithm~(\ref{alg:scDDboost}).
 
@@ -986,6 +986,10 @@ From simulation and empirical studies, we obtained stabilized posterior probabil
 \section{}
 
 *review EBseq model*
+
+\section{}
+
+On the Poisson version of modal clust
 
 \section{}
 
