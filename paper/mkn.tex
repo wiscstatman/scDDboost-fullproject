@@ -18,7 +18,7 @@
 
 
 \title{A compositional model to assess expression changes from
- single-cell RNA-seq data\footnote{Department of Biostatistics and Medical Informatics, UW Madison, Technical Report TR***-v1, December **, 2018.}} 
+ single-cell RNA-seq data\footnote{Department of Biostatistics and Medical Informatics, UW Madison, Technical Report TR***-v1, February **, 2019.}} 
 
 \author{Xiuyu Ma,  Keegan Korthauer, Christina Kendziorski, and Michael A. Newton}
  
@@ -33,8 +33,8 @@ analysis challenges caused by the scale and unique variation properties of singl
 data will surely fuel further advances in immunology\cite{immune}, developmental
 biology\cite{dv}, cancer\cite{cancer}, and other areas. 
  Computational tools and statistical methodologies 
-created for data of lower-resolution (e.g. bulk RNA-seq) or lower dimension 
-(e.g. flow cytometry)  guide our response to 
+created for data of lower-resolution (e.g., bulk RNA-seq) or lower dimension 
+(e.g., flow cytometry)  guide our response to 
  the data science demands of new measurement platforms,
 but they are not adequate for efficient knowledge discovery in this
 rapidly advancing domain\cite{Bacher:2016aa}.
@@ -45,10 +45,9 @@ determined by lineage history, epigenetic state, the activity
 of various transcriptional programs, or other 
 distinguishing factors. Lots of efforts have been made to clustering cells
 into different cell subtypes, SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}.
-Whether or not a determination of cellular subtypes and their frequencies 
-is a task of interest in a given application, we hypothesize that such
-subtype information may be injected into other inferences in order
-to improve their operating characteristics. *cumbersome sentence*
+We hypothesize that such
+subtype information may be usefully injected into various inference procedures in order
+to improve their operating characteristics. 
 
 Assessing the magnitude and statistical significance of changes in gene
 expression associated with different cellular conditions has been a central
@@ -76,7 +75,8 @@ We also obtained asymptotic properties of posterior inference.
 The proposed scDDboost methodology extends scDD\cite{ref:scDD}, which similarly treats expression data within a condition as a statistical mixture.   
 The extension provided by the present work is to recognize that this mixture is a mixture over cell subtypes.  
 Thus genome-wide data provide information on mixing proportions, thereby providing useful
-structural information into each gene-level calculation
+structural information into each gene-level calculation.   A software implementation of the proposed methodology 
+is available in the R package \textsc{scDDboost}, at \verb+http://github.com/wiscstatman/scDDboost/+
 
 \section{Modeling}
 \subsection{Data structure, sampling model, and parameters}
@@ -281,8 +281,26 @@ data in order to sharpen our assessments of between-condition expression changes
 
 \subsection{Method structure and clustering}
 
-Our approach take transcripts processed by normalizing methods (e.g. SCnorm \cite{ref:Rhonda}). 
-The workflow contains two parts, classify cells into subtypes and posterior inference on distributional change. In the first part, recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus classification process is blind to conditions and can be done by clustering upon similarities between cells(supplementary material). 
+We leverage the extensive research on how to cluster cells into subtypes using scRNA-seq data (e.g., 
+ SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}).   We propose clustering on the full set
+of profiles in a way that is blind to the condition label $y$, in order to have as many cells as possible
+to inform the subtype structure.  We investigated several clustering schemes in numerical experiments and allow 
+flexibility in this choice within the \textsc{scDDboost} software. 
+Associating clusters with subtype labels $\hat z_c$  estimates
+the actual subtypes $z_c$, and prepares us to use Theorems~1 and~2 in order to compute separate
+posterior probabilities $P(A_\pi|y, \hat z)$ and $P(M_{g, \pi}| X, \hat z)$ necessary for scoring
+differential distribution. The first probability concerns patterns of cell counts over subtypes in the two conditions,
+and has a convenient closed form within the {\em double Dirichlet} model introduced in Section~3.1.
+The second probability concerns patterns of changes in expected expression levels among subtypes, and this is
+also conveniently computed for negative binomial counts using \textsc{EBSeq} \cite{ref:Leng}. For completeness
+we review in Appendix~A the empirical Bayes model underlying \textsc{EBSeq}.  Algorithm~\ref{alg:scDDcore}
+summarizes how these elements combine to get the posterior probability of differential distribution per gene,
+conditional on an estimate of the subtype labels.
+
+
+%Our approach take transcripts processed by normalizing methods (e.g. SCnorm \cite{ref:Rhonda}). 
+%The workflow contains two parts, classify cells into subtypes and posterior inference on distributional change. In the first part, recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus classification process is blind to conditions and can be done by clustering upon similarities between cells(supplementary material). 
+
 \begin{algorithm}
 \caption{scDDBoost-core}\label{alg:scDDcore}
 \raggedright\hspace*{\algorithmicindent} \textbf{Input}: \begin{list}{}{}
@@ -305,18 +323,38 @@ The workflow contains two parts, classify cells into subtypes and posterior infe
 \end{algorithm}
 
 
-After identification of subtypes, the second part of our procedure infers patterns of differential expression($M_{g,\pi}$) and aggregated proportions of subtypes($A_\pi$)
-through empirical Bayes. Specifically, $P(M_{g,\pi} | X, \hat{z})$ is done with EBSeq\cite{ref:Leng} and we present details of calculating $P(A_\pi | \hat{z})$ in next section. Combining those components, per gene differential distributed probability is obtained.
 
-One advantage of our approach is that the posterior inference can be incorporate with different clustering methods. With the development of technology, clustering methods taking care of newly discovered characteristic of scRNA seq data (e.g. SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}) could be substituted with our default one. No matter what clustering method is used, we estimate the mixture structure utilizing the whole genome information rather than estimating a gene specific mixture structure solely using information of that gene. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach \textsc{scDDboost}. 
+%%One advantage of our approach is that the posterior inference can be incorporate with different clustering methods. With the development of technology, clustering methods taking care of newly discovered characteristic of scRNA seq data (e.g. SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}) could be substituted with our default one. No matter what clustering method is used, we estimate the mixture structure utilizing the whole genome information rather than estimating a gene specific mixture structure solely using information of that gene. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach \textsc{scDDboost}. 
 
-We defined distance between cells by weighted average of two metrics. First metrics ensembled gene level information by cluster-based similarity partitioning algorithm(\cite{ref:cspa}) where we applied modal cluster (\cite{ref:dahl}) for each gene to obtain a partition of cells and defined the dissimilarity between cells as proportion of genes that the two cells are assigned to different clusters. 
-Second metrics defined dissimilarity by 1 - Pearson correlation between cells. There are two reasons we considered these two metrics, first reason is that such cluster based distance is more stable to the outlier than Eculidean distance, faster to compute than many current distance in other clustering method(e.g. sc3 and CIDR). Second reason is that correlation based metrics (e.g Pearson correlation) generally outperformed the distance based metrics (e.g. Euclidean distance)(\cite{Cor}) and considering correlation can add extra information about subtypes between cells. The weights of the two metrics is given by $w_C = \frac{\sigma_C}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_E$. where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster based distance and Pearson correlation distance accordingly.  
- We use K-means to classify cells into subtypes based on the final distance. 
+We invoke $K-$medoids (\cite{kmedoids}) 
+as the default clustering method in \textsc{scDDboost}, and customize the cell-cell distance by integrating two metrics.  
+The first metric assembles gene-level information by cluster-based-similarity partitioning (\cite{ref:cspa}).
+ Separately at each gene,   modal clustering (\cite{ref:dahl} and Appendix B) partitions the cells, and
+then we define dissimilarity between cells as the proportion of genes at which the cells are assigned to different clusters. 
+A second metric defines dissimilarity by 1 - Pearson correlation between cells, which is computationally inexpensive,
+less sensitive to outliers than Euclidean distance, and effective at detecting cellular clusters in scRNA-seq(\cite{Cor}).
+ We combine the two metrics by a weighted average, 
+with  $w_C = \frac{\sigma_C}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_E$. where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster based distance and Pearson correlation distance accordingly.   **XM, please clarify**
+The resulting distance matrix is $D=\left( d_{i,j} \right)$.
 
-Although there are various options for clustering methods, none of them guarantee the accuracy and posterior inference of differential distributed genes can be sensitive to the initial partition. Here we provide a method to make our inferences robust to partitions. Given number of subtypes $K$, the final posterior probabilities is obtained by averaging results from iterative run of \textsc{scDDboost-core}  with randomly generated subtype labels $z^*$. Taking account of information contained in $D = dist(X)$ , instead of purely random assigning subtype labels, we generate the distance matrices of cells $D^*$ by dividing weights to the original one and assign labels based on $D^*$. Specifically,  we random sample a noise vector $e$ with length equal to number of cells and components are i.i.d. gamma distributed,  then constructing the weighting matrix $W$ by $W_{i,j} = e_i + e_j$ and random distance matrix is obtained by $D^* = D /  W$(division is performed componentwisely).  The choice of gamma distributed weights and dividing transformation is to matched the probability of two units classified into the same group under random weighting to bayesian framework (supplementary material). 
-After robustification, we select number of clusters $K$ that posterior probabilities do not vary too
- much under $K$ and $K+1$.  We validate our procedure in simulated and empirical data
+Any clustering method  entails classification errors, and so $\hat z_c \neq z_c$ for some cells. To mitigate
+the effects of this uncertainty, \textsc{scDDboost} averages output probabilities from \textsc{scDDboost-core} over
+randomized clusterings $\hat z^*$.  These are not uniformly random, but rather are generated by applying $K-$medoids
+to a randomized distance matrix $D^*=\left( d_{i,j}\times w_{i,j}\right)$, 
+where $w_{i,j}$ are  unit mean, non-negative weights
+$w_{i,j} = 1/( e_i + e_j )$, and where $( e_i) $ are independent and identically Gamma$(\hat a, \hat b)$ distributed
+deviates for hyper-parameters $(\hat a, \hat b)$ derived from $D$.   We argue (Appendix C) that the distribution of
+clusterings induced by this simple scheme approximates a Bayesian posterior analysis.   Pseudo-code for the resulting
+\textsc{scDDboost} is in Algorithm~(\ref{alg:scDDboost}).
+
+Computations become more intensive the larger is the number $K$ of cell subtypes.   We observe that gene-specific
+posterior probabilities of differential distribution stabilize when $K$ is sufficiently large, and we use changes
+in these profiles to set $K$.
+
+%%Although there are various options for clustering methods, none of them guarantee the accuracy and posterior inference of differential distributed genes can be sensitive to the initial partition. Here we provide a method to make our inferences robust to partitions. Given number of subtypes $K$, the final posterior probabilities is obtained by averaging results from iterative run of \textsc{scDDboost-core}  with randomly generated subtype labels $z^*$. Taking account of information contained in $D = dist(X)$ , instead of purely random assigning subtype labels, we generate the distance matrices of cells $D^*$ by dividing weights to the original one and assign labels based on $D^*$. Specifically,  we random sample a noise vector $e$ with length equal to number of cells and components are i.i.d. gamma distributed,  then constructing the weighting matrix $W$ by $W_{i,j} = e_i + e_j$ and random distance matrix is obtained by $D^* = D /  W$(division is performed componentwisely).  The choice of gamma distributed weights and dividing transformation is to matched the probability of two units classified into the same group under random weighting to bayesian framework (supplementary material). 
+
+%%After robustification, we select number of clusters $K$ that posterior probabilities do not vary too
+%% much under $K$ and $K+1$.  We validate our procedure in simulated and empirical data
 
 
 \begin{algorithm}
@@ -326,16 +364,17 @@ After robustification, we select number of clusters $K$ that posterior probabili
  \item  cell condition labels $y=(y_c)$
  \item  number of cell subtypes $K$
  \item number of randomized clusterings $n_r$ 
- \item regularization parameter $\lambda$   
  \end{list}
 \hspace*{\algorithmicindent} \textbf{Output}: posterior probabilities of differential distribution 
 \begin{algorithmic}[2]
-\Procedure{scDDboost}{$X,y, K, n_r, \lambda$}
+\Procedure{scDDboost}{$X,y, K, n_r$}
 \State distance matrix: $D=\rm{dist}(X) \gets$ pairwise distances between cells (columns of $X$)
+\State hyper-parameters $(\hat a, \hat b) \gets {\mbox {\rm hyper}}(D)$
 \Repeat
-\State Gamma noise vector: $e$, with components $\sim \text{Gamma}(a,b)$
+\State Gamma noise vector: $e$, with components $\sim \text{Gamma}(\hat a,\hat b)$
 \State randomized distance matrix: $D^* \gets D / (e\textbf{1}^T +  \textbf{1}e^T)$
-\State $P^* \gets\;$ \textsc{scDDboost-core}$(X,y,D^*,K)$
+\State $\hat z^* \gets {\mbox {\rm $K-$medoids}}(D^*)$
+\State $P^* \gets\;$ \textsc{scDDboost-core}$(X,y,\hat z^*)$
 \Until{$n_r$ randomized distance matrices}
 \State \textbf{return} $\forall \text{genes} \, g, \, P(\text{DD}_g|X,y) = \frac{1}{n_r} 
    \sum_{D^*} P^*_g$
@@ -343,7 +382,8 @@ After robustification, we select number of clusters $K$ that posterior probabili
 \end{algorithmic}
 \end{algorithm}
 
-In general, we observed that averaged adjusted rand index as well as rand index of mode of partitions based on randomized distance matrices is higher (better estimation) than that of partition based on original distance matrix (supplementary material). We view algorithm scDDboost1 as an advanced version of scDDboost0 as it gives improved result depends on finer estimated partition of cells. All the results of scDDboost from simulation and empirical studies are obtained via scDDboost1. 
+In general, we observed that averaged adjusted rand index as well as rand index of mode of partitions based on randomized distance matrices is higher (better estimation) than that of partition based on original distance matrix (supplementary material). 
+
 
 \section{Empirical Bayes}
 \subsection{Double Dirichlet model}
@@ -941,7 +981,20 @@ From simulation and empirical studies, we obtained stabilized posterior probabil
 \bibliography{./references/wlr_ref}
 
 \newpage
+
 \appendix
+\section{}
+
+*review EBseq model*
+
+\section{}
+
+On the Poisson version of modal clust
+
+\section{}
+
+on randomized clusterings
+
 \section{}
 \hfill\\
 \begin{lemma}

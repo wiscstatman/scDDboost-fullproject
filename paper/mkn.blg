@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2017)
+This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: mkn.aux
 The style file: IEEEtran.bst
@@ -15,42 +15,42 @@ Database file #1: ./references/wlr_ref.bib
 Done.
 You've used 22 entries,
             4087 wiz_defined-function locations,
-            997 strings with 12538 characters,
-and the built_in function-call counts, 18831 in all, are:
-= -- 1688
-> -- 448
-< -- 146
-+ -- 226
-- -- 85
-* -- 979
-:= -- 3042
+            995 strings with 12355 characters,
+and the built_in function-call counts, 18025 in all, are:
+= -- 1616
+> -- 416
+< -- 136
++ -- 211
+- -- 79
+* -- 933
+:= -- 2938
 add.period$ -- 44
 call.type$ -- 22
-change.case$ -- 23
-chr.to.int$ -- 270
+change.case$ -- 22
+chr.to.int$ -- 246
 cite$ -- 22
-duplicate$ -- 1345
-empty$ -- 1273
-format.name$ -- 103
-if$ -- 4334
+duplicate$ -- 1295
+empty$ -- 1242
+format.name$ -- 97
+if$ -- 4143
 int.to.chr$ -- 0
 int.to.str$ -- 22
-missing$ -- 230
-newline$ -- 133
+missing$ -- 222
+newline$ -- 131
 num.names$ -- 22
-pop$ -- 447
+pop$ -- 433
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1492
+skip$ -- 1434
 stack$ -- 0
-substring$ -- 742
-swap$ -- 1192
-text.length$ -- 56
+substring$ -- 678
+swap$ -- 1131
+text.length$ -- 54
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 22
 warning$ -- 0
-while$ -- 70
+while$ -- 67
 width$ -- 24
-write$ -- 321
+write$ -- 315
