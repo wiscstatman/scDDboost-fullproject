@@ -413,15 +413,14 @@ differential distribution.
 For our purposes, partition-reliance means a spike-slab structure that mixes
 over partitions $\pi$ determining
  patterns of equality of accummulated probabilities through~(\ref{eq:asets}):
-\begin{eqnarray*}
-p(\phi,\psi) = \sum_{\pi \in \Pi} P(A_\pi) \, p(\phi,\psi| A_\pi ).
-\end{eqnarray*} 
-%To support \textsc{scDDboost}, we need to formulate $P(A_\pi|y, z)$  *** 
-%Upon setting up a prior $p(\phi,\psi)$ that can mix over structures
-%$A_\pi$, we can obtain posterior inference $P(A_\pi | t^1, t^2)$
-The multitude of $P(A_\pi)$'s are taken to be preset constants. 
-To complete the prior specification, consider further scalers
-$\alpha_k>0$ for each class $k$ and $\beta_b>0$ for each potential block $b$.
+\begin{eqnarray}
+\label{eq:ddmix}
+p(\phi,\psi) = \sum_{\pi \in \Pi} P(A_\pi) \, p_\pi(\phi,\psi ).
+\end{eqnarray} 
+The multitude of $P(A_\pi)$'s are taken to be preset constants.  ({\em MAN to XM: All equal?})
+Each mixing component $p_\pi(\phi,\psi)$ is supported on $A_\pi$.
+To complete the prior specification, introduce scalers
+$\alpha_k>0$ for each subtype $k$, and $\beta_b>0$ for each possible block $b$.
 (Extending the notational convention, $\alpha_b$ is the vector of $\alpha_k$
 for $k\in b$, and $\beta_\pi$ is the vector of $\beta_b$ for $b \in \pi$.)
 For any block $b$ consider conditional probabilities
@@ -445,18 +444,18 @@ Finally, assume that for each $b \in \pi$,
 where $N(b)$ is the number of cell types in block $b$.
 In other words, if $A_\pi$ is the active structure, then
 accumulated probability vectors $\Phi_\pi$ and $\Psi_\pi$ are equal
-between the two source conditions, though the sub-block class-specific
+between the two source conditions, though the sub-block subtype-specific
 rates $\phi_k$ and $\psi_k$ may differ, as would (re-normalized)
 independent Dirichlet-distributed vectors.
 Taken together,
 \begin{eqnarray*}
-p(\phi,\psi|A_\pi) =
-         p( \Phi_\pi, \Psi_\pi | A_\pi ) \, \prod_{b \in \pi}  \left[
+p_\pi(\phi,\psi) =
+         q_\pi( \Phi_\pi, \Psi_\pi  ) \, \prod_{b \in \pi}  \left[
          p( \tilde \phi_b ) p( \tilde \psi_b ) \right]
 \end{eqnarray*}
 with
 \begin{eqnarray*}
-p( \Phi_\pi, \Psi_\pi | A_\pi )
+q_\pi( \Phi_\pi, \Psi_\pi  )
 = \frac{\Gamma(\sum_{b\in \pi} \beta_b)}{
  \prod_{b \in \pi} \Gamma( \beta_b )} \left[\prod_{b \in \pi} \Phi_b^{\beta_b-1} \right] \,
  1\left[ \Phi_\pi = \Psi_\pi \right]
