@@ -91,7 +91,12 @@ experimental conditions, such as by treatment-control status or some other facto
  measured at the cell level, but we present our development for the special
 case of two conditions.  Notationally, $y=(y_c)$ records the experimental condition, say $y_c=1$ or $y_c=2$ initially:
 extensions to multiple conditions are discussed in section 6. Let's say condition $j$ measures $n_j=\sum_{c} 1[y_c=j]$ cells,  and
-in total we have $n=n_1+n_2$ cells in the analysis.  Further let $t^j_k = \sum_c 1[y_c=j, z_c=k]$ denote the number of cells of subtype $k$ in condition $j$;
+in total we have $n=n_1+n_2$ cells in the analysis.  Further let 
+\begin{eqnarray}
+\label{eq:counts}
+t^j_k = t^j_k(y,c) = \sum_c 1[y_c=j, z_c=k] 
+\end{eqnarray}
+denote the number of cells of subtype $k$ in condition $j$;
 we infer something about these counts using genome-wide data.  As for molecular data, the 
 normalized expression of gene $g$ in cell $c$, say $X_{g,c}$, is one entry
 in a typically large {\sc{genes}} by {\sc{cells}} data matrix $X$.  Thus, the data structure entails an expression matrix
@@ -205,13 +210,15 @@ for $\Psi_\pi$. Recall the partial ordering of partitions based on refinement, a
 as long as $\pi$ is not the most refined partition (every cell type its own block),
 then the mapping from $( \phi, \psi )$ to $( \Phi_\pi, \Psi_\pi)$ is many-to-one.
 Further, define sets
-\begin{eqnarray*}
+\begin{eqnarray}
+\label{eq:asets}
 A_\pi = \{ \theta\in \Theta: \; \Phi_b = \Psi_b  \, \forall b \in \pi \}.
-\end{eqnarray*}
+\end{eqnarray}
 and
-\begin{eqnarray*}
+\begin{eqnarray}
+\label{eq:msets}
 M_{g,\pi} = \{ \theta \in \Theta: \; \mu_{g,k} = \mu_{g,k'} \iff k,k' \in b, b \in \pi \}.
-\end{eqnarray*}
+\end{eqnarray}
 Under $A_\pi$ there are constraints on cell subtype frequencies; under $M_{g,\pi}$ there is 
 equivalence in the gene-level distribution of expression between certain subtypes.
 These sets are precisely the
@@ -282,13 +289,13 @@ data in order to sharpen our assessments of between-condition expression changes
 \subsection{Method structure and clustering}
 
 We leverage the extensive research on how to cluster cells into subtypes using scRNA-seq data (e.g., 
- SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}).   We propose clustering on the full set
-of profiles in a way that is blind to the condition label $y$, in order to have as many cells as possible
+ SC3\cite{sc3}, CIDR\cite{CIDR}, and ZIFA\cite{ZIFA}).   We propose clustering on the full set
+of profiles in a way that is blind to the condition label vector $y$, in order to have as many cells as possible
 to inform the subtype structure.  We investigated several clustering schemes in numerical experiments and allow 
 flexibility in this choice within the \textsc{scDDboost} software. 
 Associating clusters with subtype labels $\hat z_c$  estimates
 the actual subtypes $z_c$, and prepares us to use Theorems~1 and~2 in order to compute separate
-posterior probabilities $P(A_\pi|y, \hat z)$ and $P(M_{g, \pi}| X, \hat z)$ necessary for scoring
+posterior probabilities $P(A_\pi|y, \hat z)$ and $P(M_{g, \pi}| X, \hat z)$ that are necessary for scoring
 differential distribution. The first probability concerns patterns of cell counts over subtypes in the two conditions,
 and has a convenient closed form within the {\em double Dirichlet} model introduced in Section~3.1.
 The second probability concerns patterns of changes in expected expression levels among subtypes, and this is
@@ -302,7 +309,7 @@ conditional on an estimate of the subtype labels.
 %The workflow contains two parts, classify cells into subtypes and posterior inference on distributional change. In the first part, recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus classification process is blind to conditions and can be done by clustering upon similarities between cells(supplementary material). 
 
 \begin{algorithm}
-\caption{scDDBoost-core}\label{alg:scDDcore}
+\caption{\textsc{scDDBoost-core}}\label{alg:scDDcore}
 \raggedright\hspace*{\algorithmicindent} \textbf{Input}: \begin{list}{}{}
  \item \textsc{genes} by \textsc{cells} expression data matrix $X=(X_{g,c})$
  \item  cell condition labels $y=(y_c)$ 
@@ -327,15 +334,17 @@ conditional on an estimate of the subtype labels.
 %%One advantage of our approach is that the posterior inference can be incorporate with different clustering methods. With the development of technology, clustering methods taking care of newly discovered characteristic of scRNA seq data (e.g. SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}) could be substituted with our default one. No matter what clustering method is used, we estimate the mixture structure utilizing the whole genome information rather than estimating a gene specific mixture structure solely using information of that gene. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach \textsc{scDDboost}. 
 
 We invoke $K-$medoids (\cite{kmedoids}) 
-as the default clustering method in \textsc{scDDboost}, and customize the cell-cell distance by integrating two metrics.  
-The first metric assembles gene-level information by cluster-based-similarity partitioning (\cite{ref:cspa}).
+as the default clustering method in \textsc{scDDboost}, and customize the cell-cell distance by integrating two measures.  
+The first assembles gene-level information by cluster-based-similarity partitioning (\cite{ref:cspa}).
  Separately at each gene,   modal clustering (\cite{ref:dahl} and Appendix B) partitions the cells, and
 then we define dissimilarity between cells as the proportion of genes at which the cells are assigned to different clusters. 
-A second metric defines dissimilarity by 1 - Pearson correlation between cells, which is computationally inexpensive,
+A second measure defines dissimilarity by one minus the 
+Pearson correlation between cells, which is computationally inexpensive,
 less sensitive to outliers than Euclidean distance, and effective at detecting cellular clusters in scRNA-seq(\cite{Cor}).
- We combine the two metrics by a weighted average, 
-with  $w_C = \frac{\sigma_C}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_E$. where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster based distance and Pearson correlation distance accordingly.   **XM, please clarify**
-The resulting distance matrix is $D=\left( d_{i,j} \right)$.
+ We combine the two measures by a weighted average, 
+with  $w_C = \frac{\sigma_C}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_E$. where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster based distance and Pearson correlation distance accordingly.   
+**{\em MAN to XM, please clarify; $w_E$ or $w_C$?; also, above, I used *measure* instead of *metric*, but please confirm**}
+The resulting distance matrix is $D=\left( d_{i,j} \right)$. **{\em (is it distance or dissimilarity?)}**
 
 Any clustering method  entails classification errors, and so $\hat z_c \neq z_c$ for some cells. To mitigate
 the effects of this uncertainty, \textsc{scDDboost} averages output probabilities from \textsc{scDDboost-core} over
@@ -358,7 +367,7 @@ in these profiles to set $K$.
 
 
 \begin{algorithm}
-\caption{scDDboost}\label{alg:scDDboost}
+\caption{\textsc{scDDboost}}\label{alg:scDDboost}
 \raggedright\hspace*{\algorithmicindent} \textbf{Input}: \begin{list}{}{}
  \item  \textsc{genes} by \textsc{cells} expression data matrix $X=(X_{g,c})$
  \item  cell condition labels $y=(y_c)$
@@ -382,38 +391,36 @@ in these profiles to set $K$.
 \end{algorithmic}
 \end{algorithm}
 
-In general, we observed that averaged adjusted rand index as well as rand index of mode of partitions based on randomized distance matrices is higher (better estimation) than that of partition based on original distance matrix (supplementary material). 
+In simulations, 
+we observed that averaged adjusted Rand index as well as Rand index of mode of partitions based on randomized distance matrices is higher (better estimation) than that of partition based on original distance matrix (Supplementary Material, **?**). 
+{\em MAN to XM: please clarify}
 
 
 \section{Empirical Bayes}
 \subsection{Double Dirichlet model}
 
 
-** ON THE PRIOR INDEPENDENCE**
-This expresses the idea that  subtype proportions $(\phi,\psi)$ are
-uninformative about the mean expression levels   $\{\mu_{g,i}\}$). Under this assumption:
-**
+%** ON THE PRIOR INDEPENDENCE**
+%This expresses the idea that  subtype proportions $(\phi,\psi)$ are
+%uninformative about the mean expression levels   $\{\mu_{g,i}\}$). Under this assumption:
+%**
 
 
 
-
-Here we describe a prior $p(\phi,\psi)$ that is conjugate to multinomial
-sampling but that also enables downstream gene-specific inferences about
-differential distribution when certain 
-cell types do not differ in their expression
-distributions.  
-
-
-For our purposes, the prior will have a spike-slab structure that mixes
-over distinct patterns of equality of $\pi$-associated
-accummulated probabilities:
+Here we describe the partition-reliant prior $p(\phi,\psi)$ indicated in~Figure~2.  It is conjugate to multinomial
+sampling while also enabling downstream gene-specific inferences about
+differential distribution.  
+For our purposes, partition-reliance means a spike-slab structure that mixes
+over partitions $\pi$ determining
+ patterns of equality of accummulated probabilities through~(\ref{eq:asets}):
 \begin{eqnarray*}
-p(\phi,\psi) = \sum_{\pi \in \Pi} P(A_\pi) \, p(\phi,\psi| A_\pi )
+p(\phi,\psi) = \sum_{\pi \in \Pi} P(A_\pi) \, p(\phi,\psi| A_\pi ).
 \end{eqnarray*} 
-Upon setting up a prior $p(\phi,\psi)$ that can mix over structures
-$A_\pi$, we can obtain posterior inference $P(A_\pi | t^1, t^2)$
-
-Initially, the multitude of $P(A_\pi)$'s will be preset constants.To complete the prior specification $p(\phi,\psi)$, consider further scalers
+%To support \textsc{scDDboost}, we need to formulate $P(A_\pi|y, z)$  *** 
+%Upon setting up a prior $p(\phi,\psi)$ that can mix over structures
+%$A_\pi$, we can obtain posterior inference $P(A_\pi | t^1, t^2)$
+The multitude of $P(A_\pi)$'s are taken to be preset constants. 
+To complete the prior specification, consider further scalers
 $\alpha_k>0$ for each class $k$ and $\beta_b>0$ for each potential block $b$.
 (Extending the notational convention, $\alpha_b$ is the vector of $\alpha_k$
 for $k\in b$, and $\beta_\pi$ is the vector of $\beta_b$ for $b \in \pi$.)
@@ -469,11 +476,17 @@ p( \tilde \psi_b )
 
 
 \subsection{Predictive probabilities:}
+{\em **needs careful checking**}
 For notation, we use $\phi_b$ for the vector of values $\phi_k$ for $k \in b$,
 and similarly for $\psi_b$. Analogously, $\Phi_\pi$ and $\Psi_\pi$
  are vectors of 
 accumulated class probabilities $\phi_b$ and $\psi_b$ for all $b \in \pi$,
- respectively. \\
+ respectively. 
+
+From~(\ref{eq:counts}), $P(A_\pi|y,z) = P(A_{\pi}|t^1, t^2)$.
+
+
+
 In order to get the posterior probability $p(A_\pi | t^1,t^2)$, we need to calculate 
 \[
 \begin{split}

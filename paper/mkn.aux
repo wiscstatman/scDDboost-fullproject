@@ -15,17 +15,20 @@
 \citation{ref:scDD}
 \@writefile{toc}{\contentsline {section}{\tocsection {}{2}{Modeling}}{2}}
 \@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{2.1}{Data structure, sampling model, and parameters}}{2}}
+\newlabel{eq:counts}{{1}{2}}
 \citation{ref:Leng}
 \citation{DES}
 \citation{ref:Des}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Proportions of $K=7$ cellular subtypes in different conditions. Aggregated proportions of subtypes 3 and 4, subtypes 2, 5, and 6, and subtypes 1, and 7 remain same across conditions, while individual subtype frequencies change. \relax }}{4}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:1}{{1}{4}}
+\newlabel{eq:asets}{{2}{4}}
 \citation{sc3}
 \citation{CIDR}
 \citation{ZIFA}
 \citation{ref:Leng}
-\newlabel{eq:lfdr}{{1}{5}}
+\newlabel{eq:msets}{{3}{5}}
+\newlabel{eq:lfdr}{{4}{5}}
 \citation{ref:Leng}
 \citation{kmedoids}
 \citation{ref:cspa}
@@ -34,14 +37,14 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Directed acyclic graph structure of compositional model and partition-reliant prior. The plate on the right side indicates i.i.d. copies over cells $c$, conditionally on mixing proportions and mixing components. Observed data are indicated in rectangles/squares, and unobserved variables are in circles/ovals. \relax }}{6}}
 \newlabel{fig:2}{{2}{6}}
 \@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{2.2}{Method structure and clustering}}{6}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces scDDBoost-core\relax }}{7}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces \textsc  {scDDBoost-core}\relax }}{7}}
 \newlabel{alg:scDDcore}{{1}{7}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces scDDboost\relax }}{8}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textsc  {scDDboost}\relax }}{8}}
 \newlabel{alg:scDDboost}{{2}{8}}
 \@writefile{toc}{\contentsline {section}{\tocsection {}{3}{Empirical Bayes}}{8}}
 \@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.1}{Double Dirichlet model}}{8}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.2}{Predictive probabilities:}}{9}}
 \citation{ref:Dickey}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.2}{Predictive probabilities:}}{9}}
 \citation{Wag}
 \citation{ref:Zappia}
 \@writefile{toc}{\contentsline {section}{\tocsection {}{4}{Operating Characteristics}}{11}}
@@ -57,10 +60,17 @@
 \citation{sc3}
 \@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{4.2}{Empirical study}}{14}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces single cell transcripts profiles used for differential expression or distribution method evaluation\relax }}{14}}
+<<<<<<< HEAD
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  number of DD genes with respect to total number of genes identified by each method. Ranked by mean list size\relax }}{15}}
 \newlabel{fig:6}{{5}{15}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Densities of log transformed transcripts, 6 DD genes uniquely identified by scDDboost, for data GSE75748, DEC vs. EC, We observe some of the genes are different distributed across conditions.\relax }}{16}}
 \newlabel{fig:6}{{6}{16}}
+=======
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  number of DD genes with respect to total number of genes identified by each method. Ranked by mean list size\relax }}{15}}
+\newlabel{fig:6}{{6}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces  Densities of log transformed transcripts, 6 DD genes uniquely identified by scDDboost, for data GSE75748, DEC vs. EC, We observe some of the genes are different distributed across conditions.\relax }}{16}}
+\newlabel{fig:6}{{7}{16}}
+>>>>>>> 998ac78eaea98c1e7ac9a06ece0b50c823a5bb2d
 \@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{4.3}{Empirical study: null cases}}{16}}
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces datasets used for null cases, as cells are coming from same biological condition, there should not be any differential distributed genes, any positive call is false positive\relax }}{17}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces FDR of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. \relax }}{17}}
