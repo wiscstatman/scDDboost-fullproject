@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  31 JAN 2019 11:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  31 JAN 2019 11:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -644,7 +644,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 906--908
  []
 
 [20]
-Overfull \hbox (16.587pt too wide) in alignment at lines 942--945
+Overfull \hbox (16.587pt too wide) in alignment at lines 944--947
  [][][] []
  []
 
@@ -664,7 +664,7 @@ CELL RNA-SEQ DATA[] []
  []
 
 [23]) [24]
-Underfull \hbox (badness 10000) in paragraph at lines 996--997
+Underfull \hbox (badness 10000) in paragraph at lines 998--999
 
  []
 
@@ -675,27 +675,27 @@ CELL RNA-SEQ DATA[] []
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 1021--1025
+Underfull \hbox (badness 10000) in paragraph at lines 1023--1027
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1025--1028
+Underfull \hbox (badness 10000) in paragraph at lines 1027--1030
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 1033--1035
+Underfull \hbox (badness 10000) in paragraph at lines 1035--1037
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1039--1040
+Underfull \hbox (badness 10000) in paragraph at lines 1041--1042
 
  []
 
 
-Overfull \hbox (33.67892pt too wide) detected at line 1040
+Overfull \hbox (33.67892pt too wide) detected at line 1042
 \OML/cmm/m/it/10.95 g\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n; b\OT1/cmr/m/n/1
 0.95 ) = (\OML/cmm/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[
 ] \OMS/cmsy/m/n/10.95 ^^@ []\OT1/cmr/m/n/10.95 )[](1 + []) + (\OML/cmm/m/it/10.
@@ -707,7 +707,7 @@ m/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[] \OT1/cmr/m/n/10
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1040--1043
+Underfull \hbox (badness 10000) in paragraph at lines 1042--1045
 
  []
 
@@ -718,7 +718,7 @@ CELL RNA-SEQ DATA[] []
  []
 
 [27]
-Overfull \hbox (73.77013pt too wide) detected at line 1053
+Overfull \hbox (73.77013pt too wide) detected at line 1055
 []
  []
 
@@ -755,7 +755,7 @@ e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
 8/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2018/t
 exmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mkn.pdf (28 pages, 1557182 bytes).
+Output written on mkn.pdf (28 pages, 1557328 bytes).
 PDF statistics:
  295 PDF objects out of 1000 (max. 8388607)
  207 compressed objects within 3 object streams
