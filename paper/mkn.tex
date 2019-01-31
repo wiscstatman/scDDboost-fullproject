@@ -418,8 +418,8 @@ over partitions $\pi$ determining
 p(\phi,\psi) = \sum_{\pi \in \Pi} P(A_\pi) \, p_\pi(\phi,\psi ).
 \end{eqnarray} 
 The multitude of $P(A_\pi)$'s are taken to be preset constants.  ({\em MAN to XM: All equal?})
-Each mixing component $p_\pi(\phi,\psi)$ is supported on $A_\pi$.
-To complete the prior specification, introduce scalers
+Each mixing component $p_\pi(\phi,\psi)$ has support $A_\pi$.
+To complete the specification, introduce scalers
 $\alpha_k>0$ for each subtype $k$, and $\beta_b>0$ for each possible block $b$.
 (Extending the notational convention, $\alpha_b$ is the vector of $\alpha_k$
 for $k\in b$, and $\beta_\pi$ is the vector of $\beta_b$ for $b \in \pi$.)
@@ -427,8 +427,8 @@ For any block $b$ consider conditional probabilities
 \begin{eqnarray*}
 \tilde{\phi}_b = \frac{\phi_b}{\Phi_b} \qquad \tilde{\psi}_b = \frac{\psi_b}{\Psi_b}
 \end{eqnarray*}
-which indicate the conditional probability of each class $k$ given that
-the cell is of one of the types in $b$.  Assume that conditional upon 
+which indicate the conditional probability of each subtype $k$ given that
+the cell is of one of the subtypes in $b$.  Assume that conditional upon 
 $A_\pi$,
 \begin{eqnarray*}
 \Phi_\pi \sim \text{Dirichet}_{N(\pi)}[   \beta_\pi   ]
@@ -441,7 +441,7 @@ Finally, assume that for each $b \in \pi$,
 \tilde \phi_b, \tilde \psi_b \sim_{\text{i.i.d.}}
   \text{Dirichlet}_{N(b)}[ \alpha_b ]
 \end{eqnarray*}
-where $N(b)$ is the number of cell types in block $b$.
+where $N(b)$ is the number of cell subtypes in block $b$.
 In other words, if $A_\pi$ is the active structure, then
 accumulated probability vectors $\Phi_\pi$ and $\Psi_\pi$ are equal
 between the two source conditions, though the sub-block subtype-specific
@@ -473,6 +473,7 @@ p( \tilde \psi_b )
 \end{eqnarray*}
 
 
+**summary statement or Fig about this DD prior**
 
 \subsection{Predictive probabilities:}
 {\em **needs careful checking**}
