@@ -915,9 +915,9 @@ P(\text{Partition} | X) \leftarrow P(\text{Partition} | D) \leftarrow P(\Delta |
 
 where $D$ is the estimated distance matrix of $X$, $\Delta$ is the true distance of $X$ and $W$ is randomly distributed matrix of weights. We conjecture that the probability of partitions given data can be approximated by switching conditioning on data to conditioning on the estimated distance of data. As distance matrix typically gave the geometrical structure between elements which can be used to infer how likely a partition is.  In addition, partition can be obtained by  distance based clustering algorithm (K-medoids) on true distance matrix $\Delta$.  To approximate distribution $(\Delta | D)$, we use our random weighting procedure, namely sampling a weighting matrix $W$ first and then do the component-wisely dividing of original distance matrix $D$ by $W$.
 
-We gave a brief justification for the approximation, suppose units $i$ and $j$ are merged into a common cluster if (and only if) $d_{i,j} < c$. Then $P(d^*_{i,j} < c) = P(w_{i,j} > c / d_{i,j})$, $w_{i,j} \sim$ Gamma$(a, a)$. From Bayesian perspective, given the true distance $\Delta_{i,j}$, $d_{i,j} | \Delta_{i,j} \sim$ Gamma($a_1, a_1 / \Delta_{i,j}$), so that the sampling mean of $d_{i,j}$ is $\Delta_{i,j}$.  Further, the simple analysis would ignore any issues about the $d$'s or $\Delta$'s being true distances. The condition for qualifiable distance matrix is the triangle inequality among the pairwise distances, such condition would not affect our clustering results too much. But, the simple analysis might suppose that a-priori $1 / \Delta_{i,j} \sim$ Gamma($a_0, d_0$). The scaling is such that E$(1 / \Delta_{i,j}) = a_0 \ d_0$. The posterior, by conjugacy, has $1 / \Delta_{i,j} | d_{i,j} \sim$ Gamma($a_0 + a_1, d_0 + a_1d_{i,j}$). Then the posterior probability that $i$ and $j$ should be clustered is the posterior probability that $\Delta_{i,j} < c$, which is $P($Gamma($(a_0 + a_1),(a_0 + a_1)) > (d_0 + a_1 * d_{i,j}) / (a_0 + a_1) * 1/c )$, parameters $(a_0, d_0, a_1)$ are estimated from maximizing the marginal likelihood of $d_{i,j}$.
+We gave a brief justification for the approximation, suppose units $i$ and $j$ are merged into a common cluster if (and only if) $d_{i,j} < c$. Then $P(d^*_{i,j} < c) = P(w_{i,j} > c / d_{i,j})$, $w_{i,j} \sim$ Gamma$(a, b)$. From Bayesian perspective, given the true distance $\Delta_{i,j}$, $d_{i,j} | \Delta_{i,j} \sim$ Gamma($a_1, a_1 / \Delta_{i,j}$), so that the sampling mean of $d_{i,j}$ is $\Delta_{i,j}$.  Further, for simplicity we ignore any issues about the $d$'s or $\Delta$'s being true distances. The condition for qualifiable distance matrix is the triangle inequality among the pairwise distances, such condition would not affect our clustering results too much. But, a simple analysis might suppose that a-priori $1 / \Delta_{i,j} \sim$ Gamma($a_0, d_0$). The scaling is such that E$(1 / \Delta_{i,j}) = a_0 \ d_0$. The posterior, by conjugacy, has $1 / \Delta_{i,j} | d_{i,j} \sim$ Gamma($a_0 + a_1, d_0 + a_1d_{i,j}$). Then the posterior probability that $i$ and $j$ should be clustered is the posterior probability that $\Delta_{i,j} < c$, which is $P($Gamma($(a_0 + a_1),(a_0 + a_1)) > (d_0 + a_1 * d_{i,j}) / (a_0 + a_1) * 1/c )$, parameters $(a_0, d_0, a_1)$ are estimated from maximizing the marginal likelihood of $d_{i,j}$.
 
-We want to match the posterior probability that elements $i$ and $j$ belongs to the same cluster, which is equivalently to match 
+We want to match the posterior probability that elements $i$ and $j$ belongs to the same cluster through a simple bayesian analysis to random weighting, which is equivalently to match 
 \begin{eqnarray*}
 P(\Delta_{i,j} < c | d_{i,j}) = P( 1 /  \Delta_{i,j} > 1 / c | d_{i,j})
 \end{eqnarray*}
@@ -927,7 +927,7 @@ and
 P(d_{i,j} / w_{i,j} < c | d_{i,j}) = P(w_{i,j} / d_{i,j} > 1 / c | d_{i,j})
 \end{eqnarray*}
 
-
+yielding $a = a_0 + a_1$ and $b = a_1$.  
 
 \section{Discussion and future work}
 We have presented scDDboost, a compositional model for the analysis of scRNA-seq data. scDDboost make whole genome information shared at gene level inference and is flexible of integrating with different cell clustering methods. scDDboost accounts for the over-dispersion and multi-modality of single-cell data by modeling expression data as mixture of subtypes. Information from the change of subtypes' proportions and mean expressions is combined to infer distributional changes of gene expression. We developed a prior distribution that can be used to estimate sharp equalities on aggregated subtype probabilities. Using simulation studies, we have demonstrated that our method outperforms existing approaches when there existing multiple cell types. 
@@ -971,9 +971,8 @@ Where $\Phi = \{\Phi_{b'}, b' \in \pi_k\},  \Phi_{b'} = \underset{i\in b'}\sum\p
 \tilde{\phi}^j = (\tilde{\phi}_1^j, ... , \tilde{\phi}_K^j), \tilde{\phi}_i^j = \frac{\phi_i^j}{\Phi_b'},$ for $ i \in b'$
 
 Since there are a lot of overlapping among $A_{\pi_k}^{\pi^l}$, care must be taken to account for competing issue of prior predictive function. Empirical study may give suggestion of modifying the prior.
+ 
 
-\subsection{Randomized distance}
-From simulation and empirical studies, we obtained stabilized posterior probabilities by averaging results on random generated distance matrices. It remains unclear how clustering on randomized distance matrices approximate the true partition. We seek a theoretical justification of the benefit from randomized distance. 
 
 \bibliographystyle{IEEEtran}
 \bibliography{./references/wlr_ref}
