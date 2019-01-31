@@ -845,6 +845,16 @@ From our empirical experience, it is typical $K$ will not be larger than 8. We d
 D3E\cite{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset EMTAB2805\\
 
 \begin{figure}[H]
+
+\includegraphics[width = 1\textwidth]{Figs/d3eplot.pdf}
+
+\caption{D3E method will estimate 3 bursting parameters probability of a gene being on (\textbf{a}) and off (\textbf{b}) and the expression rate when the gene expression is on (\textbf{c}), we plot the hexbin plot of probability of a gene being DD under out method v.s. the log fold change of \textbf{a} , \textbf{b} and \textbf{c}  across the two conditions accordingly. Here we use the GSE71585 data }
+\end{figure}
+
+
+
+\begin{comment}
+\begin{figure}[H]
 \vspace{-\parskip}
 \minipage{0.33\textwidth}
   \includegraphics[clip,width=\textwidth]{Figs/act.png}
@@ -857,6 +867,8 @@ D3E\cite{ref:d3e} is a distributional method that can identify bursting paramete
   \endminipage
 \captionof{figure}{2D histogram for bursting parameters of DD genes identified by scDDboost from dataset EMTAB2805 estimated by D3E. Left panel  : comparison of rate of promoter activation between two conditions, similarly, middle panel  : rate of promoter inactivation and right panel: rate of transcription when the promoter is in the active state. We observe that difference between transcription rate is smaller compare to difference between the activation and inactivation rate.}
 \end{figure}
+\end{comment}
+
 We observed that DD genes identified by scDDboost tends to have similar transcription rate when the promoter is active across condition, while there are lots of variabilities in the action and inactivation rate. Estimations from D3E reveals that the major factor to drive DD genes are activation and inactivation rate (proportions of different subtyps), it make sense to consider mixture model like scDDboost.
 
 
