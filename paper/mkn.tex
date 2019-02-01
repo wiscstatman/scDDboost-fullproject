@@ -666,44 +666,39 @@ Since we are modeling gene transcript within each subtype as negative binomial d
 
 **Conquer examples...null and alternative**
 
-We use ten datasets from conquer\cite{ref:Cq} to test performance of our method on empirical data. We compare our results with scDD\cite{ref:scDD}, MAST\cite{ref:MAST} and DESeq2\cite{ref:Des}, we have also investigated performance of scDDboost under different clustering method, here sc3\cite{sc3} is used to couple with scDDboost0, as sc3 did not provide user accessible distance matrix.\\
-
-We have table of numbers of differentially expressed genes of each dataset by MAST and DESeq2, and numbers of differentially distributed genes of each dataset by scDDboost and scDD.\\
-
-
-\begin{comment}
+We use 13 datasets from conquer\cite{ref:Cq} to test performance of our method on empirical data. We compare our results with scDD\cite{ref:scDD}, MAST\cite{ref:MAST} and DESeq2\cite{ref:Des}, we have also investigated performance of scDDboost under different clustering method, (sc3\cite{sc3}, supplimentary)  and obtain similar \\
 
 \begin{table}[ht]
 \small
 \centering
-\begin{tabular}{ |p{2cm}|p{2cm}|p{2cm}|p{1cm}|p{1cm}|p{1cm}|p{2cm}|p{2cm}|}
+\begin{tabular}{ |p{3cm}|p{5cm}|p{3cm}|p{2cm}|}
 \hline
-Data set & scDDboost & scDDboost-sc3 & scDD & MAST & DESeq2 & total number of genes & number of subtypes\\
+ Data set & Conditions & Number of cells/condition & Organism \\
 \hline
 \hline
-GSE45719 & 9313 & 8200 & 6416 &5652 & 11202 & 45686 & 6\\
+GSE52529 & T0 vs T24 & 96,96 & human\\
 \hline
-GSE48969-GPL13112 & 8083 & 9819 & 4585 & 3396 & 9542 & 45686 & 6\\
+GSE57872 & patient1 vs patient2 & 192,96 & human \\
 \hline
-GSE60749-GPL13112 & 19215 & 19168 &  25154 & 13674 & 23178 & 45686 & 6 \\
+GSE48968-GPL13112 & BMDC (2h LPS stimulation) vs 6h LPS & 96,96 & mouse \\
 \hline
-GSE74596 & 3736 & 2290 & 1409 & 540 & 3796 & 45686 & 5\\
+GSE60749-GPL13112null & serum + LIF vs  2i + LIF & 90,94 & mouse \\
 \hline
-EMTAB 2805 & 5295 & 3748 & 2202 & 1088 & 5391 & 45686 & 6\\
+GSE74596 & NKT1 vs NTK2 & 46,68 & mouse\\
 \hline
-GSE63818-GPL16791 & 7760 & 6900 & 2784 & 873 & 8934 & 65218 & 5\\
+EMTAB2805null & G1 & 48,48 & mouse\\
 \hline
-GSE71585- GPL13112 & 3801 & 2596 & 3906 & 2572 & 7378 & 24057 & 7 \\
+GSE71585-GPL13112null &Gad2tdTpositive  & 40,40 & mouse \\
 \hline
-NPC-DEC & 6349 & 5405 & 5982 & 5624 & 8439 & 19037 & 7\\
+GSE64016null & G1 & 46,45 & human \\
 \hline
-DEC-EC & 4870 & 3023 & 3818 & 4924 & 8127 & 19037 & 4 \\
+GSE79102null & patient1 & 26, 25 & human\\
 \hline
 \end{tabular}
-\captionof{table}{number of DD genes detected by different methods}
+\captionof{table}{datasets used for comparisons of DD analysis under different methods}
 \end{table}
 
-\end{comment}
+
 
 \begin{figure}[H]
 \includegraphics[width = 0.6\textwidth]{Figs/DD95.pdf}
@@ -732,7 +727,7 @@ scDDboost could control FDR since we assume cells are sampled from population co
  Data set & Conditions & Number of cells/condition & Organism \\
 \hline
 \hline
-GSE57872null & patient1 & 96,96 & mouse \\
+GSE57872null & patient1 & 96,96 & human \\
 \hline
 GSE52529null & T0 & 48, 48 & human \\
 \hline
