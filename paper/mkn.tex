@@ -418,9 +418,9 @@ over partitions $\pi$ determining
  patterns of equality of accummulated probabilities through~(\ref{eq:asets}):
 \begin{eqnarray}
 \label{eq:ddmix}
-p(\phi,\psi) = \sum_{\pi \in \Pi} P(A_\pi) \, p_\pi(\phi,\psi ).
+p(\phi,\psi) = \sum_{\pi \in \Pi} \omega_\pi  \, p_\pi(\phi,\psi ).
 \end{eqnarray} 
-The multitude of $P(A_\pi)$'s are taken to be preset constants.  ({\em MAN to XM: All equal?})
+For simplicity, we choose mixing proportions $\omega_\pi \propto 1$ for all partitions.
 Each mixing component $p_\pi(\phi,\psi)$ has support $A_\pi$.
 To complete the specification, introduce scalers
 $\alpha_k>0$ for each subtype $k$, and $\beta_b>0$ for each possible block $b$.
