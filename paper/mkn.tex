@@ -106,14 +106,19 @@ $X$, a treatment label vector $y$, and a vector $z$ of latent subtype labels.
 We treat subtype counts in the two conditions,  $t^1 = (t^1_1, t^1_2, \cdots, t^1_K )$ and 
 $t^2 = (t^2_1, t^2_2, \cdots, t^2_K)$,  as independent multinomial
 vectors, reflecting the elementary experimental design.  Explicitly,
-\begin{eqnarray*}
-t^1 \sim \text{Multinomial}_K( n_1, \phi ) \quad {\mbox {\rm and}} \quad
-t^2 \sim \text{Multinomial}_K( n_2, \psi )
-\end{eqnarray*}
+\begin{eqnarray}
+\label{eq:mult}
+t^1| y \sim \text{Multinomial}_K( n_1, \phi ) \quad {\mbox {\rm and}} \quad
+t^2| y \sim \text{Multinomial}_K( n_2, \psi )
+\end{eqnarray}
 for probability vectors 
 $\phi = (\phi_1, \phi_2, \cdots, \phi_K)$ and 
  $\psi = ( \psi_1, \psi_2, \cdots, \psi_K)$ that characterize the populations of
-cells from which the $n$ observed cells are sampled.  Our working hypothesis, referred to as the {\em compositional model},  is that any differences in the distribution of expression $X_{g,c}$ 
+cells from which the $n$ observed cells are sampled.  This follows from the more basic 
+sampling model:
+$P(z_c=k|y_c=1) = \phi_k$ and $P(z_c=k| y_c =2 ) = \psi_k.$
+
+Our working hypothesis, referred to as the {\em compositional model},  is that any differences in the distribution of expression $X_{g,c}$ 
 between $y_c=1$ and $y_c=2$ (i.e., any condition effects) are attributable 
 to differences between the conditions 
 in the underlying composition of cell types; i.e.,
@@ -143,13 +148,13 @@ the marginal distributions over subtypes are finite mixtures:
 f_g^1(x) = \sum_{k=1}^K \phi_k f_{g,k} (x) \quad {\mbox {\rm and}} \quad
 f_g^2(x) = \sum_{k=1}^K \psi_k f_{g,k} (x).
 \end{eqnarray*}
-In alternative notation, $X_{g,c} | y_c=j  \sim f_g^j$ and also $X_{g,c} | z_c=k \sim f_{g,k}$.
+In other words,  $X_{g,c} |[ y_c=j]  \sim f_g^j$  and $X_{g,c} |[ z_c=k, y_c=j] \sim f_{g,k}$.
 
 We say that gene $g$ is {\em differentially distributed}, denote ${\rm DD}_g$ and indicated
 $f_g^1 \neq f_g^2$,
 if $f_g^1(x) \neq f_g^2(x)$ for some $x$, and otherwise it is equivalently distributed
 (${\rm ED}_g$). Motivated by findings from bulk RNAseq data analysis, we further
-set each $f_{g,k}$ to have a a Negative Binomial form, say with mean $\mu_{g,k}$
+set each $f_{g,k}$ to have a a negative-binomial form, say with mean $\mu_{g,k}$
 and shape parameter $\alpha_g$ (\cite{ref:Leng};\cite{DES};\cite{ref:Des}). 
 This choice proves to be effective in our numerical experiments though it is 
 not critical to
@@ -175,7 +180,7 @@ has the necessary functionality.  To do so,  first consider the parameter space
 $\Theta = \{ \theta=(\phi, \psi,\mu, \sigma)  \}$,
 where $\phi=(\phi_1, \phi_2, \cdots, \phi_K)$ and $\psi=(\psi_1, \psi_2, \cdots, \psi_K)$ 
 are as before, where $\mu = \{ \mu_{g,k} \}$ holds  all the subtype-and-gene-specific expected
-values, and where $\sigma = \{ \sigma_g \}$ holds all the gene-specific Negative binomial
+values, and where $\sigma = \{ \sigma_g \}$ holds all the gene-specific negative-binomial
 shape parameters.  Critical to our construction are special subsets of $\Theta$ corresponding
 to partitions of the $K$ cell subtypes.  A single partition, say $\pi$, is a set of
 mutually exclusive and exhaustive blocks, $b$, say, each a subset of $\{1, 2, 
@@ -274,8 +279,8 @@ In what follows, we develop the  modeling and computational elements necessary  
 Theorems~1 and~2.  Roughly, the methodological idea is that subtype labels $z$
 have relatively low uncertainty, and may be estimated from genome-wide 
 clustering of cells in the absence of condition information $y$. The modest bit of uncertainty in $z$
-we handle through a computationally efficient randomized clustering scheme
-(Section 5.2). Theorem~2 indicates that our computational task then separates into
+we handle through a computationally efficient randomized clustering scheme.
+ Theorem~2 indicates that our computational task then separates into
 two parts given $z$.  On one hand, cell subtype frequencies 
 combine with condition labels to give
 $P\left(A_\pi |y,z \right)$. Then gene-level data
@@ -299,7 +304,7 @@ posterior probabilities $P(A_\pi|y, \hat z)$ and $P(M_{g, \pi}| X, \hat z)$ that
 differential distribution. The first probability concerns patterns of cell counts over subtypes in the two conditions,
 and has a convenient closed form within the {\em double Dirichlet} model introduced in Section~3.1.
 The second probability concerns patterns of changes in expected expression levels among subtypes, and this is
-also conveniently computed for negative binomial counts using \textsc{EBSeq} \cite{ref:Leng}. For completeness
+also conveniently computed for negative-binomial counts using \textsc{EBSeq} \cite{ref:Leng}. For completeness
 we review in Appendix~A the empirical Bayes model underlying \textsc{EBSeq}.  Algorithm~\ref{alg:scDDcore}
 summarizes how these elements combine to get the posterior probability of differential distribution per gene,
 conditional on an estimate of the subtype labels.
@@ -313,7 +318,7 @@ conditional on an estimate of the subtype labels.
 \raggedright\hspace*{\algorithmicindent} \textbf{Input}: \begin{list}{}{}
  \item \textsc{genes} by \textsc{cells} expression data matrix $X=(X_{g,c})$
  \item  cell condition labels $y=(y_c)$ 
- \item  cell subtype labels (estimated)  $\hat z$
+ \item  cell subtype labels (estimated)  $\hat z=(\hat z_c)$
  \end{list}
 \hspace*{\algorithmicindent} 
 \textbf{Output}:  posterior probabilities of differential distribution from estimated subtypes
@@ -396,7 +401,6 @@ we observed that averaged adjusted Rand index as well as Rand index of mode of p
 {\em MAN to XM: please clarify}
 
 
-\section{Empirical Bayes}
 \subsection{Double Dirichlet model}
 
 
@@ -404,7 +408,6 @@ we observed that averaged adjusted Rand index as well as Rand index of mode of p
 %This expresses the idea that  subtype proportions $(\phi,\psi)$ are
 %uninformative about the mean expression levels   $\{\mu_{g,i}\}$). Under this assumption:
 %**
-
 
 
 Here we describe the partition-reliant prior $p(\phi,\psi)$ indicated in~Figure~2.  It is conjugate to multinomial
@@ -472,53 +475,28 @@ p( \tilde \psi_b )
 \prod_{k \in b} \tilde \psi_k^{\alpha_k -1 }.
 \end{eqnarray*}
 
+Using the Dirichlet-Multinomial conjugacy and the collapsing property of
+these distributions (\cite{ref:Dickey}), we deduce some properties of the Double-Dirichlet model.
 
-**summary statement or Fig about this DD prior**
+\noindent
+{\bf Property 1:}  In $p_\pi(\phi,\psi)$, $\psi$ and $\phi$ are dependent but 
+  marginally identically Dirichlet distributed.
 
-\subsection{Predictive probabilities:}
-{\em **needs careful checking**}
-For notation, we use $\phi_b$ for the vector of values $\phi_k$ for $k \in b$,
+\noindent
+{\bf Property 2:} The predictive distributions of cell-type counts $t^1$ and $t^2$ (\ref{eq:counts})
+ are all available in closed form..
+
+Fixing a partition $\pi$,
+let $t^j_b = \sum_{k\in b} t^j_k$, for cell conditions $j=1,2$,
+record the total numbers of cells accumulated over all types in block $b \in \pi$.
+Following our notation convention, $t^j_\pi$ is the vector of these
+counts over $b \in \pi$.  Further, we use $\phi_b$ to denote the vector of values $\phi_k$ for $k \in b$,
 and similarly for $\psi_b$. Analogously, $\Phi_\pi$ and $\Psi_\pi$
  are vectors of 
 accumulated class probabilities $\phi_b$ and $\psi_b$ for all $b \in \pi$,
  respectively. 
 
-From~(\ref{eq:counts}), $P(A_\pi|y,z) = P(A_{\pi}|t^1, t^2)$.
 
-
-
-In order to get the posterior probability $p(A_\pi | t^1,t^2)$, we need to calculate 
-\[
-\begin{split}
-p(A_\pi | t^1,t^2)\propto p(A_\pi, t^1,t^2) &= \int_{A_\pi} p(t^1,t^2|\phi,\psi)p(\phi,\psi) d\phi d\psi\\ 
-&= \sum_{\pi'\in \Pi}\int_{A_\pi} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi'})p(A_{\pi'})d\phi d\psi
-\end{split}
-\]
-For simplicity of notation, let $w(\pi_1, \pi_2) = \int_{A_{\pi_1}} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi_2})p(A_{\pi_2})d\phi d\psi$, then 
-$p(A_\pi | t^1,t^2)\propto \underset{\pi'\in \Pi}\sum w(\pi, \pi')$. To calculate component $w(\pi, \pi')$, recall refinement and coarseness relationship between partitions, we say a partition $\tilde{\pi}$ is a refinement of another partition $\pi$ if $\forall b \in \pi$ there exists $s \subset \tilde{\pi}$  such that $\underset{b'\in s}\cup b' = b$. We say $\pi$ is a coarseness of $\tilde{\pi}$ when $\tilde{\pi}$ refines $\pi$. we have following theorem
-
-\begin{theorem}
-If $\pi'$ is a refinement of $\pi$ then $w(\pi,\pi') = w(\pi', \pi')$ otherwise $w(\pi,\pi') = 0$
-\end{theorem}
-\hfill\\
-Consequently, let $RF(\pi)$ be the collection of finer partition of $\pi$, we have 
-the posterior probability: 
-\[
-\begin{split}
-p(A_\pi | t^1,t^2)\propto  \sum_{\pi' \in RF(\pi)} w(\pi',\pi')
-\end{split}
-\]
-Using the Dirichlet-Multinomial conjugacy and the collapsing property of
-these distributions (\cite{ref:Dickey}), we get closed formulas for the predictive
-probability of cell-type counts $t^1$ and $t^2$.  Fixing $\pi$,
-let $t^j_b = \sum_{k\in b} t^j_k$, for cell conditions $j=1,2$, 
-record the total numbers of cells accumulated over all types in block $b$.
-And following our notation convention, $t^j_\pi$ is the vector of these
-counts over $b \in \pi$.  From the prior and model structure
-\begin{eqnarray*}
-w(\pi, \pi) = p(t^1 | t^1_{\pi})\, p(t^2|  t^2_{\pi} )
- \, p( t^1_{\pi}, t^2_{\pi} | A_{\pi} ) p(A_{\pi}).
-\end{eqnarray*}
 Conditional independence of $t^1$ and $t^2$ given the block-level totals
 $t^1_{\pi}$ and $t^2_{\pi}$ on $A_{\pi}$ reflects the possible differential 
 class proportion structure within blocks but between cell conditions.
@@ -582,11 +560,56 @@ p(t^1_{\pi},t^2_{\pi}| A_{\pi}) =
 which corresponds to Dirichlet-multinomial predictive distribution for counts $t^1 + t^2$ 
 since $t^1$ and $t^2$ are identical distributed in this case.
 
+
+\subsection{$P(A_\pi|y,z)$}
+
+
+From~(\ref{eq:counts}), $P(A_\pi|y,z) = P(A_{\pi}|t^1, t^2)$.
+
+
+
+
+In order to get the posterior probability $p(A_\pi | t^1,t^2)$, we need to calculate
+\[
+\begin{split}
+p(A_\pi | t^1,t^2)\propto p(A_\pi, t^1,t^2) &= \int_{A_\pi} p(t^1,t^2|\phi,\psi)p(\phi,\psi) d\phi d\psi\\
+&= \sum_{\pi'\in \Pi}\int_{A_\pi} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi'})p(A_{\pi'})d\phi d\psi
+\end{split}
+\]
+For simplicity of notation, let $w(\pi_1, \pi_2) = \int_{A_{\pi_1}} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi_2})p(A_{\pi_2})d\phi d\psi$, then
+$p(A_\pi | t^1,t^2)\propto \underset{\pi'\in \Pi}\sum w(\pi, \pi')$. To calculate component $w(\pi, \pi')$, recall refinement and coarseness relationship between partitions, we say a partition $\tilde{\pi}$ is a refinement of another partition $\pi$ if $\forall b \in \pi$ there exists $s \subset \tilde{\pi}$  such that $\underset{b'\in s}\cup b' = b$. We say $\pi$ is a coarseness of $\tilde{\pi}$ when $\tilde{\pi}$ refines $\pi$. we have following theorem
+
+\begin{theorem}
+If $\pi'$ is a refinement of $\pi$ then $w(\pi,\pi') = w(\pi', \pi')$ otherwise $w(\pi,\pi') = 0$
+\end{theorem}
+\hfill\\
+Consequently, let $RF(\pi)$ be the collection of finer partition of $\pi$, we have
+the posterior probability:
+\[
+\begin{split}
+p(A_\pi | t^1,t^2)\propto  \sum_{\pi' \in RF(\pi)} w(\pi',\pi')
+\end{split}
+\]
+
+
+
+
+
+From the prior and model structure
+\begin{eqnarray*}
+w(\pi, \pi) = p(t^1 | t^1_{\pi})\, p(t^2|  t^2_{\pi} )
+ \, p( t^1_{\pi}, t^2_{\pi} | A_{\pi} ) p(A_{\pi}).
+\end{eqnarray*}
+
+
+
 Regardless of the partition,
-log scale probabilities are readily evaluated 
+log scale probabilities are readily evaluated
 given hyper-parameters $\{ \alpha_k \}$ and $\{ \beta_b \}$ and for
 cell-type counts $t^1$ and $t^2$. \\
-For asymptotic properties of the posterior probabilities, we demonstrated them in section 6. 
+For asymptotic properties of the posterior probabilities, we demonstrated them in section 6.
+
+
  
 \section{Operating Characteristics}
 
@@ -659,7 +682,7 @@ scDDboost identified most true DD genes, the reason is that mean expression shif
 \end{comment}
 
 
-Since we are modeling gene transcript within each subtype as negative binomial distributed and we only test one parameter(mean) change among subtypes. In some scenario, it could be insufficient to model the variability within subtype. Even though there is no mean expression change among subtypes but more subtle distributional change occurred among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus limit power of scDDboost.\\
+Since we are modeling gene transcript within each subtype as negative-binomially distributed and we only test one parameter(mean) change among subtypes. In some scenario, it could be insufficient to model the variability within subtype. Even though there is no mean expression change among subtypes but more subtle distributional change occurred among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus limit power of scDDboost.\\
 
 \newpage
 \subsection{Empirical study}

@@ -16,19 +16,20 @@
 \@writefile{toc}{\contentsline {section}{\tocsection {}{2}{Modeling}}{2}}
 \@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{2.1}{Data structure, sampling model, and parameters}}{2}}
 \newlabel{eq:counts}{{1}{2}}
+\newlabel{eq:mult}{{2}{2}}
 \citation{ref:Leng}
 \citation{DES}
 \citation{ref:Des}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Proportions of $K=7$ cellular subtypes in different conditions. Aggregated proportions of subtypes 3 and 4, subtypes 2, 5, and 6, and subtypes 1, and 7 remain same across conditions, while individual subtype frequencies change. \relax }}{4}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:1}{{1}{4}}
-\newlabel{eq:asets}{{2}{4}}
 \citation{sc3}
 \citation{CIDR}
 \citation{ZIFA}
 \citation{ref:Leng}
-\newlabel{eq:msets}{{3}{5}}
-\newlabel{eq:lfdr}{{4}{5}}
+\newlabel{eq:asets}{{3}{5}}
+\newlabel{eq:msets}{{4}{5}}
+\newlabel{eq:lfdr}{{5}{5}}
 \citation{ref:Leng}
 \citation{kmedoids}
 \citation{ref:cspa}
@@ -41,15 +42,14 @@
 \newlabel{alg:scDDcore}{{1}{7}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textsc  {scDDboost}\relax }}{8}}
 \newlabel{alg:scDDboost}{{2}{8}}
-\@writefile{toc}{\contentsline {section}{\tocsection {}{3}{Empirical Bayes}}{8}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.1}{Double Dirichlet model}}{8}}
-\newlabel{eq:ddmix}{{5}{8}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.2}{Predictive probabilities:}}{9}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{2.3}{Double Dirichlet model}}{8}}
+\newlabel{eq:ddmix}{{6}{8}}
 \citation{ref:Dickey}
 \citation{Wag}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{2.4}{$P(A_\pi |y,z)$}}{10}}
 \citation{ref:Zappia}
-\@writefile{toc}{\contentsline {section}{\tocsection {}{4}{Operating Characteristics}}{11}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{4.1}{Splatter Simulation}}{11}}
+\@writefile{toc}{\contentsline {section}{\tocsection {}{3}{Operating Characteristics}}{11}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.1}{Splatter Simulation}}{11}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces first two principal components of transcripts under different parameters for simulated data. Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation, each setting has 2 replicates\relax }}{11}}
 \newlabel{fig:4}{{3}{11}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  comparison of posterior probabilities of being DD among different number of subtypes, when we underestimate the number of subtypes, the difference is huge, see PDD between 6 subtypes and 7 subtypes. There is an approximate horizontal line with massive points at the top of left panel, which indicate that we underestimate lots of DD genes due to underestimate the number of subtypes. While in the case when we overestimate the number of subtypes 7 subtypes vs. 8 subtypes, though inflating PDD but the variation of difference is small, from 6 to 8 subtypes the PDD become more linear related.\relax }}{12}}
@@ -59,28 +59,28 @@
 \citation{ref:MAST}
 \citation{ref:Des}
 \citation{sc3}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{4.2}{Empirical study}}{13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  number of DD genes with respect to total number of genes identified by each method. Ranked by mean list size\relax }}{13}}
-\newlabel{fig:6}{{5}{13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Densities of log transformed transcripts, 6 DD genes uniquely identified by scDDboost, for data GSE75748, DEC vs. EC, We observe some of the genes are different distributed across conditions.\relax }}{14}}
-\newlabel{fig:6}{{6}{14}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{4.3}{Empirical study: null cases}}{14}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces datasets used for null cases, as cells are coming from same biological condition, there should not be any differential distributed genes, any positive call is false positive\relax }}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces FDR of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. \relax }}{15}}
-\newlabel{fig:7}{{7}{15}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{4.4}{Number of subtypes}}{15}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.2}{Empirical study}}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  number of DD genes with respect to total number of genes identified by each method. Ranked by mean list size\relax }}{14}}
+\newlabel{fig:6}{{5}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Densities of log transformed transcripts, 6 DD genes uniquely identified by scDDboost, for data GSE75748, DEC vs. EC, We observe some of the genes are different distributed across conditions.\relax }}{15}}
+\newlabel{fig:6}{{6}{15}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.3}{Empirical study: null cases}}{15}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces datasets used for null cases, as cells are coming from same biological condition, there should not be any differential distributed genes, any positive call is false positive\relax }}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces FDR of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. \relax }}{16}}
+\newlabel{fig:7}{{7}{16}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.4}{Number of subtypes}}{16}}
 \citation{ref:d3e}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces selecting number of subtypes for data GSE57872, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD. We select number of subtypes to be 7\relax }}{16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes\relax }}{16}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{4.5}{Bursting parameters}}{16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces D3E method will estimate 3 bursting parameters probability of a gene being on (\textbf  {a}) and off (\textbf  {b}) and the expression rate when the gene expression is on (\textbf  {c}), we plot the hexbin plot of probability of a gene being DD under out method v.s. the absolute value of log fold change of \textbf  {a} , \textbf  {b} and \textbf  {c} across the two conditions accordingly. The log fold change is scaled by dividing the largest log fold change so that ends up in a value between 0 and 1 Here we use the GSE71585 data \relax }}{17}}
-\@writefile{toc}{\contentsline {section}{\tocsection {}{5}{Theoretical issues}}{17}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{5.1}{Posterior consistency}}{17}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Four subtypes of cells, simplexes of $(\phi ,\psi )$ satisfying different constraints.\relax }}{18}}
-\newlabel{fig:1}{{11}{18}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{5.2}{Random weighting}}{20}}
-\@writefile{toc}{\contentsline {section}{\tocsection {}{6}{Discussion and future work}}{21}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{6.1}{Multi-conditions}}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces selecting number of subtypes for data GSE57872, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD. We select number of subtypes to be 7\relax }}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes\relax }}{17}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.5}{Bursting parameters}}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces D3E method will estimate 3 bursting parameters probability of a gene being on (\textbf  {a}) and off (\textbf  {b}) and the expression rate when the gene expression is on (\textbf  {c}), we plot the hexbin plot of probability of a gene being DD under out method v.s. the absolute value of log fold change of \textbf  {a} , \textbf  {b} and \textbf  {c} across the two conditions accordingly. The log fold change is scaled by dividing the largest log fold change so that ends up in a value between 0 and 1 Here we use the GSE71585 data \relax }}{18}}
+\@writefile{toc}{\contentsline {section}{\tocsection {}{4}{Theoretical issues}}{18}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{4.1}{Posterior consistency}}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Four subtypes of cells, simplexes of $(\phi ,\psi )$ satisfying different constraints.\relax }}{19}}
+\newlabel{fig:1}{{11}{19}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{4.2}{Random weighting}}{21}}
+\@writefile{toc}{\contentsline {section}{\tocsection {}{5}{Discussion and future work}}{22}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{5.1}{Multi-conditions}}{22}}
 \bibstyle{IEEEtran}
 \bibdata{./references/wlr_ref}
 \bibcite{scs}{{1}{}{{}}{{}}}
@@ -96,7 +96,7 @@
 \bibcite{ref:scDD}{{11}{}{{}}{{}}}
 \bibcite{ref:Cq}{{12}{}{{}}{{}}}
 \bibcite{ref:Leng}{{13}{}{{}}{{}}}
-\@writefile{toc}{\contentsline {section}{\tocsection {}{}{References}}{23}}
+\@writefile{toc}{\contentsline {section}{\tocsection {}{}{References}}{24}}
 \bibcite{DES}{{14}{}{{}}{{}}}
 \bibcite{kmedoids}{{15}{}{{}}{{}}}
 \bibcite{ref:cspa}{{16}{}{{}}{{}}}
@@ -106,10 +106,10 @@
 \bibcite{Wag}{{20}{}{{}}{{}}}
 \bibcite{ref:Zappia}{{21}{}{{}}{{}}}
 \bibcite{ref:d3e}{{22}{}{{}}{{}}}
-\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{A}{}}{25}}
-\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{B}{}}{25}}
-\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{C}{}}{25}}
-\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{D}{}}{25}}
+\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{A}{}}{26}}
+\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{B}{}}{26}}
+\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{C}{}}{26}}
+\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{D}{}}{26}}
 \newlabel{tocindent-1}{0pt}
 \newlabel{tocindent0}{13.9917pt}
 \newlabel{tocindent1}{72.54387pt}
