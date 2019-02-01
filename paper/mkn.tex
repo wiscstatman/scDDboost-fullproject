@@ -347,7 +347,7 @@ A second measure defines dissimilarity by one minus the
 Pearson correlation between cells, which is computationally inexpensive,
 less sensitive to outliers than Euclidean distance, and effective at detecting cellular clusters in scRNA-seq(\cite{Cor}).
  We combine the two measures by a weighted average, 
-with  $w_C = \frac{\sigma_C}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_E$. where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster based distance and Pearson correlation distance accordingly.   
+with  $w_C = \frac{\sigma_C}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_C$. where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster based distance and Pearson correlation distance accordingly.   
 **{\em MAN to XM, please clarify; $w_E$ or $w_C$?; also, above, I used *measure* instead of *metric*, but please confirm**}
 The resulting distance matrix is $D=\left( d_{i,j} \right)$. **{\em (is it distance or dissimilarity?)}**
 
@@ -573,10 +573,12 @@ In order to get the posterior probability $p(A_\pi | t^1,t^2)$, we need to calcu
 \[
 \begin{split}
 p(A_\pi | t^1,t^2)\propto p(A_\pi, t^1,t^2) &= \int_{A_\pi} p(t^1,t^2|\phi,\psi)p(\phi,\psi) d\phi d\psi\\
-&= \sum_{\pi'\in \Pi}\int_{A_\pi} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi'})p(A_{\pi'})d\phi d\psi
+%&= \sum_{\pi'\in \Pi}\int_{A_\pi} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi'})p(A_{\pi'})d\phi d\psi
+&= \sum_{\pi'\in \Pi}\int_{A_\pi} p(t^1,t^2|\phi,\psi)p_{\pi'}(\phi, \psi )p(A_{\pi'})d\phi d\psi
 \end{split}
 \]
-For simplicity of notation, let $w(\pi_1, \pi_2) = \int_{A_{\pi_1}} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi_2})p(A_{\pi_2})d\phi d\psi$, then
+For simplicity of notation, let %$w(\pi_1, \pi_2) = \int_{A_{\pi_1}} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi_2})p(A_{\pi_2})d\phi d\psi$, 
+$w(\pi_1, \pi_2) = \int_{A_{\pi_1}} p(t^1,t^2|\phi,\psi)p_{\pi_2}(\phi, \psi )p(A_{\pi_2})d\phi d\psi$, then
 $p(A_\pi | t^1,t^2)\propto \underset{\pi'\in \Pi}\sum w(\pi, \pi')$. To calculate component $w(\pi, \pi')$, recall refinement and coarseness relationship between partitions, we say a partition $\tilde{\pi}$ is a refinement of another partition $\pi$ if $\forall b \in \pi$ there exists $s \subset \tilde{\pi}$  such that $\underset{b'\in s}\cup b' = b$. We say $\pi$ is a coarseness of $\tilde{\pi}$ when $\tilde{\pi}$ refines $\pi$. we have following theorem
 
 \begin{theorem}
