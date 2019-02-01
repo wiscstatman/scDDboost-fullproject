@@ -684,7 +684,7 @@ scDDboost identified most true DD genes, the reason is that mean expression shif
 
 Since we are modeling gene transcript within each subtype as negative-binomially distributed and we only test one parameter(mean) change among subtypes. In some scenario, it could be insufficient to model the variability within subtype. Even though there is no mean expression change among subtypes but more subtle distributional change occurred among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus limit power of scDDboost.\\
 
-\newpage
+
 \subsection{Empirical study}
 
 **Conquer examples...null and alternative**
@@ -705,18 +705,28 @@ GSE57872 & patient1 vs patient2 & 192,96 & human \\
 \hline
 GSE48968-GPL13112 & BMDC (2h LPS stimulation) vs 6h LPS & 96,96 & mouse \\
 \hline
-GSE60749-GPL13112null & serum + LIF vs  2i + LIF & 90,94 & mouse \\
+GSE60749-GPL13112 & serum + LIF vs  2i + LIF & 90,94 & mouse \\
 \hline
 GSE74596 & NKT1 vs NTK2 & 46,68 & mouse\\
 \hline
-EMTAB2805null & G1 & 48,48 & mouse\\
+EMTAB2805 & G1 vs G2M & 96,96 & mouse\\
 \hline
-GSE71585-GPL13112null &Gad2tdTpositive  & 40,40 & mouse \\
+GSE71585-GPL13112 &Gad2tdTpositive vs Cux2tdTnegative  & 80,140 & mouse \\
 \hline
-GSE64016null & G1 & 46,45 & human \\
+GSE64016 & G1 vs G2 & 91,76 & human \\
 \hline
-GSE79102null & patient1 & 26, 25 & human\\
+GSE79102 & patient1 vs patient2 & 51, 89 & human\\
 \hline
+GSE45719 & 16-cell stage blastomere vs mid blastocyst cell & 50, 60 & mouse\\
+\hline
+GSE63818 & Primordial Germ Cells, develop- mental stage: 7 week gestation vs Somatic Cells, developmental stage: 7 week gestation & 40,26 & mouse\\
+\hline
+GSE75748 & DEC vs EC & 64, 64 & human\\
+\hline
+GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human\\
+\hline
+
+
 \end{tabular}
 \captionof{table}{datasets used for comparisons of DD analysis under different methods}
 \end{table}
