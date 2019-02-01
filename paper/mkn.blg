@@ -11,46 +11,48 @@ Database file #1: ./references/wlr_ref.bib
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--there's a month but no year in Guo
 
 Done.
-You've used 22 entries,
+You've used 34 entries,
             4087 wiz_defined-function locations,
-            995 strings with 12355 characters,
-and the built_in function-call counts, 18025 in all, are:
-= -- 1616
-> -- 416
-< -- 136
-+ -- 211
-- -- 79
-* -- 933
-:= -- 2938
-add.period$ -- 44
-call.type$ -- 22
-change.case$ -- 22
-chr.to.int$ -- 246
-cite$ -- 22
-duplicate$ -- 1295
-empty$ -- 1242
-format.name$ -- 97
-if$ -- 4143
+            1089 strings with 17537 characters,
+and the built_in function-call counts, 34456 in all, are:
+= -- 2824
+> -- 1201
+< -- 259
++ -- 604
+- -- 249
+* -- 1804
+:= -- 5138
+add.period$ -- 68
+call.type$ -- 34
+change.case$ -- 34
+chr.to.int$ -- 525
+cite$ -- 35
+duplicate$ -- 2368
+empty$ -- 2304
+format.name$ -- 279
+if$ -- 7999
 int.to.chr$ -- 0
-int.to.str$ -- 22
-missing$ -- 222
-newline$ -- 131
-num.names$ -- 22
-pop$ -- 433
+int.to.str$ -- 34
+missing$ -- 470
+newline$ -- 191
+num.names$ -- 34
+pop$ -- 1050
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1434
+skip$ -- 2637
 stack$ -- 0
-substring$ -- 678
-swap$ -- 1131
-text.length$ -- 54
+substring$ -- 1388
+swap$ -- 2169
+text.length$ -- 84
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 22
-warning$ -- 0
-while$ -- 67
-width$ -- 24
-write$ -- 315
+type$ -- 34
+warning$ -- 1
+while$ -- 118
+width$ -- 36
+write$ -- 477
+(There was 1 warning)
