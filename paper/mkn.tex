@@ -954,11 +954,12 @@ yielding $a = a_0 + a_1$ and $b = a_1$.  Therefore, we gave a way of modeling th
 
 
 
-\section{Discussion and future work}
-We have presented scDDboost, a compositional model for detecting differential distributed genes from scRNA-seq data. To account for the over-dispersion and multi-modality of single-cell data, scDDboost modeled transcripts as mixture distributed. Unlike previous invented methods (e.g. Deseq2, MAST and scDD), which conducts genewise DD test in an isolated manner. scDDboost make whole genome information shared at gene level by further assuming the mixture distribution of transcripts is a mixture over the subtypes of cells. We combine estimations of changes of subtypes' proportions across conditions and changes of mean expressions across subtypes to infer distributional changes of transcripts.
-To estimate changes of subtypes' proportions across conditions, we use empirical Bayes and developed a double dirichlet prior distribution.  We invented a random weighting scheme that stabilize our DD inference as well as having the property to approximate the results from a fully baeysian framework. scDDboost outperforms existing approaches on the simulation study and tends to be more powerful than existing methods on empirical studies. 
+\section{Discussion}
+We have presented scDDboost, a compositional model for detecting differential distributed genes from scRNA-seq data. To account for the over-dispersion and multi-modality of single-cell data, scDDboost modeled transcripts as mixture distributed. Unlike previous invented methods (e.g. Deseq2, MAST and scDD), which conducts genewise DD test in an isolated manner. scDDboost make whole genome information shared at gene level by further assuming the mixture distribution of transcripts is a mixture over the subtypes of cells. Another advantage of scDDboost is its' flexibility to allow user specified clustering methods of cells, with more and more studies of the scRNA-seq data, there will be more accurate distance matrix between cells, which will yield better estimation of subtypes and inference of DD genes. We combine estimations of changes of subtypes' proportions across conditions and changes of mean expressions across subtypes to infer distributional changes of transcripts. To estimate changes of subtypes' proportions across conditions, we use empirical Bayes and developed a double Dirichlet prior distribution.  We invented a random weighting scheme that stabilize our DD inference as well as approximating the results as if we have done a fully bayesian clustering analysis based on Dirichlet prior.  We demonstrated that scDDboost outperforms existing approaches in simulation and tends to be more powerful than existing methods on a wide range of public available empirical datasets. 
 
+One limitation of scDDboost is that current EBseq inference of the DE patterns is computationally not feasible for big number of subtypes. Given the noise level among the single cell data and especially if we want to identify DD genes among conditions containing thousands of cells, allowing a big number of subtypes would make cells under same subtype more homogeneous and result in a more accurate estimations for the distribution of transcripts. Further research is needed for acceleration of EBseq, one direction is to reduce the calculation on those patterns that would have small posterior probabilities. 
 
+\begin{comment}
 
 \subsection{Multi-conditions}
 One direction for future work is to extend the compositional model to multi-conditions case. As scRNA seq data is a time course data, it may be more interested to  consider inference of distributional changes across multiple conditions.  We outline our procedure in the following.\\
@@ -1001,6 +1002,7 @@ Where $\Phi = \{\Phi_{b'}, b' \in \pi_k\},  \Phi_{b'} = \underset{i\in b'}\sum\p
 
 Since there are a lot of overlapping among $A_{\pi_k}^{\pi^l}$, care must be taken to account for competing issue of prior predictive function. Empirical study may give suggestion of modifying the prior.
  
+\end{comment}
 
 
 \bibliographystyle{IEEEtran}
