@@ -466,25 +466,20 @@ using the Dirichlet-Multinomial conjugacy and the collapsing property (\cite{ref
 {\bf Property 2:}  In $p_\pi(\phi,\psi)$, $\psi$ and $\phi$ are dependent, unless $\pi$ is the complete
 partition in which every cell subtype is its own block.
 
+Recall from~(\ref{eq:counts}) the vectors $t^1$ and $t^2$ holding
+counts  of cells in each subtype in each condition, computed from $y$ and $z$.  Relative to a block $b \in \pi$, 
+let let $t^j_b = \sum_{k\in b} t^j_k$, for cell conditions $j=1,2$, and,
+let $t^j_\pi$ be the vector of these counts over $b \in \pi$.   The following properties refer to
+marginal distributions in which $(\phi,\psi)$ have been integrated out of the joint
+distribution involving~(\ref{eq:mult}) and the component $p_\pi$.
+
 \noindent
-{\bf Property 3:} The predictive distributions of cell-type counts $t^1$ and $t^2$ 
- are all available in closed form..
-(\ref{eq:counts})
+{\bf Property 3:}  $t^1$ and $t^2$ are conditionally independent given $y$.
 
-Fixing a partition $\pi$,
-let $t^j_b = \sum_{k\in b} t^j_k$, for cell conditions $j=1,2$,
-record the total numbers of cells accumulated over all types in block $b \in \pi$.
-Following our notation convention, $t^j_\pi$ is the vector of these
-counts over $b \in \pi$.  
-
-
-Conditional independence of $t^1$ and $t^2$ given the block-level totals
-$t^1_{\pi}$ and $t^2_{\pi}$ on $A_{\pi}$ reflects the possible differential 
-class proportion structure within blocks but between cell conditions.
-For either cellular group $j=1,2$,
-we find, after some simplification, the following Dirichlet-Multinomial masses: 
-\begin{align}
-p(t^j | t^j_{\pi}) = \prod_{b \in \pi} \left\{
+\noindent
+{\bf Property 4:}  For $j=1,2$,
+\begin{eqnarray*}
+p_\pi(t^j | t^j_{\pi},y) = \prod_{b \in \pi} \left\{
 \left[ \frac{ \Gamma(t^j_b +1 ) }{\prod_{k \in b} \Gamma( t^j_k + 1 ) } 
 \right]
 \left[ \frac{\Gamma( \sum_{k \in b} \alpha_k )}{
@@ -492,19 +487,22 @@ p(t^j | t^j_{\pi}) = \prod_{b \in \pi} \left\{
        \left[        \frac{ \prod_{k \in b} \Gamma(\alpha_k + t^j_k)  }{
 		\Gamma(t^j_b + \sum_{k\in b} \alpha_k ) )}\right]
  \right\}
-\end{align}
-and
-\begin{align}
-p(t^1_{\pi},t^2_{\pi}| A_{\pi}) =
+\end{eqnarray*}
+
+{\bf Property 5:}  
+\begin{eqnarray*}
+p_\pi(t^1_{\pi},t^2_{\pi}| y) =
  \left[ \frac{ \Gamma(n_1+1) \Gamma(n_2+1) }{ \prod_{b \in \pi} \Gamma(t^1_b+1) 
    \Gamma( t^2_b + 1 )} \right] 
 \left[ \frac{\Gamma( \sum_{b \in \pi} \beta_b  )}{
    \prod_{b \in \pi} \Gamma(\beta_b )} \right] 
  \left[ \frac{ \prod_{b \in \pi} \Gamma( \beta_b + t^1_b + t^2_b )}{
 	\Gamma( n_1 + n_2 + \sum_{b \in \pi} \beta_b  )} \right].
-\end{align}
-\hfill\\
-Let's look at some special cases to dissect this result. \\
+\end{eqnarray*}
+
+
+Let's look at some special cases to dissect this result. **
+
 Case 1. If $\pi$ has a single block equal to the entire
  set of cell types $\{1,2, \cdots, K\}$,  then $t^j_b=n_j$ for both $j=1,2$,
 and the second formula reduces, correctly, to 
@@ -543,6 +541,9 @@ since $t^1$ and $t^2$ are identical distributed in this case.
 
 
 **
+%%Conditional independence of $t^1$ and $t^2$ given the block-level totals
+%%$t^1_{\pi}$ and $t^2_{\pi}$ on $A_{\pi}$ reflects the possible differential 
+%%class proportion structure within blocks but between cell conditions.
 
 
 From~(\ref{eq:counts}), $P(A_\pi|y,z) = P(A_{\pi}|t^1, t^2)$.
