@@ -226,7 +226,7 @@ M_{g,\pi} = \{ \theta \in \Theta: \; \mu_{g,k} = \mu_{g,k'} \iff k,k' \in b, b \
 \end{eqnarray}
 Under $A_\pi$ there are constraints on cell subtype frequencies; under $M_{g,\pi}$ there is 
 equivalence in the gene-level distribution of expression between certain subtypes.
-These sets are precisely the
+These sets, which are all closed, convex subsets of $\Theta$, are precisely the
 structures needed to address differential distribution DD$_g$ (and
 it complement, equivalent distribution, ${\rm ED}_g$) at a given gene
 $g$, since:
@@ -348,8 +348,7 @@ Pearson correlation between cells, which is computationally inexpensive,
 less sensitive to outliers than Euclidean distance, and effective at detecting cellular clusters in scRNA-seq(\cite{Cor}).
  We combine the two measures by a weighted average, 
 with  $w_C = \frac{\sigma_C}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_C$. where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster based distance and Pearson correlation distance accordingly.   
-**{\em MAN to XM, please clarify; $w_E$ or $w_C$?; also, above, I used *measure* instead of *metric*, but please confirm**}
-The resulting distance matrix is $D=\left( d_{i,j} \right)$. **{\em (is it distance or dissimilarity?)}**
+The resulting distance matrix is $D=\left( d_{i,j} \right)$. 
 
 Any clustering method  entails classification errors, and so $\hat z_c \neq z_c$ for some cells. To mitigate
 the effects of this uncertainty, \textsc{scDDboost} averages output probabilities from \textsc{scDDboost-core} over
@@ -410,7 +409,8 @@ we observed that averaged adjusted Rand index as well as Rand index of mode of p
 %**
 
 
-Here we describe the partition-reliant prior $p(\phi,\psi)$ indicated in~Figure~2.  It is conjugate to multinomial
+Here we describe the partition-reliant prior $p(\phi,\psi)$ indicated in~Figure~2 and an explicit
+formula for $P(A_\pi|y,z)$.  The prior is conjugate to multinomial
 sampling while also enabling downstream gene-specific inferences about
 differential distribution.  
 For our purposes, partition-reliance means a spike-slab structure that mixes
@@ -420,81 +420,62 @@ over partitions $\pi$ determining
 \label{eq:ddmix}
 p(\phi,\psi) = \sum_{\pi \in \Pi} \omega_\pi  \, p_\pi(\phi,\psi ).
 \end{eqnarray} 
-For simplicity, we choose mixing proportions $\omega_\pi \propto 1$ for all partitions.
-Each mixing component $p_\pi(\phi,\psi)$ has support $A_\pi$.
-To complete the specification, introduce scalers
-$\alpha_k>0$ for each subtype $k$, and $\beta_b>0$ for each possible block $b$.
-(Extending the notational convention, $\alpha_b$ is the vector of $\alpha_k$
-for $k\in b$, and $\beta_\pi$ is the vector of $\beta_b$ for $b \in \pi$.)
-For any block $b$ consider conditional probabilities
+Each mixture component $p_\pi(\phi,\psi)$ has support $A_\pi$;  
+the mixing proportions $\omega_\pi$ are any non-negative constants summing to one. In numerical
+experiments we have taken $\omega_\pi \propto 1$.  **{\em MAN to XM: what values do we use for alphas and betas?}**
+To specify component $p_\pi$,  introduce scalers
+$\alpha_k>0$ for each subtype $k$, and $\beta_b>0$ for any possible block $b$.
+Extending notation, let $\alpha_b$ be the vector of $\alpha_k$
+for $k\in b$, $\beta_\pi$ be the vector of $\beta_b$ for $b \in \pi$, $\phi_b$ and $\psi_b$ be vectors
+of $\phi_k$ and $\psi_k$, respectively, for $k\in b$, and $\Phi_\pi$ and $\Psi_\pi$ be the vectors
+of $\Phi_b$ and $\Psi_b$ for $b \in \pi$.
+
+Notice that on $A_\pi$ there is a 1-1 correspondence between pairs $(\phi, \psi)$ and 
 \begin{eqnarray*}
-\tilde{\phi}_b = \frac{\phi_b}{\Phi_b} \qquad \tilde{\psi}_b = \frac{\psi_b}{\Psi_b}
+ \left\{ (\tilde \phi_b, \tilde \psi_b, \Phi_b), \; \forall b \in \pi \right\}, 
 \end{eqnarray*}
-which indicate the conditional probability of each subtype $k$ given that
-the cell is of one of the subtypes in $b$.  Assume that conditional upon 
-$A_\pi$,
+where
 \begin{eqnarray*}
-\Phi_\pi \sim \text{Dirichet}_{N(\pi)}[   \beta_\pi   ]
+\tilde{\phi}_b = \frac{\phi_b}{\Phi_b}, \quad \tilde{\psi}_b = \frac{\psi_b}{\Psi_b}, \quad 
+{\mbox {\rm and}} \quad \Phi_b = \sum_{k \in b} \phi_k = \sum_{k \in b} \psi_k = \Psi_b.
 \end{eqnarray*}
-where $N(\pi)$ is the number of blocks $b$ in $\pi$,
-and further that accumulated probabilities are the same between
-the two source conditions: $\Phi_\pi = \Psi_\pi$.
-Finally, assume that for each $b \in \pi$,
-\begin{eqnarray*}
+For example, $\tilde{\phi}_b$ is a vector of conditional probabilities for each subtype given that a cell
+from the first condition
+is one of the subtypes in $b$. The proposed double-Dirichlet component 
+$p_\pi$ is determined in this transformed scale by assuming:
+\begin{eqnarray}
+\label{eq:doubledir}
+\Phi_\pi  \sim \text{Dirichet}_{N(\pi)}[   \beta_\pi   ] , \; {\mbox {\rm and independently}}, \;
 \tilde \phi_b, \tilde \psi_b \sim_{\text{i.i.d.}}
   \text{Dirichlet}_{N(b)}[ \alpha_b ]
-\end{eqnarray*}
-where $N(b)$ is the number of cell subtypes in block $b$.
-In other words, if $A_\pi$ is the active structure, then
+\end{eqnarray}
+where $N(\pi)$ is the number of blocks in $\pi$ and $N(b)$ is the number of subtypes in $b$.
+In other words, on $p_\pi$,
 accumulated probability vectors $\Phi_\pi$ and $\Psi_\pi$ are equal
-between the two source conditions, though the sub-block subtype-specific
+between the two source conditions, though the  subtype-specific
 rates $\phi_k$ and $\psi_k$ may differ, as would (re-normalized)
-independent Dirichlet-distributed vectors.
-Taken together,
-\begin{eqnarray*}
-p_\pi(\phi,\psi) =
-         q_\pi( \Phi_\pi, \Psi_\pi  ) \, \prod_{b \in \pi}  \left[
-         p( \tilde \phi_b ) p( \tilde \psi_b ) \right]
-\end{eqnarray*}
-with
-\begin{eqnarray*}
-q_\pi( \Phi_\pi, \Psi_\pi  )
-= \frac{\Gamma(\sum_{b\in \pi} \beta_b)}{
- \prod_{b \in \pi} \Gamma( \beta_b )} \left[\prod_{b \in \pi} \Phi_b^{\beta_b-1} \right] \,
- 1\left[ \Phi_\pi = \Psi_\pi \right]
-\end{eqnarray*}
-and
-\begin{eqnarray*}
-p( \tilde \phi_b ) =
-\frac{ \Gamma( \sum_{k\in b} \alpha_k ) }{ \prod_{k\in b} \Gamma(\alpha_k) }
- \prod_{k \in b} \tilde \phi_k^{\alpha_k -1 },
-\qquad
-p( \tilde \psi_b )
-=
-\frac{ \Gamma( \sum_{k\in b} \alpha_k ) }{ \prod_{k\in b} \Gamma(\alpha_k) }
-\prod_{k \in b} \tilde \psi_k^{\alpha_k -1 }.
-\end{eqnarray*}
-
-Using the Dirichlet-Multinomial conjugacy and the collapsing property of
-these distributions (\cite{ref:Dickey}), we deduce some properties of the Double-Dirichlet model.
+independent Dirichlet-distributed vectors. (See also Appendix D.) 
+ We deduce some properties of the double-Dirichlet model~(\ref{eq:doubledir}), 
+using the Dirichlet-Multinomial conjugacy and the collapsing property (\cite{ref:Dickey}). 
 
 \noindent
-{\bf Property 1:}  In $p_\pi(\phi,\psi)$, $\psi$ and $\phi$ are dependent but 
-  marginally identically Dirichlet distributed.
+{\bf Property 1:}  In $p_\pi(\phi,\psi)$, $\psi$ and $\phi$ 
+  marginally identically distributed as Dirichlet$()$.
 
 \noindent
-{\bf Property 2:} The predictive distributions of cell-type counts $t^1$ and $t^2$ (\ref{eq:counts})
+{\bf Property 2:}  In $p_\pi(\phi,\psi)$, $\psi$ and $\phi$ are dependent, unless $\pi$ is the complete
+partition in which every cell subtype is its own block.
+
+\noindent
+{\bf Property 3:} The predictive distributions of cell-type counts $t^1$ and $t^2$ 
  are all available in closed form..
+(\ref{eq:counts})
 
 Fixing a partition $\pi$,
 let $t^j_b = \sum_{k\in b} t^j_k$, for cell conditions $j=1,2$,
 record the total numbers of cells accumulated over all types in block $b \in \pi$.
 Following our notation convention, $t^j_\pi$ is the vector of these
-counts over $b \in \pi$.  Further, we use $\phi_b$ to denote the vector of values $\phi_k$ for $k \in b$,
-and similarly for $\psi_b$. Analogously, $\Phi_\pi$ and $\Psi_\pi$
- are vectors of 
-accumulated class probabilities $\phi_b$ and $\psi_b$ for all $b \in \pi$,
- respectively. 
+counts over $b \in \pi$.  
 
 
 Conditional independence of $t^1$ and $t^2$ given the block-level totals
@@ -561,7 +542,7 @@ which corresponds to Dirichlet-multinomial predictive distribution for counts $t
 since $t^1$ and $t^2$ are identical distributed in this case.
 
 
-\subsection{$P(A_\pi|y,z)$}
+**
 
 
 From~(\ref{eq:counts}), $P(A_\pi|y,z) = P(A_{\pi}|t^1, t^2)$.
@@ -1029,6 +1010,38 @@ On the Poisson version of modal clust
 \section{}
 
 on randomized clusterings
+
+\section{}
+
+On the double Dirichlet masses, using notation as in Section 2.3 we have density functions:
+
+
+\begin{eqnarray*}
+p_\pi(\phi,\psi) =
+         q_\pi( \Phi_\pi, \Psi_\pi  ) \, \prod_{b \in \pi}  \left[
+         p( \tilde \phi_b ) p( \tilde \psi_b ) \right]
+\end{eqnarray*}
+with
+\begin{eqnarray*}
+q_\pi( \Phi_\pi, \Psi_\pi  )
+= \frac{\Gamma(\sum_{b\in \pi} \beta_b)}{
+ \prod_{b \in \pi} \Gamma( \beta_b )} \left[\prod_{b \in \pi} \Phi_b^{\beta_b-1} \right] \,
+ 1\left[ \Phi_\pi = \Psi_\pi \right]
+\end{eqnarray*}
+and
+\begin{eqnarray*}
+p( \tilde \phi_b ) =
+\frac{ \Gamma( \sum_{k\in b} \alpha_k ) }{ \prod_{k\in b} \Gamma(\alpha_k) }
+ \prod_{k \in b} \tilde \phi_k^{\alpha_k -1 },
+\qquad
+p( \tilde \psi_b )
+=
+\frac{ \Gamma( \sum_{k\in b} \alpha_k ) }{ \prod_{k\in b} \Gamma(\alpha_k) }
+\prod_{k \in b} \tilde \psi_k^{\alpha_k -1 }.
+\end{eqnarray*}
+
+
+
 
 \section{}
 \hfill\\
