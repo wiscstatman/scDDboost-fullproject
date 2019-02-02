@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  1 FEB 2019 22:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  1 FEB 2019 23:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -527,11 +527,11 @@ Overfull \hbox (18.33392pt too wide) in paragraph at lines 681--715
  [][] 
  []
 
-<Figs/DD95.pdf, id=88, 693.59125pt x 285.065pt>
+<Figs/DD95.pdf, id=88, 693.59125pt x 277.035pt>
 File: Figs/DD95.pdf Graphic file (type pdf)
 <use Figs/DD95.pdf>
 Package pdftex.def Info: Figs/DD95.pdf  used on input line 721.
-(pdftex.def)             Requested size: 430.00462pt x 176.73412pt.
+(pdftex.def)             Requested size: 430.00462pt x 171.75569pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -787,7 +787,7 @@ ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2018/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mkn.pdf (31 pages, 1562609 bytes).
+Output written on mkn.pdf (31 pages, 1562589 bytes).
 PDF statistics:
  311 PDF objects out of 1000 (max. 8388607)
  218 compressed objects within 3 object streams
