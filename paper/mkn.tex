@@ -431,9 +431,10 @@ of $\phi_k$ and $\psi_k$, respectively, for $k\in b$, and $\Phi_\pi$ and $\Psi_\
 of $\Phi_b$ and $\Psi_b$ for $b \in \pi$.
 
 Notice that on $A_\pi$ there is a 1-1 correspondence between pairs $(\phi, \psi)$ and 
-\begin{eqnarray*}
+\begin{eqnarray}
+\label{eq:onetoone}
  \left\{ (\tilde \phi_b, \tilde \psi_b, \Phi_b), \; \forall b \in \pi \right\}, 
-\end{eqnarray*}
+\end{eqnarray}
 where
 \begin{eqnarray*}
 \tilde{\phi}_b = \frac{\phi_b}{\Phi_b}, \quad \tilde{\psi}_b = \frac{\psi_b}{\Psi_b}, \quad 
@@ -468,7 +469,7 @@ partition in which every cell subtype is its own block.
 
 Recall from~(\ref{eq:counts}) the vectors $t^1$ and $t^2$ holding
 counts  of cells in each subtype in each condition, computed from $y$ and $z$.  Relative to a block $b \in \pi$, 
-let let $t^j_b = \sum_{k\in b} t^j_k$, for cell conditions $j=1,2$, and,
+let $t^j_b = \sum_{k\in b} t^j_k$, for cell conditions $j=1,2$, and,
 let $t^j_\pi$ be the vector of these counts over $b \in \pi$.   The following properties refer to
 marginal distributions in which $(\phi,\psi)$ have been integrated out of the joint
 distribution involving~(\ref{eq:mult}) and the component $p_\pi$.
@@ -501,14 +502,14 @@ p_\pi(t^1_{\pi},t^2_{\pi}| y) =
 \end{eqnarray*}
 
 
-Let's look at some special cases to dissect this result. **
+Let's look at some special cases to dissect this result. 
 
 Case 1. If $\pi$ has a single block equal to the entire
  set of cell types $\{1,2, \cdots, K\}$,  then $t^j_b=n_j$ for both $j=1,2$,
-and the second formula reduces, correctly, to 
-$p(t^1_{\pi},t^2_{\pi}| A_{\pi}) = 1$.  Further,
+and Property~5 reduces, correctly, to 
+$p_\pi(t^1_{\pi},t^2_{\pi}| y) = 1$.  Further,
 \begin{eqnarray*}
-p(t^j | t^j_{\pi}) = 
+p_\pi(t^j | t^j_{\pi},y) = 
 \left[ \frac{ \Gamma(n_j +1 ) }{ \Gamma( n_1 + \sum_{k=1}^K \alpha_k ) }
 \right]
 \left[ \frac{\Gamma( \sum_{k =1}^K \alpha_k )}{
@@ -520,14 +521,15 @@ which is the well-known Dirichlet-multinomial predictive distribution
 for counts $t^j$ \cite{Wag}.  E.g, taking $\alpha_k=1$ for all types $k$ 
 we get the uniform distribution
 \begin{eqnarray*}
-p(t^j | t^j_{\pi}) = 
+p_\pi(t^j | t^j_{\pi},y) = 
  \frac{ \Gamma(n_j +1 ) \Gamma(K) }{ \Gamma( n_j + K ) }.
 \end{eqnarray*}
+
 Case 2. At the opposite extreme, $\pi$  has one block $b$ for each
- class $k$. Then $t^j_b = z^j_k$, and $p(t^j | t^j_{\pi}) = 1$, and 
+ class $k$. Then $p_\pi(t^j | t^j_{\pi},y) = 1$, and 
 further, assuming $\beta_b = \alpha_k$,
 \begin{eqnarray*}
-p(t^1_{\pi},t^2_{\pi}| A_{\pi}) =
+p_\pi(t^1_{\pi},t^2_{\pi}|y ) =
  \left[ \frac{ \Gamma(n_1+1) \Gamma(n_2+1) }{ \prod_{k=1}^K 
    \Gamma(t^1_k+1) 
    \Gamma( t^2_k + 1 )} \right] 
@@ -540,10 +542,20 @@ which corresponds to Dirichlet-multinomial predictive distribution for counts $t
 since $t^1$ and $t^2$ are identical distributed in this case.
 
 
+\noindent
+{\bf Property 6:} Posterior:
+\begin{eqnarray*}
+p(\phi,\psi|y,z) = \sum_{\pi \in \Pi} \left[ \omega_\pi^* \right]  p_\pi( \phi, \psi | t^1, t^2, y )
+\end{eqnarray*}
+
+
 **
-%%Conditional independence of $t^1$ and $t^2$ given the block-level totals
-%%$t^1_{\pi}$ and $t^2_{\pi}$ on $A_{\pi}$ reflects the possible differential 
-%%class proportion structure within blocks but between cell conditions.
+
+
+
+
+
+on the non-disjointness, on refinements, etc
 
 
 From~(\ref{eq:counts}), $P(A_\pi|y,z) = P(A_{\pi}|t^1, t^2)$.
