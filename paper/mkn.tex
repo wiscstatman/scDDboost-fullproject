@@ -226,7 +226,7 @@ M_{g,\pi} = \{ \theta \in \Theta: \; \mu_{g,k} = \mu_{g,k'} \iff k,k' \in b, b \
 \end{eqnarray}
 Under $A_\pi$ there are constraints on cell subtype frequencies; under $M_{g,\pi}$ there is 
 equivalence in the gene-level distribution of expression between certain subtypes.
-These sets, which are all closed, convex subsets of $\Theta$, are precisely the
+These sets are precisely the
 structures needed to address differential distribution DD$_g$ (and
 it complement, equivalent distribution, ${\rm ED}_g$) at a given gene
 $g$, since:
@@ -563,19 +563,27 @@ where
 \end{theorem}
 
 
-**
+The target probability $P(A_\pi|y,z)$ is essentially an integral of the posterior distribution in Theorem~3.
+To evaluate it, we need to contend with the fact that sets $\{ A_\pi: \pi \in \Pi \}$ are not disjoint.
+Relevant overlaps have to do with partition refinement.  Recall 
+that a  partition $\tilde{\pi}$ is a refinement of a partition $\pi$ if $\forall b \in \pi$ there 
+exists $s \subset \tilde{\pi}$  such that $\underset{b'\in s}\cup b' = b$. 
+We say $\pi$  coarsens $\tilde{\pi}$ when $\tilde{\pi}$ refines $\pi$. Refinements increase the number of blocks.
+ If subtype frequency vectors $(\phi,\psi)$
+satisfy the constraints in $A_{\tilde{\pi}}$ then they also satisfy the constrains of any $\pi$
+that coarsens $\tilde \pi$.  Refinements reduce the dimension of allowable parameter states,  and the
+mixture structure of DDM gives positive probability  (spikes) on such subsets.   For the double-Dirichlet
+component distributions $P_\pi$, we find:
+
+\noindent
+{\bf Property 8:}
+** need to work only in prob space not all Theta**
 
 
 
 
 
-on the non-disjointness, on refinements, etc
-
-
-From~(\ref{eq:counts}), $P(A_\pi|y,z) = P(A_{\pi}|t^1, t^2)$.
-
-
-
+***
 
 In order to get the posterior probability $p(A_\pi | t^1,t^2)$, we need to calculate
 \[
@@ -587,7 +595,10 @@ p(A_\pi | t^1,t^2)\propto p(A_\pi, t^1,t^2) &= \int_{A_\pi} p(t^1,t^2|\phi,\psi)
 \]
 For simplicity of notation, let %$w(\pi_1, \pi_2) = \int_{A_{\pi_1}} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi_2})p(A_{\pi_2})d\phi d\psi$, 
 $w(\pi_1, \pi_2) = \int_{A_{\pi_1}} p(t^1,t^2|\phi,\psi)p_{\pi_2}(\phi, \psi )p(A_{\pi_2})d\phi d\psi$, then
-$p(A_\pi | t^1,t^2)\propto \underset{\pi'\in \Pi}\sum w(\pi, \pi')$. To calculate component $w(\pi, \pi')$, recall refinement and coarseness relationship between partitions, we say a partition $\tilde{\pi}$ is a refinement of another partition $\pi$ if $\forall b \in \pi$ there exists $s \subset \tilde{\pi}$  such that $\underset{b'\in s}\cup b' = b$. We say $\pi$ is a coarseness of $\tilde{\pi}$ when $\tilde{\pi}$ refines $\pi$. we have following theorem
+$p(A_\pi | t^1,t^2)\propto \underset{\pi'\in \Pi}\sum w(\pi, \pi')$. 
+
+To calculate component $w(\pi, \pi')$, recall refinement and coarseness relationship between partitions, 
+we say a partition $\tilde{\pi}$ is a refinement of another partition $\pi$ if $\forall b \in \pi$ there exists $s \subset \tilde{\pi}$  such that $\underset{b'\in s}\cup b' = b$. We say $\pi$ is a coarseness of $\tilde{\pi}$ when $\tilde{\pi}$ refines $\pi$. we have following theorem
 
 \begin{theorem}
 If $\pi'$ is a refinement of $\pi$ then $w(\pi,\pi') = w(\pi', \pi')$ otherwise $w(\pi,\pi') = 0$
