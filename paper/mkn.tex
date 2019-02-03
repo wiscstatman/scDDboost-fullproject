@@ -400,7 +400,7 @@ we observed that averaged adjusted Rand index as well as Rand index of mode of p
 {\em MAN to XM: please clarify}
 
 
-\subsection{Double Dirichlet model}
+\subsection{Double Dirichlet Mixture (DDM)}
 
 
 %** ON THE PRIOR INDEPENDENCE**
@@ -409,11 +409,8 @@ we observed that averaged adjusted Rand index as well as Rand index of mode of p
 %**
 
 
-Here we describe the partition-reliant prior $p(\phi,\psi)$ indicated in~Figure~2 and an explicit
-formula for $P(A_\pi|y,z)$.  The prior is conjugate to multinomial
-sampling while also enabling downstream gene-specific inferences about
-differential distribution.  
-For our purposes, partition-reliance means a spike-slab structure that mixes
+Here we describe the partition-reliant prior $p(\phi,\psi)$ indicated in~Figure~2 and derive an explicit
+formula for $P(A_\pi|y,z)$.  For our purposes, partition-reliance means a spike-slab structure that mixes
 over partitions $\pi$ determining
  patterns of equality of accummulated probabilities through~(\ref{eq:asets}):
 \begin{eqnarray}
@@ -421,16 +418,9 @@ over partitions $\pi$ determining
 p(\phi,\psi) = \sum_{\pi \in \Pi} \omega_\pi  \, p_\pi(\phi,\psi ).
 \end{eqnarray} 
 Each mixture component $p_\pi(\phi,\psi)$ has support $A_\pi$;  
-the mixing proportions $\omega_\pi$ are any non-negative constants summing to one. In numerical
-experiments we have taken $\omega_\pi \propto 1$.  **{\em MAN to XM: what values do we use for alphas and betas?}**
-To specify component $p_\pi$,  introduce scalers
-$\alpha_k>0$ for each subtype $k$, and $\beta_b>0$ for any possible block $b$.
-Extending notation, let $\alpha_b$ be the vector of $\alpha_k$
-for $k\in b$, $\beta_\pi$ be the vector of $\beta_b$ for $b \in \pi$, $\phi_b$ and $\psi_b$ be vectors
-of $\phi_k$ and $\psi_k$, respectively, for $k\in b$, and $\Phi_\pi$ and $\Psi_\pi$ be the vectors
-of $\Phi_b$ and $\Psi_b$ for $b \in \pi$.
-
-Notice that on $A_\pi$ there is a 1-1 correspondence between pairs $(\phi, \psi)$ and 
+the mixing proportions $\omega_\pi$ are any non-negative constants summing to one. 
+To specify component $p_\pi$,  notice that on $A_\pi$ there is a 1-1 correspondence between pairs $(\phi, \psi)$ and 
+parameter states:
 \begin{eqnarray}
 \label{eq:onetoone}
  \left\{ (\tilde \phi_b, \tilde \psi_b, \Phi_b), \; \forall b \in \pi \right\}, 
@@ -441,31 +431,45 @@ where
 {\mbox {\rm and}} \quad \Phi_b = \sum_{k \in b} \phi_k = \sum_{k \in b} \psi_k = \Psi_b.
 \end{eqnarray*}
 For example, $\tilde{\phi}_b$ is a vector of conditional probabilities for each subtype given that a cell
-from the first condition
-is one of the subtypes in $b$. The proposed double-Dirichlet component 
-$p_\pi$ is determined in this transformed scale by assuming:
+from the first condition is one of the subtypes in $b$. 
+
+
+We introduce hyperparameters
+$\alpha^1_k, \alpha^2_k>0$ for each subtype $k$, and set 
+$\beta_b = \sum_{k \in b}\left( \alpha^1_k + \alpha^2_k \right)$ for any possible block $b$.
+Extending notation, let $\alpha_b^j$ be the vector of $\alpha_k^j$
+for $k\in b$, $\beta_\pi$ be the vector of $\beta_b$ for $b \in \pi$, $\phi_b$ and $\psi_b$ be vectors
+of $\phi_k$ and $\psi_k$, respectively, for $k\in b$, and $\Phi_\pi$ and $\Psi_\pi$ be the vectors
+of $\Phi_b$ and $\Psi_b$ for $b \in \pi$.  The proposed double-Dirichlet component 
+$p_\pi$ is determined in the transformed scale by assuming $\Psi_\pi = \Phi_\pi$ and further:
 \begin{eqnarray}
 \label{eq:doubledir}
-\Phi_\pi  \sim \text{Dirichet}_{N(\pi)}[   \beta_\pi   ] , \; {\mbox {\rm and independently}}, \;
-\tilde \phi_b, \tilde \psi_b \sim_{\text{i.i.d.}}
-  \text{Dirichlet}_{N(b)}[ \alpha_b ]
+\Phi_\pi  &\sim& \text{Dirichet}_{N(\pi)}[   \beta_\pi   ]  \\ \nonumber
+\tilde \phi_b  &\sim & \text{Dirichlet}_{N(b)}[ \alpha_b^1 ] \qquad \forall b \in \pi \\ \nonumber
+\tilde \psi_b  &\sim & \text{Dirichlet}_{N(b)}[ \alpha_b^2 ] \qquad \forall b \in \pi 
 \end{eqnarray}
-where $N(\pi)$ is the number of blocks in $\pi$ and $N(b)$ is the number of subtypes in $b$.
-In other words, on $p_\pi$,
-accumulated probability vectors $\Phi_\pi$ and $\Psi_\pi$ are equal
-between the two source conditions, though the  subtype-specific
-rates $\phi_k$ and $\psi_k$ may differ, as would (re-normalized)
-independent Dirichlet-distributed vectors. (See also Appendix D.) 
- We deduce some properties of the double-Dirichlet model~(\ref{eq:doubledir}), 
-using the Dirichlet-Multinomial conjugacy and the collapsing property (\cite{ref:Dickey}). 
+where $N(\pi)$ is the number of blocks in $\pi$ and $N(b)$ is the number of subtypes in $b$, and
+where all random vectors in~(\ref{eq:doubledir}) are mutually independent.  
+We record some properties of the component distributions $p_\pi$:
+
+%%using the well-known Dirichlet-multinomial conjugacy and the Dirichlet collapsing property (\cite{ref:Dickey}). 
 
 \noindent
-{\bf Property 1:}  In $p_\pi(\phi,\psi)$, $\psi$ and $\phi$ 
-  marginally identically distributed as Dirichlet$()$.
+{\bf Property 1:}  In $p_\pi(\phi,\psi)$, $\psi$ and $\phi$ are dependent, unless $\pi$ is the null 
+partition in which all subtypes constitute a single block.
 
 \noindent
-{\bf Property 2:}  In $p_\pi(\phi,\psi)$, $\psi$ and $\phi$ are dependent, unless $\pi$ is the complete
-partition in which every cell subtype is its own block.
+{\bf Property 2:}  If $\alpha^1=\alpha^2$, then both $\phi$ and $\psi$ are marginally distributed
+as Dirichlet$_K(\alpha^1)$.  
+
+\noindent
+{\bf Property 3:} If $k \in b$, marginal means are:
+\begin{eqnarray*}
+E_\pi\left( \phi_k \right ) = \frac{ \alpha^1_k }{ \sum_{k' \in b} \alpha^1_{k'} } \,
+		\frac{ \beta_b }{ \sum_{b' \in \pi} \beta_{b'} } \quad {\mbox {\rm and}} \quad
+E_\pi\left( \psi_k \right ) = \frac{ \alpha^2_k }{ \sum_{k' \in b} \alpha^2_{k'} }  \,
+		\frac{ \beta_b }{ \sum_{b' \in \pi} \beta_{b'} } .
+\end{eqnarray*}
 
 Recall from~(\ref{eq:counts}) the vectors $t^1$ and $t^2$ holding
 counts  of cells in each subtype in each condition, computed from $y$ and $z$.  Relative to a block $b \in \pi$, 
@@ -475,22 +479,22 @@ marginal distributions in which $(\phi,\psi)$ have been integrated out of the jo
 distribution involving~(\ref{eq:mult}) and the component $p_\pi$.
 
 \noindent
-{\bf Property 3:}  $t^1$ and $t^2$ are conditionally independent given $y$.
+{\bf Property 4:}  $t^1$ and $t^2$ are conditionally independent given $y$, $t^1_\pi$ and $t^2_\pi$.
 
 \noindent
-{\bf Property 4:}  For $j=1,2$,
+{\bf Property 5:}  For $j=1,2$,
 \begin{eqnarray*}
 p_\pi(t^j | t^j_{\pi},y) = \prod_{b \in \pi} \left\{
 \left[ \frac{ \Gamma(t^j_b +1 ) }{\prod_{k \in b} \Gamma( t^j_k + 1 ) } 
 \right]
-\left[ \frac{\Gamma( \sum_{k \in b} \alpha_k )}{
-		\prod_{k\in b} \Gamma( \alpha_k ) } \right] 
-       \left[        \frac{ \prod_{k \in b} \Gamma(\alpha_k + t^j_k)  }{
-		\Gamma(t^j_b + \sum_{k\in b} \alpha_k ) )}\right]
+\left[ \frac{\Gamma( \sum_{k \in b} \alpha_k^j )}{
+		\prod_{k\in b} \Gamma( \alpha_k^j ) } \right] 
+       \left[        \frac{ \prod_{k \in b} \Gamma(\alpha_k^j + t^j_k)  }{
+		\Gamma(t^j_b + \sum_{k\in b} \alpha_k^j ) )}\right]
  \right\}
 \end{eqnarray*}
 
-{\bf Property 5:}  
+{\bf Property 6:}  
 \begin{eqnarray*}
 p_\pi(t^1_{\pi},t^2_{\pi}| y) =
  \left[ \frac{ \Gamma(n_1+1) \Gamma(n_2+1) }{ \prod_{b \in \pi} \Gamma(t^1_b+1) 
@@ -506,19 +510,19 @@ Let's look at some special cases to dissect this result.
 
 Case 1. If $\pi$ has a single block equal to the entire
  set of cell types $\{1,2, \cdots, K\}$,  then $t^j_b=n_j$ for both $j=1,2$,
-and Property~5 reduces, correctly, to 
+and Property~6 reduces, correctly, to 
 $p_\pi(t^1_{\pi},t^2_{\pi}| y) = 1$.  Further,
 \begin{eqnarray*}
 p_\pi(t^j | t^j_{\pi},y) = 
-\left[ \frac{ \Gamma(n_j +1 ) }{ \Gamma( n_1 + \sum_{k=1}^K \alpha_k ) }
+\left[ \frac{ \Gamma(n_j +1 ) }{ \Gamma( n_1 + \sum_{k=1}^K \alpha_k^j ) }
 \right]
-\left[ \frac{\Gamma( \sum_{k =1}^K \alpha_k )}{
-                \prod_{k=1}^K \Gamma( \alpha_k ) } \right]
-       \left[    \prod_{k=1}^K    \frac{  \Gamma(\alpha_k + t^j_k)}{
+\left[ \frac{\Gamma( \sum_{k =1}^K \alpha_k^j )}{
+                \prod_{k=1}^K \Gamma( \alpha_k^j ) } \right]
+       \left[    \prod_{k=1}^K    \frac{  \Gamma(\alpha_k^j + t^j_k)}{
                 \Gamma(t^j_k + 1 )}\right]
 \end{eqnarray*}
 which is the well-known Dirichlet-multinomial predictive distribution
-for counts $t^j$ \cite{Wag}.  E.g, taking $\alpha_k=1$ for all types $k$ 
+for counts $t^j$ \cite{Wag}.  E.g, taking $\alpha_k^j=1$ for all types $k$ 
 we get the uniform distribution
 \begin{eqnarray*}
 p_\pi(t^j | t^j_{\pi},y) = 
@@ -526,27 +530,37 @@ p_\pi(t^j | t^j_{\pi},y) =
 \end{eqnarray*}
 
 Case 2. At the opposite extreme, $\pi$  has one block $b$ for each
- class $k$. Then $p_\pi(t^j | t^j_{\pi},y) = 1$, and 
-further, assuming $\beta_b = \alpha_k$,
+ class $k$, so $\phi=\psi$. Then $p_\pi(t^j | t^j_{\pi},y) = 1$, and 
+further, writing $b = k$,
 \begin{eqnarray*}
 p_\pi(t^1_{\pi},t^2_{\pi}|y ) =
  \left[ \frac{ \Gamma(n_1+1) \Gamma(n_2+1) }{ \prod_{k=1}^K 
    \Gamma(t^1_k+1) 
    \Gamma( t^2_k + 1 )} \right] 
-\left[ \frac{\Gamma( \sum_{k=1}^K \alpha_k  )}{
-   \prod_{k=1}^K \Gamma(\alpha_k )} \right] 
- \left[ \frac{ \prod_{k=1}^K \Gamma( \alpha_k + t^1_k + t^2_k )}{
-	\Gamma( n_1 + n_2 + \alpha_k  )} \right].
+\left[ \frac{\Gamma( \sum_{k=1}^K \beta_k  )}{
+   \prod_{k=1}^K \Gamma(\beta_k)} \right] 
+ \left[ \frac{ \prod_{k=1}^K \Gamma( \beta_k + t^1_k + t^2_k )}{
+	\Gamma( n_1 + n_2 + \beta_k  )} \right].
 \end{eqnarray*}
 which corresponds to Dirichlet-multinomial predictive distribution for counts $t^1 + t^2$ 
-since $t^1$ and $t^2$ are identical distributed in this case.
+since $t^1$ and $t^2$ are identical distributed given $(\phi,\psi)$ in this case.
 
 
-\noindent
-{\bf Property 6:} Posterior:
+Mixing over $\pi$ as in~(\ref{eq:ddmix}), we write
+$(\phi,\psi) \sim {\mbox {\rm DDM}}\left[ \omega=(\omega_\pi),
+\alpha^1=(\alpha^1_k), \alpha^2 = (\alpha^2_k) \right].$
+
+\begin{theorem}
+The DDM model is conjugate to multinomial sampling of $t^1$ and $t^2$:
 \begin{eqnarray*}
-p(\phi,\psi|y,z) = \sum_{\pi \in \Pi} \left[ \omega_\pi^* \right]  p_\pi( \phi, \psi | t^1, t^2, y )
+(\phi,\psi)|y,z  \sim {\mbox {\rm DDM}}\left[ \omega^{\rm post}=(\omega^{\rm post}_\pi), \alpha^1 + t^1, \alpha^2 + t^2  \right]
 \end{eqnarray*}
+where
+\begin{eqnarray*}
+\omega^{\rm post}_\pi \propto **
+\end{eqnarray*}
+
+\end{theorem}
 
 
 **
