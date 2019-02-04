@@ -1040,13 +1040,33 @@ Since there are a lot of overlapping among $A_{\pi_k}^{\pi^l}$, care must be tak
 
 *review EBseq model*
 
+
+\subsection{The EBSeq model}
+
+Suppose we have $K$ subtypes, let $X_g^I = X_{g, 1}^I, ... , X_{g, S_1}^I$ denote transcripts at gene $g$ from subtype $I, I = 1, ... K$.  In the EBSeq model it assumed that counts within subtype $I$ are distributed as Negative Binomial:
+$X_{g, s}^I | r_{g,s}, q_g^I \sim NB(r_{g,s}, q_g^I)$ Where
+
+\begin{eqnarray*}
+P(X_{g,s}^I | r_{g,s}, q_g^I ) = {X_{g,s} + r_{g,s} - 1 \choose X_{g,s} }(1 - q_g^I)^{X_{g,s}^I} (q_g^I)^{r_{g,s}}
+\end{eqnarray*}
+and $\mu_{g,s}^I = r_{g,s}(1 - q_g^I) / q_g^I; \sigma_{g,s}^I = r_{g,s}(1 - q_g^I)/ (q_g^I)^2.$
+
+The EBSeq model assumed a prior distribution on $q_g^I : q_g^I | \alpha, \beta_{I_g} \sim Beta(\alpha, \beta_{I_g}).$ The hyperparameter $\alpha$ is shared by all the isoforms and $\beta_{I_g}$ is $I_g$ specific. We further assume that $r_{g,s} = r_{g,0}*l_s$ where $r_{g,0}$ is an isoform specific parameter common across subtypes and $r_{g,s}$ depends on it through the sample-specific normalization factor $l_s$ 
+
+
 \section{}
 
-On the Poisson version of modal clust
+**On the Poisson version of modal clust**
+
+\subsection{Product Partition Model}
+
+\subsection{Poisson-Gamma Model}
 
 \section{}
 
-on randomized clusterings
+**on randomized clusterings**
+
+\subsection{1d-Simulation Case}
 
 \section{}
 
