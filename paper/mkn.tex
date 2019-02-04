@@ -569,29 +569,38 @@ where
 \end{theorem}
 
 
-The target probability $P(A_\pi|y,z)$ is essentially an integral of the posterior distribution in Theorem~3.
+The target probability $P(A_\pi|y,z)$ is an integral of the posterior distribution in Theorem~3.
 To evaluate it, we need to contend with the fact that sets $\{ A_\pi: \pi \in \Pi \}$ are not disjoint.
-
-
 Relevant overlaps have to do with partition refinement.  Recall 
 that a  partition $\pi^r$ is a refinement of a partition $\pi^c$ if $\forall b \in \pi^c$ there 
 exists $s \subset \pi^r$  such that $\underset{b'\in s}\cup b' = b$. 
 We say $\pi^c$  coarsens $\pi^r$ when $\pi^r$ refines $\pi^c$. Refinements increase the number of blocks.
  If subtype frequency vectors $(\phi,\psi)$
 satisfy the constraints in $A_{\pi^r}$ then they also satisfy the constraints of any $\pi^c$
-that coarsens $\pi^r$.  Refinements reduce the dimension of allowable parameter states,  and the
-mixture structure of DDM gives positive probability  (spikes) on such subsets.   For the double-Dirichlet
+that coarsens $\pi^r$: i.e., $A_{\pi^r} \subset A_{\pi^c}$.  
+Refinements reduce the dimension of allowable parameter states. 
+% and the mixture structure of DDM gives positive probability  (spikes) on such subsets.  
+ For the double-Dirichlet
 component distributions $P_\pi$, we find:
 
 \noindent
-{\bf Property 8:}
-** need to work only in prob space not all Theta**
+{\bf Property 8:} Consider two partitions $\tilde \pi$ and $\pi$.  
+\begin{eqnarray*}
+P_{\tilde \pi}\left( A_{\pi} | y,z \right) = \left\{  \begin{array}{ll}
+     1  & {\mbox {\rm if $\tilde \pi$ refines $\pi$ }} \\ 
+     0  & {\mbox {\rm otherwise }} \\ 
+                                                   \end{array}
+   \right.
+\end{eqnarray*}
 
 
+This supports the main finding of this section:
+\begin{eqnarray}
+P(A_\pi|y,z) = 
+\sum_{\tilde \pi \in \Pi} \omega^{\rm post}_{\tilde \pi} \,  1[ {\mbox {\rm $\tilde \pi$ refines $\pi$}} ].
+\end{eqnarray}
 
 
-
-***
 
 %In order to get the posterior probability $p(A_\pi | t^1,t^2)$, we need to calculate
 %\[
@@ -608,18 +617,17 @@ component distributions $P_\pi$, we find:
 %To calculate component $w(\pi, \pi')$, recall refinement and coarseness relationship between partitions, 
 %we say a partition $\tilde{\pi}$ is a refinement of another partition $\pi$ if $\forall b \in \pi$ there exists $s \subset \tilde{\pi}$  such that $\underset{b'\in s}\cup b' = b$. We say $\pi$ is a coarseness of $\tilde{\pi}$ when $\tilde{\pi}$ refines $\pi$. we have following theorem
 %
-\begin{theorem}
-If $\pi'$ is a refinement of $\pi$ then $w(\pi,\pi') = w(\pi', \pi')$ otherwise $w(\pi,\pi') = 0$
-\end{theorem}
-\hfill\\
-Consequently, let $RF(\pi)$ be the collection of finer partition of $\pi$, we have
-the posterior probability:
-\[
-\begin{split}
-p(A_\pi | t^1,t^2)\propto  \sum_{\pi' \in RF(\pi)} w(\pi',\pi')
-\end{split}
-\]
-
+%\begin{theorem}
+%If $\pi'$ is a refinement of $\pi$ then $w(\pi,\pi') = w(\pi', \pi')$ otherwise $w(\pi,\pi') = 0$
+%\end{theorem}
+%\hfill\\
+%Consequently, let $RF(\pi)$ be the collection of finer partition of $\pi$, we have
+%the posterior probability:
+%\[
+%\begin{split}
+%p(A_\pi | t^1,t^2)\propto  \sum_{\pi' \in RF(\pi)} w(\pi',\pi')
+%\end{split}
+%\]
 
 
  
