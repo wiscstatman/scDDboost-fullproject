@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 FEB 2019 14:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 FEB 2019 15:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -515,9 +515,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 728--728
  []
 
 
+Package natbib Warning: Citation `Shalek' on page 12 undefined on input line 72
+8.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 730--730
 []\OT1/cmr/m/n/10 GSE60749-
  []
+
+
+Package natbib Warning: Citation `Kumar' on page 12 undefined on input line 730
+.
+
+
+Package natbib Warning: Citation `Engel' on page 12 undefined on input line 732
+.
+
+
+Package natbib Warning: Citation `EMTAB' on page 12 undefined on input line 734
+.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 736--736
@@ -528,6 +544,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 736--736
 Underfull \hbox (badness 10000) in paragraph at lines 736--736
 []\OT1/cmr/m/n/10 Gad2tdTpositive vs
  []
+
+
+Package natbib Warning: Citation `Tasic' on page 12 undefined on input line 736
+.
+
+
+Package natbib Warning: Citation `oscope' on page 12 undefined on input line 73
+8.
+
+
+Package natbib Warning: Citation `Deng193' on page 12 undefined on input line 7
+42.
+
+
+Package natbib Warning: Citation `Guo' on page 12 undefined on input line 744.
+
+
+Package natbib Warning: Citation `chu' on page 12 undefined on input line 746.
+
+
+Package natbib Warning: Citation `Darmanis' on page 12 undefined on input line 
+748.
 
 
 Overfull \hbox (18.33392pt too wide) in paragraph at lines 719--753
@@ -601,6 +639,11 @@ File: Figs/s_789_GSE48968.pdf Graphic file (type pdf)
 <use Figs/s_789_GSE48968.pdf>
 Package pdftex.def Info: Figs/s_789_GSE48968.pdf  used on input line 847.
 (pdftex.def)             Requested size: 430.00462pt x 117.5111pt.
+
+
+Package natbib Warning: Citation `ref:d3e' on page 16 undefined on input line 8
+54.
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 854--855
 
@@ -707,38 +750,38 @@ CELL RNA-SEQ DATA[] []
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 1138--1139
+Underfull \hbox (badness 10000) in paragraph at lines 1159--1160
 
  []
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 1163--1167
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1167--1170
-
- []
-
-
 Overfull \hbox (15.74901pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
 CELL RNA-SEQ DATA[] []
  []
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 1175--1177
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1188
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1181--1182
+Underfull \hbox (badness 10000) in paragraph at lines 1188--1191
 
  []
 
 
-Overfull \hbox (33.67892pt too wide) detected at line 1182
+Underfull \hbox (badness 10000) in paragraph at lines 1196--1198
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1202--1203
+
+ []
+
+
+Overfull \hbox (33.67892pt too wide) detected at line 1203
 \OML/cmm/m/it/10.95 g\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n; b\OT1/cmr/m/n/1
 0.95 ) = (\OML/cmm/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[
 ] \OMS/cmsy/m/n/10.95 ^^@ []\OT1/cmr/m/n/10.95 )[](1 + []) + (\OML/cmm/m/it/10.
@@ -749,35 +792,43 @@ m/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[] \OT1/cmr/m/n/10
 .95 + \OML/cmm/m/it/10.95 t[] \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 1)
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1182--1185
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 1203--1206
 
  []
 
 
-Overfull \hbox (73.77013pt too wide) detected at line 1195
+Overfull \hbox (73.77013pt too wide) detected at line 1216
 []
  []
 
-[30]
+
+Package natbib Warning: There were undefined citations.
+
+
 Overfull \hbox (15.74901pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
 CELL RNA-SEQ DATA[] []
  []
 
-[31] (./mkn.aux)
+[31] (./mkn.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6187 strings out of 492649
- 90290 string characters out of 6129622
- 172494 words of memory out of 5000000
- 9798 multiletter control sequences out of 15000+600000
- 14489 words of font info for 56 fonts, out of 8000000 for 9000
+ 6188 strings out of 492649
+ 90305 string characters out of 6129622
+ 172298 words of memory out of 5000000
+ 9799 multiletter control sequences out of 15000+600000
+ 14797 words of font info for 57 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 42i,16n,39p,1522b,508s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,16n,39p,1522b,506s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 ></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
@@ -799,7 +850,7 @@ ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2018/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mkn.pdf (31 pages, 1572039 bytes).
+Output written on mkn.pdf (31 pages, 1574371 bytes).
 PDF statistics:
  311 PDF objects out of 1000 (max. 8388607)
  218 compressed objects within 3 object streams

@@ -1093,8 +1093,29 @@ Then the marginal distribution of counts $X_g^{1,2,3}$ is $\overset{5}{\underset
 **On the Poisson version of modal clust**
 
 \subsection{Product Partition Model}
+Let $X = (X_1, X_2, ...,X_n)$ be $n$ one dimension observed data, given a partition for the data $\pi = \{S_1, ..., S_q\}$, where $S_i$ are disjoint subsets of $\{1,2,...,n\}$ and $\bigcup_{i = 1}^{q} S_i = \{1,2,...,n\}$. The likelihood for $X$ satisfying such partition is 
+\begin{eqnarray*}
+p(X|\pi) = \overset{q}{\underset{i = 1}{\prod}}f(X_{S_i})
+\end{eqnarray*}
+
+where $X_{S_i}$ is the vector of observations corresponding to the items of component $S_i$, The component likelihood $f(X_{S})$ is defined for any non-empty component $S$ and can take any form. The partition $\pi$ is the only parameter we are interested at. 
+Any other parameters that may have been involved in the model have been integrated over their prior.
+
+The prior distribution for a partition $\pi$ is also taken as a product form
+\begin{eqnarray*}
+p(\pi)\propto \overset{q}{\underset{i = 1}{\prod}}h(S_i)
+\end{eqnarray*}
+
+We use the partition that maximize the posterior $p(\pi | X) \propto p(X|\pi) p(\pi)$ as the estimated clustering of $X$.
 
 \subsection{Poisson-Gamma Model}
+In Poisson-Gamma Model we assuming:
+
+\begin{eqnarray*}
+X_i | \lambda_i \sim Poisson(\lambda_i)
+\end{eqnarray*}
+
+
 
 \section{}
 
