@@ -1055,6 +1055,13 @@ and $\mu_{g,s}^I = r_{g,s}(1 - q_g^I) / q_g^I; \sigma_{g,s}^I = r_{g,s}(1 - q_g^
 
 The EBSeq model assumed a prior distribution on $q_g^I : q_g^I | \alpha, \beta_{I_g} \sim Beta(\alpha, \beta_{I_g}).$ The hyperparameter $\alpha$ is shared by all the isoforms and $\beta_{I_g}$ is $I_g$ specific. We further assume that $r_{g,s} = r_{g,0}*l_s$ where $r_{g,0}$ is an isoform specific parameter common across subtypes and $r_{g,s}$ depends on it through the sample-specific normalization factor $l_s$ 
 
+What we are interested at those $K$ groups comparison is the expression pattern, the hypotheses are:
+
+\begin{eqnarray*}
+M_{g,\pi} = \{ \theta \in \Theta: \; \mu_{g,k} = \mu_{g,k'} \iff k,k' \in b, b \in \pi \}.
+\end{eqnarray*}
+
+For any partition $\pi$ of $K$ elements. 
 
 \section{}
 

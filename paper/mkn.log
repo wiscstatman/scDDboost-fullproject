@@ -1,27 +1,19 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 FEB 2019 11:26
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.12.19)  4 FEB 2019 11:10
->>>>>>> d7da5db3cb3d5ad3ac7e5eec42debafd18c095a9
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 FEB 2019 11:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **mkn.tex
 (./mkn.tex
-<<<<<<< HEAD
 LaTeX2e <2018-04-01> patch level 2
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
-=======
-LaTeX2e <2018-12-01>
->>>>>>> d7da5db3cb3d5ad3ac7e5eec42debafd18c095a9
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amscls/amsart.cls
 Document Class: amsart 2017/10/31 v2.20.4
 \linespacing=\dimen102
 \normalparindent=\dimen103
 \normaltopskip=\skip41
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2018/12/01 v2.17b AMS math features
+Package: amsmath 2017/09/02 v2.17a AMS math features
 \@mathmargin=\skip42
 
 For additional information on amsmath, use the `?' option.
@@ -41,20 +33,20 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count80
-LaTeX Info: Redefining \frac on input line 223.
+LaTeX Info: Redefining \frac on input line 213.
 \uproot@=\count81
 \leftroot@=\count82
-LaTeX Info: Redefining \overline on input line 385.
+LaTeX Info: Redefining \overline on input line 375.
 \classnum@=\count83
 \DOTSCASE@=\count84
-LaTeX Info: Redefining \ldots on input line 482.
-LaTeX Info: Redefining \dots on input line 485.
-LaTeX Info: Redefining \cdots on input line 606.
-\Mathstrutbox@=\box27
-\strutbox@=\box28
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
 \big@size=\dimen106
-LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \macc@depth=\count85
 \c@MaxMatrixCols=\count86
 \dotsspace@=\muskip10
@@ -75,8 +67,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
 \multlinegap=\skip43
 \multlinetaggap=\skip44
 \mathdisplay@stack=\toks18
-LaTeX Info: Redefining \[ on input line 2844.
-LaTeX Info: Redefining \] on input line 2845.
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
 )
 LaTeX Font Info:    Try loading font information for U+msa on input line 398.
 
@@ -91,7 +83,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
 \copyins=\insert199
-\abstractbox=\box29
+\abstractbox=\box28
 \listisep=\skip45
 \c@part=\count92
 \c@section=\count93
@@ -189,24 +181,16 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count107
 \float@exts=\toks27
-\float@box=\box30
+\float@box=\box29
 \@float@everytoks=\toks28
-\@floatcapt=\box31
+\@floatcapt=\box30
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
-<<<<<<< HEAD
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
-=======
-Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 64.
->>>>>>> d7da5db3cb3d5ad3ac7e5eec42debafd18c095a9
 \captionmargin=\dimen131
 \captionmargin@=\dimen132
 \captionwidth=\dimen133
@@ -216,8 +200,7 @@ Package caption3 Info: TeX engine: e-TeX on input line 64.
 \caption@hangindent=\dimen137
 )
 Package caption Info: AMS or SMF document class.
-\c@caption@flags=\count108
-\c@ContinuedFloat=\count109
+\c@ContinuedFloat=\count108
 Package caption Info: float package is loaded.
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/comment/comment.sty
@@ -235,7 +218,7 @@ Package natbib Warning: The `cite' package should not be used
 \bibsep=\skip56
 LaTeX Info: Redefining \cite on input line 694.
 LaTeX Info: Redefining \citenum on input line 708.
-\c@NAT@ctr=\count110
+\c@NAT@ctr=\count109
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -264,7 +247,7 @@ nment
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks29
-\c@algorithm=\count111
+\c@algorithm=\count110
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
@@ -273,15 +256,15 @@ Package: algpseudocode
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count112
-\c@ALG@rem=\count113
-\c@ALG@nested=\count114
+\c@ALG@line=\count111
+\c@ALG@rem=\count112
+\c@ALG@nested=\count113
 \ALG@tlm=\skip57
 \ALG@thistlm=\skip58
-\c@ALG@Lnr=\count115
-\c@ALG@blocknr=\count116
-\c@ALG@storecount=\count117
-\c@ALG@tmpcounter=\count118
+\c@ALG@Lnr=\count114
+\c@ALG@blocknr=\count115
+\c@ALG@storecount=\count116
+\c@ALG@tmpcounter=\count117
 \ALG@tmplength=\skip59
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
@@ -322,11 +305,7 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
 (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-<<<<<<< HEAD
 Package: pdftexcmds 2018/01/30 v0.27 Utility functions of pdfTeX for LuaTeX (HO
-=======
-Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
->>>>>>> d7da5db3cb3d5ad3ac7e5eec42debafd18c095a9
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -345,17 +324,16 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 )))
 (/usr/local/texlive/2018/texmf-dist/tex/latex/parskip/parskip.sty
-Package: parskip 2018-08-24 v2.0a non-zero parskip adjustments
+Package: parskip 2001/04/09 non-zero parskip adjustments
 
-(/usr/local/texlive/2018/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count119
+
+LaTeX Warning: Command \@starttoc  has changed.
+               Check if current package is valid.
+
 )
-Couldn't patch \@starttoc
-)
-\c@lemma=\count120
-\c@theorem=\count121
-\c@prop=\count122
+\c@lemma=\count118
+\c@theorem=\count119
+\c@prop=\count120
  (./mkn.aux
 
 LaTeX Warning: Label `fig:6' multiply defined.
@@ -366,6 +344,16 @@ LaTeX Warning: Label `fig:6' multiply defined.
 
 LaTeX Warning: Label `fig:1' multiply defined.
 
+
+./mkn.aux:134: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.134 <
+       <<<<<< HEAD
+? 
 )
 \openout1 = `mkn.aux'.
 
@@ -427,23 +415,23 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+Underfull \hbox (badness 10000) in paragraph at lines 134--13
+
+ []
+
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count123
+\scratchcounter=\count121
 \scratchdimen=\dimen140
-\scratchbox=\box32
-\nofMPsegments=\count124
-\nofMParguments=\count125
+\scratchbox=\box31
+\nofMPsegments=\count122
+\nofMParguments=\count123
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count126
+\MPscratchCnt=\count124
 \MPscratchDim=\dimen141
-\MPnumerator=\count127
-\makeMPintoPDFobject=\count128
+\MPnumerator=\count125
+\makeMPintoPDFobject=\count126
 \everyMPtoPDFconversion=\toks31
-)
-Overfull \vbox (1.39627pt too high) has occurred while \output is active []
-
-
-[1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+) [1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Overfull \hbox (32.26094pt too wide) in paragraph at lines 75--80
 \OT1/cmr/m/n/10.95 avail-able in the R pack-age \OT1/cmr/m/sc/10.95 scD-Dboost\
 OT1/cmr/m/n/10.95 , at [][]\OT1/cmtt/m/n/10.95 http://github.com/wiscstatman/sc
@@ -463,18 +451,25 @@ File: Figs/schematic-1.png Graphic file (type png)
 Package pdftex.def Info: Figs/schematic-1.png  used on input line 195.
 (pdftex.def)             Requested size: 430.00462pt x 214.99802pt.
  [4 <./Figs/schematic-1.png>]
-<Figs/dag.png, id=31, 1027.84pt x 770.88pt>
+<Figs/dag.png, id=30, 1027.84pt x 770.88pt>
 File: Figs/dag.png Graphic file (type png)
 <use Figs/dag.png>
 Package pdftex.def Info: Figs/dag.png  used on input line 256.
 (pdftex.def)             Requested size: 361.34999pt x 193.92429pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
 CELL RNA-SEQ DATA[] []
  []
 
-[5 <./Figs/dag.png>] [6]
+[5]
+Underfull \vbox (badness 2027) has occurred while \output is active []
+
+ [6 <./Figs/dag.png>]
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
 CELL RNA-SEQ DATA[] []
@@ -501,26 +496,19 @@ File: Figs/pca.pdf Graphic file (type pdf)
 <use Figs/pca.pdf>
 Package pdftex.def Info: Figs/pca.pdf  used on input line 644.
 (pdftex.def)             Requested size: 344.005pt x 245.72026pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[10] Excluding 'comment' comment.
-<Figs/sim.pdf, id=57, 495.8525pt x 222.8325pt>
-File: Figs/sim.pdf Graphic file (type pdf)
-<use Figs/sim.pdf>
-Package pdftex.def Info: Figs/sim.pdf  used on input line 680.
-(pdftex.def)             Requested size: 258.00539pt x 115.94496pt.
-
-Underfull \vbox (badness 2088) has occurred while \output is active []
-
-
+ [10] Excluding 'comment' comment.
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
 CELL RNA-SEQ DATA[] []
  []
 
-[11 <./Figs/pca.pdf>] Excluding 'comment' comment.
+[11 <./Figs/pca.pdf>]
+<Figs/sim.pdf, id=64, 495.8525pt x 222.8325pt>
+File: Figs/sim.pdf Graphic file (type pdf)
+<use Figs/sim.pdf>
+Package pdftex.def Info: Figs/sim.pdf  used on input line 680.
+(pdftex.def)             Requested size: 258.00539pt x 115.94496pt.
+ Excluding 'comment' comment.
 Underfull \hbox (badness 10000) in paragraph at lines 707--708
 
  []
@@ -565,10 +553,7 @@ File: Figs/DD95.pdf Graphic file (type pdf)
 <use Figs/DD95.pdf>
 Package pdftex.def Info: Figs/DD95.pdf  used on input line 759.
 (pdftex.def)             Requested size: 430.00462pt x 171.75569pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12 <./Figs/sim.pdf>]
+[12 <./Figs/sim.pdf>]
 <Figs/density_DEC_dd.png, id=89, 505.89pt x 505.89pt>
 File: Figs/density_DEC_dd.png Graphic file (type png)
 <use Figs/density_DEC_dd.png>
@@ -714,21 +699,13 @@ CELL RNA-SEQ DATA[] []
  []
 
 [25]
-<<<<<<< HEAD
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 1086--1087
->>>>>>> d7da5db3cb3d5ad3ac7e5eec42debafd18c095a9
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 1050.
+(amsmath)                 on input line 1052.
 
 [26]
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 1104--1105
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 1111--1115
->>>>>>> d7da5db3cb3d5ad3ac7e5eec42debafd18c095a9
+Underfull \hbox (badness 10000) in paragraph at lines 1113--1114
 
  []
 
@@ -739,44 +716,27 @@ CELL RNA-SEQ DATA[] []
  []
 
 [27]
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 1129--1133
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 1115--1118
->>>>>>> d7da5db3cb3d5ad3ac7e5eec42debafd18c095a9
-
- []
-
-
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 1133--1136
+Underfull \hbox (badness 10000) in paragraph at lines 1138--1142
 
  []
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 1141--1143
+Underfull \hbox (badness 10000) in paragraph at lines 1142--1145
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1147--1148
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 1123--1125
+Underfull \hbox (badness 10000) in paragraph at lines 1150--1152
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1129--1130
->>>>>>> d7da5db3cb3d5ad3ac7e5eec42debafd18c095a9
+Underfull \hbox (badness 10000) in paragraph at lines 1156--1157
 
  []
 
 
-<<<<<<< HEAD
-Overfull \hbox (33.67892pt too wide) detected at line 1148
-=======
-Overfull \hbox (33.67892pt too wide) detected at line 1130
->>>>>>> d7da5db3cb3d5ad3ac7e5eec42debafd18c095a9
+Overfull \hbox (33.67892pt too wide) detected at line 1157
 \OML/cmm/m/it/10.95 g\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n; b\OT1/cmr/m/n/1
 0.95 ) = (\OML/cmm/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[
 ] \OMS/cmsy/m/n/10.95 ^^@ []\OT1/cmr/m/n/10.95 )[](1 + []) + (\OML/cmm/m/it/10.
@@ -788,22 +748,8 @@ m/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[] \OT1/cmr/m/n/10
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 1148--1151
+Underfull \hbox (badness 10000) in paragraph at lines 1157--1160
 
- []
-
-
-Overfull \hbox (73.77013pt too wide) detected at line 1161
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 1130--1133
-
- []
-
-[28]
-Overfull \hbox (73.77013pt too wide) detected at line 1143
->>>>>>> d7da5db3cb3d5ad3ac7e5eec42debafd18c095a9
-[]
  []
 
 
@@ -812,23 +758,21 @@ Overfull \hbox (15.74901pt too wide) has occurred while \output is active
 CELL RNA-SEQ DATA[] []
  []
 
-[29] (./mkn.aux)
+[29]
+Overfull \hbox (73.77013pt too wide) detected at line 1170
+[]
+ []
+
+[30] (./mkn.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
-<<<<<<< HEAD
- 6187 strings out of 492649
- 90290 string characters out of 6129622
- 173494 words of memory out of 5000000
- 9798 multiletter control sequences out of 15000+600000
-=======
- 6554 strings out of 492616
- 94842 string characters out of 6128981
- 181728 words of memory out of 5000000
- 10190 multiletter control sequences out of 15000+600000
->>>>>>> d7da5db3cb3d5ad3ac7e5eec42debafd18c095a9
+ 6188 strings out of 492649
+ 90312 string characters out of 6129622
+ 172560 words of memory out of 5000000
+ 9799 multiletter control sequences out of 15000+600000
  14489 words of font info for 56 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  42i,16n,39p,1522b,508s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -853,14 +797,10 @@ ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2018/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-<<<<<<< HEAD
-Output written on mkn.pdf (30 pages, 1567916 bytes).
-=======
-Output written on mkn.pdf (29 pages, 1563264 bytes).
->>>>>>> d7da5db3cb3d5ad3ac7e5eec42debafd18c095a9
+Output written on mkn.pdf (30 pages, 1568473 bytes).
 PDF statistics:
- 304 PDF objects out of 1000 (max. 8388607)
- 213 compressed objects within 3 object streams
+ 307 PDF objects out of 1000 (max. 8388607)
+ 215 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  62 words of extra memory for PDF output out of 10000 (max. 10000000)
 
