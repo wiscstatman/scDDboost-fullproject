@@ -410,9 +410,12 @@ we observed that averaged adjusted Rand index as well as Rand index of mode of p
 
 
 Here we describe the partition-reliant prior $p(\phi,\psi)$ indicated in~Figure~2 and derive an explicit
-formula for $P(A_\pi|y,z)$.  For our purposes, partition-reliance means a spike-slab structure that mixes
-over partitions $\pi$ determining
- patterns of equality of accummulated probabilities through~(\ref{eq:asets}):
+formula for $P(A_\pi|y,z)$.   We lose no generality here by defining
+$A_\pi = \{ (\phi,\psi): \Phi_b = \Psi_b \;  \forall b \in \pi \}$, rather than as a subset of the full
+parameter space as in~(\ref{eq:asets}).   Each $A_\pi$ is closed and convex subset of the product space
+holding all possible pairs of length-$K$ probability vectors.
+
+We propose a spike-slab-style mixture prior with the following form:
 \begin{eqnarray}
 \label{eq:ddmix}
 p(\phi,\psi) = \sum_{\pi \in \Pi} \omega_\pi  \, p_\pi(\phi,\psi ).
@@ -450,8 +453,12 @@ $p_\pi$ is determined in the transformed scale by assuming $\Psi_\pi = \Phi_\pi$
 \end{eqnarray}
 where $N(\pi)$ is the number of blocks in $\pi$ and $N(b)$ is the number of subtypes in $b$, and
 where all random vectors in~(\ref{eq:doubledir}) are mutually independent.  
-We record some properties of the component distributions $p_\pi$:
+Mixing over $\pi$ as in~(\ref{eq:ddmix}), we write
+$(\phi,\psi) \sim {\mbox {\rm DDM}}\left[ \omega=(\omega_\pi),
+\alpha^1=(\alpha^1_k), \alpha^2 = (\alpha^2_k) \right].$
 
+
+We record some properties of the component distributions $p_\pi$:
 %%using the well-known Dirichlet-multinomial conjugacy and the Dirichlet collapsing property (\cite{ref:Dickey}). 
 
 \noindent
@@ -463,7 +470,7 @@ partition in which all subtypes constitute a single block.
 as Dirichlet$_K(\alpha^1)$.  
 
 \noindent
-{\bf Property 3:} If $k \in b$, marginal means are:
+{\bf Property 3:} With $k \in b$, marginal means are:
 \begin{eqnarray*}
 E_\pi\left( \phi_k \right ) = \frac{ \alpha^1_k }{ \sum_{k' \in b} \alpha^1_{k'} } \,
 		\frac{ \beta_b }{ \sum_{b' \in \pi} \beta_{b'} } \quad {\mbox {\rm and}} \quad
@@ -546,10 +553,7 @@ which corresponds to Dirichlet-multinomial predictive distribution for counts $t
 since $t^1$ and $t^2$ are identical distributed given $(\phi,\psi)$ in this case.
 
 
-Mixing over $\pi$ as in~(\ref{eq:ddmix}), we write
-$(\phi,\psi) \sim {\mbox {\rm DDM}}\left[ \omega=(\omega_\pi),
-\alpha^1=(\alpha^1_k), \alpha^2 = (\alpha^2_k) \right].$
-
+The properties above are useful in establishing:
 \begin{theorem}
 The DDM model is conjugate to multinomial sampling of $t^1$ and $t^2$:
 \begin{eqnarray*}
@@ -557,7 +561,9 @@ The DDM model is conjugate to multinomial sampling of $t^1$ and $t^2$:
 \end{eqnarray*}
 where
 \begin{eqnarray*}
-\omega^{\rm post}_\pi \propto **
+\omega^{\rm post}_\pi \propto 
+ p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
+ \, p_\pi( t^1_{\pi}, t^2_{\pi} | y ) \, \omega_\pi.
 \end{eqnarray*}
 
 \end{theorem}
@@ -565,13 +571,15 @@ where
 
 The target probability $P(A_\pi|y,z)$ is essentially an integral of the posterior distribution in Theorem~3.
 To evaluate it, we need to contend with the fact that sets $\{ A_\pi: \pi \in \Pi \}$ are not disjoint.
+
+
 Relevant overlaps have to do with partition refinement.  Recall 
-that a  partition $\tilde{\pi}$ is a refinement of a partition $\pi$ if $\forall b \in \pi$ there 
-exists $s \subset \tilde{\pi}$  such that $\underset{b'\in s}\cup b' = b$. 
-We say $\pi$  coarsens $\tilde{\pi}$ when $\tilde{\pi}$ refines $\pi$. Refinements increase the number of blocks.
+that a  partition $\pi^r$ is a refinement of a partition $\pi^c$ if $\forall b \in \pi^c$ there 
+exists $s \subset \pi^r$  such that $\underset{b'\in s}\cup b' = b$. 
+We say $\pi^c$  coarsens $\pi^r$ when $\pi^r$ refines $\pi^c$. Refinements increase the number of blocks.
  If subtype frequency vectors $(\phi,\psi)$
-satisfy the constraints in $A_{\tilde{\pi}}$ then they also satisfy the constrains of any $\pi$
-that coarsens $\tilde \pi$.  Refinements reduce the dimension of allowable parameter states,  and the
+satisfy the constraints in $A_{\pi^r}$ then they also satisfy the constraints of any $\pi^c$
+that coarsens $\pi^r$.  Refinements reduce the dimension of allowable parameter states,  and the
 mixture structure of DDM gives positive probability  (spikes) on such subsets.   For the double-Dirichlet
 component distributions $P_\pi$, we find:
 
@@ -585,21 +593,21 @@ component distributions $P_\pi$, we find:
 
 ***
 
-In order to get the posterior probability $p(A_\pi | t^1,t^2)$, we need to calculate
-\[
-\begin{split}
-p(A_\pi | t^1,t^2)\propto p(A_\pi, t^1,t^2) &= \int_{A_\pi} p(t^1,t^2|\phi,\psi)p(\phi,\psi) d\phi d\psi\\
-%&= \sum_{\pi'\in \Pi}\int_{A_\pi} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi'})p(A_{\pi'})d\phi d\psi
-&= \sum_{\pi'\in \Pi}\int_{A_\pi} p(t^1,t^2|\phi,\psi)p_{\pi'}(\phi, \psi )p(A_{\pi'})d\phi d\psi
-\end{split}
-\]
-For simplicity of notation, let %$w(\pi_1, \pi_2) = \int_{A_{\pi_1}} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi_2})p(A_{\pi_2})d\phi d\psi$, 
-$w(\pi_1, \pi_2) = \int_{A_{\pi_1}} p(t^1,t^2|\phi,\psi)p_{\pi_2}(\phi, \psi )p(A_{\pi_2})d\phi d\psi$, then
-$p(A_\pi | t^1,t^2)\propto \underset{\pi'\in \Pi}\sum w(\pi, \pi')$. 
+%In order to get the posterior probability $p(A_\pi | t^1,t^2)$, we need to calculate
+%\[
+%\begin{split}
+%p(A_\pi | t^1,t^2)\propto p(A_\pi, t^1,t^2) &= \int_{A_\pi} p(t^1,t^2|\phi,\psi)p(\phi,\psi) d\phi d\psi\\
+%%&= \sum_{\pi'\in \Pi}\int_{A_\pi} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi'})p(A_{\pi'})d\phi d\psi
+%&= \sum_{\pi'\in \Pi}\int_{A_\pi} p(t^1,t^2|\phi,\psi)p_{\pi'}(\phi, \psi )p(A_{\pi'})d\phi d\psi
+%\end{split}
+%\]
+%For simplicity of notation, let %$w(\pi_1, \pi_2) = \int_{A_{\pi_1}} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi_2})p(A_{\pi_2})d\phi d\psi$, 
+%$w(\pi_1, \pi_2) = \int_{A_{\pi_1}} p(t^1,t^2|\phi,\psi)p_{\pi_2}(\phi, \psi )p(A_{\pi_2})d\phi d\psi$, then
+%$p(A_\pi | t^1,t^2)\propto \underset{\pi'\in \Pi}\sum w(\pi, \pi')$. 
 
-To calculate component $w(\pi, \pi')$, recall refinement and coarseness relationship between partitions, 
-we say a partition $\tilde{\pi}$ is a refinement of another partition $\pi$ if $\forall b \in \pi$ there exists $s \subset \tilde{\pi}$  such that $\underset{b'\in s}\cup b' = b$. We say $\pi$ is a coarseness of $\tilde{\pi}$ when $\tilde{\pi}$ refines $\pi$. we have following theorem
-
+%To calculate component $w(\pi, \pi')$, recall refinement and coarseness relationship between partitions, 
+%we say a partition $\tilde{\pi}$ is a refinement of another partition $\pi$ if $\forall b \in \pi$ there exists $s \subset \tilde{\pi}$  such that $\underset{b'\in s}\cup b' = b$. We say $\pi$ is a coarseness of $\tilde{\pi}$ when $\tilde{\pi}$ refines $\pi$. we have following theorem
+%
 \begin{theorem}
 If $\pi'$ is a refinement of $\pi$ then $w(\pi,\pi') = w(\pi', \pi')$ otherwise $w(\pi,\pi') = 0$
 \end{theorem}
@@ -612,23 +620,6 @@ p(A_\pi | t^1,t^2)\propto  \sum_{\pi' \in RF(\pi)} w(\pi',\pi')
 \end{split}
 \]
 
-
-
-
-
-From the prior and model structure
-\begin{eqnarray*}
-w(\pi, \pi) = p(t^1 | t^1_{\pi})\, p(t^2|  t^2_{\pi} )
- \, p( t^1_{\pi}, t^2_{\pi} | A_{\pi} ) p(A_{\pi}).
-\end{eqnarray*}
-
-
-
-Regardless of the partition,
-log scale probabilities are readily evaluated
-given hyper-parameters $\{ \alpha_k \}$ and $\{ \beta_b \}$ and for
-cell-type counts $t^1$ and $t^2$. \\
-For asymptotic properties of the posterior probabilities, we demonstrated them in section 6.
 
 
  
