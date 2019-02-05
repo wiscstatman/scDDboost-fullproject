@@ -246,7 +246,9 @@ a formula for local false discovery rates:
 1-P(\text{DD}_g|X,y) = 
  P(\text{ED}_g|X,y) = \sum_{\pi \in \Pi} P\left(A_\pi \cap M_{g,\pi} |X,y \right).
 \end{align}
-**{\em maybe a sentence and citations about lfdr}**
+Such local false discovery rates are important empirical Bayesian 
+statistics in large-scale testing (e.g., Efron, 2007; Muralidharan, 2010; Newton 
+{\em et al.} 2004).
 The partition representation guides construction of a prior distribution (Section 3.1) and an empirical Bayesian 
 method (Section 2.3) for scoring  differential distribution.   Setting the stage, 
 Figure~2 shows the dependency structure of 
@@ -358,7 +360,7 @@ where $w_{i,j}$ are  unit mean, non-negative weights
 $w_{i,j} = 1/( e_i + e_j )$, and where $( e_i) $ are independent and identically Gamma$(\hat a, \hat b)$ distributed
 deviates for hyper-parameters $(\hat a, \hat b)$ derived from $D$.   We argue (Appendix C) that the distribution of
 clusterings induced by this simple scheme approximates a Bayesian posterior analysis.   Pseudo-code for the resulting
-\textsc{scDDboost} is in Algorithm~(\ref{alg:scDDboost}).
+\textsc{scDDboost} is in Algorithm~\ref{alg:scDDboost}.
 
 Computations become more intensive the larger is the number $K$ of cell subtypes.   We observe that gene-specific
 posterior probabilities of differential distribution stabilize when $K$ is sufficiently large, and we use changes
@@ -633,9 +635,9 @@ P(A_\pi|y,z) =
 
 
  
-\section{Operating Characteristics}
+\section{Operating characteristics}
 
-\subsection{Splatter Simulation} 
+\subsection{Synthetic data} 
 
 A simulation study was conducted to assess the performance of
 scDDboost in identifying DD genes.
