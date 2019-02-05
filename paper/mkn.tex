@@ -465,12 +465,12 @@ We record some properties of the component distributions $p_\pi$:
 {\bf Property 1:}  In $p_\pi(\phi,\psi)$, $\psi$ and $\phi$ are dependent, unless $\pi$ is the null 
 partition in which all subtypes constitute a single block.
 
-\noindent
-{\bf Property 2:}  If $\alpha^1=\alpha^2$, then both $\phi$ and $\psi$ are marginally distributed
-as Dirichlet$_K(\alpha^1)$.  
+%\noindent
+%{\bf Property 2:}  If $\alpha^1=\alpha^2$, then both $\phi$ and $\psi$ are marginally distributed
+%as Dirichlet$_K(\alpha^1)$.  
 
 \noindent
-{\bf Property 3:} With $k \in b$, marginal means are:
+{\bf Property 2:} With $k \in b$, marginal means are:
 \begin{eqnarray*}
 E_\pi\left( \phi_k \right ) = \frac{ \alpha^1_k }{ \sum_{k' \in b} \alpha^1_{k'} } \,
 		\frac{ \beta_b }{ \sum_{b' \in \pi} \beta_{b'} } \quad {\mbox {\rm and}} \quad
@@ -486,10 +486,10 @@ marginal distributions in which $(\phi,\psi)$ have been integrated out of the jo
 distribution involving~(\ref{eq:mult}) and the component $p_\pi$.
 
 \noindent
-{\bf Property 4:}  $t^1$ and $t^2$ are conditionally independent given $y$, $t^1_\pi$ and $t^2_\pi$.
+{\bf Property 3:}  $t^1$ and $t^2$ are conditionally independent given $y$, $t^1_\pi$ and $t^2_\pi$.
 
 \noindent
-{\bf Property 5:}  For $j=1,2$,
+{\bf Property 4:}  For $j=1,2$,
 \begin{eqnarray*}
 p_\pi(t^j | t^j_{\pi},y) = \prod_{b \in \pi} \left\{
 \left[ \frac{ \Gamma(t^j_b +1 ) }{\prod_{k \in b} \Gamma( t^j_k + 1 ) } 
@@ -501,7 +501,7 @@ p_\pi(t^j | t^j_{\pi},y) = \prod_{b \in \pi} \left\{
  \right\}
 \end{eqnarray*}
 
-{\bf Property 6:}  
+{\bf Property 5:}  
 \begin{eqnarray*}
 p_\pi(t^1_{\pi},t^2_{\pi}| y) =
  \left[ \frac{ \Gamma(n_1+1) \Gamma(n_2+1) }{ \prod_{b \in \pi} \Gamma(t^1_b+1) 
@@ -1102,9 +1102,10 @@ where $X_{S_i}$ is the vector of observations corresponding to the items of comp
 Any other parameters that may have been involved in the model have been integrated over their prior.
 
 The prior distribution for a partition $\pi$ is also taken as a product form
-\begin{eqnarray*}
+\begin{align*}
 p(\pi)\propto \overset{q}{\underset{i = 1}{\prod}}h(S_i)
-\end{eqnarray*}
+\lambda_i | Gamma
+\end{align*}
 
 We use the partition that maximize the posterior $p(\pi | X) \propto p(X|\pi) p(\pi)$ as the estimated clustering of $X$.
 
