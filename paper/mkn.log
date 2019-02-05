@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  5 FEB 2019 13:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  5 FEB 2019 13:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -344,16 +344,6 @@ LaTeX Warning: Label `fig:6' multiply defined.
 
 LaTeX Warning: Label `fig:1' multiply defined.
 
-
-./mkn.aux:134: LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.134 <
-       <<<<<< HEAD
-? 
 )
 \openout1 = `mkn.aux'.
 
@@ -415,10 +405,6 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-Underfull \hbox (badness 10000) in paragraph at lines 134--13
-
- []
-
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count121
 \scratchdimen=\dimen140
@@ -718,7 +704,7 @@ CELL RNA-SEQ DATA[] []
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 1182--1183
+Underfull \hbox (badness 10000) in paragraph at lines 1175--1176
 
  []
 
@@ -729,27 +715,27 @@ CELL RNA-SEQ DATA[] []
  []
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 1207--1211
+Underfull \hbox (badness 10000) in paragraph at lines 1200--1204
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1211--1214
+Underfull \hbox (badness 10000) in paragraph at lines 1204--1207
 
  []
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 1219--1221
+Underfull \hbox (badness 10000) in paragraph at lines 1212--1214
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1225--1226
+Underfull \hbox (badness 10000) in paragraph at lines 1218--1219
 
  []
 
 
-Overfull \hbox (33.67892pt too wide) detected at line 1226
+Overfull \hbox (33.67892pt too wide) detected at line 1219
 \OML/cmm/m/it/10.95 g\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n; b\OT1/cmr/m/n/1
 0.95 ) = (\OML/cmm/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[
 ] \OMS/cmsy/m/n/10.95 ^^@ []\OT1/cmr/m/n/10.95 )[](1 + []) + (\OML/cmm/m/it/10.
@@ -761,12 +747,12 @@ m/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[] \OT1/cmr/m/n/10
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1226--1229
+Underfull \hbox (badness 10000) in paragraph at lines 1219--1222
 
  []
 
 
-Overfull \hbox (73.77013pt too wide) detected at line 1239
+Overfull \hbox (73.77013pt too wide) detected at line 1232
 []
  []
 
@@ -782,10 +768,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6188 strings out of 492649
- 90312 string characters out of 6129622
- 171560 words of memory out of 5000000
- 9799 multiletter control sequences out of 15000+600000
+ 6187 strings out of 492649
+ 90290 string characters out of 6129622
+ 172494 words of memory out of 5000000
+ 9798 multiletter control sequences out of 15000+600000
  14489 words of font info for 56 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  42i,16n,39p,1522b,508s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -810,7 +796,7 @@ ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2018/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mkn.pdf (32 pages, 1576038 bytes).
+Output written on mkn.pdf (32 pages, 1575241 bytes).
 PDF statistics:
  314 PDF objects out of 1000 (max. 8388607)
  220 compressed objects within 3 object streams
