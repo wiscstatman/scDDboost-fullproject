@@ -1109,9 +1109,11 @@ p(X|\pi) = \overset{q}{\underset{i = 1}{\prod}}f(X_{S_i})
 where $X_{S_i}$ is the vector of observations corresponding to the items of component $S_i$, The component likelihood $f(X_{S})$ is defined for any non-empty component $S$ and can take any form. The partition $\pi$ is the only parameter we are interested at. 
 Any other parameters that may have been involved in the model have been integrated over their prior.
 
-The prior distribution for a partition $\pi$ is also taken as a product form. Dahl demonstrated by some choice of $f$ and prior of $\pi$, such \cite{ref:dahl},  
+The prior distribution for a partition $\pi$ is also taken as a product form. We use the partition that maximize the posterior $p(\pi | X) \propto p(X|\pi) p(\pi)$ as the estimated clustering of $X$.
 
-We use the partition that maximize the posterior $p(\pi | X) \propto p(X|\pi) p(\pi)$ as the estimated clustering of $X$.
+Dahl demonstrated by some choice of $f$ and prior of $\pi$, we can reduce the time complexity of finding the MAP partition from factorial($n$) to $O(n^2)$ \cite{ref:dahl},  
+And the crucial condition for $f$ is that if $y_{S_1}$ and $y_{S_2}$ are overlapped in the sense that  min$\{y_{S_2}\}  <$ max$\{y_{S_1}\}  <$ max$\{y_{S_2}\}$ or min$\{y_{S_1}\}  <$ max$\{y_{S_2}\}  <$ max$\{y_{S_1}\}$, $y_{S_1^*} and y_{S_2^*}$ be the sets of swapping one pair of those overlapped terms and keep the other unchanged. Then $f(y_{S_1}) f(y_{S_2}) \leq f(y_{S_1^*}) f(y_{S_2^*})$. Under such condition, we know that possible MAP candidates must be those partition that for any two subgroups of data, all the data from subgroup1 has to be either greater or smaller than all the data from subgroup2.
+
 
 \subsection{Poisson-Gamma Model}
 In Poisson-Gamma Model we assuming:
@@ -1128,7 +1130,7 @@ where $p(\pi)\propto \overset{q}{\underset{i = 1}{\prod}}\eta_0\Gamma(|S_i|)$. F
 p(\pi | X) \propto 
 \end{eqnarray*}
 
-A crucial condition in \cite{ref:dahl} that will keep the complexity 
+Under the Poisson-Gamma setting, the model still satisfying 
 
 \section{}
 

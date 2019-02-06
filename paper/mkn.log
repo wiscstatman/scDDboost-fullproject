@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  5 FEB 2019 13:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  5 FEB 2019 16:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -704,7 +704,7 @@ CELL RNA-SEQ DATA[] []
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 1175--1176
+Underfull \hbox (badness 10000) in paragraph at lines 1176--1177
 
  []
 
@@ -715,27 +715,27 @@ CELL RNA-SEQ DATA[] []
  []
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 1200--1204
+Underfull \hbox (badness 10000) in paragraph at lines 1201--1205
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1204--1207
+Underfull \hbox (badness 10000) in paragraph at lines 1205--1208
 
  []
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 1212--1214
+Underfull \hbox (badness 10000) in paragraph at lines 1213--1215
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1218--1219
+Underfull \hbox (badness 10000) in paragraph at lines 1219--1220
 
  []
 
 
-Overfull \hbox (33.67892pt too wide) detected at line 1219
+Overfull \hbox (33.67892pt too wide) detected at line 1220
 \OML/cmm/m/it/10.95 g\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n; b\OT1/cmr/m/n/1
 0.95 ) = (\OML/cmm/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[
 ] \OMS/cmsy/m/n/10.95 ^^@ []\OT1/cmr/m/n/10.95 )[](1 + []) + (\OML/cmm/m/it/10.
@@ -747,12 +747,12 @@ m/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[] \OT1/cmr/m/n/10
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1219--1222
+Underfull \hbox (badness 10000) in paragraph at lines 1220--1223
 
  []
 
 
-Overfull \hbox (73.77013pt too wide) detected at line 1232
+Overfull \hbox (73.77013pt too wide) detected at line 1233
 []
  []
 
@@ -796,7 +796,7 @@ ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2018/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mkn.pdf (32 pages, 1575241 bytes).
+Output written on mkn.pdf (32 pages, 1575926 bytes).
 PDF statistics:
  314 PDF objects out of 1000 (max. 8388607)
  220 compressed objects within 3 object streams
