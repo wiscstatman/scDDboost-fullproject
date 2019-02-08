@@ -1112,7 +1112,7 @@ Any other parameters that may have been involved in the model have been integrat
 The prior distribution for a partition $\pi$ is also taken as a product form. We use the partition that maximize the posterior $p(\pi | X) \propto p(X|\pi) p(\pi)$ as the estimated clustering of $X$.
 
 Dahl demonstrated by some choice of $f$ and prior of $\pi$, we can reduce the time complexity of finding the MAP partition from factorial($n$) to $O(n^2)$ \cite{ref:dahl},  
-And the crucial condition for $f$ is that if $y_{S_1}$ and $y_{S_2}$ are overlapped in the sense that  min$\{y_{S_2}\}  <$ max$\{y_{S_1}\}  <$ max$\{y_{S_2}\}$ or min$\{y_{S_1}\}  <$ max$\{y_{S_2}\}  <$ max$\{y_{S_1}\}$, $y_{S_1^*} and y_{S_2^*}$ be the sets of swapping one pair of those overlapped terms and keep the other unchanged. Then $f(y_{S_1}) f(y_{S_2}) \leq f(y_{S_1^*}) f(y_{S_2^*})$. Under such condition, we know that possible MAP candidates must be those partition that for any two subgroups of data, all the data from subgroup1 has to be either greater or smaller than all the data from subgroup2.
+And the crucial condition for $f$ is that if $X_{S_1}$ and $X_{S_2}$ are overlapped in the sense that  min$\{X_{S_2}\}  <$ max$\{X_{S_1}\}  <$ max$\{X_{S_2}\}$ or min$\{X_{S_1}\}  <$ max$\{X_{S_2}\}  <$ max$\{X_{S_1}\}$, $X_{S_1^*} and X_{S_2^*}$ be the sets of swapping one pair of those overlapped terms and keep the other unchanged. Then $f(X_{S_1}) f(X_{S_2}) \leq f(X_{S_1^*}) f(X_{S_2^*})$. Under such condition, we know that possible MAP candidates must be those partition that for any two subgroups of data, all the data from subgroup1 has to be either greater or smaller than all the data from subgroup2.
 
 
 \subsection{Poisson-Gamma Model}
@@ -1124,13 +1124,57 @@ X_i | \pi, \lambda &\sim Poisson(X_i | \lambda_1\textbf{I}\{i\in S_1\} + ... + \
 \lambda_j &\sim Gamma(\alpha_0, \beta_0)
 \end{align*}
 
-where $p(\pi)\propto \overset{q}{\underset{i = 1}{\prod}}\eta_0\Gamma(|S_i|)$. Following the product partition model and integrate out $\lambda$, objective function is obtained as:
+where $p(\pi)\propto \overset{q}{\underset{i = 1}{\prod}}\eta_0\Gamma(|S_i|)$. Integrate out $\lambda$, $f(X_{S})$ is obtained as:
 
 \begin{eqnarray*}
-p(\pi | X) \propto 
+f(X_{S}) = \frac{\beta^\alpha}{(|S| + \beta)^{\underset{i \in S}{\Sigma} X_i + \alpha}} \frac{\Gamma(\underset{i \in S}{\Sigma} X_i  + \alpha)}{\Gamma(\alpha)} \frac{1}{\underset{i \in S}{\prod }X_i}
 \end{eqnarray*}
 
-Under the Poisson-Gamma setting, the model still satisfying 
+$f(X_S)$ still satisfying the condition mentioned
+
+\begin{proof}
+if $X_{S_1}$ and $X_{S_2}$ are overlapped, without loss of generality, we assume min$\{X_{S_2}\}  <$ max$\{X_{S_1}\}  <$ max$\{X_{S_2}\}$, and we swap max$\{X_{S_1}\}$ with min$\{X_{S_2}\}$ and keep the rest unchanged or we could also swap max$\{X_{S_1}\}$ with max$\{X_{S_2}\}$. We denote the new set forming by swap of max$\{X_{S_1}\}$ with min$\{X_{S_2}\}$  as $S_1^*$ and $S_2^*$ and swap of max$\{X_{S_1}\}$ with max$\{X_{S_2}\}$ as $S_1^{**}, S_2^{**}$ accordingly. 
+
+Then we need to show  at least one of the following happens 
+\begin{align}
+&f(X_{S_1^*}) f(X_{S_2^*}) \geq f(X_{S_1}) f(X_{S_2})\\
+&f(X_{S_1^{**}}) f(X_{S_2^{**}}) \geq f(X_{S_1}) f(X_{S_2})
+\end{align}
+
+
+Let $a =$ max$\{X_{S_1}\}$, $b = $ min$\{X_{S_2}\}$ and $c = $ max$\{X_{S_2}\}$. $h_1 = \underset{i \in S_1}{\Sigma} X_i - a$ and $h_2 = \underset{i \in S_2}{\Sigma} X_i - b$, $n_1$ and $n_2$ are the number of elements in $S_1$ and $S_2$. Then 
+\begin{align*}
+f(X_{S_1^*}) f(X_{S_2^*}) &\geq f(X_{S_1}) f(X_{S_2})\\
+&\iff\\
+\frac{\Gamma(h_1 + a + \alpha)}{(n_1 + \beta)^{h_1 + a +\alpha}} \frac{\Gamma(h_2 + b + \alpha)}{(n_2 + \beta)^{h_2 + b + \alpha}} &\leq \frac{\Gamma(h_2 + a + \alpha)}{(n_2 + \beta)^{h_2+ a +\alpha}} \frac{\Gamma(h_1 + b + \alpha)}{(n_2 + \beta)^{h_1 + b + \alpha}}\\
+&\iff\\
+\frac{\Gamma(h_1 + a + \alpha)}{\Gamma(h_1 + b + \alpha)} \frac{\Gamma(h_2 + b + \alpha)}{\Gamma(h_2 + a + \alpha)} &\leq (\frac{n_1 + \beta}{n_2 + \beta})^{a - b} \\
+\end{align*}
+
+Left hand side of above formula is $\text{LHS}_1 = \frac{(h_1 + b + \alpha)...(h_1 + a - 1 + \alpha)}{(h_2 + b + \alpha) ... (h_2 + a - 1 + \alpha)}$ by the property of Gamma function and $X_i$ are integer.
+
+Similarly,
+\begin{align*}
+f(X_{S_1^{**}}) f(X_{S_2^{**}}) &\geq f(X_{S_1}) f(X_{S_2})\\
+&\iff\\
+\frac{\Gamma(h_2 + c + \alpha)}{\Gamma(h_2 + a + \alpha)} \frac{\Gamma(h_1 + a + \alpha)}{\Gamma(h_1 + c + \alpha)} &\leq (\frac{n_2 + \beta}{n_1 + \beta})^{c - a} \\
+\end{align*}
+
+ Left hand side of above formula is $\text{LHS}_2 = \frac{(h_2 + a + \alpha)...(h_2 + c - 1 + \alpha)}{(h_1 + a + \alpha) ... (h_1 + c - 1 + \alpha)}$
+ 
+If $h_1 \leq h_2$, then $\text{LHS}_1 \leq (\frac{h_1 + a - 1 + \alpha}{h_2 + a  - 1 + \alpha})^{a - b}$ and $\text{LHS}_2 \leq (\frac{h_2 + c - 1 + \alpha}{h_1 + c  - 1 + \alpha})^{a - b}$
+
+So if $\frac{h_1 + a - 1 + \alpha}{h_2 + a  - 1 + \alpha} \leq \frac{n_1 + \beta}{n_2 + \beta} $ then (12) holds, if $\frac{h_2 + c - 1 + \alpha}{h_1 + c  - 1 + \alpha} \leq \frac{n_1 + \beta}{n_2 + \beta}$ then (13) holds
+
+We multiply those two inequalities, we found that $\frac{h_1 + a - 1 + \alpha}{h_2 + a  - 1 + \alpha} * \frac{h_2 + c - 1 + \alpha}{h_1 + c  - 1 + \alpha} = \frac{h_1 + a - 1 + \alpha}{h_1 + c  - 1 + \alpha} * \frac{h_2 + c - 1 + \alpha}{h_2 + a  - 1 + \alpha} \leq 1$ as $c > a$ and $h_1 \leq h_2$ But $\frac{n_1 + \beta}{n_2 + \beta} * \frac{n_1 + \beta}{n_2 + \beta} = 1$. At least one equality holds, consequently at least one of (12) and (13) holds.
+
+Similar proof for the case $h_1 > h_2$. 
+
+
+
+
+
+\end{proof}
 
 \section{}
 
