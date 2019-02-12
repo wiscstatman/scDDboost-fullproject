@@ -163,13 +163,9 @@ T.~Kim, I.~R. Chen, Y.~Lin, A.~Y.-Y. Wang, J.~Y.~H. Yang, and P.~Yang, ``Impact
   \url{http://dx.doi.org/10.1093/bib/bby076}
 \BIBentrySTDinterwordspacing
 
-\bibitem{ref:Dickey}
-\BIBentryALTinterwordspacing
-B.~Dickey~J., Lientz, ``The weighted likelihood ratio, sharp hypotheses, and
-  the order of a markov chain.'' \emph{Ann. Math. Statist.}, vol.~41, no.~1, p.
-  214, 1970. [Online]. Available:
-  \url{https://projecteuclid.org/euclid.aoms/1177697203}
-\BIBentrySTDinterwordspacing
+\bibitem{selK}
+S.~Ray and R.~H. Turi, ``Determination of number of clusters in k-means
+  clustering and application in colour image segmentation,'' 2000.
 
 \bibitem{Wag}
 \BIBentryALTinterwordspacing

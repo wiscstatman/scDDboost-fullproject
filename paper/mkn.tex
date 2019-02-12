@@ -362,9 +362,10 @@ deviates for hyper-parameters $(\hat a, \hat b)$ derived from $D$.   We argue (A
 clusterings induced by this simple scheme approximates a Bayesian posterior analysis.   Pseudo-code for the resulting
 \textsc{scDDboost} is in Algorithm~\ref{alg:scDDboost}.
 
-Computations become more intensive the larger is the number $K$ of cell subtypes.   We observe that gene-specific
-posterior probabilities of differential distribution stabilize when $K$ is sufficiently large, and we use changes
-in these profiles to set $K$.
+%%Computations become more intensive the larger is the number $K$ of cell subtypes.   We observe that gene-specific
+%%posterior probabilities of differential distribution stabilize when $K$ is sufficiently large, and we use changes
+%%in these profiles to set $K$.
+In order to determine the number of clusters, we consider the change of \em validity = $\frac{\textbf{intra}}{\textbf{inter}}$ defined in \cite{selK},
 
 %%Although there are various options for clustering methods, none of them guarantee the accuracy and posterior inference of differential distributed genes can be sensitive to the initial partition. Here we provide a method to make our inferences robust to partitions. Given number of subtypes $K$, the final posterior probabilities is obtained by averaging results from iterative run of \textsc{scDDboost-core}  with randomly generated subtype labels $z^*$. Taking account of information contained in $D = dist(X)$ , instead of purely random assigning subtype labels, we generate the distance matrices of cells $D^*$ by dividing weights to the original one and assign labels based on $D^*$. Specifically,  we random sample a noise vector $e$ with length equal to number of cells and components are i.i.d. gamma distributed,  then constructing the weighting matrix $W$ by $W_{i,j} = e_i + e_j$ and random distance matrix is obtained by $D^* = D /  W$(division is performed componentwisely).  The choice of gamma distributed weights and dividing transformation is to matched the probability of two units classified into the same group under random weighting to bayesian framework (supplementary material). 
 
