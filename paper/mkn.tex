@@ -157,11 +157,11 @@ if $f_g^1(x) \neq f_g^2(x)$ for some $x$, and otherwise it is equivalently distr
 set each $f_{g,k}$ to have a a negative-binomial form, say with mean $\mu_{g,k}$
 and shape parameter $\alpha_g$ (\cite{ref:Leng};\cite{DES};\cite{ref:Des}). 
 This choice proves to be effective in our numerical experiments though it is 
-not critical to
-the modeling formulation. **maybe a sentence citing previous papers that use finite mixtures
-per gene; our angle is to extend by allowing genome-wide data to inform mixing proportions**
+not critical to the modeling formulation.  The use of mixtures per gene has proven
+useful in related model-based approaches (e.g. Finak {\em et al.} 2015; McDavid {\em et al.} 2016).
+Our perspective is that  genome-wide data may usefully inform the  mixing proportions.
 
-We seek a useful methodology to prioritize genes for evidence
+We seek methodology to prioritize genes for evidence
 of ${\rm DD}_g$.  Interestingly, even if we have evidence for condition effects
 on the subtype frequencies, it does not follow that a given
 gene will have $f^1_g \neq f^2_g$; that depends on whether or not the subtypes
@@ -249,8 +249,8 @@ a formula for local false discovery rates:
 Such local false discovery rates are important empirical Bayesian 
 statistics in large-scale testing (e.g., Efron, 2007; Muralidharan, 2010; Newton 
 {\em et al.} 2004).
-The partition representation guides construction of a prior distribution (Section 3.1) and an empirical Bayesian 
-method (Section 2.3) for scoring  differential distribution.   Setting the stage, 
+The partition representation guides construction of a prior distribution (Section 3.1) and a 
+model-based method (Section 2.3) for scoring  differential distribution.   Setting the stage, 
 Figure~2 shows the dependency structure of 
 the proposed compositional model and the partition-reliant prior specification.
 
