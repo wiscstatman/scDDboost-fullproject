@@ -46,11 +46,11 @@
 \@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{2.3}{Double Dirichlet Mixture (DDM)}}{8}}
 \newlabel{eq:ddmix}{{6}{8}}
 \newlabel{eq:onetoone}{{7}{8}}
-\citation{Wag}
 \newlabel{eq:doubledir}{{8}{9}}
+\citation{Wag}
 \citation{ref:Zappia}
-\@writefile{toc}{\contentsline {section}{\tocsection {}{3}{Operating characteristics}}{10}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.1}{Synthetic data}}{10}}
+\@writefile{toc}{\contentsline {section}{\tocsection {}{3}{Operating characteristics}}{11}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.1}{Synthetic data}}{11}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces first two principal components of transcripts under different parameters for simulated data. Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation, each setting has 2 replicates\relax }}{11}}
 \newlabel{fig:4}{{3}{11}}
 \citation{ref:Cq}
@@ -58,6 +58,8 @@
 \citation{ref:MAST}
 \citation{ref:Des}
 \citation{sc3}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  comparison of posterior probabilities of being DD among different number of subtypes, when we underestimate the number of subtypes, the difference is huge, see PDD between 6 subtypes and 7 subtypes. There is an approximate horizontal line with massive points at the top of left panel, which indicate that we underestimate lots of DD genes due to underestimate the number of subtypes. While in the case when we overestimate the number of subtypes 7 subtypes vs. 8 subtypes, though inflating PDD but the variation of difference is small, from 6 to 8 subtypes the PDD become more linear related.\relax }}{12}}
+\newlabel{fig:6}{{4}{12}}
 \citation{Trapnell}
 \citation{Patel}
 \citation{Shalek}
@@ -71,32 +73,30 @@
 \citation{Guo}
 \citation{chu}
 \citation{Darmanis}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  comparison of posterior probabilities of being DD among different number of subtypes, when we underestimate the number of subtypes, the difference is huge, see PDD between 6 subtypes and 7 subtypes. There is an approximate horizontal line with massive points at the top of left panel, which indicate that we underestimate lots of DD genes due to underestimate the number of subtypes. While in the case when we overestimate the number of subtypes 7 subtypes vs. 8 subtypes, though inflating PDD but the variation of difference is small, from 6 to 8 subtypes the PDD become more linear related.\relax }}{12}}
-\newlabel{fig:6}{{4}{12}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.2}{Empirical study}}{12}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.2}{Empirical study}}{13}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces datasets used for comparisons of DD analysis under different methods\relax }}{13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  number of DD genes with respect to total number of genes identified by each method. Ranked by mean list size\relax }}{13}}
-\newlabel{fig:6}{{5}{13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Densities of log transformed transcripts, 6 DD genes uniquely identified by scDDboost, for data GSE75748, DEC vs. EC, We observe some of the genes are different distributed across conditions.\relax }}{14}}
-\newlabel{fig:6}{{6}{14}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.3}{Empirical study: null cases}}{14}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces datasets used for null cases, as cells are coming from same biological condition, there should not be any differential distributed genes, any positive call is false positive\relax }}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces FDR of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. \relax }}{15}}
-\newlabel{fig:7}{{7}{15}}
-\citation{ref:d3e}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  number of DD genes with respect to total number of genes identified by each method. Ranked by mean list size\relax }}{14}}
+\newlabel{fig:6}{{5}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Densities of log transformed transcripts, 6 DD genes uniquely identified by scDDboost, for data GSE75748, DEC vs. EC, We observe some of the genes are different distributed across conditions.\relax }}{15}}
+\newlabel{fig:6}{{6}{15}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.3}{Empirical study: null cases}}{15}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces datasets used for null cases, as cells are coming from same biological condition, there should not be any differential distributed genes, any positive call is false positive\relax }}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces FDR of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. \relax }}{16}}
+\newlabel{fig:7}{{7}{16}}
 \@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.4}{Number of subtypes}}{16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces selecting number of subtypes for data GSE57872, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD. We select number of subtypes to be 7\relax }}{16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes\relax }}{16}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.5}{Bursting parameters}}{16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces D3E method will estimate 3 bursting parameters probability of a gene being on (\textbf  {a}) and off (\textbf  {b}) and the expression rate when the gene expression is on (\textbf  {c}), we plot the hexbin plot of probability of a gene being DD under out method v.s. the absolute value of log fold change of \textbf  {a} , \textbf  {b} and \textbf  {c} across the two conditions accordingly. The log fold change is scaled by dividing the largest log fold change so that ends up in a value between 0 and 1 Here we use the GSE71585 data \relax }}{17}}
-\@writefile{toc}{\contentsline {section}{\tocsection {}{4}{Theoretical issues}}{17}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{4.1}{Posterior consistency}}{17}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Four subtypes of cells, simplexes of $(\phi ,\psi )$ satisfying different constraints.\relax }}{18}}
-\newlabel{fig:1}{{11}{18}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{4.2}{Random weighting}}{20}}
-\@writefile{toc}{\contentsline {section}{\tocsection {}{5}{Discussion}}{21}}
+\citation{ref:d3e}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces selecting number of subtypes for data GSE57872, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD. We select number of subtypes to be 7\relax }}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes\relax }}{17}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{3.5}{Bursting parameters}}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces D3E method will estimate 3 bursting parameters probability of a gene being on (\textbf  {a}) and off (\textbf  {b}) and the expression rate when the gene expression is on (\textbf  {c}), we plot the hexbin plot of probability of a gene being DD under out method v.s. the absolute value of log fold change of \textbf  {a} , \textbf  {b} and \textbf  {c} across the two conditions accordingly. The log fold change is scaled by dividing the largest log fold change so that ends up in a value between 0 and 1 Here we use the GSE71585 data \relax }}{18}}
+\@writefile{toc}{\contentsline {section}{\tocsection {}{4}{Theoretical issues}}{18}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{4.1}{Posterior consistency}}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Four subtypes of cells, simplexes of $(\phi ,\psi )$ satisfying different constraints.\relax }}{19}}
+\newlabel{fig:1}{{11}{19}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{4.2}{Random weighting}}{21}}
 \bibstyle{IEEEtran}
 \bibdata{./references/wlr_ref}
+\@writefile{toc}{\contentsline {section}{\tocsection {}{5}{Discussion}}{22}}
 \bibcite{scs}{{1}{}{{}}{{}}}
 \bibcite{immune}{{2}{}{{}}{{}}}
 \bibcite{dv}{{3}{}{{}}{{}}}
@@ -108,8 +108,8 @@
 \bibcite{ref:MAST}{{9}{}{{}}{{}}}
 \bibcite{ref:Des}{{10}{}{{}}{{}}}
 \bibcite{ref:scDD}{{11}{}{{}}{{}}}
-\@writefile{toc}{\contentsline {section}{\tocsection {}{}{References}}{22}}
 \bibcite{ref:Cq}{{12}{}{{}}{{}}}
+\@writefile{toc}{\contentsline {section}{\tocsection {}{}{References}}{23}}
 \bibcite{ref:Leng}{{13}{}{{}}{{}}}
 \bibcite{DES}{{14}{}{{}}{{}}}
 \bibcite{kmedoids}{{15}{}{{}}{{}}}
@@ -132,21 +132,21 @@
 \bibcite{chu}{{32}{}{{}}{{}}}
 \bibcite{Darmanis}{{33}{}{{}}{{}}}
 \bibcite{ref:d3e}{{34}{}{{}}{{}}}
-\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{A}{}}{26}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{A.1}{The EBSeq model}}{26}}
+\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{A}{}}{27}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{A.1}{The EBSeq model}}{27}}
 \citation{ref:dahl}
-\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{B}{}}{27}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{B.1}{Product Partition Model}}{27}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{B.2}{Poisson-Gamma Model}}{28}}
-\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{C}{}}{29}}
-\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{C.1}{1d-Simulation Case}}{29}}
-\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{D}{}}{29}}
-\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{E}{}}{30}}
+\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{B}{}}{28}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{B.1}{Product Partition Model}}{28}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{B.2}{Poisson-Gamma Model}}{29}}
+\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{C}{}}{30}}
+\@writefile{toc}{\contentsline {subsection}{\tocsubsection {}{C.1}{1d-Simulation Case}}{30}}
+\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{D}{}}{30}}
+\@writefile{toc}{\contentsline {section}{\tocsection {Appendix}{E}{}}{31}}
 \newlabel{tocindent-1}{0pt}
-\newlabel{tocindent0}{14.55124pt}
+\newlabel{tocindent0}{13.9917pt}
 \newlabel{tocindent1}{72.54387pt}
 \newlabel{tocindent2}{35.40477pt}
 \newlabel{tocindent3}{0pt}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces comparison between random weighting scheme and bayesian clustering procedure in terms of posterior probabilities that two elements belong to the same class given the whole data and adjusted rand index comparing to the underlying true class label\relax }}{34}}
-\newlabel{fig:1}{{12}{34}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces comparison between random weighting scheme and bayesian clustering procedure in terms of posterior probabilities that two elements belong to the same class given the whole data and adjusted rand index comparing to the underlying true class label\relax }}{35}}
+\newlabel{fig:1}{{12}{35}}
