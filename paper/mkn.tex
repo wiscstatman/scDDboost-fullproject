@@ -158,7 +158,8 @@ set each $f_{g,k}$ to have a a negative-binomial form, say with mean $\mu_{g,k}$
 and shape parameter $\alpha_g$ (\cite{ref:Leng};\cite{DES};\cite{ref:Des}). 
 This choice proves to be effective in our numerical experiments though it is 
 not critical to the modeling formulation.  The use of mixtures per gene has proven
-useful in related model-based approaches (e.g. Finak {\em et al.} 2015; McDavid {\em et al.} 2016).
+useful in related model-based approaches (e.g., Finak {\em et al.} 2015; McDavid {\em et al.} 2016;
+Huang {\em et al.} 2018).
 Our perspective is that  genome-wide data may usefully inform the  mixing proportions.
 
 We seek methodology to prioritize genes for evidence
@@ -643,11 +644,8 @@ P(A_\pi|y,z) =
 A simulation study was conducted to assess the performance of
 scDDboost in identifying DD genes.
 We simulate data by splatter\cite{ref:Zappia} with approximate 200 cells each condition and 7 subtypes with proportions $\phi$ and $\psi$ satisfying constraints: $\phi_1 + \phi_2 = \psi_1 + \psi_2$, $\phi_3 + \phi_4 +\phi_5 = \psi_3 + \psi_4 + \psi_5$ and $\phi_6 + \phi_7 = \psi_6 + \psi_7$. Each subtype has 10\% genes to be differential expressed. We view the differences among subtypes by projecting transcripts profiles of cells into its first two principal components(Fig 2). We observed some subtypes are well separated, some subtypes are nested, which would make those simulation setting to be nontrivial for consideration. 
-\begin{figure}[h!]
-  \includegraphics[ width = 0.8\textwidth]{Figs/pca.pdf}
-  \caption{first two principal components of transcripts under different parameters for simulated data. Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation, each setting has 2 replicates}
-  \label{fig:4}
-\end{figure}
+
+See Supplementary Material Figure S1...
 
 We determine the number of subtypes by searching a range of candidates(from 1 to 9 based on our empirical experience). Given number of subtypes, we obtain a subtype structure of cells, which will further be fed into computing the posterior probabilities. We visualize the change between posterior probabilities under number of clusters $i$ and $i + 1$($i$ from 1 to 8). It typically remains stable when number of cluster is above a number that is smaller than 9 (Fig 3)
 In the simulated data, the posterior probability become stable when we overestimate the number of subtypes. We found the true number of subtypes is 7 and correctly identify the subtypes of cells.   
@@ -712,52 +710,9 @@ Since we are modeling gene transcript within each subtype as negative-binomially
 
 \subsection{Empirical study}
 
-**Conquer examples...null and alternative**
-**Selection rules**
 
 We use 13 datasets from conquer\cite{ref:Cq} to test performance of our method on empirical data. We compare our results with scDD\cite{ref:scDD}, MAST\cite{ref:MAST} and DESeq2\cite{ref:Des}, we have also investigated performance of scDDboost under different clustering method, (sc3\cite{sc3}, supplimentary)  and obtain similar \\
-
-\begin{table}[ht]
-\small
-\centering
-\begin{tabular}{ |p{3cm}|p{5cm}|p{3cm}|p{2cm}|p{1cm}|}
-\hline
- Data set & Conditions & Number of cells/condition & Organism  & Ref\\
-\hline
-\hline
-GSE52529 & T0 vs T24 & 96,96 & human & \cite{Trapnell}\\
-\hline
-GSE57872 & patient1 vs patient2 & 192,96 & human & \cite{Patel} \\
-\hline
-GSE48968-GPL13112 & BMDC (2h LPS stimulation) vs 6h LPS & 96,96 & mouse & \cite{Shalek} \\
-\hline
-GSE60749-GPL13112 & serum + LIF vs  2i + LIF & 90,94 & mouse & \cite{Kumar} \\
-\hline
-GSE74596 & NKT1 vs NTK2 & 46,68 & mouse & \cite{Engel}\\
-\hline
-EMTAB2805 & G1 vs G2M & 96,96 & mouse & \cite{EMTAB}\\
-\hline
-GSE71585-GPL13112 &Gad2tdTpositive vs Cux2tdTnegative  & 80,140 & mouse & \cite{Tasic} \\
-\hline
-GSE64016 & G1 vs G2 & 91,76 & human & \cite{oscope} \\
-\hline
-GSE79102 & patient1 vs patient2 & 51, 89 & human & \cite{sc3} \\
-\hline
-GSE45719 & 16-cell stage blastomere vs mid blastocyst cell & 50, 60 & mouse & \cite{Deng193}\\
-\hline
-GSE63818 & Primordial Germ Cells, develop- mental stage: 7 week gestation vs Somatic Cells, developmental stage: 7 week gestation & 40,26 & mouse & \cite{Guo}\\
-\hline
-GSE75748 & DEC vs EC & 64, 64 & human & \cite{chu}\\
-\hline
-GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human & \cite{Darmanis}\\
-\hline
-
-
-\end{tabular}
-\captionof{table}{datasets used for comparisons of DD analysis under different methods}
-\end{table}
-
-
+**see Supplementary Material Table S1**
 
 \begin{figure}[H]
 \includegraphics[width = 1\textwidth]{Figs/DD95.pdf}
@@ -1046,13 +1001,73 @@ Since there are a lot of overlapping among $A_{\pi_k}^{\pi^l}$, care must be tak
 
 \newpage
 
-\appendix
-\section{}
+%%\appendix
+ 
+\section*{Appendix}
 
-*review EBseq model*
 
 
-\subsection{The EBSeq model}
+\newpage
+
+\section*{Supplementary Material}
+
+\noindent
+Contents
+\begin{enumerate}
+\item Synthetic Data
+\item Data sets 
+\item \verb+EBseq+
+\item \verb+modalclust+
+\item Randomized k-means
+\item Proofs: 
+\end{enumerate}
+
+\noindent
+{\bf Synthetic Data}
+
+\begin{figure}[h!]
+  \includegraphics[ width = 0.8\textwidth]{Figs/pca.pdf}
+  \caption{first two principal components of transcripts under different parameters for simulated data. Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation, each setting has 2 replicates}
+  \label{fig:4}
+\end{figure}
+
+
+
+\noindent
+{\bf Data sets}
+
+
+\begin{table}[ht]
+\small
+\centering
+\begin{tabular}{ |p{3cm}|p{5cm}|p{3cm}|p{2cm}|p{1cm}|}
+\hline
+ Data set & Conditions & Number of cells/condition & Organism  & Ref\\ \hline \hline
+GSE52529 & T0 vs T24 & 96,96 & human & \cite{Trapnell}\\ \hline
+GSE57872 & patient1 vs patient2 & 192,96 & human & \cite{Patel} \\ \hline
+GSE48968-GPL13112 & BMDC (2h LPS stimulation) vs 6h LPS & 96,96 & mouse & \cite{Shalek} \\ \hline
+GSE60749-GPL13112 & serum + LIF vs  2i + LIF & 90,94 & mouse & \cite{Kumar} \\ \hline
+GSE74596 & NKT1 vs NTK2 & 46,68 & mouse & \cite{Engel}\\ \hline
+EMTAB2805 & G1 vs G2M & 96,96 & mouse & \cite{EMTAB}\\ \hline
+GSE71585-GPL13112 &Gad2tdTpositive vs Cux2tdTnegative  & 80,140 & mouse & \cite{Tasic} \\ \hline
+GSE64016 & G1 vs G2 & 91,76 & human & \cite{oscope} \\ \hline
+GSE79102 & patient1 vs patient2 & 51, 89 & human & \cite{sc3} \\ \hline
+GSE45719 & 16-cell stage blastomere vs mid blastocyst cell & 50, 60 & mouse & \cite{Deng193}\\ \hline
+GSE63818 & Primordial Germ Cells, develop- mental stage: 7 week gestation vs Somatic Cells, developmental stage: 7 week gestation & 40,26 & mouse & \cite{Guo}\\ \hline
+GSE75748 & DEC vs EC & 64, 64 & human & \cite{chu}\\ \hline
+GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human & \cite{Darmanis}\\ \hline
+\end{tabular}
+\captionof{table}{datasets used for comparisons of DD analysis under different methods}
+\end{table}
+
+
+
+
+
+
+
+\noindent
+{\bf EBSeq}
 
 Suppose we have $K$ subtypes, let $X_g^I = X_{g, 1}^I, ... , X_{g, S_1}^I$ denote transcripts at gene $g$ from subtype $I, I = 1, ... K$.  In the EBSeq model it assumed that counts within subtype $I$ are distributed as Negative Binomial:
 $X_{g, s}^I | r_{g,s}, q_g^I \sim NB(r_{g,s}, q_g^I)$ Where
@@ -1097,11 +1112,12 @@ Then the marginal distribution of counts $X_g^{1,2,3}$ is $\overset{5}{\underset
 \frac{p_k g_k(X_g^{1,2,3})}{\overset{5}{\underset{k = 1}{\Sigma}} p_k g_k^{I_g}(X_g^{1,2,3})}
 \end{eqnarray*}
 
-\section{}
 
-**On the Poisson version of modal clust**
+\noindent 
+{\bf modalclust}
 
-\subsection{Product Partition Model}
+
+{Product Partition Model}
 Let $X = (X_1, X_2, ...,X_n)$ be $n$ one dimension observed data, given a partition for the data $\pi = \{S_1, ..., S_q\}$, where $S_i$ are disjoint subsets of $\{1,2,...,n\}$ and $\bigcup_{i = 1}^{q} S_i = \{1,2,...,n\}$. The likelihood for $X$ satisfying such partition is 
 \begin{eqnarray*}
 p(X|\pi) = \overset{q}{\underset{i = 1}{\prod}}f(X_{S_i})
@@ -1116,7 +1132,6 @@ Dahl demonstrated by some choice of $f$ and prior of $\pi$, we can reduce the ti
 And the crucial condition for $f$ is that if $X_{S_1}$ and $X_{S_2}$ are overlapped in the sense that  min$\{X_{S_2}\}  <$ max$\{X_{S_1}\}  <$ max$\{X_{S_2}\}$ or min$\{X_{S_1}\}  <$ max$\{X_{S_2}\}  <$ max$\{X_{S_1}\}$, $X_{S_1^*} and X_{S_2^*}$ be the sets of swapping one pair of those overlapped terms and keep the other unchanged. Then $f(X_{S_1}) f(X_{S_2}) \leq f(X_{S_1^*}) f(X_{S_2^*})$. Under such condition, we know that possible MAP candidates must be those partition that for any two subgroups of data, all the data from subgroup1 has to be either greater or smaller than all the data from subgroup2.
 
 
-\subsection{Poisson-Gamma Model}
 In Poisson-Gamma Model we assuming:
 
 \begin{align*}
@@ -1177,11 +1192,9 @@ Similar proof for the case $h_1 > h_2$.
 
 \end{proof}
 
-\section{}
+\noindent
+{\bf Randomized k-means}
 
-**on randomized clusterings**
-
-\subsection{1d-Simulation Case}
 We random generate one-dimensional data $X$ from a mixture of 5 normal distributions with different means and same variance. We compare clustering results between random weighting and bayesian clustering with Dirichlet process as prior in terms of posterior probabilities that two elements belong to the same class given the whole data and adjusted rand index comparing to the underlying true class label (Fig 12). 
 
 \begin{figure}[h]
@@ -1192,7 +1205,9 @@ We random generate one-dimensional data $X$ from a mixture of 5 normal distribut
 
 
 
-\section{}
+
+\noindent
+{\bf Double Dirichlet Model:}
 
 On the double Dirichlet masses, using notation as in Section 2.3 we have density functions:
 
@@ -1224,8 +1239,10 @@ p( \tilde \psi_b )
 
 
 
-\section{}
-\hfill\\
+\noindent
+{\bf Proofs:}
+
+
 \begin{lemma}
 If $\pi_2$ is not refinement of $\pi_1$ then $A_{\pi_1} \cap A_{\pi_2}$ is a lower dimensional subset of $A_{\pi_2}$
 \end{lemma}
