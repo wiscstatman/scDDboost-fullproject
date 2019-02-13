@@ -26,7 +26,21 @@
 \begin{document}
 
 \begin{abstract}
-*blah blah*
+On the problem of scoring genes for evidence of changes in the distribution of single-cell expression, we
+introduce a novel empirical Bayesian mixture approach and evaluate its operating characteristics 
+in a range of numerical experiments.  The proposed approach leverages cell-subtype 
+structure revealed in cluster analysis in order to boost gene-level information on expression changes.
+Cell clustering informs gene-level analysis through a specially-constructed prior distribution
+over pairs of multinomial probability vectors; this prior meshes with available model-based tools
+that score patterns of differential expression over multiple subtypes.   During methodology development
+we derive an explicit formula for the posterior probability that a gene has the same distribution
+in two cellular conditions, allowing for a gene-specific mixture over subtypes in each condition.
+Advantage is gained by the compositional structure of the model, in which a host of gene-specific
+mixture components are allowed, but also in which the mixing proportions are constrained at the whole 
+cell level.  This structure leads to a novel form of information sharing through which the cell-clustering
+results support gene-level scoring of differential distribution.  The result, according to our
+numerical experiments, is improved sensitivity compared to several standard approaches
+ for detecting subtle distributional expression changes. **computationally efficient?**
 \end{abstract}
 
 \maketitle
