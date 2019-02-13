@@ -24,6 +24,11 @@
  
 \email{newton@biostat.wisc.edu}
 \begin{document}
+
+\begin{abstract}
+*blah blah*
+\end{abstract}
+
 \maketitle
 \section{Introduction}
 
@@ -370,34 +375,6 @@ In order to determine the number of clusters, we consider the change of {\em val
 
 %%Although there are various options for clustering methods, none of them guarantee the accuracy and posterior inference of differential distributed genes can be sensitive to the initial partition. Here we provide a method to make our inferences robust to partitions. Given number of subtypes $K$, the final posterior probabilities is obtained by averaging results from iterative run of \textsc{scDDboost-core}  with randomly generated subtype labels $z^*$. Taking account of information contained in $D = dist(X)$ , instead of purely random assigning subtype labels, we generate the distance matrices of cells $D^*$ by dividing weights to the original one and assign labels based on $D^*$. Specifically,  we random sample a noise vector $e$ with length equal to number of cells and components are i.i.d. gamma distributed,  then constructing the weighting matrix $W$ by $W_{i,j} = e_i + e_j$ and random distance matrix is obtained by $D^* = D /  W$(division is performed componentwisely).  The choice of gamma distributed weights and dividing transformation is to matched the probability of two units classified into the same group under random weighting to bayesian framework (supplementary material). 
 
-%%After robustification, we select number of clusters $K$ that posterior probabilities do not vary too
-%% much under $K$ and $K+1$.  We validate our procedure in simulated and empirical data
-
-
-\begin{algorithm}
-\caption{\textsc{scDDboost}}\label{alg:scDDboost}
-\raggedright\hspace*{\algorithmicindent} \textbf{Input}: \begin{list}{}{}
- \item  \textsc{genes} by \textsc{cells} expression data matrix $X=(X_{g,c})$
- \item  cell condition labels $y=(y_c)$
- \item  number of cell subtypes $K$
- \item number of randomized clusterings $n_r$ 
- \end{list}
-\hspace*{\algorithmicindent} \textbf{Output}: posterior probabilities of differential distribution 
-\begin{algorithmic}[2]
-\Procedure{scDDboost}{$X,y, K, n_r$}
-\State distance matrix: $D=\rm{dist}(X) \gets$ pairwise distances between cells (columns of $X$)
-\State hyper-parameters $(\hat a, \hat b) \gets {\mbox {\rm hyper}}(D)$
-\Repeat
-\State Gamma noise vector: $e$, with components $\sim \text{Gamma}(\hat a,\hat b)$
-\State randomized distance matrix: $D^* \gets D / (e\textbf{1}^T +  \textbf{1}e^T)$
-\State $\hat z^* \gets {\mbox {\rm $K-$medoids}}(D^*)$
-\State $P^* \gets\;$ \textsc{scDDboost-core}$(X,y,\hat z^*)$
-\Until{$n_r$ randomized distance matrices}
-\State \textbf{return} $\forall \text{genes} \, g, \, P(\text{DD}_g|X,y) = \frac{1}{n_r} 
-   \sum_{D^*} P^*_g$
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
 
 In simulations, 
 we observed that averaged adjusted Rand index as well as Rand index of mode of partitions based on randomized distance matrices is higher (better estimation) than that of partition based on original distance matrix (Supplementary Material, **?**). 
@@ -637,7 +614,7 @@ P(A_\pi|y,z) =
 
 
  
-\section{Operating characteristics}
+\section{Numerical experiments}
 
 \subsection{Synthetic data} 
 
@@ -1004,6 +981,33 @@ Since there are a lot of overlapping among $A_{\pi_k}^{\pi^l}$, care must be tak
 %%\appendix
  
 \section*{Appendix}
+
+
+\begin{algorithm}
+\caption{\textsc{scDDboost}}\label{alg:scDDboost}
+\raggedright\hspace*{\algorithmicindent} \textbf{Input}: \begin{list}{}{}
+ \item  \textsc{genes} by \textsc{cells} expression data matrix $X=(X_{g,c})$
+ \item  cell condition labels $y=(y_c)$
+ \item  number of cell subtypes $K$
+ \item number of randomized clusterings $n_r$
+ \end{list}
+\hspace*{\algorithmicindent} \textbf{Output}: posterior probabilities of differential distribution
+\begin{algorithmic}[2]
+\Procedure{scDDboost}{$X,y, K, n_r$}
+\State distance matrix: $D=\rm{dist}(X) \gets$ pairwise distances between cells (columns of $X$)
+\State hyper-parameters $(\hat a, \hat b) \gets {\mbox {\rm hyper}}(D)$
+\Repeat
+\State Gamma noise vector: $e$, with components $\sim \text{Gamma}(\hat a,\hat b)$
+\State randomized distance matrix: $D^* \gets D / (e\textbf{1}^T +  \textbf{1}e^T)$
+\State $\hat z^* \gets {\mbox {\rm $K-$medoids}}(D^*)$
+\State $P^* \gets\;$ \textsc{scDDboost-core}$(X,y,\hat z^*)$
+\Until{$n_r$ randomized distance matrices}
+\State \textbf{return} $\forall \text{genes} \, g, \, P(\text{DD}_g|X,y) = \frac{1}{n_r}
+   \sum_{D^*} P^*_g$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
 
 
 
