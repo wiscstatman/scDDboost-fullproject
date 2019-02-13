@@ -40,7 +40,7 @@ mixture components are allowed, but also in which the mixing proportions are con
 cell level.  This structure leads to a novel form of information sharing through which the cell-clustering
 results support gene-level scoring of differential distribution.  The result, according to our
 numerical experiments, is improved sensitivity compared to several standard approaches
- for detecting subtle distributional expression changes. 
+ for detecting distributional expression changes. 
 \end{abstract}
 
 \maketitle
@@ -55,7 +55,7 @@ biology\cite{dv}, cancer\cite{cancer}, and other areas.
 created for data of lower-resolution (e.g., bulk RNA-seq) or lower dimension 
 (e.g., flow cytometry)  guide our response to 
  the data science demands of new measurement platforms,
-but they are not adequate for efficient knowledge discovery in this
+but they remain inadequate for efficient knowledge discovery in this
 rapidly advancing domain\cite{Bacher:2016aa}.
 
 An important feature of single-cell studies that could be leveraged better
@@ -93,7 +93,7 @@ the counts of cells in various subtypes; for this we propose a Double-Dirichlet-
 to model the pair of multinomial probability vectors for subtype counts in two experimental conditions.
 Further elements are developed, on the selection of the number of subtypes and on accounting for uncertainty in the cluster output,  in order to provide an end-to-end solution to the differential distribution
 problem.  A software implementation of the proposed methodology 
-is available in the R package \textsc{scDDboost}, at \verb+http://github.com/wiscstatman/scDDboost/+
+is available in the R package \textsc{scDDboost}, at \verb+http://github.com/wiscstatman/scDDboost/+.
 Modularity in the necessary elements provides some methodological advantages. For example,
 improvements in clustering, such as *sc3?*, may be used in place of the default clustering,
 without altering the form of downstream analysis. **it's also relatively speedy computationally,
