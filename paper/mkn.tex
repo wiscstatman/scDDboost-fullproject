@@ -84,15 +84,18 @@ both marginal Dirichlet conjugacy as well as
  the posterior probability of changes in expression distributions between conditions.
  
  
-Using the proposed compositional model, subtypes inferred by clustering from whole genome data 
-improve the analysis of gene-level expression.  The methodology merges two lines of computation
+Using a compositional model, subtypes inferred by clustering whole genome data 
+inform the analysis of gene-level expression.  The methodology merges two lines of computation
 after cell clustering: one concerns patterns of differential expression among 
 the cellular subtypes, and here we take advantage of the powerful \verb+EBseq+ method for detecting
 patterns in negative-binomially-distributed expression data (Leng et al. 2013).  The second concerns 
 the counts of cells in various subtypes; for this we propose a Double-Dirichlet-Mixture distribution
 to model the pair of multinomial probability vectors for subtype counts in two experimental conditions.
 Further elements are developed, on the selection of the number of subtypes and on accounting for uncertainty in the cluster output,  in order to provide an end-to-end solution to the differential distribution
-problem.  Numerical experiments  on both synthetic and published scRNA-seq data indicate improved
+problem.  A software implementation of the proposed methodology 
+is available in the R package \textsc{scDDboost}, at \verb+http://github.com/wiscstatman/scDDboost/+
+
+Numerical experiments  on both synthetic and published scRNA-seq data indicate high
 sensitivity for detecting subtle distribution changes.  In these experiments we take advantage of
 \verb+splatter+ for generating synthetic data [citation] as well as the compendium of scRNA-seq
 data available through \verb+conquer+ [citation].  **something on bursting?**
@@ -101,11 +104,6 @@ We also establish first-order asymptotic results for the methodology.
 %Performance on empirical data has been investigated through ten previously published experimental data from conquer\cite{ref:Cq}. 
 
 
-The proposed scDDboost methodology extends scDD\cite{ref:scDD}, which similarly treats expression data within a condition as a statistical mixture.   
-The extension provided by the present work is to recognize that this mixture is a mixture over cell subtypes.  
-Thus genome-wide data provide information on mixing proportions, thereby providing useful
-structural information into each gene-level calculation.   A software implementation of the proposed methodology 
-is available in the R package \textsc{scDDboost}, at \verb+http://github.com/wiscstatman/scDDboost/+
 
 \section{Modeling}
 \subsection{Data structure, sampling model, and parameters}
@@ -950,6 +948,12 @@ yielding $a = a_0 + a_1$ and $b = a_1$.  Therefore, we gave a way of modeling th
 We have presented scDDboost, a compositional model for detecting differential distributed genes from scRNA-seq data. To account for the over-dispersion and multi-modality of single-cell data, scDDboost modeled transcripts as mixture distributed. Unlike previous invented methods (e.g. Deseq2, MAST and scDD), which conducts genewise DD test in an isolated manner. scDDboost make whole genome information shared at gene level by further assuming the mixture distribution of transcripts is a mixture over the subtypes of cells. Another advantage of scDDboost is its' flexibility to allow user specified clustering methods of cells, with more and more studies of the scRNA-seq data, there will be more accurate distance matrix between cells, which will yield better estimation of subtypes and inference of DD genes. We combine estimations of changes of subtypes' proportions across conditions and changes of mean expressions across subtypes to infer distributional changes of transcripts. To estimate changes of subtypes' proportions across conditions, we use empirical Bayes and developed a double Dirichlet prior distribution.  We invented a random weighting scheme that stabilize our DD inference as well as approximating the results as if we have done a fully bayesian clustering analysis based on Dirichlet prior.  We demonstrated that scDDboost outperforms existing approaches in simulation and tends to be more powerful than existing methods on a wide range of public available empirical datasets. 
 
 One limitation of scDDboost is that current EBseq inference of the DE patterns is computationally not feasible for big number of subtypes. Given the noise level among the single cell data and especially if we want to identify DD genes among conditions containing thousands of cells, allowing a big number of subtypes would make cells under same subtype more homogeneous and result in a more accurate estimations for the distribution of transcripts. Further research is needed for acceleration of EBseq, one direction is to reduce the calculation on those patterns that would have small posterior probabilities. 
+
+
+This methodology extends \verb+scDD+\cite{ref:scDD},                        
+which similarly treats expression data within a condition as a statistical mixture, but which does
+not share information among genes on the mixing proportions.
+
 
 \begin{comment}
 
