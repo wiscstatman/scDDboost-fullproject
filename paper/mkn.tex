@@ -81,11 +81,11 @@ distribution over pairs of multinomial probability vectors that conveys
 both marginal Dirichlet conjugacy as well as
  dependence induced through sharp equalities on aggregated 
  subtype probabilities, which turns out to be key in formulating 
- the posterior probability of changes in expression distributions between conditions.
+ the posterior probability of changes in expression distribution between two conditions.
  
  
 Using a compositional model, subtypes inferred by clustering whole genome data 
-inform the analysis of gene-level expression.  The methodology merges two lines of computation
+inform the analysis of gene-level expression.  The proposed methodology merges two lines of computation
 after cell clustering: one concerns patterns of differential expression among 
 the cellular subtypes, and here we take advantage of the powerful \verb+EBseq+ method for detecting
 patterns in negative-binomially-distributed expression data (Leng et al. 2013).  The second concerns 
@@ -94,6 +94,10 @@ to model the pair of multinomial probability vectors for subtype counts in two e
 Further elements are developed, on the selection of the number of subtypes and on accounting for uncertainty in the cluster output,  in order to provide an end-to-end solution to the differential distribution
 problem.  A software implementation of the proposed methodology 
 is available in the R package \textsc{scDDboost}, at \verb+http://github.com/wiscstatman/scDDboost/+
+Modularity in the necessary elements provides some methodological advantages. For example,
+improvements in clustering, such as *sc3?*, may be used in place of the default clustering,
+without altering the form of downstream analysis. **it's also relatively speedy computationally,
+not requiring any MCMC**
 
 Numerical experiments  on both synthetic and published scRNA-seq data indicate high
 sensitivity for detecting subtle distribution changes.  In these experiments we take advantage of
