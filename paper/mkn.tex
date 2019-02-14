@@ -655,12 +655,16 @@ P(A_\pi|y,z) =
 
 A simulation study was conducted to assess the performance of
 scDDboost in identifying DD genes.
-We simulate data by splatter\citep{ref:Zappia} with approximate 200 cells each condition and 7 subtypes with proportions $\phi$ and $\psi$ satisfying constraints: $\phi_1 + \phi_2 = \psi_1 + \psi_2$, $\phi_3 + \phi_4 +\phi_5 = \psi_3 + \psi_4 + \psi_5$ and $\phi_6 + \phi_7 = \psi_6 + \psi_7$. Each subtype has 10\% genes to be differential expressed. We view the differences among subtypes by projecting transcripts profiles of cells into its first two principal components(Fig 2). We observed some subtypes are well separated, some subtypes are nested, which would make those simulation setting to be nontrivial for consideration. 
+We simulate data by splatter\citep{ref:Zappia}, a recently developed simulation scheme having good approximation to empirical data and providing interface for simulating cells from multiple groups. To evaluate sensitivity of our methods.  
+We generate 200 cells each condition 
+and 7 subtypes with proportions $\phi$ and $\psi$ satisfying constraints: $\phi_1 + \phi_2 = \psi_1 + \psi_2$, $\phi_3 + \phi_4 +\phi_5 = \psi_3 + \psi_4 + \psi_5$ and $\phi_6 + \phi_7 = \psi_6 + \psi_7$. 
+Each subtype has 10\% genes to be differential expressed. 
+As splatter needs input of two hyper parameters for the simulation. We validate our choices by projecting transcripts profiles of cells into its first two principal components(Supplementary S1)
+We observed some subtypes are well separated, some subtypes are nested, which make the tasks of cell type identification and DD genes detection remain challenging. 
 
-See Supplementary Material Figure S1...
 
-We determine the number of subtypes by searching a range of candidates(from 1 to 9 based on our empirical experience). Given number of subtypes, we obtain a subtype structure of cells, which will further be fed into computing the posterior probabilities. We visualize the change between posterior probabilities under number of clusters $i$ and $i + 1$($i$ from 1 to 8). It typically remains stable when number of cluster is above a number that is smaller than 9 (Fig 3)
-In the simulated data, the posterior probability become stable when we overestimate the number of subtypes. We found the true number of subtypes is 7 and correctly identify the subtypes of cells.   
+%We determine the number of subtypes by searching a range of candidates(from 1 to 9 based on our empirical experience). Given number of subtypes, we obtain a subtype structure of cells, which will further be fed into computing the posterior probabilities. We visualize the change between posterior probabilities under number of clusters $i$ and $i + 1$($i$ from 1 to 8). It typically remains stable when number of cluster is above a number that is smaller than 9 (Fig 3)
+%In the simulated data, the posterior probability become stable when we overestimate the number of subtypes. We found the true number of subtypes is 7 and correctly identify the subtypes of cells.   
 
 \begin{comment}
 
@@ -696,7 +700,7 @@ scDDboost identified most true DD genes, the reason is that mean expression shif
 \end{figure}
 
 
-Since we are modeling gene transcript within each subtype as negative-binomially distributed and we only test one parameter(mean) change among subtypes. In some scenario, it could be insufficient to model the variability within subtype. Even though there is no mean expression change among subtypes but more subtle distributional change occurred among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus limit power of scDDboost.\\
+%Since we are modeling gene transcript within each subtype as negative-binomially distributed and we only test one parameter(mean) change among subtypes. In some scenario, it could be insufficient to model the variability within subtype. Even though there is no mean expression change among subtypes but more subtle distributional change occurred among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus limit power of scDDboost.\\
 
 
 \subsection{Empirical study}
