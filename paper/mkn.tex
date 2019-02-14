@@ -766,8 +766,10 @@ GSE79102null & patient1 & 26, 25 & human\\
 \end{figure}
 
 \subsection{Number of subtypes}
+Number of subtype is a crucial 
+From our empirical experience, it would be sufficient to capture the heterogeneity underlying cells with number of clusters not greater than 9.  
 
-From our empirical experience, it is typical $K$ will not be larger than 8. We demonstrate the change of posterior probabilities of differential distribution given different number of subtypes at data GSE75748 and GSE48968. In both cases, if allowing one more subtype would result in a lot increases in posterior probabilities, which suggests that the number of subtypes is underestimated since we found more distribution differences between conditions given one more mixture component. If posterior inference is stable after increasing the number of subtypes, then we consider previous number of subtypes to be optimal. 
+We demonstrate the change of posterior probabilities of differential distribution given different number of subtypes at data GSE75748 and GSE48968. In both cases, if allowing one more subtype would result in a lot increases in posterior probabilities, which suggests that the number of subtypes is underestimated since we found more distribution differences between conditions given one more mixture component. If posterior inference is stable after increasing the number of subtypes, then we consider previous number of subtypes to be optimal. 
 \begin{figure}[H]
 
 \includegraphics[width = 0.7\textwidth]{Figs/s_78_GSE57872.pdf}
