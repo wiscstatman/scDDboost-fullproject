@@ -64,17 +64,18 @@ An important feature of single-cell studies that could be leveraged better
 statistically is the fact that cells populate distinct, identifiable subtypes
 determined by lineage history, epigenetic state, the activity
 of various transcriptional programs, or other 
-distinguishing factors. Lots of efforts have been made to clustering cells
-into different cell subtypes, SC3\citep{sc3}, CIDR\citep{CIDR} and ZIFA\citep{ZIFA}.
+distinguishing factors. Extensive research on clustering cells
+has produced useful tools for identifying subtypes, including: 
+ \verb+SC3+ \citep{sc3}, \verb+CIDR+ \citep{CIDR} and \verb+ZIFA+ \citep{ZIFA}.
 We hypothesize that such
-subtype information may be usefully injected into various inference procedures in order
+subtype information may be usefully injected into other inference procedures in order
 to improve their operating characteristics. 
 
 Assessing the magnitude and statistical significance of changes in gene
 expression associated with different cellular conditions has been a central
 statistical problem in genomics for which new tools specific to
-the single-cell RNAseq data structure have been deployed: MAST\citep{ref:MAST},
-DESEQ2\citep{ref:Des}, SCDD\citep{ref:scDD}, etc.  These tools respond
+the single-cell RNAseq data structure have been deployed: \verb+MAST+ \citep{ref:MAST},
+\verb+DESEQ2+ \citep{ref:Des}, \verb+SCDD+ \citep{ref:scDD}, etc.  These tools respond
 to scRNAseq characteristics, such as high prevelance of zero counts and
 gene-level multimodality, but none takes explicit advantage of cellular subtype
 information.  We present a methodology and supporting theoretical
@@ -104,13 +105,6 @@ Material document, which for ease of reference
 in the present version is contained as the final  part of a single {\em pdf} file holding the entire manuscript.
 
 %Performance on empirical data has been investigated through ten previously published experimental data from conquer\cite{ref:Cq}. 
-
-%A notable technical innovation is a new prior
-%distribution over pairs of multinomial probability vectors that conveys
-%both marginal Dirichlet conjugacy as well as
-% dependence induced through sharp equalities on aggregated 
-% subtype probabilities, which turns out to be key in formulating 
-% the posterior probability of changes in expression distribution between two conditions.
 
 
 \section{Modeling}
