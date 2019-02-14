@@ -762,7 +762,6 @@ GSE79102null & patient1 & 26, 25 & human\\
 \end{figure}
 
 \subsection{Number of subtypes}
-***label for graph, update later***
 
 From our empirical experience, it is typical $K$ will not be larger than 8. We demonstrate the change of posterior probabilities of differential distribution given different number of subtypes at data GSE75748 and GSE48968. In both cases, if allowing one more subtype would result in a lot increases in posterior probabilities, which suggests that the number of subtypes is underestimated since we found more distribution differences between conditions given one more mixture component. If posterior inference is stable after increasing the number of subtypes, then we consider previous number of subtypes to be optimal. 
 \begin{figure}[H]
@@ -806,7 +805,7 @@ From our empirical experience, it is typical $K$ will not be larger than 8. We d
 
 ***on the method estimated p-value, update later***
 
-D3E\citep{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset EMTAB2805\\
+D3E\citep{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset GSE71585\\
 
 \begin{figure}[H]
 
@@ -1066,22 +1065,22 @@ Contents
 \begin{table}[ht]
 \small
 \centering
-\begin{tabular}{ |p{3cm}|p{5cm}|p{3cm}|p{2cm}|p{1cm}|}
+\begin{tabular}{ |p{2cm}|p{5cm}|p{2cm}|p{2cm}|p{2cm}|p{1cm}|}
 \hline
- Data set & Conditions & Number of cells/condition & Organism  & Ref\\ \hline \hline
-GSE52529 & T0 vs T24 & 96,96 & human & \citep{Trapnell}\\ \hline
-GSE57872 & patient1 vs patient2 & 192,96 & human & \citep{Patel} \\ \hline
-GSE48968-GPL13112 & BMDC (2h LPS stimulation) vs 6h LPS & 96,96 & mouse & \citep{Shalek} \\ \hline
-GSE60749-GPL13112 & serum + LIF vs  2i + LIF & 90,94 & mouse & \citep{Kumar} \\ \hline
-GSE74596 & NKT1 vs NTK2 & 46,68 & mouse & \citep{Engel}\\ \hline
-EMTAB2805 & G1 vs G2M & 96,96 & mouse & \citep{EMTAB}\\ \hline
-GSE71585-GPL13112 &Gad2tdTpositive vs Cux2tdTnegative  & 80,140 & mouse & \citep{Tasic} \\ \hline
-GSE64016 & G1 vs G2 & 91,76 & human & \citep{oscope} \\ \hline
-GSE79102 & patient1 vs patient2 & 51, 89 & human & \cite{sc3} \\ \hline
-GSE45719 & 16-cell stage blastomere vs mid blastocyst cell & 50, 60 & mouse & \citep{Deng193}\\ \hline
-GSE63818 & Primordial Germ Cells, develop- mental stage: 7 week gestation vs Somatic Cells, developmental stage: 7 week gestation & 40,26 & mouse & \citep{Guo}\\ \hline
-GSE75748 & DEC vs EC & 64, 64 & human & \citep{chu}\\ \hline
-GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human & \citep{Darmanis}\\ \hline
+ Data set & Conditions & Number of cells/condition & Organism  & Ref & K\\ \hline \hline
+GSE52529 & T0 vs T24 & 96,96 & human & \citep{Trapnell} & 6\\ \hline
+GSE57872 & patient1 vs patient2 & 192,96 & human & \citep{Patel} & 7 \\ \hline
+GSE48968-GPL13112 & BMDC (2h LPS stimulation) vs 6h LPS & 96,96 & mouse & \citep{Shalek} & 8\\ \hline
+GSE60749-GPL13112 & serum + LIF vs  2i + LIF & 90,94 & mouse & \citep{Kumar} & 3\\ \hline
+GSE74596 & NKT1 vs NTK2 & 46,68 & mouse & \citep{Engel} & 5\\ \hline
+EMTAB2805 & G1 vs G2M & 95,96 & mouse & \citep{EMTAB} & 7\\ \hline
+GSE71585-GPL13112 &Gad2tdTpositive vs Cux2tdTnegative  & 80,140 & mouse & \citep{Tasic} & 7\\ \hline
+GSE64016 & G1 vs G2 & 91,76 & human & \citep{oscope} & 8 \\ \hline
+GSE79102 & patient1 vs patient2 & 51, 89 & human & \cite{sc3} & 4\\ \hline
+GSE45719 & 16-cell stage blastomere vs mid blastocyst cell & 50, 60 & mouse & \citep{Deng193} & 5\\ \hline
+GSE63818 & Primordial Germ Cells, develop- mental stage: 7 week gestation vs Somatic Cells, developmental stage: 7 week gestation & 40,26 & mouse & \citep{Guo} & 6\\ \hline
+GSE75748 & DEC vs EC & 64, 64 & human & \citep{chu} & 9\\ \hline
+GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human & \citep{Darmanis} & 9\\ \hline
 \end{tabular}
 \captionof{table}{datasets used for comparisons of DD analysis under different methods}
 \end{table}
@@ -1243,7 +1242,7 @@ Similar proof for the case $h_1 > h_2$.
 
 \noindent
 {\bf Randomized k-means}
-
+\subsection{simulation}
 We random generate one-dimensional data $X$ from a mixture of 5 normal distributions with different means and same variance. We compare clustering results between random weighting and bayesian clustering with Dirichlet process as prior in terms of posterior probabilities that two elements belong to the same class given the whole data and adjusted rand index comparing to the underlying true class label (Fig 12). 
 
 \begin{figure}[h]
@@ -1251,6 +1250,8 @@ We random generate one-dimensional data $X$ from a mixture of 5 normal distribut
  \caption{comparison between random weighting scheme and bayesian clustering procedure in terms of posterior probabilities that two elements belong to the same class given the whole data and adjusted rand index comparing to the underlying true class label}
   \label{fig:1}
 \end{figure}
+
+\subsection{empirical study}
 
 
 
