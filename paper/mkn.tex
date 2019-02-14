@@ -766,15 +766,29 @@ GSE79102null & patient1 & 26, 25 & human\\
 \end{figure}
 
 \subsection{Number of subtypes}
-Number of subtype is a crucial 
+Number of subtypes $K$ is a crucial factor controlling the accuracy of our modeling. 
+Too small $K$ may end up in an underfit such that cells within same subtype can still be very different,
+mean expression change among subtypes is incapable to capture the distribution change for some genes and consequently reducing the power of \textsc{scDDboost}.
+Too big $K$ may end up in an overfit such that two subtypes can be very similar, given we have fixed number of samples (cells), allowing more clusters will introduce may patterns (both for mean expression change and proportion change) to infer. Also notice the limitation of DDM model (see section 4), overestimating $K$ in \textsc{scDDboost} may losing FDR control (Fig5).
+
+\begin{figure}[H]
+\includegraphics[width = 0.7\textwidth]{Figs/NULL.pdf}
+ \caption{under NULL case, using dataset GSE52529, when using too big $K$ we may completely lose FDR control, while validity score become stable at $K$ = 3 }
+  \label{fig:5}
+\end{figure}
+
+
 From our empirical experience, it would be sufficient to capture the heterogeneity underlying cells with number of clusters not greater than 9.  
+
+
+\begin{comment}
 
 We demonstrate the change of posterior probabilities of differential distribution given different number of subtypes at data GSE75748 and GSE48968. In both cases, if allowing one more subtype would result in a lot increases in posterior probabilities, which suggests that the number of subtypes is underestimated since we found more distribution differences between conditions given one more mixture component. If posterior inference is stable after increasing the number of subtypes, then we consider previous number of subtypes to be optimal. 
 \begin{figure}[H]
 
 \includegraphics[width = 0.7\textwidth]{Figs/s_78_GSE57872.pdf}
 
-\begin{comment}
+
 
 \minipage{0.5\textwidth}
   \includegraphics[height = 5cm, width=\linewidth]{Figs/DN_67.png}
@@ -783,15 +797,18 @@ We demonstrate the change of posterior probabilities of differential distributio
   \includegraphics[height = 5cm, width=\linewidth]{Figs/DN_78.png}
 \endminipage\hfill
 
-\end{comment}
 
 \caption{selecting number of subtypes for data GSE57872, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD.  We select number of subtypes to be 7}
 \end{figure}
 
+\end{comment}
 
-\begin{figure}[H]
+
 
 \begin{comment}
+\begin{figure}[H]
+
+
 
 \minipage{0.5\textwidth}
   \includegraphics[height = 5cm, width=\linewidth]{Figs/G48_56.png}
@@ -799,13 +816,13 @@ We demonstrate the change of posterior probabilities of differential distributio
 \minipage{0.5\textwidth}
   \includegraphics[height = 5cm, width=\linewidth]{Figs/G48_67.png}
 \endminipage\hfill
-\end{comment}
+
 
 \includegraphics[width = 1\textwidth]{Figs/s_789_GSE48968.pdf}
 
 \caption{selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes}
 \end{figure}
-
+\end{comment}
 
 \subsection{Bursting parameters}
 
