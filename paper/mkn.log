@@ -1,10 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  13 FEB 2019 18:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  13 FEB 2019 18:39
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **mkn.tex
 (./mkn.tex
-LaTeX2e <2018-04-01> patch level 5
+LaTeX2e <2018-04-01> patch level 2
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amscls/amsart.cls
 Document Class: amsart 2017/10/31 v2.20.4
 \linespacing=\dimen102
@@ -105,14 +107,14 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 \dth@everypar=\toks24
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2018/04/16 v5.8 Page Geometry
+Package: geometry 2018/03/24 v5.7 Page Geometry
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks25
 )
 (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 )
 (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
@@ -184,11 +186,11 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@floatcapt=\box30
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2018/05/01 v3.3-147 Customizing captions (AR)
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2018/05/27 v1.8a caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 64.
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
 \captionmargin=\dimen131
 \captionmargin@=\dimen132
 \captionwidth=\dimen133
@@ -217,7 +219,9 @@ Package natbib Warning: The `cite' package should not be used
 LaTeX Info: Redefining \cite on input line 694.
 LaTeX Info: Redefining \citenum on input line 708.
 \c@NAT@ctr=\count109
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
+)
+\bibstyle{plainnat}
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
@@ -303,7 +307,7 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
 (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2018/09/07 v0.28 Utility functions of pdfTeX for LuaTeX (HO
+Package: pdftexcmds 2018/01/30 v0.27 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -348,23 +352,23 @@ LaTeX Warning: Label `fig:1' multiply defined.
 )
 \openout1 = `mkn.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Try loading font information for U+msa on input line 26.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Try loading font information for U+msa on input line 28.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 26.
+LaTeX Font Info:    Try loading font information for U+msb on input line 28.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -429,7 +433,7 @@ CELL RNA-SEQ DATA[] []
 <Figs/schematic-1.png, id=23, 1541.76pt x 770.88pt>
 File: Figs/schematic-1.png Graphic file (type png)
 <use Figs/schematic-1.png>
-Package pdftex.def Info: Figs/schematic-1.png  used on input line 234.
+Package pdftex.def Info: Figs/schematic-1.png  used on input line 236.
 (pdftex.def)             Requested size: 430.00462pt x 214.99802pt.
 
 
@@ -445,7 +449,7 @@ CELL RNA-SEQ DATA[] []
 <Figs/dag.png, id=35, 1027.84pt x 770.88pt>
 File: Figs/dag.png Graphic file (type png)
 <use Figs/dag.png>
-Package pdftex.def Info: Figs/dag.png  used on input line 297.
+Package pdftex.def Info: Figs/dag.png  used on input line 299.
 (pdftex.def)             Requested size: 361.34999pt x 193.92429pt.
  [6 <./Figs/dag.png>]
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
@@ -463,7 +467,7 @@ CELL RNA-SEQ DATA[] []
 <Figs/sim.pdf, id=57, 495.8525pt x 222.8325pt>
 File: Figs/sim.pdf Graphic file (type pdf)
 <use Figs/sim.pdf>
-Package pdftex.def Info: Figs/sim.pdf  used on input line 691.
+Package pdftex.def Info: Figs/sim.pdf  used on input line 693.
 (pdftex.def)             Requested size: 258.00539pt x 115.94496pt.
 
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
@@ -472,20 +476,14 @@ CELL RNA-SEQ DATA[] []
  []
 
 [11] Excluding 'comment' comment.
-Underfull \hbox (badness 10000) in paragraph at lines 718--719
+Underfull \hbox (badness 10000) in paragraph at lines 720--721
 
- []
-
-
-Overfull \hbox (6.617pt too wide) in paragraph at lines 724--726
-\OT1/cmr/m/n/10.95 method on em-pir-i-cal data. We com-pare our re-sults with s
-cDD[[]], MAST[[]] and DESeq2[[]],
  []
 
 <Figs/DD95.pdf, id=61, 693.59125pt x 277.035pt>
 File: Figs/DD95.pdf Graphic file (type pdf)
 <use Figs/DD95.pdf>
-Package pdftex.def Info: Figs/DD95.pdf  used on input line 728.
+Package pdftex.def Info: Figs/DD95.pdf  used on input line 730.
 (pdftex.def)             Requested size: 430.00462pt x 171.75569pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -494,10 +492,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Figs/density_DEC_dd.png, id=85, 505.89pt x 505.89pt>
 File: Figs/density_DEC_dd.png Graphic file (type png)
 <use Figs/density_DEC_dd.png>
-Package pdftex.def Info: Figs/density_DEC_dd.png  used on input line 737.
+Package pdftex.def Info: Figs/density_DEC_dd.png  used on input line 739.
 (pdftex.def)             Requested size: 258.00539pt x 258.0082pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 735--740
+Underfull \hbox (badness 10000) in paragraph at lines 737--742
 
  []
 
@@ -511,29 +509,29 @@ CELL RNA-SEQ DATA[] []
  []
 
 [13 <./Figs/DD95.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 751--751
+Underfull \hbox (badness 10000) in paragraph at lines 753--753
 []\OT1/cmr/m/n/10 Number of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 758--758
+Underfull \hbox (badness 10000) in paragraph at lines 760--760
 []\OT1/cmr/m/n/10 GSE48968-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 760--760
+Underfull \hbox (badness 10000) in paragraph at lines 762--762
 []\OT1/cmr/m/n/10 GSE60749-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 766--766
+Underfull \hbox (badness 10000) in paragraph at lines 768--768
 []\OT1/cmr/m/n/10 GSE71585-
  []
 
 <Figs/fdr.pdf, id=98, 578.16pt x 361.35pt>
 File: Figs/fdr.pdf Graphic file (type pdf)
 <use Figs/fdr.pdf>
-Package pdftex.def Info: Figs/fdr.pdf  used on input line 778.
+Package pdftex.def Info: Figs/fdr.pdf  used on input line 780.
 (pdftex.def)             Requested size: 301.00192pt x 188.12363pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -542,7 +540,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Figs/s_78_GSE57872.pdf, id=103, 495.8525pt x 211.79124pt>
 File: Figs/s_78_GSE57872.pdf Graphic file (type pdf)
 <use Figs/s_78_GSE57872.pdf>
-Package pdftex.def Info: Figs/s_78_GSE57872.pdf  used on input line 789.
+Package pdftex.def Info: Figs/s_78_GSE57872.pdf  used on input line 791.
 (pdftex.def)             Requested size: 301.00192pt x 128.56552pt.
  Excluding 'comment' comment.
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
@@ -554,27 +552,27 @@ CELL RNA-SEQ DATA[] []
 <Figs/s_789_GSE48968.pdf, id=118, 495.8525pt x 135.50626pt>
 File: Figs/s_789_GSE48968.pdf Graphic file (type pdf)
 <use Figs/s_789_GSE48968.pdf>
-Package pdftex.def Info: Figs/s_789_GSE48968.pdf  used on input line 818.
+Package pdftex.def Info: Figs/s_789_GSE48968.pdf  used on input line 820.
 (pdftex.def)             Requested size: 430.00462pt x 117.5111pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 828--829
+Underfull \hbox (badness 10000) in paragraph at lines 830--831
 
  []
 
 <Figs/d3eplot.pdf, id=119, 495.8525pt x 135.50626pt>
 File: Figs/d3eplot.pdf Graphic file (type pdf)
 <use Figs/d3eplot.pdf>
-Package pdftex.def Info: Figs/d3eplot.pdf  used on input line 832.
+Package pdftex.def Info: Figs/d3eplot.pdf  used on input line 834.
 (pdftex.def)             Requested size: 430.00462pt x 117.5111pt.
 [16 <./Figs/s_78_GSE57872.pdf> <./Figs/s_789_GSE48968.pdf>]
 Excluding 'comment' comment.
 <Figs/overlap.png, id=163, 770.88pt x 443.6575pt>
 File: Figs/overlap.png Graphic file (type png)
 <use Figs/overlap.png>
-Package pdftex.def Info: Figs/overlap.png  used on input line 873.
+Package pdftex.def Info: Figs/overlap.png  used on input line 875.
 (pdftex.def)             Requested size: 385.43906pt x 221.8282pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 871--879
+Underfull \hbox (badness 10000) in paragraph at lines 873--881
 
  []
 
@@ -588,22 +586,22 @@ CELL RNA-SEQ DATA[] []
  []
 
 [17 <./Figs/d3eplot.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 887--889
+Underfull \hbox (badness 10000) in paragraph at lines 889--891
 
  []
 
 [18 <./Figs/overlap.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 896--898
+Underfull \hbox (badness 10000) in paragraph at lines 898--900
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 915--916
+Underfull \hbox (badness 10000) in paragraph at lines 917--918
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 924--926
+Underfull \hbox (badness 10000) in paragraph at lines 926--928
 
  []
 
@@ -614,7 +612,7 @@ CELL RNA-SEQ DATA[] []
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 930--932
+Underfull \hbox (badness 10000) in paragraph at lines 932--934
 
  []
 
@@ -624,7 +622,43 @@ Overfull \hbox (15.74901pt too wide) has occurred while \output is active
 CELL RNA-SEQ DATA[] []
  []
 
-[21] Excluding 'comment' comment. (./mkn.bbl [22]
+[21] Excluding 'comment' comment. (./mkn.bbl
+Underfull \hbox (badness 6876) in paragraph at lines 44--49
+[]\OT1/cmr/m/n/10.95 David B. Dahl.  Modal clus-ter-ing in a class of prod-uct 
+par-ti-tion mod-
+ []
+
+
+Underfull \hbox (badness 1275) in paragraph at lines 44--49
+\OT1/cmr/m/n/10.95 els.  \OT1/cmr/m/it/10.95 Bayesian Anal.\OT1/cmr/m/n/10.95 ,
+ 4(2):243--264, 06 2009.  doi: 10.1214/09-BA409.  URL
+ []
+
+
+Underfull \hbox (badness 1817) in paragraph at lines 53--62
+\OT1/cmr/m/n/10.95 Gor-don Li, Steven D Chang, Ian David Con-nolly, Ying-mei Li
+, Ben A Bar-
+ []
+
+
+Underfull \hbox (badness 3088) in paragraph at lines 64--70
+\OT1/cmr/m/n/10.95 sion (d3e) - a tool for gene ex-pres-sion anal-y-sis of sing
+le-cell rna-seq data.
+ []
+
+
+Underfull \hbox (badness 1394) in paragraph at lines 64--70
+\OT1/cmr/m/it/10.95 BMC Bioin-for-mat-ics\OT1/cmr/m/n/10.95 , 17(1):110, 2016. 
+ doi: 10.1186/s12859-016-0944-6.  URL
+ []
+
+
+Underfull \hbox (badness 1231) in paragraph at lines 82--89
+\OT1/cmr/m/n/10.95 di-ver-gent gene pro-grams.  \OT1/cmr/m/it/10.95 Na-ture Im-
+munol-ogy\OT1/cmr/m/n/10.95 , 17:728 EP --, 04 2016.  URL
+ []
+
+[22]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -634,9 +668,39 @@ CELL RNA-SEQ DATA[] []
  []
 
 [23]
+Underfull \hbox (badness 1178) in paragraph at lines 221--225
+\OT1/cmr/m/n/10.95 cell het-ero-gene-ity.  \OT1/cmr/m/it/10.95 Na-ture Re-views
+ Im-munol-ogy\OT1/cmr/m/n/10.95 , 18:35 EP --, 08 2017.  URL
+ []
+
+
+Underfull \hbox (badness 1789) in paragraph at lines 241--247
+[]\OT1/cmr/m/n/10.95 Emma Pier-son and Christo-pher Yau.  Zifa: Di-men-sion-al-
+ity re-duc-tion for zero-
+ []
+
+
+Underfull \hbox (badness 1430) in paragraph at lines 276--283
+[]\OT1/cmr/m/n/10.95 Alexander Strehl and Joy-deep Ghosh.  Clus-ter en-sem-bles
+ --- a knowl-edge reuse
+ []
+
+
+Underfull \hbox (badness 2735) in paragraph at lines 276--283
+\OT1/cmr/m/n/10.95 frame-work for com-bin-ing mul-ti-ple par-ti-tions.  \OT1/cm
+r/m/it/10.95 J. Mach. Learn. Res.\OT1/cmr/m/n/10.95 , 3:583--
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [24])
+ [24]
+Underfull \hbox (badness 1308) in paragraph at lines 287--296
+[]\OT1/cmr/m/n/10.95 Bosiljka Tasic, Vi-las Menon, Thuc Nghi Nguyen, Tae Kyung 
+Kim, Tim Jarsky,
+ []
+
+)
 Overfull \hbox (15.74901pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
 CELL RNA-SEQ DATA[] []
@@ -646,35 +710,105 @@ CELL RNA-SEQ DATA[] []
 <Figs/pca.pdf, id=219, 505.89pt x 361.35pt>
 File: Figs/pca.pdf Graphic file (type pdf)
 <use Figs/pca.pdf>
-Package pdftex.def Info: Figs/pca.pdf  used on input line 1072.
+Package pdftex.def Info: Figs/pca.pdf  used on input line 1075.
 (pdftex.def)             Requested size: 344.005pt x 245.72026pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1088--1088
+Underfull \hbox (badness 10000) in paragraph at lines 1091--1091
 []\OT1/cmr/m/n/10 Number of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1091--1091
+Overfull \hbox (10.74178pt too wide) in paragraph at lines 1092--1092
+[]\OT1/cmr/m/n/10 [Trapnell
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1093--1093
+[]\OT1/cmr/m/n/10 [Patel
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1094--1094
 []\OT1/cmr/m/n/10 GSE48968-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1092--1092
+Overfull \hbox (2.93623pt too wide) in paragraph at lines 1094--1094
+[]\OT1/cmr/m/n/10 [Shalek
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1095--1095
 []\OT1/cmr/m/n/10 GSE60749-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1095--1095
+Overfull \hbox (4.90846pt too wide) in paragraph at lines 1095--1095
+[]\OT1/cmr/m/n/10 [Kumar
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1096--1096
+[]\OT1/cmr/m/n/10 [Engel
+ []
+
+
+Overfull \hbox (13.1029pt too wide) in paragraph at lines 1097--1097
+[]\OT1/cmr/m/n/10 [Buettner
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1098--1098
 []\OT1/cmr/m/n/10 GSE71585-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1095--1095
+Underfull \hbox (badness 10000) in paragraph at lines 1098--1098
 []\OT1/cmr/m/n/10 Gad2tdTpositive vs
  []
 
 
-Overfull \hbox (18.33392pt too wide) in paragraph at lines 1086--1103
+Underfull \hbox (badness 10000) in paragraph at lines 1098--1098
+[]\OT1/cmr/m/n/10 [Tasic
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1099--1099
+[]\OT1/cmr/m/n/10 [Leng
+ []
+
+
+Overfull \hbox (2.99176pt too wide) in paragraph at lines 1100--1100
+[]\OT1/cmr/m/n/10 Kiselev
+ []
+
+
+Underfull \hbox (badness 5217) in paragraph at lines 1100--1100
+\OT1/cmr/m/n/10 et al.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1101--1101
+[]\OT1/cmr/m/n/10 [Deng
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1102--1102
+[]\OT1/cmr/m/n/10 [Guo
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1103--1103
+[]\OT1/cmr/m/n/10 [Chu
+ []
+
+
+Overfull \hbox (16.4918pt too wide) in paragraph at lines 1104--1104
+[]\OT1/cmr/m/n/10 [Darmanis
+ []
+
+
+Overfull \hbox (18.33392pt too wide) in paragraph at lines 1089--1106
  [][] 
  []
 
@@ -691,10 +825,10 @@ CELL RNA-SEQ DATA[] []
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 1119.
+(amsmath)                 on input line 1122.
 
-[28]
-Overfull \hbox (5.95941pt too wide) in paragraph at lines 1143--1144
+
+Overfull \hbox (5.95941pt too wide) in paragraph at lines 1146--1147
 \OML/cmm/m/it/10.95 NB\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 r[]; q[]\OT1/cmr/
 m/n/10.95 )$, $\OML/cmm/m/it/10.95 q[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 
 ; ^^L[] \OMS/cmsy/m/n/10.95 ^^X \OML/cmm/m/it/10.95 Beta\OT1/cmr/m/n/10.95 (\O
@@ -704,36 +838,44 @@ ML/cmm/m/it/10.95 ; ^^L[]\OT1/cmr/m/n/10.95 )$ and ob-tained the prior pre-dic
  []
 
 
+Underfull \vbox (badness 3240) has occurred while \output is active []
+
+ [28]
 Overfull \hbox (15.74901pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
 CELL RNA-SEQ DATA[] []
  []
 
 [29] [30]
+<Figs/try7-g.pdf, id=236, 505.89pt x 505.89pt>
+File: Figs/try7-g.pdf Graphic file (type pdf)
+<use Figs/try7-g.pdf>
+Package pdftex.def Info: Figs/try7-g.pdf  used on input line 1247.
+(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
+
+Overfull \hbox (75.88412pt too wide) in paragraph at lines 1247--1248
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 13.41219pt on input line 1250.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 Overfull \hbox (15.74901pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
 CELL RNA-SEQ DATA[] []
  []
 
-[31]
-<Figs/try7-g.pdf, id=241, 505.89pt x 505.89pt>
-File: Figs/try7-g.pdf Graphic file (type pdf)
-<use Figs/try7-g.pdf>
-Package pdftex.def Info: Figs/try7-g.pdf  used on input line 1244.
-(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
+[31] [32]
+Underfull \hbox (badness 10000) in paragraph at lines 1316--1320
 
-Overfull \hbox (75.88412pt too wide) in paragraph at lines 1244--1245
- [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 13.41219pt on input line 1247.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[32]
-Underfull \hbox (badness 10000) in paragraph at lines 1313--1317
+Underfull \hbox (badness 10000) in paragraph at lines 1320--1323
 
  []
 
@@ -744,22 +886,17 @@ CELL RNA-SEQ DATA[] []
  []
 
 [33]
-Underfull \hbox (badness 10000) in paragraph at lines 1317--1320
+Underfull \hbox (badness 10000) in paragraph at lines 1328--1330
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1325--1327
+Underfull \hbox (badness 10000) in paragraph at lines 1334--1335
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1331--1332
-
- []
-
-
-Overfull \hbox (33.67892pt too wide) detected at line 1332
+Overfull \hbox (33.67892pt too wide) detected at line 1335
 \OML/cmm/m/it/10.95 g\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 n; b\OT1/cmr/m/n/1
 0.95 ) = (\OML/cmm/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[
 ] \OMS/cmsy/m/n/10.95 ^^@ []\OT1/cmr/m/n/10.95 )[](1 + []) + (\OML/cmm/m/it/10.
@@ -771,34 +908,40 @@ m/m/it/10.95 ^^L[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 t[] \OT1/cmr/m/n/10
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1332--1335
+Underfull \hbox (badness 10000) in paragraph at lines 1335--1338
 
  []
 
-[34]
-Overfull \hbox (73.77013pt too wide) detected at line 1345
+
+Overfull \hbox (73.77013pt too wide) detected at line 1348
 []
  []
 
-
+[34]
 Overfull \hbox (15.74901pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
 CELL RNA-SEQ DATA[] []
  []
 
-[35] [36 <./Figs/try7-g.pdf>] (./mkn.aux)
+[35] [36]
+Overfull \hbox (15.74901pt too wide) has occurred while \output is active
+ \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
+CELL RNA-SEQ DATA[] []
+ []
+
+[37 <./Figs/try7-g.pdf>] (./mkn.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6225 strings out of 492641
- 90990 string characters out of 6129330
- 172282 words of memory out of 5000000
- 9839 multiletter control sequences out of 15000+600000
+ 6190 strings out of 492649
+ 90293 string characters out of 6129622
+ 183893 words of memory out of 5000000
+ 9800 multiletter control sequences out of 15000+600000
  14790 words of font info for 57 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 42i,16n,39p,1522b,510s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,16n,39p,1522b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><
 /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
@@ -820,10 +963,10 @@ e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2018/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mkn.pdf (36 pages, 1705653 bytes).
+Output written on mkn.pdf (37 pages, 1711789 bytes).
 PDF statistics:
- 334 PDF objects out of 1000 (max. 8388607)
- 234 compressed objects within 3 object streams
+ 340 PDF objects out of 1000 (max. 8388607)
+ 239 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  67 words of extra memory for PDF output out of 10000 (max. 10000000)
 

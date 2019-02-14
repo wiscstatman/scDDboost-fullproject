@@ -1,59 +1,48 @@
 This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: mkn.aux
-The style file: IEEEtran.bst
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
+The style file: plainnat.bst
 Database file #1: ./references/wlr_ref.bib
--- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
--- http://www.michaelshell.org/tex/ieeetran/bibtex/
--- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 Warning--empty booktitle in selK
-Warning--there's a month but no year in Guo
-
-Done.
 You've used 34 entries,
-            4087 wiz_defined-function locations,
-            1085 strings with 17482 characters,
-and the built_in function-call counts, 34282 in all, are:
-= -- 2788
-> -- 1206
-< -- 256
-+ -- 606
-- -- 250
-* -- 1792
-:= -- 5087
-add.period$ -- 68
+            2773 wiz_defined-function locations,
+            890 strings with 15702 characters,
+and the built_in function-call counts, 24802 in all, are:
+= -- 2072
+> -- 2346
+< -- 15
++ -- 784
+- -- 750
+* -- 2472
+:= -- 4069
+add.period$ -- 163
 call.type$ -- 34
-change.case$ -- 34
-chr.to.int$ -- 525
-cite$ -- 36
-duplicate$ -- 2356
-empty$ -- 2314
-format.name$ -- 281
-if$ -- 7963
-int.to.chr$ -- 0
-int.to.str$ -- 34
-missing$ -- 469
-newline$ -- 189
-num.names$ -- 34
-pop$ -- 1064
+change.case$ -- 351
+chr.to.int$ -- 34
+cite$ -- 69
+duplicate$ -- 714
+empty$ -- 1330
+format.name$ -- 806
+if$ -- 4952
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 35
+newline$ -- 239
+num.names$ -- 136
+pop$ -- 595
 preamble$ -- 1
-purify$ -- 0
-quote$ -- 2
-skip$ -- 2619
+purify$ -- 318
+quote$ -- 0
+skip$ -- 680
 stack$ -- 0
-substring$ -- 1382
-swap$ -- 2147
-text.length$ -- 81
+substring$ -- 690
+swap$ -- 64
+text.length$ -- 1
 text.prefix$ -- 0
-top$ -- 5
-type$ -- 34
-warning$ -- 2
-while$ -- 117
-width$ -- 36
-write$ -- 470
-(There were 2 warnings)
+top$ -- 0
+type$ -- 369
+warning$ -- 1
+while$ -- 143
+width$ -- 0
+write$ -- 567
+(There was 1 warning)
