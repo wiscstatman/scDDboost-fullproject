@@ -74,17 +74,9 @@ statistical problem in genomics for which new tools specific to
 the single-cell RNAseq data structure have been deployed: MAST\cite{ref:MAST},
 DESEQ2\cite{ref:Des}, SCDD\cite{ref:scDD}, etc.  These tools respond
 to scRNAseq characteristics, such as high prevelance of zero counts and
-gene-level multimodality, but none takes explicit advanatage of cellular subtype
-information.  We present a simple procedure and supporting theoretical
-analyses for this purpose.  A notable technical innovation is a new prior
-distribution over pairs of multinomial probability vectors that conveys
-both marginal Dirichlet conjugacy as well as
- dependence induced through sharp equalities on aggregated 
- subtype probabilities, which turns out to be key in formulating 
- the posterior probability of changes in expression distribution between two conditions.
- 
- 
-Using a compositional model, subtypes inferred by clustering whole genome data 
+gene-level multimodality, but none takes explicit advantage of cellular subtype
+information.  We present a methodology and supporting theoretical
+analyses for this purpose.  Using a compositional model, subtypes inferred by clustering whole genome data 
 inform the analysis of gene-level expression.  The proposed methodology merges two lines of computation
 after cell clustering: one concerns patterns of differential expression among 
 the cellular subtypes, and here we take advantage of the powerful \verb+EBseq+ method for detecting
@@ -99,18 +91,24 @@ improvements in clustering, such as *sc3?*, may be used in place of the default 
 without altering the form of downstream analysis. **it's also relatively speedy computationally,
 not requiring any MCMC**
 
-Numerical experiments  on both synthetic and published scRNA-seq data indicate high
+Numerical experiments  on both synthetic and published scRNA-seq data indicate that \verb+scDDboost+ has high
 sensitivity for detecting subtle distribution changes.  In these experiments we take advantage of
 \verb+splatter+ for generating synthetic data [citation] as well as the compendium of scRNA-seq
 data available through \verb+conquer+ [citation].  **something on bursting?**
 We also establish first-order asymptotic results for the methodology.   On organiziation, we present
 the modeling and methodology elements in Section~2, numerical experiments in Section~3, and a discussion
 in Section~4.  For presentation we move some details to an appendix and many others to a Supplementary 
-Material document, which in the present version is contained as the final  part of a single
-{\em pdf} file holding the entire manuscript.
+Material document, which for ease of reference 
+in the present version is contained as the final  part of a single {\em pdf} file holding the entire manuscript.
 
 %Performance on empirical data has been investigated through ten previously published experimental data from conquer\cite{ref:Cq}. 
 
+%A notable technical innovation is a new prior
+%distribution over pairs of multinomial probability vectors that conveys
+%both marginal Dirichlet conjugacy as well as
+% dependence induced through sharp equalities on aggregated 
+% subtype probabilities, which turns out to be key in formulating 
+% the posterior probability of changes in expression distribution between two conditions.
 
 
 \section{Modeling}
@@ -124,10 +122,10 @@ the states of all sampled cells.  Knowledge of this class structure
  available genomic data.   We expect that cells arise from multiple
 experimental conditions, such as by treatment-control status or some other factors
  measured at the cell level, but we present our development for the special
-case of two conditions.  Notationally, $y=(y_c)$ records the experimental condition, say $y_c=1$ or $y_c=2$ initially:
-extensions to multiple conditions are discussed in section 6. Let's say condition $j$ measures $n_j=\sum_{c} 1[y_c=j]$ cells,  and
-in total we have $n=n_1+n_2$ cells in the analysis.  Further let 
-\begin{eqnarray}
+case of two conditions.  Notationally, $y=(y_c)$ records the experimental condition, say $y_c=1$ or $y_c=2$.
+ Let's say condition $j$ measures $n_j=\sum_{c} 1[y_c=j]$ cells,  and
+in total we have $n=n_1+n_2$ cells in the analysis.  The examples in Section~3 involve hundreds to thousands of cells.
+Further let \begin{eqnarray}
 \label{eq:counts}
 t^j_k = t^j_k(y,z) = \sum_c 1[y_c=j, z_c=k] 
 \end{eqnarray}
@@ -171,7 +169,7 @@ heterogeneity. A  risk in this approach is that $K$ could approach $n$, as if
 every cell were  its own subtype.  We find, however,
 that data sets often encountered do not display this theoretical phenomenon
 when considering a broad class of within-subtype expression distributions.
-We revisit the issue in discussion section, but for now proceed assuming 
+We revisit the issue in Section~4, but for now we proceed assuming 
 that cellular condition affects the composition of subtypes but not the distribution of expression
 within a subtype.
 
@@ -206,12 +204,17 @@ standard terminology from bulk RNAseq.  For example, if two subtypes have
 different frequencies between the two conditions ($\phi_1 \neq \psi_1$ and 
  $\phi_2 \neq \psi_2$) but the same aggregate frequency
 ($\phi_1+\phi_2 = \psi_1 + \psi_2$),  and also  if $\mu_{g,1} = \mu_{g,2}$
-then, other things being equal, $f^1_g = f^2_g$ even though $\phi \neq \psi$.
-Simply, a gene that does not distinguish two subtypes will also not distinguish
+then, other things being equal, $f^1_g = f^2_g$ even though $\phi \neq \psi$. The fact
+is so central that we emphasize:
+
+
+\noindent
+{\bf Key issue:} A gene that does not distinguish two subtypes will also not distinguish
 the cellular conditions if those subtypes appear in the same aggregate frequency
 in the two conditions, regardless of changes in the individual subtype 
-frequencies. (A second, pedagogical example is presented in the Supplementary
-Material file.)  We formalize the idea in order that our methodology
+frequencies. 
+
+ We formalize this issue in order that our methodology
 has the necessary functionality.  To do so,  first consider the parameter space 
 $\Theta = \{ \theta=(\phi, \psi,\mu, \sigma)  \}$,
 where $\phi=(\phi_1, \phi_2, \cdots, \phi_K)$ and $\psi=(\psi_1, \psi_2, \cdots, \psi_K)$ 
