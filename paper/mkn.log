@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  13 FEB 2019 22:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  14 FEB 2019 01:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -461,11 +461,11 @@ CELL RNA-SEQ DATA[] []
  []
 
 [9] [10] Excluding 'comment' comment.
-<Figs/roc.png, id=57, 901.3675pt x 405.515pt>
-File: Figs/roc.png Graphic file (type png)
-<use Figs/roc.png>
-Package pdftex.def Info: Figs/roc.png  used on input line 693.
-(pdftex.def)             Requested size: 344.005pt x 154.76555pt.
+<Figs/roc.pdf, id=57, 505.89pt x 505.89pt>
+File: Figs/roc.pdf Graphic file (type pdf)
+<use Figs/roc.pdf>
+Package pdftex.def Info: Figs/roc.pdf  used on input line 693.
+(pdftex.def)             Requested size: 344.005pt x 344.00836pt.
 
 Overfull \hbox (11.49895pt too wide) has occurred while \output is active
  \OT1/cmr/m/n/8 A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-
@@ -477,16 +477,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 699--700
 
  []
 
-<Figs/DD95.pdf, id=61, 722.7pt x 361.35pt>
+
+Underfull \vbox (badness 1484) has occurred while \output is active []
+
+ [12 <./Figs/roc.pdf>]
+<Figs/DD95.pdf, id=70, 722.7pt x 361.35pt>
 File: Figs/DD95.pdf Graphic file (type pdf)
 <use Figs/DD95.pdf>
 Package pdftex.def Info: Figs/DD95.pdf  used on input line 709.
 (pdftex.def)             Requested size: 430.00462pt x 215.00316pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12 <./Figs/roc.png>]
-<Figs/density_DEC_dd.png, id=66, 505.89pt x 505.89pt>
+<Figs/density_DEC_dd.png, id=71, 505.89pt x 505.89pt>
 File: Figs/density_DEC_dd.png Graphic file (type png)
 <use Figs/density_DEC_dd.png>
 Package pdftex.def Info: Figs/density_DEC_dd.png  used on input line 718.
@@ -525,7 +525,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 747--747
 []\OT1/cmr/m/n/10 GSE71585-
  []
 
-<Figs/fdr.pdf, id=77, 578.16pt x 361.35pt>
+<Figs/fdr.pdf, id=82, 578.16pt x 361.35pt>
 File: Figs/fdr.pdf Graphic file (type pdf)
 <use Figs/fdr.pdf>
 Package pdftex.def Info: Figs/fdr.pdf  used on input line 759.
@@ -534,7 +534,7 @@ Package pdftex.def Info: Figs/fdr.pdf  used on input line 759.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14 <./Figs/density_DEC_dd.png>]
-<Figs/s_78_GSE57872.pdf, id=82, 495.8525pt x 211.79124pt>
+<Figs/s_78_GSE57872.pdf, id=87, 495.8525pt x 211.79124pt>
 File: Figs/s_78_GSE57872.pdf Graphic file (type pdf)
 <use Figs/s_78_GSE57872.pdf>
 Package pdftex.def Info: Figs/s_78_GSE57872.pdf  used on input line 769.
@@ -546,7 +546,7 @@ CELL RNA-SEQ DATA[] []
  []
 
 [15 <./Figs/fdr.pdf>] Excluding 'comment' comment.
-<Figs/s_789_GSE48968.pdf, id=97, 495.8525pt x 135.50626pt>
+<Figs/s_789_GSE48968.pdf, id=102, 495.8525pt x 135.50626pt>
 File: Figs/s_789_GSE48968.pdf Graphic file (type pdf)
 <use Figs/s_789_GSE48968.pdf>
 Package pdftex.def Info: Figs/s_789_GSE48968.pdf  used on input line 798.
@@ -556,14 +556,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 808--809
 
  []
 
-<Figs/d3eplot.pdf, id=98, 495.8525pt x 135.50626pt>
+<Figs/d3eplot.pdf, id=103, 495.8525pt x 135.50626pt>
 File: Figs/d3eplot.pdf Graphic file (type pdf)
 <use Figs/d3eplot.pdf>
 Package pdftex.def Info: Figs/d3eplot.pdf  used on input line 812.
 (pdftex.def)             Requested size: 430.00462pt x 117.5111pt.
 [16 <./Figs/s_78_GSE57872.pdf> <./Figs/s_789_GSE48968.pdf>]
 Excluding 'comment' comment.
-<Figs/overlap.png, id=142, 770.88pt x 443.6575pt>
+<Figs/overlap.png, id=147, 770.88pt x 443.6575pt>
 File: Figs/overlap.png Graphic file (type png)
 <use Figs/overlap.png>
 Package pdftex.def Info: Figs/overlap.png  used on input line 853.
@@ -704,7 +704,7 @@ CELL RNA-SEQ DATA[] []
  []
 
 [25] [26]
-<Figs/pca.pdf, id=198, 505.89pt x 361.35pt>
+<Figs/pca.pdf, id=203, 505.89pt x 361.35pt>
 File: Figs/pca.pdf Graphic file (type pdf)
 <use Figs/pca.pdf>
 Package pdftex.def Info: Figs/pca.pdf  used on input line 1053.
@@ -817,7 +817,7 @@ CELL RNA-SEQ DATA[] []
  []
 
 [31]
-<Figs/try7-g.pdf, id=219, 505.89pt x 505.89pt>
+<Figs/try7-g.pdf, id=224, 505.89pt x 505.89pt>
 File: Figs/try7-g.pdf Graphic file (type pdf)
 <use Figs/try7-g.pdf>
 Package pdftex.def Info: Figs/try7-g.pdf  used on input line 1249.
@@ -894,7 +894,7 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  6192 strings out of 492649
- 90279 string characters out of 6129622
+ 90303 string characters out of 6129622
  175902 words of memory out of 5000000
  9801 multiletter control sequences out of 15000+600000
  14790 words of font info for 57 fonts, out of 8000000 for 9000
@@ -921,10 +921,10 @@ e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2018/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on mkn.pdf (36 pages, 1776836 bytes).
+Output written on mkn.pdf (36 pages, 1657286 bytes).
 PDF statistics:
- 313 PDF objects out of 1000 (max. 8388607)
- 217 compressed objects within 3 object streams
+ 318 PDF objects out of 1000 (max. 8388607)
+ 222 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  67 words of extra memory for PDF output out of 10000 (max. 10000000)
 
