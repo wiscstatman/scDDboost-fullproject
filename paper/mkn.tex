@@ -773,12 +773,13 @@ Too big $K$ may end up in an overfit such that two subtypes can be very similar,
 
 \begin{figure}[H]
 \includegraphics[width = 0.7\textwidth]{Figs/NULL.pdf}
- \caption{under NULL case, using dataset GSE52529, when using too big $K$ we may completely lose FDR control, while validity score become stable at $K$ = 3 }
+ \caption{under NULL case, using dataset GSE52529, when using too big $K$ we may completely lose FDR control (black line shows proportion of false positive identified by scDDboost under 0.05 threshold, while validity score become stable at $K$ = 3 }
   \label{fig:5}
 \end{figure}
 
+***something about change of PDD over K, even though PDD is monotone increasing but it would remain stable in the sense that $\text{PDD}_{K+1} - \text{PDD}_K$ will have small variance over different genes***
 
-From our empirical experience, it would be sufficient to capture the heterogeneity underlying cells with number of clusters not greater than 9.  
+From our empirical experience, it would be sufficient to capture the heterogeneity underlying cells with number of clusters not greater than 9.  And we generally obtain stable in validity score and PDD simultaneously (see supplementary)
 
 
 \begin{comment}
