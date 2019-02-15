@@ -425,7 +425,7 @@ conditional on an estimate of the subtype labels.
 \begin{algorithmic}[1]
 \Procedure{scDDBoost-core}{$X,y,\hat z$}
  \item  number of cell subtypes $K = \rm{length}( \rm{unique}( \hat z ) )$  
-\State subtype differential expression: $\forall g,\pi$ compute  $P(M_{g,\pi} | X, \hat z)$ using EBSeq\cite{ref:Leng}
+\State subtype differential expression: $\forall g,\pi$ compute  $P(M_{g,\pi} | X, \hat z)$ using \verb+EBSeq+
 \State cell frequency changes: $\forall \pi$ compute  $P(A_\pi | y, \hat z)$ using Double Dirichlet model 
 \State posterior probability: $\forall g,  \, P(\text{ED}_g | X, y, \hat z)\gets \underset{\pi}{\sum}P(M_{g,\pi} | X, \hat z) \,
  P(A_\pi | y, \hat z)$
@@ -602,7 +602,7 @@ p_\pi(t^j | t^j_{\pi},y) =
                 \Gamma(t^j_k + 1 )}\right]
 \end{eqnarray*}
 which is the well-known Dirichlet-multinomial predictive distribution
-for counts $t^j$ (\cite{Wag}).  E.g, taking $\alpha_k^j=1$ for all types $k$ 
+for counts $t^j$ (\citep{Wag}).  E.g, taking $\alpha_k^j=1$ for all types $k$ 
 we get the uniform distribution
 \begin{eqnarray*}
 p_\pi(t^j | t^j_{\pi},y) = 
