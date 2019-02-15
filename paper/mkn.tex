@@ -248,7 +248,7 @@ if $f_g^1(x) \neq f_g^2(x)$ for some $x$, and otherwise it is equivalently distr
 (${\rm ED}_g$). Motivated by findings from bulk RNAseq data analysis, we further
 set each $f_{g,k}$ to have a a negative-binomial form, say with mean $\mu_{g,k}$
 and shape parameter $\alpha_g$; e.g. \cite{ref:Leng}, \cite{DES}, and \cite{ref:Des}. 
-This choice proves to be effective in our numerical experiments though it is 
+This choice is effective in our numerical experiments though it is 
 not critical to the modeling formulation.  The use of mixtures per gene has proven
 useful in related model-based approaches (e.g., Finak {\em et al.} 2015; McDavid {\em et al.} 2016;
 Huang {\em et al.} 2018).
@@ -394,7 +394,7 @@ data in order to sharpen our assessments of between-condition expression changes
 \subsection{Method structure and clustering}
 
 We leverage the extensive research on how to cluster cells into subtypes using scRNA-seq data:
-for example,  SC3\citep{sc3}, CIDR\citep{CIDR}, and ZIFA\citep{ZIFA}.   We propose clustering on the full set
+for example,  SC3~\citep{sc3}, CIDR~\citep{CIDR}, and ZIFA~\citep{ZIFA}.   We propose clustering on the full set
 of profiles in a way that is blind to the condition label vector $y$, in order to have as many cells as possible
 to inform the subtype structure.  We investigated several clustering schemes in numerical experiments and allow 
 flexibility in this choice within the \textsc{scDDboost} software. 
@@ -574,6 +574,7 @@ p_\pi(t^j | t^j_{\pi},y) = \prod_{b \in \pi} \left\{
  \right\}
 \end{eqnarray*}
 
+\noindent
 {\bf Property 5:}  
 \begin{eqnarray*}
 p_\pi(t^1_{\pi},t^2_{\pi}| y) =
