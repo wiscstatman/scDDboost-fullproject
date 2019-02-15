@@ -103,7 +103,7 @@ mixture components are allowed, but also in which the mixing proportions are con
 cell level.  This structure leads to a novel form of information sharing through which the cell-clustering
 results support gene-level scoring of differential distribution.  The result, according to our
 numerical experiments, is improved sensitivity compared to several standard approaches
- for detecting distributional expression changes. 
+ for detecting distributional expression changes.  **plus connection to bursting and other**
 \end{abstract}
 
 %\maketitle
@@ -600,7 +600,7 @@ Let's look at some special cases to dissect this result.
 
 Case 1. If $\pi$ has a single block equal to the entire
  set of cell types $\{1,2, \cdots, K\}$,  then $t^j_b=n_j$ for both $j=1,2$,
-and Property~6 reduces, correctly, to 
+and Property~5 reduces, correctly, to 
 $p_\pi(t^1_{\pi},t^2_{\pi}| y) = 1$.  Further,
 \begin{eqnarray*}
 p_\pi(t^j | t^j_{\pi},y) = 
@@ -720,10 +720,10 @@ P(A_\pi|y,z) =
 
 \subsection{Synthetic data} 
 
-A simulation study was conducted to assess the performance of
-scDDboost in identifying DD genes.
-We simulate data by \verb+splatter+~\citep{ref:Zappia}, 
-a recently developed simulation scheme having good approximation to empirical data and providing interface for simulating cells from multiple groups. To evaluate sensitivity of our methods.  
+To assess the performance of \verb+scDDboost+ we first  simulated
+synthetic data using \verb+splatter+~\citep{ref:Zappia}, 
+a recently developed system having good empirical characteristics 
+and providing interface for simulating cells from multiple groups. **broader first**
 We generate 200 cells each condition 
 and 7 subtypes with proportions $\phi$ and $\psi$ satisfying constraints: $\phi_1 + \phi_2 = \psi_1 + \psi_2$, $\phi_3 + \phi_4 +\phi_5 = \psi_3 + \psi_4 + \psi_5$ and $\phi_6 + \phi_7 = \psi_6 + \psi_7$. 
 Each subtype has 10\% genes to be differential expressed. 
