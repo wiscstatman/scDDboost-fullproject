@@ -121,7 +121,7 @@ created for data of lower-resolution (e.g., bulk RNA-seq) or lower dimension
 (e.g., flow cytometry)  guide our response to 
  the data science demands of new measurement platforms,
 but they remain inadequate for efficient knowledge discovery in this
-rapidly advancing domain\citep{Bacher:2016aa}.
+rapidly advancing domain~\citep{Bacher:2016aa}.
 
 An important feature of single-cell studies that could be leveraged better
 statistically is the fact that cells populate distinct, identifiable subtypes
@@ -146,7 +146,7 @@ analyses for this purpose.  Using a compositional model, subtypes inferred by cl
 inform the analysis of gene-level expression.  The proposed methodology merges two lines of computation
 after cell clustering: one concerns patterns of differential expression among 
 the cellular subtypes, and here we take advantage of the powerful \verb+EBseq+ method for detecting
-patterns in negative-binomially-distributed expression data (Leng et al. 2013).  The second concerns 
+patterns in negative-binomially-distributed expression data~\citep{ref:Leng}.  The second concerns 
 the counts of cells in various subtypes; for this we propose a Double-Dirichlet-Mixture distribution
 to model the pair of multinomial probability vectors for subtype counts in two experimental conditions.
 Further elements are developed, on the selection of the number of subtypes and on accounting for uncertainty in the cluster output,  in order to provide an end-to-end solution to the differential distribution
@@ -159,7 +159,7 @@ not requiring any MCMC**
 
 Numerical experiments  on both synthetic and published scRNA-seq data indicate that \verb+scDDboost+ has high
 sensitivity for detecting subtle distribution changes.  In these experiments we take advantage of
-\verb+splatter+ for generating synthetic data \citep{ref:Zappia} as well as the compendium of scRNA-seq
+\verb+splatter+ for generating synthetic data~\citep{ref:Zappia} as well as the compendium of scRNA-seq
 data available through \verb+conquer+ \citep{ref:Cq}.  **something on bursting?**
 We also establish first-order asymptotic results for the methodology.   On organiziation, we present
 the modeling and methodology elements in Section~2, numerical experiments in Section~3, and a discussion
@@ -439,12 +439,13 @@ conditional on an estimate of the subtype labels.
 
 We invoke $K-$medoids \citep{kmedoids} 
 as the default clustering method in \textsc{scDDboost}, and customize the cell-cell distance by integrating two measures.  
-The first assembles gene-level information by cluster-based-similarity partitioning (\citep{ref:cspa}).
+The first assembles gene-level information by cluster-based-similarity partitioning~\citep{ref:cspa}.
  Separately at each gene,   modal clustering (\cite{ref:dahl} and Appendix B) partitions the cells, and
 then we define dissimilarity between cells as the proportion of genes at which the cells are assigned to different clusters. 
 A second measure defines dissimilarity by one minus the 
 Pearson correlation between cells, which is computationally inexpensive,
-less sensitive to outliers than Euclidean distance, and effective at detecting cellular clusters in scRNA-seq(\citep{Cor}).
+less sensitive to outliers than Euclidean distance, and effective at detecting cellular clusters in 
+scRNA-seq~\citep{Cor}.
  We combine the two measures by a weighted average, 
 with  $w_C = \frac{\sigma_C}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_C$. where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster based distance and Pearson correlation distance accordingly.   
 The resulting distance matrix is $D=\left( d_{i,j} \right)$. 
@@ -457,7 +458,7 @@ where $w_{i,j}$ are  unit mean, non-negative weights
 $w_{i,j} = 1/( e_i + e_j )$, and where $( e_i) $ are independent and identically Gamma$(\hat a, \hat b)$ distributed
 deviates for hyper-parameters $(\hat a, \hat b)$ derived from $D$.   We argue (Appendix C) that the distribution of
 clusterings induced by this simple scheme approximates a Bayesian posterior analysis.   Pseudo-code for the resulting
-\textsc{scDDboost} is in Algorithm~\ref{alg:scDDboost}.
+\textsc{scDDboost} is in Algorithm~\ref{alg:scDDboost}, Appendix.
 
 %%Computations become more intensive the larger is the number $K$ of cell subtypes.   We observe that gene-specific
 %%posterior probabilities of differential distribution stabilize when $K$ is sufficiently large, and we use changes
@@ -531,7 +532,7 @@ $(\phi,\psi) \sim {\mbox {\rm DDM}}\left[ \omega=(\omega_\pi),
 
 
 We record some properties of the component distributions $p_\pi$:
-%%using the well-known Dirichlet-multinomial conjugacy and the Dirichlet collapsing property (\cite{ref:Dickey}). 
+%%using the well-known Dirichlet-multinomial conjugacy and the Dirichlet collapsing property~\citep{ref:Dickey}. 
 
 \noindent
 {\bf Property 1:}  In $p_\pi(\phi,\psi)$, $\psi$ and $\phi$ are dependent, unless $\pi$ is the null 
@@ -602,7 +603,7 @@ p_\pi(t^j | t^j_{\pi},y) =
                 \Gamma(t^j_k + 1 )}\right]
 \end{eqnarray*}
 which is the well-known Dirichlet-multinomial predictive distribution
-for counts $t^j$ (\citep{Wag}).  E.g, taking $\alpha_k^j=1$ for all types $k$ 
+for counts $t^j$~\citep{Wag}.  E.g, taking $\alpha_k^j=1$ for all types $k$ 
 we get the uniform distribution
 \begin{eqnarray*}
 p_\pi(t^j | t^j_{\pi},y) = 
@@ -712,11 +713,12 @@ P(A_\pi|y,z) =
 
 A simulation study was conducted to assess the performance of
 scDDboost in identifying DD genes.
-We simulate data by splatter\citep{ref:Zappia}, a recently developed simulation scheme having good approximation to empirical data and providing interface for simulating cells from multiple groups. To evaluate sensitivity of our methods.  
+We simulate data by \verb+splatter+~\citep{ref:Zappia}, 
+a recently developed simulation scheme having good approximation to empirical data and providing interface for simulating cells from multiple groups. To evaluate sensitivity of our methods.  
 We generate 200 cells each condition 
 and 7 subtypes with proportions $\phi$ and $\psi$ satisfying constraints: $\phi_1 + \phi_2 = \psi_1 + \psi_2$, $\phi_3 + \phi_4 +\phi_5 = \psi_3 + \psi_4 + \psi_5$ and $\phi_6 + \phi_7 = \psi_6 + \psi_7$. 
 Each subtype has 10\% genes to be differential expressed. 
-As splatter needs input of two hyper parameters for the simulation. We validate our choices by projecting transcripts profiles of cells into its first two principal components(Supplementary S1)
+As \verb+splatter+ needs input of two hyper parameters for the simulation. We validate our choices by projecting transcripts profiles of cells into its first two principal components(Supplementary S1)
 We observed some subtypes are well separated, some subtypes are nested, which make the tasks of cell type identification and DD genes detection remain challenging. 
 
 
@@ -762,8 +764,13 @@ scDDboost identified most true DD genes, the reason is that mean expression shif
 \subsection{Empirical study}
 
 
-We use 13 datasets from conquer\citep{ref:Cq} to test performance of our method on empirical data. We compare our results with scDD\citep{ref:scDD}, MAST\citep{ref:MAST} and DESeq2\citep{ref:Des}, we have also investigated performance of scDDboost under different clustering method, (sc3\citep{sc3}, supplimentary)  and obtain similar \\
-**see Supplementary Material Table S1**
+We use 13 data sets from \verb+conquer+~\citep{ref:Cq} to test 
+performance of our method on empirical data. **summarized in Supplementary Table ?** say something about
+the studies **  We compare our results with 
+\verb+scDD+~\citep{ref:scDD}, \verb+MAST+~\citep{ref:MAST} and 
+\verb+DESeq2+~\citep{ref:Des}, 
+we have also investigated performance of \verb+scDDboost+ under different clustering 
+method, (\verb+sc3+~\citep{sc3}, Supplementary Table ?)  and obtain similar 
 
 \begin{figure}[H]
 \includegraphics[width = 1\textwidth]{Figs/DD95.pdf}
