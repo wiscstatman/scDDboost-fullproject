@@ -57,6 +57,7 @@ Contents
 \item Data sets 
 \item \verb+EBseq+
 \item \verb+modalclust+
+\item choosing $K$ by validity score
 \item Randomized k-means
 \item Proofs: 
 \end{enumerate}
@@ -252,6 +253,16 @@ Similar proof for the case $h_1 > h_2$.
 
 
 \end{proof}
+
+
+\noindent
+{\bf Choosing $K$ by validity score:}
+
+In order to determine the number of clusters, we consider the change of {\em validity} = $\frac{\textbf{intra}}{\textbf{inter}}$ defined in \cite{selK}, where $\textbf{intra} = \frac{1}{N}\overset{K}{\underset{i = 1}{\Sigma}}\underset{x \in C_i}{\Sigma} ||x - z_i||^2$, $\textbf{inter} = mean( || z_i - z_j||^2), i = 1,2,...,K-1. j = i+1,...,K$ and $z_i$ is the center(medoids) of cluster $i$. $\textbf{intra}$ is the average of distance of a point to its corresponding cluster center, which measures the compactness of clusters. We made a small change here, in original paper $\textbf{inter}$ was defined as minimum distance between medoids, we use average instead for the purpose of getting a smoother quantity. $\textbf{inter}$ is the average distance of two cluster centers, which measures the separation between clusters. We want to have a small intra-cluster distance and a big inter-cluster distance, consequently we wnat to minimize the {\em validity}. From empirical study, we constantly observe a monotone decreasing relation between number of clusters and {\em validity}. However this quantity stabilize when $K$ is sufficiently large. The stopping rule for searching $K$ is when $|validity_{K} - min(validity_K) | < \epsilon$ is satisfied.
+
+
+
+
 
 \noindent
 {\bf Randomized k-means}
