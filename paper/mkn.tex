@@ -946,14 +946,14 @@ When the number of subtypes is bigger than three, we lack posterior inference on
 When $K >  3$, $p(Q | z^1, z^2) = 0$
 \end{prop}
 \hfill\\
-But for $(\phi, \psi)\in \Omega\setminus Q$, we have consistent posterior inference. Assuming $\alpha_i^j = 1, \forall i$ in $1,2,...,K$, $j = 1,2$ and $\beta_b = \Sigma_{i\in b} (\alpha_i^1 + \alpha_i^2) = 2N(b)$, plug in (4) then we have simplified 
+But for $(\phi, \psi)\in \Omega\setminus Q$, we have consistent posterior inference. Assuming $\alpha_i^j = 1, \forall i$ in $1,2,...,K$, $j = 1,2$ and $\beta_b = \Sigma_{i\in b} (\alpha_i^1 + \alpha_i^2) = 2N(b)$, plug in (6) and integral on $A_\pi$ then we have simplified posterior
 \begin{align}
-p(A_\pi | t^1, t^2) = \frac{1}{c'}\sum_{\pi' \in \text{RF}(\pi)}\prod_{b\in \pi'}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}
+p(A_\pi | y,z) = \frac{1}{c'}\sum_{\pi' \in \text{RF}(\pi)}\prod_{b\in \pi'}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(N(b) + t_b^1)\Gamma(N(b) + t_b^2)} \frac{\Gamma(N(b))}{\Gamma(2N(b))}
 \end{align}
-$c' = c/\frac{\Gamma(n + 1)\Gamma(n+1)\Gamma(K)}{\Gamma(2n + K)}$ And we have theorem 3.\\
+$c' = c/\frac{\Gamma(n_1 + 1)\Gamma(n_2+1)\Gamma(2K)}{\Gamma(n_1 + n_2 + 2K)}$ And we have theorem 4.\\
 \begin{theorem} Let $n = min(n_1, n_2)$ be the smaller number of cells of two conditions and $n_1 = O(n_2)$, when parameter $(\phi, \psi)\in \Omega\setminus Q $ we have 
 \begin{eqnarray*}
-    p(A_{\pi} | t^1, t^2) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
+    p(A_{\pi} | y, z) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
                 \begin{array}{ll}
                  1 \quad \text{if }(\phi,\psi) \in A_\pi\\
                  0 \quad \text{otherwise}\\             
@@ -962,16 +962,16 @@ $c' = c/\frac{\Gamma(n + 1)\Gamma(n+1)\Gamma(K)}{\Gamma(2n + K)}$ And we have th
 \end{eqnarray*}
 \end{theorem}
 \hfill\\
-Things become more complicate when $(\phi, \psi)$ falling into $Q$, we know $p(Q | t^1, t^2)$ vanishes, but $p(A_\pi | t^1, t^2)$ may not. 
+Things become more complicate when $(\phi, \psi)$ falling into $Q$, we know $p(Q | y, z)$ vanishes, but $p(A_\pi | y,z)$ may not. 
 
 Recall $N(\pi)$ represents number of blocks $b$ in $\pi$. Let $S = \{\pi,  (\phi, \psi) \in A_\pi\}$, which is the collection of partitions whose associated simplexes covering $(\phi,\psi)$. Let $N^* = \underset{\pi\in S}\max$ $N(\pi)$, which is the max number of blocks of partitions from $S$. Let $S^* = \{\pi,  (\phi, \psi) \in A_\pi \text{ and } N(\pi) = N^*\}$, which is the collection of partitions that covering $(\phi, \psi)$ with number of blocks equal to the max number $N^*$. 
 
 For example, when $K = 7$, For a $(\phi, \psi)\in A_{\pi_1} \cap A_{\pi_2} \cap A_{\pi_3}$, $\pi_1 = \{\{1,2,3\}, \{4,5,6,7\}\}, \pi_2 = \{\{1,6,7\}, \{2,4\},\{3,5\}\}, \pi_3 = \{\{1,2,3,4,5,6\}\}$, and also $(\phi, \psi)$ does not belong to any other simplex $A_\pi$. Then $S = \{\pi_1, \pi_2, \pi_3\}$, $N^* = 3$, $S^* = \{\pi_2\}.$ 
 
-Denote components from right hand side of (5): $\frac{1}{c'}\underset{b\in \pi}\prod\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)} = J(t^1,t^2,\pi).$  We have theorem 4.\\
-\begin{theorem} Following the setting in theorem 2, when parameter $(\phi, \psi)\in Q$,  and we have 
+Denote components from right hand side of (5): $\frac{1}{c'}\underset{b\in \pi}\prod\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(N(b) + t_b^1)\Gamma(N(b) + t_b^2)} \frac{\Gamma(N(b))}{\Gamma(2N(b))} = J(y,z,\pi).$  We have theorem 5.\\
+\begin{theorem} Following the setting in theorem 4, when parameter $(\phi, \psi)\in Q$,  and we have 
 \begin{eqnarray*}
-    J(t^1,t^2,\pi) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
+    J(y,z,\pi) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
                 \begin{array}{ll}
                  m(\pi) \quad  \pi \in S^* \\
                  0 \quad \text{otherwise}\\             
@@ -979,9 +979,9 @@ Denote components from right hand side of (5): $\frac{1}{c'}\underset{b\in \pi}\
               \right.
 \end{eqnarray*}
 and $\underset{\pi\in S^*}\sum m(\pi) = 1, m(\pi) > 0$\\
-\end{theorem}\hfill\\
-proofs are in the appendix.\\
-Still using above example, in limiting case, we have $p(A_{\pi_3} | t^1, t^2) = 1$, $p(A_{\pi_2} | t^1, t^2) = 1$ and $p(A_{\pi_1}| t^1, t^2) = 0$. When the DE pattern is $B_{\pi_1}$ for some genes. Since our underestimation of $p(A_{\pi_1}| z^1, z^2) = 0$, we will falsely classify those genes as differential distributed.
+\end{theorem}
+
+Still using above example, in limiting case, we have $p(A_{\pi_3} | y,z) = 1$, $p(A_{\pi_2} | y,z) = 1$ and $p(A_{\pi_1}| y,z) = 0$. When the DE pattern is $B_{\pi_1}$ for some genes. Since our underestimation of $p(A_{\pi_1}| y,z) = 0$, we will falsely classify those genes as differential distributed.
 
 The asymptotic properties help us gain insight of the performance of our approach,
 scDDboost may work poorly, when $(\phi, \psi)\in Q$, we may underestimate the posterior probability of true proportion change pattern, which reduce the posterior probabilities of true negative and enlarge false positive rate.\\
@@ -1328,7 +1328,7 @@ p( \tilde \psi_b )
 \begin{lemma}
 If $\pi_2$ is not refinement of $\pi_1$ then $A_{\pi_1} \cap A_{\pi_2}$ is a lower dimensional subset of $A_{\pi_2}$
 \end{lemma}
-Proof of theorem 2
+Proof of theorem 3
 \begin{proof}
 by lemma 1, it is easy to verify.
 \end{proof}
