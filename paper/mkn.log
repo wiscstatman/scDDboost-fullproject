@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  15 FEB 2019 17:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  15 FEB 2019 17:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1207,7 +1207,7 @@ ages cell-subtype
 
 ]
 [2] [3] [4]
-<Figs/schematic-1.png, id=172, 1541.76pt x 770.88pt>
+<Figs/schematic-1.png, id=173, 1541.76pt x 770.88pt>
 File: Figs/schematic-1.png Graphic file (type png)
 <use Figs/schematic-1.png>
 Package pdftex.def Info: Figs/schematic-1.png  used on input line 292.
@@ -1219,7 +1219,7 @@ LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <9> not available
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [5] [6 <./Figs/schematic-1.png>]
-<Figs/dag.png, id=189, 1027.84pt x 770.88pt>
+<Figs/dag.png, id=190, 1027.84pt x 770.88pt>
 File: Figs/dag.png Graphic file (type png)
 <use Figs/dag.png>
 Package pdftex.def Info: Figs/dag.png  used on input line 357.
@@ -1241,7 +1241,7 @@ Overfull \hbox (2.21275pt too wide) in paragraph at lines 366--372
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 419.
  [8] [9]
-Overfull \hbox (32.90495pt too wide) in paragraph at lines 535--541
+Overfull \hbox (32.90495pt too wide) in paragraph at lines 534--540
 \OT1/pplx/m/n/10.95 Mix-ing over $\OML/zplm/m/it/10.95 ^^Y$ \OT1/pplx/m/n/10.95
  as in ([][]6[][]), we write $\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 ^^^\OT1
 /pplx/m/n/10.95 , \OML/zplm/m/it/10.95  \OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.
@@ -1249,155 +1249,155 @@ Overfull \hbox (32.90495pt too wide) in paragraph at lines 535--541
  []
 
 [10]
-Overfull \hbox (11.99883pt too wide) in alignment at lines 575--584
+Overfull \hbox (11.99883pt too wide) in alignment at lines 574--583
  [][][] []
  []
 
 
-Overfull \hbox (55.95021pt too wide) in alignment at lines 588--596
+Overfull \hbox (55.95021pt too wide) in alignment at lines 587--595
  [][][] []
  []
 
 
-Overfull \hbox (50.2934pt too wide) in alignment at lines 625--634
+Overfull \hbox (50.2934pt too wide) in alignment at lines 624--633
  [][][] []
  []
 
-
-Overfull \hbox (14.05144pt too wide) in paragraph at lines 634--637
+[11]
+Overfull \hbox (14.05144pt too wide) in paragraph at lines 633--636
 \OT1/pplx/m/n/10.95 which cor-re-sponds to Dirichlet-multinomial pre-dic-tive d
 is-tri-bu-tion for counts
  []
 
-[11] [12]
-<Figs/roc.pdf, id=265, 505.89pt x 505.89pt>
+[12]
+<Figs/roc.pdf, id=266, 505.89pt x 505.89pt>
 File: Figs/roc.pdf Graphic file (type pdf)
 <use Figs/roc.pdf>
-Package pdftex.def Info: Figs/roc.pdf  used on input line 764.
+Package pdftex.def Info: Figs/roc.pdf  used on input line 763.
 (pdftex.def)             Requested size: 288.0011pt x 288.0052pt.
  [13]
-<Figs/DD95.pdf, id=281, 722.7pt x 361.35pt>
+<Figs/DD95.pdf, id=282, 722.7pt x 361.35pt>
 File: Figs/DD95.pdf Graphic file (type pdf)
 <use Figs/DD95.pdf>
-Package pdftex.def Info: Figs/DD95.pdf  used on input line 785.
+Package pdftex.def Info: Figs/DD95.pdf  used on input line 784.
 (pdftex.def)             Requested size: 360.0pt x 180.00188pt.
  [14 <./Figs/roc.pdf>]
-<Figs/density_DEC_dd.png, id=297, 505.89pt x 505.89pt>
+<Figs/density_DEC_dd.png, id=298, 505.89pt x 505.89pt>
 File: Figs/density_DEC_dd.png Graphic file (type png)
 <use Figs/density_DEC_dd.png>
-Package pdftex.def Info: Figs/density_DEC_dd.png  used on input line 794.
+Package pdftex.def Info: Figs/density_DEC_dd.png  used on input line 793.
 (pdftex.def)             Requested size: 216.0022pt x 216.00775pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 792--797
+Underfull \hbox (badness 10000) in paragraph at lines 791--796
 
  []
 
 [15 <./Figs/DD95.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 808--808
+Underfull \hbox (badness 10000) in paragraph at lines 807--807
 []|\OT1/pplx/m/n/9 Number of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 815--815
+Underfull \hbox (badness 10000) in paragraph at lines 814--814
 []|\OT1/pplx/m/n/9 GSE48968-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 817--817
+Underfull \hbox (badness 10000) in paragraph at lines 816--816
 []|\OT1/pplx/m/n/9 GSE60749-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 823--823
+Underfull \hbox (badness 10000) in paragraph at lines 822--822
 []|\OT1/pplx/m/n/9 GSE71585-
  []
 
 
-Overfull \hbox (59.88577pt too wide) in paragraph at lines 806--830
+Overfull \hbox (59.88577pt too wide) in paragraph at lines 805--829
  [][] 
  []
 
-<Figs/fdr.pdf, id=309, 578.16pt x 361.35pt>
+<Figs/fdr.pdf, id=310, 578.16pt x 361.35pt>
 File: Figs/fdr.pdf Graphic file (type pdf)
 <use Figs/fdr.pdf>
-Package pdftex.def Info: Figs/fdr.pdf  used on input line 835.
+Package pdftex.def Info: Figs/fdr.pdf  used on input line 834.
 (pdftex.def)             Requested size: 251.9989pt x 157.49475pt.
 [16 <./Figs/density_DEC_dd.png>] [17 <./Figs/fdr.pdf>]
-<Figs/NULL.pdf, id=333, 722.7pt x 361.35pt>
+<Figs/NULL.pdf, id=334, 722.7pt x 361.35pt>
 File: Figs/NULL.pdf Graphic file (type pdf)
 <use Figs/NULL.pdf>
-Package pdftex.def Info: Figs/NULL.pdf  used on input line 847.
+Package pdftex.def Info: Figs/NULL.pdf  used on input line 846.
 (pdftex.def)             Requested size: 251.9989pt x 126.00021pt.
-<Figs/s_78_GSE57872.pdf, id=334, 495.8525pt x 211.79124pt>
+<Figs/s_78_GSE57872.pdf, id=335, 495.8525pt x 211.79124pt>
 File: Figs/s_78_GSE57872.pdf Graphic file (type pdf)
 <use Figs/s_78_GSE57872.pdf>
-Package pdftex.def Info: Figs/s_78_GSE57872.pdf  used on input line 861.
+Package pdftex.def Info: Figs/s_78_GSE57872.pdf  used on input line 860.
 (pdftex.def)             Requested size: 251.9989pt x 107.63399pt.
-<Figs/DN_67.png, id=335, 379.8993pt x 275.3487pt>
+<Figs/DN_67.png, id=336, 379.8993pt x 275.3487pt>
 File: Figs/DN_67.png Graphic file (type png)
 <use Figs/DN_67.png>
-Package pdftex.def Info: Figs/DN_67.png  used on input line 866.
+Package pdftex.def Info: Figs/DN_67.png  used on input line 865.
 (pdftex.def)             Requested size: 180.00189pt x 142.26201pt.
-<Figs/DN_78.png, id=336, 379.8993pt x 275.3487pt>
+<Figs/DN_78.png, id=337, 379.8993pt x 275.3487pt>
 File: Figs/DN_78.png Graphic file (type png)
 <use Figs/DN_78.png>
-Package pdftex.def Info: Figs/DN_78.png  used on input line 869.
+Package pdftex.def Info: Figs/DN_78.png  used on input line 868.
 (pdftex.def)             Requested size: 180.00189pt x 142.26201pt.
 
-Overfull \hbox (14.53319pt too wide) in paragraph at lines 858--874
+Overfull \hbox (14.53319pt too wide) in paragraph at lines 857--873
 \OT1/pplx/m/n/10.95 tri-bu-tion given dif-fer-ent num-ber of sub-types at data 
 GSE75748 and GSE48968.
  []
 
 [18 <./Figs/NULL.pdf>]
-<Figs/G48_56.png, id=348, 379.8993pt x 275.3487pt>
+<Figs/G48_56.png, id=349, 379.8993pt x 275.3487pt>
 File: Figs/G48_56.png Graphic file (type png)
 <use Figs/G48_56.png>
-Package pdftex.def Info: Figs/G48_56.png  used on input line 884.
+Package pdftex.def Info: Figs/G48_56.png  used on input line 883.
 (pdftex.def)             Requested size: 180.00189pt x 142.26201pt.
-<Figs/G48_67.png, id=349, 379.8993pt x 275.3487pt>
+<Figs/G48_67.png, id=350, 379.8993pt x 275.3487pt>
 File: Figs/G48_67.png Graphic file (type png)
 <use Figs/G48_67.png>
-Package pdftex.def Info: Figs/G48_67.png  used on input line 887.
+Package pdftex.def Info: Figs/G48_67.png  used on input line 886.
 (pdftex.def)             Requested size: 180.00189pt x 142.26201pt.
-<Figs/s_789_GSE48968.pdf, id=350, 495.8525pt x 135.50626pt>
+<Figs/s_789_GSE48968.pdf, id=351, 495.8525pt x 135.50626pt>
 File: Figs/s_789_GSE48968.pdf Graphic file (type pdf)
 <use Figs/s_789_GSE48968.pdf>
-Package pdftex.def Info: Figs/s_789_GSE48968.pdf  used on input line 891.
+Package pdftex.def Info: Figs/s_789_GSE48968.pdf  used on input line 890.
 (pdftex.def)             Requested size: 360.0pt x 98.38113pt.
  [19 <./Figs/s_78_GSE57872.pdf> <./Figs/DN_67.png> <./Figs/DN_78.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 900--901
+Underfull \hbox (badness 10000) in paragraph at lines 899--900
 
  []
 
-<Figs/act.png, id=381, 356.0502pt x 251.9814pt>
+<Figs/act.png, id=382, 356.0502pt x 251.9814pt>
 File: Figs/act.png Graphic file (type png)
 <use Figs/act.png>
-Package pdftex.def Info: Figs/act.png  used on input line 915.
+Package pdftex.def Info: Figs/act.png  used on input line 914.
 (pdftex.def)             Requested size: 118.80066pt x 84.07689pt.
-<Figs/in_act.png, id=383, 356.0502pt x 251.9814pt>
+<Figs/in_act.png, id=384, 356.0502pt x 251.9814pt>
 File: Figs/in_act.png Graphic file (type png)
 <use Figs/in_act.png>
-Package pdftex.def Info: Figs/in_act.png  used on input line 918.
+Package pdftex.def Info: Figs/in_act.png  used on input line 917.
 (pdftex.def)             Requested size: 118.80066pt x 84.07689pt.
-<Figs/t_rate.png, id=385, 364.4817pt x 251.9814pt>
+<Figs/t_rate.png, id=386, 364.4817pt x 251.9814pt>
 File: Figs/t_rate.png Graphic file (type png)
 <use Figs/t_rate.png>
-Package pdftex.def Info: Figs/t_rate.png  used on input line 921.
+Package pdftex.def Info: Figs/t_rate.png  used on input line 920.
 (pdftex.def)             Requested size: 118.80066pt x 82.13136pt.
 [20 <./Figs/G48_56.png> <./Figs/G48_67.png> <./Figs/s_789_GSE48968.pdf>]
-<Figs/overlap.png, id=416, 770.88pt x 443.6575pt>
+<Figs/overlap.png, id=417, 770.88pt x 443.6575pt>
 File: Figs/overlap.png Graphic file (type png)
 <use Figs/overlap.png>
-Package pdftex.def Info: Figs/overlap.png  used on input line 944.
+Package pdftex.def Info: Figs/overlap.png  used on input line 943.
 (pdftex.def)             Requested size: 385.43906pt x 221.8282pt.
 
-Overfull \hbox (25.43906pt too wide) in paragraph at lines 944--945
+Overfull \hbox (25.43906pt too wide) in paragraph at lines 943--944
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 942--950
+Underfull \hbox (badness 10000) in paragraph at lines 941--949
 
  []
 
@@ -1406,7 +1406,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [21 <./Figs/act.png> <./Figs/in_act.png> <./Figs/t_rate.png>] [22 <./Figs/overl
 ap.png>]
-Overfull \hbox (14.29294pt too wide) in paragraph at lines 958--960
+Overfull \hbox (14.29294pt too wide) in paragraph at lines 957--959
 \OT1/pplx/m/n/10.95 ence on $\OML/zplm/m/it/10.95 Q$\OT1/pplx/m/n/10.95 . To se
 e that we can rewrite $\OML/zplm/m/it/10.95 A[]$ \OT1/pplx/m/n/10.95 as $\OML/z
 plm/m/it/10.95 A[] \OT1/zplm/m/n/10.95 = \OML/zplm/m/it/10.95 A[] \OMS/zplm/m/n
@@ -1414,23 +1414,23 @@ plm/m/it/10.95 A[] \OT1/zplm/m/n/10.95 = \OML/zplm/m/it/10.95 A[] \OMS/zplm/m/n
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 958--960
+Underfull \hbox (badness 10000) in paragraph at lines 957--959
 
  []
 
 
-Overfull \hbox (2.59499pt too wide) in paragraph at lines 967--969
+Overfull \hbox (2.59499pt too wide) in paragraph at lines 966--968
 $\OML/zplm/m/it/10.95 c[]$ \OT1/pplx/m/n/10.95 is the to-tal sum over all par-t
 i-tions $\OML/zplm/m/it/10.95 c[] \OT1/zplm/m/n/10.95 = [][] [][] [][]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 967--969
+Underfull \hbox (badness 10000) in paragraph at lines 966--968
 
  []
 
 [23]
-Overfull \hbox (1.38646pt too wide) in paragraph at lines 984--985
+Overfull \hbox (1.38646pt too wide) in paragraph at lines 983--984
 \OMS/zplm/m/n/10.95 ff\OT1/pplx/m/n/10.95 1, 2, 3\OMS/zplm/m/n/10.95 g\OT1/pplx
 /m/n/10.95 , \OMS/zplm/m/n/10.95 f\OT1/pplx/m/n/10.95 4, 5, 6, 7\OMS/zplm/m/n/1
 0.95 gg\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 ^^Y[] \OT1/zplm/m/n/10.95 = \
@@ -1443,32 +1443,32 @@ gg$\OT1/pplx/m/n/10.95 ,
  []
 
 
-Overfull \hbox (40.86342pt too wide) in paragraph at lines 986--987
+Overfull \hbox (40.86342pt too wide) in paragraph at lines 985--986
 []\OT1/pplx/m/n/10.95 Denote com-po-nents from right hand side of (5): $[][][][
 ] \OT1/zplm/m/n/10.95 =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 986--987
+Underfull \hbox (badness 10000) in paragraph at lines 985--986
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 995--997
+Underfull \hbox (badness 10000) in paragraph at lines 994--996
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1001--1003
+Underfull \hbox (badness 10000) in paragraph at lines 1000--1002
 
  []
 
 [24] [25] [26] (./mkn.bbl [27] [28]) [29] [30]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1084.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1084.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1083.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1083.
  (./mkn.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1084.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1084.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1083.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1083.
 
 Package rerunfilecheck Info: File `mkn.out' has not changed.
 (rerunfilecheck)             Checksum: 615D84916A1E253647DA759380895B1E;1129.
@@ -1479,12 +1479,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1084.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1083.
  ) 
 Here is how much of TeX's memory you used:
  29539 strings out of 492641
  550155 string characters out of 6129330
- 626265 words of memory out of 5000000
+ 627265 words of memory out of 5000000
  32808 multiletter control sequences out of 15000+600000
  574586 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1503,10 +1503,10 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (30 pages, 1472364 bytes).
+Output written on mkn.pdf (30 pages, 1472730 bytes).
 PDF statistics:
- 615 PDF objects out of 1000 (max. 8388607)
- 520 compressed objects within 6 object streams
+ 616 PDF objects out of 1000 (max. 8388607)
+ 521 compressed objects within 6 object streams
  125 named destinations out of 1000 (max. 500000)
  266 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -112,10 +112,10 @@ numerical experiments, is improved sensitivity compared to several standard appr
 \section{Introduction}
 
 The ability to measure genome-wide gene expression at single-cell resolution 
-has accelerated the pace of biological discovery \citep{scs}.  Overcoming data
+has accelerated the pace of biological discovery.  Overcoming data
 analysis challenges caused by the scale and unique variation properties of single-cell
 data will surely fuel further advances in immunology \citep{immune}, developmental
-biology \citep{dv}, cancer \citep{cancer}, and other areas. 
+biology \citep{dv}, cancer \citep{cancer}, and other areas \cite{scs}. 
  Computational tools and statistical methodologies 
 created for data of lower-resolution (e.g., bulk RNA-seq) or lower dimension 
 (e.g., flow cytometry)  guide our response to 
@@ -294,7 +294,7 @@ from the set of 877 possible partitions of $\{1, 2, \cdots, 7\}$ (Figure 1).
  Aggregated proportions of subtypes 3 and 4, subtypes 2, 5, and 6, and subtypes 1, and 7 
  remain same across conditions, while individual subtype frequencies change. 
  Depending on the changes in average expression among subtypes, these frequency changes
-may or may not induce differences in  marginal distribution of some gene's expression in the two conditions.  }
+may or may not induce changes between two conditions  in the  marginal distribution of some gene's expression.  }
   \label{fig:1}
 \end{figure}
 
@@ -463,10 +463,9 @@ deviates for hyper-parameters $(\hat a, \hat b)$ derived from $D$.   We argue th
 clusterings induced by this simple computational 
 scheme approximates a Bayesian posterior analysis (Supplementary Material
 Section **).   Pseudo-code for the resulting \textsc{scDDboost} is in Algorithm~\ref{alg:scDDboost} (Appendix).
+Averaging this way gives additional stability to the posterior probability statistics (Supplementary Material
+Section **).
 
-%%Computations become more intensive the larger is the number $K$ of cell subtypes.   We observe that gene-specific
-%%posterior probabilities of differential distribution stabilize when $K$ is sufficiently large, and we use changes
-%%in these profiles to set $K$.
 
 Computations become more intensive the larger is the number $K$ of cell subtypes. We also observe 
 that  taking $K$ to be too large may inflate the false positive rate (Figure **).  The approach
