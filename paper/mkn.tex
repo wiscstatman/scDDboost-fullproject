@@ -1,31 +1,92 @@
-\documentclass[11pt]{amsart}
-\usepackage{geometry,amsmath,amssymb,amsthm,cite,mathtools,float, caption, comment}                % See geometry.pdf to learn the layout options. There are lots.
-%\usepackage[numbers, sort&compress]{natbib}
-\usepackage[authoryear,sort]{natbib}
-\bibliographystyle{plainnat}
-\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
-%\geometry{landscape}                % Activate for for rotated page geometry
-%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\documentclass[aoas,preprint]{imsart}
+%\RequirePackage{mdframed}
+%\usepackage{mdframed}
+\usepackage[framemethod=TikZ]{mdframed}
+\RequirePackage[OT1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\RequirePackage{amsthm,amsmath}
+\RequirePackage{natbib}
+\RequirePackage[colorlinks,citecolor=blue,urlcolor=blue]{hyperref}
+
+\usepackage[sc]{mathpazo}
+\usepackage{amsmath, wrapfig}
+\usepackage{dsfont}
 \usepackage{graphicx}
-\usepackage{algorithm}
-\usepackage[noend]{algpseudocode}
-\usepackage{amssymb}
-\usepackage{epstopdf}
-\usepackage[parfill]{parskip}
-\setlength{\parskip}{1ex}
+\usepackage{caption}
+\DeclareCaptionFormat{myformat}{\hrulefill \\ #1#2#3}
+\DeclareCaptionFont{small}{\footnotesize}
+\DeclareCaptionFont{blue}{\color{blue}} 
+\DeclareCaptionFont{bf}{\bfseries}
+\captionsetup[figure]{format=myformat,labelfont={blue,bf,small},font=small}
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+
+%\usepackage{algorithm,algcompatible,amsmath}
+\usepackage{algorithm, eqparbox,array}% http://ctan.org/pkg/algorithms
+\usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
+%\usepackage{xcolor}
+%\usepackage[usenames, dvipsnames]{color}
+\usepackage{color}
+\RequirePackage{xcolor}
+%\usepackage{mdframed}
+
+
+
+
+%\documentclass[11pt]{amsart}
+%\usepackage{geometry,amsmath,amssymb,amsthm,cite,mathtools,float, caption, comment}                % See geometry.pdf to learn the layout options. There are lots.
+%%\usepackage[numbers, sort&compress]{natbib}
+%\usepackage[authoryear,sort]{natbib}
+%\bibliographystyle{plainnat}
+%\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%%\geometry{landscape}                % Activate for for rotated page geometry
+%%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+%\usepackage{graphicx}
+%\usepackage{algorithm}
+%\usepackage[noend]{algpseudocode}
+%\usepackage{amssymb}
+%\usepackage{epstopdf}
+%\usepackage[parfill]{parskip}
+
+ \setlength{\parskip}{1ex}
 \newtheorem{lemma}{Lemma}
 \newtheorem{theorem}{Theorem}
 \newtheorem{prop}{Proposition}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
-
-\title{A compositional model to assess expression changes from
- single-cell RNA-seq data\footnote{Department of Biostatistics and Medical Informatics, UW Madison, Technical Report TR***-v1, February **, 2019.}} 
-
-\author{Xiuyu Ma,  Keegan Korthauer, Christina Kendziorski, and Michael A. Newton}
- 
-\email{newton@biostat.wisc.edu}
 \begin{document}
+
+\begin{frontmatter}
+\title{A compositional model to assess expression changes from
+ single-cell RNA-seq data}
+
+\begin{aug}
+
+\author{\fnms{Xiuyu} \snm{Ma}\thanksref{t1}\ead[label=e1]{ma79@wisc.edu}},
+\author{\fnms{Keegan} \snm{Korthauer}\thanksref{k1}\ead[label=e2]{second@somewhere.com}}
+\author{\fnms{Christina} \snm{Kendziorski}\thanksref{t2}\ead[label=e2]{kendzior@biostat.wisc.edu}}
+\and
+\author{\fnms{Michael} \snm{Newton}\thanksref{t1,t2}
+\ead[label=e3]{newton@stat.wisc.edu}
+\ead[label=u1,url]{http://www.foo.com}}
+
+\affiliation{Department of Statistics\thanksmark{t1}, 
+Department of Biostatistics and Medical Informatics\thanksmark{t2}, University of Wisconsin - Madison;
+Dana Farber\thanksmark{k1} }
+
+\address{Address of the First and Second authors\\
+Usually a few lines long\\
+\printead{e1}\\
+\phantom{E-mail:\ }\printead*{e2}}
+
+\address{Address of the Third author\\
+Usually a few lines long\\
+Usually a few lines long\\
+\printead{e3}\\
+\printead{u1}}
+
+
+\end{aug}
+
 
 \begin{abstract}
 On the problem of scoring genes for evidence of changes in the distribution of single-cell expression, we
@@ -45,7 +106,9 @@ numerical experiments, is improved sensitivity compared to several standard appr
  for detecting distributional expression changes. 
 \end{abstract}
 
-\maketitle
+%\maketitle
+\end{frontmatter}
+
 \section{Introduction}
 
 The ability to measure genome-wide gene expression at single-cell resolution 
@@ -660,7 +723,6 @@ We observed some subtypes are well separated, some subtypes are nested, which ma
 %We determine the number of subtypes by searching a range of candidates(from 1 to 9 based on our empirical experience). Given number of subtypes, we obtain a subtype structure of cells, which will further be fed into computing the posterior probabilities. We visualize the change between posterior probabilities under number of clusters $i$ and $i + 1$($i$ from 1 to 8). It typically remains stable when number of cluster is above a number that is smaller than 9 (Fig 3)
 %In the simulated data, the posterior probability become stable when we overestimate the number of subtypes. We found the true number of subtypes is 7 and correctly identify the subtypes of cells.   
 
-\begin{comment}
 
 10\% DE genes in each subtype results in total 8704 DD genes and 8669 ED genes in the mixture of the 7 subtypes.
 Table 1 are numbers of DD or DE genes identified by four methods (scDDboost, scDD, MAST and DESeq2) with target FDR at 5 \%. 
@@ -681,7 +743,6 @@ false positive & 32 & 23 & 51 & 72\\
 \captionof{table}{number of true positive and false positive genes identified by four methods. Target FDR at 5\%}
 \end{table}
 
-\end{comment}
 
 
 scDDboost identified most true DD genes, the reason is that mean expression shifts between conditions is not as significant as mean expression shifts between subtypes, which limits the power of MAST and DESeq2. Our approach and scDD considered mixture structure underlying the transcrips but scDD did not use the whole genome information to infer mixture components, which leads to inaccurate clustering at gene level and reduce the power. Under randomized distance, scDDboost gave an accurate estimation of subtypes and thus are more sensitive to the mean expression change among subtypes. We also compare roc curves of scDDboost, scDD, MAST and DESeq2. (Fig 4)
@@ -776,7 +837,6 @@ Too big $K$ may end up in an overfit such that two subtypes can be very similar,
 From our empirical experience, it would be sufficient to capture the heterogeneity underlying cells with number of clusters not greater than 9.  And we generally obtain stable in validity score and PDD simultaneously (see supplementary)
 
 
-\begin{comment}
 
 We demonstrate the change of posterior probabilities of differential distribution given different number of subtypes at data GSE75748 and GSE48968. In both cases, if allowing one more subtype would result in a lot increases in posterior probabilities, which suggests that the number of subtypes is underestimated since we found more distribution differences between conditions given one more mixture component. If posterior inference is stable after increasing the number of subtypes, then we consider previous number of subtypes to be optimal. 
 \begin{figure}[H]
@@ -796,11 +856,9 @@ We demonstrate the change of posterior probabilities of differential distributio
 \caption{selecting number of subtypes for data GSE57872, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD.  We select number of subtypes to be 7}
 \end{figure}
 
-\end{comment}
 
 
 
-\begin{comment}
 \begin{figure}[H]
 
 
@@ -817,7 +875,6 @@ We demonstrate the change of posterior probabilities of differential distributio
 
 \caption{selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes}
 \end{figure}
-\end{comment}
 
 \subsection{Bursting parameters}
 
@@ -826,17 +883,15 @@ We demonstrate the change of posterior probabilities of differential distributio
 D3E\citep{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset GSE71585\\
 
 \begin{figure}[H]
-
-\includegraphics[width = 1\textwidth]{Figs/d3eplot.pdf}
-\includegraphics[width = 1\textwidth]{Figs/d3eplotdes.pdf}
-\includegraphics[width = 1\textwidth]{Figs/d3eplotmast.pdf}
-\includegraphics[width = 1\textwidth]{Figs/d3eplotscdd.pdf}
+%\includegraphics[width = 1\textwidth]{Figs/d3eplot.pdf}
+%\includegraphics[width = 1\textwidth]{Figs/d3eplotdes.pdf}
+%\includegraphics[width = 1\textwidth]{Figs/d3eplotmast.pdf}
+%\includegraphics[width = 1\textwidth]{Figs/d3eplotscdd.pdf}
 \caption{D3E method will estimate 3 bursting parameters probability of a gene being on (\textbf{a}) and off (\textbf{b}) and the expression rate when the gene expression is on (\textbf{c}), we plot the hexbin plot of probability of a gene being DD under out method v.s. the absolute value of log fold change of \textbf{a} , \textbf{b} and \textbf{c}  across the two conditions accordingly. The log fold change is scaled by dividing the largest log fold change so that ends up in a value between 0 and 1 Here we use the GSE71585 data }
 \end{figure}
 
 
 
-\begin{comment}
 \begin{figure}[H]
 \vspace{-\parskip}
 \minipage{0.33\textwidth}
@@ -850,7 +905,6 @@ D3E\citep{ref:d3e} is a distributional method that can identify bursting paramet
   \endminipage
 \captionof{figure}{2D histogram for bursting parameters of DD genes identified by scDDboost from dataset EMTAB2805 estimated by D3E. Left panel  : comparison of rate of promoter activation between two conditions, similarly, middle panel  : rate of promoter inactivation and right panel: rate of transcription when the promoter is in the active state. We observe that difference between transcription rate is smaller compare to difference between the activation and inactivation rate.}
 \end{figure}
-\end{comment}
 
 We observed that DD genes identified by scDDboost tends to have similar transcription rate when the promoter is active across condition, while there are lots of variabilities in the action and inactivation rate. Estimations from D3E reveals that the major factor to drive DD genes are activation and inactivation rate (proportions of different subtyps), it make sense to consider mixture model like scDDboost.
 
@@ -966,7 +1020,6 @@ which similarly treats expression data within a condition as a statistical mixtu
 not share information among genes on the mixing proportions.
 
 
-\begin{comment}
 
 \subsection{Multi-conditions}
 One direction for future work is to extend the compositional model to multi-conditions case. As scRNA seq data is a time course data, it may be more interested to  consider inference of distributional changes across multiple conditions.  We outline our procedure in the following.\\
@@ -1009,11 +1062,11 @@ Where $\Phi = \{\Phi_{b'}, b' \in \pi_k\},  \Phi_{b'} = \underset{i\in b'}\sum\p
 
 Since there are a lot of overlapping among $A_{\pi_k}^{\pi^l}$, care must be taken to account for competing issue of prior predictive function. Empirical study may give suggestion of modifying the prior.
  
-\end{comment}
 
 
 %\bibliographystyle{IEEEtran}
-\bibliographystyle {plainnat}
+%\bibliographystyle {plainnat}
+\bibliographystyle{imsart-nameyear}
 \bibliography{./references/wlr_ref}
 
 \newpage
@@ -1117,7 +1170,6 @@ GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human & \citep{
 
 
 
-\begin{comment}
 \begin{figure}[h]
 \vspace{-\parskip}
 \minipage{0.5\textwidth}
@@ -1128,7 +1180,6 @@ GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human & \citep{
   \endminipage
 \caption{comparison of posterior probabilities of being DD among different number of subtypes, when we underestimate the number of subtypes, the difference is huge, see PDD between 6 subtypes and 7 subtypes. There is an approximate horizontal line with massive points at the top of left panel, which indicate that we underestimate lots of DD genes due to underestimate the number of subtypes. While in the case when we overestimate the number of subtypes 7 subtypes vs. 8 subtypes, though inflating PDD but the variation of difference is small, from 6 to 8 subtypes the PDD become more linear related.}
 \end{figure}
-\end{comment}
 
 
 
