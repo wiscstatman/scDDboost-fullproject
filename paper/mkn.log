@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  15 FEB 2019 13:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  15 FEB 2019 14:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1421,6 +1421,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 943--945
  []
 
 
+Overfull \hbox (2.59499pt too wide) in paragraph at lines 952--954
+$\OML/zplm/m/it/10.95 c[]$ \OT1/pplx/m/n/10.95 is the to-tal sum over all par-t
+i-tions $\OML/zplm/m/it/10.95 c[] \OT1/zplm/m/n/10.95 = [][] [][] [][]$
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 952--954
 
  []
@@ -1600,19 +1606,7 @@ LaTeX Warning: Float too large for page by 6.58878pt on input line 1284.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [36]
-Overfull \hbox (0.35696pt too wide) in paragraph at lines 1335--1339
-[][] \OML/zplm/m/it/10.95 p\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 t[]\OT1/pp
-lx/m/n/10.95 , \OML/zplm/m/it/10.95 t[]\OMS/zplm/m/n/10.95 j\OML/zplm/m/it/10.9
-5 ^^^\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95  \OT1/zplm/m/n/10.95 )\OML/zplm
-/m/it/10.95 p\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 ^^^\OT1/pplx/m/n/10.95 ,
- \OML/zplm/m/it/10.95  \OMS/zplm/m/n/10.95 j\OML/zplm/m/it/10.95 A[]\OT1/zplm/m
-/n/10.95 )\OML/zplm/m/it/10.95 d^^^d $\OT1/pplx/m/n/10.95 . When $\OML/zplm/m/i
-t/10.95 ^^Y[]$ \OT1/pplx/m/n/10.95 is not re-fine-ment of $\OML/zplm/m/it/10.95
- ^^Y$\OT1/pplx/m/n/10.95 , we need
- []
-
-
-Overfull \hbox (13.78973pt too wide) in paragraph at lines 1342--1345
+Overfull \hbox (13.78973pt too wide) in paragraph at lines 1337--1340
 \OT1/pplx/m/n/10.95 Consequently there ex-ists $\OML/zplm/m/it/10.95 b \OMS/zpl
 m/m/n/10.95 2 \OML/zplm/m/it/10.95 ^^Y[]$ \OT1/pplx/m/n/10.95 with $\OML/zplm/m
 /it/10.95 v\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 b\OT1/zplm/m/n/10.95 )$ \O
@@ -1621,34 +1615,25 @@ m/n/10.95 (\OML/zplm/m/it/10.95 b[]\OT1/zplm/m/n/10.95 )\OT1/pplx/m/n/10.95 , \
 OML/zplm/m/it/10.95 b[] \OMS/zplm/m/n/10.95 2
  []
 
-[37]
-Overfull \hbox (2.41077pt too wide) in paragraph at lines 1349--1352
+
+Overfull \hbox (24.89699pt too wide) in paragraph at lines 1350--1352
 \OML/zplm/m/it/10.95 p\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 A[]\OMS/zplm/m/
-n/10.95 j\OML/zplm/m/it/10.95 t[]\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 t[]
-\OT1/zplm/m/n/10.95 ) = [][] \OML/zplm/m/it/10.95 J\OT1/zplm/m/n/10.95 (\OML/zp
-lm/m/it/10.95 t[]\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 t[]\OT1/pplx/m/n/10
-.95 , \OML/zplm/m/it/10.95 ^^Y[]\OT1/zplm/m/n/10.95 )$ \OT1/pplx/m/n/10.95 and 
-$\OML/zplm/m/it/10.95 J\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 t[]\OT1/pplx/m
-/n/10.95 , \OML/zplm/m/it/10.95 t[]\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 ^
-^Y\OT1/zplm/m/n/10.95 ) = [] [][] []$ 
+n/10.95 j\OML/zplm/m/it/10.95 y\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 z\OT1
+/zplm/m/n/10.95 ) = [][] \OML/zplm/m/it/10.95 J\OT1/zplm/m/n/10.95 (\OML/zplm/m
+/it/10.95 y\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 z\OT1/pplx/m/n/10.95 , \O
+ML/zplm/m/it/10.95 ^^Y[]\OT1/zplm/m/n/10.95 )$ \OT1/pplx/m/n/10.95 and $\OML/zp
+lm/m/it/10.95 J\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 y\OT1/pplx/m/n/10.95 ,
+ \OML/zplm/m/it/10.95 z\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 ^^Y\OT1/zplm/
+m/n/10.95 ) = [][][][]$ 
  []
 
-
-Overfull \hbox (17.78377pt too wide) in paragraph at lines 1349--1352
-\OT1/pplx/m/n/10.95 rate, for sim-plic-ity we as-sume $\OML/zplm/m/it/10.95 n \
-OT1/zplm/m/n/10.95 = [][] \OML/zplm/m/it/10.95 t[] \OT1/zplm/m/n/10.95 = [][] \
-OML/zplm/m/it/10.95 t[]$\OT1/pplx/m/n/10.95 , $\OML/zplm/m/it/10.95 t[] \OMS/zp
-lm/m/n/10.95 ^^X []\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 ^^^\OT1/zplm/m/n/1
-0.95 )\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 t[] \OMS/zplm/m/n/10.95 ^^X
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1352--1356
+[37]
+Underfull \hbox (badness 10000) in paragraph at lines 1355--1359
 
  []
 
 
-Overfull \hbox (86.208pt too wide) detected at line 1356
+Overfull \hbox (86.208pt too wide) detected at line 1359
 []\OML/zplm/m/it/10.95 f\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 n\OT1/pplx/m/
 n/10.95 , \OML/zplm/m/it/10.95 b\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^Y \
 OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 ^^L[] \OT1/zplm/m/n/10.95 + \OML/zplm/
@@ -1661,22 +1646,22 @@ n\OT1/zplm/m/n/10.95 ))
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1356--1359
+Underfull \hbox (badness 10000) in paragraph at lines 1359--1362
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1367--1369
 
  []
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 1364--1366
+Underfull \hbox (badness 10000) in paragraph at lines 1373--1374
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1370--1371
-
- []
-
-
-Overfull \hbox (161.78308pt too wide) detected at line 1371
+Overfull \hbox (161.78308pt too wide) detected at line 1374
 \OML/zplm/m/it/10.95 g\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 n\OT1/pplx/m/n/
 10.95 , \OML/zplm/m/it/10.95 b\OT1/zplm/m/n/10.95 ) = (\OML/zplm/m/it/10.95 ^^L
 [] \OT1/zplm/m/n/10.95 + \OML/zplm/m/it/10.95 t[] \OMS/zplm/m/n/10.95 ^^@ []\OT
@@ -1691,17 +1676,17 @@ it/10.95 t[] \OMS/zplm/m/n/10.95 ^^@ \OT1/pplx/m/n/10.95 1\OT1/zplm/m/n/10.95 )
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1371--1374
+Underfull \hbox (badness 10000) in paragraph at lines 1374--1377
 
  []
 
 
-Overfull \hbox (158.26033pt too wide) detected at line 1384
+Overfull \hbox (158.26033pt too wide) detected at line 1387
 []
  []
 
-[39]
-Overfull \hbox (15.29813pt too wide) in paragraph at lines 1386--1388
+
+Overfull \hbox (15.29813pt too wide) in paragraph at lines 1389--1391
 \OT1/pplx/m/n/10.95 When $\OML/zplm/m/it/10.95 ^^Y[]$ \OT1/pplx/m/n/10.95 have 
 less blocks than $\OML/zplm/m/it/10.95 ^^Y[]$\OT1/pplx/m/n/10.95 , $[][] \OML/z
 plm/m/it/10.95 g\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 n\OT1/pplx/m/n/10.95 
@@ -1711,13 +1696,13 @@ ML/zplm/m/it/10.95 g\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 n\OT1/pplx/m/n/10
 1/zplm/m/n/10.95 ([](\OML/zplm/m/it/10.95 n\OT1/zplm/m/n/10.95 ))$ 
  []
 
-[40]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1393.
+[39] [40]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1396.
  [41] [42 <./Figs/try7-g.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1393.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1396.
  (./mkn.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1393.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1393.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1396.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1396.
 
 Package rerunfilecheck Info: File `mkn.out' has not changed.
 (rerunfilecheck)             Checksum: 7770823C809722DBA8306AF9B468AA63;1318.
@@ -1728,12 +1713,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1393.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1396.
  ) 
 Here is how much of TeX's memory you used:
  28775 strings out of 492649
  544423 string characters out of 6129622
- 638992 words of memory out of 5000000
+ 636992 words of memory out of 5000000
  31995 multiletter control sequences out of 15000+600000
  579016 words of font info for 144 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1752,7 +1737,7 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (42 pages, 1793055 bytes).
+Output written on mkn.pdf (42 pages, 1790508 bytes).
 PDF statistics:
  754 PDF objects out of 1000 (max. 8388607)
  638 compressed objects within 7 object streams
