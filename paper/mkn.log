@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  15 FEB 2019 23:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  15 FEB 2019 23:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1206,12 +1206,6 @@ ages cell-subtype
 [1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-Overfull \hbox (113.09113pt too wide) in paragraph at lines 137--153
-\OT1/pplx/m/n/10.95 ol-ogy is avail-able in the R pack-age \OT1/pplx/m/sc/10.95
- scD-Dboost\OT1/pplx/m/n/10.95 , at [][]\OT1/cmtt/m/n/10.95 http://github.com/w
-iscstatman/scDDboost/[]\OT1/pplx/m/n/10.95 .
- []
-
 [2] [3] [4]
 <Figs/schematic-1.png, id=171, 1541.76pt x 770.88pt>
 File: Figs/schematic-1.png Graphic file (type png)
@@ -1509,7 +1503,7 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (30 pages, 1472976 bytes).
+Output written on mkn.pdf (30 pages, 1472944 bytes).
 PDF statistics:
  616 PDF objects out of 1000 (max. 8388607)
  521 compressed objects within 6 object streams

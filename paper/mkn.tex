@@ -140,12 +140,12 @@ statistical problem in genomics for which new tools specific to
 the single-cell RNAseq data structure have been deployed: \verb+MAST+ \citep{ref:MAST},
 \verb+DESEQ2+ \citep{ref:Des} **check**, \verb+SCDD+ \citep{ref:scDD}, etc.  These tools respond
 to scRNAseq characteristics, such as high prevelance of zero counts and
-gene-level multimodality, but none fully exploits cellular-subtype
+gene-level multimodality, but they do not fully exploit cellular-subtype
 information.  We address this limitation, aiming to increase power to detect differential distribution.
 The proposed method measures changes in a gene's marginal mixture distribution, and
 acquires sensitivity  to a wide variety of distributional effects by how it integrates genome-wide with
-gene-level data.  A software implementation of the proposed methodology
-is available in the R package \textsc{scDDboost}, at \verb+http://github.com/wiscstatman/scDDboost/+.
+gene-level data.  It is implemented in  software 
+in the R package \textsc{scDDboost}, at \verb+http://github.com/wiscstatman/scDDboost/+.
 Modularity in the necessary elements provides some methodological advantages. For example,
 improvements in clustering, such as *sc3?*, may be used in place of the default clustering,
 without altering the form of downstream analysis. **it's also relatively speedy computationally,
@@ -251,7 +251,7 @@ $f_g^1 \neq f_g^2$,
 if $f_g^1(x) \neq f_g^2(x)$ for some $x$, and otherwise it is equivalently distributed
 (${\rm ED}_g$). Motivated by findings from bulk RNAseq data analysis, we further
 set each $f_{g,k}$ to have a a negative-binomial form, say with mean $\mu_{g,k}$
-and shape parameter $\alpha_g$; e.g. \cite{ref:Leng}, \cite{DES}, and \cite{ref:Des}. 
+and shape parameter $\sigma_g$; e.g. \cite{ref:Leng}, \cite{DES}, and \cite{ref:Des}. 
 This choice is effective in our numerical experiments though it is 
 not critical to the modeling formulation.  The use of mixtures per gene has proven
 useful in related model-based approaches (e.g., Finak {\em et al.} 2015; McDavid {\em et al.} 2016;
