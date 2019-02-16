@@ -1,0 +1,16 @@
+Package: scDDboost
+Type: Package
+Title: Identifying differential distributed genes for single cell RNA data
+Version: 2.0
+Date: 2017-11-11
+Author: Xiuyu Ma
+Maintainer: Xiuyu Ma
+     <watsonforfun@gmail.com>
+Description: modal cluster selecting genes for measuring similarities between cells, mixture double dirichlet prior combining with empirical bayesian method to find differential distributed genes.
+License: GPL (>= 2)
+Imports: Rcpp (>= 0.12.11), RcppEigen (>= 0.3.2.9.0), EBSeq, Oscope, BiocParallel, mclust, doParallel
+Depends: EBSeq, Oscope, BiocParallel, mclust, doParallel
+LinkingTo: Rcpp, RcppEigen
+SystemRequirements: c++11
+Roxygen: list(wrap=FALSE)
+RoxygenNote: 6.0.1
