@@ -128,7 +128,7 @@ statistically is the fact that cells populate distinct, identifiable subtypes
 determined by lineage history, epigenetic state, the activity
 of various transcriptional programs, or other 
 distinguishing factors. Extensive research on clustering cells
-has produced useful tools for identifying subtypes, including: 
+has produced tools for identifying subtypes, including: 
  \verb+SC3+ \citep{sc3}, \verb+CIDR+ \citep{CIDR} and \verb+ZIFA+ \citep{ZIFA}.
 We hypothesize that such
 subtype information may be usefully injected into other inference procedures in order
@@ -140,9 +140,9 @@ statistical problem in genomics for which new tools specific to
 the single-cell RNAseq data structure have been deployed: \verb+MAST+ \citep{ref:MAST},
 \verb+DESEQ2+ \citep{ref:Des} **check**, \verb+SCDD+ \citep{ref:scDD}, etc.  These tools respond
 to scRNAseq characteristics, such as high prevelance of zero counts and
-gene-level multimodality, but none exploits cellular subtype
-information.  We present a methodology and supporting theoretical
-analyses for this purpose.   The method measures changes in a gene's marginal mixture distribution, and
+gene-level multimodality, but none fully exploits cellular-subtype
+information.  We address this limitation, aiming to increase power to detect differential distribution.
+The proposed method measures changes in a gene's marginal mixture distribution, and
 acquires sensitivity  to a wide variety of distributional effects by how it integrates genome-wide with
 gene-level data.  A software implementation of the proposed methodology
 is available in the R package \textsc{scDDboost}, at \verb+http://github.com/wiscstatman/scDDboost/+.
@@ -353,8 +353,8 @@ a formula for local false discovery rates:
 Such local false discovery rates are important empirical Bayesian 
 statistics in large-scale testing (e.g., Efron, 2007; Muralidharan, 2010; Newton 
 {\em et al.} 2004).
-The partition representation guides construction of a prior distribution (Section 3.1) and a 
-model-based method (Section 2.3) for scoring  differential distribution.   Setting the stage, 
+The partition representation guides construction of a prior distribution (Section 2.3) and a 
+model-based method (Section 2.2) for scoring  differential distribution.   Setting the stage, 
 Figure~2 shows the dependency structure of 
 the proposed compositional model and the partition-reliant prior specification.
 
