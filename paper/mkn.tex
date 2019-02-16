@@ -115,7 +115,7 @@ The ability to measure genome-wide gene expression at single-cell resolution
 has accelerated the pace of biological discovery.  Overcoming data
 analysis challenges caused by the scale and unique variation properties of single-cell
 data will surely fuel further advances in immunology \citep{immune}, developmental
-biology \citep{dv}, cancer \citep{cancer}, and other areas \cite{scs}. 
+biology \citep{dv}, cancer \citep{cancer}, and other areas \citep{scs}. 
  Computational tools and statistical methodologies 
 created for data of lower-resolution (e.g., bulk RNA-seq) or lower dimension 
 (e.g., flow cytometry)  guide our response to 
@@ -135,14 +135,23 @@ subtype information may be usefully injected into other inference procedures in 
 to improve their operating characteristics. 
 
 Assessing the magnitude and statistical significance of changes in gene
-expression associated with different cellular conditions has been a central
+expression associated with changes in cellular condition has been a central
 statistical problem in genomics for which new tools specific to
 the single-cell RNAseq data structure have been deployed: \verb+MAST+ \citep{ref:MAST},
-\verb+DESEQ2+ \citep{ref:Des}, \verb+SCDD+ \citep{ref:scDD}, etc.  These tools respond
+\verb+DESEQ2+ \citep{ref:Des} **check**, \verb+SCDD+ \citep{ref:scDD}, etc.  These tools respond
 to scRNAseq characteristics, such as high prevelance of zero counts and
-gene-level multimodality, but none takes explicit advantage of cellular subtype
+gene-level multimodality, but none exploits cellular subtype
 information.  We present a methodology and supporting theoretical
-analyses for this purpose.  Using a compositional model, subtypes inferred by clustering whole genome data 
+analyses for this purpose.   The method measures changes in a gene's marginal mixture distribution, and
+acquires sensitivity  to a wide variety of distributional effects by how it integrates genome-wide with
+gene-level data.  A software implementation of the proposed methodology
+is available in the R package \textsc{scDDboost}, at \verb+http://github.com/wiscstatman/scDDboost/+.
+Modularity in the necessary elements provides some methodological advantages. For example,
+improvements in clustering, such as *sc3?*, may be used in place of the default clustering,
+without altering the form of downstream analysis. **it's also relatively speedy computationally,
+not requiring any MCMC**
+
+Through the compositional model underlying \verb+scDDboost+, subtypes inferred by clustering 
 inform the analysis of gene-level expression.  The proposed methodology merges two lines of computation
 after cell clustering: one concerns patterns of differential expression among 
 the cellular subtypes, and here we take advantage of the powerful \verb+EBseq+ method for detecting
@@ -150,23 +159,19 @@ patterns in negative-binomially-distributed expression data~\citep{ref:Leng}.  T
 the counts of cells in various subtypes; for this we propose a Double-Dirichlet-Mixture distribution
 to model the pair of multinomial probability vectors for subtype counts in two experimental conditions.
 Further elements are developed, on the selection of the number of subtypes and on accounting for uncertainty in the cluster output,  in order to provide an end-to-end solution to the differential distribution
-problem.  A software implementation of the proposed methodology 
-is available in the R package \textsc{scDDboost}, at \verb+http://github.com/wiscstatman/scDDboost/+.
-Modularity in the necessary elements provides some methodological advantages. For example,
-improvements in clustering, such as *sc3?*, may be used in place of the default clustering,
-without altering the form of downstream analysis. **it's also relatively speedy computationally,
-not requiring any MCMC**
+problem.  
 
 Numerical experiments  on both synthetic and published scRNA-seq data indicate that \verb+scDDboost+ has high
 sensitivity for detecting subtle distribution changes.  In these experiments we take advantage of
 \verb+splatter+ for generating synthetic data~\citep{ref:Zappia} as well as the compendium of scRNA-seq
 data available through \verb+conquer+ \citep{ref:Cq}.  **something on bursting?**
-We also establish first-order asymptotic results for the methodology.   On organiziation, we present
+We also establish first-order asymptotic results for the methodology.    **any other results**
+
+On organiziation, we present
 the modeling and methodology elements in Section~2, numerical experiments in Section~3, and a discussion
 in Section~4.  For presentation we move some details to an appendix and many others to a Supplementary 
 Material document.
 
-%Performance on empirical data has been investigated through ten previously published experimental data from conquer\cite{ref:Cq}. 
 
 
 \section{Modeling}
