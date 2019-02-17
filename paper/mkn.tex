@@ -1056,6 +1056,46 @@ not share information among genes on the mixing proportions.
  
 \section*{Appendix}
 
+\subsection*{Proof of Theorem 1}
+
+If $\theta \in \bigcup_{\pi \in \Pi} \left[ A_{\pi} \cap M_{g, \pi} \right]$, then there exists a partition $\pi$
+for which $\theta \in A_\pi$ and $\theta \in M_{g,\pi}$.   By construction
+\begin{eqnarray*}
+f^1_g(x) = \sum_{k=1}^K \phi_k f_{g,k}(x) 
+         = \sum_{b \in \pi} \sum_{k \in b} \phi_k f_{g,k}(x) 
+         = \sum_{b \in \pi} \Phi_b f_{g,k^*(b)}(x) ,
+\end{eqnarray*}
+where $k^*(b)$ indexes any component in $b$, since all components in that block have the same component distribution
+owing to constraint $M_{g,\pi}$. Continuing, using the constraint $\theta \in A_{\pi}$,
+\begin{eqnarray*}
+f^1_g(x) = \sum_{b \in \pi} \Psi_b f_{g,k^*(b)}(x) = f^2_g(x)   \qquad \forall x.
+\end{eqnarray*}
+That is, $\theta \in {\mbox {\rm ED}}_g$.
+
+
+If $\theta \in {\mbox {\rm ED}}_g$, then $f^1_g(x) = f^2_g(x)$ for all $x$.  Noting that both are mixtures over
+the same set of components $\{ f_{g,k} \}$, let $\{ h_{g,l} : l=1,2, \cdots, L\}$ be the set of distinct 
+components over this set, and so
+\begin{eqnarray*}
+f^1_g(x) = \sum_{k=1}^k \phi_k f_{g,k}(x)   
+         = \sum_{l=1}^L c_{g,l} (\phi) h_{g,l}(x) 
+         = \sum_{l=1}^L c_{g,l} (\psi) h_{g,l}(x) 
+         = f^2_g(x ) 
+\end{eqnarray*}
+where
+\begin{eqnarray}
+\label{eq:cprobs}
+c_{g,l}(\phi) = \sum_{k=1}^K \phi_k 1[ f_{g,k} = h_{g,l} ]   \qquad
+c_{g,l}(\psi) = \sum_{k=1}^K \psi_k 1[ f_{g,k} = h_{g,l} ]  .
+\end{eqnarray}
+Finite mixtures of distinct negative binomial components are identifiable~\citep{yak68}, and so the equality
+of $f^1_g$ and $f^2_g$ implies $c_{g,l} (\phi) = c_{g,l} (\psi)$ for all $l=1,2, \cdots, L$.  
+Identifying the partition blocks $b_l = \{ k: f_{g,k} = h_{g,l} \}$, and the partition $\tilde \pi = \{b_l\}$,
+we find $\theta \in A_{\tilde \pi} \cap M_{g, \tilde \pi}$. The accumulated probabilities in~(\ref{eq:cprobs})
+correspond to $\Phi_{\tilde \pi}$ and $\Psi_{\tilde \pi}$, which are equal on $A_{\tilde \pi}$.
+
+
+\subsection*{Pseudo-code}
 
 \begin{algorithm}
 \caption{\textsc{scDDboost}}\label{alg:scDDboost}
