@@ -12,10 +12,11 @@ detK = function(D,epi = 0.15)
     
     s = intra / inter
     
-    ss = abs(1 - s[2:8] / s[1:7])
+    mins = min(s)
+    ss = 1 - mins / ss
     
     if(min(ss) < epi){
-    K = which.max(ss < epi)[1] + 2
+    K = which(ss < epi)[1] + 1
         }else{
         K = 9
         }
