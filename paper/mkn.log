@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  16 FEB 2019 10:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  16 FEB 2019 14:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1219,7 +1219,7 @@ LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <9> not available
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [5] [6 <./Figs/schematic-1.png>]
-<Figs/dag.png, id=189, 1027.84pt x 770.88pt>
+<Figs/dag.png, id=190, 1027.84pt x 770.88pt>
 File: Figs/dag.png Graphic file (type png)
 <use Figs/dag.png>
 Package pdftex.def Info: Figs/dag.png  used on input line 363.
@@ -1270,19 +1270,19 @@ is-tri-bu-tion for counts
  []
 
 [12]
-<Figs/roc.pdf, id=266, 505.89pt x 505.89pt>
+<Figs/roc.pdf, id=267, 505.89pt x 505.89pt>
 File: Figs/roc.pdf Graphic file (type pdf)
 <use Figs/roc.pdf>
 Package pdftex.def Info: Figs/roc.pdf  used on input line 769.
 (pdftex.def)             Requested size: 288.0011pt x 288.0052pt.
  [13]
-<Figs/DD95.pdf, id=282, 722.7pt x 361.35pt>
+<Figs/DD95.pdf, id=283, 722.7pt x 361.35pt>
 File: Figs/DD95.pdf Graphic file (type pdf)
 <use Figs/DD95.pdf>
 Package pdftex.def Info: Figs/DD95.pdf  used on input line 790.
 (pdftex.def)             Requested size: 360.0pt x 180.00188pt.
  [14 <./Figs/roc.pdf>]
-<Figs/density_DEC_dd.png, id=298, 505.89pt x 505.89pt>
+<Figs/density_DEC_dd.png, id=299, 505.89pt x 505.89pt>
 File: Figs/density_DEC_dd.png Graphic file (type png)
 <use Figs/density_DEC_dd.png>
 Package pdftex.def Info: Figs/density_DEC_dd.png  used on input line 799.
@@ -1317,28 +1317,28 @@ Overfull \hbox (59.88577pt too wide) in paragraph at lines 811--835
  [][] 
  []
 
-<Figs/fdr.pdf, id=310, 578.16pt x 361.35pt>
+<Figs/fdr.pdf, id=311, 578.16pt x 361.35pt>
 File: Figs/fdr.pdf Graphic file (type pdf)
 <use Figs/fdr.pdf>
 Package pdftex.def Info: Figs/fdr.pdf  used on input line 840.
 (pdftex.def)             Requested size: 251.9989pt x 157.49475pt.
 [16 <./Figs/density_DEC_dd.png>] [17 <./Figs/fdr.pdf>]
-<Figs/NULL.pdf, id=334, 722.7pt x 361.35pt>
+<Figs/NULL.pdf, id=335, 722.7pt x 361.35pt>
 File: Figs/NULL.pdf Graphic file (type pdf)
 <use Figs/NULL.pdf>
 Package pdftex.def Info: Figs/NULL.pdf  used on input line 852.
 (pdftex.def)             Requested size: 251.9989pt x 126.00021pt.
-<Figs/s_78_GSE57872.pdf, id=335, 495.8525pt x 211.79124pt>
+<Figs/s_78_GSE57872.pdf, id=336, 495.8525pt x 211.79124pt>
 File: Figs/s_78_GSE57872.pdf Graphic file (type pdf)
 <use Figs/s_78_GSE57872.pdf>
 Package pdftex.def Info: Figs/s_78_GSE57872.pdf  used on input line 866.
 (pdftex.def)             Requested size: 251.9989pt x 107.63399pt.
-<Figs/DN_67.png, id=336, 379.8993pt x 275.3487pt>
+<Figs/DN_67.png, id=337, 379.8993pt x 275.3487pt>
 File: Figs/DN_67.png Graphic file (type png)
 <use Figs/DN_67.png>
 Package pdftex.def Info: Figs/DN_67.png  used on input line 871.
 (pdftex.def)             Requested size: 180.00189pt x 142.26201pt.
-<Figs/DN_78.png, id=337, 379.8993pt x 275.3487pt>
+<Figs/DN_78.png, id=338, 379.8993pt x 275.3487pt>
 File: Figs/DN_78.png Graphic file (type png)
 <use Figs/DN_78.png>
 Package pdftex.def Info: Figs/DN_78.png  used on input line 874.
@@ -1350,17 +1350,17 @@ GSE75748 and GSE48968.
  []
 
 [18 <./Figs/NULL.pdf>]
-<Figs/G48_56.png, id=349, 379.8993pt x 275.3487pt>
+<Figs/G48_56.png, id=350, 379.8993pt x 275.3487pt>
 File: Figs/G48_56.png Graphic file (type png)
 <use Figs/G48_56.png>
 Package pdftex.def Info: Figs/G48_56.png  used on input line 889.
 (pdftex.def)             Requested size: 180.00189pt x 142.26201pt.
-<Figs/G48_67.png, id=350, 379.8993pt x 275.3487pt>
+<Figs/G48_67.png, id=351, 379.8993pt x 275.3487pt>
 File: Figs/G48_67.png Graphic file (type png)
 <use Figs/G48_67.png>
 Package pdftex.def Info: Figs/G48_67.png  used on input line 892.
 (pdftex.def)             Requested size: 180.00189pt x 142.26201pt.
-<Figs/s_789_GSE48968.pdf, id=351, 495.8525pt x 135.50626pt>
+<Figs/s_789_GSE48968.pdf, id=352, 495.8525pt x 135.50626pt>
 File: Figs/s_789_GSE48968.pdf Graphic file (type pdf)
 <use Figs/s_789_GSE48968.pdf>
 Package pdftex.def Info: Figs/s_789_GSE48968.pdf  used on input line 896.
@@ -1370,17 +1370,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 905--906
 
  []
 
-<Figs/act.png, id=382, 356.0502pt x 251.9814pt>
+<Figs/act.png, id=383, 356.0502pt x 251.9814pt>
 File: Figs/act.png Graphic file (type png)
 <use Figs/act.png>
 Package pdftex.def Info: Figs/act.png  used on input line 920.
 (pdftex.def)             Requested size: 118.80066pt x 84.07689pt.
-<Figs/in_act.png, id=384, 356.0502pt x 251.9814pt>
+<Figs/in_act.png, id=385, 356.0502pt x 251.9814pt>
 File: Figs/in_act.png Graphic file (type png)
 <use Figs/in_act.png>
 Package pdftex.def Info: Figs/in_act.png  used on input line 923.
 (pdftex.def)             Requested size: 118.80066pt x 84.07689pt.
-<Figs/t_rate.png, id=386, 364.4817pt x 251.9814pt>
+<Figs/t_rate.png, id=387, 364.4817pt x 251.9814pt>
 File: Figs/t_rate.png Graphic file (type png)
 <use Figs/t_rate.png>
 Package pdftex.def Info: Figs/t_rate.png  used on input line 926.
@@ -1503,7 +1503,7 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (30 pages, 1472998 bytes).
+Output written on mkn.pdf (30 pages, 1472801 bytes).
 PDF statistics:
  616 PDF objects out of 1000 (max. 8388607)
  521 compressed objects within 6 object streams
