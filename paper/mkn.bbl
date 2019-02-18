@@ -1,325 +1,337 @@
-\begin{thebibliography}{34}
-\providecommand{\natexlab}[1]{#1}
-\providecommand{\url}[1]{\texttt{#1}}
-\expandafter\ifx\csname urlstyle\endcsname\relax
-  \providecommand{\doi}[1]{doi: #1}\else
-  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+\begin{thebibliography}{22}
+% BibTex style file: imsart-nameyear.bst, 2017-11-03
+% Default style options (sort=1,type=nameyear).
+% Used options (sort=1,type=nameyear).
 
-\bibitem[Anders and Huber(2010)]{DES}
-Simon Anders and Wolfgang Huber.
-\newblock Differential expression analysis for sequence count data.
-\newblock \emph{Genome Biology}, 11\penalty0 (10):\penalty0 R106--R106, 2010.
-\newblock \doi{10.1186/gb-2010-11-10-r106}.
-\newblock URL \url{http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3218662/}.
+\bibitem[\protect\citeauthoryear{Anders and Huber}{2010}]{DES}
+\begin{barticle}[author]
+\bauthor{\bsnm{Anders},~\bfnm{Simon}\binits{S.}} \AND
+  \bauthor{\bsnm{Huber},~\bfnm{Wolfgang}\binits{W.}}
+(\byear{2010}).
+\btitle{Differential expression analysis for sequence count data}.
+\bjournal{Genome Biology}
+\bvolume{11}
+\bpages{R106--R106}.
+\bdoi{10.1186/gb-2010-11-10-r106}
+\end{barticle}
+\endbibitem
 
-\bibitem[Bacher and Kendziorski(2016)]{Bacher:2016aa}
-Rhonda Bacher and Christina Kendziorski.
-\newblock Design and computational analysis of single-cell rna-sequencing
-  experiments.
-\newblock \emph{Genome Biology}, 17\penalty0 (1):\penalty0 63, 2016.
-\newblock \doi{10.1186/s13059-016-0927-y}.
-\newblock URL \url{https://doi.org/10.1186/s13059-016-0927-y}.
+\bibitem[\protect\citeauthoryear{Bacher and Kendziorski}{2016}]{Bacher:2016aa}
+\begin{barticle}[author]
+\bauthor{\bsnm{Bacher},~\bfnm{Rhonda}\binits{R.}} \AND
+  \bauthor{\bsnm{Kendziorski},~\bfnm{Christina}\binits{C.}}
+(\byear{2016}).
+\btitle{Design and computational analysis of single-cell RNA-sequencing
+  experiments}.
+\bjournal{Genome Biology}
+\bvolume{17}
+\bpages{63}.
+\bdoi{10.1186/s13059-016-0927-y}.
+\bid{Bacher2016}
+\end{barticle}
+\endbibitem
 
-\bibitem[Buettner et~al.(2015)Buettner, Natarajan, Casale, Proserpio,
-  Scialdone, Theis, Teichmann, Marioni, and Stegle]{EMTAB}
-Florian Buettner, Kedar~N Natarajan, F~Paolo Casale, Valentina Proserpio,
-  Antonio Scialdone, Fabian~J Theis, Sarah~A Teichmann, John~C Marioni, and
-  Oliver Stegle.
-\newblock Computational analysis of cell-to-cell heterogeneity in single-cell
-  rna-sequencing data reveals hidden subpopulations of cells.
-\newblock \emph{Nature Biotechnology}, 33:\penalty0 155 EP --, 01 2015.
-\newblock URL \url{http://dx.doi.org/10.1038/nbt.3102}.
+\bibitem[\protect\citeauthoryear{Dahl}{2009}]{ref:dahl}
+\begin{barticle}[author]
+\bauthor{\bsnm{Dahl},~\bfnm{David~B.}\binits{D.~B.}}
+(\byear{2009}).
+\btitle{Modal clustering in a class of product partition models}.
+\bjournal{Bayesian Anal.}
+\bvolume{4}
+\bpages{243--264}.
+\bdoi{10.1214/09-BA409}
+\end{barticle}
+\endbibitem
 
-\bibitem[Chu et~al.(2016)Chu, Leng, Zhang, Hou, Mamott, Vereide, Choi,
-  Kendziorski, Stewart, and Thomson]{chu}
-Li-Fang Chu, Ning Leng, Jue Zhang, Zhonggang Hou, Daniel Mamott, David~T.
-  Vereide, Jeea Choi, Christina Kendziorski, Ron Stewart, and James~A. Thomson.
-\newblock Single-cell rna-seq reveals novel regulators of human embryonic stem
-  cell differentiation to definitive endoderm.
-\newblock \emph{Genome Biology}, 17\penalty0 (1):\penalty0 173, 2016.
-\newblock \doi{10.1186/s13059-016-1033-x}.
-\newblock URL \url{https://doi.org/10.1186/s13059-016-1033-x}.
+\bibitem[\protect\citeauthoryear{Delmans and Hemberg}{2016}]{ref:d3e}
+\begin{barticle}[author]
+\bauthor{\bsnm{Delmans},~\bfnm{Mihails}\binits{M.}} \AND
+  \bauthor{\bsnm{Hemberg},~\bfnm{Martin}\binits{M.}}
+(\byear{2016}).
+\btitle{Discrete distributional differential expression (D3E) - a tool for gene
+  expression analysis of single-cell RNA-seq data}.
+\bjournal{BMC Bioinformatics}
+\bvolume{17}
+\bpages{110}.
+\bdoi{10.1186/s12859-016-0944-6}.
+\bid{Delmans2016}
+\end{barticle}
+\endbibitem
 
-\bibitem[Dahl(2009)]{ref:dahl}
-David~B. Dahl.
-\newblock Modal clustering in a class of product partition models.
-\newblock \emph{Bayesian Anal.}, 4\penalty0 (2):\penalty0 243--264, 06 2009.
-\newblock \doi{10.1214/09-BA409}.
-\newblock URL \url{https://doi.org/10.1214/09-BA409}.
+\bibitem[\protect\citeauthoryear{Finak et~al.}{2015}]{ref:MAST}
+\begin{barticle}[author]
+\bauthor{\bsnm{Finak},~\bfnm{Greg}\binits{G.}},
+  \bauthor{\bsnm{McDavid},~\bfnm{Andrew}\binits{A.}},
+  \bauthor{\bsnm{Yajima},~\bfnm{Masanao}\binits{M.}},
+  \bauthor{\bsnm{Deng},~\bfnm{Jingyuan}\binits{J.}},
+  \bauthor{\bsnm{Gersuk},~\bfnm{Vivian}\binits{V.}},
+  \bauthor{\bsnm{Shalek},~\bfnm{Alex~K.}\binits{A.~K.}},
+  \bauthor{\bsnm{Slichter},~\bfnm{Chloe~K.}\binits{C.~K.}},
+  \bauthor{\bsnm{Miller},~\bfnm{Hannah~W.}\binits{H.~W.}},
+  \bauthor{\bsnm{McElrath},~\bfnm{M.~Juliana}\binits{M.~J.}},
+  \bauthor{\bsnm{Prlic},~\bfnm{Martin}\binits{M.}},
+  \bauthor{\bsnm{Linsley},~\bfnm{Peter~S.}\binits{P.~S.}} \AND
+  \bauthor{\bsnm{Gottardo},~\bfnm{Raphael}\binits{R.}}
+(\byear{2015}).
+\btitle{MAST: a flexible statistical framework for assessing transcriptional
+  changes and characterizing heterogeneity in single-cell RNA sequencing data}.
+\bjournal{Genome Biology}
+\bvolume{16}
+\bpages{278}.
+\bdoi{10.1186/s13059-015-0844-5}.
+\bid{Finak2015}
+\end{barticle}
+\endbibitem
 
-\bibitem[Darmanis et~al.(2017)Darmanis, Sloan, Croote, Mignardi, Chernikova,
-  Samghababi, Zhang, Neff, Kowarsky, Caneda, Li, Chang, Connolly, Li, Barres,
-  Gephart, and Quake]{Darmanis}
-Spyros Darmanis, Steven~A Sloan, Derek Croote, Marco Mignardi, Sophia
-  Chernikova, Peyman Samghababi, Ye~Zhang, Norma Neff, Mark Kowarsky, Christine
-  Caneda, Gordon Li, Steven~D Chang, Ian~David Connolly, Yingmei Li, Ben~A
-  Barres, Melanie~Hayden Gephart, and Stephen~R Quake.
-\newblock Single-cell rna-seq analysis of infiltrating neoplastic cells at the
-  migrating front of human glioblastoma.
-\newblock \emph{Cell reports}, 21\penalty0 (5):\penalty0 1399--1410, 10 2017.
-\newblock \doi{10.1016/j.celrep.2017.10.030}.
-\newblock URL \url{https://www.ncbi.nlm.nih.gov/pubmed/29091775}.
+\bibitem[\protect\citeauthoryear{Kaufman and Rousseeuw}{1987}]{kmedoids}
+\begin{bbook}[author]
+\bauthor{\bsnm{Kaufman},~\bfnm{Leonard}\binits{L.}} \AND
+  \bauthor{\bsnm{Rousseeuw},~\bfnm{Peter}\binits{P.}}
+(\byear{1987}).
+\btitle{Clustering by means of medoids}.
+\bpublisher{North-Holland}.
+\end{bbook}
+\endbibitem
 
-\bibitem[Delmans and Hemberg(2016)]{ref:d3e}
-Mihails Delmans and Martin Hemberg.
-\newblock Discrete distributional differential expression (d3e) - a tool for
-  gene expression analysis of single-cell rna-seq data.
-\newblock \emph{BMC Bioinformatics}, 17\penalty0 (1):\penalty0 110, 2016.
-\newblock \doi{10.1186/s12859-016-0944-6}.
-\newblock URL \url{https://doi.org/10.1186/s12859-016-0944-6}.
+\bibitem[\protect\citeauthoryear{Kim et~al.}{2018}]{Cor}
+\begin{barticle}[author]
+\bauthor{\bsnm{Kim},~\bfnm{Taiyun}\binits{T.}},
+  \bauthor{\bsnm{Chen},~\bfnm{Irene~Rui}\binits{I.~R.}},
+  \bauthor{\bsnm{Lin},~\bfnm{Yingxin}\binits{Y.}},
+  \bauthor{\bsnm{Wang},~\bfnm{Andy Yi-Yang}\binits{A.~Y.-Y.}},
+  \bauthor{\bsnm{Yang},~\bfnm{Jean Yee~Hwa}\binits{J.~Y.~H.}} \AND
+  \bauthor{\bsnm{Yang},~\bfnm{Pengyi}\binits{P.}}
+(\byear{2018}).
+\btitle{Impact of similarity metrics on single-cell RNA-seq data clustering}.
+\bjournal{Briefings in Bioinformatics}
+\bpages{bby076}.
+\bdoi{10.1093/bib/bby076}
+\end{barticle}
+\endbibitem
 
-\bibitem[Deng et~al.(2014)Deng, Ramsk{\"o}ld, Reinius, and Sandberg]{Deng193}
-Qiaolin Deng, Daniel Ramsk{\"o}ld, Bj{\"o}rn Reinius, and Rickard Sandberg.
-\newblock Single-cell rna-seq reveals dynamic, random monoallelic gene
-  expression in mammalian cells.
-\newblock \emph{Science}, 343\penalty0 (6167):\penalty0 193--196, 2014.
-\newblock ISSN 0036-8075.
-\newblock \doi{10.1126/science.1245316}.
-\newblock URL \url{http://science.sciencemag.org/content/343/6167/193}.
+\bibitem[\protect\citeauthoryear{Kiselev et~al.}{2017}]{sc3}
+\begin{barticle}[author]
+\bauthor{\bsnm{Kiselev},~\bfnm{Vladimir~Yu}\binits{V.~Y.}},
+  \bauthor{\bsnm{Kirschner},~\bfnm{Kristina}\binits{K.}},
+  \bauthor{\bsnm{Schaub},~\bfnm{Michael~T}\binits{M.~T.}},
+  \bauthor{\bsnm{Andrews},~\bfnm{Tallulah}\binits{T.}},
+  \bauthor{\bsnm{Yiu},~\bfnm{Andrew}\binits{A.}},
+  \bauthor{\bsnm{Chandra},~\bfnm{Tamir}\binits{T.}},
+  \bauthor{\bsnm{Natarajan},~\bfnm{Kedar~N}\binits{K.~N.}},
+  \bauthor{\bsnm{Reik},~\bfnm{Wolf}\binits{W.}},
+  \bauthor{\bsnm{Barahona},~\bfnm{Mauricio}\binits{M.}},
+  \bauthor{\bsnm{Green},~\bfnm{Anthony~R}\binits{A.~R.}} \AND
+  \bauthor{\bsnm{Hemberg},~\bfnm{Martin}\binits{M.}}
+(\byear{2017}).
+\btitle{SC3: consensus clustering of single-cell RNA-seq data}.
+\bjournal{Nature Methods}
+\bvolume{14}
+\bpages{483 EP -}.
+\end{barticle}
+\endbibitem
 
-\bibitem[Engel et~al.(2016)Engel, Seumois, Chavez, Samaniego-Castruita, White,
-  Chawla, Mock, Vijayanand, and Kronenberg]{Engel}
-Isaac Engel, Gr{\'e}gory Seumois, Lukas Chavez, Daniela Samaniego-Castruita,
-  Brandie White, Ashu Chawla, Dennis Mock, Pandurangan Vijayanand, and Mitchell
-  Kronenberg.
-\newblock Innate-like functions of natural killer t cell subsets result from
-  highly divergent gene programs.
-\newblock \emph{Nature Immunology}, 17:\penalty0 728 EP --, 04 2016.
-\newblock URL \url{http://dx.doi.org/10.1038/ni.3437}.
+\bibitem[\protect\citeauthoryear{Korthauer et~al.}{2016}]{ref:scDD}
+\begin{barticle}[author]
+\bauthor{\bsnm{Korthauer},~\bfnm{Keegan~D.}\binits{K.~D.}},
+  \bauthor{\bsnm{Chu},~\bfnm{Li-Fang}\binits{L.-F.}},
+  \bauthor{\bsnm{Newton},~\bfnm{Michael~A.}\binits{M.~A.}},
+  \bauthor{\bsnm{Li},~\bfnm{Yuan}\binits{Y.}},
+  \bauthor{\bsnm{Thomson},~\bfnm{James}\binits{J.}},
+  \bauthor{\bsnm{Stewart},~\bfnm{Ron}\binits{R.}} \AND
+  \bauthor{\bsnm{Kendziorski},~\bfnm{Christina}\binits{C.}}
+(\byear{2016}).
+\btitle{A statistical approach for identifying differential distributions in
+  single-cell RNA-seq experiments}.
+\bjournal{Genome Biology}
+\bvolume{17}
+\bpages{222}.
+\bdoi{10.1186/s13059-016-1077-y}.
+\bid{Korthauer2016}
+\end{barticle}
+\endbibitem
 
-\bibitem[Finak et~al.(2015)Finak, McDavid, Yajima, Deng, Gersuk, Shalek,
-  Slichter, Miller, McElrath, Prlic, Linsley, and Gottardo]{ref:MAST}
-Greg Finak, Andrew McDavid, Masanao Yajima, Jingyuan Deng, Vivian Gersuk,
-  Alex~K. Shalek, Chloe~K. Slichter, Hannah~W. Miller, M.~Juliana McElrath,
-  Martin Prlic, Peter~S. Linsley, and Raphael Gottardo.
-\newblock Mast: a flexible statistical framework for assessing transcriptional
-  changes and characterizing heterogeneity in single-cell rna sequencing data.
-\newblock \emph{Genome Biology}, 16\penalty0 (1):\penalty0 278, 2015.
-\newblock \doi{10.1186/s13059-015-0844-5}.
-\newblock URL \url{https://doi.org/10.1186/s13059-015-0844-5}.
+\bibitem[\protect\citeauthoryear{Leng et~al.}{2013}]{ref:Leng}
+\begin{barticle}[author]
+\bauthor{\bsnm{Leng},~\bfnm{Ning}\binits{N.}},
+  \bauthor{\bsnm{Dawson},~\bfnm{John~A.}\binits{J.~A.}},
+  \bauthor{\bsnm{Thomson},~\bfnm{James~A.}\binits{J.~A.}},
+  \bauthor{\bsnm{Ruotti},~\bfnm{Victor}\binits{V.}},
+  \bauthor{\bsnm{Rissman},~\bfnm{Anna~I.}\binits{A.~I.}},
+  \bauthor{\bsnm{Smits},~\bfnm{Bart M.~G.}\binits{B.~M.~G.}},
+  \bauthor{\bsnm{Haag},~\bfnm{Jill~D.}\binits{J.~D.}},
+  \bauthor{\bsnm{Gould},~\bfnm{Michael~N.}\binits{M.~N.}},
+  \bauthor{\bsnm{Stewart},~\bfnm{Ron~M.}\binits{R.~M.}} \AND
+  \bauthor{\bsnm{Kendziorski},~\bfnm{Christina}\binits{C.}}
+(\byear{2013}).
+\btitle{EBSeq: an empirical Bayes hierarchical model for inference in RNA-seq
+  experiments}.
+\bjournal{Bioinformatics}
+\bvolume{29}
+\bpages{1035-1043}.
+\bdoi{10.1093/bioinformatics/btt087}
+\end{barticle}
+\endbibitem
 
-\bibitem[Guo et~al.(2015)Guo, Yan, Guo, Li, Hu, Zhao, Yong, Hu, Wang, Wei,
-  Wang, Li, Yan, Zhi, Zhang, Jin, Zhang, Hou, Zhu, Li, Zhang, Liu, Ren, Zhu,
-  Wen, Gao, Tang, and Qiao]{Guo}
-Fan Guo, Liying Yan, Hongshan Guo, Lin Li, Boqiang Hu, Yangyu Zhao, Jun Yong,
-  Yuqiong Hu, Xiaoye Wang, Yuan Wei, Wei Wang, Rong Li, Jie Yan, Xu~Zhi, Yan
-  Zhang, Hongyan Jin, Wenxin Zhang, Yu~Hou, Ping Zhu, Jingyun Li, Ling Zhang,
-  Sirui Liu, Yixin Ren, Xiaohui Zhu, Lu~Wen, Yi~Qin Gao, Fuchou Tang, and Jie
-  Qiao.
-\newblock The transcriptome and dna methylome landscapes of human primordial
-  germ cells.
-\newblock \emph{Cell}, 161\penalty0 (6):\penalty0 1437--1452, 2017/12/05 2015.
-\newblock \doi{10.1016/j.cell.2015.05.015}.
-\newblock URL \url{http://dx.doi.org/10.1016/j.cell.2015.05.015}.
+\bibitem[\protect\citeauthoryear{Lin, Troup and Ho}{2017}]{CIDR}
+\begin{barticle}[author]
+\bauthor{\bsnm{Lin},~\bfnm{Peijie}\binits{P.}},
+  \bauthor{\bsnm{Troup},~\bfnm{Michael}\binits{M.}} \AND
+  \bauthor{\bsnm{Ho},~\bfnm{Joshua W.~K.}\binits{J.~W.~K.}}
+(\byear{2017}).
+\btitle{CIDR: Ultrafast and accurate clustering through imputation for
+  single-cell RNA-seq data}.
+\bjournal{Genome Biology}
+\bvolume{18}
+\bpages{59}.
+\bdoi{10.1186/s13059-017-1188-0}.
+\bid{Lin2017}
+\end{barticle}
+\endbibitem
 
-\bibitem[Kaufman and Rousseeuw(1987)]{kmedoids}
-Leonard Kaufman and Peter Rousseeuw.
-\newblock \emph{Clustering by means of medoids}.
-\newblock North-Holland, 1987.
+\bibitem[\protect\citeauthoryear{Love, Huber and Anders}{2014}]{ref:Des}
+\begin{barticle}[author]
+\bauthor{\bsnm{Love},~\bfnm{Michael~I.}\binits{M.~I.}},
+  \bauthor{\bsnm{Huber},~\bfnm{Wolfgang}\binits{W.}} \AND
+  \bauthor{\bsnm{Anders},~\bfnm{Simon}\binits{S.}}
+(\byear{2014}).
+\btitle{Moderated estimation of fold change and dispersion for RNA-seq data
+  with DESeq2}.
+\bjournal{Genome Biology}
+\bvolume{15}
+\bpages{550}.
+\bdoi{10.1186/s13059-014-0550-8}.
+\bid{Love2014}
+\end{barticle}
+\endbibitem
 
-\bibitem[Kim et~al.(2018)Kim, Chen, Lin, Wang, Yang, and Yang]{Cor}
-Taiyun Kim, Irene~Rui Chen, Yingxin Lin, Andy Yi-Yang Wang, Jean Yee~Hwa Yang,
-  and Pengyi Yang.
-\newblock Impact of similarity metrics on single-cell rna-seq data clustering.
-\newblock \emph{Briefings in Bioinformatics}, page bby076, 2018.
-\newblock \doi{10.1093/bib/bby076}.
-\newblock URL \url{http://dx.doi.org/10.1093/bib/bby076}.
+\bibitem[\protect\citeauthoryear{Marioni and Arendt}{2017}]{dv}
+\begin{barticle}[author]
+\bauthor{\bsnm{Marioni},~\bfnm{John~C.}\binits{J.~C.}} \AND
+  \bauthor{\bsnm{Arendt},~\bfnm{Detlev}\binits{D.}}
+(\byear{2017}).
+\btitle{How Single-Cell Genomics Is Changing Evolutionary and Developmental
+  Biology}.
+\bjournal{Annual Review of Cell and Developmental Biology}
+\bvolume{33}
+\bpages{537-553}.
+\bnote{PMID: 28813177}.
+\bdoi{10.1146/annurev-cellbio-100616-060818}
+\end{barticle}
+\endbibitem
 
-\bibitem[Kiselev et~al.(2017)Kiselev, Kirschner, Schaub, Andrews, Yiu, Chandra,
-  Natarajan, Reik, Barahona, Green, and Hemberg]{sc3}
-Vladimir~Yu Kiselev, Kristina Kirschner, Michael~T Schaub, Tallulah Andrews,
-  Andrew Yiu, Tamir Chandra, Kedar~N Natarajan, Wolf Reik, Mauricio Barahona,
-  Anthony~R Green, and Martin Hemberg.
-\newblock Sc3: consensus clustering of single-cell rna-seq data.
-\newblock \emph{Nature Methods}, 14:\penalty0 483 EP --, 03 2017.
-\newblock URL \url{http://dx.doi.org/10.1038/nmeth.4236}.
+\bibitem[\protect\citeauthoryear{Navin}{2015}]{cancer}
+\begin{barticle}[author]
+\bauthor{\bsnm{Navin},~\bfnm{Nicholas~E}\binits{N.~E.}}
+(\byear{2015}).
+\btitle{The first five years of single-cell cancer genomics and beyond}.
+\bjournal{Genome Research}
+\bvolume{25}
+\bpages{1499--1507}.
+\bdoi{10.1101/gr.191098.115}
+\end{barticle}
+\endbibitem
 
-\bibitem[Korthauer et~al.(2016)Korthauer, Chu, Newton, Li, Thomson, Stewart,
-  and Kendziorski]{ref:scDD}
-Keegan~D. Korthauer, Li-Fang Chu, Michael~A. Newton, Yuan Li, James Thomson,
-  Ron Stewart, and Christina Kendziorski.
-\newblock A statistical approach for identifying differential distributions in
-  single-cell rna-seq experiments.
-\newblock \emph{Genome Biology}, 17\penalty0 (1):\penalty0 222, 2016.
-\newblock \doi{10.1186/s13059-016-1077-y}.
-\newblock URL \url{https://doi.org/10.1186/s13059-016-1077-y}.
+\bibitem[\protect\citeauthoryear{Nawy}{2013}]{scs}
+\begin{barticle}[author]
+\bauthor{\bsnm{Nawy},~\bfnm{Tal}\binits{T.}}
+(\byear{2013}).
+\btitle{Single-cell sequencing}.
+\bjournal{Nature Methods}
+\bvolume{11}
+\bpages{18 EP -}.
+\end{barticle}
+\endbibitem
 
-\bibitem[Kumar et~al.(2014)Kumar, Cahan, Shalek, Satija, Jay~DaleyKeyser, Li,
-  Zhang, Pardee, Gennert, Trombetta, Ferrante, Regev, Daley, and
-  Collins]{Kumar}
-Roshan~M. Kumar, Patrick Cahan, Alex~K. Shalek, Rahul Satija,
-  A.~Jay~DaleyKeyser, Hu~Li, Jin Zhang, Keith Pardee, David Gennert, John~J.
-  Trombetta, Thomas~C. Ferrante, Aviv Regev, George~Q. Daley, and James~J.
-  Collins.
-\newblock Deconstructing transcriptional heterogeneity in pluripotent stem
-  cells.
-\newblock \emph{Nature}, 516:\penalty0 56 EP --, 12 2014.
-\newblock URL \url{http://dx.doi.org/10.1038/nature13920}.
+\bibitem[\protect\citeauthoryear{Papalexi and Satija}{2017}]{immune}
+\begin{barticle}[author]
+\bauthor{\bsnm{Papalexi},~\bfnm{Efthymia}\binits{E.}} \AND
+  \bauthor{\bsnm{Satija},~\bfnm{Rahul}\binits{R.}}
+(\byear{2017}).
+\btitle{Single-cell RNA sequencing to explore immune cell heterogeneity}.
+\bjournal{Nature Reviews Immunology}
+\bvolume{18}
+\bpages{35 EP -}.
+\end{barticle}
+\endbibitem
 
-\bibitem[Leng et~al.(2013)Leng, Dawson, Thomson, Ruotti, Rissman, Smits, Haag,
-  Gould, Stewart, and Kendziorski]{ref:Leng}
-Ning Leng, John~A. Dawson, James~A. Thomson, Victor Ruotti, Anna~I. Rissman,
-  Bart M.~G. Smits, Jill~D. Haag, Michael~N. Gould, Ron~M. Stewart, and
-  Christina Kendziorski.
-\newblock Ebseq: an empirical bayes hierarchical model for inference in rna-seq
-  experiments.
-\newblock \emph{Bioinformatics}, 29\penalty0 (8):\penalty0 1035--1043, 2013.
-\newblock \doi{10.1093/bioinformatics/btt087}.
-\newblock URL \url{+ http://dx.doi.org/10.1093/bioinformatics/btt087}.
+\bibitem[\protect\citeauthoryear{Pierson and Yau}{2015}]{ZIFA}
+\begin{barticle}[author]
+\bauthor{\bsnm{Pierson},~\bfnm{Emma}\binits{E.}} \AND
+  \bauthor{\bsnm{Yau},~\bfnm{Christopher}\binits{C.}}
+(\byear{2015}).
+\btitle{ZIFA: Dimensionality reduction for zero-inflated single-cell gene
+  expression analysis}.
+\bjournal{Genome Biology}
+\bvolume{16}
+\bpages{241}.
+\bdoi{10.1186/s13059-015-0805-z}.
+\bid{Pierson2015}
+\end{barticle}
+\endbibitem
 
-\bibitem[Leng et~al.(2015)Leng, Chu, Barry, Li, Choi, Li, Jiang, Stewart,
-  Thomson, and Kendziorski]{oscope}
-Ning Leng, Li-Fang Chu, Chris Barry, Yuan Li, Jeea Choi, Xiaomao Li, Peng
-  Jiang, Ron~M Stewart, James~A Thomson, and Christina Kendziorski.
-\newblock Oscope identifies oscillatory genes in unsynchronized single-cell
-  rna-seq experiments.
-\newblock \emph{Nature Methods}, 12:\penalty0 947 EP --, 08 2015.
-\newblock URL \url{http://dx.doi.org/10.1038/nmeth.3549}.
+\bibitem[\protect\citeauthoryear{Ray and Turi}{2000}]{selK}
+\begin{binproceedings}[author]
+\bauthor{\bsnm{Ray},~\bfnm{Siddheswar}\binits{S.}} \AND
+  \bauthor{\bsnm{Turi},~\bfnm{Rose~H.}\binits{R.~H.}}
+(\byear{2000}).
+\btitle{Determination of Number of Clusters in K-Means Clustering and
+  Application in Colour Image Segmentation}.
+\end{binproceedings}
+\endbibitem
 
-\bibitem[Lin et~al.(2017)Lin, Troup, and Ho]{CIDR}
-Peijie Lin, Michael Troup, and Joshua W.~K. Ho.
-\newblock Cidr: Ultrafast and accurate clustering through imputation for
-  single-cell rna-seq data.
-\newblock \emph{Genome Biology}, 18\penalty0 (1):\penalty0 59, 2017.
-\newblock \doi{10.1186/s13059-017-1188-0}.
-\newblock URL \url{https://doi.org/10.1186/s13059-017-1188-0}.
+\bibitem[\protect\citeauthoryear{Soneson and Robinson}{2017}]{ref:Cq}
+\begin{barticle}[author]
+\bauthor{\bsnm{Soneson},~\bfnm{Charlotte}\binits{C.}} \AND
+  \bauthor{\bsnm{Robinson},~\bfnm{Mark~D.}\binits{M.~D.}}
+(\byear{2017}).
+\btitle{Bias, Robustness And Scalability In Differential Expression Analysis Of
+  Single-Cell RNA-Seq Data}.
+\bjournal{bioRxiv}.
+\bdoi{10.1101/143289}
+\end{barticle}
+\endbibitem
 
-\bibitem[Love et~al.(2014)Love, Huber, and Anders]{ref:Des}
-Michael~I. Love, Wolfgang Huber, and Simon Anders.
-\newblock Moderated estimation of fold change and dispersion for rna-seq data
-  with deseq2.
-\newblock \emph{Genome Biology}, 15\penalty0 (12):\penalty0 550, 2014.
-\newblock \doi{10.1186/s13059-014-0550-8}.
-\newblock URL \url{https://doi.org/10.1186/s13059-014-0550-8}.
+\bibitem[\protect\citeauthoryear{Strehl and Ghosh}{2003}]{ref:cspa}
+\begin{barticle}[author]
+\bauthor{\bsnm{Strehl},~\bfnm{Alexander}\binits{A.}} \AND
+  \bauthor{\bsnm{Ghosh},~\bfnm{Joydeep}\binits{J.}}
+(\byear{2003}).
+\btitle{Cluster Ensembles --- a Knowledge Reuse Framework for Combining
+  Multiple Partitions}.
+\bjournal{J. Mach. Learn. Res.}
+\bvolume{3}
+\bpages{583--617}.
+\bdoi{10.1162/153244303321897735}
+\end{barticle}
+\endbibitem
 
-\bibitem[Marioni and Arendt(2017)]{dv}
-John~C. Marioni and Detlev Arendt.
-\newblock How single-cell genomics is changing evolutionary and developmental
-  biology.
-\newblock \emph{Annual Review of Cell and Developmental Biology}, 33\penalty0
-  (1):\penalty0 537--553, Oct 2017.
-\newblock ISSN 1530-8995.
-\newblock \doi{10.1146/annurev-cellbio-100616-060818}.
-\newblock URL \url{https://doi.org/10.1146/annurev-cellbio-100616-060818}.
-\newblock PMID: 28813177.
+\bibitem[\protect\citeauthoryear{Wagner and Taudes}{1986}]{Wag}
+\begin{barticle}[author]
+\bauthor{\bsnm{Wagner},~\bfnm{Udo}\binits{U.}} \AND
+  \bauthor{\bsnm{Taudes},~\bfnm{Alfred}\binits{A.}}
+(\byear{1986}).
+\btitle{A Multivariate Polya Model of Brand Choice and Purchase Incidence}.
+\bjournal{Marketing Science}
+\bvolume{5}
+\bpages{219--244}.
+\bdoi{10.1287/mksc.5.3.219}
+\end{barticle}
+\endbibitem
 
-\bibitem[Navin(2015)]{cancer}
-Nicholas~E Navin.
-\newblock The first five years of single-cell cancer genomics and beyond.
-\newblock \emph{Genome Research}, 25\penalty0 (10):\penalty0 1499--1507, 10
-  2015.
-\newblock \doi{10.1101/gr.191098.115}.
-\newblock URL \url{http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4579335/}.
-
-\bibitem[Nawy(2013)]{scs}
-Tal Nawy.
-\newblock Single-cell sequencing.
-\newblock \emph{Nature Methods}, 11:\penalty0 18 EP --, 12 2013.
-\newblock URL \url{http://dx.doi.org/10.1038/nmeth.2771}.
-
-\bibitem[Papalexi and Satija(2017)]{immune}
-Efthymia Papalexi and Rahul Satija.
-\newblock Single-cell rna sequencing to explore immune cell heterogeneity.
-\newblock \emph{Nature Reviews Immunology}, 18:\penalty0 35 EP --, 08 2017.
-\newblock URL \url{http://dx.doi.org/10.1038/nri.2017.76}.
-
-\bibitem[Patel et~al.(2014)Patel, Tirosh, Trombetta, Shalek, Gillespie,
-  Wakimoto, Cahill, Nahed, Curry, Martuza, Louis, Rozenblatt-Rosen, Suv{\`a},
-  Regev, and Bernstein]{Patel}
-Anoop~P. Patel, Itay Tirosh, John~J. Trombetta, Alex~K. Shalek, Shawn~M.
-  Gillespie, Hiroaki Wakimoto, Daniel~P. Cahill, Brian~V. Nahed, William~T.
-  Curry, Robert~L. Martuza, David~N. Louis, Orit Rozenblatt-Rosen, Mario~L.
-  Suv{\`a}, Aviv Regev, and Bradley~E. Bernstein.
-\newblock Single-cell rna-seq highlights intratumoral heterogeneity in primary
-  glioblastoma.
-\newblock \emph{Science}, 344\penalty0 (6190):\penalty0 1396--1401, 2014.
-\newblock ISSN 0036-8075.
-\newblock \doi{10.1126/science.1254257}.
-\newblock URL \url{http://science.sciencemag.org/content/344/6190/1396}.
-
-\bibitem[Pierson and Yau(2015)]{ZIFA}
-Emma Pierson and Christopher Yau.
-\newblock Zifa: Dimensionality reduction for zero-inflated single-cell gene
-  expression analysis.
-\newblock \emph{Genome Biology}, 16\penalty0 (1):\penalty0 241, 2015.
-\newblock \doi{10.1186/s13059-015-0805-z}.
-\newblock URL \url{https://doi.org/10.1186/s13059-015-0805-z}.
-
-\bibitem[Ray and Turi(2000)]{selK}
-Siddheswar Ray and Rose~H. Turi.
-\newblock Determination of number of clusters in k-means clustering and
-  application in colour image segmentation.
-\newblock 2000.
-
-\bibitem[Shalek et~al.(2014)Shalek, Satija, Shuga, Trombetta, Gennert, Lu,
-  Chen, Gertner, Gaublomme, Yosef, Schwartz, Fowler, Weaver, Wang, Wang, Ding,
-  Raychowdhury, Friedman, Hacohen, Park, May, and Regev]{Shalek}
-Alex~K. Shalek, Rahul Satija, Joe Shuga, John~J. Trombetta, Dave Gennert, Diana
-  Lu, Peilin Chen, Rona~S. Gertner, Jellert~T. Gaublomme, Nir Yosef, Schraga
-  Schwartz, Brian Fowler, Suzanne Weaver, Jing Wang, Xiaohui Wang, Ruihua Ding,
-  Raktima Raychowdhury, Nir Friedman, Nir Hacohen, Hongkun Park, Andrew~P. May,
-  and Aviv Regev.
-\newblock Single-cell rna-seq reveals dynamic paracrine control of cellular
-  variation.
-\newblock \emph{Nature}, 510:\penalty0 363 EP --, 06 2014.
-\newblock URL \url{http://dx.doi.org/10.1038/nature13437}.
-
-\bibitem[Soneson and Robinson(2017)]{ref:Cq}
-Charlotte Soneson and Mark~D. Robinson.
-\newblock Bias, robustness and scalability in differential expression analysis
-  of single-cell rna-seq data.
-\newblock \emph{bioRxiv}, 2017.
-\newblock \doi{10.1101/143289}.
-\newblock URL \url{https://www.biorxiv.org/content/early/2017/05/28/143289}.
-
-\bibitem[Strehl and Ghosh(2003)]{ref:cspa}
-Alexander Strehl and Joydeep Ghosh.
-\newblock Cluster ensembles --- a knowledge reuse framework for combining
-  multiple partitions.
-\newblock \emph{J. Mach. Learn. Res.}, 3:\penalty0 583--617, March 2003.
-\newblock ISSN 1532-4435.
-\newblock \doi{10.1162/153244303321897735}.
-\newblock URL \url{https://doi.org/10.1162/153244303321897735}.
-
-\bibitem[Tasic et~al.(2016)Tasic, Menon, Nguyen, Kim, Jarsky, Yao, Levi, Gray,
-  Sorensen, Dolbeare, Bertagnolli, Goldy, Shapovalova, Parry, Lee, Smith,
-  Bernard, Madisen, Sunkin, Hawrylycz, Koch, and Zeng]{Tasic}
-Bosiljka Tasic, Vilas Menon, Thuc~Nghi Nguyen, Tae~Kyung Kim, Tim Jarsky,
-  Zizhen Yao, Boaz Levi, Lucas~T Gray, Staci~A Sorensen, Tim Dolbeare, Darren
-  Bertagnolli, Jeff Goldy, Nadiya Shapovalova, Sheana Parry, Changkyu Lee,
-  Kimberly Smith, Amy Bernard, Linda Madisen, Susan~M Sunkin, Michael
-  Hawrylycz, Christof Koch, and Hongkui Zeng.
-\newblock Adult mouse cortical cell taxonomy revealed by single cell
-  transcriptomics.
-\newblock \emph{Nature Neuroscience}, 19:\penalty0 335 EP --, 01 2016.
-\newblock URL \url{http://dx.doi.org/10.1038/nn.4216}.
-
-\bibitem[Trapnell et~al.(2014)Trapnell, Cacchiarelli, Grimsby, Pokharel, Li,
-  Morse, Lennon, Livak, Mikkelsen, and Rinn]{Trapnell}
-Cole Trapnell, Davide Cacchiarelli, Jonna Grimsby, Prapti Pokharel, Shuqiang
-  Li, Michael Morse, Niall~J Lennon, Kenneth~J Livak, Tarjei~S Mikkelsen, and
-  John~L Rinn.
-\newblock The dynamics and regulators of cell fate decisions are revealed by
-  pseudotemporal ordering of single cells.
-\newblock \emph{Nature biotechnology}, 32\penalty0 (4):\penalty0 381--386, 04
-  2014.
-\newblock \doi{10.1038/nbt.2859}.
-\newblock URL \url{https://www.ncbi.nlm.nih.gov/pubmed/24658644}.
-
-\bibitem[Wagner and Taudes(1986)]{Wag}
-Udo Wagner and Alfred Taudes.
-\newblock A multivariate polya model of brand choice and purchase incidence.
-\newblock \emph{Marketing Science}, 5\penalty0 (3):\penalty0 219--244, August
-  1986.
-\newblock ISSN 1526-548X.
-\newblock \doi{10.1287/mksc.5.3.219}.
-\newblock URL \url{http://dx.doi.org/10.1287/mksc.5.3.219}.
-
-\bibitem[Zappia et~al.(2017)Zappia, Phipson, and Oshlack]{ref:Zappia}
-Luke Zappia, Belinda Phipson, and Alicia Oshlack.
-\newblock Splatter: simulation of single-cell rna sequencing data.
-\newblock \emph{Genome Biology}, 18\penalty0 (1):\penalty0 174, 2017.
-\newblock \doi{10.1186/s13059-017-1305-0}.
-\newblock URL \url{https://doi.org/10.1186/s13059-017-1305-0}.
+\bibitem[\protect\citeauthoryear{Zappia, Phipson and
+  Oshlack}{2017}]{ref:Zappia}
+\begin{barticle}[author]
+\bauthor{\bsnm{Zappia},~\bfnm{Luke}\binits{L.}},
+  \bauthor{\bsnm{Phipson},~\bfnm{Belinda}\binits{B.}} \AND
+  \bauthor{\bsnm{Oshlack},~\bfnm{Alicia}\binits{A.}}
+(\byear{2017}).
+\btitle{Splatter: simulation of single-cell RNA sequencing data}.
+\bjournal{Genome Biology}
+\bvolume{18}
+\bpages{174}.
+\bdoi{10.1186/s13059-017-1305-0}.
+\bid{Zappia2017}
+\end{barticle}
+\endbibitem
 
 \end{thebibliography}
