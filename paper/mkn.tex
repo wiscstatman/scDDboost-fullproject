@@ -735,7 +735,7 @@ the similarity of estimated clustering results with the ground truth by adjusted
 can still be powerful when underestimating $K$ and thus having a coarse modelling of gene distribution.
 
 More over, in splatter simulation, there are two hyper-parameters location $\theta$ and scale $\gamma$ controlling the log fold change of transcripts between groups on DE genes. In the paper, for simulating cells from multiple groups, $\theta = -0.1$ and $\gamma = 0.3$. 
-In the package, $\theta = 0.1$ and $\gamma = 0.4$. Under those default values, the log fold change is really small and all four methods did not have much power for detecting DD, To better evaluate those methods, we added two more configurations of $(\theta = -0.1, \gamma = 1)$ and $(\theta = 0.3, \gamma = 0.5)$, which zoom in the log fold change and the itself is not far away from the default hyper-parameters. 
+In the package, $\theta = 0.1$ and $\gamma = 0.4$. Under those default values, the log fold change is really small and all four methods did not have much power for detecting DD, To better evaluate those methods, we added two more configurations of $(\theta = -0.1, \gamma = 1)$ and $(\theta = 0.3, \gamma = 0.5)$, which zoom in the log fold change and the itself is not deviate from the default hyper-parameters. 
 
 We in total generate 12 simulation cases, each case we have 400 cells and we have the roc curve of those 4 methods on the 12 simulation cases below
  
