@@ -1,4 +1,4 @@
-\begin{thebibliography}{22}
+\begin{thebibliography}{23}
 % BibTex style file: imsart-nameyear.bst, 2017-11-03
 % Default style options (sort=1,type=nameyear).
 % Used options (sort=1,type=nameyear).
@@ -16,7 +16,7 @@
 \end{barticle}
 \endbibitem
 
-\bibitem[\protect\citeauthoryear{Bacher and Kendziorski}{2016}]{Bacher:2016aa}
+\bibitem[\protect\citeauthoryear{Bacher and Kendziorski}{2016}]{Bacher2016}
 \begin{barticle}[author]
 \bauthor{\bsnm{Bacher},~\bfnm{Rhonda}\binits{R.}} \AND
   \bauthor{\bsnm{Kendziorski},~\bfnm{Christina}\binits{C.}}
@@ -315,6 +315,17 @@
 \bvolume{5}
 \bpages{219--244}.
 \bdoi{10.1287/mksc.5.3.219}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Yakowitz and Spragins}{1968}]{yak68}
+\begin{barticle}[author]
+\bauthor{\bsnm{Yakowitz},~\bfnm{Sidney~J.}\binits{S.~J.}} \AND
+  \bauthor{\bsnm{Spragins},~\bfnm{John~D.}\binits{J.~D.}}
+(\byear{1968}).
+\btitle{On the Identifiability of Finite Mixtures}.
+\bvolume{39}
+\bpages{209--214}.
 \end{barticle}
 \endbibitem
 
