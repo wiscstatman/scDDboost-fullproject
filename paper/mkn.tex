@@ -729,6 +729,16 @@ To assess the performance of \verb+scDDboost+ we first  simulated
 synthetic data using \verb+splatter+~\citep{ref:Zappia}, 
 a recently developed system having good empirical characteristics 
 and providing interface for simulating cells from multiple groups. **broader first**
+
+To evaluate our clustering method, rule for selecting number of clusters and downstream DD analysis based on identified clusters we simulate datasets under 3 different number of groups : $K$ =  4, 7, 15.  For $K = 4, 7$ we asses 
+the similarity of estimated clustering results with the ground truth by adjusted Rand index. (supplementary)  For $K = 15$, as feasibility of computation, \textsc scDDboost can only handle $K$ up to 9. We assess whether \textsc scDDboost 
+can still be powerful when underestimating $K$ and thus having a coarse modelling of gene distribution.
+
+More over, in splatter simulation, there are two hyper-parameters location $\theta$ and scale $\gamma$ controlling the log fold change of transcripts between groups on DE genes. In the paper, for simulating cells from multiple groups, $\theta = -0.1$ and $\gamma = 0.3$. 
+In the package, $\theta = 0.1$ and $\gamma = 0.4$. Under those default values, the log fold change is really small and all four methods did not have much power for detecting DD, To better evaluate those methods, we added two more configurations of $(\theta = -0.1, \gamma = 1)$ and $(\theta = 0.3, \gamma = 0.5)$, which zoom in the log fold change and the itself is not deviate from the default hyper-parameters. 
+
+We in total generate 12 simulation cases, each case we have 400 cells and we have the roc curve of those 4 methods on the 12 simulation cases below
+ 
 We generate 200 cells each condition 
 and 7 subtypes with proportions $\phi$ and $\psi$ satisfying constraints: $\phi_1 + \phi_2 = \psi_1 + \psi_2$, $\phi_3 + \phi_4 +\phi_5 = \psi_3 + \psi_4 + \psi_5$ and $\phi_6 + \phi_7 = \psi_6 + \psi_7$. 
 Each subtype has 10\% genes to be differential expressed. 
@@ -992,7 +1002,7 @@ For example, when $K = 7$, For a $(\phi, \psi)\in A_{\pi_1} \cap A_{\pi_2} \cap 
 %Denote components from right hand side of (5): $\frac{1}{c'}\underset{b\in \pi}\prod\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(N(b) + t_b^1)\Gamma(N(b) + t_b^2)} \frac{\Gamma(N(b))}{\Gamma(2N(b))} = J(y,z,\pi).$  We have theorem 5.\\
 \begin{theorem} Following the setting in theorem 4, when parameter $(\phi, \psi)\in Q$,  and we have 
 \begin{eqnarray*}
-    J(y,z,\pi) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
+    p(A_{\pi} | y, z) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
                 \begin{array}{ll}
                  m(\pi) \quad  \pi \in S^* \\
                  0 \quad \text{otherwise}\\             
@@ -1002,7 +1012,7 @@ For example, when $K = 7$, For a $(\phi, \psi)\in A_{\pi_1} \cap A_{\pi_2} \cap 
 and $\underset{\pi\in S^*}\sum m(\pi) = 1, m(\pi) > 0$\\
 \end{theorem}
 
-Still using above example, in limiting case, we have $p(A_{\pi_3} | y,z) = 1$, $p(A_{\pi_2} | y,z) = 1$ and $p(A_{\pi_1}| y,z) = 0$. When the DE pattern is $B_{\pi_1}$ for some genes. Since our underestimation of $p(A_{\pi_1}| y,z) = 0$, we will falsely classify those genes as differential distributed.
+Still using above example, in limiting case, we have $p(A_{\pi_3} | y,z) = 1$, $p(A_{\pi_2} | y,z) = 1$ and $p(A_{\pi_1}| y,z) = 0$. When the DE pattern is $B_{\pi_1}$ for some genes and our estimation of $p(A_{\pi_1}| y,z) = 0$, we will falsely classify those genes as differential distributed.
 
 The asymptotic properties help us gain insight of the performance of our approach,
 scDDboost may work poorly, when $(\phi, \psi)\in Q$, we may underestimate the posterior probability of true proportion change pattern, which reduce the posterior probabilities of true negative and enlarge false positive rate.\\
