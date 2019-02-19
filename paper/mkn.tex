@@ -992,7 +992,7 @@ For example, when $K = 7$, For a $(\phi, \psi)\in A_{\pi_1} \cap A_{\pi_2} \cap 
 %Denote components from right hand side of (5): $\frac{1}{c'}\underset{b\in \pi}\prod\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(N(b) + t_b^1)\Gamma(N(b) + t_b^2)} \frac{\Gamma(N(b))}{\Gamma(2N(b))} = J(y,z,\pi).$  We have theorem 5.\\
 \begin{theorem} Following the setting in theorem 4, when parameter $(\phi, \psi)\in Q$,  and we have 
 \begin{eqnarray*}
-    J(y,z,\pi) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
+    p(A_{\pi} | y, z) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
                 \begin{array}{ll}
                  m(\pi) \quad  \pi \in S^* \\
                  0 \quad \text{otherwise}\\             
@@ -1002,7 +1002,7 @@ For example, when $K = 7$, For a $(\phi, \psi)\in A_{\pi_1} \cap A_{\pi_2} \cap 
 and $\underset{\pi\in S^*}\sum m(\pi) = 1, m(\pi) > 0$\\
 \end{theorem}
 
-Still using above example, in limiting case, we have $p(A_{\pi_3} | y,z) = 1$, $p(A_{\pi_2} | y,z) = 1$ and $p(A_{\pi_1}| y,z) = 0$. When the DE pattern is $B_{\pi_1}$ for some genes. Since our underestimation of $p(A_{\pi_1}| y,z) = 0$, we will falsely classify those genes as differential distributed.
+Still using above example, in limiting case, we have $p(A_{\pi_3} | y,z) = 1$, $p(A_{\pi_2} | y,z) = 1$ and $p(A_{\pi_1}| y,z) = 0$. When the DE pattern is $B_{\pi_1}$ for some genes and our estimation of $p(A_{\pi_1}| y,z) = 0$, we will falsely classify those genes as differential distributed.
 
 The asymptotic properties help us gain insight of the performance of our approach,
 scDDboost may work poorly, when $(\phi, \psi)\in Q$, we may underestimate the posterior probability of true proportion change pattern, which reduce the posterior probabilities of true negative and enlarge false positive rate.\\
