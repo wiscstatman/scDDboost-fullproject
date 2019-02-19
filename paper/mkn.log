@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  18 FEB 2019 21:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  18 FEB 2019 22:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1065,16 +1065,15 @@ LaTeX Warning: Label `t2thanks' multiply defined.
 
 LaTeX Warning: Label `k1thanks' multiply defined.
 
-
-LaTeX Warning: Label `fig:6' multiply defined.
-
-
-LaTeX Warning: Label `fig:7' multiply defined.
-
-
-LaTeX Warning: Label `fig:1' multiply defined.
-
 )
+Runaway argument?
+{\contentsline {figure}{\numberline {2}{\ignorespaces Directed acycli\ETC.
+./mkn.tex:56: File ended while scanning use of \@writefile.
+<inserted text> 
+                \par 
+l.56 \begin{document}
+                     
+? 
 \openout1 = `mkn.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
@@ -1093,7 +1092,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
 LaTeX Font Info:    ... okay on input line 56.
 LaTeX Font Info:    Try loading font information for OT1+pplx on input line 56.
 
- (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1pplx.fd
+(/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1pplx.fd
 File: ot1pplx.fd 2004/09/06 font definitions for OT1/pplx.
 )
 \AtBeginShipoutBox=\box69
@@ -1202,11 +1201,74 @@ Overfull \hbox (13.0887pt too wide) in paragraph at lines 92--107
 ages cell-subtype 
  []
 
+
+Package natbib Warning: Citation `immune' on page 1 undefined on input line 117
+.
+
+
+Package natbib Warning: Citation `dv' on page 1 undefined on input line 118.
+
+
+Package natbib Warning: Citation `cancer' on page 1 undefined on input line 118
+.
+
+
+Package natbib Warning: Citation `scs' on page 1 undefined on input line 118.
+
+
+Package natbib Warning: Citation `Bacher2016' on page 1 undefined on input line
+ 124.
+
+
+Package natbib Warning: Citation `sc3' on page 1 undefined on input line 132.
+
+
+Package natbib Warning: Citation `CIDR' on page 1 undefined on input line 132.
+
+
+Package natbib Warning: Citation `ZIFA' on page 1 undefined on input line 132.
+
 [1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-[2] [3] [4]
-<Figs/schematic-1.png, id=173, 1541.76pt x 770.88pt>
+
+Package natbib Warning: Citation `ref:MAST' on page 2 undefined on input line 1
+40.
+
+
+Package natbib Warning: Citation `ref:scDD' on page 2 undefined on input line 1
+41.
+
+
+Package natbib Warning: Citation `ref:d3e' on page 2 undefined on input line 14
+1.
+
+
+Package natbib Warning: Citation `ref:Leng' on page 2 undefined on input line 1
+58.
+
+
+Package natbib Warning: Citation `ref:Zappia' on page 2 undefined on input line
+ 166.
+
+
+Package natbib Warning: Citation `ref:Cq' on page 2 undefined on input line 167
+.
+
+[2] [3]
+
+Package natbib Warning: Citation `ref:Leng' on page 4 undefined on input line 2
+54.
+
+
+Package natbib Warning: Citation `DES' on page 4 undefined on input line 254.
+
+
+Package natbib Warning: Citation `ref:Des' on page 4 undefined on input line 25
+4.
+
+[4]
+<Figs/schematic-1.png, id=52, 1541.76pt x 770.88pt>
 File: Figs/schematic-1.png Graphic file (type png)
 <use Figs/schematic-1.png>
 Package pdftex.def Info: Figs/schematic-1.png  used on input line 297.
@@ -1218,7 +1280,7 @@ LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <9> not available
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [5] [6 <./Figs/schematic-1.png>]
-<Figs/dag.png, id=192, 1027.84pt x 770.88pt>
+<Figs/dag.png, id=69, 1027.84pt x 770.88pt>
 File: Figs/dag.png Graphic file (type png)
 <use Figs/dag.png>
 Package pdftex.def Info: Figs/dag.png  used on input line 363.
@@ -1237,14 +1299,61 @@ Overfull \hbox (2.21275pt too wide) in paragraph at lines 372--378
  []
 
 [7 <./Figs/dag.png>]
+
+Package natbib Warning: Citation `sc3' on page 8 undefined on input line 405.
+
+
+Package natbib Warning: Citation `CIDR' on page 8 undefined on input line 405.
+
+
+Package natbib Warning: Citation `ZIFA' on page 8 undefined on input line 405.
+
+
+Package natbib Warning: Citation `ref:Leng' on page 8 undefined on input line 4
+15.
+
+
+LaTeX Warning: Reference `alg:scDDcore' on page 8 undefined on input line 416.
+
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 425.
- [8] [9]
-Overfull \hbox (32.90495pt too wide) in paragraph at lines 540--546
+
+Package natbib Warning: Citation `kmedoids' on page 8 undefined on input line 4
+49.
+
+
+Package natbib Warning: Citation `ref:cspa' on page 8 undefined on input line 4
+51.
+
+
+Package natbib Warning: Citation `ref:dahl' on page 8 undefined on input line 4
+52.
+
+
+Package natbib Warning: Citation `Cor' on page 8 undefined on input line 457.
+
+[8]
+
+LaTeX Warning: Reference `alg:scDDboost' on page 9 undefined on input line 471.
+
+
+
+Package natbib Warning: Citation `selK' on page 9 undefined on input line 478.
+
+[9]
+
+LaTeX Warning: Reference `eq:doubledir' on page 10 undefined on input line 542.
+
+
+
+LaTeX Warning: Reference `eq:ddmix' on page 10 undefined on input line 543.
+
+
+Overfull \hbox (37.15356pt too wide) in paragraph at lines 540--546
 \OT1/pplx/m/n/10.95 Mix-ing over $\OML/zplm/m/it/10.95 ^^Y$ \OT1/pplx/m/n/10.95
- as in ([][]6[][]), we write $\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 ^^^\OT1
-/pplx/m/n/10.95 , \OML/zplm/m/it/10.95  \OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.
-95 ^^X [] [] \OT1/pplx/m/n/10.95 .$ 
+ as in ([]), we write $\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 ^^^\OT1/pplx/m
+/n/10.95 , \OML/zplm/m/it/10.95  \OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^X 
+[] [] \OT1/pplx/m/n/10.95 .$ 
  []
 
 [10]
@@ -1257,7 +1366,10 @@ Overfull \hbox (55.95021pt too wide) in alignment at lines 593--601
  [][][] []
  []
 
-[11]
+
+Package natbib Warning: Citation `Wag' on page 11 undefined on input line 620.
+
+
 Overfull \hbox (50.2934pt too wide) in alignment at lines 630--639
  [][][] []
  []
@@ -1268,135 +1380,164 @@ Overfull \hbox (14.05144pt too wide) in paragraph at lines 639--642
 is-tri-bu-tion for counts
  []
 
+[11]
+
+Package natbib Warning: Citation `ref:Zappia' on page 12 undefined on input lin
+e 729.
+
 [12]
-<Figs/roc.pdf, id=269, 505.89pt x 505.89pt>
+<Figs/roc.pdf, id=115, 505.89pt x 505.89pt>
 File: Figs/roc.pdf Graphic file (type pdf)
 <use Figs/roc.pdf>
-Package pdftex.def Info: Figs/roc.pdf  used on input line 769.
+Package pdftex.def Info: Figs/roc.pdf  used on input line 777.
 (pdftex.def)             Requested size: 288.0011pt x 288.0052pt.
  [13]
-<Figs/DD95.pdf, id=285, 722.7pt x 361.35pt>
+
+Package natbib Warning: Citation `ref:Cq' on page 14 undefined on input line 78
+9.
+
+
+Package natbib Warning: Citation `ref:scDD' on page 14 undefined on input line 
+792.
+
+
+Package natbib Warning: Citation `ref:MAST' on page 14 undefined on input line 
+792.
+
+
+Package natbib Warning: Citation `ref:Des' on page 14 undefined on input line 7
+93.
+
+
+Package natbib Warning: Citation `sc3' on page 14 undefined on input line 795.
+
+<Figs/DD95.pdf, id=121, 722.7pt x 361.35pt>
 File: Figs/DD95.pdf Graphic file (type pdf)
 <use Figs/DD95.pdf>
-Package pdftex.def Info: Figs/DD95.pdf  used on input line 790.
+Package pdftex.def Info: Figs/DD95.pdf  used on input line 798.
 (pdftex.def)             Requested size: 360.0pt x 180.00188pt.
- [14 <./Figs/roc.pdf>]
-<Figs/density_DEC_dd.png, id=300, 505.89pt x 505.89pt>
+[14 <./Figs/roc.pdf>]
+<Figs/density_DEC_dd.png, id=134, 505.89pt x 505.89pt>
 File: Figs/density_DEC_dd.png Graphic file (type png)
 <use Figs/density_DEC_dd.png>
-Package pdftex.def Info: Figs/density_DEC_dd.png  used on input line 799.
+Package pdftex.def Info: Figs/density_DEC_dd.png  used on input line 807.
 (pdftex.def)             Requested size: 216.0022pt x 216.00775pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 797--802
+Underfull \hbox (badness 10000) in paragraph at lines 805--810
 
  []
 
 [15 <./Figs/DD95.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 813--813
+Underfull \hbox (badness 10000) in paragraph at lines 821--821
 []|\OT1/pplx/m/n/9 Number of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 820--820
+Underfull \hbox (badness 10000) in paragraph at lines 828--828
 []|\OT1/pplx/m/n/9 GSE48968-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 822--822
+Underfull \hbox (badness 10000) in paragraph at lines 830--830
 []|\OT1/pplx/m/n/9 GSE60749-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 828--828
+Underfull \hbox (badness 10000) in paragraph at lines 836--836
 []|\OT1/pplx/m/n/9 GSE71585-
  []
 
 
-Overfull \hbox (59.88577pt too wide) in paragraph at lines 811--835
+Overfull \hbox (59.88577pt too wide) in paragraph at lines 819--843
  [][] 
  []
 
-<Figs/fdr.pdf, id=312, 578.16pt x 361.35pt>
+<Figs/fdr.pdf, id=146, 578.16pt x 361.35pt>
 File: Figs/fdr.pdf Graphic file (type pdf)
 <use Figs/fdr.pdf>
-Package pdftex.def Info: Figs/fdr.pdf  used on input line 840.
+Package pdftex.def Info: Figs/fdr.pdf  used on input line 848.
 (pdftex.def)             Requested size: 251.9989pt x 157.49475pt.
 [16 <./Figs/density_DEC_dd.png>] [17 <./Figs/fdr.pdf>]
-<Figs/NULL.pdf, id=336, 722.7pt x 361.35pt>
+<Figs/NULL.pdf, id=173, 722.7pt x 361.35pt>
 File: Figs/NULL.pdf Graphic file (type pdf)
 <use Figs/NULL.pdf>
-Package pdftex.def Info: Figs/NULL.pdf  used on input line 852.
+Package pdftex.def Info: Figs/NULL.pdf  used on input line 860.
 (pdftex.def)             Requested size: 251.9989pt x 126.00021pt.
-<Figs/s_78_GSE57872.pdf, id=337, 495.8525pt x 211.79124pt>
+<Figs/s_78_GSE57872.pdf, id=174, 495.8525pt x 211.79124pt>
 File: Figs/s_78_GSE57872.pdf Graphic file (type pdf)
 <use Figs/s_78_GSE57872.pdf>
-Package pdftex.def Info: Figs/s_78_GSE57872.pdf  used on input line 866.
+Package pdftex.def Info: Figs/s_78_GSE57872.pdf  used on input line 874.
 (pdftex.def)             Requested size: 251.9989pt x 107.63399pt.
-<Figs/DN_67.png, id=338, 379.8993pt x 275.3487pt>
+<Figs/DN_67.png, id=175, 379.8993pt x 275.3487pt>
 File: Figs/DN_67.png Graphic file (type png)
 <use Figs/DN_67.png>
-Package pdftex.def Info: Figs/DN_67.png  used on input line 871.
+Package pdftex.def Info: Figs/DN_67.png  used on input line 879.
 (pdftex.def)             Requested size: 180.00189pt x 142.26201pt.
-<Figs/DN_78.png, id=339, 379.8993pt x 275.3487pt>
+<Figs/DN_78.png, id=176, 379.8993pt x 275.3487pt>
 File: Figs/DN_78.png Graphic file (type png)
 <use Figs/DN_78.png>
-Package pdftex.def Info: Figs/DN_78.png  used on input line 874.
+Package pdftex.def Info: Figs/DN_78.png  used on input line 882.
 (pdftex.def)             Requested size: 180.00189pt x 142.26201pt.
 
-Overfull \hbox (14.53319pt too wide) in paragraph at lines 863--879
+Overfull \hbox (14.53319pt too wide) in paragraph at lines 871--887
 \OT1/pplx/m/n/10.95 tri-bu-tion given dif-fer-ent num-ber of sub-types at data 
 GSE75748 and GSE48968.
  []
 
 [18 <./Figs/NULL.pdf>]
-<Figs/G48_56.png, id=351, 379.8993pt x 275.3487pt>
+<Figs/G48_56.png, id=188, 379.8993pt x 275.3487pt>
 File: Figs/G48_56.png Graphic file (type png)
 <use Figs/G48_56.png>
-Package pdftex.def Info: Figs/G48_56.png  used on input line 889.
+Package pdftex.def Info: Figs/G48_56.png  used on input line 897.
 (pdftex.def)             Requested size: 180.00189pt x 142.26201pt.
-<Figs/G48_67.png, id=352, 379.8993pt x 275.3487pt>
+<Figs/G48_67.png, id=189, 379.8993pt x 275.3487pt>
 File: Figs/G48_67.png Graphic file (type png)
 <use Figs/G48_67.png>
-Package pdftex.def Info: Figs/G48_67.png  used on input line 892.
+Package pdftex.def Info: Figs/G48_67.png  used on input line 900.
 (pdftex.def)             Requested size: 180.00189pt x 142.26201pt.
-<Figs/s_789_GSE48968.pdf, id=353, 495.8525pt x 135.50626pt>
+<Figs/s_789_GSE48968.pdf, id=190, 495.8525pt x 135.50626pt>
 File: Figs/s_789_GSE48968.pdf Graphic file (type pdf)
 <use Figs/s_789_GSE48968.pdf>
-Package pdftex.def Info: Figs/s_789_GSE48968.pdf  used on input line 896.
+Package pdftex.def Info: Figs/s_789_GSE48968.pdf  used on input line 904.
 (pdftex.def)             Requested size: 360.0pt x 98.38113pt.
  [19 <./Figs/s_78_GSE57872.pdf> <./Figs/DN_67.png> <./Figs/DN_78.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 905--906
+
+Package natbib Warning: Citation `ref:d3e' on page 20 undefined on input line 9
+13.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 913--914
 
  []
 
-<Figs/act.png, id=384, 356.0502pt x 251.9814pt>
+<Figs/act.png, id=219, 356.0502pt x 251.9814pt>
 File: Figs/act.png Graphic file (type png)
 <use Figs/act.png>
-Package pdftex.def Info: Figs/act.png  used on input line 920.
+Package pdftex.def Info: Figs/act.png  used on input line 928.
 (pdftex.def)             Requested size: 118.80066pt x 84.07689pt.
-<Figs/in_act.png, id=386, 356.0502pt x 251.9814pt>
+<Figs/in_act.png, id=221, 356.0502pt x 251.9814pt>
 File: Figs/in_act.png Graphic file (type png)
 <use Figs/in_act.png>
-Package pdftex.def Info: Figs/in_act.png  used on input line 923.
+Package pdftex.def Info: Figs/in_act.png  used on input line 931.
 (pdftex.def)             Requested size: 118.80066pt x 84.07689pt.
-<Figs/t_rate.png, id=388, 364.4817pt x 251.9814pt>
+<Figs/t_rate.png, id=223, 364.4817pt x 251.9814pt>
 File: Figs/t_rate.png Graphic file (type png)
 <use Figs/t_rate.png>
-Package pdftex.def Info: Figs/t_rate.png  used on input line 926.
+Package pdftex.def Info: Figs/t_rate.png  used on input line 934.
 (pdftex.def)             Requested size: 118.80066pt x 82.13136pt.
 [20 <./Figs/G48_56.png> <./Figs/G48_67.png> <./Figs/s_789_GSE48968.pdf>]
-<Figs/overlap.png, id=418, 770.88pt x 443.6575pt>
+<Figs/overlap.png, id=254, 770.88pt x 443.6575pt>
 File: Figs/overlap.png Graphic file (type png)
 <use Figs/overlap.png>
-Package pdftex.def Info: Figs/overlap.png  used on input line 949.
+Package pdftex.def Info: Figs/overlap.png  used on input line 957.
 (pdftex.def)             Requested size: 385.43906pt x 221.8282pt.
 
-Overfull \hbox (25.43906pt too wide) in paragraph at lines 949--950
+Overfull \hbox (25.43906pt too wide) in paragraph at lines 957--958
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 947--955
+Underfull \hbox (badness 10000) in paragraph at lines 955--963
 
  []
 
@@ -1405,7 +1546,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [21 <./Figs/act.png> <./Figs/in_act.png> <./Figs/t_rate.png>] [22 <./Figs/overl
 ap.png>]
-Overfull \hbox (14.29294pt too wide) in paragraph at lines 963--965
+Overfull \hbox (14.29294pt too wide) in paragraph at lines 971--973
 \OT1/pplx/m/n/10.95 ence on $\OML/zplm/m/it/10.95 Q$\OT1/pplx/m/n/10.95 . To se
 e that we can rewrite $\OML/zplm/m/it/10.95 A[]$ \OT1/pplx/m/n/10.95 as $\OML/z
 plm/m/it/10.95 A[] \OT1/zplm/m/n/10.95 = \OML/zplm/m/it/10.95 A[] \OMS/zplm/m/n
@@ -1413,12 +1554,12 @@ plm/m/it/10.95 A[] \OT1/zplm/m/n/10.95 = \OML/zplm/m/it/10.95 A[] \OMS/zplm/m/n
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 963--965
+Underfull \hbox (badness 10000) in paragraph at lines 971--973
 
  []
 
 
-Overfull \hbox (1.38646pt too wide) in paragraph at lines 990--991
+Overfull \hbox (1.38646pt too wide) in paragraph at lines 998--999
 \OMS/zplm/m/n/10.95 ff\OT1/pplx/m/n/10.95 1, 2, 3\OMS/zplm/m/n/10.95 g\OT1/pplx
 /m/n/10.95 , \OMS/zplm/m/n/10.95 f\OT1/pplx/m/n/10.95 4, 5, 6, 7\OMS/zplm/m/n/1
 0.95 gg\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 ^^Y[] \OT1/zplm/m/n/10.95 = \
@@ -1431,16 +1572,21 @@ gg$\OT1/pplx/m/n/10.95 ,
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 1001--1003
+Underfull \hbox (badness 10000) in paragraph at lines 1009--1011
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1007--1009
+Underfull \hbox (badness 10000) in paragraph at lines 1015--1017
 
  []
 
-[24] [25] (./mkn.bbl
+[24] [25]
+
+Package natbib Warning: Citation `ref:scDD' on page 26 undefined on input line 
+1049.
+
+(./mkn.bbl
 
 ./mkn.bbl:30: Package keyval Error: Bacher2016 undefined.
 
@@ -1523,35 +1669,60 @@ l.344 \bid{Zappia2017}
                       
 ? 
 ) [27]
-Overfull \hbox (39.64148pt too wide) in paragraph at lines 1091--1097
+
+Package natbib Warning: Citation `yak68' on page 28 undefined on input line 110
+0.
+
+
+LaTeX Warning: Reference `eq:cprobs' on page 28 undefined on input line 1103.
+
+
+Overfull \hbox (5.9813pt too wide) in paragraph at lines 1099--1105
 \OT1/pplx/m/n/10.95 Finite mix-tures of dis-tinct neg-a-tive bi-no-mial com-po-
-nents are iden-ti-fi-able ([][]Yakowitz
+nents are iden-ti-fi-able (\OT1/pplx/b/n/10.95 ?\OT1/pplx/m/n/10.95 ),
  []
 
+
+Package natbib Warning: There were undefined citations.
+
 [28]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1130.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1138.
  [29]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1130.
- (./mkn.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1130.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1130.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1138.
+ (./mkn.aux
 
-Package rerunfilecheck Info: File `mkn.out' has not changed.
-(rerunfilecheck)             Checksum: E97BFD82A9B4C24294369DCCFAEFC27F;1129.
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
 
+)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1138.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1138.
+
+
+
+Package rerunfilecheck Warning: File `mkn.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `mkn.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  E97BFD82A9B4C24294369DCCFAEFC27F;1129.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1130.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1138.
  ) 
 Here is how much of TeX's memory you used:
- 28669 strings out of 492649
- 543100 string characters out of 6129622
- 619449 words of memory out of 5000000
- 31944 multiletter control sequences out of 15000+600000
+ 28649 strings out of 492649
+ 542820 string characters out of 6129622
+ 617440 words of memory out of 5000000
+ 31924 multiletter control sequences out of 15000+600000
  572520 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,16n,64p,10421b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1569,10 +1740,10 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (29 pages, 1459953 bytes).
+Output written on mkn.pdf (29 pages, 1456482 bytes).
 PDF statistics:
- 559 PDF objects out of 1000 (max. 8388607)
- 466 compressed objects within 5 object streams
+ 418 PDF objects out of 1000 (max. 8388607)
+ 326 compressed objects within 4 object streams
  115 named destinations out of 1000 (max. 500000)
- 266 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 122 words of extra memory for PDF output out of 10000 (max. 10000000)
 
