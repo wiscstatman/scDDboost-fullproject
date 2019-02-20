@@ -982,7 +982,7 @@ But for $(\phi, \psi)\in \Omega\setminus Q$, we have consistent posterior infere
 %\end{align}
 %$c'$ is the total sum over all partitions $c' = \sum_{\pi}\prod_{b\in \pi}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(N(b) + t_b^1)\Gamma(N(b) + t_b^2)} \frac{\Gamma(N(b))}{\Gamma(2N(b))} $ And we have theorem 4.\\
 
-\begin{theorem} Let $n = min(n_1, n_2)$ be the smaller number of cells of two conditions and $n_1 = O(n_2)$, and hyper parameters of DDM $\alpha^1, \alpha^2$ be vectors of constants and $\beta = \alpha^1 + \alpha^2$. Then if parameter $(\phi, \psi)\in \Omega\setminus Q $ we have 
+\begin{theorem} Let $n = min(n_1, n_2)$ be the smaller number of cells of two conditions and $n_1 = O(n_2)$ namely $\text{ln}(\frac{n_1}{n_2}) = 0$, and hyper parameters of DDM $\alpha^1, \alpha^2$ be vectors of constants, $\alpha_k^j \geq 1$, $\forall k, j$ and $\beta = \alpha^1 + \alpha^2$. Then if parameter $(\phi, \psi)\in \Omega\setminus Q $ we have 
 \begin{eqnarray*}
     p(A_{\pi} | y, z) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
                 \begin{array}{ll}
@@ -1002,15 +1002,17 @@ For example, when $K = 7$, For a $(\phi, \psi)\in A_{\pi_1} \cap A_{\pi_2} \cap 
 %Denote components from right hand side of (5): $\frac{1}{c'}\underset{b\in \pi}\prod\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(N(b) + t_b^1)\Gamma(N(b) + t_b^2)} \frac{\Gamma(N(b))}{\Gamma(2N(b))} = J(y,z,\pi).$  We have theorem 5.\\
 \begin{theorem} Following the setting in theorem 4, when parameter $(\phi, \psi)\in Q$,  and we have 
 \begin{eqnarray*}
-    p(A_{\pi} | y, z) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
-                \begin{array}{ll}
-                 m(\pi) \quad  \pi \in S^* \\
-                 0 \quad \text{otherwise}\\             
-                \end{array}
-              \right.
+    (p(A_{\pi} | y, z))_{\pi\in S^*} \xrightarrow[n\rightarrow\infty]{\text{d}}%\left\{
+                %\begin{array}{ll}
+                R
+                 %m(\pi) \quad  \pi \in S^* \\
+                 %0 \quad \text{otherwise}\\             
+               % \end{array}
+              %\right.
 \end{eqnarray*}
-and $\underset{\pi\in S^*}\sum m(\pi) = 1, m(\pi) > 0$\\
-\end{theorem}
+%and $\underset{\pi\in S^*}\sum m(\pi) = 1, m(\pi) > 0$\\
+$R$ is a dirichlet distributed random variable. 
+\end{theorem} 
 
 Still using above example, in limiting case, we have $p(A_{\pi_3} | y,z) = 1$, $p(A_{\pi_2} | y,z) = 1$ and $p(A_{\pi_1}| y,z) = 0$. When the DE pattern is $B_{\pi_1}$ for some genes and our estimation of $p(A_{\pi_1}| y,z) = 0$, we will falsely classify those genes as differential distributed.
 
