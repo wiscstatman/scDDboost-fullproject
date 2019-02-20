@@ -336,6 +336,40 @@ Proof of property 8
 by lemma 1, it is easy to verify.
 \end{proof}
 
+As the density of DDM is computed by product or ratio over bunches of gamma function and gamma function is not easy to direct work on it and derive limiting theorem.
+To proof theorem 4 and 5, we need a crucial lemma which gave us an approximation to the gamma function, namely
+
+\begin{lemma}
+For $x \geq 1$, $x^{a(x-1) - c} \leq \Gamma(x) \leq x^{b(x-1) - c}$, where $c = 0.577215...$ is the Euler-Mascheroni constant and $ a = (\pi^2 / 6- c) / 2, b = 1$.
+\end{lemma}
+
+\begin{proof}
+By \citep{ineq},  we have $x^{a(x-1) - c} < \Gamma(x) < x^{b(x-1) - c}$ for $x > 1$ and now we added the case when $x = 1, \Gamma(x) = 1$ so that both sides will include the equality case. 
+\end{proof}
+
+We have another lemma and theorem 4 and 5 are just proportion of the lemma
+\begin{lemma}
+ If $(\phi, \psi) \in A_{\pi_1} \cap A_{\pi_2}$, then 
+ \begin{eqnarray*}
+    \frac{\omega_{\pi_1}^{\text post}}{\omega_{\pi_2}^{\text post}} \xrightarrow[n\rightarrow\infty]{\text{a.s.}} 0 \quad \text{if } N(\pi_1) < N(\pi_2)\\
+   \frac{\omega_{\pi_1}^{\text post}}{\omega_{\pi_2}^{\text post}} \xrightarrow[n\rightarrow\infty]{\text{d}} v \quad \text{if } N(\pi_1) = N(\pi_2)
+\end{eqnarray*}
+$v$ is a gamma distributed random variable
+\end{lemma}
+
+\begin{proof}
+
+Recall $ \omega^{\rm post}_\pi \propto 
+ p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
+ \, p_\pi( t^1_{\pi}, t^2_{\pi} | y ) \, \omega_\pi.$
+ and RHS $= f(\pi_1,\pi_2, t^1, t^2, \alpha, \beta) g(\pi_1, \pi_2, \alpha, \beta, n_1, n_2)$
+ 
+ where 
+
+Recall $t^1 \sim \text{multinomial}(n_1, \phi)$, $t^2 \sim \text{multinomial}(n_2, \psi)$.
+
+\end{proof}
+
 \hfill\\
 Proof of theorem 4 and theorem 5
 \begin{proof}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  18 FEB 2019 22:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  20 FEB 2019 11:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1430,12 +1430,7 @@ gg$\OT1/pplx/m/n/10.95 ,
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 1011--1013
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1017--1019
+Underfull \hbox (badness 10000) in paragraph at lines 1019--1021
 
  []
 
@@ -1522,18 +1517,18 @@ l.344 \bid{Zappia2017}
                       
 ? 
 ) [27]
-Overfull \hbox (39.64148pt too wide) in paragraph at lines 1101--1107
+Overfull \hbox (39.64148pt too wide) in paragraph at lines 1103--1109
 \OT1/pplx/m/n/10.95 Finite mix-tures of dis-tinct neg-a-tive bi-no-mial com-po-
 nents are iden-ti-fi-able ([][]Yakowitz
  []
 
 [28]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1140.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1142.
  [29]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1140.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1142.
  (./mkn.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1140.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1140.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1142.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1142.
 
 Package rerunfilecheck Info: File `mkn.out' has not changed.
 (rerunfilecheck)             Checksum: E97BFD82A9B4C24294369DCCFAEFC27F;1129.
@@ -1544,7 +1539,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1140.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1142.
  ) 
 Here is how much of TeX's memory you used:
  28669 strings out of 492649
@@ -1568,7 +1563,7 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (29 pages, 1461641 bytes).
+Output written on mkn.pdf (29 pages, 1461874 bytes).
 PDF statistics:
  559 PDF objects out of 1000 (max. 8388607)
  466 compressed objects within 5 object streams
