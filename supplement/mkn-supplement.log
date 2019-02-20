@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  20 FEB 2019 11:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  20 FEB 2019 12:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1458,10 +1458,6 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 422.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 422.
 Package rerunfilecheck Info: File `mkn-supplement.out' has not changed.
 (rerunfilecheck)             Checksum: 67DF33E035F81ED0ACBED817DED5C990;105.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 422.
  ) 
 Here is how much of TeX's memory you used:
@@ -1484,7 +1480,7 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (13 pages, 438207 bytes).
+Output written on mkn-supplement.pdf (13 pages, 438246 bytes).
 PDF statistics:
  170 PDF objects out of 1000 (max. 8388607)
  134 compressed objects within 2 object streams
