@@ -161,6 +161,22 @@ to model the pair of multinomial probability vectors for subtype counts in two e
 Further elements are developed, on the selection of the number of subtypes and on accounting for uncertainty in the cluster output,  in order to provide an end-to-end solution to the differential distribution
 problem.  
 
+By way of example, 
+Figure~\ref{fig:whet} shows several genes that are called differentially distributed by \verb+scDDboost+ but not
+detected by other standard approaches in an example (see Supplementary Material Section 1.)  
+In addition to finding similar strong signals, the proposed method is able to detect more subtle changes
+than other methods, at the same level of false-discovery rate.  **any more on these genes?**
+
+\begin{figure}[H]
+\includegraphics[width = 0.9\textwidth]{Figs/density_DEC_dd.png}
+ \caption{Expression data comparing 64 endothelial cells (EC) to 64 definitive endoderm cells (DEC)
+ from a study of stem cell differentiation (Chu {\em et al.} 2016). Shown are log2-scale expression
+of  6 genes uniquely identified by scDDboost at 5\% FDR.  \label{fig:whet} }
+\end{figure}
+
+
+
+
 Numerical experiments  on both synthetic and published scRNA-seq data indicate that \verb+scDDboost+ has high
 sensitivity for detecting subtle distribution changes.  In these experiments we take advantage of
 \verb+splatter+ for generating synthetic data~\citep{ref:Zappia} as well as the compendium of scRNA-seq
@@ -335,8 +351,8 @@ structures needed to address differential distribution DD$_g$ (and
 it complement, equivalent distribution, ${\rm ED}_g$) at a given gene
 $g$, since:
 
-\begin{theorem}  Let $C_{g,\pi} = A_\pi\cap M_{g, \pi}$.  For distinct 
-partitions $\pi_1,\pi_2$, $C_{g,\pi_1} \cap C_{g,\pi_2} = \emptyset$. Further,
+\begin{theorem}  Let $C_{g,\pi} = A_\pi\cap M_{g, \pi}$.  For 
+partitions $\pi_1 \neq\pi_2$, \mbox{$C_{g,\pi_1} \cap C_{g,\pi_2} = \emptyset$}. Further,
  at any gene $g$, equivalent distribution is
 \begin{eqnarray*}
 {\rm{ED}}_g = \bigcup_{\pi \in \Pi} C_{g,\pi}.
@@ -692,34 +708,6 @@ P(A_\pi|y,z) =
 
 
 
-%In order to get the posterior probability $p(A_\pi | t^1,t^2)$, we need to calculate
-%\[
-%\begin{split}
-%p(A_\pi | t^1,t^2)\propto p(A_\pi, t^1,t^2) &= \int_{A_\pi} p(t^1,t^2|\phi,\psi)p(\phi,\psi) d\phi d\psi\\
-%%&= \sum_{\pi'\in \Pi}\int_{A_\pi} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi'})p(A_{\pi'})d\phi d\psi
-%&= \sum_{\pi'\in \Pi}\int_{A_\pi} p(t^1,t^2|\phi,\psi)p_{\pi'}(\phi, \psi )p(A_{\pi'})d\phi d\psi
-%\end{split}
-%\]
-%For simplicity of notation, let %$w(\pi_1, \pi_2) = \int_{A_{\pi_1}} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi_2})p(A_{\pi_2})d\phi d\psi$, 
-%$w(\pi_1, \pi_2) = \int_{A_{\pi_1}} p(t^1,t^2|\phi,\psi)p_{\pi_2}(\phi, \psi )p(A_{\pi_2})d\phi d\psi$, then
-%$p(A_\pi | t^1,t^2)\propto \underset{\pi'\in \Pi}\sum w(\pi, \pi')$. 
-
-%To calculate component $w(\pi, \pi')$, recall refinement and coarseness relationship between partitions, 
-%we say a partition $\tilde{\pi}$ is a refinement of another partition $\pi$ if $\forall b \in \pi$ there exists $s \subset \tilde{\pi}$  such that $\underset{b'\in s}\cup b' = b$. We say $\pi$ is a coarseness of $\tilde{\pi}$ when $\tilde{\pi}$ refines $\pi$. we have following theorem
-%
-%\begin{theorem}
-%If $\pi'$ is a refinement of $\pi$ then $w(\pi,\pi') = w(\pi', \pi')$ otherwise $w(\pi,\pi') = 0$
-%\end{theorem}
-%\hfill\\
-%Consequently, let $RF(\pi)$ be the collection of finer partition of $\pi$, we have
-%the posterior probability:
-%\[
-%\begin{split}
-%p(A_\pi | t^1,t^2)\propto  \sum_{\pi' \in RF(\pi)} w(\pi',\pi')
-%\end{split}
-%\]
-
-
  
 \section{Numerical experiments}
 
@@ -744,31 +732,6 @@ and 7 subtypes with proportions $\phi$ and $\psi$ satisfying constraints: $\phi_
 Each subtype has 10\% genes to be differential expressed. 
 As \verb+splatter+ needs input of two hyper parameters for the simulation. We validate our choices by projecting transcripts profiles of cells into its first two principal components(Supplementary S1)
 We observed some subtypes are well separated, some subtypes are nested, which make the tasks of cell type identification and DD genes detection remain challenging. 
-
-
-%We determine the number of subtypes by searching a range of candidates(from 1 to 9 based on our empirical experience). Given number of subtypes, we obtain a subtype structure of cells, which will further be fed into computing the posterior probabilities. We visualize the change between posterior probabilities under number of clusters $i$ and $i + 1$($i$ from 1 to 8). It typically remains stable when number of cluster is above a number that is smaller than 9 (Fig 3)
-%In the simulated data, the posterior probability become stable when we overestimate the number of subtypes. We found the true number of subtypes is 7 and correctly identify the subtypes of cells.   
-
-
-%10\% DE genes in each subtype results in total 9131 DD genes and 8290 ED genes in the mixture of the 7 subtypes.
-%Table 1 are numbers of DD or DE genes identified by four methods (scDDboost, scDD, MAST and DESeq2) with target FDR at 5 \%. 
-%\begin{table}
-%\centering
-%\begin{tabular}{ |p{3cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
-%\hline
-% & scDDboost & scDD & MAST & DESeq2\\
-%\hline
-%line
-%\hline
-%DD or DE genes & 950 & 189 & 800 & 900\\
-%\hline
-%True positive & 940 & 117 & 495 & 611\\
-%\hline
-%false positive &10  &72  & 305 & 289\\
-%\hline
-%\end{tabular}
-%\captionof{table}{number of true positive and false positive genes identified by four methods. Target FDR at 5\%}
-%\end{table}
 
 
 
@@ -804,46 +767,11 @@ method, (\verb+sc3+~\citep{sc3}, Supplementary Table ?)  and obtain similar
 
 
 
-We found that bulk method DESeq2 tends to have the most number of DE genes. But among single cell methods, scDDboost usually identified the most DD genes. Further we observed quite a few genes uniquely identified by scDDboost are likely to have different distribution across conditions. For example, Fig 5, we use violin plot to demonstrate the log expression profiles among DEC and EC. \\
-\begin{figure}[H]
-\includegraphics[width = 0.6\textwidth]{Figs/density_DEC_dd.png}
- \caption{ Densities of log transformed transcripts, 6 DD genes uniquely identified by scDDboost, for data GSE75748, DEC vs. EC, We observe some of the genes are different distributed across conditions.}
-  \label{fig:6}
-\end{figure}
 
-\subsection{Empirical study: null cases}
+\subsection{Null cases}
+
 Although bulk methods seems to be the most powerful one, we found it also has a higher false discovery rate comparing to single cell methods. We validate false discovery rate on ten null datasets from table 1. For each null dataset, we randomly split the cells from one condition into two subsets and test difference of gene expression between those subsets. Since the two subsets of cells actually came from same condition, there should not be any differential distributed genes, any positive call would be a false positive. We repeat the random split and testing for five times on each null data set. We evaluate the type I error control for the methods returning nominal p-values, by recording the fraction of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (Fig 6).\\
 scDDboost could control FDR since we assume cells are sampled from population composed of different subtypes. Cells from one subtype are equal likely to be assigned to either one of the two subsets. Consequently, it is very likely that proportions of subtypes remain unchanged among the two subsets.
-
-\begin{table}[ht]
-\footnotesize
-\centering
-\begin{tabular}{ |p{3cm}|p{5cm}|p{3cm}|p{2cm}|}
-\hline
- Data set & Conditions & Number of cells/condition & Organism \\
-\hline
-\hline
-GSE57872null & patient1 & 96,96 & human \\
-\hline
-GSE52529null & T0 & 48, 48 & human \\
-\hline
-GSE48968-GPL13112null & BMDC (2h LPS stimulation) & 48,48 & mouse \\
-\hline
- GSE60749-GPL13112null & v6.5 mouse embryonic stem cells, culture conditions: 2i+LIF & 45,45 & mouse \\
- \hline
- GSE74596null & NKT1 & 23,23 & mouse\\
- \hline
- EMTAB2805null & G1 & 48,48 & mouse\\
- \hline
-GSE71585-GPL13112null &Gad2tdTpositive  & 40,40 & mouse \\
-\hline
-GSE64016null & G1 & 46,45 & human \\
-\hline
-GSE79102null & patient1 & 26, 25 & human\\
-\hline
-\end{tabular}
-\captionof{table}{datasets used for null cases, as cells are coming from same biological condition, there should not be any differential distributed genes, any positive call is false positive}
-\end{table}
 
 
 \begin{figure}[H]
@@ -852,7 +780,6 @@ GSE79102null & patient1 & 26, 25 & human\\
   \label{fig:7}
 \end{figure}
 
-\subsection{Number of subtypes}
 Number of subtypes $K$ is a crucial factor controlling the accuracy of our modeling. 
 Too small $K$ may end up in an underfit such that cells within same subtype can still be very different,
 mean expression change among subtypes is incapable to capture the distribution change for some genes and consequently reducing the power of \textsc{scDDboost}.
@@ -866,49 +793,9 @@ Too big $K$ may end up in an overfit such that two subtypes can be very similar,
 
 ***something about change of PDD over K, even though PDD is monotone increasing but it would remain stable in the sense that $\text{PDD}_{K+1} - \text{PDD}_K$ will have small variance over different genes***
 
-From our empirical experience, it would be sufficient to capture the heterogeneity underlying cells with number of clusters not greater than 9.  And we generally obtain stable in validity score and PDD simultaneously (see supplementary)
 
 
-
-We demonstrate the change of posterior probabilities of differential distribution given different number of subtypes at data GSE75748 and GSE48968. In both cases, if allowing one more subtype would result in a lot increases in posterior probabilities, which suggests that the number of subtypes is underestimated since we found more distribution differences between conditions given one more mixture component. If posterior inference is stable after increasing the number of subtypes, then we consider previous number of subtypes to be optimal. 
-\begin{figure}[H]
-
-\includegraphics[width = 0.7\textwidth]{Figs/s_78_GSE57872.pdf}
-
-
-
-\minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{Figs/DN_67.png}
-\endminipage\hfill
-\minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{Figs/DN_78.png}
-\endminipage\hfill
-
-
-\caption{selecting number of subtypes for data GSE57872, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD.  We select number of subtypes to be 7}
-\end{figure}
-
-
-
-
-\begin{figure}[H]
-
-
-
-\minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{Figs/G48_56.png}
-\endminipage\hfill
-\minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{Figs/G48_67.png}
-\endminipage\hfill
-
-
-\includegraphics[width = 1\textwidth]{Figs/s_789_GSE48968.pdf}
-
-\caption{selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes}
-\end{figure}
-
-\subsection{Bursting parameters}
+\subsection{Bursting}
 
 ***on the method estimated p-value, update later***
 
@@ -1048,12 +935,6 @@ yielding $a = a_0 + a_1$ and $b = a_1$.  Therefore, we gave a way of modeling th
 We have presented scDDboost, a compositional model for detecting differential distributed genes from scRNA-seq data. To account for the over-dispersion and multi-modality of single-cell data, scDDboost modeled transcripts as mixture distributed. Unlike previous invented methods (e.g. Deseq2, MAST and scDD), which conducts genewise DD test in an isolated manner. scDDboost make whole genome information shared at gene level by further assuming the mixture distribution of transcripts is a mixture over the subtypes of cells. Another advantage of scDDboost is its' flexibility to allow user specified clustering methods of cells, with more and more studies of the scRNA-seq data, there will be more accurate distance matrix between cells, which will yield better estimation of subtypes and inference of DD genes. We combine estimations of changes of subtypes' proportions across conditions and changes of mean expressions across subtypes to infer distributional changes of transcripts. To estimate changes of subtypes' proportions across conditions, we use empirical Bayes and developed a double Dirichlet prior distribution.  We invented a random weighting scheme that stabilize our DD inference as well as approximating the results as if we have done a fully bayesian clustering analysis based on Dirichlet prior.  We demonstrated that scDDboost outperforms existing approaches in simulation and tends to be more powerful than existing methods on a wide range of public available empirical datasets. 
 
 One limitation of scDDboost is that current EBseq inference of the DE patterns is computationally not feasible for big number of subtypes. Given the noise level among the single cell data and especially if we want to identify DD genes among conditions containing thousands of cells, allowing a big number of subtypes would make cells under same subtype more homogeneous and result in a more accurate estimations for the distribution of transcripts. Further research is needed for acceleration of EBseq, one direction is to reduce the calculation on those patterns that would have small posterior probabilities. 
-
-
-This methodology extends \verb+scDD+\citep{ref:scDD},                        
-which similarly treats expression data within a condition as a statistical mixture, but which does
-not share information among genes on the mixing proportions.
-
 
 
 
