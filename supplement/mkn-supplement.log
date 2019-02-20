@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  20 FEB 2019 12:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  20 FEB 2019 12:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1365,7 +1365,24 @@ OML/zplm/m/it/10.95 b[] \OMS/zplm/m/n/10.95 2
 Package natbib Warning: Citation `ineq' on page 8 undefined on input line 347.
 
 [8]
-Overfull \hbox (24.89699pt too wide) in paragraph at lines 376--378
+Overfull \hbox (34.05731pt too wide) in alignment at lines 366--369
+ [][][] []
+ []
+
+
+Overfull \hbox (24.03104pt too wide) in paragraph at lines 369--371
+\OT1/pplx/m/n/10.95 fur-ther con-ve-nience of no-ta-tion let $\OML/zplm/m/it/10
+.95 h\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 ) = []\OML/
+zplm/m/it/10.95 n\OT1/zplm/m/n/10.95 ^^@(\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10
+.95 )$\OT1/pplx/m/n/10.95 . De-note $\OML/zplm/m/it/10.95 R\OT1/zplm/m/n/10.95 
+(\OML/zplm/m/it/10.95 ^^Y[]\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 ^^Y[]\OT1
+/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 t[]\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/
+10.95 t[]\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 \OT1/pplx/m/n/10.95 , \OML
+/zplm/m/it/10.95 ^^L\OT1/zplm/m/n/10.95 ) =
+ []
+
+[9]
+Overfull \hbox (24.89699pt too wide) in paragraph at lines 383--385
 \OML/zplm/m/it/10.95 p\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 A[]\OMS/zplm/m/
 n/10.95 j\OML/zplm/m/it/10.95 y\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 z\OT1
 /zplm/m/n/10.95 ) = [][] \OML/zplm/m/it/10.95 J\OT1/zplm/m/n/10.95 (\OML/zplm/m
@@ -1377,12 +1394,12 @@ m/n/10.95 ) = [][][][]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 381--385
+Underfull \hbox (badness 10000) in paragraph at lines 388--392
 
  []
 
-[9]
-Overfull \hbox (86.208pt too wide) detected at line 385
+
+Overfull \hbox (86.208pt too wide) detected at line 392
 []\OML/zplm/m/it/10.95 f\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 n\OT1/pplx/m/
 n/10.95 , \OML/zplm/m/it/10.95 b\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^Y \
 OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 ^^L[] \OT1/zplm/m/n/10.95 + \OML/zplm/
@@ -1395,22 +1412,22 @@ n\OT1/zplm/m/n/10.95 ))
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 385--388
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 393--395
+Underfull \hbox (badness 10000) in paragraph at lines 392--395
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 399--400
+Underfull \hbox (badness 10000) in paragraph at lines 400--402
 
  []
 
 
-Overfull \hbox (161.78308pt too wide) detected at line 400
+Underfull \hbox (badness 10000) in paragraph at lines 406--407
+
+ []
+
+
+Overfull \hbox (161.78308pt too wide) detected at line 407
 \OML/zplm/m/it/10.95 g\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 n\OT1/pplx/m/n/
 10.95 , \OML/zplm/m/it/10.95 b\OT1/zplm/m/n/10.95 ) = (\OML/zplm/m/it/10.95 ^^L
 [] \OT1/zplm/m/n/10.95 + \OML/zplm/m/it/10.95 t[] \OMS/zplm/m/n/10.95 ^^@ []\OT
@@ -1425,17 +1442,17 @@ it/10.95 t[] \OMS/zplm/m/n/10.95 ^^@ \OT1/pplx/m/n/10.95 1\OT1/zplm/m/n/10.95 )
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 400--403
+Underfull \hbox (badness 10000) in paragraph at lines 407--410
 
  []
 
 
-Overfull \hbox (158.26033pt too wide) detected at line 413
+Overfull \hbox (158.26033pt too wide) detected at line 420
 []
  []
 
-
-Overfull \hbox (15.29813pt too wide) in paragraph at lines 415--417
+[11]
+Overfull \hbox (15.29813pt too wide) in paragraph at lines 422--424
 \OT1/pplx/m/n/10.95 When $\OML/zplm/m/it/10.95 ^^Y[]$ \OT1/pplx/m/n/10.95 have 
 less blocks than $\OML/zplm/m/it/10.95 ^^Y[]$\OT1/pplx/m/n/10.95 , $[][] \OML/z
 plm/m/it/10.95 g\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 n\OT1/pplx/m/n/10.95 
@@ -1445,20 +1462,19 @@ ML/zplm/m/it/10.95 g\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 n\OT1/pplx/m/n/10
 1/zplm/m/n/10.95 ([](\OML/zplm/m/it/10.95 n\OT1/zplm/m/n/10.95 ))$ 
  []
 
-[11]
 
 Package natbib Warning: There were undefined citations.
 
 [12]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 422.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 429.
  [13 <./Figs/try7-g.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 422.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 429.
  (./mkn-supplement.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 422.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 422.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 429.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 429.
 Package rerunfilecheck Info: File `mkn-supplement.out' has not changed.
 (rerunfilecheck)             Checksum: 67DF33E035F81ED0ACBED817DED5C990;105.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 422.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 429.
  ) 
 Here is how much of TeX's memory you used:
  28358 strings out of 492649
@@ -1480,7 +1496,7 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (13 pages, 438922 bytes).
+Output written on mkn-supplement.pdf (13 pages, 441573 bytes).
 PDF statistics:
  170 PDF objects out of 1000 (max. 8388607)
  134 compressed objects within 2 object streams
