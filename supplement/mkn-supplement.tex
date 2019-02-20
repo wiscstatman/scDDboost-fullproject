@@ -628,7 +628,6 @@ $v$ is a gamma distributed random variable
 \end{lemma}
 
 \begin{proof}
-
 Recall $ \omega^{\rm post}_\pi \propto 
  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
  \, p_\pi( t^1_{\pi}, t^2_{\pi} | y ) \, \omega_\pi.$
@@ -637,13 +636,22 @@ Recall $ \omega^{\rm post}_\pi \propto
  g(\pi, t^1, t^2, \alpha, \beta) = \big[ \overset{2}{\underset{j = 1}{\prod}}\underset{b\in \pi}\prod \frac{\Gamma(\Sigma_{k\in b} \alpha_k^j)}{\prod_{k\in b} \Gamma(\alpha_k^j)} \big ] \frac{\Gamma(n_1 + 1) \Gamma(n_2 + 1)}{\prod_{b\in \pi} \Gamma(\beta_b)} \frac{\Gamma(\Sigma_{b \in \pi} \beta_b)}{\Gamma(n_1 + n_2 + \Sigma_{b\in\pi} \beta_b)}\\
 f(\pi, t^1, t^2, \alpha, \beta) = \big[ \overset{2}{\underset{j = 1}{\prod}}\underset{b\in \pi}\prod \frac{1}{\prod_{k \in b}\Gamma(t_k^j + 1)}\frac{\prod_{k \in b}\Gamma(\alpha_k^j + t_k^j)}{\Gamma(t_b^j + \Sigma_{k\in b}\alpha_k^j)}\big ] \underset{b\in \pi}\prod \Gamma(\beta_b + t_b^1 + t_b^2) 
 \end{eqnarray*}
-For notation simplicity, we use the abbreviation $g(\pi), f(\pi)$ to substitute $g(\pi, \alpha, \beta, n_1, n_2),f(\pi, t^1, t^2, \alpha, \beta)$.  We take log on $\frac{\omega_{\pi_1}^{\text post}}{\omega_{\pi_2}^{\text post}}$, denote it as LR. $\text LR = \text{ln}g(\pi_1) - \text{ln}g(\pi_2) + \text{ln}f(\pi_1) - \text{ln}f(\pi_2)$. Denote $C(\pi_1, \pi_2, \alpha, \beta) = \text{ln}g(\pi_1) - \text{ln}g(\pi_2)$, $C(\pi_1, \pi_2, \alpha, \beta)$ does not change with sample size $n_1, n_2$ and is a constant determined by partition $\pi_1, \pi_2$ and hyper parameters $\alpha, \beta$.  For further convenience of notation let $h(x) = \text ln\Gamma(x)$. Denote $R(\pi_1, \pi_2, t^1, t^2, \alpha, \beta) = \text{ln}f(\pi_1) - \text{ln}f(\pi_2)$. And removing the common part of $f(\pi_1)$ and $f(\pi_2)$, we have 
+For notation simplicity, we use the abbreviation $g(\pi), f(\pi)$ to substitute $g(\pi, \alpha, \beta, n_1, n_2),f(\pi, t^1, t^2, \alpha, \beta)$.  We take log on $\frac{\omega_{\pi_1}^{\text post}}{\omega_{\pi_2}^{\text post}}$, denote it as LR. $\text LR = \text{ln}g(\pi_1) - \text{ln}g(\pi_2) + \text{ln}f(\pi_1) - \text{ln}f(\pi_2)$. Denote $C(\pi_1, \pi_2, \alpha, \beta) = \text{ln}g(\pi_1) - \text{ln}g(\pi_2)$, $C(\pi_1, \pi_2, \alpha, \beta)$ does not change with sample size $n_1, n_2$ and is a constant determined by partition $\pi_1, \pi_2$ and hyper parameters $\alpha, \beta$.  For further convenience of notation let $h(x) = \text ln\Gamma(x)$ and $\gamma_b^j = \Sigma_{k\in b} \alpha_k^j$. Denote $R(\pi_1, \pi_2, t^1, t^2, \alpha, \beta) = \text{ln}f(\pi_1) - \text{ln}f(\pi_2)$. And removing the common part of $f(\pi_1)$ and $f(\pi_2)$, we have 
 \begin{eqnarray*}
-R(\pi_1, \pi_2, t^1, t^2, \alpha, \beta) = \Sigma_{b\in \pi_1} h(\beta_b + t_b^1 + t_b^2)
+R(\pi_1, \pi_2, t^1, t^2, \alpha, \beta) = d(\pi_1, t^1, t^2, \alpha, \beta) - d(\pi_2, t^1, t^2, \alpha, \beta)\\
+\end{eqnarray*}
+where
+\begin{eqnarray*}
+d(\pi, t^1, t^2, \alpha, \beta) = \underset{b\in \pi}\Sigma h(\beta_b + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}} \underset{b\in \pi}\Sigma h(t_b + \gamma_b^j)
 \end{eqnarray*}
 
+Recall $\beta_b = \gamma_b^1 + \gamma_b^2$ and from lemma 2, $(x - c)\text{ln}(x) - x \leq h(x) \leq (x - 1/2)\text{ln}(x) - x$ we have 
+\begin{eqnarray*}
+d(\pi_1, t^1, t^2, \alpha, \beta) \geq 
+\end{eqnarray*}
+%Recall $t^1 \sim \text{multinomial}(n_1, \phi)$, $t^2 \sim \text{multinomial}(n_2, \psi)$.
 
-Recall $t^1 \sim \text{multinomial}(n_1, \phi)$, $t^2 \sim \text{multinomial}(n_2, \psi)$.
+
 
 \end{proof}
 
