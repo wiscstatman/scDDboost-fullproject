@@ -575,16 +575,16 @@ As the density of DDM is computed by product or ratio over bunches of gamma func
 To proof theorem 4 and 5, we need a crucial lemma which gave us an approximation to the gamma function, namely
 
 \begin{lemma}
-For $x \geq 1$, $x^{a(x-1) - c} \leq \Gamma(x) \leq x^{b(x-1) - c}$, where $c = 0.577215...$ is the Euler-Mascheroni constant and $ a = (\pi^2 / 6- c) / 2, b = 1$.
+For $x \geq 1$, $\frac{x^{x - c}}{e^{-x}} \leq \Gamma(x) \leq \frac{x^{x-1/2}}{e^{-x}}$, where $c = 0.577215...$ is the Euler-Mascheroni.
 \end{lemma}
 
 \begin{proof}
-By \citep{ineq},  we have $x^{a(x-1) - c} < \Gamma(x) < x^{b(x-1) - c}$ for $x > 1$ and now we added the case when $x = 1, \Gamma(x) = 1$ so that both sides will include the equality case. 
+By \citep{ineq},  we have $\frac{x^{x - c}}{e^{-x}} \leq \Gamma(x) \leq \frac{x^{x-1/2}}{e^{-x}}$ for $x > 1$ and now we added the case when $x = 1, \Gamma(x) = 1$ so that both sides will include the equality case. 
 \end{proof}
 
 We have another lemma and theorem 4 and 5 are just proportion of the lemma
 \begin{lemma}
- If $(\phi, \psi) \in A_{\pi_1} \cap A_{\pi_2}$, then 
+ If $(\phi, \psi) \in A_{\pi_1} \cap A_{\pi_2}$, follow the conditions in theorem 4 then 
  \begin{eqnarray*}
     \frac{\omega_{\pi_1}^{\text post}}{\omega_{\pi_2}^{\text post}} \xrightarrow[n\rightarrow\infty]{\text{a.s.}} 0 \quad \text{if } N(\pi_1) < N(\pi_2)\\
    \frac{\omega_{\pi_1}^{\text post}}{\omega_{\pi_2}^{\text post}} \xrightarrow[n\rightarrow\infty]{\text{d}} v \quad \text{if } N(\pi_1) = N(\pi_2)
@@ -597,9 +597,16 @@ $v$ is a gamma distributed random variable
 Recall $ \omega^{\rm post}_\pi \propto 
  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
  \, p_\pi( t^1_{\pi}, t^2_{\pi} | y ) \, \omega_\pi.$
- and RHS $= f(\pi_1,\pi_2, t^1, t^2, \alpha, \beta) g(\pi_1, \pi_2, \alpha, \beta, n_1, n_2)$
- 
- where 
+ and RHS $=  g(\pi, \alpha, \beta, n_1, n_2) f(\pi, t^1, t^2, \alpha, \beta)$ and $\frac{\omega_{\pi_1}^{\text post}}{\omega_{\pi_2}^{\text post}} = \frac{g(\pi_1, \alpha, \beta, n_1, n_2)}{g(\pi_2, \alpha, \beta, n_1, n_2)}\frac{f(\pi_1, t^1, t^2, \alpha, \beta)}{f(\pi_2, t^1, t^2, \alpha, \beta)}$
+ where \begin{eqnarray*}
+ g(\pi, t^1, t^2, \alpha, \beta) = \big[ \overset{2}{\underset{j = 1}{\prod}}\underset{b\in \pi}\prod \frac{\Gamma(\Sigma_{k\in b} \alpha_k^j)}{\prod_{k\in b} \Gamma(\alpha_k^j)} \big ] \frac{\Gamma(n_1 + 1) \Gamma(n_2 + 1)}{\prod_{b\in \pi} \Gamma(\beta_b)} \frac{\Gamma(\Sigma_{b \in \pi} \beta_b)}{\Gamma(n_1 + n_2 + \Sigma_{b\in\pi} \beta_b)}\\
+f(\pi, t^1, t^2, \alpha, \beta) = \big[ \overset{2}{\underset{j = 1}{\prod}}\underset{b\in \pi}\prod \frac{1}{\prod_{k \in b}\Gamma(t_k^j + 1)}\frac{\prod_{k \in b}\Gamma(\alpha_k^j + t_k^j)}{\Gamma(t_b^j + \Sigma_{k\in b}\alpha_k^j)}\big ] \underset{b\in \pi}\prod \Gamma(\beta_b + t_b^1 + t_b^2) 
+\end{eqnarray*}
+For notation simplicity, we use the abbreviation $g(\pi), f(\pi)$ to substitute $g(\pi, \alpha, \beta, n_1, n_2),f(\pi, t^1, t^2, \alpha, \beta)$.  We take log on $\frac{\omega_{\pi_1}^{\text post}}{\omega_{\pi_2}^{\text post}}$, denote it as LR. $\text LR = \text{ln}g(\pi_1) - \text{ln}g(\pi_2) + \text{ln}f(\pi_1) - \text{ln}f(\pi_2)$. Denote $C(\pi_1, \pi_2, \alpha, \beta) = \text{ln}g(\pi_1) - \text{ln}g(\pi_2)$, $C(\pi_1, \pi_2, \alpha, \beta)$ does not change with sample size $n_1, n_2$ and is a constant determined by partition $\pi_1, \pi_2$ and hyper parameters $\alpha, \beta$.  For further convenience of notation let $h(x) = \text ln\Gamma(x)$. Denote $R(\pi_1, \pi_2, t^1, t^2, \alpha, \beta) = \text{ln}f(\pi_1) - \text{ln}f(\pi_2)$. And removing the common part of $f(\pi_1)$ and $f(\pi_2)$, we have 
+\begin{eqnarray*}
+R(\pi_1, \pi_2, t^1, t^2, \alpha, \beta) = \Sigma_{b\in \pi_1} h(\beta_b + t_b^1 + t_b^2)
+\end{eqnarray*}
+
 
 Recall $t^1 \sim \text{multinomial}(n_1, \phi)$, $t^2 \sim \text{multinomial}(n_2, \psi)$.
 
