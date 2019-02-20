@@ -32,7 +32,6 @@
 
 
 
-
  \setlength{\parskip}{1ex}
 \newtheorem{lemma}{Lemma}
 \newtheorem{theorem}{Theorem}
@@ -44,16 +43,17 @@
 \large
 \centerline{\bf Supplementary Material }
 
-main document
+\noindent
+Main document: {\em A compositional model to assess expression changes from single-cell RNA-seq data}
 
-{A compositional model to assess expression changes from single-cell RNA-seq data}
-
-by Ma, Korthauer, Kendziorski, and Newton
-
+\noindent
+Authors: Ma, Korthauer, Kendziorski, and Newton
 
 
-Contents
+This supplement is organized to match the sectioning of the main document.   In summary,
+
 \begin{enumerate}
+\item DEC vs EC data analysis
 \item Synthetic Data
 \item Data sets 
 \item \verb+EBseq+
@@ -63,8 +63,37 @@ Contents
 \item Proofs: 
 \end{enumerate}
 
-\noindent
-{\bf Synthetic Data}
+\section{Introduction}
+
+\subsection{DEC vs EC}
+
+\section{Modeling}
+
+\subsection{Data Structure, Sampling Model, and Parameters}
+
+Proof of Theorem 1 [in appendix of main paper]
+
+Proof of Theorem 2.
+
+\subsection{Method Structure and Clustering}
+
+{\bf EBSeq}
+
+{\bf Modalclust}
+
+{\bf Randomized clustering}
+
+{\bf Validity Score}  ... selecting $K$
+
+\subsection{Double Dirichlet Mixture}
+
+On properties 1-8, and Theorem 3
+
+\section{Numerical Experiments}
+
+\subsection{Synthetic Data}
+
+ details on splatter study
 
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/pca.pdf}
@@ -72,8 +101,10 @@ Contents
   \label{fig:4}
 \end{figure}
 
+ ...maybe full reporting of ROC's ...
 
 
+\subsection{Empirical Study}
 
 \noindent
 {\bf Data sets}
@@ -127,7 +158,11 @@ GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human & \citep{
 
 
 
+\subsection{Null cases}
 
+**table of null studies + numerical results**
+
+\section{?Other}
 
 \noindent
 {\bf EBSeq}
