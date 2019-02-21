@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  20 FEB 2019 20:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  20 FEB 2019 20:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1502,64 +1502,10 @@ m/m/it/12 t[]\OT1/pplx/m/n/12 , \OML/zplm/m/it/12 \OT1/pplx/m/n/12 , \OML/zplm
  []
 
 [21]
-
-./mkn-supplement.tex:683: LaTeX Error: \begin{eqnarray*} on input line 681 ende
-d by \end{eqnarry*}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.683 \end{eqnarry*}
-                    
-? 
-./mkn-supplement.tex:683: Missing } inserted.
-<inserted text> 
-                }
-l.683 \end{eqnarry*}
-                    
-? 
-./mkn-supplement.tex:683: Missing $ inserted.
-<inserted text> 
-                $
-l.683 \end{eqnarry*}
-                    
-? 
-./mkn-supplement.tex:683: Missing } inserted.
-<inserted text> 
-                }
-l.683 \end{eqnarry*}
-                    
-? 
-./mkn-supplement.tex:683: Missing \cr inserted.
-<inserted text> 
-                \cr 
-l.683 \end{eqnarry*}
-                    
-? 
-./mkn-supplement.tex:683: Missing { inserted.
-<inserted text> 
-                {
-l.683 \end{eqnarry*}
-                    
-? 
-./mkn-supplement.tex:683: Missing $ inserted.
-<inserted text> 
-                $
-l.683 \end{eqnarry*}
-                    
-? 
-
-Overfull \hbox (112.72462pt too wide) in alignment at lines 681--683
- [][][][]
+Overfull \hbox (132.72462pt too wide) in alignment at lines 681--683
+ [][][] []
  []
 
-./mkn-supplement.tex:683: Missing $$ inserted.
-<to be read again> 
-                   \endgroup 
-l.683 \end{eqnarry*}
-                    
-? 
 
 Overfull \hbox (66.47821pt too wide) in paragraph at lines 703--705
 \OML/zplm/m/it/12 p\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 A[]\OMS/zplm/m/n/12 j\OM
@@ -1668,10 +1614,10 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 27865 strings out of 492649
- 535083 string characters out of 6129622
+ 27864 strings out of 492649
+ 535072 string characters out of 6129622
  611730 words of memory out of 5000000
- 31205 multiletter control sequences out of 15000+600000
+ 31204 multiletter control sequences out of 15000+600000
  570059 words of font info for 122 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,16n,64p,10432b,427s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1687,7 +1633,7 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (26 pages, 1300532 bytes).
+Output written on mkn-supplement.pdf (26 pages, 1300562 bytes).
 PDF statistics:
  324 PDF objects out of 1000 (max. 8388607)
  243 compressed objects within 3 object streams
