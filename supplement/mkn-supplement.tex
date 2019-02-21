@@ -651,14 +651,13 @@ As the density of DDM is computed by product or ratio over bunches of gamma func
 To proof theorem 4 and 5, we need a crucial lemma which gave us an approximation to the gamma function, namely
 
 \begin{lemma}
-For $x \geq 1$, $\frac{x^{x - c}}{e^{-x}} \leq \Gamma(x) \leq \frac{x^{x-1/2}}{e^{-x}}$, where $c = 0.577215...$ is the Euler-Mascheroni.
+For $x \geq 1$, $\frac{x^{x - c}}{e^{-x}} \leq \Gamma(x) \leq \frac{x^{x-1/2}}{e^{-x}}$, where $c = 0.577215...$ is the Euler-Mascheroni constant.
 \end{lemma}
 
 \begin{proof}
 By \citep{ineq},  we have $\frac{x^{x - c}}{e^{-x}} \leq \Gamma(x) \leq \frac{x^{x-1/2}}{e^{-x}}$ for $x > 1$ and now we added the case when $x = 1, \Gamma(x) = 1$ so that both sides will include the equality case. 
 \end{proof}
-
-We have another lemma and theorem 4 and 5 are just proportion of the lemma
+We have another lemma and theorem 1 and 2 are just proportion of the lemma
 \begin{lemma}
  If $(\phi, \psi) \in A_{\pi_1} \cap A_{\pi_2}$, follow the conditions in theorem 4 then 
  \begin{eqnarray*}
@@ -701,28 +700,36 @@ d(\pi, t^1, t^2, \alpha, \beta) &\leq \underset{b\in \pi}\Sigma (\beta_b + t_b^1
   - 1/2(\text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))\big]
 \end{eqnarray*}
 
-By Taylor expansion at $x= 1$, $\text{ln}(x + 1) = \text{ln}2 + 1/2(x - 1) - 1/8(x - 1)^2 + g(\xi) (x - 1)^3$, where $g(\xi)$ in the reminder term is $1/3(1+\xi)^3$ for $ 0 < \xi < x$
+By Taylor expansion at $x= 1$, $\text{ln}(x + 1) = \text{ln}2 + 1/2(x - 1) - 1/8(x - 1)^2 + g(\xi) (x - 1)^3$, where $g(\xi)$ is the reminder term of form $1/3(1+\xi)^3$ for $ 0 < \xi < x$
 For a fixed $n_1, n_2$, we have 
 
 \begin{eqnarray*}
 \text{RHS of (4)} = (n_1 + n_2) \text{ln}2  - \Sigma_{b\in\pi}(1/8 (X_b^1 + X_b^2)\\
-+ g(\xi) (Y_b^1 + Y_b^2) )+ T(\pi)
++ g(\xi_b) (Y_b^1 + Y_b^2) )+ T(\pi)
 \end{eqnarray*}
 
 where $X_1 = \frac{(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2)^2}{t_b^1 + \gamma_b^1}$, $X_2 =  \frac{(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2)^2}{t_b^2 + \gamma_b^2}$,
 $Y_1 = \frac{(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2)^3}{(t_b^1 + \gamma_b^1)^2} $ , $Y_2 =  \frac{(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2)^3}{(t_b^2 + \gamma_b^2)^2}$
-and $T(\pi) = (1 - c) \text{ln}(\beta_b + t_b^1 + t_b^2) 
-  - 1/2(\text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))$\\
+and $T(\pi) = \Sigma_{b\in\pi}\big[(1 - c) \text{ln}(\beta_b + t_b^1 + t_b^2) 
+  - 1/2(\text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))\big]$\\
 Similarly
 \begin{eqnarray*}
 \text{RHS of (5)} = (n_1 + n_2) \text{ln}2  -\Sigma_{b\in\pi}(1/8 (X_b^1 + X_b^2)\\
-+ g(\xi) (Y_b^1 + Y_b^2)) + U(\pi)
++ g(\xi_b) (Y_b^1 + Y_b^2)) + U(\pi)
 \end{eqnarray*}
   
-$U(\pi) = (2c - 1/2) \text{ln}(\beta_b + t_b^1 + t_b^2) 
-  - c(\text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))$\\
+$U(\pi) = \Sigma_{b\in\pi}\big[(2c - 1/2) \text{ln}(\beta_b + t_b^1 + t_b^2) 
+  - c(\text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))\big]$\\
   
-  By CLT we know $X_1, X_2$ are asymptotic gamma($\chi$-square) distributed and $Y_1, Y_2$ are $o_p(1)$ and $T(\pi_1) - U(\pi_2) = O(1)$ if $N(\pi_1) = N(\pi_2)$, $T(\pi_1) - U(\pi_2) = -\text{ln}(n)$ if $N(\pi_2) < N(\pi_2)$ so we complete the proof
+ Using above inequalities, we have 
+ \begin{eqnarray*}
+ R(\pi_1, \pi_2, t^1, t^2, \alpha, \beta)  \geq T(\pi_1) - U(\pi_2) - 1/8 (\Sigma_{b\in\pi_1}(X_b^1 + X_b^2) + \Sigma_{b\in\pi_2}(X_b^1 + X_b^2)) \\ 
+ - \Sigma_{b\in\pi_1}g(\xi_b)(Y_b^1 + Y_b^2)  - \Sigma_{b\in\pi_2}g(\xi_ b)(Y_b^1 + Y_b^2)\\
+  R(\pi_1, \pi_2, t^1, t^2, \alpha, \beta)  \leq U(\pi_1) - T(\pi_2) - 1/8 (\Sigma_{b\in\pi_1}(X_b^1 + X_b^2) - \Sigma_{b\in\pi_2}(X_b^1 + X_b^2)) \\ 
+ + \Sigma_{b\in\pi_1}g(\xi_b)(Y_b^1 + Y_b^2)  - \Sigma_{b\in\pi_2}g(\xi_ b)(Y_b^1 + Y_b^2)\\
+ \end{eqnarray*}
+ 
+ By CLT we know $X_b^1, X_b^2$ are asymptotic gamma($\chi$-square) distributed and $Y_b^1, Y_b^2$ are $o_p(1)$ and $T(\pi_1) - U(\pi_2) = O(1)$ if $N(\pi_1) = N(\pi_2)$, $T(\pi_1) - U(\pi_2) = -\text{ln}(n)$ if $N(\pi_2) < N(\pi_2)$ so we complete the proof
 
 %Recall $t^1 \sim \text{multinomial}(n_1, \phi)$, $t^2 \sim \text{multinomial}(n_2, \psi)$.
 
