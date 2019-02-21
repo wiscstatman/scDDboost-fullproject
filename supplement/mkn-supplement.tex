@@ -7,6 +7,7 @@
 \RequirePackage{amsthm,amsmath}
 \RequirePackage{natbib}
 \RequirePackage[colorlinks,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage[margin=0.5in]{geometry}
 
 \usepackage[sc]{mathpazo}
 \usepackage{amsmath, wrapfig}
@@ -46,14 +47,17 @@
 \noindent
 Main document: {\em A compositional model to assess expression changes from single-cell RNA-seq data}
 
+\vspace{.2in}
 \noindent
 Authors: Ma, Korthauer, Kendziorski, and Newton
 
+\vspace{.2in}
 \noindent
 Version: February 20, 2019
 
 \vspace{.4in}
 
+\noindent
 This supplement is organized to match the sectioning of the main document.   In summary,
 
 \begin{enumerate}
@@ -107,23 +111,201 @@ This supplement is organized to match the sectioning of the main document.   In 
 
 \subsection{Data Structure, Sampling Model, and Parameters}
 
-Proof of Theorem 1 [in appendix of main paper]
 
 Proof of Theorem 2.
 
 \subsection{Method Structure and Clustering}
 
-{\bf EBSeq}
+\subsubsection{EBSeq}
 
-{\bf Modalclust}
 
-{\bf Randomized clustering}
+Suppose we have $K$ subtypes, let $X_g^I = X_{g, 1}^I, ... , X_{g, S_1}^I$ denote transcripts at gene $g$ from subtype $I, I = 1, ... K$.  In the EBSeq model it assumed that counts within subtype $I$ are distributed as Negative Binomial:
+$X_{g, s}^I | r_{g,s}, q_g^I \sim NB(r_{g,s}, q_g^I)$ Where
 
-{\bf Validity Score}  ... selecting $K$
+\begin{eqnarray*}
+P(X_{g,s}^I | r_{g,s}, q_g^I ) = {X_{g,s} + r_{g,s} - 1 \choose X_{g,s} }(1 - q_g^I)^{X_{g,s}^I} (q_g^I)^{r_{g,s}}
+\end{eqnarray*}
+and $\mu_{g,s}^I = r_{g,s}(1 - q_g^I) / q_g^I; \sigma_{g,s}^I = r_{g,s}(1 - q_g^I)/ (q_g^I)^2.$
+
+The EBSeq model assumed a prior distribution on $q_g^I : q_g^I | \alpha, \beta^{I_g} \sim Beta(\alpha, \beta^{I_g}).$ The hyperparameter $\alpha$ is shared by all the isoforms and $\beta^{I_g}$ is $I_g$ specific. We further assume that $r_{g,s} = r_{g,0}*l_s$ where $r_{g,0}$ is an isoform specific parameter common across subtypes and $r_{g,s}$ depends on it through the sample-specific normalization factor $l_s$
+
+What we are interested at those $K$ groups comparison is the expression pattern, through EBSeq modeling we are able to obtain posterior probabilities over
+
+\begin{eqnarray*}
+M_{g,\pi} = \{ \theta \in \Theta: \; \mu_{g,k} = \mu_{g,k'} \iff k,k' \in b, b \in \pi \}.
+\end{eqnarray*}
+
+For any partition $\pi$ of $K$ elements.
+
+For example $K = 3$, there are 5 expression pattern, $P_1, P_2, ..., P_5$
+
+\begin{align*}
+&P1: q_g^1 = q_g^2 = q_g^3\\
+&P2: q_g^1 = q_g^2 \neq q_g^3\\
+&P3: q_g^1 \neq q_g^2 = q_g^3\\
+&P4: q_g^1 = q_g^3 \neq q_g^2\\
+&P5: q_g^1 \neq q_g^2 \neq q_g^3 \text{ and } q_g^1 \neq q_g^3
+\end{align*}
+
+Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can pool the counts from the two groups by viewing them come from same distribution i.e. $X_g^{I, J} | r_{g,s}, q_g \sim NB(r_{g,s}, q_g)$, $q_g | \alpha, \beta^{I_g} \sim Beta(\alpha, \beta^{I_g})$ and obtained the prior predictive function $f_0^{I_g}(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g,s}, q_g) * P(q_g | \alpha, \beta^{I_g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + r_{g,s} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S r_{g,s}, \beta^{I_g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{I_g})}$.  Consequently, we have prior predictive function for $P1, ..., P5$ as
+
+\begin{align*}
+&P1: q_g^1 = q_g^2 = q_g^3\\
+&P2: q_g^1 = q_g^2 \neq q_g^3\\
+&P3: q_g^1 \neq q_g^2 = q_g^3\\
+&P4: q_g^1 = q_g^3 \neq q_g^2\\
+&P5: q_g^1 \neq q_g^2 \neq q_g^3 \text{ and } q_g^1 \neq q_g^3
+\end{align*}
+
+Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can pool the counts from the two groups by viewing them come from same distribution i.e. $X_g^{I, J} | r_{g,s}, q_g \sim NB(r_{g,s}, q_g)$, $q_g | \alpha, \beta^{I_g} \sim Beta(\alpha, \beta^{I_g})$ and obtained the prior predictive function $f_0^{I_g}(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g,s}, q_g) * P(q_g | \alpha, \beta^{I_g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + r_{g,s} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S r_{g,s}, \beta^{I_g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{I_g})}$.  Consequently, we have prior predictive function for $P1, ..., P5$ as
+
+\begin{align*}
+&g_1^{I_g}(X_g^{1,2,3}) = f_0^{I_g}(X_g^{1,2,3})\\
+&g_2^{I_g}(X_g^{1,2,3}) = f_0^{I_g}(X_g^{1,2})f_0^{I_g}(X_g^3)\\
+&g_3^{I_g}(X_g^{1,2,3}) = f_0^{I_g}(X_g^1)f_0^{I_g}(X_g^{2,3})\\
+&g_4^{I_g}(X_g^{1,2,3}) = f_0^{I_g}(X_g^{1,3})f_0^{I_g}(X_g^2)\\
+&g_5^{I_g}(X_g^{1,2,3}) = f_0^{I_g}(X_g^1)f_0^{I_g}(X_g^2)f_0^{I_g}(X_g^3)\\
+\end{align*}
+
+
+Then the marginal distribution of counts $X_g^{1,2,3}$ is $\overset{5}{\underset{k = 1}{\Sigma}} p_k g_k^{I_g}(X_g^{1,2,3})$, where proportion parameters $p_k$ satisfying $\overset{5}{\underset{k = 1}{\Sigma}} p_k = 1$ and are estimated by EM algorithm. Thus, the posterior probability of an expression pattern $k$ is obtained by:
+\begin{eqnarray*}
+\frac{p_k g_k(X_g^{1,2,3})}{\overset{5}{\underset{k = 1}{\Sigma}} p_k g_k^{I_g}(X_g^{1,2,3})}
+\end{eqnarray*}
+
+
+
+
+
+\subsubsection{modalClust}
+
+
+\noindent
+{\bf Product Partition Model}
+
+Let $X = (X_1, X_2, ...,X_n)$ be $n$ one dimension observed data, given a partition for the data $\pi = \{S_1, ..., S_q\}$, where $S_i$ are disjoint subsets of $\{1,2,...,n\}$ and $\bigcup_{i = 1}^{q} S_i = \{1,2,...,n\}$. The likelihood for $X$ satisfying such partition is
+\begin{eqnarray*}
+p(X|\pi) = \overset{q}{\underset{i = 1}{\prod}}f(X_{S_i})
+\end{eqnarray*}
+
+where $X_{S_i}$ is the vector of observations corresponding to the items of component $S_i$, The component likelihood $f(X_{S})$ is defined for any non-empty component $S$ and can take any form. The partition $\pi$ is the only parameter we are interested at.
+Any other parameters that may have been involved in the model have been integrated over their prior.
+
+The prior distribution for a partition $\pi$ is also taken as a product form. We use the partition that maximize the posterior $p(\pi | X) \propto p(X|\pi) p(\pi)$ as the estimated clustering of $X$.
+
+Dahl demonstrated by some choice of $f$ and prior of $\pi$, we can reduce the time complexity of finding the MAP partition from factorial($n$) to $O(n^2)$ \cite{ref:dahl},
+And the crucial condition for $f$ is that if $X_{S_1}$ and $X_{S_2}$ are overlapped in the sense that  min$\{X_{S_2}\}  <$ max$\{X_{S_1}\}  <$ max$\{X_{S_2}\}$ or min$\{X_{S_1}\}  <$ max$\{X_{S_2}\}  <$ max$\{X_{S_1}\}$, $X_{S_1^*} and X_{S_2^*}$ be the sets of swapping one pair of those overlapped terms and keep the other unchanged. Then $f(X_{S_1}) f(X_{S_2}) \leq f(X_{S_1^*}) f(X_{S_2^*})$. Under such condition, we know that possible MAP candidates must be those partition that for any two subgroups of data, all the data from subgroup1 has to be either greater or smaller than all the data from subgroup2.
+
+
+In Poisson-Gamma Model we assuming:
+
+\begin{align*}
+X_i | \pi, \lambda &\sim Poisson(X_i | \lambda_1\textbf{I}\{i\in S_1\} + ... + \lambda_q\textbf{I}\{i \in S_q\})\\
+\pi &\sim p(\pi)\\
+\lambda_j &\sim Gamma(\alpha_0, \beta_0)
+\end{align*}
+
+where $p(\pi)\propto \overset{q}{\underset{i = 1}{\prod}}\eta_0\Gamma(|S_i|)$. Integrate out $\lambda$, $f(X_{S})$ is obtained as:
+
+\begin{eqnarray*}
+f(X_{S}) = \frac{\beta^\alpha}{(|S| + \beta)^{\underset{i \in S}{\Sigma} X_i + \alpha}} \frac{\Gamma(\underset{i \in S}{\Sigma} X_i  + \alpha)}{\Gamma(\alpha)} \frac{1}{\underset{i \in S}{\prod }X_i}
+\end{eqnarray*}
+
+$f(X_S)$ still satisfying the condition mentioned
+
+
+
+\begin{proof}
+if $X_{S_1}$ and $X_{S_2}$ are overlapped, without loss of generality, we assume min$\{X_{S_2}\}  <$ max$\{X_{S_1}\}  <$ max$\{X_{S_2}\}$, and we swap max$\{X_{S_1}\}$ with min$\{X_{S_2}\}$ and keep the rest unchanged or we could also swap max$\{X_{S_1}\}$ with max$\{X_{S_2}\}$. We denote the new set forming by swap of max$\{X_{S_1}\}$ with min$\{X_{S_2}\}$  as $S_1^*$ and $S_2^*$ and swap of max$\{X_{S_1}\}$ with max$\{X_{S_2}\}$ as $S_1^{**}, S_2^{**}$ accordingly.
+
+Then we need to show  at least one of the following happens
+\begin{align}
+&f(X_{S_1^*}) f(X_{S_2^*}) \geq f(X_{S_1}) f(X_{S_2})\\
+&f(X_{S_1^{**}}) f(X_{S_2^{**}}) \geq f(X_{S_1}) f(X_{S_2})
+\end{align}
+
+
+Let $a =$ max$\{X_{S_1}\}$, $b = $ min$\{X_{S_2}\}$ and $c = $ max$\{X_{S_2}\}$. $h_1 = \underset{i \in S_1}{\Sigma} X_i - a$ and $h_2 = \underset{i \in S_2}{\Sigma} X_i - b$, $n_1$ and $n_2$ are the number of elements in $S_1$ and $S_2$. Then
+\begin{align*}
+f(X_{S_1^*}) f(X_{S_2^*}) &\geq f(X_{S_1}) f(X_{S_2})\\
+&\iff\\
+\frac{\Gamma(h_1 + a + \alpha)}{(n_1 + \beta)^{h_1 + a +\alpha}} \frac{\Gamma(h_2 + b + \alpha)}{(n_2 + \beta)^{h_2 + b + \alpha}} &\leq \frac{\Gamma(h_2 + a + \alpha)}{(n_2 + \beta)^{h_2+ a +\alpha}} \frac{\Gamma(h_1 + b + \alpha)}{(n_2 + \beta)^{h_1 + b + \alpha}}\\
+&\iff\\
+\frac{\Gamma(h_1 + a + \alpha)}{\Gamma(h_1 + b + \alpha)} \frac{\Gamma(h_2 + b + \alpha)}{\Gamma(h_2 + a + \alpha)} &\leq (\frac{n_1 + \beta}{n_2 + \beta})^{a - b} \\
+\end{align*}
+
+
+Left hand side of above formula is $\text{LHS}_1 = \frac{(h_1 + b + \alpha)...(h_1 + a - 1 + \alpha)}{(h_2 + b + \alpha) ... (h_2 + a - 1 + \alpha)}$ by the property of Gamma function and $X_i$ are integer.
+
+Similarly,
+\begin{align*}
+f(X_{S_1^{**}}) f(X_{S_2^{**}}) &\geq f(X_{S_1}) f(X_{S_2})\\
+&\iff\\
+\frac{\Gamma(h_2 + c + \alpha)}{\Gamma(h_2 + a + \alpha)} \frac{\Gamma(h_1 + a + \alpha)}{\Gamma(h_1 + c + \alpha)} &\leq (\frac{n_2 + \beta}{n_1 + \beta})^{c - a} \\
+\end{align*}
+
+ Left hand side of above formula is $\text{LHS}_2 = \frac{(h_2 + a + \alpha)...(h_2 + c - 1 + \alpha)}{(h_1 + a + \alpha) ... (h_1 + c - 1 + \alpha)}$
+
+If $h_1 \leq h_2$, then $\text{LHS}_1 \leq (\frac{h_1 + a - 1 + \alpha}{h_2 + a  - 1 + \alpha})^{a - b}$ and $\text{LHS}_2 \leq (\frac{h_2 + c - 1 + \alpha}{h_1 + c  - 1 + \alpha})^{a - b}$
+
+So if $\frac{h_1 + a - 1 + \alpha}{h_2 + a  - 1 + \alpha} \leq \frac{n_1 + \beta}{n_2 + \beta} $ then (12) holds, if $\frac{h_2 + c - 1 + \alpha}{h_1 + c  - 1 + \alpha} \leq \frac{n_1 + \beta}{n_2 + \beta}$ then (13) holds
+
+We multiply those two inequalities, we found that $\frac{h_1 + a - 1 + \alpha}{h_2 + a  - 1 + \alpha} * \frac{h_2 + c - 1 + \alpha}{h_1 + c  - 1 + \alpha} = \frac{h_1 + a - 1 + \alpha}{h_1 + c  - 1 + \alpha} * \frac{h_2 + c - 1 + \alpha}{h_2 + a  - 1 + \alpha} \leq 1$ as $c > a$ and $h_1 \leq h_2$ But $\frac{n_1 + \beta}{n_2 + \beta} * \frac{n_1 + \beta}{n_2 + \beta} = 1$. At least one equality holds, consequently at least one of (12) and (13) holds.
+
+Similar proof for the case $h_1 > h_2$.
+
+
+
+
+\end{proof}
+
+
+
+
+
+
+
+\subsubsection{Randomized $K-$means}
+
+\subsubsection{Selecting $K$}
+
+In order to determine the number of clusters, we consider the change of {\em validity} = $\frac{\textbf{intra}}{\textbf{inter}}$ defined in \cite{selK}, where $\textbf{intra} = \frac{1}{N}\overset{K}{\underset{i = 1}{\Sigma}}\underset{x \in C_i}{\Sigma} ||x - z_i||^2$, $\textbf{inter} = mean( || z_i - z_j||^2), i = 1,2,...,K-1. j = i+1,...,K$ and $z_i$ is the center(medoids) of cluster $i$. $\textbf{intra}$ is the average of distance of a point to its corresponding cluster center, which measures the compactness of clusters. We made a small change here, in original paper $\textbf{inter}$ was defined as minimum distance between medoids, we use average instead for the purpose of getting a smoother quantity. $\textbf{inter}$ is the average distance of two cluster centers, which measures the separation between clusters. We want to have a small intra-cluster distance and a big inter-cluster distance, consequently we wnat to minimize the {\em validity}. From empirical study, we constantly observe a monotone decreasing relation between number of clusters and {\em validity}. However this quantity stabilize when $K$ is sufficiently large. The stopping rule for searching $K$ is when $|validity_{K} - min(validity_K) | < \epsilon$ is satisfied.
+
+
+
 
 \subsection{Double Dirichlet Mixture}
 
 On properties 1-8, and Theorem 3
+
+On the double Dirichlet masses, using notation as in Section 2.3 we have density functions:
+
+
+\begin{eqnarray*}
+p_\pi(\phi,\psi) =
+         q_\pi( \Phi_\pi, \Psi_\pi  ) \, \prod_{b \in \pi}  \left[
+         p( \tilde \phi_b ) p( \tilde \psi_b ) \right]
+\end{eqnarray*}
+with
+\begin{eqnarray*}
+q_\pi( \Phi_\pi, \Psi_\pi  )
+= \frac{\Gamma(\sum_{b\in \pi} \beta_b)}{
+ \prod_{b \in \pi} \Gamma( \beta_b )} \left[\prod_{b \in \pi} \Phi_b^{\beta_b-1} \right] \,
+ 1\left[ \Phi_\pi = \Psi_\pi \right]
+\end{eqnarray*}
+and
+\begin{eqnarray*}
+p( \tilde \phi_b ) =
+\frac{ \Gamma( \sum_{k\in b} \alpha_k ) }{ \prod_{k\in b} \Gamma(\alpha_k) }
+ \prod_{k \in b} \tilde \phi_k^{\alpha_k -1 },
+\qquad
+p( \tilde \psi_b )
+=
+\frac{ \Gamma( \sum_{k\in b} \alpha_k ) }{ \prod_{k\in b} \Gamma(\alpha_k) }
+\prod_{k \in b} \tilde \psi_k^{\alpha_k -1 }.
+\end{eqnarray*}
+
+
 
 \section{Numerical Experiments}
 
@@ -196,146 +378,6 @@ GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human & \citep{
 
 \subsection{Null cases}
 
-**table of null studies + numerical results**
-
-\section{?Other}
-
-\noindent
-{\bf EBSeq}
-
-Suppose we have $K$ subtypes, let $X_g^I = X_{g, 1}^I, ... , X_{g, S_1}^I$ denote transcripts at gene $g$ from subtype $I, I = 1, ... K$.  In the EBSeq model it assumed that counts within subtype $I$ are distributed as Negative Binomial:
-$X_{g, s}^I | r_{g,s}, q_g^I \sim NB(r_{g,s}, q_g^I)$ Where
-
-\begin{eqnarray*}
-P(X_{g,s}^I | r_{g,s}, q_g^I ) = {X_{g,s} + r_{g,s} - 1 \choose X_{g,s} }(1 - q_g^I)^{X_{g,s}^I} (q_g^I)^{r_{g,s}}
-\end{eqnarray*}
-and $\mu_{g,s}^I = r_{g,s}(1 - q_g^I) / q_g^I; \sigma_{g,s}^I = r_{g,s}(1 - q_g^I)/ (q_g^I)^2.$
-
-The EBSeq model assumed a prior distribution on $q_g^I : q_g^I | \alpha, \beta^{I_g} \sim Beta(\alpha, \beta^{I_g}).$ The hyperparameter $\alpha$ is shared by all the isoforms and $\beta^{I_g}$ is $I_g$ specific. We further assume that $r_{g,s} = r_{g,0}*l_s$ where $r_{g,0}$ is an isoform specific parameter common across subtypes and $r_{g,s}$ depends on it through the sample-specific normalization factor $l_s$ 
-
-What we are interested at those $K$ groups comparison is the expression pattern, through EBSeq modeling we are able to obtain posterior probabilities over 
-
-\begin{eqnarray*}
-M_{g,\pi} = \{ \theta \in \Theta: \; \mu_{g,k} = \mu_{g,k'} \iff k,k' \in b, b \in \pi \}.
-\end{eqnarray*}
-
-For any partition $\pi$ of $K$ elements. 
-
-For example $K = 3$, there are 5 expression pattern, $P_1, P_2, ..., P_5$ 
-
-\begin{align*}
-&P1: q_g^1 = q_g^2 = q_g^3\\
-&P2: q_g^1 = q_g^2 \neq q_g^3\\
-&P3: q_g^1 \neq q_g^2 = q_g^3\\
-&P4: q_g^1 = q_g^3 \neq q_g^2\\
-&P5: q_g^1 \neq q_g^2 \neq q_g^3 \text{ and } q_g^1 \neq q_g^3
-\end{align*}
-
-Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can pool the counts from the two groups by viewing them come from same distribution i.e. $X_g^{I, J} | r_{g,s}, q_g \sim NB(r_{g,s}, q_g)$, $q_g | \alpha, \beta^{I_g} \sim Beta(\alpha, \beta^{I_g})$ and obtained the prior predictive function $f_0^{I_g}(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g,s}, q_g) * P(q_g | \alpha, \beta^{I_g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + r_{g,s} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S r_{g,s}, \beta^{I_g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{I_g})}$.  Consequently, we have prior predictive function for $P1, ..., P5$ as
-
-\begin{align*}
-&g_1^{I_g}(X_g^{1,2,3}) = f_0^{I_g}(X_g^{1,2,3})\\
-&g_2^{I_g}(X_g^{1,2,3}) = f_0^{I_g}(X_g^{1,2})f_0^{I_g}(X_g^3)\\
-&g_3^{I_g}(X_g^{1,2,3}) = f_0^{I_g}(X_g^1)f_0^{I_g}(X_g^{2,3})\\
-&g_4^{I_g}(X_g^{1,2,3}) = f_0^{I_g}(X_g^{1,3})f_0^{I_g}(X_g^2)\\
-&g_5^{I_g}(X_g^{1,2,3}) = f_0^{I_g}(X_g^1)f_0^{I_g}(X_g^2)f_0^{I_g}(X_g^3)\\
-\end{align*}
-
-Then the marginal distribution of counts $X_g^{1,2,3}$ is $\overset{5}{\underset{k = 1}{\Sigma}} p_k g_k^{I_g}(X_g^{1,2,3})$, where proportion parameters $p_k$ satisfying $\overset{5}{\underset{k = 1}{\Sigma}} p_k = 1$ and are estimated by EM algorithm. Thus, the posterior probability of an expression pattern $k$ is obtained by:
-\begin{eqnarray*}
-\frac{p_k g_k(X_g^{1,2,3})}{\overset{5}{\underset{k = 1}{\Sigma}} p_k g_k^{I_g}(X_g^{1,2,3})}
-\end{eqnarray*}
-
-
-\noindent 
-{\bf modalclust}
-
-
-{Product Partition Model}
-Let $X = (X_1, X_2, ...,X_n)$ be $n$ one dimension observed data, given a partition for the data $\pi = \{S_1, ..., S_q\}$, where $S_i$ are disjoint subsets of $\{1,2,...,n\}$ and $\bigcup_{i = 1}^{q} S_i = \{1,2,...,n\}$. The likelihood for $X$ satisfying such partition is 
-\begin{eqnarray*}
-p(X|\pi) = \overset{q}{\underset{i = 1}{\prod}}f(X_{S_i})
-\end{eqnarray*}
-
-where $X_{S_i}$ is the vector of observations corresponding to the items of component $S_i$, The component likelihood $f(X_{S})$ is defined for any non-empty component $S$ and can take any form. The partition $\pi$ is the only parameter we are interested at. 
-Any other parameters that may have been involved in the model have been integrated over their prior.
-
-The prior distribution for a partition $\pi$ is also taken as a product form. We use the partition that maximize the posterior $p(\pi | X) \propto p(X|\pi) p(\pi)$ as the estimated clustering of $X$.
-
-Dahl demonstrated by some choice of $f$ and prior of $\pi$, we can reduce the time complexity of finding the MAP partition from factorial($n$) to $O(n^2)$ \cite{ref:dahl},  
-And the crucial condition for $f$ is that if $X_{S_1}$ and $X_{S_2}$ are overlapped in the sense that  min$\{X_{S_2}\}  <$ max$\{X_{S_1}\}  <$ max$\{X_{S_2}\}$ or min$\{X_{S_1}\}  <$ max$\{X_{S_2}\}  <$ max$\{X_{S_1}\}$, $X_{S_1^*} and X_{S_2^*}$ be the sets of swapping one pair of those overlapped terms and keep the other unchanged. Then $f(X_{S_1}) f(X_{S_2}) \leq f(X_{S_1^*}) f(X_{S_2^*})$. Under such condition, we know that possible MAP candidates must be those partition that for any two subgroups of data, all the data from subgroup1 has to be either greater or smaller than all the data from subgroup2.
-
-
-In Poisson-Gamma Model we assuming:
-
-\begin{align*}
-X_i | \pi, \lambda &\sim Poisson(X_i | \lambda_1\textbf{I}\{i\in S_1\} + ... + \lambda_q\textbf{I}\{i \in S_q\})\\
-\pi &\sim p(\pi)\\
-\lambda_j &\sim Gamma(\alpha_0, \beta_0)
-\end{align*}
-
-where $p(\pi)\propto \overset{q}{\underset{i = 1}{\prod}}\eta_0\Gamma(|S_i|)$. Integrate out $\lambda$, $f(X_{S})$ is obtained as:
-
-\begin{eqnarray*}
-f(X_{S}) = \frac{\beta^\alpha}{(|S| + \beta)^{\underset{i \in S}{\Sigma} X_i + \alpha}} \frac{\Gamma(\underset{i \in S}{\Sigma} X_i  + \alpha)}{\Gamma(\alpha)} \frac{1}{\underset{i \in S}{\prod }X_i}
-\end{eqnarray*}
-
-$f(X_S)$ still satisfying the condition mentioned
-
-\begin{proof}
-if $X_{S_1}$ and $X_{S_2}$ are overlapped, without loss of generality, we assume min$\{X_{S_2}\}  <$ max$\{X_{S_1}\}  <$ max$\{X_{S_2}\}$, and we swap max$\{X_{S_1}\}$ with min$\{X_{S_2}\}$ and keep the rest unchanged or we could also swap max$\{X_{S_1}\}$ with max$\{X_{S_2}\}$. We denote the new set forming by swap of max$\{X_{S_1}\}$ with min$\{X_{S_2}\}$  as $S_1^*$ and $S_2^*$ and swap of max$\{X_{S_1}\}$ with max$\{X_{S_2}\}$ as $S_1^{**}, S_2^{**}$ accordingly. 
-
-Then we need to show  at least one of the following happens 
-\begin{align}
-&f(X_{S_1^*}) f(X_{S_2^*}) \geq f(X_{S_1}) f(X_{S_2})\\
-&f(X_{S_1^{**}}) f(X_{S_2^{**}}) \geq f(X_{S_1}) f(X_{S_2})
-\end{align}
-
-
-Let $a =$ max$\{X_{S_1}\}$, $b = $ min$\{X_{S_2}\}$ and $c = $ max$\{X_{S_2}\}$. $h_1 = \underset{i \in S_1}{\Sigma} X_i - a$ and $h_2 = \underset{i \in S_2}{\Sigma} X_i - b$, $n_1$ and $n_2$ are the number of elements in $S_1$ and $S_2$. Then 
-\begin{align*}
-f(X_{S_1^*}) f(X_{S_2^*}) &\geq f(X_{S_1}) f(X_{S_2})\\
-&\iff\\
-\frac{\Gamma(h_1 + a + \alpha)}{(n_1 + \beta)^{h_1 + a +\alpha}} \frac{\Gamma(h_2 + b + \alpha)}{(n_2 + \beta)^{h_2 + b + \alpha}} &\leq \frac{\Gamma(h_2 + a + \alpha)}{(n_2 + \beta)^{h_2+ a +\alpha}} \frac{\Gamma(h_1 + b + \alpha)}{(n_2 + \beta)^{h_1 + b + \alpha}}\\
-&\iff\\
-\frac{\Gamma(h_1 + a + \alpha)}{\Gamma(h_1 + b + \alpha)} \frac{\Gamma(h_2 + b + \alpha)}{\Gamma(h_2 + a + \alpha)} &\leq (\frac{n_1 + \beta}{n_2 + \beta})^{a - b} \\
-\end{align*}
-
-Left hand side of above formula is $\text{LHS}_1 = \frac{(h_1 + b + \alpha)...(h_1 + a - 1 + \alpha)}{(h_2 + b + \alpha) ... (h_2 + a - 1 + \alpha)}$ by the property of Gamma function and $X_i$ are integer.
-
-Similarly,
-\begin{align*}
-f(X_{S_1^{**}}) f(X_{S_2^{**}}) &\geq f(X_{S_1}) f(X_{S_2})\\
-&\iff\\
-\frac{\Gamma(h_2 + c + \alpha)}{\Gamma(h_2 + a + \alpha)} \frac{\Gamma(h_1 + a + \alpha)}{\Gamma(h_1 + c + \alpha)} &\leq (\frac{n_2 + \beta}{n_1 + \beta})^{c - a} \\
-\end{align*}
-
- Left hand side of above formula is $\text{LHS}_2 = \frac{(h_2 + a + \alpha)...(h_2 + c - 1 + \alpha)}{(h_1 + a + \alpha) ... (h_1 + c - 1 + \alpha)}$
- 
-If $h_1 \leq h_2$, then $\text{LHS}_1 \leq (\frac{h_1 + a - 1 + \alpha}{h_2 + a  - 1 + \alpha})^{a - b}$ and $\text{LHS}_2 \leq (\frac{h_2 + c - 1 + \alpha}{h_1 + c  - 1 + \alpha})^{a - b}$
-
-So if $\frac{h_1 + a - 1 + \alpha}{h_2 + a  - 1 + \alpha} \leq \frac{n_1 + \beta}{n_2 + \beta} $ then (12) holds, if $\frac{h_2 + c - 1 + \alpha}{h_1 + c  - 1 + \alpha} \leq \frac{n_1 + \beta}{n_2 + \beta}$ then (13) holds
-
-We multiply those two inequalities, we found that $\frac{h_1 + a - 1 + \alpha}{h_2 + a  - 1 + \alpha} * \frac{h_2 + c - 1 + \alpha}{h_1 + c  - 1 + \alpha} = \frac{h_1 + a - 1 + \alpha}{h_1 + c  - 1 + \alpha} * \frac{h_2 + c - 1 + \alpha}{h_2 + a  - 1 + \alpha} \leq 1$ as $c > a$ and $h_1 \leq h_2$ But $\frac{n_1 + \beta}{n_2 + \beta} * \frac{n_1 + \beta}{n_2 + \beta} = 1$. At least one equality holds, consequently at least one of (12) and (13) holds.
-
-Similar proof for the case $h_1 > h_2$. 
-
-
-
-
-
-\end{proof}
-
-
-\noindent
-{\bf Choosing $K$ by validity score:}
-
-In order to determine the number of clusters, we consider the change of {\em validity} = $\frac{\textbf{intra}}{\textbf{inter}}$ defined in \cite{selK}, where $\textbf{intra} = \frac{1}{N}\overset{K}{\underset{i = 1}{\Sigma}}\underset{x \in C_i}{\Sigma} ||x - z_i||^2$, $\textbf{inter} = mean( || z_i - z_j||^2), i = 1,2,...,K-1. j = i+1,...,K$ and $z_i$ is the center(medoids) of cluster $i$. $\textbf{intra}$ is the average of distance of a point to its corresponding cluster center, which measures the compactness of clusters. We made a small change here, in original paper $\textbf{inter}$ was defined as minimum distance between medoids, we use average instead for the purpose of getting a smoother quantity. $\textbf{inter}$ is the average distance of two cluster centers, which measures the separation between clusters. We want to have a small intra-cluster distance and a big inter-cluster distance, consequently we wnat to minimize the {\em validity}. From empirical study, we constantly observe a monotone decreasing relation between number of clusters and {\em validity}. However this quantity stabilize when $K$ is sufficiently large. The stopping rule for searching $K$ is when $|validity_{K} - min(validity_K) | < \epsilon$ is satisfied.
-
-
-
-
-\subsection{Empirical study: null cases}
 Although bulk methods seems to be the most powerful one, we found it also has a higher false discovery rate comparing to single cell methods. We validate false discovery rate on ten null datasets from table 1. For each null dataset, we randomly split the cells from one condition into two subsets and test difference of gene expression between those subsets. Since the two subsets of cells actually came from same condition, there should not be any differential distributed genes, any positive call would be a false positive. We repeat the random split and testing for five times on each null data set. We evaluate the type I error control for the methods returning nominal p-values, by recording the fraction of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (Fig 6).\\
 scDDboost could control FDR since we assume cells are sampled from population composed of different subtypes. Cells from one subtype are equal likely to be assigned to either one of the two subsets. Consequently, it is very likely that proportions of subtypes remain unchanged among the two subsets.
 
@@ -371,7 +413,13 @@ GSE79102null & patient1 & 26, 25 & human\\
 
 
 
-\subsection{Number of subtypes}
+\section{?Other}
+
+
+
+
+\subsection{Effect of $K$ on posterior probabilities}
+
 Number of subtypes $K$ is a crucial factor controlling the accuracy of our modeling. 
 Too small $K$ may end up in an underfit such that cells within same subtype can still be very different,
 mean expression change among subtypes is incapable to capture the distribution change for some genes and consequently reducing the power of \textsc{scDDboost}.
@@ -386,7 +434,6 @@ Too big $K$ may end up in an overfit such that two subtypes can be very similar,
 ***something about change of PDD over K, even though PDD is monotone increasing but it would remain stable in the sense that $\text{PDD}_{K+1} - \text{PDD}_K$ will have small variance over different genes***
 
 From our empirical experience, it would be sufficient to capture the heterogeneity underlying cells with number of clusters not greater than 9.  And we generally obtain stable in validity score and PDD simultaneously (see supplementary)
-
 
 
 We demonstrate the change of posterior probabilities of differential distribution given different number of subtypes at data GSE75748 and GSE48968. In both cases, if allowing one more subtype would result in a lot increases in posterior probabilities, which suggests that the number of subtypes is underestimated since we found more distribution differences between conditions given one more mixture component. If posterior inference is stable after increasing the number of subtypes, then we consider previous number of subtypes to be optimal. 
@@ -576,44 +623,7 @@ We random generate one-dimensional data $X$ from a mixture of 5 normal distribut
   \label{fig:1}
 \end{figure}
 
-\subsection{empirical study}
 
-
-
-
-\noindent
-{\bf Double Dirichlet Model:}
-
-On the double Dirichlet masses, using notation as in Section 2.3 we have density functions:
-
-
-\begin{eqnarray*}
-p_\pi(\phi,\psi) =
-         q_\pi( \Phi_\pi, \Psi_\pi  ) \, \prod_{b \in \pi}  \left[
-         p( \tilde \phi_b ) p( \tilde \psi_b ) \right]
-\end{eqnarray*}
-with
-\begin{eqnarray*}
-q_\pi( \Phi_\pi, \Psi_\pi  )
-= \frac{\Gamma(\sum_{b\in \pi} \beta_b)}{
- \prod_{b \in \pi} \Gamma( \beta_b )} \left[\prod_{b \in \pi} \Phi_b^{\beta_b-1} \right] \,
- 1\left[ \Phi_\pi = \Psi_\pi \right]
-\end{eqnarray*}
-and
-\begin{eqnarray*}
-p( \tilde \phi_b ) =
-\frac{ \Gamma( \sum_{k\in b} \alpha_k ) }{ \prod_{k\in b} \Gamma(\alpha_k) }
- \prod_{k \in b} \tilde \phi_k^{\alpha_k -1 },
-\qquad
-p( \tilde \psi_b )
-=
-\frac{ \Gamma( \sum_{k\in b} \alpha_k ) }{ \prod_{k\in b} \Gamma(\alpha_k) }
-\prod_{k \in b} \tilde \psi_k^{\alpha_k -1 }.
-\end{eqnarray*}
-
-%notations already defined in main 
-%where $p(t^1,t^2|\phi,\psi) = p(t^1|\phi)p(t^1|\psi)$, $t^1|\phi \sim \text{multinomial}(n_1, \phi), t^2|\psi \sim \text{multinomial}(n_2, \psi)$. Recall the definition of $A_\pi = \{(\phi,\psi): \Phi_b = \Psi_b\}$ and $A_\pi$ is a simplex. Denote the finest partition as $\pi_{F} = \{ \{1\}, \{2\},...,\{K\}\}$, associated simplex $A_{\pi_{F}} = \{(\phi, \psi): \phi_i = \psi_i, i = 1,...,K\}$ for any two partition $\pi_1$ and $\pi_2$, intersection of their associated simplex must not be empty since $A_{\pi_{F}}\subset A_{\pi_1}\cap A_{\pi_2} \neq \emptyset$.  To discuss the issue of overlapping of simplex $A_\pi$, we first introduce some notations. The whole space $\Omega = \{ (\phi,\psi), \phi_i,\psi_i > 0 \text{ and } \sum_{i=1}^K \phi_i = \sum_{i=1}^K \psi_i = 1\}$ and we define the refinement and coarseness relationship between partitions, we say a partition $\tilde{\pi}$ refines another partition $\pi$ if $\forall b \in \pi$ there exists $s \subset \tilde{\pi}$  such that $\cup_{b'\in s} b' = b$. When $\tilde{\pi}$ refines $\pi$, we say $\tilde{\pi}$ is a refinement of(finer than) $\pi$ or $\pi$ is a coarseness of(coarser than) $\tilde{\pi}$. 
-%Observe that if $\pi'$ refines $\pi$, then $A_\pi \cap A_{\pi'} = A_{\pi'}$, $\int_{A_\pi\cap A_{\pi'}} p(z^1,z^2|\phi,\psi)p(\phi, \psi | A_{\pi'})d\phi d\psi = \int_{A_{\pi'}} p(t^1,t^2|\phi,\psi)p(\phi, \psi | A_{\pi'})d\phi d\psi $. When $\pi'$ is not refinement of $\pi$, we need to know the dimension of $A_\pi\cap A_{\pi'}$. Consider a map $f: b \rightarrow v$, which maps the block $b$ to a vector $v\in \{0, 1\}^K$, the ith component of $v$ is $1_{\{i\in b\}}$. And denote $\text{dim}(S)$ be the dimension of space $S$. $A_\pi$ can be equivalently defined as $A_\pi =  \{(\phi,\psi): M_\pi * (\phi - \psi) = 0\}$, $M_\pi$ is a matrix with rows be $v_b = f(b), \forall b\in \pi$, that is to say $(\phi,\psi)$ are in the null space of linear transformation $M_\pi$.  We have following lemma\\
 
 \noindent
 {\bf Proofs:}
