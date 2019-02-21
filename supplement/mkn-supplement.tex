@@ -566,19 +566,19 @@ Recall $N(\pi)$ represents number of blocks $b$ in $\pi$. Let $S = \{\pi,  (\phi
 For example, when $K = 7$, For a $(\phi, \psi)\in A_{\pi_1} \cap A_{\pi_2} \cap A_{\pi_3}$, $\pi_1 = \{\{1,2,3\}, \{4,5,6,7\}\}, \pi_2 = \{\{1,6,7\}, \{2,4\},\{3,5\}\}, \pi_3 = \{\{1,2,3,4,5,6\}\}$, and also $(\phi, \psi)$ does not belong to any other simplex $A_\pi$. Then $S = \{\pi_1, \pi_2, \pi_3\}$, $N^* = 3$, $S^* = \{\pi_2\}.$ 
 
 %Denote components from right hand side of (5): $\frac{1}{c'}\underset{b\in \pi}\prod\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(N(b) + t_b^1)\Gamma(N(b) + t_b^2)} \frac{\Gamma(N(b))}{\Gamma(2N(b))} = J(y,z,\pi).$  We have theorem 5.\\
-\begin{theorem} Following the setting in theorem 4, when parameter $(\phi, \psi)\in Q$,  and we have 
+\begin{theorem} Following the setting in theorem 1, when parameter $(\phi, \psi)\in Q$,  and we have 
 \begin{eqnarray*}
     (p(A_{\pi} | y, z))_{\pi\in S^*} \xrightarrow[n\rightarrow\infty]{\text{d}}%\left\{
                 %\begin{array}{ll}
-                V
+                (V_1, ..., V_{N(S^*)})
                  %m(\pi) \quad  \pi \in S^* \\
                  %0 \quad \text{otherwise}\\             
                % \end{array}
               %\right.
 \end{eqnarray*}
 %and $\underset{\pi\in S^*}\sum m(\pi) = 1, m(\pi) > 0$\\
-$V$ is a dirichlet distributed random variable. 
-\end{theorem} 
+$V_1, ..., V_{N(S^*}$ are random variables and $V_1 + .. + V_{N(S^*} = 1$
+ \end{theorem} 
 
 Still using above example, in limiting case, we have $p(A_{\pi_3} | y,z) = 1$, $p(A_{\pi_2} | y,z) = 1$ and $p(A_{\pi_1}| y,z) = 0$. When the DE pattern is $B_{\pi_1}$ for some genes and our estimation of $p(A_{\pi_1}| y,z) = 0$, we will falsely classify those genes as differential distributed.
 
@@ -665,7 +665,7 @@ We have another lemma and theorem 4 and 5 are just proportion of the lemma
     \frac{\omega_{\pi_1}^{\text post}}{\omega_{\pi_2}^{\text post}} \xrightarrow[n\rightarrow\infty]{\text{a.s.}} 0 \quad \text{if } N(\pi_1) < N(\pi_2)\\
    \frac{\omega_{\pi_1}^{\text post}}{\omega_{\pi_2}^{\text post}} \xrightarrow[n\rightarrow\infty]{\text{d}} v \quad \text{if } N(\pi_1) = N(\pi_2)
 \end{eqnarray*}
-$v$ is a gamma distributed random variable
+$v$ is a random variable
 \end{lemma}
 
 \begin{proof}
@@ -688,18 +688,41 @@ d(\pi, t^1, t^2, \alpha, \beta) = \underset{b\in \pi}\Sigma h(\beta_b + t_b^1 + 
 
 
 Recall $\beta_b = \gamma_b^1 + \gamma_b^2$ and from lemma 2, $(x - c)\text{ln}(x) - x \leq h(x) \leq (x - 1/2)\text{ln}(x) - x$ we have 
-\begin{eqnarray*}
-d(\pi_1, t^1, t^2, \alpha, \beta) \geq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - c) \text{ln}(\beta_b  + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - 1/2) \text{ln}(t_b^j + \gamma_b^j)
-\end{eqnarray*}
+\begin{align}
+d(\pi, t^1, t^2, \alpha, \beta) &\geq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - c) \text{ln}(\beta_b  + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - 1/2) \text{ln}(t_b^j + \gamma_b^j)\\
+d(\pi, t^1, t^2, \alpha, \beta) &\leq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - 1 / 2) \text{ln}(\beta_b  + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - c) \text{ln}(t_b^j + \gamma_b^j)
+\end{align}
 
-RHS = 
+
 \begin{eqnarray*}
-(1 - c) \text{ln}(\beta_b + t_b^1 + t_b^2)  + (t_b^1 + \gamma_b^1) \text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1})\\
+\text{RHS of (4)} = \Sigma_b \big[ (t_b^1 + \gamma_b^1) \text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1})
  + (t_b^2 + \gamma_b^2) \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2})\\
-  - 1/2(\text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))
+ + (1 - c) \text{ln}(\beta_b + t_b^1 + t_b^2) 
+  - 1/2(\text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))\big]
 \end{eqnarray*}
 
-By Taylor expansion at $x= 1$, $\text{ln}(x + 1) = \text{ln}2 + 1/2(x - 1) - 1/8(x - 1)^2 + g(\xi) (x - 1)^3$, where $g(\xi)$ in the reminder term is $1/3(1+\xi)^3$
+By Taylor expansion at $x= 1$, $\text{ln}(x + 1) = \text{ln}2 + 1/2(x - 1) - 1/8(x - 1)^2 + g(\xi) (x - 1)^3$, where $g(\xi)$ in the reminder term is $1/3(1+\xi)^3$ for $ 0 < \xi < x$
+For a fixed $n_1, n_2$, we have 
+
+\begin{eqnarray*}
+\text{RHS of (4)} = (n_1 + n_2) \text{ln}2  - \Sigma_{b\in\pi}(1/8 (X_b^1 + X_b^2)\\
++ g(\xi) (Y_b^1 + Y_b^2) )+ T(\pi)
+\end{eqnarray*}
+
+where $X_1 = \frac{(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2)^2}{t_b^1 + \gamma_b^1}$, $X_2 =  \frac{(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2)^2}{t_b^2 + \gamma_b^2}$,
+$Y_1 = \frac{(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2)^3}{(t_b^1 + \gamma_b^1)^2} $ , $Y_2 =  \frac{(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2)^3}{(t_b^2 + \gamma_b^2)^2}$
+and $T(\pi) = (1 - c) \text{ln}(\beta_b + t_b^1 + t_b^2) 
+  - 1/2(\text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))$\\
+Similarly
+\begin{eqnarray*}
+\text{RHS of (5)} = (n_1 + n_2) \text{ln}2  -\Sigma_{b\in\pi}(1/8 (X_b^1 + X_b^2)\\
++ g(\xi) (Y_b^1 + Y_b^2)) + U(\pi)
+\end{eqnarray*}
+  
+$U(\pi) = (2c - 1/2) \text{ln}(\beta_b + t_b^1 + t_b^2) 
+  - c(\text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))$\\
+  
+  By CLT we know $X_1, X_2$ are asymptotic gamma($\chi$-square) distributed and $Y_1, Y_2$ are $o_p(1)$ and $T(\pi_1) - U(\pi_2) = O(1)$ if $N(\pi_1) = N(\pi_2)$, $T(\pi_1) - U(\pi_2) = -\text{ln}(n)$ if $N(\pi_2) < N(\pi_2)$ so we complete the proof
 
 %Recall $t^1 \sim \text{multinomial}(n_1, \phi)$, $t^2 \sim \text{multinomial}(n_2, \psi)$.
 
@@ -708,50 +731,57 @@ By Taylor expansion at $x= 1$, $\text{ln}(x + 1) = \text{ln}2 + 1/2(x - 1) - 1/8
 \end{proof}
 
 \hfill\\
-Proof of theorem 4 and theorem 5
+Proof of theorem 1 and theorem 2
 \begin{proof}
-Given the condition that $\alpha_k = 1, \forall k$ and $\beta_b = \sum_{k\in b} \alpha_k$, recall $p(A_\pi| y,z) = \sum_{\pi' \in \text{RF}(\pi)} J(y,z,\pi')$  and $ J(y,z,\pi) = \frac{1}{c'}\underset{b\in \pi}\prod\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(N(b) + t_b^1)\Gamma(N(b) + t_b^2)} \frac{\Gamma(N(b))}{\Gamma(2N(b))}$\\
-Assuming there are $K$ subgroups, since $n_1$ and $n_2$ goes to infinite at same rate, for simplicity we assume $n_1 = n_2$, and the multiplicity term $\frac{\Gamma(N(b))}{\Gamma(2N(b))}$ in $J(y,z,\pi)$ remains finite for any $\pi$. To demonstrate limiting 
 
-$t^1\sim \text{multinomial}(\phi), t^2\sim \text{multinomial}(\psi)$ 
-$t_b^1 = \sum_{i \in b} z_i^1$ and $t_b^2 = \sum_{i \in b} z_i^2$, so $t_b^1 \sim$ binomial $(n, \Phi_b)$ and $t_b^2 \sim$ binomial $(n, \Psi_b)$, where $\Phi_b = \sum_{i \in b}\phi_i$ and $\Psi_b = \sum_{i \in b}\psi_i$. Let $f(n, b) = \frac{\Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}$, then 
-$$J(z^1, z^2 ,\pi) \propto \prod_{b\in \pi} f(n,b)$$\\
-log$f(n, b) = $log$(\Gamma(\beta_b + t_b^1 + t_b^2))$ - log$(\Gamma(\beta_b + t_b^1))$ - log$(\Gamma(\beta_b + t_b^2))$, notice that $t_b^1, t_b^2 \text{ and } \beta_b$ are integers, and when $x$ is integer,  $\Gamma(x)$ is the factorial of $(x - 1)$.
-We have log$f(n, b) = $log$((\beta_b + t_b^1 + t_b^2 -1)!) - \text{log}((\beta_b + t_b^1 -1)!) - \text{log}((\beta_b + t_b^2 -1)!)$  and when $n$ is large we could use Stirling's approximation, i.e. log$(n!)$ = $n$log$(n) - n + O(\text{log}(n))$, we have log$((\beta_b + t_b^1 + t_b^2 -1)!) - \text{log}((\beta_b + t_b^1 -1)!) - \text{log}((\beta_b + t_b^2 -1)!)\approx (\beta_b + t_b^1 + t_b^2-1)\text{log}(\beta_b + t_b^1 + t_b^2-1) - (\beta_b + t_b^1 -1)\text{log}(\beta_b + t_b^1 -1) - (\beta_b + t_b^2 -1)\text{log}(\beta_b + t_b^2 -1) + O(\text{log}(n))$.\\
-Plug into $f(n,b)$ we have:\\
-$$\text{log}f(n,b) \approx (\beta_b + t_b^1 -1)\text{log}(1 + \frac{t_b^2}{\beta_b + t_b^1 -1}) + (\beta_b + t_b^2 -1)\text{log}(1 + \frac{t_b^1}{\beta_b + t_b^2 -1}) + O(\text{log}(n))$$\\
-as $\beta_b \text{log}(\beta_b + t_b^1 + t_b^2 -1) \sim O(\text{log}(n))$ and by law of large number and slutsky's theorem, $\text{log}(1 + \frac{t_b^2}{\beta_b + t_b^1 -1}) \rightarrow \text{log}(1+\frac{\Psi_b}{\Phi_b})$,
-$\text{log}(1 + \frac{t_b^1}{\beta_b + t_b^2 -1}) \rightarrow \text{log}(1+\frac{\Phi_b}{\Psi_b})$ $a.s.$ and $\frac{\text{log}f(n, b)}{n} \rightarrow \Phi_b\text{log}(1+\frac{\Psi_b}{\Phi_b}) + \Psi_b\text{log}(1+\frac{\Phi_b}{\Psi_b})$ a.s. We have:\\
-$$ \frac{\text{log}(\prod_{b\in \pi} f(n,b))}{n} \rightarrow \sum_b [\Phi_b\text{log}(1+\frac{\Psi_b}{\Phi_b}) + \Psi_b\text{log}(1+\frac{\Phi_b}{\Psi_b})] \quad a.s.$$
-To find the maxima $(\Phi, \Psi)$, we fix $\Psi$ and 
-let $C =  \frac{\text{log}(\prod_{b\in \pi} f(n,b))}{n} + \lambda(\underset{b\in\pi}\sum \Phi_b - 1)$, we have $\frac{\partial C}{\partial \Phi_b} =  \text{log}(1+\frac{\Psi_b}{\Phi_b}) + \lambda$, stationary point is $\Phi_b = \Psi_b, \forall b$. and for the hessian matrix $\frac{\partial^2 C}{\partial \Phi_b^2} = -\frac{\Psi_b}{\Phi_b^2 + \Phi_b\Psi_b} < 0$ and $\frac{\partial^2 C}{\partial \Phi_{b}\partial \Phi_{b'}} = 0, \text{if } b \neq b'$, that is to say the hessian matrix is a diagonal matrix with every diagonal elements to be negative, so it is negative definite, and our objective function is concave. The maxima is the stationary point $\Phi = \Psi$. 
-And when $\Phi = \Psi$ , $\frac{\text{log}(\prod_{b\in \pi} f(n,b))}{n} = 2\text{ln}(2)$ a constant not dependent on partition $\pi$ and $\Phi$. That is to say if $(\phi,\psi) \in A_{\pi_1}\cap A_{\pi_2}$ and $(\phi,\psi) \notin A_{\pi_3}$. Then we would have 
-$\lim_{n\to\infty}\frac{\text{log}(\prod_{b\in \pi_1} f(n,b))}{n} = \lim_{n\to\infty}\frac{\text{log}(\prod_{b\in \pi_2} f(n,b))}{n}$ and  $\lim_{n\to\infty}[\frac{\text{ln}(\prod_{b\in \pi_1} f(n,b))}{n} -  \frac{\text{log}(\prod_{b\in \pi_3} f(n,b))}{n}]  = c > 0 $, which implies:
-\[\frac{J(t^1, t^2,\pi_3)}{J(t^1, t^2,\pi_1)} \rightarrow 0\quad a.s. \tag{A}\]
-To investigate the limit of $\frac{J(t^1, t^2,\pi_1)}{J(t^1, t^2,\pi_2)}$, We use inequalities that $\sqrt{2\pi}n^{n+\frac{1}{2}}e^{-n} \leq n! \leq en^{n+\frac{1}{2}}e^{-n}$ holds for all nonnegative integers $n$. Plug in $f(n,b)$, we have:\\
-\[
-\beta_b +\text{log}\sqrt{2\pi} - 3 + g(n,b) 
-\leq f(n, b)\leq
-\beta_b - 2\text{log}\sqrt{2\pi} + g(n, b)\tag{1}
-\]\\
-\[g(n,b) =  (\beta_b + t_b^1 - \frac{1}{2})\text{log}(1 + \frac{t_b^2}{\beta_b + t_b^1 -1}) + (\beta_b + t_b^2 - \frac{1}{2})\text{log}(1 + \frac{t_b^1}{\beta_b + t_b^2 -1}) - (\beta_b - \frac{1}{2})\text{log}(\beta_b + t_b^1 + t_b^2 - 1)\]\\
-Based on inequalities (1), $\underset{{b\in\pi}}\sum f(n,b)$ only differ with $\underset{b\in\pi}\sum g(n,b)$ by a constant.
-By Taylor's expansion $\text{log}(1+x) = \text{log}2 + \frac{1}{2}(x - 1) + O( (x-1)^2)$, we have $\text{log}(1 + \frac{t_b^2}{\beta_b + t_b^1 -1}) = \text{log}2 + \frac{1}{2}(\frac{t_b^1 - t_b^2 + 1 - \beta_b}{\beta_b + t_b^1 -1}) + O_p((\frac{t_b^1 - t_b^2 + 1 - \beta_b}{\beta_b + t_b^1 -1})^2)$ and under condition $\Phi_b = \Psi_b, \frac{(t_b^1 - t_b^2 + 1 - \beta_b)^2}{\beta_b + t_b^1 -1}$ is $O_p(1)$. Plug in $g(n,b)$\\
-$$g(n,b) = \text{log}2 * t_b^1 + \text{log}2 * t_b^2  - (\beta_b - \frac{1}{2})\text{log}(\beta_b + t_b^1 + t_b^2 - 1) + O_p(1) $$
-and sum up 
-\[\sum_{b\in\pi} g(n,b) = 2n\text{log}2 - \sum_{b\in\pi}(\beta_b - \frac{1}{2})\text{log}(\beta_b + t_b^1 + t_b^2 - 1) + O_p(1)  \tag{2} \]
-Notice that when two partition $\pi_1$, $\pi_2$ have same number of blocks $b$ and $\Phi_b = \Psi_b$, $\forall b \in \pi_1\cup\pi_2$, 
-\begin{align*}
-\sum_{b\in\pi_1} g(n,b) - \sum_{b'\in\pi_2} g(n,b') &= \sum_{b'\in\pi_2}(\beta_b' - \frac{1}{2})\text{log}(\beta_b' + t_{b'}^1 + t_{b'}^2 - 1) - \sum_{b\in\pi_1}(\beta_b - \frac{1}{2})\text{log}(\beta_b + t_b^1 + t_b^2 - 1) +  O_p(1)\\
-&= \sum_{b'\in\pi_2}(\beta_{b'}- \frac{1}{2})\text{log}(\frac{\beta_b' + t_{b'}^1 + t_{b'}^2 - 1}{n}) -  \sum_{b\in\pi_1}(\beta_b - \frac{1}{2})\text{log}(\frac{\beta_b + t_b^1 + t_b^2 - 1}{n})\\
- &+ \sum_{b'\in\pi_2 - \frac{1}{2}}(\beta_{b'}  - \frac{1}{2})\text{log}(n) - \sum_{b\in\pi_1 - \frac{1}{2}}(\beta_b - \frac{1}{2})\text{log}(n) + O_p(1)\\
-&= O_p(1) + \sum_{b\in\pi_1}\frac{1}{2}\text{log}(n) - \sum_{b'\in\pi_2}\frac{1}{2}\text{log}(n) \\
-&= O_p(1)
-\end{align*}
-When $\pi_1$ and $\pi_2$ have same number of blocks,  
-\[\frac{J(t^1, t^2,\pi_1)}{J(t^1, t^2,\pi_2)} \rightarrow O_p(1)\quad a.s. \tag{B}\]
-When $\pi_1$ have less blocks than $\pi_2$, $\sum_{b'\in\pi_2} g(n,b') - \sum_{b\in\pi_1} g(n,b) = O_p(\text{log}(n))$
-\[\frac{J(t^1, t^2,\pi_1)}{J(t^1, t^2,\pi_2)} \rightarrow 0\quad a.s.\tag{C}\]
+By lemma 3, $\Sigma_\pi \omega_\pi^{\text post} = 1$ and $P(A_\pi|y,z) = 
+\sum_{\tilde \pi \in \Pi} \omega^{\rm post}_{\tilde \pi} \,  1[ {\mbox {\rm $\tilde \pi$ refines $\pi$}} ].$ We get the results of theorem 1 and 2
+
+
+
+
+%Given the condition that $\alpha_k = 1, \forall k$ and $\beta_b = \sum_{k\in b} \alpha_k$, recall $p(A_\pi| y,z) = \sum_{\pi' \in \text{RF}(\pi)} J(y,z,\pi')$  and $ J(y,z,\pi) = \frac{1}{c'}\underset{b\in \pi}\prod\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(N(b) + t_b^1)\Gamma(N(b) + t_b^2)} \frac{\Gamma(N(b))}{\Gamma(2N(b))}$\\
+%Assuming there are $K$ subgroups, since $n_1$ and $n_2$ goes to infinite at same rate, for simplicity we assume $n_1 = n_2$, and the multiplicity term $\frac{\Gamma(N(b))}{\Gamma(2N(b))}$ in $J(y,z,\pi)$ remains finite for any $\pi$. To demonstrate limiting 
+
+%$t^1\sim \text{multinomial}(\phi), t^2\sim \text{multinomial}(\psi)$ 
+%$t_b^1 = \sum_{i \in b} z_i^1$ and $t_b^2 = \sum_{i \in b} z_i^2$, so $t_b^1 \sim$ binomial $(n, \Phi_b)$ and $t_b^2 \sim$ binomial $(n, \Psi_b)$, where $\Phi_b = \sum_{i \in b}\phi_i$ and $\Psi_b = \sum_{i \in b}\psi_i$. Let $f(n, b) = \frac{\Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}$, then 
+%$$J(z^1, z^2 ,\pi) \propto \prod_{b\in \pi} f(n,b)$$\\
+l%og$f(n, b) = $log$(\Gamma(\beta_b + t_b^1 + t_b^2))$ - log$(\Gamma(\beta_b + t_b^1))$ - log$(\Gamma(\beta_b + t_b^2))$, notice that $t_b^1, t_b^2 \text{ and } \beta_b$ are integers, and when $x$ is integer,  $\Gamma(x)$ is the factorial of $(x - 1)$.
+%We have log$f(n, b) = $log$((\beta_b + t_b^1 + t_b^2 -1)!) - \text{log}((\beta_b + t_b^1 -1)!) - \text{log}((\beta_b + t_b^2 -1)!)$  and when $n$ is large we could use Stirling's approximation, i.e. log$(n!)$ = $n$log$(n) - n + O(\text{log}(n))$, we have log$((\beta_b + t_b^1 + t_b^2 -1)!) - \text{log}((\beta_b + t_b^1 -1)!) - \text{log}((\beta_b + t_b^2 -1)!)\approx (\beta_b + t_b^1 + t_b^2-1)\text{log}(\beta_b + t_b^1 + t_b^2-1) - (\beta_b + t_b^1 -1)\text{log}(\beta_b + t_b^1 -1) - (\beta_b + t_b^2 -1)\text{log}(\beta_b + t_b^2 -1) + O(\text{log}(n))$.\\
+%Plug into $f(n,b)$ we have:\\
+%$$\text{log}f(n,b) \approx (\beta_b + t_b^1 -1)\text{log}(1 + \frac{t_b^2}{\beta_b + t_b^1 -1}) + (\beta_b + t_b^2 -1)\text{log}(1 + \frac{t_b^1}{\beta_b + t_b^2 -1}) + O(\text{log}(n))$$\\
+%as $\beta_b \text{log}(\beta_b + t_b^1 + t_b^2 -1) \sim O(\text{log}(n))$ and by law of large number and slutsky's theorem, $\text{log}(1 + \frac{t_b^2}{\beta_b + t_b^1 -1}) \rightarrow \text{log}(1+\frac{\Psi_b}{\Phi_b})$,
+%$\text{log}(1 + \frac{t_b^1}{\beta_b + t_b^2 -1}) \rightarrow \text{log}(1+\frac{\Phi_b}{\Psi_b})$ $a.s.$ and $\frac{\text{log}f(n, b)}{n} \rightarrow \Phi_b\text{log}(1+\frac{\Psi_b}{\Phi_b}) + \Psi_b\text{log}(1+\frac{\Phi_b}{\Psi_b})$ a.s. We have:\\
+%$$ \frac{\text{log}(\prod_{b\in \pi} f(n,b))}{n} \rightarrow \sum_b [\Phi_b\text{log}(1+\frac{\Psi_b}{\Phi_b}) + \Psi_b\text{log}(1+\frac{\Phi_b}{\Psi_b})] \quad a.s.$$
+%To find the maxima $(\Phi, \Psi)$, we fix $\Psi$ and 
+%let $C =  \frac{\text{log}(\prod_{b\in \pi} f(n,b))}{n} + \lambda(\underset{b\in\pi}\sum \Phi_b - 1)$, we have $\frac{\partial C}{\partial \Phi_b} =  \text{log}(1+\frac{\Psi_b}{\Phi_b}) + \lambda$, stationary point is $\Phi_b = \Psi_b, \forall b$. and for the hessian matrix $\frac{\partial^2 C}{\partial \Phi_b^2} = -%\frac{\Psi_b}{\Phi_b^2 + \Phi_b\Psi_b} < 0$ and $\frac{\partial^2 C}{\partial \Phi_{b}\partial \Phi_{b'}} = 0, \text{if } b \neq b'$, that is to say the hessian matrix is a diagonal matrix with every diagonal elements to be negative, so it is negative definite, and our objective function is concave. The maxima is the stationary point $\Phi = \Psi$. 
+%And when $\Phi = \Psi$ , $\frac{\text{log}(\prod_{b\in \pi} f(n,b))}{n} = 2\text{ln}(2)$ a constant not dependent on partition $\pi$ and $\Phi$. That is to say if $(\phi,\psi) \in A_{\pi_1}\cap A_{\pi_2}$ and $(\phi,\psi) \notin A_{\pi_3}$. Then we would have 
+%$\lim_{n\to\infty}\frac{\text{log}(\prod_{b\in \pi_1} f(n,b))}{n} = \lim_{n\to\infty}\frac{\text{log}(\prod_{b\in \pi_2} f(n,b))}{n}$ and  $\lim_{n\to\infty}[\frac{\text{ln}(\prod_{b\in \pi_1} f(n,b))}{n} -  \frac{\text{log}(\prod_{b\in \pi_3} f(n,b))}{n}]  = c > 0 $, which implies:
+%\[\frac{J(t^1, t^2,\pi_3)}{J(t^1, t^2,\pi_1)} \rightarrow 0\quad a.s. \tag{A}\]
+%To investigate the limit of $\frac{J(t^1, t^2,\pi_1)}{J(t^1, t^2,\pi_2)}$, We use inequalities that $\sqrt{2\pi}n^{n+\frac{1}{2}}e^{-n} \leq n! \leq en^{n+\frac{1}{2}}e^{-n}$ holds for all nonnegative integers $n$. Plug in $f(n,b)$, we have:\\
+%\[
+%\beta_b +\text{log}\sqrt{2\pi} - 3 + g(n,b) 
+%\leq f(n, b)\leq
+%\beta_b - 2\text{log}\sqrt{2\pi} + g(n, b)\tag{1}
+%\]\\
+%\[g(n,b) =  (\beta_b + t_b^1 - \frac{1}{2})\text{log}(1 + \frac{t_b^2}{\beta_b + t_b^1 -1}) + (\beta_b + t_b^2 - \frac{1}{2})\text{log}(1 + \frac{t_b^1}{\beta_b + t_b^2 -1}) - (\beta_b - \frac{1}{2})\text{log}(\beta_b + t_b^1 + t_b^2 - 1)\]\\
+%Based on inequalities (1), $\underset{{b\in\pi}}\sum f(n,b)$ only differ with $\underset{b\in\pi}\sum g(n,b)$ by a constant.
+%By Taylor's expansion $\text{log}(1+x) = \text{log}2 + \frac{1}{2}(x - 1) + O( (x-1)^2)$, we have $\text{log}(1 + \frac{t_b^2}{\beta_b + t_b^1 -1}) = \text{log}2 + \frac{1}{2}(\frac{t_b^1 - t_b^2 + 1 - \beta_b}{\beta_b + t_b^1 -1}) + O_p((\frac{t_b^1 - t_b^2 + 1 - \beta_b}{\beta_b + t_b^1 -1})^2)$ and under condition $\Phi_b = \Psi_b, \frac{(t_b^1 - t_b^2 + 1 - \beta_b)^2}{\beta_b + t_b^1 -1}$ is $O_p(1)$. Plug in $g(n,b)$\\
+%$$g(n,b) = \text{log}2 * t_b^1 + \text{log}2 * t_b^2  - (\beta_b - \frac{1}{2})\text{log}(\beta_b + t_b^1 + t_b^2 - 1) + O_p(1) $$
+%and sum up 
+%\[\sum_{b\in\pi} g(n,b) = 2n\text{log}2 - \sum_{b\in\pi}(\beta_b - \frac{1}{2})\text{log}(\beta_b + t_b^1 + t_b^2 - 1) + O_p(1)  \tag{2} \]
+%Notice that when two partition $\pi_1$, $\pi_2$ have same number of blocks $b$ and $\Phi_b = \Psi_b$, $\forall b \in \pi_1\cup\pi_2$, 
+%\begin{align*}
+%\sum_{b\in\pi_1} g(n,b) - \sum_{b'\in\pi_2} g(n,b') &= \sum_{b'\in\pi_2}(\beta_b' - \frac{1}{2})\text{log}(\beta_b' + t_{b'}^1 + t_{b'}^2 - 1) - \sum_{b\in\pi_1}(\beta_b - \frac{1}{2})\text{log}(\beta_b + t_b^1 + t_b^2 - 1) +  O_p(1)\\
+%&= \sum_{b'\in\pi_2}(\beta_{b'}- \frac{1}{2})\text{log}(\frac{\beta_b' + t_{b'}^1 + t_{b'}^2 - 1}{n}) -  \sum_{b\in\pi_1}(\beta_b - \frac{1}{2})\text{log}(\frac{\beta_b + t_b^1 + t_b^2 - 1}{n})\\
+% &+ \sum_{b'\in\pi_2 - \frac{1}{2}}(\beta_{b'}  - \frac{1}{2})\text{log}(n) - \sum_{b\in\pi_1 - \frac{1}{2}}(\beta_b - \frac{1}{2})\text{log}(n) + O_p(1)\\
+%&= O_p(1) + \sum_{b\in\pi_1}\frac{1}{2}\text{log}(n) - \sum_{b'\in\pi_2}\frac{1}{2}\text{log}(n) \\
+%&= O_p(1)
+%\end{align*}
+%When $\pi_1$ and $\pi_2$ have same number of blocks,  
+%\[\frac{J(t^1, t^2,\pi_1)}{J(t^1, t^2,\pi_2)} \rightarrow O_p(1)\quad a.s. \tag{B}\]
+%When $\pi_1$ have less blocks than $\pi_2$, $\sum_{b'\in\pi_2} g(n,b') - \sum_{b\in\pi_1} g(n,b) = O_p(\text{log}(n))$
+%\[\frac{J(t^1, t^2,\pi_1)}{J(t^1, t^2,\pi_2)} \rightarrow 0\quad a.s.\tag{C}\]
 \end{proof}
 
 
