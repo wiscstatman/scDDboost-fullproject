@@ -1,19 +1,20 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{DEC vs EC}{section.1}% 2
-\BOOKMARK [1][-]{section.2}{Modeling}{}% 3
-\BOOKMARK [2][-]{subsection.2.1}{Data Structure, Sampling Model, and Parameters}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.2}{Method Structure and Clustering}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.3}{Double Dirichlet Mixture}{section.2}% 6
-\BOOKMARK [1][-]{section.3}{Numerical Experiments}{}% 7
-\BOOKMARK [2][-]{subsection.3.1}{Synthetic Data}{section.3}% 8
-\BOOKMARK [2][-]{subsection.3.2}{Empirical Study}{section.3}% 9
-\BOOKMARK [2][-]{subsection.3.3}{Null cases}{section.3}% 10
-\BOOKMARK [1][-]{section.4}{?Other}{}% 11
-\BOOKMARK [2][-]{subsection.4.1}{Empirical study: null cases}{section.4}% 12
-\BOOKMARK [2][-]{subsection.4.2}{Number of subtypes}{section.4}% 13
-\BOOKMARK [2][-]{subsection.4.3}{Bursting parameters}{section.4}% 14
-\BOOKMARK [1][-]{section.5}{Theoretical issues}{}% 15
-\BOOKMARK [2][-]{subsection.5.1}{Posterior consistency}{section.5}% 16
-\BOOKMARK [2][-]{subsection.5.2}{Random weighting}{section.5}% 17
-\BOOKMARK [2][-]{subsection.5.3}{simulation}{section.5}% 18
-\BOOKMARK [2][-]{subsection.5.4}{empirical study}{section.5}% 19
+\BOOKMARK [2][-]{subsection.1.2}{R package}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{Modeling}{}% 4
+\BOOKMARK [2][-]{subsection.2.1}{Data Structure, Sampling Model, and Parameters}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.2}{Method Structure and Clustering}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.3}{Double Dirichlet Mixture}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{Numerical Experiments}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{Synthetic Data}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{Empirical Study}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.3}{Null cases}{section.3}% 11
+\BOOKMARK [1][-]{section.4}{?Other}{}% 12
+\BOOKMARK [2][-]{subsection.4.1}{Empirical study: null cases}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.2}{Number of subtypes}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.3}{Bursting parameters}{section.4}% 15
+\BOOKMARK [1][-]{section.5}{Theoretical issues}{}% 16
+\BOOKMARK [2][-]{subsection.5.1}{Posterior consistency}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.2}{Random weighting}{section.5}% 18
+\BOOKMARK [2][-]{subsection.5.3}{simulation}{section.5}% 19
+\BOOKMARK [2][-]{subsection.5.4}{empirical study}{section.5}% 20

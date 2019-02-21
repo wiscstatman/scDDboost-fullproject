@@ -1,4 +1,4 @@
-\documentclass[aoas,preprint]{imsart}
+\documentclass[11pt]{extarticle}
 %\RequirePackage{mdframed}
 %\usepackage{mdframed}
 \usepackage[framemethod=TikZ]{mdframed}
@@ -49,23 +49,59 @@ Main document: {\em A compositional model to assess expression changes from sing
 \noindent
 Authors: Ma, Korthauer, Kendziorski, and Newton
 
+\noindent
+Version: February 20, 2019
+
+\vspace{.4in}
 
 This supplement is organized to match the sectioning of the main document.   In summary,
 
 \begin{enumerate}
-\item DEC vs EC data analysis
-\item Synthetic Data
-\item Data sets 
-\item \verb+EBseq+
-\item \verb+modalclust+
-\item choosing $K$ by validity score
-\item Randomized k-means
-\item Proofs: 
+\item Introduction
+   \begin{itemize}
+   \item DEC vs EC data analysis
+   \item R package
+   \end{itemize}
+\item Modeling
+ \begin{itemize}
+  \item Data Structure, Sampling Model, and Parameters
+    \begin{list}{}{}
+    \item Proof of Theorem 2
+    \end{list}
+  \item Method Structure and Clustering 
+    \begin{list}{}{}
+    \item \verb+EBSeq+
+    \item \verb+modalClust+
+    \item Randomized $K-$means
+    \item Selecting $K$
+    \end{list}
+  \item Double Dirichlet Mixture
+    \begin{list}{}{}
+    \item Proof of Properties 1-8 and Theorem 3
+    \end{list}
+  \end{itemize}
+\item Numerical Experiments
+   \begin{itemize}
+   \item Synthetic data, \verb+splatter+
+   \item Empirical study, \verb+conquer+
+   \item Null cases 
+   \end{itemize}
+\item Other
+  \begin{itemize}
+   \item other proofs...
+  \end{itemize}
 \end{enumerate}
+
+
+\clearpage
 
 \section{Introduction}
 
 \subsection{DEC vs EC}
+
+\subsection{R package}
+
+**on scDDboost, web page, etc**
 
 \section{Modeling}
 
@@ -334,11 +370,6 @@ GSE79102null & patient1 & 26, 25 & human\\
 \end{table}
 
 
-\begin{figure}[H]
-\includegraphics[width = 0.7\textwidth]{Figs/fdr.pdf}
- \caption{FDR of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. }
-  \label{fig:7}
-\end{figure}
 
 \subsection{Number of subtypes}
 Number of subtypes $K$ is a crucial factor controlling the accuracy of our modeling. 
