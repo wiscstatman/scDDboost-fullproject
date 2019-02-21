@@ -676,10 +676,21 @@ where
 d(\pi, t^1, t^2, \alpha, \beta) = \underset{b\in \pi}\Sigma h(\beta_b + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}} \underset{b\in \pi}\Sigma h(t_b + \gamma_b^j)
 \end{eqnarray*}
 
+
 Recall $\beta_b = \gamma_b^1 + \gamma_b^2$ and from lemma 2, $(x - c)\text{ln}(x) - x \leq h(x) \leq (x - 1/2)\text{ln}(x) - x$ we have 
 \begin{eqnarray*}
-d(\pi_1, t^1, t^2, \alpha, \beta) \geq 
+d(\pi_1, t^1, t^2, \alpha, \beta) \geq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - c) \text{ln}(\beta_b  + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - 1/2) \text{ln}(t_b^j + \gamma_b^j)
+\end{eqnarry*}
+
+RHS = 
+\begin{eqnarray*}
+(1 - c) \text{ln}(\beta_b + t_b^1 + t_b^2)  + (t_b^1 + \gamma_b^1) \text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1})\\
+ + (t_b^2 + \gamma_b^2) \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2})\\
+  - 1/2(\text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))
 \end{eqnarray*}
+
+By Taylor expansion at $x= 1$, $\text{ln}(x + 1) = \text{ln}2 + 1/2(x - 1) - 1/8(x - 1)^2 + g(\xi) (x - 1)^3$, where $g(\xi)$ in the reminder term is $1/3(1+\xi)^3$
+
 %Recall $t^1 \sim \text{multinomial}(n_1, \phi)$, $t^2 \sim \text{multinomial}(n_2, \psi)$.
 
 
