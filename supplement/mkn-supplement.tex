@@ -754,6 +754,24 @@ $v$ is a random variable
 \end{lemma}
 
 \begin{proof}
+follow almost same procedure in lemma 4, but instead of using inequalities in lemma 2, we use lemma 3. And we still have
+\begin{eqnarray*}
+d(\pi, t^1, t^2, \alpha, \beta) = \underset{b\in \pi}\Sigma h(\beta_b + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}} \underset{b\in \pi}\Sigma h(t_b + \gamma_b^j)
+\end{eqnarray*}
+and by lemma 3
+\begin{align}
+d(\pi, t^1, t^2, \alpha, \beta) &\geq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - 1/2) \text{ln}(\beta_b  + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - 1/2) \text{ln}(t_b^j + \gamma_b^j) + \text{ln}(\sqrt{2\pi}) - 1\\
+d(\pi, t^1, t^2, \alpha, \beta) &\leq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - 1/2) \text{ln}(\beta_b  + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - 1/2) \text{ln}(t_b^j + \gamma_b^j) + 1 - \text{ln}(\sqrt{2\pi})
+\end{align}
+
+\begin{eqnarray*}
+R(\pi_1, \pi_2, t^1, t^2, \alpha, \beta)  \approx D(\pi_1) - D(\pi_2) - 1/8 (\Sigma_{b\in\pi_1}(X_b^1 + X_b^2) - \Sigma_{b\in\pi_2}(X_b^1 + X_b^2)) \\ 
+ - \Sigma_{b\in\pi_1}g(\xi_b)(Y_b^1 + Y_b^2)  - \Sigma_{b\in\pi_2}g(\xi_ b)(Y_b^1 + Y_b^2)\\
+\end{eqnarray*}
+where $D(\pi) = \Sigma_{b\in\pi}\big[1/2 \text{ln}(\beta_b + t_b^1 + t_b^2) 
+  - c(\text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))\big]$
+And $D(\pi_1) - D(\pi_2)$ is O(1) if $N(\pi_1) = N(\pi_2)$
+
 
 \end{proof}
 

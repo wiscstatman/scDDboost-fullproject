@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  21 FEB 2019 22:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  22 FEB 2019 00:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1531,16 +1531,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 728--730
  []
 
 [16]
+Overfull \hbox (21.98438pt too wide) detected at line 765
+[]
+ []
+
 
 Package natbib Warning: There were undefined citations.
 
 [17]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 818.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 836.
  [18 <./Figs/try7-g.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 818.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 836.
  (./mkn-supplement.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 818.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 818.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 836.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 836.
 Package rerunfilecheck Info: File `mkn-supplement.out' has not changed.
 (rerunfilecheck)             Checksum: 058FEA3223C4FB3E2F01BA4DB3FA5C60;1432.
 
@@ -1552,9 +1556,9 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 28321 strings out of 492649
- 541810 string characters out of 6129622
- 633417 words of memory out of 5000000
+ 28323 strings out of 492649
+ 541834 string characters out of 6129622
+ 633415 words of memory out of 5000000
  31663 multiletter control sequences out of 15000+600000
  572012 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1571,10 +1575,10 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (18 pages, 1289007 bytes).
+Output written on mkn-supplement.pdf (18 pages, 1290918 bytes).
 PDF statistics:
- 356 PDF objects out of 1000 (max. 8388607)
- 283 compressed objects within 3 object streams
- 71 named destinations out of 1000 (max. 500000)
+ 360 PDF objects out of 1000 (max. 8388607)
+ 287 compressed objects within 3 object streams
+ 73 named destinations out of 1000 (max. 500000)
  282 words of extra memory for PDF output out of 10000 (max. 10000000)
 
