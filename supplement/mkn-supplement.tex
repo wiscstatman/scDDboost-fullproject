@@ -736,7 +736,8 @@ $U(\pi) = \Sigma_{b\in\pi}\big[(2c - 1/2) \text{ln}(\beta_b + t_b^1 + t_b^2)
  + \Sigma_{b\in\pi_1}g(\xi_b)(Y_b^1 + Y_b^2)  - \Sigma_{b\in\pi_2}g(\xi_ b)(Y_b^1 + Y_b^2)\\
  \end{eqnarray*}
  
- By CLT we know $X_b^1, X_b^2$ are asymptotic gamma($\chi$-square) distributed and $Y_b^1, Y_b^2$ are $o_p(1)$, $g(\xi_b)$ has bounded variance and $T(\pi_1) - U(\pi_2) = -\text{ln}(n)$ if $N(\pi_2) < N(\pi_2)$ so we complete the proof
+ By CLT we know $X_b^1, X_b^2$ are asymptotic gamma($\chi$-square) distributed and $Y_b^1, Y_b^2$ are $o_p(1)$, $g(\xi_b)$ has bounded variance and $T(\pi_1) - U(\pi_2) = -\text{ln}(n)$ if $N(\pi_2) < N(\pi_2)$
+ as $ \text{ln}(\beta_b + t_b^1 + t_b^2)  -  \text{ln}(\beta_{b'} + t_{b'}^1 + t_{b'}^2) =  \text{ln}(\frac{\beta_b + t_b^1 + t_b^2}{n_1})  -  \text{ln}(\frac{\beta_{b'} + t_{b'}^1 + t_{b'}^2}{n_1}) \rightarrow 0 \quad a.s.$ so we complete the proof
 
 %Recall $t^1 \sim \text{multinomial}(n_1, \phi)$, $t^2 \sim \text{multinomial}(n_2, \psi)$.
 
@@ -770,7 +771,7 @@ R(\pi_1, \pi_2, t^1, t^2, \alpha, \beta)  \approx D(\pi_1) - D(\pi_2) - 1/8 (\Si
 \end{eqnarray*}
 where $D(\pi) = \Sigma_{b\in\pi}\big[1/2 \text{ln}(\beta_b + t_b^1 + t_b^2) 
   - c(\text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))\big]$
-And $D(\pi_1) - D(\pi_2)$ is O(1) if $N(\pi_1) = N(\pi_2)$
+And $D(\pi_1) - D(\pi_2)$ is O(1) if $N(\pi_1) = N(\pi_2)$ as $ \text{ln}(\beta_b + t_b^1 + t_b^2)  -  \text{ln}(\beta_{b'} + t_{b'}^1 + t_{b'}^2) =  \text{ln}(\frac{\beta_b + t_b^1 + t_b^2}{n_1})  -  \text{ln}(\frac{\beta_{b'} + t_{b'}^1 + t_{b'}^2}{n_1}) \rightarrow 0 \quad a.s.$
 
 
 \end{proof}
