@@ -785,12 +785,12 @@ Proof of theorem 1 and theorem 2
 Recall $\Sigma_\pi \omega_\pi^{\text post} = 1$ and $P(A_\pi|y,z) = 
 \sum_{\tilde \pi \in \Pi} \omega^{\rm post}_{\tilde \pi} \,  1[ {\mbox {\rm $\tilde \pi$ refines $\pi$}} ].$  For all the $A_\pi$ covers $(\phi, \psi)$ there is one finest $\pi^*$ with the largest $N(\pi^*)$ and every other $\pi$ that $(\phi,\psi) \in A_\pi$ is coarser than $\pi^*$. We get the results of theorem 1 by lemma 4.
 
+Similarly we use lemma 5 could proof theorem 2. 
 
-
+\end{proof}
 
 %Given the condition that $\alpha_k = 1, \forall k$ and $\beta_b = \sum_{k\in b} \alpha_k$, recall $p(A_\pi| y,z) = \sum_{\pi' \in \text{RF}(\pi)} J(y,z,\pi')$  and $ J(y,z,\pi) = \frac{1}{c'}\underset{b\in \pi}\prod\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(N(b) + t_b^1)\Gamma(N(b) + t_b^2)} \frac{\Gamma(N(b))}{\Gamma(2N(b))}$\\
 %Assuming there are $K$ subgroups, since $n_1$ and $n_2$ goes to infinite at same rate, for simplicity we assume $n_1 = n_2$, and the multiplicity term $\frac{\Gamma(N(b))}{\Gamma(2N(b))}$ in $J(y,z,\pi)$ remains finite for any $\pi$. To demonstrate limiting 
-
 %$t^1\sim \text{multinomial}(\phi), t^2\sim \text{multinomial}(\psi)$ 
 %$t_b^1 = \sum_{i \in b} z_i^1$ and $t_b^2 = \sum_{i \in b} z_i^2$, so $t_b^1 \sim$ binomial $(n, \Phi_b)$ and $t_b^2 \sim$ binomial $(n, \Psi_b)$, where $\Phi_b = \sum_{i \in b}\phi_i$ and $\Psi_b = \sum_{i \in b}\psi_i$. Let $f(n, b) = \frac{\Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(\beta_b + t_b^1)\Gamma(\beta_b + t_b^2)}$, then 
 %$$J(z^1, z^2 ,\pi) \propto \prod_{b\in \pi} f(n,b)$$\\
@@ -830,7 +830,7 @@ l%og$f(n, b) = $log$(\Gamma(\beta_b + t_b^1 + t_b^2))$ - log$(\Gamma(\beta_b + t
 %\[\frac{J(t^1, t^2,\pi_1)}{J(t^1, t^2,\pi_2)} \rightarrow O_p(1)\quad a.s. \tag{B}\]
 %When $\pi_1$ have less blocks than $\pi_2$, $\sum_{b'\in\pi_2} g(n,b') - \sum_{b\in\pi_1} g(n,b) = O_p(\text{log}(n))$
 %\[\frac{J(t^1, t^2,\pi_1)}{J(t^1, t^2,\pi_2)} \rightarrow 0\quad a.s.\tag{C}\]
-\end{proof}
+
 
 
 
