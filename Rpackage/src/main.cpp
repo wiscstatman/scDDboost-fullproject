@@ -19,7 +19,6 @@
 #include <sys/sysctl.h>
 #include "DATA.hpp"
 #include "derived.hpp"
-#include "asa047.hpp"
 #include "kit.h"
 
 using namespace std;
