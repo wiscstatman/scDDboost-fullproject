@@ -37,11 +37,58 @@ DC::DC(MatrixXd& data, VectorXi& conditions, VectorXd& sf, vector<int>& g_clus, 
 }
 
 
-
-//optimizing via convert for iteration to matrix operation
-MatrixXd DC::cal_gm(double xmin[]){
-    MatrixXd tmpp(G,PT);
+//prior predictive function(PPF) on one group of subtypes
+VectorXd DC::cb(double alpha, double beta, const MatrixXd& rs, const MatrixXd& cs)
+{
+    MatrixXd A = (rs.array() + alpha).matrix();
     
+    MatrixXd B = (cs.array() + beta).matrix();    
+    
+    VectorXd res = ((A.unaryExpr<double(*)(double)>(&lgamma) + B.unaryExpr<double(*)(double)>(&lgamma) - (A + B).unaryExpr<double(*)(double)>(&lgamma)).array() - lgamma(alpha) - lgamma(beta) + lgamma(alpha + beta)).matrix().rowwise().sum();
+        
+    return res;
+}
+
+
+
+//derivative w.r.t. alpha and beta of PPF
+MatrixXd DC::drv(double alpha, double beta, const MatrixXd& rs, const MatrixXd& cs)
+{
+     MatrixXd A = (rs.array() + alpha).matrix();
+    
+     MatrixXd B = (cs.array() + beta).matrix();
+    
+     MatrixXd C = (A + B).unaryExpr<double(*)(double)>(&(boost::math::digamma));
+      
+     VectorXd resAlpha = ((A.unaryExpr<double(*)(double)>(&(boost::math::digamma)) - C).array() - boost::math::digamma(alpha) + boost::math::digamma(alpha + beta)).matrix().rowwise().sum();
+    
+     VectorXd resBeta = ((B.unaryExpr<double(*)(double)>(&(boost::math::digamma)) - C).array() - boost::math::digamma(beta) + boost::math::digamma(alpha + beta)).matrix().rowwise().sum();
+         
+     MatrixXd res(G,2);
+     
+     res.col(0) = resAlpha;
+     
+     res.col(1) = resBeta;
+    
+     return res;
+        
+}
+ 
+
+//derivative component w.r.t. alpha and beta of log likelihood
+//log likelihood component
+//optimizing via convert for iteration to matrix operation
+vector<MatrixXd> DC::cal_gm(double hp[]){
+    vector<MatrixXd> res(3);
+    
+    res[0].resize(G,PT);
+    res[1].resize(G,PT);
+    res[2].resize(G,PT);
+    
+    
+//     MatrixXd tmpp(G,PT);
+//     MatrixXd dAlpha(G,PT);
+//     MatrixXd dBeta(G,PT);
     
     for(size_t i = 0; i < PT; i++){
         int sub_k = pat.row(i).maxCoeff();
@@ -51,49 +98,30 @@ MatrixXd DC::cal_gm(double xmin[]){
         tmp = d_s * converters[i];
         tmp_r = r_s * converters[i];
         
-        tmpp.col(i) = cb(xmin[0], xmin[1], tmp_r, tmp);
+        res[0].col(i) = cb(hp[0], hp[1], tmp_r, tmp);
         
+        MatrixXd DRV = drv(hp[0], hp[1],  tmp_r, tmp);
+        
+        res[1].col(i) = DRV.col(0);
+        res[2].col(i) = DRV.col(1);
     }
+    
+    
      
    
-    return tmpp;
+    return res;
 }
 
 
 
-// MatrixXd DC::cal_gm(double xmin[]){
-//     MatrixXd tmpp(G,PT);
-//     for(int i = 1; i < PT; ++i){
-//         int sub_k = pat.row(i).maxCoeff();
-//         MatrixXd tmp(G,sub_k);
-//         MatrixXd tmp_r(G,sub_k);
-//         tmp.fill(0);
-//         tmp_r.fill(0);
-//         for(int j = 0; j < sub_k; ++j){
-//             for(int t = 0; t<K; ++t){
-//                 if(pat(i,t) == j+1){
-//                     tmp.col(j) += d_s.col(t);
-//                     tmp_r.col(j) += r_s.col(t);
-//                 }
-//             }
-//         }
-
-//         for(int j = 0;j < G; ++j){
-//             tmpp(j,i) = cb(xmin[0],xmin[gclus[j]],tmp_r.row(j),tmp.row(j));
-//         }
-//     }
-    
-//     for(int j = 0;j < G; ++j){
-//         tmpp(j,0) = cb(xmin[0],xmin[gclus[j]],r.row(j).sum(),data.row(j).sum());
-//     }
-//     return tmpp;
-// }
 
 
 MatrixXd DC::cal_delta(MatrixXd &A){
     MatrixXd tmpp(G,PT);
     
     VectorXd M = A.rowwise().maxCoeff();
+    
+    
     
     tmpp = A.colwise() - M;
     
@@ -114,23 +142,12 @@ MatrixXd DC::cal_delta(MatrixXd &A){
 }
 
 
+double DC::cal_drv(MatrixXd& B)
+{
+    return (B * p).sum();   
+}
+    
 
-// MatrixXd DC::cal_delta(MatrixXd &A){
-//     MatrixXd tmpp(G,PT);
-//     for(int j=0;j<G;++j){
-//         double M=A.row(j).maxCoeff();
-//         double total=0;
-//         for(int i=0;i<PT;++i){
-//             total+=exp(A(j,i)-M)*p(i);
-//         }
-//         for(int i=0;i<PT;++i){
-//             tmpp(j,i)=exp(A(j,i)-M)/total*p(i);
-//         }
-        
-//     }
-//     return tmpp;
-
-// }
 
 
 DC::~DC(){
