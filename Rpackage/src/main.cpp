@@ -19,6 +19,7 @@
 #include <sys/sysctl.h>
 #include "DATA.hpp"
 #include "derived.hpp"
+#include "asa047.hpp"
 #include "kit.h"
 
 using namespace std;
@@ -340,7 +341,7 @@ RcppExport SEXP EBS(SEXP X, SEXP Y, SEXP Z, SEXP W, SEXP iter, SEXP hyper,SEXP p
     
     double stepsize1 = 1e-6;
     
-    double stepsize2 = 1e-4;
+    double stepsize2 = 1e-5;
     
 //        DATA init(data,conditions,sf);    
     DC init(data, conditions, sf, gclus, Part);
@@ -359,9 +360,12 @@ RcppExport SEXP EBS(SEXP X, SEXP Y, SEXP Z, SEXP W, SEXP iter, SEXP hyper,SEXP p
     
     VectorXd tm_p(init.PT);
     
-    hp[0] = hp[0] + stepsize1 * dAlpha;
+    if(hp[0] + stepsize1 * dAlpha > 0)
+        hp[0] = hp[0] + stepsize1 * dAlpha;
     
-    hp[1] = hp[1] + stepsize2 * dBeta;
+    if(hp[1] + stepsize2 * dBeta > 0)
+        hp[1] = hp[1] + stepsize2 * dBeta;
+    
     
     double tt = init.gm.sum();
     
@@ -384,9 +388,11 @@ RcppExport SEXP EBS(SEXP X, SEXP Y, SEXP Z, SEXP W, SEXP iter, SEXP hyper,SEXP p
     
         double dBeta = init.cal_drv(A[2]);
         
-        hp[0] = hp[0] + stepsize1 * dAlpha;
+        if(hp[0] + stepsize1 * dAlpha > 0)
+            hp[0] = hp[0] + stepsize1 * dAlpha;
     
-        hp[1] = hp[1] + stepsize2 * dBeta;
+        if(hp[1] + stepsize2 * dBeta > 0)
+            hp[1] = hp[1] + stepsize2 * dBeta;
         
         tt = init.gm.sum();
         tm_p = init.gm.colwise().sum()/tt;
