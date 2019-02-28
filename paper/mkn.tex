@@ -734,19 +734,14 @@ Model performance on the simulated data was assessed based on (1) ability to est
 \begin{table}[ht]
 \small
 \centering
-\begin{tabular}{ |p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+\begin{tabular}{ |p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
 \hline
-K & $\theta & \gamma & $\hat K \\ \hline \hline
-4 & -0.1 & 1 & 4\\hline
-4 & 0.3 & 0.5 & 4\\hline
-7 & -0.1 & 1 & 4\\hline
-7 & 0.3 & 0.5 & 4\\hline
-15 & -0.1 & 1 & 4\\hline
-15 & -0.1 & 1 & 4\\hline
-
-
-\end{tabular
-\captionof{table}{underlying number of groups $K$ v.s. estimated number of subtypes $\hat K$ under two hyper parameters setting}
+K & $\hat{K_1}$ &  $\hat{K_2}$ & $\hat{K_3}$ & $\hat{K_4}$ \\ \hline \hline
+4 & 1 & 2 & 3  & 4 \\ \hline
+7 & 1 & 2 & 3  & 4  \\ \hline
+15 & 1 & 2 & 3  & 4  \\ \hline
+\end{tabular}
+\captionof{table}{underlying number of groups $K$ v.s. estimated number of subtypes $\hat K$ under two hyper parameters setting, $\hat{K_1}, \hat{K_2}$ are estimated $K$ of two replicates under the setting $\theta = -0.1$, $\gamma = -1$, $\hat{K_3}, \hat{K_4}$ are for case $\theta = 0.3$, $\gamma = 0.5$ }
 \end{table}
 
 To evaluate our clustering method, rule for selecting number of clusters and downstream DD analysis based on identified clusters we simulate datasets under 3 different number of groups : $K$ =  4, 7, 15.  For $K = 4, 7$ we asses 

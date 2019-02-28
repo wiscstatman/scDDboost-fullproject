@@ -54,9 +54,92 @@
 \@writefile{toc}{\contentsline {section}{\numberline {2}Modeling}{4}{section.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Data structure, sampling model, and parameters}{4}{subsection.2.1}}
 \newlabel{eq:counts}{{1}{4}{Data structure, sampling model, and parameters}{equation.2.1}{}}
+\newlabel{eq:mult}{{2}{4}{Data structure, sampling model, and parameters}{equation.2.2}{}}
 \citation{ref:Leng}
 \citation{DES}
 \citation{ref:Des}
-\newlabel{eq:mult}{{2}{5}{Data structure, sampling model, and parameters}{equation.2.2}{}}
+\newlabel{eq:asets}{{3}{6}{Data structure, sampling model, and parameters}{equation.2.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Proportions of $K=7$ cellular subtypes in different conditions. Aggregated proportions of subtypes 3 and 4, subtypes 2, 5, and 6, and subtypes 1, and 7 remain same across conditions, while individual subtype frequencies change. Depending on the changes in average expression among subtypes, these frequency changes may or may not induce changes between two conditions in the marginal distribution of some gene's expression. \relax }}{7}{figure.caption.2}}
-\newlabel{fig:1}{{2}{7}{Proportions of $K=7$ cellular subtypes in different conditions. Aggregated proportions of subtypes 3 and 4, subtypes 2, 5, and 6, and subtypes 1, and 7 remain same across conditions, while individual subtype frequencies change. Depending on the changes in average expression among subtypes, these frequency changes may or may not induce changes between two con
+\newlabel{fig:1}{{2}{7}{Proportions of $K=7$ cellular subtypes in different conditions. Aggregated proportions of subtypes 3 and 4, subtypes 2, 5, and 6, and subtypes 1, and 7 remain same across conditions, while individual subtype frequencies change. Depending on the changes in average expression among subtypes, these frequency changes may or may not induce changes between two conditions in the marginal distribution of some gene's expression. \relax }{figure.caption.2}{}}
+\newlabel{eq:msets}{{4}{7}{Data structure, sampling model, and parameters}{equation.2.4}{}}
+\newlabel{eq:lfdr}{{5}{7}{Data structure, sampling model, and parameters}{equation.2.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Directed acyclic graph structure of compositional model and partition-reliant prior. The plate on the right side indicates i.i.d. copies over cells $c$, conditionally on mixing proportions and mixing components. Observed data are indicated in rectangles/squares, and unobserved variables are in circles/ovals. \relax }}{8}{figure.caption.3}}
+\newlabel{fig:2}{{3}{8}{Directed acyclic graph structure of compositional model and partition-reliant prior. The plate on the right side indicates i.i.d. copies over cells $c$, conditionally on mixing proportions and mixing components. Observed data are indicated in rectangles/squares, and unobserved variables are in circles/ovals. \relax }{figure.caption.3}{}}
+\citation{sc3}
+\citation{CIDR}
+\citation{ZIFA}
+\citation{ref:Leng}
+\citation{kmedoids}
+\citation{ref:cspa}
+\citation{ref:dahl}
+\citation{Cor}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Method structure and clustering}{9}{subsection.2.2}}
+\citation{selK}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces \textsc  {scDDBoost-core}\relax }}{10}{algorithm.1}}
+\newlabel{alg:scDDcore}{{1}{10}{\textsc {scDDBoost-core}\relax }{algorithm.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Double Dirichlet Mixture (DDM)}{10}{subsection.2.3}}
+\newlabel{eq:ddmix}{{6}{11}{Double Dirichlet Mixture (DDM)}{equation.2.6}{}}
+\newlabel{eq:onetoone}{{7}{11}{Double Dirichlet Mixture (DDM)}{equation.2.7}{}}
+\newlabel{eq:doubledir}{{8}{11}{Double Dirichlet Mixture (DDM)}{equation.2.8}{}}
+\citation{Wag}
+\citation{ref:Zappia}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Numerical experiments}{13}{section.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Synthetic data}{13}{subsection.3.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces underlying number of groups $K$ v.s. estimated number of subtypes $\mathaccentV {hat}45EK$ under two hyper parameters setting, $\mathaccentV {hat}45E{K_1}, \mathaccentV {hat}45E{K_2}$ are estimated $K$ of two replicates under the setting $\theta = -0.1$, $\gamma = -1$, $\mathaccentV {hat}45E{K_3}, \mathaccentV {hat}45E{K_4}$ are for case $\theta = 0.3$, $\gamma = 0.5$ \relax }}{14}{table.caption.4}}
+\citation{ref:Cq}
+\citation{ref:scDD}
+\citation{ref:MAST}
+\citation{ref:Des}
+\citation{sc3}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Roc curve of scDDboost, scDD, MAST and DESeq2, scDDboost has largest area under the roc curve. Roc curves of other three methods are similar. For those roc curve there is bigger difference at low level of false positive rate, as scDDboost identified twice many true DD genes as other methods. Roc curves are obtained under different settings of hyper parameters of simulations.\relax }}{16}{figure.caption.5}}
+\newlabel{fig:5}{{4}{16}{Roc curve of scDDboost, scDD, MAST and DESeq2, scDDboost has largest area under the roc curve. Roc curves of other three methods are similar. For those roc curve there is bigger difference at low level of false positive rate, as scDDboost identified twice many true DD genes as other methods. Roc curves are obtained under different settings of hyper parameters of simulations.\relax }{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Empirical study}{16}{subsection.3.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  Proportion of DD genes with respect to total number of genes identified by each method. Ranked by mean list size\relax }}{17}{figure.caption.6}}
+\newlabel{fig:6}{{5}{17}{Proportion of DD genes with respect to total number of genes identified by each method. Ranked by mean list size\relax }{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Null cases}{17}{subsection.3.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces False positive rate of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. \relax }}{18}{figure.caption.7}}
+\newlabel{fig:7}{{6}{18}{False positive rate of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. \relax }{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces under NULL case, using dataset GSE52529, when using too big $K$ we may completely lose FDR control (black line shows proportion of false positive identified by scDDboost under 0.05 threshold, while validity score become stable at $K$ = 3 \relax }}{18}{figure.caption.8}}
+\newlabel{fig:7}{{7}{18}{under NULL case, using dataset GSE52529, when using too big $K$ we may completely lose FDR control (black line shows proportion of false positive identified by scDDboost under 0.05 threshold, while validity score become stable at $K$ = 3 \relax }{figure.caption.8}{}}
+\citation{ref:d3e}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Bursting}{19}{subsection.3.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces D3E method will estimate 3 bursting parameters probability of a gene being on (\textbf  {a}) and off (\textbf  {b}) and the expression rate when the gene expression is on (\textbf  {c}), we plot the hexbin plot of probability of a gene being DD under out method v.s. the absolute value of log fold change of \textbf  {a} , \textbf  {b} and \textbf  {c} across the two conditions accordingly. The log fold change is scaled by dividing the largest log fold change so that ends up in a value between 0 and 1 Here we use the GSE71585 data \relax }}{19}{figure.caption.9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces 2D histogram for bursting parameters of DD genes identified by scDDboost from dataset EMTAB2805 estimated by D3E. Left panel : comparison of rate of promoter activation between two conditions, similarly, middle panel : rate of promoter inactivation and right panel: rate of transcription when the promoter is in the active state. We observe that difference between transcription rate is smaller compare to difference between the activation and inactivation rate.\relax }}{19}{figure.caption.10}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Theoretical issues}{20}{section.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Posterior consistency}{20}{subsection.4.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Four subtypes of cells, simplexes of $(\phi ,\psi )$ satisfying different constraints.\relax }}{20}{figure.caption.11}}
+\newlabel{fig:1}{{10}{20}{Four subtypes of cells, simplexes of $(\phi ,\psi )$ satisfying different constraints.\relax }{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Random weighting}{23}{subsection.4.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{24}{section.5}}
+\bibstyle{imsart-nameyear}
+\bibdata{./references/wlr_ref}
+\bibcite{DES}{{1}{2010}{{Anders and Huber}}{{}}}
+\bibcite{Bacher2016}{{2}{2016}{{Bacher and Kendziorski}}{{}}}
+\bibcite{ref:dahl}{{3}{2009}{{Dahl}}{{}}}
+\bibcite{ref:d3e}{{4}{2016}{{Delmans and Hemberg}}{{}}}
+\bibcite{ref:MAST}{{5}{2015}{{Finak et~al.}}{{}}}
+\bibcite{kmedoids}{{6}{1987}{{Kaufman and Rousseeuw}}{{}}}
+\bibcite{Cor}{{7}{2018}{{Kim et~al.}}{{}}}
+\bibcite{sc3}{{8}{2017}{{Kiselev et~al.}}{{}}}
+\bibcite{ref:scDD}{{9}{2016}{{Korthauer et~al.}}{{}}}
+\bibcite{ref:Leng}{{10}{2013}{{Leng et~al.}}{{}}}
+\bibcite{CIDR}{{11}{2017}{{Lin, Troup and Ho}}{{}}}
+\bibcite{ref:Des}{{12}{2014}{{Love, Huber and Anders}}{{}}}
+\bibcite{dv}{{13}{2017}{{Marioni and Arendt}}{{}}}
+\bibcite{cancer}{{14}{2015}{{Navin}}{{}}}
+\bibcite{scs}{{15}{2013}{{Nawy}}{{}}}
+\bibcite{immune}{{16}{2017}{{Papalexi and Satija}}{{}}}
+\bibcite{ZIFA}{{17}{2015}{{Pierson and Yau}}{{}}}
+\bibcite{selK}{{18}{2000}{{Ray and Turi}}{{}}}
+\@writefile{toc}{\contentsline {section}{References}{25}{section*.13}}
+\bibcite{ref:Cq}{{19}{2017}{{Soneson and Robinson}}{{}}}
+\bibcite{ref:cspa}{{20}{2003}{{Strehl and Ghosh}}{{}}}
+\bibcite{Wag}{{21}{1986}{{Wagner and Taudes}}{{}}}
+\bibcite{yak68}{{22}{1968}{{Yakowitz and Spragins}}{{}}}
+\bibcite{ref:Zappia}{{23}{2017}{{Zappia, Phipson and Oshlack}}{{}}}
+\citation{yak68}
+\@writefile{toc}{\contentsline {section}{Appendix}{27}{section*.15}}
+\newlabel{eq:cprobs}{{11}{27}{Proof of Theorem 1}{equation.5.11}{}}
+\@writefile{toc}{\contentsline {section}{Author's addresses}{27}{section*.18}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textsc  {scDDboost}\relax }}{28}{algorithm.2}}
+\newlabel{alg:scDDboost}{{2}{28}{\textsc {scDDboost}\relax }{algorithm.2}{}}
