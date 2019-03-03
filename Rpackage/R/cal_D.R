@@ -11,42 +11,28 @@
 cal_D = function(data,ncores){
     nc = ncol(data)
     nr = nrow(data)
-    cl = g_cl(data, ncores)
-    D_cor = matrix(0, nrow = nc, ncol = nc)
     
- 
-    D_cor = sapply(1:nc, function(x) sapply(1:nc, function(y) {if(x < y){
-        #tmp = which(cl[,x] != cl[,y])
-        #return(1 - cor(data[tmp, x], data[tmp, y]))
-        tmpx = data[,x]
-        tmpy = data[,y]
-        #tmp = which(tmpx > 0)
-        #tmpx[tmp] = log(tmpx[tmp])
-        #tmp = which(tmpy > 0)
-        #tmpy[tmp] = log(tmpy[tmp])
-        
-        return(1 - cor(tmpx, tmpy))
-    }
-    else{
-        return(0)
-    }
-    }))
+    geneMax = apply(data,1,max)
+    tmp = which(geneMax > 0)
+    cl = g_cl(data[tmp,], ncores)
     
-    D_E = sapply(1:nc, function(i) sapply(1:nc, function(j)
-    if(i<j){length(which(cl[,i] != cl[,j]))/nr}else{0}))
-    # for(i in 1:nc){
-    #  for(j in 1:nc){
-    #  if(i<j){
-    #     tmp = which(cl[,i] != cl[,j])
-    #      D_cor[i,j] = 1 - cor(data[tmp, i], data[tmp, j])
-    #      }
-    #
-    #          }
-    #        }
-    D_cor = D_cor + t(D_cor)
+    geneK = apply(cl,1,max)
+    tmp = which(geneK > 1)
+    f_cl = cl[tmp,]
+    geneK = geneK[tmp]
     
-    D_E = D_E + t(D_E)
     
+    ng = nrow(f_cl)
+    
+    
+    D_E = as.matrix(dist(t(f_cl),method = "manhattan")) / nrow(f_cl)
+    
+    m_ = max(D_E)
+    
+    D_E = D_E / m_
+    
+    D_cor = (1 - cor(data)) / 2
+   
     w1 = sd(D_E) / mean(D_E)
     
     w2 = sd(D_cor) / mean(D_cor)

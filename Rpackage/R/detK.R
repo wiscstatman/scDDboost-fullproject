@@ -11,9 +11,8 @@ detK = function(D,epi = 0.15)
      }
     
     s = intra / inter
-    
     mins = min(s)
-    ss = 1 - mins / s
+    ss = s/mins - 1
     
     if(min(ss) < epi){
     K = which(ss < epi)[1] + 1
