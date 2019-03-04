@@ -22,7 +22,7 @@ eval_scDDboost <- function(data_counts, cd, ncores){
   ##posterior based on random dist
   pDD = PDD(data = data_counts, cd = cd, ncores = ncores, D = D_c, epi = 0.17)
   ##posterior based on non random dist
-  pDD_nr = PDD(data = data_counts, cd = cd, ncores = ncores, D = D_c, epi = 0.17)
+  pDD_nr = PDD(data = data_counts, cd = cd, ncores = ncores, D = D_c, epi = 0.17,random = F)
   
   res = list()
   res$RPDD = pDD
