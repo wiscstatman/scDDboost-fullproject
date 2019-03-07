@@ -27,7 +27,7 @@
 \bvolume{17}
 \bpages{63}.
 \bdoi{10.1186/s13059-016-0927-y}.
-%\bid{Bacher2016}
+\bid{Bacher2016}
 \end{barticle}
 \endbibitem
 
@@ -54,7 +54,7 @@
 \bvolume{17}
 \bpages{110}.
 \bdoi{10.1186/s12859-016-0944-6}.
-%\bid{Delmans2016}
+\bid{Delmans2016}
 \end{barticle}
 \endbibitem
 
@@ -79,7 +79,7 @@
 \bvolume{16}
 \bpages{278}.
 \bdoi{10.1186/s13059-015-0844-5}.
-%\bid{Finak2015}
+\bid{Finak2015}
 \end{barticle}
 \endbibitem
 
@@ -146,7 +146,7 @@
 \bvolume{17}
 \bpages{222}.
 \bdoi{10.1186/s13059-016-1077-y}.
-%\bid{Korthauer2016}
+\bid{Korthauer2016}
 \end{barticle}
 \endbibitem
 
@@ -184,7 +184,7 @@
 \bvolume{18}
 \bpages{59}.
 \bdoi{10.1186/s13059-017-1188-0}.
-%\bid{Lin2017}
+\bid{Lin2017}
 \end{barticle}
 \endbibitem
 
@@ -200,7 +200,7 @@
 \bvolume{15}
 \bpages{550}.
 \bdoi{10.1186/s13059-014-0550-8}.
-%\bid{Love2014}
+\bid{Love2014}
 \end{barticle}
 \endbibitem
 
@@ -265,7 +265,7 @@
 \bvolume{16}
 \bpages{241}.
 \bdoi{10.1186/s13059-015-0805-z}.
-%\bid{Pierson2015}
+\bid{Pierson2015}
 \end{barticle}
 \endbibitem
 
@@ -341,7 +341,7 @@
 \bvolume{18}
 \bpages{174}.
 \bdoi{10.1186/s13059-017-1305-0}.
-%\bid{Zappia2017}
+\bid{Zappia2017}
 \end{barticle}
 \endbibitem
 

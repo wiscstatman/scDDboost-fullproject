@@ -48,21 +48,21 @@
 \citation{ref:Leng}
 \citation{ref:Zappia}
 \citation{ref:Cq}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Expression data comparing 64 endothelial cells (EC) to 64 definitive endoderm cells (DEC) from a study of stem cell differentiation (Chu {\em  et al.} 2016). Shown are log2-scale expression of 6 genes uniquely identified by scDDboost at 5\% FDR.  \relax }}{3}{figure.caption.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Cell cycle ralted genes uniquely identified by scDDboost from a study of stem cell differentiation (Leng {\em  et al.} 2015). Shown are log2-scale expression of 6 genes uniquely identified by scDDboost at 5\% FDR.  \relax }}{3}{figure.caption.1}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:whet}{{1}{3}{Expression data comparing 64 endothelial cells (EC) to 64 definitive endoderm cells (DEC) from a study of stem cell differentiation (Chu {\em et al.} 2016). Shown are log2-scale expression of 6 genes uniquely identified by scDDboost at 5\% FDR.  \relax }{figure.caption.1}{}}
+\newlabel{fig:whet}{{1}{3}{Cell cycle ralted genes uniquely identified by scDDboost from a study of stem cell differentiation (Leng {\em et al.} 2015). Shown are log2-scale expression of 6 genes uniquely identified by scDDboost at 5\% FDR.  \relax }{figure.caption.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Modeling}{4}{section.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Data structure, sampling model, and parameters}{4}{subsection.2.1}}
 \newlabel{eq:counts}{{1}{4}{Data structure, sampling model, and parameters}{equation.2.1}{}}
-\newlabel{eq:mult}{{2}{4}{Data structure, sampling model, and parameters}{equation.2.2}{}}
 \citation{ref:Leng}
 \citation{DES}
 \citation{ref:Des}
-\newlabel{eq:asets}{{3}{6}{Data structure, sampling model, and parameters}{equation.2.3}{}}
+\newlabel{eq:mult}{{2}{5}{Data structure, sampling model, and parameters}{equation.2.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Proportions of $K=7$ cellular subtypes in different conditions. Aggregated proportions of subtypes 3 and 4, subtypes 2, 5, and 6, and subtypes 1, and 7 remain same across conditions, while individual subtype frequencies change. Depending on the changes in average expression among subtypes, these frequency changes may or may not induce changes between two conditions in the marginal distribution of some gene's expression. \relax }}{7}{figure.caption.2}}
 \newlabel{fig:1}{{2}{7}{Proportions of $K=7$ cellular subtypes in different conditions. Aggregated proportions of subtypes 3 and 4, subtypes 2, 5, and 6, and subtypes 1, and 7 remain same across conditions, while individual subtype frequencies change. Depending on the changes in average expression among subtypes, these frequency changes may or may not induce changes between two conditions in the marginal distribution of some gene's expression. \relax }{figure.caption.2}{}}
+\newlabel{eq:asets}{{3}{7}{Data structure, sampling model, and parameters}{equation.2.3}{}}
 \newlabel{eq:msets}{{4}{7}{Data structure, sampling model, and parameters}{equation.2.4}{}}
-\newlabel{eq:lfdr}{{5}{7}{Data structure, sampling model, and parameters}{equation.2.5}{}}
+\newlabel{eq:lfdr}{{5}{8}{Data structure, sampling model, and parameters}{equation.2.5}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Directed acyclic graph structure of compositional model and partition-reliant prior. The plate on the right side indicates i.i.d. copies over cells $c$, conditionally on mixing proportions and mixing components. Observed data are indicated in rectangles/squares, and unobserved variables are in circles/ovals. \relax }}{8}{figure.caption.3}}
 \newlabel{fig:2}{{3}{8}{Directed acyclic graph structure of compositional model and partition-reliant prior. The plate on the right side indicates i.i.d. copies over cells $c$, conditionally on mixing proportions and mixing components. Observed data are indicated in rectangles/squares, and unobserved variables are in circles/ovals. \relax }{figure.caption.3}{}}
 \citation{sc3}
@@ -77,14 +77,14 @@
 \citation{selK}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces \textsc  {scDDBoost-core}\relax }}{10}{algorithm.1}}
 \newlabel{alg:scDDcore}{{1}{10}{\textsc {scDDBoost-core}\relax }{algorithm.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Double Dirichlet Mixture (DDM)}{10}{subsection.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Double Dirichlet Mixture (DDM)}{11}{subsection.2.3}}
 \newlabel{eq:ddmix}{{6}{11}{Double Dirichlet Mixture (DDM)}{equation.2.6}{}}
 \newlabel{eq:onetoone}{{7}{11}{Double Dirichlet Mixture (DDM)}{equation.2.7}{}}
 \newlabel{eq:doubledir}{{8}{11}{Double Dirichlet Mixture (DDM)}{equation.2.8}{}}
 \citation{Wag}
 \citation{ref:Zappia}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Numerical experiments}{13}{section.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Synthetic data}{13}{subsection.3.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Numerical experiments}{14}{section.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Synthetic data}{14}{subsection.3.1}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces underlying number of groups $K$ v.s. estimated number of subtypes $\mathaccentV {hat}45EK$ under two hyper parameters setting, $\mathaccentV {hat}45E{K_1}, \mathaccentV {hat}45E{K_2}$ are estimated $K$ of two replicates under the setting $\theta = -0.1$, $\gamma = -1$, $\mathaccentV {hat}45E{K_3}, \mathaccentV {hat}45E{K_4}$ are for case $\theta = 0.3$, $\gamma = 0.5$ \relax }}{14}{table.caption.4}}
 \citation{ref:Cq}
 \citation{ref:scDD}
