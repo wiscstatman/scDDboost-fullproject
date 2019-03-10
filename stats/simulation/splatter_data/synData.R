@@ -5,7 +5,7 @@ library(BiocParallel)
 library(readr)
 library(magrittr)
 library(SingleCellExperiment)
-
+library(MCMCpack)
 
 loadDataset <- function(dataset, root) {
     
@@ -125,12 +125,60 @@ est_param <- function(root_DIR, Seed){
 
 
 #for each simulation setting, we have two replicates
-synData <- function(loc, scale, params, group_prob, save_DIR,
+synData <- function(loc, scale, params, patP, save_DIR,
                     nrep = 2, Seed = 10,
                     ncells = 400, de_prob = 0.1){
   
-  bp <- BiocParallel::MulticoreParam(nrep)
-  sims <- bplapply(1:nrep, function(seed) {
+    set.seed(Seed)
+  
+    #number of groups
+    K = length(patP)
+    
+    b = table(patP)
+    
+    bb = as.numeric(b)
+    
+    subNames = as.numeric(names(b))
+  
+    BETA = 2 * as.numeric(b)  
+    
+    subK = length(b)
+    
+    PHI = rdirichlet(1, BETA)
+    
+    phi = list()
+    
+    psi = list()
+    
+    for(i in 1:subK)
+    {
+        alpha = rep(1,bb[i])
+        
+        phi[[i]] = rdirichlet(1,alpha) * PHI[i]
+        
+        psi[[i]] = rdirichlet(1,alpha) * PHI[i]
+        
+    }
+  
+    phi = as.numeric(do.call(cbind,phi))
+    
+    psi = as.numeric(do.call(cbind,psi))
+    
+    ##having zero prob that phi and psi have one component same unless in the patP specify some params to be the same
+    
+    ##prob for bernoulli indicator that a cell being sampled into condition 1
+    
+    PR = rep(0,K)
+    
+    for(i in 1:K)
+    {
+        PR[i] = phi[i] / (phi[i] + psi[i])
+    }
+    
+    group_prob = (phi + psi) / 2
+    
+    bp <- BiocParallel::MulticoreParam(nrep)
+    sims <- bplapply(1:nrep, function(seed) {
     message("Simulating ", seed)
     sim <- splatSimulateGroups(params,
                                batchCells      = ncells,
@@ -142,9 +190,8 @@ synData <- function(loc, scale, params, group_prob, save_DIR,
                                seed            = seed)
     sim <- calculateQCMetrics(sim)
     return(sim)
-  }, BPPARAM = bp)
-  #number of groups
-  K = length(group_prob)
+    }, BPPARAM = bp)
+    
   
   for(i in 1:nrep){
       dat = sims[[i]]
@@ -154,33 +201,46 @@ synData <- function(loc, scale, params, group_prob, save_DIR,
       
       group = colData(dat)$Group
       
-      ###make group1 belong to condition 1 and group 7 belong to condition2
-      g11 = which(group == 1)
+      ##change Group1 to 1, convinient for further usage
+      group = as.numeric(sapply(group,function(x) gsub("Group","",x)))
+                                                               
       
-      g22 = which(group == 7)
+      # indicator for a cell being conditon 1 or 2
+      indic = rbinom(ncells, 1, PR[group])
       
-      rest = setdiff(1:400,c(g11,g22))
+      ### make first group belong to condition 1 and last group belong to condition2
+      g1 = which(indic == 1)
       
-      gp1 = sample(rest, 100 - length(g11))
+      g2 = which(indic == 0)
       
-      gp2 = setdiff(rest, gp1)
+      label1 = group[g1]
       
-      g1 = c(g11,gp1)
-      
-      g2 = c(g22,gp2)
-      
-      label1 = c(group[g11],group[gp1])
-      
-      label2 = c(group[g22],group[gp2])
+      label2 = group[g2]
       
       data_counts = data_counts_all[,c(g1,g2)]
-      cd = c(rep(1,200),rep(2,200))
       
+      cd = c(rep(1,length(g1)),rep(2,length(g2)))
+      
+      trueLabel = c(label1,label2)
+      
+      ## set may have problem                          
+      eq = c()
+                                
+      for(j in 1:K)
+      {
+          if(phi[i] == psi[i])
+          {
+              eq = c(eq, i)
+          }
+      }
       ###get index of DD genes
       tmp = c()
       for(I in 1:K){
-          a = paste0("rowData(dat)$DEFacGroup",I)
-          tmp = union(tmp,which(eval(parse(text = a)) != 1))
+          if(!(I %in% eq))
+          {
+              a = paste0("rowData(dat)$DEFacGroup",I)
+              tmp = union(tmp,which(eval(parse(text = a)) != 1))
+          }
       }
       
       DD = tmp
@@ -196,6 +256,6 @@ synData <- function(loc, scale, params, group_prob, save_DIR,
         filename = paste(name_vec,collapse = '')
       }
       saveDir = paste0(save_DIR, filename)
-      save(dat,data_counts,cd,g1,g2,group,DD,ED,label1,label2, file = saveDir)
+      save(dat,data_counts,cd,g1,g2,group,DD,ED,label1,label2,trueLabel,phi,psi,file = saveDir)
   }
 }
