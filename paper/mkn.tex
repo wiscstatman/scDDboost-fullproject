@@ -721,33 +721,15 @@ To assess the performance of \verb+scDDboost+ we first  simulated
 synthetic data using \verb+splatter+~\citep{ref:Zappia}, 
 a recently developed system having good empirical characteristics 
 and providing interface for simulating cells from multiple groups. 
-Then, we compare results from \textsc scDDboost to DESeq2, MAST and scDD. 
-
+We assess the performance of \textsc scDDboost on identifying DD genes and comparing the power to other three methods scDD, MAST and DESeq2.
 Splatter provides two user specified parameters: location $\theta$ and scale $\gamma$ for controlling how different the transcripts of a gene can be between groups. 
 In the paper, the author used $\theta = -0.1$ and $\gamma = 0.3$, in the R package, the default value is $\theta = 0.1$ and $\gamma = 0.4$.  
 However, none of our candidate methods have done good jobs under the default settings(supplementary material). As the differences between groups are small. 
 To better evaluate those methods, we use another two configurations of $(\theta = -0.1, \gamma = 1)$ and $(\theta = 0.3, \gamma = 0.5)$, which zoom in the differences and keep the parameters close to default ones.
 Other nuisance parameters are set to have default values.
  
-Model performance on the simulated data was assessed based on (1) ability to estimate number of groups and to cluster cells correctly, (2) ability to detect DD genes.
-
-\begin{table}[ht]
-\small
-\centering
-\begin{tabular}{ |p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
-\hline
-K & $\hat{K_1}$ &  $\hat{K_2}$ & $\hat{K_3}$ & $\hat{K_4}$ \\ \hline \hline
-4 & 1 & 2 & 3  & 4 \\ \hline
-7 & 1 & 2 & 3  & 4  \\ \hline
-15 & 7 & 7 & 5  & 5  \\ \hline
-\end{tabular}
-\captionof{table}{underlying number of groups $K$ v.s. estimated number of subtypes $\hat K$ under two hyper parameters setting, $\hat{K_1}, \hat{K_2}$ are estimated $K$ of two replicates under the setting $\theta = -0.1$, $\gamma = -1$, $\hat{K_3}, \hat{K_4}$ are for case $\theta = 0.3$, $\gamma = 0.5$ }
-\end{table}
-
-To evaluate our clustering method, rule for selecting number of clusters and downstream DD analysis based on identified clusters we simulate datasets under 3 different number of groups : $K$ =  4, 7, 15.  For $K = 4, 7$ we asses 
-the similarity of estimated clustering results with the ground truth by adjusted Rand index. (supplementary)  For $K = 15$, as feasibility of computation, \textsc scDDboost can only handle $K$ up to 9. We assess whether \textsc scDDboost 
-can still be powerful when underestimating $K$ and thus having a coarse modelling of gene distribution.
-
+We simulate datasets under 3 different number of groups : $K$ =  4, 7, 15.  As feasibility of computation, \textsc scDDboost can only handle $K$ up to 9. We assess whether \textsc scDDboost 
+can still be powerful when underestimating $K$ and having less accurate modelling of gene distribution. 
 
 We in total generate 12 simulation cases, each case we have 400 cells and we have the roc curve of those 4 methods on the 12 simulation cases below
  
