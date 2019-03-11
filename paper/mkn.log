@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  11 MAR 2019 02:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  11 MAR 2019 02:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1272,41 +1272,41 @@ Overfull \hbox (55.95021pt too wide) in alignment at lines 613--621
  [][][] []
  []
 
-[12]
+
 Overfull \hbox (50.2934pt too wide) in alignment at lines 650--659
  [][][] []
  []
 
-
+[12]
 Overfull \hbox (14.05144pt too wide) in paragraph at lines 659--662
 \OT1/pplx/m/n/10.95 which cor-re-sponds to Dirichlet-multinomial pre-dic-tive d
 is-tri-bu-tion for counts
  []
 
 [13] [14]
-<Figs/simuTPR.pdf, id=283, 722.7pt x 433.62pt>
+<Figs/simuTPR.pdf, id=284, 722.7pt x 433.62pt>
 File: Figs/simuTPR.pdf Graphic file (type pdf)
 <use Figs/simuTPR.pdf>
 Package pdftex.def Info: Figs/simuTPR.pdf  used on input line 748.
 (pdftex.def)             Requested size: 288.0011pt x 172.80312pt.
-<Figs/simuFPR.pdf, id=284, 722.7pt x 433.62pt>
+<Figs/simuFPR.pdf, id=285, 722.7pt x 433.62pt>
 File: Figs/simuFPR.pdf Graphic file (type pdf)
 <use Figs/simuFPR.pdf>
 Package pdftex.def Info: Figs/simuFPR.pdf  used on input line 755.
 (pdftex.def)             Requested size: 288.0011pt x 172.80312pt.
  [15 <./Figs/simuTPR.pdf> <./Figs/simuFPR.pdf>]
-<Figs/DD95.pdf, id=314, 722.7pt x 433.62pt>
+<Figs/DD95.pdf, id=316, 722.7pt x 433.62pt>
 File: Figs/DD95.pdf Graphic file (type pdf)
 <use Figs/DD95.pdf>
 Package pdftex.def Info: Figs/DD95.pdf  used on input line 775.
 (pdftex.def)             Requested size: 360.0pt x 216.00224pt.
  [16 <./Figs/DD95.pdf>]
-<Figs/fdr.pdf, id=328, 578.16pt x 361.35pt>
+<Figs/fdr.pdf, id=329, 578.16pt x 361.35pt>
 File: Figs/fdr.pdf Graphic file (type pdf)
 <use Figs/fdr.pdf>
 Package pdftex.def Info: Figs/fdr.pdf  used on input line 790.
 (pdftex.def)             Requested size: 251.9989pt x 157.49475pt.
-<Figs/NULL.pdf, id=329, 722.7pt x 361.35pt>
+<Figs/NULL.pdf, id=330, 722.7pt x 361.35pt>
 File: Figs/NULL.pdf Graphic file (type pdf)
 <use Figs/NULL.pdf>
 Package pdftex.def Info: Figs/NULL.pdf  used on input line 801.
@@ -1316,23 +1316,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 814--815
 
  []
 
-<Figs/act.png, id=348, 356.0502pt x 251.9814pt>
+<Figs/act.png, id=349, 356.0502pt x 251.9814pt>
 File: Figs/act.png Graphic file (type png)
 <use Figs/act.png>
 Package pdftex.def Info: Figs/act.png  used on input line 829.
 (pdftex.def)             Requested size: 118.80066pt x 84.07689pt.
-<Figs/in_act.png, id=350, 356.0502pt x 251.9814pt>
+<Figs/in_act.png, id=351, 356.0502pt x 251.9814pt>
 File: Figs/in_act.png Graphic file (type png)
 <use Figs/in_act.png>
 Package pdftex.def Info: Figs/in_act.png  used on input line 832.
 (pdftex.def)             Requested size: 118.80066pt x 84.07689pt.
-<Figs/t_rate.png, id=352, 364.4817pt x 251.9814pt>
+<Figs/t_rate.png, id=353, 364.4817pt x 251.9814pt>
 File: Figs/t_rate.png Graphic file (type png)
 <use Figs/t_rate.png>
 Package pdftex.def Info: Figs/t_rate.png  used on input line 835.
 (pdftex.def)             Requested size: 118.80066pt x 82.13136pt.
 [18 <./Figs/NULL.pdf>]
-<Figs/overlap.png, id=366, 770.88pt x 443.6575pt>
+<Figs/overlap.png, id=367, 770.88pt x 443.6575pt>
 File: Figs/overlap.png Graphic file (type png)
 <use Figs/overlap.png>
 Package pdftex.def Info: Figs/overlap.png  used on input line 858.
@@ -1486,7 +1486,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1036.
 Here is how much of TeX's memory you used:
  28638 strings out of 492649
  542541 string characters out of 6129622
- 619369 words of memory out of 5000000
+ 619430 words of memory out of 5000000
  31923 multiletter control sequences out of 15000+600000
  572520 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1505,10 +1505,10 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (27 pages, 645715 bytes).
+Output written on mkn.pdf (27 pages, 645744 bytes).
 PDF statistics:
- 504 PDF objects out of 1000 (max. 8388607)
- 429 compressed objects within 5 object streams
+ 505 PDF objects out of 1000 (max. 8388607)
+ 430 compressed objects within 5 object streams
  110 named destinations out of 1000 (max. 500000)
  233 words of extra memory for PDF output out of 10000 (max. 10000000)
 

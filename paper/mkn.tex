@@ -470,13 +470,13 @@ We invoke $K-$medoids \citep{kmedoids}
 as the default clustering method in \textsc{scDDboost}, and customize the cell-cell distance by integrating two measures.  
 The first assembles gene-level information by cluster-based-similarity partitioning~\citep{ref:cspa}.
  Separately at each gene,   modal clustering (\cite{ref:dahl} and Appendix B) partitions the cells, and
-then we define dissimilarity between cells as the proportion of genes at which the cells are assigned to different clusters. 
+then we define dissimilarity between cells as the mahattan distance of those gene specific partition labels.
 A second measure defines dissimilarity by one minus the 
 Pearson correlation between cells, which is computationally inexpensive,
 less sensitive to outliers than Euclidean distance, and effective at detecting cellular clusters in 
 scRNA-seq~\citep{Cor}.
  We combine the two measures by a weighted average, 
-with  $w_C = \frac{\sigma_C}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_C$. where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster-based distance and Pearson-correlation distance, respectively.
+with  $w_C = \frac{\sigma_P}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_C$. where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster-based distance and Pearson-correlation distance, respectively.
 The final distance matrix is denoted $D=\left( d_{i,j} \right)$. 
 
 Any clustering method  entails classification errors, and so $\hat z_c \neq z_c$ for some cells. To mitigate
