@@ -745,11 +745,17 @@ scDDboost identified most true DD genes, the reason is that mean expression shif
 
 
 \begin{figure}[H]
-  \includegraphics[width = 0.8\textwidth]{Figs/roc.pdf}
-  \caption{Roc curve of scDDboost, scDD, MAST and DESeq2, scDDboost has largest area under the roc curve. Roc curves of other three methods are similar. For those roc curve there is bigger difference at low level of false positive rate, as scDDboost identified twice many true DD genes as other methods.  Roc curves are obtained under different settings of hyper parameters of simulations.}
+  \includegraphics[width = 0.8\textwidth]{Figs/simuTPR.pdf}
+  \caption{True positive rate of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes}
   \label{fig:5}
 \end{figure}
 
+
+\begin{figure}[H]
+  \includegraphics[width = 0.8\textwidth]{Figs/simuFPR.pdf}
+  \caption{False positive rate of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes}
+  \label{fig:5}
+\end{figure}
 
 %Since we are modeling gene transcript within each subtype as negative-binomially distributed and we only test one parameter(mean) change among subtypes. In some scenario, it could be insufficient to model the variability within subtype. Even though there is no mean expression change among subtypes but more subtle distributional change occurred among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus limit power of scDDboost.\\
 
