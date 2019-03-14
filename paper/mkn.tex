@@ -746,17 +746,23 @@ scDDboost identified most true DD genes, the reason is that mean expression shif
 
 \begin{figure}[H]
   \includegraphics[width = 0.8\textwidth]{Figs/simuTPR.pdf}
-  \caption{True positive rate of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes}
+  \caption{True positive rate of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes, threshold = 0.05}
   \label{fig:5}
 \end{figure}
 
 
 \begin{figure}[H]
   \includegraphics[width = 0.8\textwidth]{Figs/simuFPR.pdf}
-  \caption{False positive rate of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes}
+  \caption{False positive rate of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes, threshold = 0.05}
   \label{fig:5}
 \end{figure}
 
+
+\begin{figure}[H]
+  \includegraphics[width = 0.8\textwidth]{Figs/simuFDR.pdf}
+  \caption{FDRe of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes, threshold = 0.05}
+  \label{fig:5}
+\end{figure}
 %Since we are modeling gene transcript within each subtype as negative-binomially distributed and we only test one parameter(mean) change among subtypes. In some scenario, it could be insufficient to model the variability within subtype. Even though there is no mean expression change among subtypes but more subtle distributional change occurred among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus limit power of scDDboost.\\
 
 
