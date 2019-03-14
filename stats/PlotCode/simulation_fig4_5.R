@@ -12,6 +12,13 @@ FP_sc = c(0.028,0.026,0.024,0,0.025,0.023,0.022,0.02,0.0049,0.004,0.004,0.004)
 FP_des = c(0.0008,0.0005,0.0016,0.004,0.0003,0,0.0005,0.002,0,0,0,0.0005)
 FP_scb = c(0.0006,0.04,0.004,0.022,0.0003,0.31,0.0002,0.001,0.047,0.022,0.1,0.0002)
 
+
+#FDR
+FDR_mst = c(0.444,0.48,0.365,0.235,0.353,0.39,0.2,0.17,0.18,0.163,0.1)
+FDR_sc = c(0.408,0.47,0.267,0.14,0.376,0.42,0.17,0.2,0.18,0.155,0.09)
+FDR_des = c(0.04,0.047,0.0326,0.02,0.03,0,0.028,0,0,0.02,0.014)
+FDR_scb = c(0.006,0.226,0.016,0.05,0.01,0.49,0.007,0.22,0.22,0.21,0.0014)
+
 pdf("simuTPR.pdf", height = 6, width = 10)
 par(mar=c(7,5,4,1)+.1)
 plot(TP_scb, type = "b", lwd = 2, col = "green", 
@@ -58,5 +65,29 @@ text( 6.5,  -0.0125, "7" )
 
 polygon( c(8.5,8.5, 12 ,12) , c(-0.025,-0.005,-0.005,-0.025) , col="yellow",
          border=FALSE )
+text( 10.5,  -0.0125, "15" )
+dev.off()
+
+pdf("simuFDR.pdf", height = 6, width = 10)
+par(mar=c(7,5,4,1)+.1)
+plot(FDR_scb, type = "b", lwd = 2, col = "green",
+ylab = "", xaxt = 'n', xlab = "K", ylim = c(-0.025,0.8))
+mtext("TPR", side=2, line=2.2, cex=1.2, yaxt = 'n')
+lines(FDR_des , type = "b", lwd = 2, col = "red")
+lines( FDR_sc , type = "b", lwd = 2, col = "blue")
+lines( FDR_mst , type = "b", lwd = 2)
+#axis(1, at=1:12, cex.axis= 1.2, las = 2)
+legend("topleft", legend=c("MAST", "DESeq2", "scDD", "scDDboost"),
+col=c("black", "red", "blue","green"),lty = 1, cex = 1.2,lwd = 2)
+polygon( c(1,1, 4.5 ,4.5) , c(-0.025,-0.005,-0.005,-0.025) , col="lightgrey",
+border=FALSE )
+text( 3,  -0.0125, "4" )
+
+polygon( c(4.5,4.5, 8.5 ,8.5) , c(-0.025,-0.005,-0.005,-0.025) , col="magenta",
+border=FALSE )
+text( 6.5,  -0.0125, "7" )
+
+polygon( c(8.5,8.5, 12 ,12) , c(-0.025,-0.005,-0.005,-0.025) , col="yellow",
+border=FALSE )
 text( 10.5,  -0.0125, "15" )
 dev.off()
