@@ -19,6 +19,7 @@
 #include <sys/sysctl.h>
 #include "DATA.hpp"
 #include "derived.hpp"
+#include "asa047.hpp"
 #include "kit.h"
 
 using namespace std;
@@ -75,6 +76,7 @@ RcppExport SEXP MCP(SEXP X, SEXP MASS, SEXP PARAM) {
     double mass=Rcpp::as<double>(MASS);
     NumericVector param(PARAM);
     int len = XX.size();
+    IntegerVector YY(len);
     double shape = param[0];
     double scale = param[1];
     double coeff1 = lgamma(shape);
@@ -145,10 +147,10 @@ RcppExport SEXP MCP(SEXP X, SEXP MASS, SEXP PARAM) {
     
     
     for(int i = 0; i < len; ++i){
-        XX[ascend_indexes[i]] = IMP[len-1].partition[i];
+        YY[ascend_indexes[i]] = IMP[len-1].partition[i];
     }
     
-    return XX;
+    return YY;
     
     END_RCPP
 }
