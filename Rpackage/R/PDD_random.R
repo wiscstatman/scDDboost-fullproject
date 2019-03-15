@@ -16,13 +16,13 @@
 #' @return posterior probabilities under random distance matrix
 #' @export
 
-PDD_random = function(data, cd, K, D, a, b, sz, hp, Posp, iter, REF, seed){
+PDD_random = function(data, cd, K, D, a, sz, hp, Posp, iter, REF, seed){
     set.seed(seed)
     n = ncol(D)
-    e <- rgamma(n,shape= a / 2, rate= b )
+    e <- rgamma(n,shape= a / 2, rate= a / 2 )
     bar = D/outer(e,e,"+")
     dst.star <- as.dist(bar)
-    cstar = pam(dst.star, k = K)$clustering
+    cstar = pam(dst.star, k = K, diss = T)$clustering
     
     gcl = 1:nrow(data)
     n1 = table(cd)[1]
@@ -40,8 +40,21 @@ PDD_random = function(data, cd, K, D, a, b, sz, hp, Posp, iter, REF, seed){
     np = nrow(Posp)
     #modified_p = sapply(1:np,function(i) sum(post[which(ref[[K]][,i] == 1)]))
     modified_p = t(REF) %*% post
-    res = EBS(data,cstar,gcl,sz,iter,hp,Posp)
-    DE = res$DEpattern
+    
+    if(K >= 2){
+        res = EBS(data,cstar,gcl,sz,iter,hp,Posp)
+        DE = res$DEpattern
+    }
+    #    else{
+    #        message("small number of clusters, using exact EBSeq")
+    #       rowmeans = apply(data_counts,1,mean)
+    #        tmp = which(rowmeans > 0)
+    #        data_tmp = data[tmp,]
+    #        res = EBTest(Data = data_tmp, Conditions = cstar, sizeFactors = sz, maxround = 2)
+    #        tmpDE = rep(0, nrow(data))
+    #        tmpDE[tmp] = res$PPDE
+    #        DE = cbind(1 - tmpDE, tmpDE)
+    #    }
     PED = DE%*%modified_p
     #PDD = (1 - DE[,1]) * post[1]
     #PDD = PDD / (PED + PDD)

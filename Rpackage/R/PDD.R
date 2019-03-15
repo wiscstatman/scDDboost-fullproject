@@ -15,7 +15,7 @@
 #' @export
 
 
-PDD = function(data, cd, ncores,D, random = T, epi = 0.15, Upper = 1000, nrandom = 30, iter = 20){
+PDD = function(data, cd, ncores,D, random = T, epi = 1, Upper = 1000, nrandom = 30, iter = 20){
     #data(ref.RData)
     gcl = 1:nrow(data)
 
@@ -33,8 +33,11 @@ PDD = function(data, cd, ncores,D, random = T, epi = 0.15, Upper = 1000, nrandom
     #    D = cal_D(gc)
     #}
     sz = rep(1, ncol(D))
+    alpha = 0.4
+    beta = 2
     
-    hp = rep(1, 1 + nrow(data))
+    hp = rep(beta, 1 + nrow(data))
+    hp[1] = alpha
     
     
     if(!random){
@@ -58,8 +61,25 @@ PDD = function(data, cd, ncores,D, random = T, epi = 0.15, Upper = 1000, nrandom
         
         
         Posp = pat(K)[[1]]
-        res = EBS(data,ccl,gcl,sz,iter,hp,Posp)
-        DE = res$DEpattern
+        if(K >= 2){
+            res = EBS(data,ccl,gcl,sz,iter,hp,Posp)
+            DE = res$DEpattern
+        }
+        else if(K == 1){
+            message("There is only one cluster, no postive")
+            return(rep(0,nrow(data)))
+        }
+        #        else
+        #        {
+        #            message("small number of clusters, using exact EBSeq")
+        #            rowmeans = apply(data_counts,1,mean)
+        #           tmp = which(rowmeans > 0)
+        #            data_tmp = data[tmp,]
+        #            res = EBTest(Data = data_tmp, Conditions = ccl, sizeFactors = sz, maxround = 3)
+        #            tmpDE = rep(0, nrow(data))
+        #            tmpDE[tmp] = res$PPDE
+        #            DE = cbind(1 - tmpDE, tmpDE)
+        #        }
         n1 = table(cd)[1]
         z1<-rep(0, K)
         z2<-rep(0, K)
@@ -86,19 +106,25 @@ PDD = function(data, cd, ncores,D, random = T, epi = 0.15, Upper = 1000, nrandom
     else{
         K = detK(D,epi)
         message(paste0("estimated number of subtypes: ",K))
+        
+        if(K == 1){
+            message("There is only one cluster, no postive")
+            return(rep(0,nrow(data)))
+        }
+        
         Posp = pat(K)[[1]]
         REF = g_ref(Posp)
         
         fit3 <- suppressWarnings(nlminb( start=c(0.1,2), objective=LL, x=D, lower=c(0,2) , upper = c(Upper,Upper)))
-        a0 = 1
-        d0 = fit3$par[1]
+        a0 = fit3$par[1]
+        #d0 is set to 1
         a1 = fit3$par[2]
         a = a1 + a0
-        b = a1
+        #b = a1
         #message(paste0("param of weights: ", a1))
         
         bp <- BiocParallel::MulticoreParam(ncores)
-        result = bplapply(1:nrandom, function(i) {PDD_random(data, cd, K, D, a,b, sz, hp, Posp, iter, REF, i)}, BPPARAM = bp)
+        result = bplapply(1:nrandom, function(i) {PDD_random(data, cd, K, D, a, sz, hp, Posp, iter, REF, i)}, BPPARAM = bp)
         
         
         boot = matrix(0,nrow=length(result[[1]]),ncol = nrandom)
