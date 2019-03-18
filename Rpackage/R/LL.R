@@ -1,14 +1,15 @@
 #' likelihood function for hyperparameters estimation
 #'
+#' @param param parameters to be determined by MLE
 #' @param D distance matrix of cells
+#' @param d0 rate parameter of prior of 1 / true distance 
 #' @return return hyperparameteres a.
 #' @export
 
 
 
-LL = function(param, x){
+LL = function(param, x, d0){
     a0 = param[1]   #shape for prior
-    d0 = 1   #rate for prior
     a1 = param[2]  #shape for sampling model, consistent with dividing
     
     n = length(x)

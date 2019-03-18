@@ -10,12 +10,13 @@
 #' @param Upper bound for hyper parameters optimization
 #' @param nrandom number of random generated distance matrix
 #' @param iter max number of iterations for EM
+#' @param reltol relative tolerance for optim on weighting paramters
 #' @return posterior probabilities of a gene to be differential distributed
 
 #' @export
 
 
-PDD = function(data, cd, ncores,D, random = T, epi = 1, Upper = 1000, nrandom = 30, iter = 20){
+PDD = function(data, cd, ncores,D, random = T, epi = 1, Upper = 1000, nrandom = 30, iter = 20,reltol = 1e-3){
     #data(ref.RData)
     gcl = 1:nrow(data)
 
@@ -32,7 +33,9 @@ PDD = function(data, cd, ncores,D, random = T, epi = 1, Upper = 1000, nrandom = 
     #    gc = g_cl(data, ncores)
     #    D = cal_D(gc)
     #}
-    sz = rep(1, ncol(D))
+    sz = tryCatch({MedianNorm(data)},error = function(e){
+        rep(1, ncol(D))
+    })
     alpha = 0.4
     beta = 2
     
@@ -115,11 +118,13 @@ PDD = function(data, cd, ncores,D, random = T, epi = 1, Upper = 1000, nrandom = 
         Posp = pat(K)[[1]]
         REF = g_ref(Posp)
         
-        fit3 <- suppressWarnings(nlminb( start=c(0.1,2), objective=LL, x=D, lower=c(0,2) , upper = c(Upper,Upper)))
+        ctrl = list()
+        ctrl$rel.tol = reltol
+        
+        fit3 <- suppressWarnings(nlminb( start=c(2,2), objective=LL, x=D, d0 = 1, lower=c(0,0), control = ctrl))
         a0 = fit3$par[1]
-        #d0 is set to 1
         a1 = fit3$par[2]
-        a = a1 + a0
+        a = a0 + a1
         #b = a1
         #message(paste0("param of weights: ", a1))
         
