@@ -16,7 +16,7 @@
 #' @export
 
 
-PDD = function(data, cd, ncores,D, random = T, epi = 1, Upper = 1000, nrandom = 30, iter = 20,reltol = 1e-3){
+PDD = function(data, cd, ncores,D, random = T, norm = F, epi = 1, Upper = 1000, nrandom = 30, iter = 20,reltol = 1e-3){
     #data(ref.RData)
     gcl = 1:nrow(data)
 
@@ -33,9 +33,14 @@ PDD = function(data, cd, ncores,D, random = T, epi = 1, Upper = 1000, nrandom = 
     #    gc = g_cl(data, ncores)
     #    D = cal_D(gc)
     #}
+    if(norm)
+    {
+        sz = rep(1, ncol(D))
+    }else{
     sz = tryCatch({MedianNorm(data)},error = function(e){
-        rep(1, ncol(D))
+        message("sizeFactor calculation failed, try normalized data")
     })
+    }
     alpha = 0.4
     beta = 2
     
