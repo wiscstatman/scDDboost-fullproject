@@ -3,6 +3,7 @@
 #!param cd is condition label
 
 suppressPackageStartupMessages(library(scDD))
+suppressPackageStartupMessages(library(SingleCellExperiment))
 
 eval_scDD = function(data_counts, cd, ncores){
   

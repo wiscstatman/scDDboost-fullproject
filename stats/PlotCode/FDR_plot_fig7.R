@@ -28,7 +28,7 @@ for(II in 1:nSet){
     x = loadName[II]
     load(paste0(TMP,x))
     
-    mst = res_mast[,"hurdle","Pr(>Chisq)"]
+    mst = p.adjust(res_mast[,"hurdle","Pr(>Chisq)"],"fdr")
     print(x)
     nr = nrow(data_null)
     print("MAST")

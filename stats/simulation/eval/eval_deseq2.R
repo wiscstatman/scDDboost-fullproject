@@ -4,12 +4,12 @@
 
 suppressPackageStartupMessages(library(DESeq2))
 
-eval_DESeq2 = function(data_counts, cd){
+eval_DESeq2 = function(data_counts, cd, parallel, ncores){
   cd = factor(cd)
   dds <- DESeqDataSetFromMatrix(countData = round(data_counts), 
                                 colData = data.frame(condition = cd), 
                                 design = ~condition)
-  dds <- DESeq(dds)
+  dds <- DESeq(dds, parallel = parallel, BPPARAM = MulticoreParam(workers=ncores))
   res <- DESeq2::results(dds, contrast = c("condition", levels(factor(cd))[1], 
                                            levels(factor(cd))[2]), alpha = 0.05)
   
