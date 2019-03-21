@@ -48,26 +48,27 @@ for(II in 1:nSet){
 
 
 ##FDR plot
-df_fdr = data.frame(methods = rep(c("DESeq2", "MAST", "scDD", "scDDboost"),each = length(mst_fdr)),
-                    y = c(des_fdr, mst_fdr, scdd_fdr, scddboost_fdr))
+df_fdr = data.frame(methods = rep(factor(c("MAST","DESeq2", "scDD", "scDDboost"),levels = c("MAST","DESeq2", "scDD", "scDDboost")),each = length(mst_fdr)),
+y = c(mst_fdr, des_fdr, scdd_fdr, scddboost_fdr))
 
 p = ggplot(df_fdr,aes(methods,y, color = methods)) + geom_boxplot(alpha = 0.7,
-                                                                  outlier.colour = "#1F3552", outlier.shape = 20) + geom_jitter()
+outlier.colour = "#1F3552", outlier.shape = 20) + geom_jitter()
+p = p + scale_colour_manual(values = c("Black","Red","Blue","Green"))
 pdf("fdr.pdf", height = 5, width = 8)
 p + theme(panel.background = element_rect(
-  fill = 'white', colour = 'black'),
-  axis.text.x = element_text( color="black", 
-                              size= 14),
-  axis.text.y = element_text(face="bold", color="#993333", 
-                             size=14),
-  legend.text=element_text(size = 14),
-  legend.title = element_blank(),
-  axis.title.x=element_blank(),
-  axis.title=element_text(size=14,face="bold"),
-  panel.grid.minor.x = element_line(size = 0.5),
-  panel.grid.minor.y = element_line(size = 0.5),
-  panel.grid.major.x = element_line(size = 0.5),
-  panel.grid.major.y = element_line(size = 0.5),
-  panel.grid.major = element_line(colour = "grey"))+ ylab("False Positive Rate") + geom_hline(yintercept=0.05, linetype="dashed", color = "red")
+fill = 'white', colour = 'black'),
+axis.text.x = element_text( color="black",
+size= 14),
+axis.text.y = element_text(face="bold", color="#993333",
+size=14),
+legend.text=element_text(size = 14),
+legend.title = element_blank(),
+axis.title.x=element_blank(),
+axis.title=element_text(size=14,face="bold"),
+panel.grid.minor.x = element_line(size = 0.5),
+panel.grid.minor.y = element_line(size = 0.5),
+panel.grid.major.x = element_line(size = 0.5),
+panel.grid.major.y = element_line(size = 0.5),
+panel.grid.major = element_line(colour = "grey"))+ ylab("False Positive Rate") + geom_hline(yintercept=0.05, linetype="dashed", color = "red")
 
 dev.off()
