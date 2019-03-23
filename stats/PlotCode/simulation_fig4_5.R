@@ -26,7 +26,7 @@ FDR_scb = c(0,0,0.0155,0.021,0.01,0,0,0.009,0,0,0,0)
 pdf("simuTPR.pdf", height = 6, width = 10)
 par(mar=c(7,5,4,1)+.1)
 plot(TP_scb, type = "b", lwd = 2, col = "green", 
-     ylab = "", xaxt = 'n', xlab = "K", ylim = c(-0.025,0.5))
+     ylab = "", xaxt = 'n', xlab = "K", ylim = c(-0.04,0.55))
 mtext("TPR", side=2, line=2.2, cex=1.2, yaxt = 'n')
 lines(TP_des , type = "b", lwd = 2, col = "red")
 lines( TP_sc , type = "b", lwd = 2, col = "blue")
@@ -34,24 +34,24 @@ lines( TP_mst , type = "b", lwd = 2)
 #axis(1, at=1:12, cex.axis= 1.2, las = 2) 
 legend("topleft", legend=c("MAST", "DESeq2", "scDD", "scDDboost"),
        col=c("black", "red", "blue","green"),lty = 1, cex = 1.2,lwd = 2)
-polygon( c(1,1, 4.5 ,4.5) , c(-0.025,-0.005,-0.005,-0.025) , col="lightgrey",
+polygon( c(1,1, 4.5 ,4.5) , c(-0.04,-0.005,-0.005,-0.04) , col="lightgrey",
          border=FALSE )
-text( 3,  -0.0125, "4" )
+text( 3,  -0.02, "4" )
 
-polygon( c(4.5,4.5, 8.5 ,8.5) , c(-0.025,-0.005,-0.005,-0.025) , col="magenta",
+polygon( c(4.5,4.5, 8.5 ,8.5) , c(-0.04,-0.005,-0.005,-0.04) , col="magenta",
          border=FALSE )
-text( 6.5,  -0.0125, "7" )
+text( 6.5,  -0.02, "7" )
 
-polygon( c(8.5,8.5, 12 ,12) , c(-0.025,-0.005,-0.005,-0.025) , col="yellow",
+polygon( c(8.5,8.5, 12 ,12) , c(-0.04,-0.005,-0.005,-0.04) , col="yellow",
          border=FALSE )
-text( 10.5,  -0.0125, "15" )
+text( 10.5,  -0.02, "15" )
 dev.off()
 
 
 pdf("simuFPR.pdf", height = 6, width = 10)
 par(mar=c(7,5,4,1)+.1)
 plot(FP_scb, type = "b", lwd = 2, col = "green", 
-     ylab = "", xaxt = 'n', xlab = "K", ylim = c(-0.025,0.5))
+     ylab = "", xaxt = 'n', xlab = "K", ylim = c(-0.025/4,0.05))
 mtext("FPR", side=2, line=2.2, cex=1.2, yaxt = 'n')
 lines(FP_des , type = "b", lwd = 2, col = "red")
 lines( FP_sc , type = "b", lwd = 2, col = "blue")
@@ -59,23 +59,24 @@ lines( FP_mst , type = "b", lwd = 2)
 #axis(1, at=1:12, cex.axis= 1.2, las = 2) 
 legend("topleft", legend=c("MAST", "DESeq2", "scDD", "scDDboost"),
        col=c("black", "red", "blue","green"),lty = 1, cex = 1.2,lwd = 2)
-polygon( c(1,1, 4.5 ,4.5) , c(-0.025,-0.005,-0.005,-0.025) , col="lightgrey",
+polygon( c(1,1, 4.5 ,4.5) , c(-0.025/4,-0.001,-0.001,-0.025/4) , col="lightgrey",
          border=FALSE )
-text( 3,  -0.0125, "4" )
+text( 3,  -0.015/4, "4" )
 
-polygon( c(4.5,4.5, 8.5 ,8.5) , c(-0.025,-0.005,-0.005,-0.025) , col="magenta",
+polygon( c(4.5,4.5, 8.5 ,8.5) , c(-0.025/4,-0.001,-0.001,-0.025/4) , col="magenta",
          border=FALSE )
-text( 6.5,  -0.0125, "7" )
+text( 6.5,  -0.015/4, "7" )
 
-polygon( c(8.5,8.5, 12 ,12) , c(-0.025,-0.005,-0.005,-0.025) , col="yellow",
+polygon( c(8.5,8.5, 12 ,12) , c(-0.025/4,-0.001,-0.001,-0.025/4) , col="yellow",
          border=FALSE )
-text( 10.5,  -0.0125, "15" )
+text( 10.5,  -0.015/4, "15" )
 dev.off()
 
 pdf("simuFDR.pdf", height = 6, width = 10)
 par(mar=c(7,5,4,1)+.1)
 plot(FDR_scb, type = "b", lwd = 2, col = "green",
-ylab = "", xaxt = 'n', xlab = "K", ylim = c(-0.025,0.8))
+ylab = "", xaxt = 'n', xlab = "K", ylim = c(-0.025 / 2,0.1))
+abline(a=0.05,b=0,lwd = 2,lty = 2,col = "orange")
 mtext("TPR", side=2, line=2.2, cex=1.2, yaxt = 'n')
 lines(FDR_des , type = "b", lwd = 2, col = "red")
 lines( FDR_sc , type = "b", lwd = 2, col = "blue")
@@ -83,15 +84,15 @@ lines( FDR_mst , type = "b", lwd = 2)
 #axis(1, at=1:12, cex.axis= 1.2, las = 2)
 legend("topleft", legend=c("MAST", "DESeq2", "scDD", "scDDboost"),
 col=c("black", "red", "blue","green"),lty = 1, cex = 1.2,lwd = 2)
-polygon( c(1,1, 4.5 ,4.5) , c(-0.025,-0.005,-0.005,-0.025) , col="lightgrey",
+polygon( c(1,1, 4.5 ,4.5) , c(-0.025 / 2,-0.003,-0.003,-0.025 / 2) , col="lightgrey",
 border=FALSE )
-text( 3,  -0.0125, "4" )
+text( 3,  -0.015 / 2, "4" )
 
-polygon( c(4.5,4.5, 8.5 ,8.5) , c(-0.025,-0.005,-0.005,-0.025) , col="magenta",
+polygon( c(4.5,4.5, 8.5 ,8.5) , c(-0.025 / 2,-0.003,-0.003,-0.025 / 2) , col="magenta",
 border=FALSE )
-text( 6.5,  -0.0125, "7" )
+text( 6.5,  -0.015 / 2, "7" )
 
-polygon( c(8.5,8.5, 12 ,12) , c(-0.025,-0.005,-0.005,-0.025) , col="yellow",
+polygon( c(8.5,8.5, 12 ,12) , c(-0.025 / 2,-0.003,-0.003,-0.025 / 2) , col="yellow",
 border=FALSE )
-text( 10.5,  -0.0125, "15" )
+text( 10.5,  -0.015 / 2, "15" )
 dev.off()
