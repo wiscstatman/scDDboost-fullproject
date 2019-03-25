@@ -123,13 +123,8 @@ PDD = function(data, cd, ncores,D, random = T, norm = F, epi = 1, Upper = 1000, 
         Posp = pat(K)[[1]]
         REF = g_ref(Posp)
         
-        ctrl = list()
-        ctrl$rel.tol = reltol
-        
-        fit3 <- suppressWarnings(nlminb( start=c(2,2), objective=LL, x=D, d0 = 1, lower=c(0,0), control = ctrl))
-        a0 = fit3$par[1]
-        a1 = fit3$par[2]
-        a = a0 + a1
+        # MLE for random weighting parameter
+        a = rwMLE(D,reltol)
         #b = a1
         #message(paste0("param of weights: ", a1))
         

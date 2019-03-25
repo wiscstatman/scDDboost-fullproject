@@ -17,12 +17,9 @@
 #' @export
 
 PDD_random = function(data, cd, K, D, a, sz, hp, Posp, iter, REF, seed){
-    set.seed(seed)
-    n = ncol(D)
-    e <- rgamma(n,shape= a / 2, rate= a / 2 )
-    bar = D/outer(e,e,"+")
-    dst.star <- as.dist(bar)
-    cstar = pam(dst.star, k = K, diss = T)$clustering
+    
+    
+    cstar = genRClus(D,a,K,seed)
     
     gcl = 1:nrow(data)
     n1 = table(cd)[1]
