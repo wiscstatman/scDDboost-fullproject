@@ -4,9 +4,13 @@
 \alias{LL}
 \title{likelihood function for hyperparameters estimation}
 \usage{
-LL(param, x)
+LL(param, x, d0)
 }
 \arguments{
+\item{param}{parameters to be determined by MLE}
+
+\item{d0}{rate parameter of prior of 1 / true distance}
+
 \item{D}{distance matrix of cells}
 }
 \value{

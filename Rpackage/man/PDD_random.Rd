@@ -4,7 +4,7 @@
 \alias{PDD_random}
 \title{calculate PDD when add random noise in distance matrix}
 \usage{
-PDD_random(data, cd, K, D, a, b, sz, hp, Posp, iter, REF, seed)
+PDD_random(data, cd, K, D, a, sz, hp, Posp, iter, REF, seed)
 }
 \arguments{
 \item{data}{normalized preprocessed transcripts}
@@ -17,8 +17,6 @@ PDD_random(data, cd, K, D, a, b, sz, hp, Posp, iter, REF, seed)
 
 \item{a}{shape param for weights}
 
-\item{b}{rate param for weights}
-
 \item{sz}{size factors}
 
 \item{hp}{hyper parameters for EBSeq}
@@ -28,6 +26,8 @@ PDD_random(data, cd, K, D, a, b, sz, hp, Posp, iter, REF, seed)
 \item{iter}{max number of iterations for EM in EBSeq}
 
 \item{REF}{refinement relation matrix}
+
+\item{b}{rate param for weights}
 
 \item{random}{seed}
 }

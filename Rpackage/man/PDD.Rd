@@ -4,8 +4,8 @@
 \alias{PDD}
 \title{calculate posterior probabilities of a gene to be differential distributed}
 \usage{
-PDD(data, cd, ncores, D, random = T, epi = 0.15, Upper = 1000,
-  nrandom = 30, iter = 20)
+PDD(data, cd, ncores, D, random = T, norm = F, epi = 1, Upper = 1000,
+  nrandom = 30, iter = 20, reltol = 0.001)
 }
 \arguments{
 \item{data}{normalized preprocessed transcripts}
@@ -25,6 +25,8 @@ PDD(data, cd, ncores, D, random = T, epi = 0.15, Upper = 1000,
 \item{nrandom}{number of random generated distance matrix}
 
 \item{iter}{max number of iterations for EM}
+
+\item{reltol}{relative tolerance for optim on weighting paramters}
 }
 \value{
 posterior probabilities of a gene to be differential distributed
