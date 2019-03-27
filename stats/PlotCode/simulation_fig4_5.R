@@ -36,7 +36,7 @@ legend("topleft", legend=c("MAST", "DESeq2", "scDD", "scDDboost"),
        col=c("black", "red", "blue","green"),lty = 1, cex = 1.2,lwd = 2)
 polygon( c(1,1, 4.5 ,4.5) , c(-0.04,-0.005,-0.005,-0.04) , col="lightgrey",
          border=FALSE )
-text( 3,  -0.02, "4" )
+text( 3,  -0.02, "3" )
 
 polygon( c(4.5,4.5, 8.5 ,8.5) , c(-0.04,-0.005,-0.005,-0.04) , col="magenta",
          border=FALSE )
@@ -61,7 +61,7 @@ legend("topleft", legend=c("MAST", "DESeq2", "scDD", "scDDboost"),
        col=c("black", "red", "blue","green"),lty = 1, cex = 1.2,lwd = 2)
 polygon( c(1,1, 4.5 ,4.5) , c(-0.025/4,-0.001,-0.001,-0.025/4) , col="lightgrey",
          border=FALSE )
-text( 3,  -0.015/4, "4" )
+text( 3,  -0.015/4, "3" )
 
 polygon( c(4.5,4.5, 8.5 ,8.5) , c(-0.025/4,-0.001,-0.001,-0.025/4) , col="magenta",
          border=FALSE )
@@ -86,7 +86,7 @@ legend("topleft", legend=c("MAST", "DESeq2", "scDD", "scDDboost"),
 col=c("black", "red", "blue","green"),lty = 1, cex = 1.2,lwd = 2)
 polygon( c(1,1, 4.5 ,4.5) , c(-0.025 / 2,-0.003,-0.003,-0.025 / 2) , col="lightgrey",
 border=FALSE )
-text( 3,  -0.015 / 2, "4" )
+text( 3,  -0.015 / 2, "3" )
 
 polygon( c(4.5,4.5, 8.5 ,8.5) , c(-0.025 / 2,-0.003,-0.003,-0.025 / 2) , col="magenta",
 border=FALSE )
