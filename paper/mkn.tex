@@ -162,19 +162,20 @@ Further elements are developed, on the selection of the number of subtypes and o
 problem.  
 
 By way of example from  stem-cell biology,
-Figure~\ref{fig:whet} shows data on several genes that are called by \verb+scDDboost+ to be
+Figure~\ref{fig:whet} shows data on several marker genes of G1 or G2/M phase that are called by \verb+scDDboost+ to be
 differentially distributed between two populations of cells. These particular genes
-were not detected by other standard approaches (see Supplementary Material Section~1 for further details.)  
+were not detected by other standard approaches. Moreover, scDDboost identified 407 cell cycle related genes based annotated in Gene Ontology Cell 
+Cycle biological process (GO:0007049) while other methods (MAST, scDD and DESeq2) in total identified ### genes (see Supplementary Material Section~1 for further details.)  
 The proposed method is often better able to detect weak changes
 compared to other methods, while at the same time 
 agreeing with these methods on the strong differential signals and also not inflating the false-discovery rate. 
- **any more on these genes?**
+
 
 \begin{figure}[H]
 \includegraphics[width = 0.9\textwidth]{Figs/density_Fucci_dd.pdf}
  \caption{Cell cycle ralted genes uniquely identified by scDDboost
  from a study of stem cell differentiation (Leng {\em et al.} 2015). Shown are CDF for log2-scale expression
-of  6 genes uniquely identified by scDDboost at 5\% FDR.  \label{fig:whet} }
+of  6 marker genes related to G1 or G2/M phase uniquely identified by scDDboost at 5\% FDR.   \label{fig:whet} }
 \end{figure}
 
 

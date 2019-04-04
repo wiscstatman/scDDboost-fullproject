@@ -95,7 +95,7 @@ dev.off()
 pdf("simuFDR.pdf", height = 6, width = 10)
 par(mar=c(7,5,4,1)+.1)
 plot(FDR_scb[ORD], type = "b", lwd = 2, col = "green",
-ylab = "", xaxt = 'n', xlab = "K", ylim = c(-0.025 / 2,0.1))
+ylab = "", xaxt = 'n', xlab = "", ylim = c(-0.025 / 2,0.1))
 abline(a=0.05,b=0,lwd = 2,lty = 2,col = "orange")
 mtext("FDR", side=2, line=2.2, cex=1.2, yaxt = 'n')
 lines(FDR_des[ORD] , type = "b", lwd = 2, col = "red")
