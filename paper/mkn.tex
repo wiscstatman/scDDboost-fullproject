@@ -802,17 +802,17 @@ scDDboost could control FDR since we assume cells are sampled from population co
 \end{figure}
 
 Number of subtypes $K$ is a crucial factor controlling the accuracy of our modeling. 
-Too small $K$ may end up in an underfit such that cells within same subtype can still be very different,
-mean expression change among subtypes is incapable to capture the distribution change for some genes and consequently reducing the power of \textsc{scDDboost}.
-Too big $K$ may end up in an overfit such that two subtypes can be very similar, given we have fixed number of samples (cells), allowing more clusters will introduce may patterns (both for mean expression change and proportion change) to infer. Also notice the limitation of DDM model (see section 4), overestimating $K$ in \textsc{scDDboost} may losing FDR control (Fig7).
+Too small $K$ may end up in an underfit such that cells within same subtype can still be very different, such heterogeneity within the subtype introduced by insufficient number of clusters 
+tends to make our posterior inference of the DE patterns between subtypes more favorable for all equivalent expressed and reducing the power of \textsc{scDDboost}.
+Too big $K$ may end up in an overfit such that two subtypes can be very similar, given we have fixed number of samples (cells), allowing more clusters will introduce more patterns (both for mean expression change and proportion change) to infer. 
+Also notice the limitation of DDM model (see section 4), overestimating $K$ in \textsc{scDDboost} may losing FDR control (supplementary Fig number *** ). 
+%\begin{figure}[H]
+%\includegraphics[width = 0.7\textwidth]{Figs/NULL.pdf}
+ %\caption{under NULL case, using dataset GSE52529, when using too big $K$ we may completely lose FDR control (black line shows proportion of false positive identified by scDDboost under 0.05 threshold, while validity score become stable at $K$ = 3 }
+  %\label{fig:7}
+%\end{figure}
 
-\begin{figure}[H]
-\includegraphics[width = 0.7\textwidth]{Figs/NULL.pdf}
- \caption{under NULL case, using dataset GSE52529, when using too big $K$ we may completely lose FDR control (black line shows proportion of false positive identified by scDDboost under 0.05 threshold, while validity score become stable at $K$ = 3 }
-  \label{fig:7}
-\end{figure}
 
-***something about change of PDD over K, even though PDD is monotone increasing but it would remain stable in the sense that $\text{PDD}_{K+1} - \text{PDD}_K$ will have small variance over different genes***
 
 
 
