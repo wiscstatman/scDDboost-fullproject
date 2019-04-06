@@ -787,6 +787,16 @@ method, (\verb+sc3+~\citep{sc3}, Supplementary Table ?)  and obtain similar
 \end{figure}
 
 
+***Benefits from share information from other genes in EBSeq. ***
+\begin{figure}[H]
+\includegraphics[width = 0.5\textwidth]{Figs/clussz.pdf}
+ \caption{  hexbin plot of cluster size under log scale vs PDD of genes uniquely identified by scDDboost. 
+ For each gene, we have an associated cluster label for the DE pattern between subtypes having the maximum of posterior probability. 
+ For the whole genome, we count the size of each cluster given by the DE pattern. We expected those uniquely identified DD genes having large proportion on the more frequent DE patterns shared among genes (corresponding with larger cluster size) .}
+  \label{fig:7}
+\end{figure}
+
+
 
 
 \subsection{Null cases}
@@ -822,13 +832,13 @@ Also notice the limitation of DDM model (see section 4), overestimating $K$ in \
 
 D3E\citep{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset GSE71585\\
 
-\begin{figure}[H]
+%\begin{figure}[H]
 %\includegraphics[width = 1\textwidth]{Figs/d3eplot.pdf}
 %\includegraphics[width = 1\textwidth]{Figs/d3eplotdes.pdf}
 %\includegraphics[width = 1\textwidth]{Figs/d3eplotmast.pdf}
 %\includegraphics[width = 1\textwidth]{Figs/d3eplotscdd.pdf}
-\caption{D3E method will estimate 3 bursting parameters probability of a gene being on (\textbf{a}) and off (\textbf{b}) and the expression rate when the gene expression is on (\textbf{c}), we plot the hexbin plot of probability of a gene being DD under out method v.s. the absolute value of log fold change of \textbf{a} , \textbf{b} and \textbf{c}  across the two conditions accordingly. The log fold change is scaled by dividing the largest log fold change so that ends up in a value between 0 and 1 Here we use the GSE71585 data }
-\end{figure}
+%\caption{D3E method will estimate 3 bursting parameters probability of a gene being on (\textbf{a}) and off (\textbf{b}) and the expression rate when the gene expression is on (\textbf{c}), we plot the hexbin plot of probability of a gene being DD under out method v.s. the absolute value of log fold change of \textbf{a} , \textbf{b} and \textbf{c}  across the two conditions accordingly. The log fold change is scaled by dividing the largest log fold change so that ends up in a value between 0 and 1 Here we use the GSE71585 data }
+%\end{figure}
 
 
 
