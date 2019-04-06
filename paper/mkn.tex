@@ -726,34 +726,28 @@ a recently developed system having good empirical characteristics
 and providing interface for simulating cells from multiple groups. 
 We assess the performance of \textsc scDDboost on identifying DD genes and comparing the power to other three methods scDD, MAST and DESeq2.
 Splatter provides two user specified parameters: location $\theta$ and scale $\gamma$ for controlling how different the transcripts of a gene can be between groups. 
+For simplicity of writing, we refer the pair of those two parameters as DE parameters.
 In the paper, the author used $\theta = -0.1$ and $\gamma = 0.3$, in the R package, the default value is $\theta = 0.1$ and $\gamma = 0.4$.  
 However, all of our candidate methods have low true positive rate under the default settings(Fig4) as the differences between groups are small. This is consistent with the phenomena reported in the splatter paper. 
 To better evaluate those methods, we use another two configurations of $(\theta = -0.1, \gamma = 1)$ and $(\theta = 0.3, \gamma = 0.5)$, which zoom in the heterogeneities between subtypes
- and keep the parameters close to default ones.
+ and keep the parameters close to default ones thus the identification of subtypes and DD analysis still remain chanllenging. Supplementary S1)
 Other nuisance parameters are set to default values.
  
 We simulate datasets under 3 different number of groups : $K$ =  3, 7, 12.  
 As feasibility of computation, \textsc scDDboost can only handle $K$ up to 9. 
-We assess whether \textsc scDDboost can still be powerful when underestimating the number of subtypes.
+We assess whether \textsc scDDboost can still be powerful when underestimating the number of subtypes. For the 
 
-Considering the above 4 settings of parameters governing the 
+Considering the above 4 choices of DE parameters and 3 choices of $K$, we have in total 12 simulation scenarios and each scenario we have 2 replicates. 
 
-We in total generate 24 simulation cases, each case we have 400 cells and we have the roc curve of those 4 methods on the 12 simulation cases below
- 
-We generate 200 cells each condition 
-and 7 subtypes with proportions $\phi$ and $\psi$ satisfying constraints: $\phi_1 + \phi_2 = \psi_1 + \psi_2$, $\phi_3 + \phi_4 +\phi_5 = \psi_3 + \psi_4 + \psi_5$ and $\phi_6 + \phi_7 = \psi_6 + \psi_7$. 
-Each subtype has 10\% genes to be differential expressed. 
-As \verb+splatter+ needs input of two hyper parameters for the simulation. We validate our choices by projecting transcripts profiles of cells into its first two principal components(Supplementary S1)
-We observed some subtypes are well separated, some subtypes are nested, which make the tasks of cell type identification and DD genes detection remain challenging. 
-
-
-
-scDDboost identified most true DD genes, the reason is that mean expression shifts between conditions is not as significant as mean expression shifts between subtypes, which limits the power of MAST and DESeq2. Our approach and scDD considered mixture structure underlying the transcrips but scDD did not use the whole genome information to infer mixture components, which leads to inaccurate clustering at gene level and reduce the power. Under randomized distance, scDDboost gave an accurate estimation of subtypes and thus are more sensitive to the mean expression change among subtypes. We also compare roc curves of scDDboost, scDD, MAST and DESeq2. (Fig 4)
+We compare the true positive rate and false discovery rate (results are averaged over replicates)  between DESeq2, MAST, scDD and scDDboost.(Fig 4 and 5) 
+We found that scDDboost identified most true DD genes meanwhile having the lowest FDR.
+The reason is that mean expression shifts between conditions is not as significant as mean expression shifts between subtypes, which limits the power of MAST and DESeq2. 
+ Our approach and scDD considered mixture structure underlying the transcrips but scDD did not use the whole genome information to infer mixture components, which leads to inaccurate clustering at gene level and reduce the power. Under randomized distance, scDDboost gave an accurate estimation of subtypes and thus are more sensitive to the mean expression change among subtypes. 
 
 
 \begin{figure}[H]
   \includegraphics[width = 0.8\textwidth]{Figs/simuTPR.pdf}
-  \caption{True positive rate of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes, threshold = 0.05, ordered by true positive rate of scDDboost}
+  \caption{True positive rate averaged over replicates of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes, threshold = 0.05, ordered by true positive rate of scDDboost}
   \label{fig:4}
 \end{figure}
 
@@ -767,7 +761,7 @@ scDDboost identified most true DD genes, the reason is that mean expression shif
 
 \begin{figure}[H]
   \includegraphics[width = 0.8\textwidth]{Figs/simuFDR.pdf}
-  \caption{FDR of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes, threshold = 0.05,ordered by true positive rate of scDDboost same order as Fig 4}
+  \caption{FDR averaged over replicates of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes, threshold = 0.05,ordered by true positive rate of scDDboost same order as Fig 4}
   \label{fig:5}
 \end{figure}
 %Since we are modeling gene transcript within each subtype as negative-binomially distributed and we only test one parameter(mean) change among subtypes. In some scenario, it could be insufficient to model the variability within subtype. Even though there is no mean expression change among subtypes but more subtle distributional change occurred among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus limit power of scDDboost.\\
