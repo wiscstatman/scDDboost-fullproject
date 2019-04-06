@@ -742,7 +742,7 @@ Considering the above 4 choices of DE parameters and 3 choices of $K$, we have i
 We compare the true positive rate and false discovery rate (results are averaged over replicates)  between DESeq2, MAST, scDD and scDDboost.(Fig 4 and 5) 
 We found that scDDboost identified most true DD genes meanwhile having the lowest FDR.
 The reason is that mean expression shifts between conditions is not as significant as mean expression shifts between subtypes, which limits the power of MAST and DESeq2. 
- Our approach and scDD considered mixture structure underlying the transcrips but scDD did not use the whole genome information to infer mixture components, which leads to inaccurate clustering at gene level and reduce the power. Under randomized distance, scDDboost gave an accurate estimation of subtypes and thus are more sensitive to the mean expression change among subtypes. 
+Our approach and scDD considered mixture structure underlying the transcrips but scDD did not use the whole genome information to infer mixture components, which leads to inaccurate clustering at gene level and reduce the power. Under randomized distance, scDDboost gave an accurate estimation of subtypes and thus are more sensitive to the mean expression change among subtypes. 
 
 
 \begin{figure}[H]
@@ -770,7 +770,7 @@ The reason is that mean expression shifts between conditions is not as significa
 \subsection{Empirical study}
 
 
-We use 13 data sets from \verb+conquer+~\citep{ref:Cq} to test 
+We use 12 data sets from \verb+conquer+~\citep{ref:Cq} to test 
 performance of our method on empirical data. **summarized in Supplementary Table ?** say something about
 the studies **  We compare our results with 
 \verb+scDD+~\citep{ref:scDD}, \verb+MAST+~\citep{ref:MAST} and 
