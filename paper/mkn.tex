@@ -739,7 +739,7 @@ We assess whether \textsc scDDboost can still be powerful when underestimating t
 
 Considering the above 4 choices of DE parameters and 3 choices of $K$, we have in total 12 simulation scenarios and each scenario we have 2 replicates. 
 
-We compare the true positive rate and false discovery rate (results are averaged over replicates)  between DESeq2, MAST, scDD and scDDboost.(Fig 4 and 5) 
+We compare the true positive rate and false discovery rate (results are averaged over replicates)  between the four methods(Fig 4 and 5) 
 We found that scDDboost identified most true DD genes meanwhile having the lowest FDR.
 The reason is that mean expression shifts between conditions is not as significant as mean expression shifts between subtypes, which limits the power of MAST and DESeq2. 
 Our approach and scDD considered mixture structure underlying the transcrips but scDD did not use the whole genome information to infer mixture components, which leads to inaccurate clustering at gene level and reduce the power. Under randomized distance, scDDboost gave an accurate estimation of subtypes and thus are more sensitive to the mean expression change among subtypes. 
@@ -770,13 +770,17 @@ Our approach and scDD considered mixture structure underlying the transcrips but
 \subsection{Empirical study}
 
 
-We use 12 data sets from \verb+conquer+~\citep{ref:Cq} to test 
-performance of our method on empirical data. **summarized in Supplementary Table ?** say something about
-the studies **  We compare our results with 
-\verb+scDD+~\citep{ref:scDD}, \verb+MAST+~\citep{ref:MAST} and 
-\verb+DESeq2+~\citep{ref:Des}, 
-we have also investigated performance of \verb+scDDboost+ under different clustering 
-method, (\verb+sc3+~\citep{sc3}, Supplementary Table ?)  and obtain similar 
+We use 12 data sets from previously published papers and \verb+conquer+~\citep{ref:Cq} to test 
+performance of our method on empirical data.(datasets information are in the supplementary material) 
+Among those 12 datasets. 11 of them each condition having 50 ~ 100 cells and the other one (GSE84465) having larger number of cells with 1300 cells in condition 1 and 700 cells in condition 2.
+We generally assess the power of scDDboost by comparing the number of DD genes identified by different methods. 
+GSE64016(Fucci) dataset are used for further evaluation and validate that our method did uniquely identify some genes biologically meaningful.
+
+%We compare our results with 
+%\verb+scDD+~\citep{ref:scDD}, \verb+MAST+~\citep{ref:MAST} and 
+%\verb+DESeq2+~\citep{ref:Des}, 
+We have also investigated performance of \verb+scDDboost+ under different clustering 
+method, (\verb+sc3+~\citep{sc3}, Supplementary ***)  and obtain similar results as the default one.
 
 \begin{figure}[H]
 \includegraphics[width = 1\textwidth]{Figs/DD95.pdf}
