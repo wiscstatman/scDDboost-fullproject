@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  6 APR 2019 00:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  6 APR 2019 14:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1066,9 +1066,6 @@ LaTeX Warning: Label `t2thanks' multiply defined.
 LaTeX Warning: Label `k1thanks' multiply defined.
 
 
-LaTeX Warning: Label `fig:5' multiply defined.
-
-
 LaTeX Warning: Label `fig:7' multiply defined.
 
 
@@ -1295,12 +1292,12 @@ File: Figs/simuFDR.pdf Graphic file (type pdf)
 Package pdftex.def Info: Figs/simuFDR.pdf  used on input line 765.
 (pdftex.def)             Requested size: 288.0011pt x 172.80312pt.
  [15 <./Figs/simuTPR.pdf> <./Figs/simuFDR.pdf>]
-<Figs/DD95.pdf, id=315, 722.7pt x 433.62pt>
+<Figs/DD95.pdf, id=316, 722.7pt x 433.62pt>
 File: Figs/DD95.pdf Graphic file (type pdf)
 <use Figs/DD95.pdf>
 Package pdftex.def Info: Figs/DD95.pdf  used on input line 784.
 (pdftex.def)             Requested size: 360.0pt x 216.00224pt.
-<Figs/clussz.pdf, id=316, 505.89pt x 505.89pt>
+<Figs/clussz.pdf, id=317, 505.89pt x 505.89pt>
 File: Figs/clussz.pdf Graphic file (type pdf)
 <use Figs/clussz.pdf>
 Package pdftex.def Info: Figs/clussz.pdf  used on input line 792.
@@ -1484,10 +1481,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1044.
  ) 
 Here is how much of TeX's memory you used:
- 28637 strings out of 492649
- 542534 string characters out of 6129622
- 619789 words of memory out of 5000000
- 31923 multiletter control sequences out of 15000+600000
+ 28638 strings out of 492649
+ 542541 string characters out of 6129622
+ 620020 words of memory out of 5000000
+ 31924 multiletter control sequences out of 15000+600000
  572520 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,16n,64p,10421b,488s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1505,7 +1502,7 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (27 pages, 624605 bytes).
+Output written on mkn.pdf (27 pages, 624632 bytes).
 PDF statistics:
  507 PDF objects out of 1000 (max. 8388607)
  432 compressed objects within 5 object streams

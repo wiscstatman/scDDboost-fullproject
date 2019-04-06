@@ -13,9 +13,9 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ./references/wlr_ref.bib
 Warning--string name "aug" is undefined
---line 311 of file ./references/wlr_ref.bib
+--line 331 of file ./references/wlr_ref.bib
 Warning--string name "mar" is undefined
---line 356 of file ./references/wlr_ref.bib
+--line 376 of file ./references/wlr_ref.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
