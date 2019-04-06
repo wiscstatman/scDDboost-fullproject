@@ -16,11 +16,19 @@
 #' @export
 
 
-PDD = function(data, cd, ncores,D, random = T, norm = F, epi = 1, Upper = 1000, nrandom = 30, iter = 20,reltol = 1e-3){
+PDD = function(data, cd, ncores,D, random = T, norm = F, epi = 1, Upper = 1000, nrandom = 30, iter = 20,reltol = 1e-3, stp1 = 1e-6, stp2 = 1e-2){
     #data(ref.RData)
-    gcl = 1:nrow(data)
-
     
+    G = nrow(data)
+    rs = rowSums(data)
+    zGene = which(rs == 0)
+    message(paste0(length(zGene), " genes are all zero counts, not being considered in DD analysis"))
+    
+    selected = which(rs > 0)
+    
+    data = data[selected,]
+    
+    gcl = 1:nrow(data)
     #if(hp == 0){
     #    hp = rep(1, 1 + nrow(data))
     #}
@@ -70,7 +78,7 @@ PDD = function(data, cd, ncores,D, random = T, norm = F, epi = 1, Upper = 1000, 
         
         Posp = pat(K)[[1]]
         if(K >= 2){
-            res = EBS(data,ccl,gcl,sz,iter,hp,Posp)
+            res = EBS(data,ccl,gcl,sz,iter,hp,Posp,stp1,stp2)
             DE = res$DEpattern
         }
         else if(K == 1){
@@ -109,7 +117,10 @@ PDD = function(data, cd, ncores,D, random = T, norm = F, epi = 1, Upper = 1000, 
         #PDD = (1 - DE[,1]) * post[1]
         #PDD = PDD / (PED + PDD)
         PDD = 1 - PED
-        return(PDD)
+        res = rep(0,G)
+        res[selected] = PDD
+        
+        return(res)
     }
     else{
         K = detK(D,epi)
@@ -129,14 +140,19 @@ PDD = function(data, cd, ncores,D, random = T, norm = F, epi = 1, Upper = 1000, 
         #message(paste0("param of weights: ", a1))
         
         bp <- BiocParallel::MulticoreParam(ncores)
-        result = bplapply(1:nrandom, function(i) {PDD_random(data, cd, K, D, a, sz, hp, Posp, iter, REF, i)}, BPPARAM = bp)
+        result = bplapply(1:nrandom, function(i) {PDD_random(data, cd, K, D, a, sz, hp, Posp, iter, REF,stp1,stp2, i)}, BPPARAM = bp)
         
         
         boot = matrix(0,nrow=length(result[[1]]),ncol = nrandom)
         for(i in 1:nrandom){
             boot[,i]=result[[i]]
         }
-         return (rowSums(boot) / nrandom)
+        
+        PDD = rowSums(boot) / nrandom
+        res = rep(0,G)
+        res[selected] = PDD
+        
+        return (res)
     }
     
 }

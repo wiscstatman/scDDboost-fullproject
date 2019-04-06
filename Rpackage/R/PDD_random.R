@@ -16,10 +16,11 @@
 #' @return posterior probabilities under random distance matrix
 #' @export
 
-PDD_random = function(data, cd, K, D, a, sz, hp, Posp, iter, REF, seed){
+PDD_random = function(data, cd, K, D, a, sz, hp, Posp, iter, REF, stp1, stp2,seed){
     
     
     cstar = genRClus(D,a,K,seed)
+    
     
     gcl = 1:nrow(data)
     n1 = table(cd)[1]
@@ -39,7 +40,7 @@ PDD_random = function(data, cd, K, D, a, sz, hp, Posp, iter, REF, seed){
     modified_p = t(REF) %*% post
     
     if(K >= 2){
-        res = EBS(data,cstar,gcl,sz,iter,hp,Posp)
+        res = EBS(data,cstar,gcl,sz,iter,hp,Posp,stp1,stp2)
         DE = res$DEpattern
     }
     #    else{
