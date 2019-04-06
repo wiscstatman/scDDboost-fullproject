@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  6 APR 2019 16:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  6 APR 2019 16:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1290,58 +1290,58 @@ Package pdftex.def Info: Figs/simuTPR.pdf  used on input line 749.
 <Figs/simuFDR.pdf, id=285, 722.7pt x 433.62pt>
 File: Figs/simuFDR.pdf Graphic file (type pdf)
 <use Figs/simuFDR.pdf>
-Package pdftex.def Info: Figs/simuFDR.pdf  used on input line 763.
+Package pdftex.def Info: Figs/simuFDR.pdf  used on input line 764.
 (pdftex.def)             Requested size: 288.0011pt x 172.80312pt.
  [15 <./Figs/simuTPR.pdf> <./Figs/simuFDR.pdf>]
 <Figs/DD95.pdf, id=309, 722.7pt x 433.62pt>
 File: Figs/DD95.pdf Graphic file (type pdf)
 <use Figs/DD95.pdf>
-Package pdftex.def Info: Figs/DD95.pdf  used on input line 786.
+Package pdftex.def Info: Figs/DD95.pdf  used on input line 788.
 (pdftex.def)             Requested size: 360.0pt x 216.00224pt.
 <Figs/clussz.pdf, id=310, 505.89pt x 505.89pt>
 File: Figs/clussz.pdf Graphic file (type pdf)
 <use Figs/clussz.pdf>
-Package pdftex.def Info: Figs/clussz.pdf  used on input line 794.
+Package pdftex.def Info: Figs/clussz.pdf  used on input line 796.
 (pdftex.def)             Requested size: 180.0pt x 179.99745pt.
  [16 <./Figs/DD95.pdf>]
 <Figs/fdr.pdf, id=322, 578.16pt x 361.35pt>
 File: Figs/fdr.pdf Graphic file (type pdf)
 <use Figs/fdr.pdf>
-Package pdftex.def Info: Figs/fdr.pdf  used on input line 811.
+Package pdftex.def Info: Figs/fdr.pdf  used on input line 813.
 (pdftex.def)             Requested size: 251.9989pt x 157.49475pt.
 [17 <./Figs/clussz.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 835--836
+Underfull \hbox (badness 10000) in paragraph at lines 837--838
 
  []
 
 <Figs/act.png, id=339, 356.0502pt x 251.9814pt>
 File: Figs/act.png Graphic file (type png)
 <use Figs/act.png>
-Package pdftex.def Info: Figs/act.png  used on input line 850.
+Package pdftex.def Info: Figs/act.png  used on input line 852.
 (pdftex.def)             Requested size: 118.80066pt x 84.07689pt.
 <Figs/in_act.png, id=341, 356.0502pt x 251.9814pt>
 File: Figs/in_act.png Graphic file (type png)
 <use Figs/in_act.png>
-Package pdftex.def Info: Figs/in_act.png  used on input line 853.
+Package pdftex.def Info: Figs/in_act.png  used on input line 855.
 (pdftex.def)             Requested size: 118.80066pt x 84.07689pt.
 <Figs/t_rate.png, id=343, 364.4817pt x 251.9814pt>
 File: Figs/t_rate.png Graphic file (type png)
 <use Figs/t_rate.png>
-Package pdftex.def Info: Figs/t_rate.png  used on input line 856.
+Package pdftex.def Info: Figs/t_rate.png  used on input line 858.
 (pdftex.def)             Requested size: 118.80066pt x 82.13136pt.
 [18 <./Figs/fdr.pdf>]
 <Figs/overlap.png, id=361, 770.88pt x 443.6575pt>
 File: Figs/overlap.png Graphic file (type png)
 <use Figs/overlap.png>
-Package pdftex.def Info: Figs/overlap.png  used on input line 879.
+Package pdftex.def Info: Figs/overlap.png  used on input line 881.
 (pdftex.def)             Requested size: 385.43906pt x 221.8282pt.
 
-Overfull \hbox (25.43906pt too wide) in paragraph at lines 879--880
+Overfull \hbox (25.43906pt too wide) in paragraph at lines 881--882
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 877--885
+Underfull \hbox (badness 10000) in paragraph at lines 879--887
 
  []
 
@@ -1350,7 +1350,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [19 <./Figs/act.png> <./Figs/in_act.png> <./Figs/t_rate.png>] [20 <./Figs/overl
 ap.png>]
-Overfull \hbox (14.29294pt too wide) in paragraph at lines 893--895
+Overfull \hbox (14.29294pt too wide) in paragraph at lines 895--897
 \OT1/pplx/m/n/10.95 ence on $\OML/zplm/m/it/10.95 Q$\OT1/pplx/m/n/10.95 . To se
 e that we can rewrite $\OML/zplm/m/it/10.95 A[]$ \OT1/pplx/m/n/10.95 as $\OML/z
 plm/m/it/10.95 A[] \OT1/zplm/m/n/10.95 = \OML/zplm/m/it/10.95 A[] \OMS/zplm/m/n
@@ -1358,12 +1358,12 @@ plm/m/it/10.95 A[] \OT1/zplm/m/n/10.95 = \OML/zplm/m/it/10.95 A[] \OMS/zplm/m/n
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 893--895
+Underfull \hbox (badness 10000) in paragraph at lines 895--897
 
  []
 
 
-Overfull \hbox (1.38646pt too wide) in paragraph at lines 920--921
+Overfull \hbox (1.38646pt too wide) in paragraph at lines 922--923
 \OMS/zplm/m/n/10.95 ff\OT1/pplx/m/n/10.95 1, 2, 3\OMS/zplm/m/n/10.95 g\OT1/pplx
 /m/n/10.95 , \OMS/zplm/m/n/10.95 f\OT1/pplx/m/n/10.95 4, 5, 6, 7\OMS/zplm/m/n/1
 0.95 gg\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 ^^Y[] \OT1/zplm/m/n/10.95 = \
@@ -1376,7 +1376,7 @@ gg$\OT1/pplx/m/n/10.95 ,
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 939--941
+Underfull \hbox (badness 10000) in paragraph at lines 941--943
 
  []
 
@@ -1463,12 +1463,12 @@ l.344 \bid{Zappia2017}
                       
 ? 
 ) [25] [26]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1046.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1048.
  [27]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1046.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1048.
  (./mkn.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1046.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1046.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1048.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1048.
 
 Package rerunfilecheck Info: File `mkn.out' has not changed.
 (rerunfilecheck)             Checksum: 7E2CA9BDB55ED564C6D1CEC6DB579474;1033.
@@ -1479,12 +1479,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1046.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1048.
  ) 
 Here is how much of TeX's memory you used:
  28638 strings out of 492649
  542541 string characters out of 6129622
- 620070 words of memory out of 5000000
+ 620113 words of memory out of 5000000
  31924 multiletter control sequences out of 15000+600000
  572520 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1503,7 +1503,7 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (27 pages, 624084 bytes).
+Output written on mkn.pdf (27 pages, 624225 bytes).
 PDF statistics:
  499 PDF objects out of 1000 (max. 8388607)
  424 compressed objects within 5 object streams
