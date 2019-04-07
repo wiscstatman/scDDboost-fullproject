@@ -8,7 +8,7 @@ load("heatPlot.RData")
 ## 4. my_group subtypes label, ordered from small to large of label values for each condition. 
 
 library(RColorBrewer)
-
+library(gplots)
 ##winsorize function
 winsor = function (x, fraction=.05)
 {
@@ -46,6 +46,8 @@ winAll = ApplyWin(cycleAll)
 heatmap(winAll, scale="row", col = my_palette,Colv = NA,labCol = "", 
         add.expr = abline(v=91.5), Rowv = NA,ColSideColors = my_col,symm = F, labRow = "")
 
+heatmap.2(winAll, scale="row", col = rev(colorRampPalette(brewer.pal(10, "RdBu"))(256)),Colv = NA,labCol = "",
+trace = "none", add.expr = abline(v=91.5), dendrogram = "none" ,ColSideColors = my_col,symm = F, labRow = "")
 
 # heat map for unique
 winUni = ApplyWin(cycleUni)
@@ -54,3 +56,5 @@ heatmap(winUni, scale="row", col = my_palette,Colv = NA,labCol = "",
         add.expr = abline(v=91.5), Rowv = NA,ColSideColors = my_col,symm = F, labRow = "")
 
 
+heatmap.2(winUni, scale="row", col = rev(colorRampPalette(brewer.pal(10, "RdBu"))(256)),Colv = NA,labCol = "",
+trace = "none", add.expr = abline(v=91.5), dendrogram = "none" ,ColSideColors = my_col,symm = F, labRow = "")
