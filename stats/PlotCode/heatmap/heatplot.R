@@ -46,8 +46,14 @@ winAll = ApplyWin(cycleAll)
 heatmap(winAll, scale="row", col = my_palette,Colv = NA,labCol = "", 
         add.expr = abline(v=91.5), Rowv = NA,ColSideColors = my_col,symm = F, labRow = "")
 
+par(mar=c(1,1,1,1))
 heatmap.2(winAll, scale="row", col = rev(colorRampPalette(brewer.pal(10, "RdBu"))(256)),Colv = NA,labCol = "",
-trace = "none", add.expr = abline(v=91.5), dendrogram = "none" ,ColSideColors = my_col,symm = F, labRow = "")
+trace = "none", add.expr = abline(v=91.5), dendrogram = "none" ,
+ColSideColors = my_col,symm = F, labRow = "",key = F,
+lmat=rbind(c(4,1),c(3,2)),
+lhei=c(0.05,0.9),
+lwid = c(0.15,1)
+)
 
 # heat map for unique
 winUni = ApplyWin(cycleUni)
@@ -56,5 +62,11 @@ heatmap(winUni, scale="row", col = my_palette,Colv = NA,labCol = "",
         add.expr = abline(v=91.5), Rowv = NA,ColSideColors = my_col,symm = F, labRow = "")
 
 
+par(mar=c(1,1,1,1))
 heatmap.2(winUni, scale="row", col = rev(colorRampPalette(brewer.pal(10, "RdBu"))(256)),Colv = NA,labCol = "",
-trace = "none", add.expr = abline(v=91.5), dendrogram = "none" ,ColSideColors = my_col,symm = F, labRow = "")
+trace = "none", add.expr = abline(v=91.5), dendrogram = "none" ,
+ColSideColors = my_col,symm = F, labRow = "",key = F,
+lmat=rbind(c(4,1),c(3,2)),
+lhei=c(0.05,0.9),
+lwid = c(0.15,1)
+)
