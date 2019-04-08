@@ -15,8 +15,9 @@ source("scDDboost/stats/simulation/eval/eval_scDD.R")
 ncores = 4
 
 ## run scDDboost
-
+# calculating distance matrix
 D_c = cal_D(data_counts,ncores)
+
 newPDD = PDD(data = data_counts, cd = cd, ncores = ncores, D = D_c, norm = T)
 
 ## run MAST

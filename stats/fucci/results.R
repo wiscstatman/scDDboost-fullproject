@@ -14,7 +14,7 @@ scDDb_dd = lsz(newPDD,0.05)
 
 ## res_des is the result after applying DESeq2
 # I used the pvalue adjusted by "BH"
-des_dd = which(res_scdd$padj < 0.05)
+des_dd = which(res_des$padj < 0.05)
 
 ## res_mast is the result for MAST
 
