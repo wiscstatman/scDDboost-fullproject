@@ -6,11 +6,11 @@ suppressPackageStartupMessages(library(MAST))
 
 
 eval_MAST = function(data_counts, cd){
-  freq_expressed <- 0.2
-  FCTHRESHOLD <- log2(1.5)
-  ngeneon=apply(data_counts,2,function(x) length(which(x>0)))
+    #freq_expressed <- 0.2
+    #FCTHRESHOLD <- log2(1.5)
+  #ngeneon=apply(data_counts,2,function(x) length(which(x>0)))
   cd_=cd
-  cdata=data.frame(conditions=cd_,ngeneon=1:length(cd))
+  cdata=data.frame(conditions=cd_,ngeneon=1:length(cd_))
   fdata=data.frame(gene=factor(1:nrow(data_counts)))
   MNZ10=FromMatrix(log(data_counts + 1),cdata,fdata)
   cond<-factor(colData(MNZ10)$conditions)
