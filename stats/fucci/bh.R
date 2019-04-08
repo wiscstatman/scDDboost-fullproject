@@ -6,7 +6,7 @@
 
 load("results.RData")
 
-tdat <- log2( data_count + 1/2 )
+tdat <- log2( data_counts + 1/2 )
 
 X <- tdat[,cd==1]
 Y <- tdat[,cd==2]
