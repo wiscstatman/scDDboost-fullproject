@@ -1,17 +1,29 @@
 load("results.RData")
+library(scDDboost)
 
+## containing
+## data_counts for the normalized counts of FUCCI
+## cd condition label, 1 for G1 and 2 for G2
+## newPDD as the PDD given by scDDboost
 
-##data_count is the transcripts for G1 and G2
-##cd is the condition label
-##rn genes names
-##ccl refers to cell subgroup label under distance matrix D_c
-##table(ccl[which(cd == 1)])
-##table(ccl[which(cd == 2)]) ##different of subtypes proportions
-##pDD8 refers to probability of DD given by scDDboost under 8 subtypes
-##pDD7 refers to probibility of DD given by scDDboost under 7 subtypes
-##plot(pDD7,pDD8)
-##p_scDD : probability of DD given by scDD
-##p_MAST: probability of DD given by MAST
-##length(which(pDD8 > 0.95))
-##length(which(p_scDD > 0.95))
-##length(which(p_MAST > 0.95))
+# would gave the number of DD genes under 0.05 threshold
+listsize(newPDD,0.05)
+
+# index for those DD genes under 0.05 threshold
+scDDb_dd = lsz(newPDD,0.05)
+
+## res_des is the result after applying DESeq2
+# I used the pvalue adjusted by "BH"
+des_dd = which(res_scdd$padj < 0.05)
+
+## res_mast is the result for MAST
+
+# apply BH adjusted to p value from MAST
+mst = p.adjust(res_mast[,"hurdle","Pr(>Chisq)"],"fdr")
+
+mast_dd = which(mst < 0.05)
+
+## res_scdd is the result for scDD
+
+# I used the combined p-value of scDD adjusted by "BH"
+scdd_dd = which(res_scdd$combined.pvalue.adj < 0.05)
