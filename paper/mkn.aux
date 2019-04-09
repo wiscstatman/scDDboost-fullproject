@@ -101,26 +101,26 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces False positive rate of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. \relax }}{19}{figure.caption.8}}
 \newlabel{fig:7}{{8}{19}{False positive rate of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. \relax }{figure.caption.8}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Bursting}{19}{subsection.3.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces 2D histogram for bursting parameters of DD genes identified by scDDboost from dataset EMTAB2805 estimated by D3E. Left panel : comparison of rate of promoter activation between two conditions, similarly, middle panel : rate of promoter inactivation and right panel: rate of transcription when the promoter is in the active state. We observe that difference between transcription rate is smaller compare to difference between the activation and inactivation rate.\relax }}{20}{figure.caption.9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces  Absolute value of log fold change of bursting parameters estimated by D3E methods across conditions (DEC vs EC). Purple box refers to those DD genes identified by other methods, magenta box refers to DD genes uniquely identified by scDDboost. In the D3E model, it assumes the counts are sampled from a poisson-beta model. Specifically, $x \sim \text  {Poi}(x | \gamma * p), p \sim \text  {Beta}(\alpha ,\beta )$, In D3E paper, it call $\alpha $ the rate of promoter activation, $\beta $ the rate of promoter inactivation and $\gamma $ the rate of transcripts when the promoter is in the active state. Such poisson-beta model should be the stationary distribution of the transcriptional bursting model. For each condition each gene D3E would estimate a triplet ($\alpha , \beta ,\gamma $). Instead of directly looking at the change of $\alpha $, $\beta $. I looked at the change of mean and variance of Beta prior for each condition. i.e. the change for mean and var for $p$ from the poisson-beta model. I think it would be more natural to look at $p$, as transcripts are more directly related to $p$ than $\alpha $ and $\beta $, $p = 0$ would mean the promoter is off and $p = 1$ means the promoter is on, so $p$ is more like a measure for how likely a promoter is on, I call the mean and var of $p$ as the mean and var of activation rate. Then I plot the absoluate value of log fold change of mean, var activation rate and rate of transcripts $\gamma $. Those uniquely identified genes by scDDboost are more consistent with the estimations from D3E since they are corresponding to more significant change of those bursting parameters\relax }}{20}{figure.caption.9}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Theoretical issues}{20}{section.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Posterior consistency}{20}{subsection.4.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Posterior consistency}{21}{subsection.4.1}}
 \@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Four subtypes of cells, simplexes of $(\phi ,\psi )$ satisfying different constraints.\relax }}{21}{figure.caption.10}}
 \newlabel{fig:1}{{10}{21}{Four subtypes of cells, simplexes of $(\phi ,\psi )$ satisfying different constraints.\relax }{figure.caption.10}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Random weighting}{23}{subsection.4.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{24}{section.5}}
 \bibstyle{imsart-nameyear}
 \bibdata{./references/wlr_ref}
 \bibcite{DES}{{1}{2010}{{Anders and Huber}}{{}}}
 \bibcite{Bacher2016}{{2}{2016}{{Bacher and Kendziorski}}{{}}}
 \bibcite{ref:dahl}{{3}{2009}{{Dahl}}{{}}}
 \bibcite{ref:d3e}{{4}{2016}{{Delmans and Hemberg}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{25}{section.5}}
+\@writefile{toc}{\contentsline {section}{References}{25}{section*.12}}
 \bibcite{ref:MAST}{{5}{2015}{{Finak et~al.}}{{}}}
 \bibcite{kmedoids}{{6}{1987}{{Kaufman and Rousseeuw}}{{}}}
 \bibcite{Cor}{{7}{2018}{{Kim et~al.}}{{}}}
 \bibcite{sc3}{{8}{2017}{{Kiselev et~al.}}{{}}}
 \bibcite{ref:scDD}{{9}{2016}{{Korthauer et~al.}}{{}}}
 \bibcite{ref:Leng}{{10}{2013}{{Leng et~al.}}{{}}}
-\@writefile{toc}{\contentsline {section}{References}{25}{section*.12}}
 \bibcite{CIDR}{{11}{2017}{{Lin, Troup and Ho}}{{}}}
 \bibcite{ref:Des}{{12}{2014}{{Love, Huber and Anders}}{{}}}
 \bibcite{dv}{{13}{2017}{{Marioni and Arendt}}{{}}}

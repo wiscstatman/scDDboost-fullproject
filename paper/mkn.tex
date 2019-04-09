@@ -851,21 +851,31 @@ D3E\citep{ref:d3e} is a distributional method that can identify bursting paramet
 %\caption{D3E method will estimate 3 bursting parameters probability of a gene being on (\textbf{a}) and off (\textbf{b}) and the expression rate when the gene expression is on (\textbf{c}), we plot the hexbin plot of probability of a gene being DD under out method v.s. the absolute value of log fold change of \textbf{a} , \textbf{b} and \textbf{c}  across the two conditions accordingly. The log fold change is scaled by dividing the largest log fold change so that ends up in a value between 0 and 1 Here we use the GSE71585 data }
 %\end{figure}
 
-
-
 \begin{figure}[H]
-\vspace{-\parskip}
-\minipage{0.33\textwidth}
-  \includegraphics[clip,width=\textwidth]{Figs/act.png}
-\endminipage
-\minipage{0.33\textwidth}
-  \includegraphics[clip,width=\textwidth]{Figs/in_act.png}
-  \endminipage
- \minipage{0.33\textwidth}
-  \includegraphics[clip,width=\textwidth]{Figs/t_rate.png}
-  \endminipage
-\captionof{figure}{2D histogram for bursting parameters of DD genes identified by scDDboost from dataset EMTAB2805 estimated by D3E. Left panel  : comparison of rate of promoter activation between two conditions, similarly, middle panel  : rate of promoter inactivation and right panel: rate of transcription when the promoter is in the active state. We observe that difference between transcription rate is smaller compare to difference between the activation and inactivation rate.}
+\includegraphics[width = 0.6\textwidth]{Figs/D3E_box.pdf}
+\caption{ Absolute value of log fold change of bursting parameters estimated by D3E methods across conditions (DEC vs EC). Purple box refers to those DD genes identified by other methods, magenta box refers to DD genes uniquely identified by scDDboost. 
+In the D3E model, it assumes the counts are sampled from a poisson-beta model. Specifically,  $x \sim \text{Poi}(x | \gamma * p), p \sim \text{Beta}(\alpha,\beta)$, In D3E paper, it call $\alpha$ the rate of promoter activation, $\beta$ the rate of promoter inactivation 
+and $\gamma$ the rate of transcripts when the promoter is in the active state.  Such poisson-beta model should be the stationary distribution of the transcriptional bursting model.
+For each condition each gene D3E would estimate a triplet ($\alpha, \beta,\gamma$).
+ Instead of directly looking at the change of $\alpha$, $\beta$. I looked at the change of mean and variance of Beta prior for each condition.
+ i.e. the change for mean and var for $p$ from the poisson-beta model. I think it would be more natural to look at $p$, as transcripts are more directly related to $p$ than $\alpha$ and $\beta$, 
+ $p = 0$ would mean the promoter is off and $p = 1$ means the promoter is on, so $p$ is more like a measure for how likely a promoter is on, I call the mean and var of $p$ as the mean and var of activation rate.
+ Then I plot the absoluate value of log fold change of mean, var activation rate and rate of transcripts $\gamma$. 
+ Those uniquely identified genes by scDDboost are more consistent with the estimations from D3E since they are corresponding to more significant change of those bursting parameters}
 \end{figure}
+%\begin{figure}[H]
+%\vspace{-\parskip}
+%\minipage{0.33\textwidth}
+%\includegraphics[clip,width=\textwidth]{Figs/act.png}
+%\endminipage
+%\minipage{0.33\textwidth}
+%  \includegraphics[clip,width=\textwidth]{Figs/in_act.png}
+%  \endminipage
+% \minipage{0.33\textwidth}
+%  \includegraphics[clip,width=\textwidth]{Figs/t_rate.png}
+%  \endminipage
+%\captionof{figure}{2D histogram for bursting parameters of DD genes identified by scDDboost from dataset EMTAB2805 estimated by D3E. Left panel  : comparison of rate of promoter activation between two conditions, similarly, middle panel  : rate of promoter inactivation and right panel: rate of transcription when the promoter is in the active state. We observe that difference between transcription rate is smaller compare to difference between the activation and inactivation rate.}
+%\end{figure}
 
 We observed that DD genes identified by scDDboost tends to have similar transcription rate when the promoter is active across condition, while there are lots of variabilities in the action and inactivation rate. Estimations from D3E reveals that the major factor to drive DD genes are activation and inactivation rate (proportions of different subtyps), it make sense to consider mixture model like scDDboost.
 
