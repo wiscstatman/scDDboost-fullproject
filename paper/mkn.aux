@@ -94,27 +94,27 @@
 \citation{sc3}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Proportion of DD genes at 5\% threshold with respect to total number of genes identified by each method. Ranked by mean list size \relax }}{17}{figure.caption.6}}
 \newlabel{fig:6}{{6}{17}{Proportion of DD genes at 5\% threshold with respect to total number of genes identified by each method. Ranked by mean list size \relax }{figure.caption.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces  histograms of log cluster size of genes with PDD greater than 0.95 under two categories. The red one are corresponding to the genes that have also been identified by other methods. The blue one are corresponding to the genes uniquely identified by scDDboost We grouped genes to the same cluster if they share the same DE pattern between subtypes having the maximum of posterior probability. We use the number of genes within a cluster as the size. We observe a right shift for between blue and right, which indicates our uniquely identified DD genes are more likely to associate with DE patterns of larger sizes Data are from GSE71585\relax }}{18}{figure.caption.7}}
-\newlabel{fig:7}{{7}{18}{histograms of log cluster size of genes with PDD greater than 0.95 under two categories. The red one are corresponding to the genes that have also been identified by other methods. The blue one are corresponding to the genes uniquely identified by scDDboost We grouped genes to the same cluster if they share the same DE pattern between subtypes having the maximum of posterior probability. We use the number of genes within a cluster as the size. We observe a right shift for between blue and right, which indicates our uniquely identified DD genes are more likely to associate with DE patterns of larger sizes Data are from GSE71585\relax }{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces  boxplot of log transformed cluster size of DD genes of two categories. The red one are corresponding to the genes that have also been identified by other methods. The blue one are corresponding to the genes uniquely identified by scDDboost. We grouped genes to the same cluster if they share the same map DE pattern between subtypes inferred from EBSeq We use the number of genes within a cluster as the size for that cluster. We observe a right shift for between blue and right, which indicates our uniquely identified DD genes are more likely to associate with DE patterns of larger sizes Datasets used for demonstration from left to right are GSE71585, GSE64016, EMTAB2805. Here we used 0.01 threshold as it is more friendly for graphical demostration, 0.05 cases are in the supplementary fig *** (still have right shift, but hard to see from box plot as most of genes are associated with the largest cluster, the right shift did not change the quantile too much) \relax }}{18}{figure.caption.7}}
+\newlabel{fig:7}{{7}{18}{boxplot of log transformed cluster size of DD genes of two categories. The red one are corresponding to the genes that have also been identified by other methods. The blue one are corresponding to the genes uniquely identified by scDDboost. We grouped genes to the same cluster if they share the same map DE pattern between subtypes inferred from EBSeq We use the number of genes within a cluster as the size for that cluster. We observe a right shift for between blue and right, which indicates our uniquely identified DD genes are more likely to associate with DE patterns of larger sizes Datasets used for demonstration from left to right are GSE71585, GSE64016, EMTAB2805. Here we used 0.01 threshold as it is more friendly for graphical demostration, 0.05 cases are in the supplementary fig *** (still have right shift, but hard to see from box plot as most of genes are associated with the largest cluster, the right shift did not change the quantile too much) \relax }{figure.caption.7}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Null cases}{18}{subsection.3.3}}
 \citation{ref:d3e}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces False positive rate of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. \relax }}{19}{figure.caption.8}}
 \newlabel{fig:7}{{8}{19}{False positive rate of scDDboost, scDD, MAST and DESeq2 on null dataset from table 1, DESeq2 usually identify a lot but may lose the control of type I error. While other single cell methods could control FDR. \relax }{figure.caption.8}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Bursting}{19}{subsection.3.4}}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces  Absolute value of log fold change of bursting parameters estimated by D3E methods across conditions (DEC vs EC). Purple box refers to those DD genes identified by other methods, magenta box refers to DD genes uniquely identified by scDDboost. In the D3E model, it assumes the counts are sampled from a poisson-beta model. Specifically, $x \sim \text  {Poi}(x | \gamma * p), p \sim \text  {Beta}(\alpha ,\beta )$, In D3E paper, it call $\alpha $ the rate of promoter activation, $\beta $ the rate of promoter inactivation and $\gamma $ the rate of transcripts when the promoter is in the active state. Such poisson-beta model should be the stationary distribution of the transcriptional bursting model. For each condition each gene D3E would estimate a triplet ($\alpha , \beta ,\gamma $). Instead of directly looking at the change of $\alpha $, $\beta $. I looked at the change of mean and variance of Beta prior for each condition. i.e. the change for mean and var for $p$ from the poisson-beta model. I think it would be more natural to look at $p$, as transcripts are more directly related to $p$ than $\alpha $ and $\beta $, $p = 0$ would mean the promoter is off and $p = 1$ means the promoter is on, so $p$ is more like a measure for how likely a promoter is on, I call the mean and var of $p$ as the mean and var of activation rate. Then I plot the absoluate value of log fold change of mean, var activation rate and rate of transcripts $\gamma $. Those uniquely identified genes by scDDboost are more consistent with the estimations from D3E since they are corresponding to more significant change of those bursting parameters\relax }}{20}{figure.caption.9}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Theoretical issues}{20}{section.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Theoretical issues}{21}{section.4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Posterior consistency}{21}{subsection.4.1}}
 \@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Four subtypes of cells, simplexes of $(\phi ,\psi )$ satisfying different constraints.\relax }}{21}{figure.caption.10}}
 \newlabel{fig:1}{{10}{21}{Four subtypes of cells, simplexes of $(\phi ,\psi )$ satisfying different constraints.\relax }{figure.caption.10}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Random weighting}{23}{subsection.4.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Random weighting}{24}{subsection.4.2}}
 \bibstyle{imsart-nameyear}
 \bibdata{./references/wlr_ref}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{25}{section.5}}
+\@writefile{toc}{\contentsline {section}{References}{25}{section*.12}}
 \bibcite{DES}{{1}{2010}{{Anders and Huber}}{{}}}
 \bibcite{Bacher2016}{{2}{2016}{{Bacher and Kendziorski}}{{}}}
 \bibcite{ref:dahl}{{3}{2009}{{Dahl}}{{}}}
 \bibcite{ref:d3e}{{4}{2016}{{Delmans and Hemberg}}{{}}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{25}{section.5}}
-\@writefile{toc}{\contentsline {section}{References}{25}{section*.12}}
 \bibcite{ref:MAST}{{5}{2015}{{Finak et~al.}}{{}}}
 \bibcite{kmedoids}{{6}{1987}{{Kaufman and Rousseeuw}}{{}}}
 \bibcite{Cor}{{7}{2018}{{Kim et~al.}}{{}}}
@@ -135,8 +135,8 @@
 \bibcite{yak68}{{22}{1968}{{Yakowitz and Spragins}}{{}}}
 \bibcite{ref:Zappia}{{23}{2017}{{Zappia, Phipson and Oshlack}}{{}}}
 \citation{yak68}
-\@writefile{toc}{\contentsline {section}{Appendix}{27}{section*.14}}
-\newlabel{eq:cprobs}{{11}{27}{Proof of Theorem 1}{equation.5.11}{}}
-\@writefile{toc}{\contentsline {section}{Author's addresses}{27}{section*.17}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textsc  {scDDboost}\relax }}{28}{algorithm.2}}
-\newlabel{alg:scDDboost}{{2}{28}{\textsc {scDDboost}\relax }{algorithm.2}{}}
+\@writefile{toc}{\contentsline {section}{Appendix}{28}{section*.14}}
+\newlabel{eq:cprobs}{{11}{28}{Proof of Theorem 1}{equation.5.11}{}}
+\@writefile{toc}{\contentsline {section}{Author's addresses}{28}{section*.17}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textsc  {scDDboost}\relax }}{29}{algorithm.2}}
+\newlabel{alg:scDDboost}{{2}{29}{\textsc {scDDboost}\relax }{algorithm.2}{}}
