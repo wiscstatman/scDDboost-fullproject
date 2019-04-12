@@ -13,10 +13,16 @@
 #' @param reltol relative tolerance for optim on weighting paramters
 #' @return posterior probabilities of a gene to be differential distributed
 
+#' @example
+#' data(sim_dat)
+#' data_counts = assays(sim_dat)$count
+#' cd = colData(sim_dat)$conditions
+#' D_c = cal_D(data_counts,4)
+#' pDD = PDD(data_counts,cd,2,D_c)
 #' @export
 
 
-PDD = function(data, cd, ncores,D, random = T, norm = F, epi = 1, Upper = 1000, nrandom = 30, iter = 20,reltol = 1e-3, stp1 = 1e-6, stp2 = 1e-2){
+PDD = function(data, cd, ncores,D, random = T, norm = T, epi = 1, Upper = 1000, nrandom = 30, iter = 20,reltol = 1e-3, stp1 = 1e-6, stp2 = 1e-2){
     #data(ref.RData)
     
     G = nrow(data)

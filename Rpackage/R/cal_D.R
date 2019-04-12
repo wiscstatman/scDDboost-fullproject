@@ -4,7 +4,12 @@
 #' @param data transcripts
 #' @param ncores number of cores for parallel computing
 #' @return distance matrix
+#' @example
+#' data(sim_dat)
+#' data_counts = assays(sim_dat)$count
+#' D_c = cal_D(data_counts,4)
 
+#' @export
 
 
 
@@ -33,9 +38,9 @@ cal_D = function(data,ncores){
     
     D_cor = (1 - cor(data)) / 2
    
-    w1 = sd(D_E) / mean(D_E)
+    w1 = 1 / sd(D_E)
     
-    w2 = sd(D_cor) / mean(D_cor)
+    w2 = 1 / sd(D_cor) 
     
     total = w1 + w2
     
