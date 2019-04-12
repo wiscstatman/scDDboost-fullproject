@@ -13,7 +13,7 @@
 #' @param reltol relative tolerance for optim on weighting paramters
 #' @return posterior probabilities of a gene to be differential distributed
 
-#' @example
+#' @examples
 #' data(sim_dat)
 #' data_counts = assays(sim_dat)$count
 #' cd = colData(sim_dat)$conditions

@@ -4,7 +4,7 @@
 #' @param data transcripts
 #' @param ncores number of cores for parallel computing
 #' @return distance matrix
-#' @example
+#' @examples
 #' data(sim_dat)
 #' data_counts = assays(sim_dat)$count
 #' D_c = cal_D(data_counts,4)
