@@ -4,8 +4,8 @@
 \alias{PDD}
 \title{calculate posterior probabilities of a gene to be differential distributed}
 \usage{
-PDD(data, cd, ncores, D, random = T, norm = F, epi = 1, Upper = 1000,
-  nrandom = 30, iter = 20, reltol = 0.001)
+PDD(data, cd, ncores, D, random = T, norm = T, epi = 1, Upper = 1000,
+  nrandom = 30, iter = 20, reltol = 0.001, stp1 = 1e-06, stp2 = 0.01)
 }
 \arguments{
 \item{data}{normalized preprocessed transcripts}
@@ -33,4 +33,11 @@ posterior probabilities of a gene to be differential distributed
 }
 \description{
 calculate posterior probabilities of a gene to be differential distributed
+}
+\examples{
+data(sim_dat)
+data_counts = assays(sim_dat)$count
+cd = colData(sim_dat)$conditions
+D_c = cal_D(data_counts,4)
+pDD = PDD(data_counts,cd,2,D_c)
 }

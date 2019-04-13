@@ -19,7 +19,6 @@
 #include <sys/sysctl.h>
 #include "DATA.hpp"
 #include "derived.hpp"
-#include "asa047.hpp"
 #include "kit.h"
 
 using namespace std;
@@ -289,11 +288,13 @@ RcppExport SEXP pat(SEXP K){
 }
 
 
-Rcpp::List EBS(Rcpp::NumericMatrix X, Rcpp::IntegerVector Y, Rcpp::IntegerVector Z, Rcpp::NumericVector W, int iter, Rcpp::NumericVector hyper, Rcpp::IntegerMatrix part);
-RcppExport SEXP EBS(SEXP X, SEXP Y, SEXP Z, SEXP W, SEXP iter, SEXP hyper,SEXP part) {
+Rcpp::List EBS(Rcpp::NumericMatrix X, Rcpp::IntegerVector Y, Rcpp::IntegerVector Z, Rcpp::NumericVector W, int iter, Rcpp::NumericVector hyper, Rcpp::IntegerMatrix part, double step1, double step2);
+RcppExport SEXP EBS(SEXP X, SEXP Y, SEXP Z, SEXP W, SEXP iter, SEXP hyper,SEXP part, SEXP step1, SEXP step2) {
     
     BEGIN_RCPP
     int itr=as<int>(iter);
+    double stepsize1 = as<double>(step1);
+    double stepsize2 = as<double>(step2);
     NumericMatrix XX(X);
     IntegerMatrix PP(part);
     //    cell clus
@@ -333,40 +334,43 @@ RcppExport SEXP EBS(SEXP X, SEXP Y, SEXP Z, SEXP W, SEXP iter, SEXP hyper,SEXP p
     copy(TT.begin(),TT.end(),hyp.data());
     
     //initialize parameters
-    double hp[gcc+1];
+    //double hp[gcc+1];
 //        alpha
-    hp[0] = hyp[0];
+    double alpha = hyp[0];
+   // hp[0] = hyp[0];
 //        beta
+    VectorXd beta(gcc);
     for(int i = 0; i < gcc;++i)
-        hp[i + 1] = hyp[i + 1];
+        beta[i] = hyp[i + 1];
     
-    double stepsize1 = 1e-6;
+//     double stepsize1 = 1e-6;
     
-    double stepsize2 = 1e-5;
+//     double stepsize2 = 1e-3;
     
 //        DATA init(data,conditions,sf);    
     DC init(data, conditions, sf, gclus, Part);
     
     cout<<"first init"<<endl;
 
-    vector<MatrixXd> A = init.cal_gm(hp);
+    vector<MatrixXd> A = init.cal_gm(alpha,beta);
     
     init.gm = init.cal_delta(A[0]);
     
-    double dAlpha = init.cal_drv(A[1]);
+    //double dAlpha = init.cal_drv(A[1]);
     
-    double dBeta = init.cal_drv(A[2]);
+    //double dBeta = init.cal_drv(A[2]);
     
     cout<<"cal_gm done"<<endl;
     
     VectorXd tm_p(init.PT);
     
-    if(hp[0] + stepsize1 * dAlpha > 0)
-        hp[0] = hp[0] + stepsize1 * dAlpha;
+    //if(hp[0] + stepsize1 * dAlpha > 0)
+        //hp[0] = hp[0] + stepsize1 * dAlpha;
     
-    if(hp[1] + stepsize2 * dBeta > 0)
-        hp[1] = hp[1] + stepsize2 * dBeta;
+    //if(hp[1] + stepsize2 * dBeta > 0)
+        //hp[1] = hp[1] + stepsize2 * dBeta;
     
+    init.go_drv(A[1],A[2],alpha,beta,stepsize1,stepsize2);
     
     double tt = init.gm.sum();
     
@@ -378,22 +382,25 @@ RcppExport SEXP EBS(SEXP X, SEXP Y, SEXP Z, SEXP W, SEXP iter, SEXP hyper,SEXP p
     
     int o = 0;
     
-    while(diff > 0.01 && o < itr){
-        stepsize1 /= 2;
-        stepsize2 /= 2;
+    while(diff > 1e-3 && o < itr){
+        //stepsize1 /= 2;
+        //stepsize2 /= 2;
         
-        A = init.cal_gm(hp);
+        A = init.cal_gm(alpha,beta);
         init.gm = init.cal_delta(A[0]);
         
-        double dAlpha = init.cal_drv(A[1]);
+        init.go_drv(A[1],A[2],alpha,beta,stepsize1,stepsize2);
+        //double dAlpha = init.cal_drv(A[1]);
     
-        double dBeta = init.cal_drv(A[2]);
+        //double dBeta = init.cal_drv(A[2]);
         
-        if(hp[0] + stepsize1 * dAlpha > 0)
-            hp[0] = hp[0] + stepsize1 * dAlpha;
+        //if(hp[0] + stepsize1 * dAlpha > 0)
+            //hp[0] = hp[0] + stepsize1 * dAlpha;
     
-        if(hp[1] + stepsize2 * dBeta > 0)
-            hp[1] = hp[1] + stepsize2 * dBeta;
+        //if(hp[1] + stepsize2 * dBeta > 0)
+            //hp[1] = hp[1] + stepsize2 * dBeta;
+        
+        
         
         tt = init.gm.sum();
         tm_p = init.gm.colwise().sum()/tt;
@@ -404,7 +411,7 @@ RcppExport SEXP EBS(SEXP X, SEXP Y, SEXP Z, SEXP W, SEXP iter, SEXP hyper,SEXP p
     
     cout<<"final done"<<endl;
 
-    return Rcpp::List::create(Named("DEpattern")=init.gm,Named("r")=init.r,Named("q")=init.q,Named("p")=init.p,Named("iteration")=o,Named("Alpha") = hp[0], Named("Beta") = hp[1], Named("obj") = A[0] * init.p);
+    return Rcpp::List::create(Named("DEpattern")=init.gm,Named("r")=init.r,Named("p")=init.p,Named("iteration")=o,Named("Alpha") = alpha, Named("Beta") = beta, Named("obj") = A[0] * init.p);
     
     END_RCPP
     

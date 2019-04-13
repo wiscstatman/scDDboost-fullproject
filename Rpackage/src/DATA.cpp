@@ -52,30 +52,25 @@ r_q DATA::cal_r(MatrixXd& data,const VectorXi& conditions, const VectorXd& sf){
     }
     whole_mean = data_dvd.rowwise().mean();
     MatrixXd cond_var(G,K);
-    int tmp_mean = 0;
-    int tmp_var = 0;
+    double tmp_mean = 0;
+    double tmp_var = 0;
     for(int i = 0; i < G; i++)
         for(int j = 0; j < K; j++){
             vector<int> s = which(conditions,j + 1);
+            
             tmp_mean = 0;
             tmp_var = 0;
+            
             for(int t = 0; t < s.size(); t++)
                 tmp_mean += data_dvd(i,s[t]);
             tmp_mean /= s.size();
+            
             for(int t = 0; t < s.size(); t++)
                 tmp_var += (data(i,s[t]) - tmp_mean * sf[s[t]]) * (data(i,s[t]) - tmp_mean * sf[s[t]]) / sf(s[t]);
             cond_var(i,j) = tmp_var / s.size();
+           
         }
     
-
-    
-//    for(int i = 0; i < M; ++i){
-//        size_t sub_nc = reorg_data[i].cols();
-////        if(sub_nc == 1)
-////            sub_nc = 2;
-//        MatrixXd center = (reorg_data[i].colwise()-reorg_data[i].rowwise().mean());
-//        cond_var.col(i) = center.rowwise().squaredNorm() / sub_nc;
-//    }
 
     VectorXd var(G);
     var = cond_var.rowwise().mean();

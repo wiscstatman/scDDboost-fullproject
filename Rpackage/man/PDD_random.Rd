@@ -4,7 +4,7 @@
 \alias{PDD_random}
 \title{calculate PDD when add random noise in distance matrix}
 \usage{
-PDD_random(data, cd, K, D, a, sz, hp, Posp, iter, REF, seed)
+PDD_random(data, cd, K, D, a, sz, hp, Posp, iter, REF, stp1, stp2, seed)
 }
 \arguments{
 \item{data}{normalized preprocessed transcripts}

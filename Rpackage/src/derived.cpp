@@ -38,37 +38,47 @@ DC::DC(MatrixXd& data, VectorXi& conditions, VectorXd& sf, vector<int>& g_clus, 
 
 
 //prior predictive function(PPF) on one group of subtypes
-VectorXd DC::cb(double alpha, double beta, const MatrixXd& rs, const MatrixXd& cs)
+VectorXd DC::cb(double alpha, VectorXd& beta, const MatrixXd& rs, const MatrixXd& cs)
 {
     MatrixXd A = (rs.array() + alpha).matrix();
     
-    MatrixXd B = (cs.array() + beta).matrix();    
+    MatrixXd B = cs.colwise() + beta;    
     
-    VectorXd res = ((A.unaryExpr<double(*)(double)>(&lgamma) + B.unaryExpr<double(*)(double)>(&lgamma) - (A + B).unaryExpr<double(*)(double)>(&lgamma)).array() - lgamma(alpha) - lgamma(beta) + lgamma(alpha + beta)).matrix().rowwise().sum();
-        
-    return res;
+    MatrixXd res = ((A.unaryExpr<double(*)(double)>(&lgamma) + B.unaryExpr<double(*)(double)>(&lgamma) - (A + B).unaryExpr<double(*)(double)>(&lgamma)).array() - lgamma(alpha)).matrix();
+    
+    res =  res.colwise() - (beta.unaryExpr<double(*)(double)>(&lgamma) + (alpha + beta.array()).matrix().unaryExpr<double(*)(double)>(&lgamma));
+    
+    VectorXd RES = res.rowwise().sum();
+                      
+    return RES;
 }
 
 
 
 //derivative w.r.t. alpha and beta of PPF
-MatrixXd DC::drv(double alpha, double beta, const MatrixXd& rs, const MatrixXd& cs)
+MatrixXd DC::drv(double alpha, VectorXd& beta, const MatrixXd& rs, const MatrixXd& cs)
 {
      MatrixXd A = (rs.array() + alpha).matrix();
     
-     MatrixXd B = (cs.array() + beta).matrix();
+     MatrixXd B = cs.colwise() + beta;    
     
      MatrixXd C = (A + B).unaryExpr<double(*)(double)>(&(boost::math::digamma));
-      
-     VectorXd resAlpha = ((A.unaryExpr<double(*)(double)>(&(boost::math::digamma)) - C).array() - boost::math::digamma(alpha) + boost::math::digamma(alpha + beta)).matrix().rowwise().sum();
     
-     VectorXd resBeta = ((B.unaryExpr<double(*)(double)>(&(boost::math::digamma)) - C).array() - boost::math::digamma(beta) + boost::math::digamma(alpha + beta)).matrix().rowwise().sum();
-         
+     VectorXd D = (alpha + beta.array()).matrix().unaryExpr<double(*)(double)>(&(boost::math::digamma));
+    
+     MatrixXd resAlpha = ((A.unaryExpr<double(*)(double)>(&(boost::math::digamma)) - C).array() - boost::math::digamma(alpha)).matrix();
+                          
+     resAlpha = resAlpha.colwise() + D;
+
+     MatrixXd resBeta = B.unaryExpr<double(*)(double)>(&(boost::math::digamma)) - C;
+    
+     resBeta = resBeta.colwise() - (beta.unaryExpr<double(*)(double)>(&(boost::math::digamma)) + D);
+    
      MatrixXd res(G,2);
      
-     res.col(0) = resAlpha;
+     res.col(0) = resAlpha.rowwise().sum();
      
-     res.col(1) = resBeta;
+     res.col(1) = resBeta.rowwise().sum();
     
      return res;
         
@@ -78,7 +88,7 @@ MatrixXd DC::drv(double alpha, double beta, const MatrixXd& rs, const MatrixXd& 
 //derivative component w.r.t. alpha and beta of log likelihood
 //log likelihood component
 //optimizing via convert for iteration to matrix operation
-vector<MatrixXd> DC::cal_gm(double hp[]){
+vector<MatrixXd> DC::cal_gm(double alpha, VectorXd& beta){
     vector<MatrixXd> res(3);
     
     res[0].resize(G,PT);
@@ -95,12 +105,14 @@ vector<MatrixXd> DC::cal_gm(double hp[]){
         MatrixXd tmp(G,sub_k);
         MatrixXd tmp_r(G,sub_k);
         
+        
+        
         tmp = d_s * converters[i];
         tmp_r = r_s * converters[i];
         
-        res[0].col(i) = cb(hp[0], hp[1], tmp_r, tmp);
+        res[0].col(i) = cb(alpha, beta, tmp_r, tmp);
         
-        MatrixXd DRV = drv(hp[0], hp[1],  tmp_r, tmp);
+        MatrixXd DRV = drv(alpha, beta,  tmp_r, tmp);
         
         res[1].col(i) = DRV.col(0);
         res[2].col(i) = DRV.col(1);
@@ -142,9 +154,22 @@ MatrixXd DC::cal_delta(MatrixXd &A){
 }
 
 
-double DC::cal_drv(MatrixXd& B)
+void DC::go_drv(const MatrixXd& A, const MatrixXd& B, double& alpha, VectorXd& beta, double stepsize1, double stepsize2)
 {
-    return (B * p).sum();   
+    
+    double tmp1 = alpha + stepsize1 * (A * p).sum();
+    VectorXd tmp2 = beta + stepsize2 * (B * p);
+    for(int i = 0; i < G; i++)
+    {
+        if(tmp2[i] > 0)
+        {
+            beta[i] = tmp2[i];
+        }
+    } 
+    if(tmp1 > 0)
+    {
+        alpha = tmp1;
+    }
 }
     
 

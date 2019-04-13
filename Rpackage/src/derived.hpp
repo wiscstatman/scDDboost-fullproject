@@ -29,15 +29,15 @@ public:
     DC(MatrixXd&, VectorXi&, VectorXd&, vector<int>&, MatrixXi&);
     
     //prior predictive function(PPF) on one group of subtypes
-    VectorXd cb(double alpha, double beta, const MatrixXd& rs, const MatrixXd& cs);
+    VectorXd cb( double alpha,  VectorXd& beta, const MatrixXd& rs, const MatrixXd& cs);
         
     //derivative w.r.t. alpha and beta of PPF
-    MatrixXd drv(double alpha, double beta, const MatrixXd& rs, const MatrixXd& cs);
+    MatrixXd drv( double alpha,  VectorXd& beta, const MatrixXd& rs, const MatrixXd& cs);
     
     //derivate w.r.t. alpha and beta of log likelihood 
-    double cal_drv(MatrixXd&);
+    void go_drv(const MatrixXd& A, const MatrixXd& B, double& alpha, VectorXd& beta,double stepsize1, double stepsize2);
     
-    vector<MatrixXd> cal_gm(double []);
+    vector<MatrixXd> cal_gm(double alpha, VectorXd& beta);
     
     MatrixXd cal_delta(MatrixXd&);
     

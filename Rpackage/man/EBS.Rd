@@ -4,7 +4,7 @@
 \alias{EBS}
 \title{accelerated empirical bayesian}
 \usage{
-EBS(data, conditions, gclus, sf, iter = 10, hyper, PP)
+EBS(data, conditions, gclus, sf, iter = 10, hyper, PP, stp1, stp2)
 }
 \arguments{
 \item{data}{single cell expression matrix, row as genes column as cells}
