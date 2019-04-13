@@ -173,11 +173,19 @@ agreeing with these methods on the strong differential signals and also not infl
 
 
 \begin{figure}[H]
-\includegraphics[width = 0.7\textwidth]{Figs/density_Fucci_dd.pdf}
+\vspace{-\parskip}
+\minipage{0.5\textwidth}
+\includegraphics[clip,width=\textwidth]{Figs/FucciDD.pdf}
+\endminipage
+\minipage{0.5\textwidth}
+ \includegraphics[clip,width=\textwidth]{Figs/HeatUni.pdf}
+\endminipage
+
  \caption{Cell cycle ralted genes uniquely identified by scDDboost
  from a study of stem cell differentiation (Leng {\em et al.} 2015). Shown are expression
-of 4 genes having functionality in cell cycles uniquely identified by scDDboost at 5\% FDR. CALM2 belongs to calmodulin gene family and calmodulin plays a role in cell cycle progression and proliferation.
- CDK4 belongs to cyclin-dependet kinase family that is important for cell cycle G1 phase progression.  TRIM71 is involved in G1-S phase transition of the cell-cycle. And NBN is involved in cell cycle checkpoint control and meiosis.
+of 3 genes having functionality in cell cycles uniquely identified by scDDboost at 5\% FDR. Right are heatmap for uniquely identified cell cycle related genes given by scDDboost
+BIRC5 is differentially expressed in the cell cycle \citep{BIRC5},HMMR is differentially expressed in the cell cycle \citep{HMMR}, RDX 
+(not finalized version, needs to use other way to combine those two figs)
  \label{fig:whet} }
 \end{figure}
 

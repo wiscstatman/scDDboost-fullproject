@@ -1,4 +1,4 @@
-\begin{thebibliography}{23}
+\begin{thebibliography}{25}
 % BibTex style file: imsart-nameyear.bst, 2017-11-03
 % Default style options (sort=1,type=nameyear).
 % Used options (sort=1,type=nameyear).
@@ -172,6 +172,18 @@
 \end{barticle}
 \endbibitem
 
+\bibitem[\protect\citeauthoryear{Li and Altieri}{1999}]{BIRC5}
+\begin{barticle}[author]
+\bauthor{\bsnm{Li},~\bfnm{Fengzhi}\binits{F.}} \AND
+  \bauthor{\bsnm{Altieri},~\bfnm{Dario~C.}\binits{D.~C.}}
+(\byear{1999}).
+\btitle{The Cancer Antiapoptosis Mouse {$<$}em{$>$}Survivin{$<$}/em{$>$} Gene}.
+\bjournal{Cancer Research}
+\bvolume{59}
+\bpages{3143}.
+\end{barticle}
+\endbibitem
+
 \bibitem[\protect\citeauthoryear{Lin, Troup and Ho}{2017}]{CIDR}
 \begin{barticle}[author]
 \bauthor{\bsnm{Lin},~\bfnm{Peijie}\binits{P.}},
@@ -277,6 +289,20 @@
 \btitle{Determination of Number of Clusters in K-Means Clustering and
   Application in Colour Image Segmentation}.
 \end{binproceedings}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Sohr and Engeland}{2008}]{HMMR}
+\begin{barticle}[author]
+\bauthor{\bsnm{Sohr},~\bfnm{Sindy}\binits{S.}} \AND
+  \bauthor{\bsnm{Engeland},~\bfnm{Kurt}\binits{K.}}
+(\byear{2008}).
+\btitle{RHAMM is differentially expressed in the cell cycle and downregulated
+  by the tumor suppressor p53}.
+\bjournal{Cell Cycle}
+\bvolume{7}
+\bpages{3448--3460}.
+\bdoi{10.4161/cc.7.21.7014}
+\end{barticle}
 \endbibitem
 
 \bibitem[\protect\citeauthoryear{Soneson and Robinson}{2017}]{ref:Cq}
