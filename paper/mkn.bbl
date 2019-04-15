@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{26}
 % BibTex style file: imsart-nameyear.bst, 2017-11-03
 % Default style options (sort=1,type=nameyear).
 % Used options (sort=1,type=nameyear).
@@ -55,6 +55,23 @@
 \bpages{110}.
 \bdoi{10.1186/s12859-016-0944-6}.
 \bid{Delmans2016}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Dominguez et~al.}{2016}]{RAD21}
+\begin{barticle}[author]
+\bauthor{\bsnm{Dominguez},~\bfnm{Daniel}\binits{D.}},
+  \bauthor{\bsnm{Tsai},~\bfnm{Yi-Hsuan}\binits{Y.-H.}},
+  \bauthor{\bsnm{Gomez},~\bfnm{Nicholas}\binits{N.}},
+  \bauthor{\bsnm{Jha},~\bfnm{Deepak~Kumar}\binits{D.~K.}},
+  \bauthor{\bsnm{Davis},~\bfnm{Ian}\binits{I.}} \AND
+  \bauthor{\bsnm{Wang},~\bfnm{Zefeng}\binits{Z.}}
+(\byear{2016}).
+\btitle{A high-resolution transcriptome map of cell cycle reveals novel
+  connections between periodic genes and cancer}.
+\bjournal{Cell Research}
+\bvolume{26}
+\bpages{946 EP -}.
 \end{barticle}
 \endbibitem
 

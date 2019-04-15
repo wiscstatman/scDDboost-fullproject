@@ -48,13 +48,15 @@
 \citation{ref:Leng}
 \citation{BIRC5}
 \citation{HMMR}
+\citation{RAD21}
 \citation{BIRC5}
 \citation{HMMR}
+\citation{RAD21}
 \citation{ref:Zappia}
 \citation{ref:Cq}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Cell cycle ralted genes uniquely identified by scDDboost from a study of stem cell differentiation (Leng {\em  et al.} 2015). Shown are expression of 3 genes having functionality in cell cycles uniquely identified by scDDboost at 5\% FDR. Right are heatmap for uniquely identified cell cycle related genes given by scDDboost BIRC5 is differentially expressed in the cell cycle \citep  {BIRC5},HMMR is differentially expressed in the cell cycle \citep  {HMMR}, RDX (not finalized version, needs to use other way to combine those two figs)  \relax }}{4}{figure.caption.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Cell cycle ralted genes uniquely identified by scDDboost from a study of stem cell differentiation (Leng {\em  et al.} 2015). Shown are expression of 3 genes having functionality in cell cycles uniquely identified by scDDboost at 5\% FDR. Right are heatmap for uniquely identified cell cycle related genes given by scDDboost BIRC5 is differentially expressed in the cell cycle \citep  {BIRC5},HMMR is differentially expressed in the cell cycle \citep  {HMMR}, all the 3 genes have been identified as core set of gene having unique chromatin features \citep  {RAD21}  \relax }}{4}{figure.caption.1}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:whet}{{1}{4}{Cell cycle ralted genes uniquely identified by scDDboost from a study of stem cell differentiation (Leng {\em et al.} 2015). Shown are expression of 3 genes having functionality in cell cycles uniquely identified by scDDboost at 5\% FDR. Right are heatmap for uniquely identified cell cycle related genes given by scDDboost BIRC5 is differentially expressed in the cell cycle \citep {BIRC5},HMMR is differentially expressed in the cell cycle \citep {HMMR}, RDX (not finalized version, needs to use other way to combine those two figs)  \relax }{figure.caption.1}{}}
+\newlabel{fig:whet}{{1}{4}{Cell cycle ralted genes uniquely identified by scDDboost from a study of stem cell differentiation (Leng {\em et al.} 2015). Shown are expression of 3 genes having functionality in cell cycles uniquely identified by scDDboost at 5\% FDR. Right are heatmap for uniquely identified cell cycle related genes given by scDDboost BIRC5 is differentially expressed in the cell cycle \citep {BIRC5},HMMR is differentially expressed in the cell cycle \citep {HMMR}, all the 3 genes have been identified as core set of gene having unique chromatin features \citep {RAD21}  \relax }{figure.caption.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Modeling}{5}{section.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Data structure, sampling model, and parameters}{5}{subsection.2.1}}
 \newlabel{eq:counts}{{1}{5}{Data structure, sampling model, and parameters}{equation.2.1}{}}
@@ -63,9 +65,9 @@
 \citation{DES}
 \citation{ref:Des}
 \newlabel{eq:asets}{{3}{7}{Data structure, sampling model, and parameters}{equation.2.3}{}}
+\newlabel{eq:msets}{{4}{7}{Data structure, sampling model, and parameters}{equation.2.4}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Proportions of $K=7$ cellular subtypes in different conditions. Aggregated proportions of subtypes 3 and 4, subtypes 2, 5, and 6, and subtypes 1, and 7 remain same across conditions, while individual subtype frequencies change. Depending on the changes in average expression among subtypes, these frequency changes may or may not induce changes between two conditions in the marginal distribution of some gene's expression. \relax }}{8}{figure.caption.2}}
 \newlabel{fig:1}{{2}{8}{Proportions of $K=7$ cellular subtypes in different conditions. Aggregated proportions of subtypes 3 and 4, subtypes 2, 5, and 6, and subtypes 1, and 7 remain same across conditions, while individual subtype frequencies change. Depending on the changes in average expression among subtypes, these frequency changes may or may not induce changes between two conditions in the marginal distribution of some gene's expression. \relax }{figure.caption.2}{}}
-\newlabel{eq:msets}{{4}{8}{Data structure, sampling model, and parameters}{equation.2.4}{}}
 \newlabel{eq:lfdr}{{5}{8}{Data structure, sampling model, and parameters}{equation.2.5}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Directed acyclic graph structure of compositional model and partition-reliant prior. The plate on the right side indicates i.i.d. copies over cells $c$, conditionally on mixing proportions and mixing components. Observed data are indicated in rectangles/squares, and unobserved variables are in circles/ovals. \relax }}{9}{figure.caption.3}}
 \newlabel{fig:2}{{3}{9}{Directed acyclic graph structure of compositional model and partition-reliant prior. The plate on the right side indicates i.i.d. copies over cells $c$, conditionally on mixing proportions and mixing components. Observed data are indicated in rectangles/squares, and unobserved variables are in circles/ovals. \relax }{figure.caption.3}{}}
@@ -78,17 +80,17 @@
 \citation{ref:dahl}
 \citation{Cor}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Method structure and clustering}{10}{subsection.2.2}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces \textsc  {scDDBoost-core}\relax }}{10}{algorithm.1}}
+\newlabel{alg:scDDcore}{{1}{10}{\textsc {scDDBoost-core}\relax }{algorithm.1}{}}
 \citation{selK}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces \textsc  {scDDBoost-core}\relax }}{11}{algorithm.1}}
-\newlabel{alg:scDDcore}{{1}{11}{\textsc {scDDBoost-core}\relax }{algorithm.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Double Dirichlet Mixture (DDM)}{12}{subsection.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Double Dirichlet Mixture (DDM)}{11}{subsection.2.3}}
 \newlabel{eq:ddmix}{{6}{12}{Double Dirichlet Mixture (DDM)}{equation.2.6}{}}
 \newlabel{eq:onetoone}{{7}{12}{Double Dirichlet Mixture (DDM)}{equation.2.7}{}}
 \newlabel{eq:doubledir}{{8}{12}{Double Dirichlet Mixture (DDM)}{equation.2.8}{}}
 \citation{Wag}
 \citation{ref:Zappia}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Numerical experiments}{14}{section.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Synthetic data}{15}{subsection.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Synthetic data}{14}{subsection.3.1}}
 \citation{ref:Cq}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces True positive rate averaged over replicates of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes, threshold = 0.05, ordered by true positive rate of scDDboost names are in the format K / shape / scale\relax }}{16}{figure.caption.4}}
 \newlabel{fig:4}{{4}{16}{True positive rate averaged over replicates of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes, threshold = 0.05, ordered by true positive rate of scDDboost names are in the format K / shape / scale\relax }{figure.caption.4}{}}
@@ -119,27 +121,28 @@
 \bibcite{Bacher2016}{{2}{2016}{{Bacher and Kendziorski}}{{}}}
 \bibcite{ref:dahl}{{3}{2009}{{Dahl}}{{}}}
 \bibcite{ref:d3e}{{4}{2016}{{Delmans and Hemberg}}{{}}}
-\bibcite{ref:MAST}{{5}{2015}{{Finak et~al.}}{{}}}
-\bibcite{kmedoids}{{6}{1987}{{Kaufman and Rousseeuw}}{{}}}
-\bibcite{Cor}{{7}{2018}{{Kim et~al.}}{{}}}
-\bibcite{sc3}{{8}{2017}{{Kiselev et~al.}}{{}}}
-\bibcite{ref:scDD}{{9}{2016}{{Korthauer et~al.}}{{}}}
-\bibcite{ref:Leng}{{10}{2013}{{Leng et~al.}}{{}}}
-\bibcite{BIRC5}{{11}{1999}{{Li and Altieri}}{{}}}
-\bibcite{CIDR}{{12}{2017}{{Lin, Troup and Ho}}{{}}}
-\bibcite{ref:Des}{{13}{2014}{{Love, Huber and Anders}}{{}}}
-\bibcite{dv}{{14}{2017}{{Marioni and Arendt}}{{}}}
-\bibcite{cancer}{{15}{2015}{{Navin}}{{}}}
-\bibcite{scs}{{16}{2013}{{Nawy}}{{}}}
-\bibcite{immune}{{17}{2017}{{Papalexi and Satija}}{{}}}
-\bibcite{ZIFA}{{18}{2015}{{Pierson and Yau}}{{}}}
-\bibcite{selK}{{19}{2000}{{Ray and Turi}}{{}}}
-\bibcite{HMMR}{{20}{2008}{{Sohr and Engeland}}{{}}}
-\bibcite{ref:Cq}{{21}{2017}{{Soneson and Robinson}}{{}}}
-\bibcite{ref:cspa}{{22}{2003}{{Strehl and Ghosh}}{{}}}
-\bibcite{Wag}{{23}{1986}{{Wagner and Taudes}}{{}}}
-\bibcite{yak68}{{24}{1968}{{Yakowitz and Spragins}}{{}}}
-\bibcite{ref:Zappia}{{25}{2017}{{Zappia, Phipson and Oshlack}}{{}}}
+\bibcite{RAD21}{{5}{2016}{{Dominguez et~al.}}{{}}}
+\bibcite{ref:MAST}{{6}{2015}{{Finak et~al.}}{{}}}
+\bibcite{kmedoids}{{7}{1987}{{Kaufman and Rousseeuw}}{{}}}
+\bibcite{Cor}{{8}{2018}{{Kim et~al.}}{{}}}
+\bibcite{sc3}{{9}{2017}{{Kiselev et~al.}}{{}}}
+\bibcite{ref:scDD}{{10}{2016}{{Korthauer et~al.}}{{}}}
+\bibcite{ref:Leng}{{11}{2013}{{Leng et~al.}}{{}}}
+\bibcite{BIRC5}{{12}{1999}{{Li and Altieri}}{{}}}
+\bibcite{CIDR}{{13}{2017}{{Lin, Troup and Ho}}{{}}}
+\bibcite{ref:Des}{{14}{2014}{{Love, Huber and Anders}}{{}}}
+\bibcite{dv}{{15}{2017}{{Marioni and Arendt}}{{}}}
+\bibcite{cancer}{{16}{2015}{{Navin}}{{}}}
+\bibcite{scs}{{17}{2013}{{Nawy}}{{}}}
+\bibcite{immune}{{18}{2017}{{Papalexi and Satija}}{{}}}
+\bibcite{ZIFA}{{19}{2015}{{Pierson and Yau}}{{}}}
+\bibcite{selK}{{20}{2000}{{Ray and Turi}}{{}}}
+\bibcite{HMMR}{{21}{2008}{{Sohr and Engeland}}{{}}}
+\bibcite{ref:Cq}{{22}{2017}{{Soneson and Robinson}}{{}}}
+\bibcite{ref:cspa}{{23}{2003}{{Strehl and Ghosh}}{{}}}
+\bibcite{Wag}{{24}{1986}{{Wagner and Taudes}}{{}}}
+\bibcite{yak68}{{25}{1968}{{Yakowitz and Spragins}}{{}}}
+\bibcite{ref:Zappia}{{26}{2017}{{Zappia, Phipson and Oshlack}}{{}}}
 \citation{yak68}
 \@writefile{toc}{\contentsline {section}{Appendix}{28}{section*.14}}
 \newlabel{eq:cprobs}{{11}{28}{Proof of Theorem 1}{equation.5.11}{}}

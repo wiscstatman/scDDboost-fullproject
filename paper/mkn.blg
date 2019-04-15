@@ -13,52 +13,52 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ./references/wlr_ref.bib
 Warning--string name "aug" is undefined
---line 377 of file ./references/wlr_ref.bib
+--line 396 of file ./references/wlr_ref.bib
 Warning--string name "mar" is undefined
---line 422 of file ./references/wlr_ref.bib
+--line 441 of file ./references/wlr_ref.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty booktitle in selK
-You've used 25 entries,
+You've used 26 entries,
             5204 wiz_defined-function locations,
-            1073 strings with 11719 characters,
-and the built_in function-call counts, 143705 in all, are:
-= -- 23459
-> -- 443
-< -- 45
-+ -- 7971
-- -- 166
-* -- 8362
-:= -- 22264
-add.period$ -- 99
-call.type$ -- 25
-change.case$ -- 145
-chr.to.int$ -- 25
-cite$ -- 26
-duplicate$ -- 930
-empty$ -- 6653
-format.name$ -- 621
-if$ -- 34632
+            1082 strings with 12082 characters,
+and the built_in function-call counts, 151256 in all, are:
+= -- 24624
+> -- 466
+< -- 46
++ -- 8290
+- -- 172
+* -- 8886
+:= -- 23406
+add.period$ -- 102
+call.type$ -- 26
+change.case$ -- 150
+chr.to.int$ -- 26
+cite$ -- 27
+duplicate$ -- 980
+empty$ -- 7070
+format.name$ -- 655
+if$ -- 36399
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 299
-num.names$ -- 117
-pop$ -- 756
+newline$ -- 310
+num.names$ -- 121
+pop$ -- 786
 preamble$ -- 1
-purify$ -- 95
+purify$ -- 98
 quote$ -- 0
-skip$ -- 13690
+skip$ -- 14371
 stack$ -- 0
-substring$ -- 20705
-swap$ -- 353
-text.length$ -- 225
+substring$ -- 21975
+swap$ -- 375
+text.length$ -- 234
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 644
+type$ -- 670
 warning$ -- 1
-while$ -- 353
+while$ -- 366
 width$ -- 0
-write$ -- 598
+write$ -- 621
 (There were 3 warnings)

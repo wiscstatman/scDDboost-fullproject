@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  14 APR 2019 15:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  14 APR 2019 19:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1203,20 +1203,20 @@ ages cell-subtype
 
 ]
 [2]
-<Figs/FucciDD.pdf, id=142, 144.54pt x 289.08pt>
+<Figs/FucciDD.pdf, id=142, 216.81pt x 433.62pt>
 File: Figs/FucciDD.pdf Graphic file (type pdf)
 <use Figs/FucciDD.pdf>
 Package pdftex.def Info: Figs/FucciDD.pdf  used on input line 178.
-(pdftex.def)             Requested size: 180.0pt x 360.01698pt.
+(pdftex.def)             Requested size: 129.60022pt x 259.21461pt.
 <Figs/HeatUni.pdf, id=144, 381.425pt x 447.6725pt>
 File: Figs/HeatUni.pdf Graphic file (type pdf)
 <use Figs/HeatUni.pdf>
 Package pdftex.def Info: Figs/HeatUni.pdf  used on input line 181.
-(pdftex.def)             Requested size: 180.0pt x 211.25996pt.
+(pdftex.def)             Requested size: 230.39978pt x 270.41576pt.
 LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <9> not available
 (Font)              Font shape `OT1/pplx/b/n' tried instead on input line 189.
  [3] [4 <./Figs/FucciDD.pdf> <./Figs/HeatUni.pdf>] [5] [6]
-<Figs/schematic-1.png, id=215, 1541.76pt x 770.88pt>
+<Figs/schematic-1.png, id=220, 1541.76pt x 770.88pt>
 File: Figs/schematic-1.png Graphic file (type png)
 <use Figs/schematic-1.png>
 Package pdftex.def Info: Figs/schematic-1.png  used on input line 329.
@@ -1235,7 +1235,7 @@ OT1/zplm/m/n/10.95 = \OML/zplm/m/it/10.95 ^^Y[]$\OT1/pplx/m/it/10.95 , [].
  []
 
 [8 <./Figs/schematic-1.png>]
-<Figs/dag.png, id=233, 1027.84pt x 770.88pt>
+<Figs/dag.png, id=238, 1027.84pt x 770.88pt>
 File: Figs/dag.png Graphic file (type png)
 <use Figs/dag.png>
 Package pdftex.def Info: Figs/dag.png  used on input line 395.
@@ -1279,37 +1279,37 @@ Overfull \hbox (50.2934pt too wide) in alignment at lines 662--671
  [][][] []
  []
 
-[13]
+
 Overfull \hbox (14.05144pt too wide) in paragraph at lines 671--674
 \OT1/pplx/m/n/10.95 which cor-re-sponds to Dirichlet-multinomial pre-dic-tive d
 is-tri-bu-tion for counts
  []
 
-[14]
-<Figs/simuTPR.pdf, id=311, 722.7pt x 433.62pt>
+[13] [14]
+<Figs/simuTPR.pdf, id=316, 722.7pt x 433.62pt>
 File: Figs/simuTPR.pdf Graphic file (type pdf)
 <use Figs/simuTPR.pdf>
 Package pdftex.def Info: Figs/simuTPR.pdf  used on input line 758.
 (pdftex.def)             Requested size: 288.0011pt x 172.80312pt.
  [15]
-<Figs/simuFDR.pdf, id=316, 722.7pt x 433.62pt>
+<Figs/simuFDR.pdf, id=321, 722.7pt x 433.62pt>
 File: Figs/simuFDR.pdf Graphic file (type pdf)
 <use Figs/simuFDR.pdf>
 Package pdftex.def Info: Figs/simuFDR.pdf  used on input line 773.
 (pdftex.def)             Requested size: 288.0011pt x 172.80312pt.
  [16 <./Figs/simuTPR.pdf> <./Figs/simuFDR.pdf>]
-<Figs/DD95.pdf, id=339, 722.7pt x 433.62pt>
+<Figs/DD95.pdf, id=344, 722.7pt x 433.62pt>
 File: Figs/DD95.pdf Graphic file (type pdf)
 <use Figs/DD95.pdf>
 Package pdftex.def Info: Figs/DD95.pdf  used on input line 797.
 (pdftex.def)             Requested size: 360.0pt x 216.00224pt.
-<Figs/clussz.pdf, id=340, 505.89pt x 505.89pt>
+<Figs/clussz.pdf, id=345, 505.89pt x 505.89pt>
 File: Figs/clussz.pdf Graphic file (type pdf)
 <use Figs/clussz.pdf>
 Package pdftex.def Info: Figs/clussz.pdf  used on input line 806.
 (pdftex.def)             Requested size: 216.0022pt x 216.00775pt.
  [17 <./Figs/DD95.pdf>] [18 <./Figs/clussz.pdf>]
-<Figs/fdr.pdf, id=363, 578.16pt x 361.35pt>
+<Figs/fdr.pdf, id=368, 578.16pt x 361.35pt>
 File: Figs/fdr.pdf Graphic file (type pdf)
 <use Figs/fdr.pdf>
 Package pdftex.def Info: Figs/fdr.pdf  used on input line 829.
@@ -1320,13 +1320,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 853--854
  []
 
 [19 <./Figs/fdr.pdf>]
-<Figs/D3E_box.pdf, id=383, 505.89pt x 505.89pt>
+<Figs/D3E_box.pdf, id=388, 505.89pt x 505.89pt>
 File: Figs/D3E_box.pdf Graphic file (type pdf)
 <use Figs/D3E_box.pdf>
 Package pdftex.def Info: Figs/D3E_box.pdf  used on input line 864.
 (pdftex.def)             Requested size: 216.0022pt x 216.00775pt.
  [20 <./Figs/D3E_box.pdf>]
-<Figs/overlap.png, id=394, 770.88pt x 443.6575pt>
+<Figs/overlap.png, id=399, 770.88pt x 443.6575pt>
 File: Figs/overlap.png Graphic file (type png)
 <use Figs/overlap.png>
 Package pdftex.def Info: Figs/overlap.png  used on input line 907.
@@ -1394,64 +1394,64 @@ l.57 \bid{Delmans2016}
                       
 ? 
 
-./mkn.bbl:82: Package keyval Error: Finak2015 undefined.
+./mkn.bbl:99: Package keyval Error: Finak2015 undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.82 \bid{Finak2015}
+l.99 \bid{Finak2015}
                     
 ? 
 
-./mkn.bbl:149: Package keyval Error: Korthauer2016 undefined.
+./mkn.bbl:166: Package keyval Error: Korthauer2016 undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.149 \bid{Korthauer2016}
+l.166 \bid{Korthauer2016}
                          
 ? 
 
-./mkn.bbl:199: Package keyval Error: Lin2017 undefined.
+./mkn.bbl:216: Package keyval Error: Lin2017 undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.199 \bid{Lin2017}
+l.216 \bid{Lin2017}
                    
 ? 
 
-./mkn.bbl:215: Package keyval Error: Love2014 undefined.
+./mkn.bbl:232: Package keyval Error: Love2014 undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.215 \bid{Love2014}
+l.232 \bid{Love2014}
                     
 ? 
 
-./mkn.bbl:280: Package keyval Error: Pierson2015 undefined.
+./mkn.bbl:297: Package keyval Error: Pierson2015 undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.280 \bid{Pierson2015}
+l.297 \bid{Pierson2015}
                        
 ? 
 [26]
 
-./mkn.bbl:370: Package keyval Error: Zappia2017 undefined.
+./mkn.bbl:387: Package keyval Error: Zappia2017 undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.370 \bid{Zappia2017}
+l.387 \bid{Zappia2017}
                       
 ? 
 ) [27] [28]
@@ -1474,10 +1474,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1074.
  ) 
 Here is how much of TeX's memory you used:
- 28643 strings out of 492649
- 542588 string characters out of 6129622
- 620126 words of memory out of 5000000
- 31926 multiletter control sequences out of 15000+600000
+ 28647 strings out of 492649
+ 542637 string characters out of 6129622
+ 620183 words of memory out of 5000000
+ 31929 multiletter control sequences out of 15000+600000
  572520 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,16n,64p,10421b,510s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1495,10 +1495,10 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (29 pages, 696915 bytes).
+Output written on mkn.pdf (29 pages, 700293 bytes).
 PDF statistics:
- 524 PDF objects out of 1000 (max. 8388607)
- 445 compressed objects within 5 object streams
- 113 named destinations out of 1000 (max. 500000)
+ 529 PDF objects out of 1000 (max. 8388607)
+ 448 compressed objects within 5 object streams
+ 114 named destinations out of 1000 (max. 500000)
  222 words of extra memory for PDF output out of 10000 (max. 10000000)
 
