@@ -335,7 +335,7 @@ When $\phi$ and $\psi$ satisfy finer constraints, $P(\phi | \psi ) != P(\phi)$ a
 
 Proof of property 2
 \begin{proof}
-$E_{\pi}(\phi_k) = E_{\tilde{\phi}_b}(\tilde{\phi}_k)E_{\Phi}(\Phi_b)$ where $b$ is the block containing subtype index $k$. As $\tilde{\phi}_b &\sim & \text{Dirichlet}_{N(b)}[ \alpha_b^1 ]$ and  $\Phi_\pi  &\sim& \text{Dirichlet}_{N(\pi)}[   \beta_\pi   ] $
+$E_{\pi}(\phi_k) = E_{\tilde{\phi}_b}(\tilde{\phi}_k)E_{\Phi}(\Phi_b)$ where $b$ is the block containing subtype index $k$. As $\tilde{\phi}_b \sim  \text{Dirichlet}_{N(b)}[ \alpha_b^1 ]$ and  $\Phi_\pi  \sim \text{Dirichlet}_{N(\pi)}[   \beta_\pi   ] $
 We have $E_{\tilde{\phi}_b}(\tilde{\phi}_k) =  \frac{ \alpha^1_k }{ \sum_{k' \in b} \alpha^1_{k'} } $ and $E_{\Phi}(\Phi_b) = \frac{ \beta_b }{ \sum_{b' \in \pi} \beta_{b'} } $. Similarly we could proof the case for $E_{\pi}(\psi_k)$
 \end{proof}
 
@@ -346,13 +346,46 @@ $t^1 / t_{\pi}^1$ is independent with $t^2 / t_{\pi}^2$ conditioning on $t_\pi^1
 
 Proof of property 4
 \begin{proof}
+For $j = 1,2$,
+let $T_b^j$ be the vector of $t_k^j$ such that $k \in b$. Recall $t_b^j = \sum_{k \in b} t_k^j$.
+Without loss of generality, we consider the case condition $j = 1$.
+We can decompose the density to each blocks by the property of multinomial distribution
+\begin{eqnarray*}
+p_\pi(t^1 | t_\pi^1, y) = \prod_{b\in \pi}(p(T_b^1 | t_b^1,y) )
+\end{eqnarray*}
+and prior predictive function can be obtained via integral out $ \tilde{\phi}_b$ given the prior $\text{Dirichlet} [ \alpha_b^1]$ and  $p(T_b^1  | \tilde{\phi}_b)$ is multinomial($\tilde{\phi}_b)$ distributed.
+\begin{align*}
+p(T_b^1  | t_b^1,y) &= \int_{\tilde{\phi}_b} p(T_b^1  | \tilde{\phi}_b) p(\tilde{\phi}_b) d\tilde{\phi}_b\\
+                                      &= \left\{\left[ \frac{ \Gamma(t^j_b +1 ) }{\prod_{k \in b} \Gamma( t^j_k + 1 ) }\right]
+\left[ \frac{\Gamma( \sum_{k \in b} \alpha_k^j )}{
+		\prod_{k\in b} \Gamma( \alpha_k^j ) } \right] 
+       \left[        \frac{ \prod_{k \in b} \Gamma(\alpha_k^j + t^j_k)  }{
+		\Gamma(t^j_b + \sum_{k\in b} \alpha_k^j ) )}\right]\right\}
+\end{align*}
+\end{proof}
 
-\end{proof{
+Proof of property 5
+\begin{proof}
+$t_\pi^1$ and $t_\pi^2$ given the condition label $y$ are independent identical distributed. $t_\pi^1 |\Phi \sim$ multinomial$(\Phi)$
+\begin{align*}
+p_\pi(t^1_{\pi},t^2_{\pi}| y) &= \int_\Phi p(t_\pi^1 | \Phi) p(t_\pi^2 | \Phi) p(\Phi) d\Phi \\
+&= \left[ \frac{ \Gamma(n_1+1) \Gamma(n_2+1) }{ \prod_{b \in \pi} \Gamma(t^1_b+1) 
+   \Gamma( t^2_b + 1 )} \right] 
+\left[ \frac{\Gamma( \sum_{b \in \pi} \beta_b  )}{
+   \prod_{b \in \pi} \Gamma(\beta_b )} \right] 
+ \left[ \frac{ \prod_{b \in \pi} \Gamma( \beta_b + t^1_b + t^2_b )}{
+	\Gamma( n_1 + n_2 + \sum_{b \in \pi} \beta_b  )} \right].
+\end{align*}
+As prior of $\Phi$ is Dirchlet$[ \beta]$. $n_j = \sum_{b \in \pi} t_b^j}$ for $j = 1,2$
+\end{proof}
+
+
 
 \begin{lemma}
 If $\pi_2$ is not refinement of $\pi_1$ then $A_{\pi_1} \cap A_{\pi_2}$ is a lower dimensional subset of $A_{\pi_2}$
 \end{lemma}
 
+in order to proof property 6 we gave a lemma of dimensionality of the intersection of two $A_\pi$s 
 Proof of lemma 1
 \begin{proof}
 Let $V$ denote the orthogonal space of $\phi - \psi$, when $(\phi,\psi)\in A_{\pi_1} \cap A_{\pi_2}$, and $\text{dim}(A_{\pi_1} \cap A_{\pi_2}) = \text{dim}(\phi - \psi) + \text{dim}(\psi) = 2K - \text{dim}(V) - 1$. Also let $\pi_1 = \{b_1^1,...,b_s^1\}, \pi_2 = \{b_1^2,...,b_t^2\}$. The corresponding vectors are $v_1^1,...,v_s^1$ and $v_1^2,...,v_t^2$. We claim there must be a $b_i^1\in \pi$ whose corresponding $v_i^1$ is linear independent with $v_1^2,...,v_t^2$. If not, for every $v_i^1$ there exists $\alpha_1^i,...,\alpha_t^i$ such that 
@@ -363,7 +396,7 @@ If $b_j^2 \cap b_i^1 \neq \emptyset$, then multiply $v_j^2$ on both sides of (*)
 Consequently there exists $b\in\pi_1$ with $v(b)$ linear independent with $v(b'), b'\in\pi_2$. $\text{dim}(V)$ is at least $N(\pi_2) + 1, \dim(A_{\pi_1} \cap A_{\pi_2}) < \text{dim}(A_{\pi_2})$
 \end{proof}
 
-Proof of property 8
+Proof of property 6
 \begin{proof}
 by lemma 1, it is easy to verify.
 \end{proof}
