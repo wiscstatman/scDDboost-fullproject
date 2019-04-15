@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.12.19)  15 APR 2019 14:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.12.19)  15 APR 2019 14:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1282,43 +1282,43 @@ is-tri-bu-tion for counts
 File: Figs/simuTPR.pdf Graphic file (type pdf)
 <use Figs/simuTPR.pdf>
 Package pdftex.def Info: Figs/simuTPR.pdf  used on input line 773.
-(pdftex.def)             Requested size: 288.0011pt x 172.80312pt.
+(pdftex.def)             Requested size: 360.0pt x 216.00224pt.
  [15]
 <Figs/simuFDR.pdf, id=324, 722.7pt x 433.62pt>
 File: Figs/simuFDR.pdf Graphic file (type pdf)
 <use Figs/simuFDR.pdf>
 Package pdftex.def Info: Figs/simuFDR.pdf  used on input line 788.
-(pdftex.def)             Requested size: 288.0011pt x 172.80312pt.
- [16 <./Figs/simuTPR.pdf> <./Figs/simuFDR.pdf>]
-<Figs/DD95.pdf, id=347, 722.7pt x 433.62pt>
+(pdftex.def)             Requested size: 360.0pt x 216.00224pt.
+ [16 <./Figs/simuTPR.pdf>]
+<Figs/DD95.pdf, id=340, 722.7pt x 433.62pt>
 File: Figs/DD95.pdf Graphic file (type pdf)
 <use Figs/DD95.pdf>
 Package pdftex.def Info: Figs/DD95.pdf  used on input line 812.
 (pdftex.def)             Requested size: 360.0pt x 216.00224pt.
-<Figs/clussz.pdf, id=348, 505.89pt x 505.89pt>
+ [17 <./Figs/simuFDR.pdf>]
+<Figs/clussz.pdf, id=352, 505.89pt x 505.89pt>
 File: Figs/clussz.pdf Graphic file (type pdf)
 <use Figs/clussz.pdf>
 Package pdftex.def Info: Figs/clussz.pdf  used on input line 821.
-(pdftex.def)             Requested size: 216.0022pt x 216.00775pt.
- [17 <./Figs/DD95.pdf>] [18 <./Figs/clussz.pdf>]
-<Figs/fdrCounts.pdf, id=371, 578.16pt x 361.35pt>
+(pdftex.def)             Requested size: 288.0011pt x 288.0052pt.
+ [18 <./Figs/DD95.pdf>] [19 <./Figs/clussz.pdf>]
+<Figs/fdrCounts.pdf, id=376, 578.16pt x 361.35pt>
 File: Figs/fdrCounts.pdf Graphic file (type pdf)
 <use Figs/fdrCounts.pdf>
 Package pdftex.def Info: Figs/fdrCounts.pdf  used on input line 844.
-(pdftex.def)             Requested size: 251.9989pt x 157.49475pt.
-
+(pdftex.def)             Requested size: 288.0011pt x 179.99637pt.
+ [20 <./Figs/fdrCounts.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 868--869
 
  []
 
-[19 <./Figs/fdrCounts.pdf>]
-<Figs/D3E_box.pdf, id=391, 505.89pt x 505.89pt>
+<Figs/D3E_box.pdf, id=395, 505.89pt x 505.89pt>
 File: Figs/D3E_box.pdf Graphic file (type pdf)
 <use Figs/D3E_box.pdf>
 Package pdftex.def Info: Figs/D3E_box.pdf  used on input line 879.
 (pdftex.def)             Requested size: 216.0022pt x 216.00775pt.
- [20 <./Figs/D3E_box.pdf>]
-<Figs/overlap.png, id=402, 770.88pt x 443.6575pt>
+[21] [22 <./Figs/D3E_box.pdf>]
+<Figs/overlap.png, id=410, 770.88pt x 443.6575pt>
 File: Figs/overlap.png Graphic file (type png)
 <use Figs/overlap.png>
 Package pdftex.def Info: Figs/overlap.png  used on input line 922.
@@ -1333,7 +1333,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 920--928
 
  []
 
-[21 <./Figs/overlap.png>]
+[23 <./Figs/overlap.png>]
 Overfull \hbox (14.29294pt too wide) in paragraph at lines 936--938
 \OT1/pplx/m/n/10.95 ence on $\OML/zplm/m/it/10.95 Q$\OT1/pplx/m/n/10.95 . To se
 e that we can rewrite $\OML/zplm/m/it/10.95 A[]$ \OT1/pplx/m/n/10.95 as $\OML/z
@@ -1346,7 +1346,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 936--938
 
  []
 
-[22]
+[24]
 Overfull \hbox (1.38646pt too wide) in paragraph at lines 963--964
 \OMS/zplm/m/n/10.95 ff\OT1/pplx/m/n/10.95 1, 2, 3\OMS/zplm/m/n/10.95 g\OT1/pplx
 /m/n/10.95 , \OMS/zplm/m/n/10.95 f\OT1/pplx/m/n/10.95 4, 5, 6, 7\OMS/zplm/m/n/1
@@ -1364,7 +1364,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 982--984
 
  []
 
-[23] [24] (./mkn.bbl [25]
+[25] [26] (./mkn.bbl
 
 ! Package keyval Error: Bacher2016 undefined.
 
@@ -1385,6 +1385,7 @@ Type  H <return>  for immediate help.
 l.57 \bid{Delmans2016}
                       
 ? 
+[27]
 
 ! Package keyval Error: Finak2015 undefined.
 
@@ -1435,7 +1436,6 @@ Type  H <return>  for immediate help.
 l.297 \bid{Pierson2015}
                        
 ? 
-[26]
 
 ! Package keyval Error: Zappia2017 undefined.
 
@@ -1446,9 +1446,9 @@ Type  H <return>  for immediate help.
 l.387 \bid{Zappia2017}
                       
 ? 
-) [27] [28]
+[28]) [29] [30]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1089.
- [29]
+ [31]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 1089.
  (./mkn.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1089.
@@ -1466,13 +1466,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1089.
  ) 
 Here is how much of TeX's memory you used:
- 29614 strings out of 492616
- 551553 string characters out of 6128981
+ 29616 strings out of 492616
+ 551567 string characters out of 6128981
  627679 words of memory out of 5000000
  32925 multiletter control sequences out of 15000+600000
  574586 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,16n,65p,1793b,510s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,16n,65p,1793b,520s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -1487,10 +1487,10 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (29 pages, 701220 bytes).
+Output written on mkn.pdf (31 pages, 701924 bytes).
 PDF statistics:
- 532 PDF objects out of 1000 (max. 8388607)
- 451 compressed objects within 5 object streams
- 114 named destinations out of 1000 (max. 500000)
+ 542 PDF objects out of 1000 (max. 8388607)
+ 459 compressed objects within 5 object streams
+ 116 named destinations out of 1000 (max. 500000)
  222 words of extra memory for PDF output out of 10000 (max. 10000000)
 

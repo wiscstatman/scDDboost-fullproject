@@ -770,7 +770,7 @@ Grouping cells first enable us to detect the subtle change of expression level b
 scDD considered mixture structure underlying the transcrips as well, but scDD did not use the whole genome information to infer mixture components, which leads to inaccurate clustering at gene level and reduce the power. 
 
 \begin{figure}[H]
-  \includegraphics[width = 0.8\textwidth]{Figs/simuTPR.pdf}
+  \includegraphics[width = 1.0\textwidth]{Figs/simuTPR.pdf}
   \caption{True positive rate averaged over replicates of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes, threshold = 0.05, ordered by true positive rate of scDDboost
   names are in the format K / shape / scale}
   \label{fig:4}
@@ -785,7 +785,7 @@ scDD considered mixture structure underlying the transcrips as well, but scDD di
 
 
 \begin{figure}[H]
-  \includegraphics[width = 0.8\textwidth]{Figs/simuFDR.pdf}
+  \includegraphics[width = 1.0\textwidth]{Figs/simuFDR.pdf}
   \caption{FDR averaged over replicates of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes, threshold = 0.05,ordered by true positive rate of scDDboost same order as Fig 4
   }
   \label{fig:5}
@@ -818,7 +818,7 @@ We observe that scDDboost generally identify more DD genes than other methods.
 
 ***Benefits from share information from other genes in EBSeq. ***
 \begin{figure}[H]
-\includegraphics[width = 0.6\textwidth]{Figs/clussz.pdf}
+\includegraphics[width = 0.8\textwidth]{Figs/clussz.pdf}
  \caption{  boxplot of log transformed cluster size of DD genes of two categories. 
  The red one are corresponding to the genes that have also been identified by other methods.
  The blue one are corresponding to the genes uniquely identified by scDDboost. 
@@ -841,7 +841,7 @@ scDDboost could control FDR since we assume cells are sampled from population co
 
 
 \begin{figure}[H]
-\includegraphics[width = 0.7\textwidth]{Figs/fdrCounts.pdf}
+\includegraphics[width = 0.8\textwidth]{Figs/fdrCounts.pdf}
  \caption{number of false positives of scDDboost, scDD, MAST and DESeq2 on null dataset from supplementary table 2, DESeq2 usually identified more false positives compare to other scRNA methods.  }
   \label{fig:7}
 \end{figure}
