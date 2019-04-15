@@ -145,11 +145,11 @@ information.  We address this limitation, aiming to increase power to detect dif
 The proposed method measures changes in a gene's marginal mixture distribution, and
 acquires sensitivity  to a wide variety of distributional effects by how it integrates genome-wide with
 gene-level data.  It is implemented in  software 
-in the R package \textsc{scDDboost}, at \verb+http://github.com/wiscstatman/scDDboost/+.
+in the R package \verb+scDDboost+, at \verb+http://github.com/wiscstatman/scDDboost/+.
 Modularity in the necessary elements provides some methodological advantages. For example,
-improvements in clustering, such as *sc3?*, may be used in place of the default clustering,
-without altering the form of downstream analysis. **it's also relatively speedy computationally,
-not requiring any MCMC**
+improvements in clustering may be used in place of the default clustering
+without altering the form of downstream analysis.  Also, by avoiding Markov chain Monte Carlo,
+\verb+scDDboost+ computations are relatively inexpensive for a Bayesian procedure.
 
 Through the compositional model underlying \verb+scDDboost+, subtypes inferred by clustering 
 inform the analysis of gene-level expression.  The proposed methodology merges two lines of computation
@@ -161,15 +161,32 @@ to model the pair of multinomial probability vectors for subtype counts in two e
 Further elements are developed, on the selection of the number of subtypes and on accounting for uncertainty in the cluster output,  in order to provide an end-to-end solution to the differential distribution
 problem.  
 
-By way of example from  stem-cell biology,
-Figure~\ref{fig:whet} shows data on several marker genes of G1 or G2/M phase that are called by \verb+scDDboost+ to be
-differentially distributed between two populations of cells (91 cells from G1 and 76 cells from G2/M). These particular genes
-were not detected by other standard approaches. Moreover, scDDboost identified in total 3395 DD genes, among them 409 genes are cell cycle annotated in Gene Ontology Cell 
-Cycle biological process (GO:0007049) while other methods (MAST, scDD and DESeq2) in total identified 1970 genes with 228 genes are cell cycle related. (see Supplementary Material Section~1 for further details.)  
+By way of example, 
+Figure~\ref{fig:whet} shows expression data from 91 human 
+stem cells known to be in the G1 phase of the cell cycle, as well as
+76 such cells known to be in the G2/M phase~\citep{ref:Leng}.  The three panels on the left compare expression of G1
+and G2/M cells at three genes (BIRC5, HMMR, and CKAP2)  that we know from prior studies  have differential activity between G1 and G2/M.  While standard statistical tools do not identify the differences in any of these genes
+to be statistically significant at 5\% FDR control, \verb+scDDboost+ does put these genes on its 5\% FDR list.
+Considering the prior studies, these subtle distributional changes are probably not false discoveries.
+The right panel in Figure~\ref{fig:whet} shows these three among
+  many other genes known to be involved in cell-cycle regulation but
+not identified by standard tools as altered between G1 and G2/M at the 5\% FDR level.    The color panel above the
+heatmap hints at why \verb+scDDboost+ has identified these genes. Cells (columns) are clustered by their genome-wide
+expression profiles as being in distinct cellular subtypes, as indicated by the color panel.   Evidently, these 
+subtypes have changed in their proportions between G1 and G2/M; for instance, there is a lower proportion
+ of {\em red} cells   and a greater proportion of {\em orange} cells in G2/M (right).  We note that \verb+scDDboost+ 
+agrees with other statistical tools on very strong differential-distribution signals (not shown), but it 
+has the potential to increase power for subtle signals owing to its unique approach to leveraging cell subtype
+information.
 
-The proposed method is often better able to detect weak changes
-compared to other methods, while at the same time 
-agreeing with these methods on the strong differential signals and also not inflating the false-discovery rate. 
+% of G1 or G2/M phase that are called by \verb+scDDboost+ to be(e.g. {\tt bmi} and {\tt map}) 
+%differentially distributed between two populations of cells (91 cells from G1 and 76 cells from G2/M). These particular genes
+%were not detected by other standard approaches. Moreover, scDDboost identified in total 3395 DD genes, among them 409 genes are cell cycle annotated in Gene Ontology Cell 
+%Cycle biological process (GO:0007049) while other methods (MAST, scDD and DESeq2) in total identified 1970 genes with 228 genes are cell cycle related. (see Supplementary Material Section~1 for further details.)  
+%
+%The proposed method is often better able to detect weak changes
+%compared to other methods, while at the same time 
+%agreeing with these methods on the strong differential signals and also not inflating the false-discovery rate. 
 
 
 \begin{figure}[H]
@@ -181,8 +198,8 @@ agreeing with these methods on the strong differential signals and also not infl
  \includegraphics[clip,width=\textwidth]{Figs/HeatUni.pdf}
 \endminipage
 
- \caption{Cell cycle ralted genes uniquely identified by scDDboost
- from a study of stem cell differentiation (Leng {\em et al.} 2015). Shown are expression
+ \caption{Cell cycle related genes uniquely identified by scDDboost
+ from a study of stem cell differentiation . Shown are expression
 of 3 genes having functionality in cell cycles uniquely identified by scDDboost at 5\% FDR. Right are heatmap for uniquely identified cell cycle related genes given by scDDboost
 BIRC5 is differentially expressed in the cell cycle \citep{BIRC5},HMMR is differentially expressed in the cell cycle \citep{HMMR}, all the 3 genes have been identified as core set of gene 
 having unique chromatin features \citep{RAD21}
@@ -190,10 +207,8 @@ having unique chromatin features \citep{RAD21}
 \end{figure}
 
 
-
-
-Numerical experiments  on both synthetic and published scRNA-seq data indicate that \verb+scDDboost+ has high
-sensitivity for detecting subtle distribution changes. **link better with preceding paragraph*
+Numerical experiments  on both synthetic and published scRNA-seq data bear out the incidental finding 
+in Figure~1, that \verb+scDDboost+ has sensitivity for detecting subtle distribution changes. 
   In these experiments we take advantage of
 \verb+splatter+ for generating synthetic data~\citep{ref:Zappia} as well as the compendium of scRNA-seq
 data available through \verb+conquer+ \citep{ref:Cq}.  **something on bursting?**
