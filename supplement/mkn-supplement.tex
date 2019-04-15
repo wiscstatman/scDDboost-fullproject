@@ -116,8 +116,8 @@ Proof of Theorem 2.
 
 \begin{proof}
 The change of proportion of subtypes $A_\pi$ is independent with mean expression change between subtypes $M_{g,\pi}$ given expression data $X$, condition label $y$ and cluster label $z$.
-Further, conditioning on condition label $y$ and cluster label $z$, the change of proportion of subtypes $A_\pi$ is independent with the expression data $X$ and conditioning on $z$ and $X$, $M_{g,\pi}$ is independent with $y$. 
-$  P\left(A_\pi \cap M_{g,\pi} |X,y,z \right) 
+Further, conditioning on condition label $y$ and cluster label $z$, the change of proportion of subtypes $A_\pi$ is independent with the expression data $X$ and similarly conditioning on $z$ and $X$, $M_{g,\pi}$ is independent with $y$. 
+Thus we have $  P\left(A_\pi \cap M_{g,\pi} |X,y,z \right) 
   =  P\left(A_\pi |y,z \right) \, 
                       P\left(M_{g,\pi}| X,z \right).  $
 \end{proof}
@@ -136,7 +136,11 @@ P(X_{g,s}^I | r_{g,s}, q_g^I ) = {X_{g,s} + r_{g,s} - 1 \choose X_{g,s} }(1 - q_
 \end{eqnarray*}
 and $\mu_{g,s}^I = r_{g,s}(1 - q_g^I) / q_g^I; \sigma_{g,s}^I = r_{g,s}(1 - q_g^I)/ (q_g^I)^2.$
 
-The EBSeq model assumed a prior distribution on $q_g^I : q_g^I | \alpha, \beta^{I_g} \sim Beta(\alpha, \beta^{I_g}).$ The hyperparameter $\alpha$ is shared by all the isoforms and $\beta^{I_g}$ is $I_g$ specific. We further assume that $r_{g,s} = r_{g,0}*l_s$ where $r_{g,0}$ is an isoform specific parameter common across subtypes and $r_{g,s}$ depends on it through the sample-specific normalization factor $l_s$
+The EBSeq model assumed a prior distribution on $q_g^I : q_g^I | \alpha, \beta^{I_g} \sim Beta(\alpha, \beta^{I_g}).$ The hyperparameter $\alpha$ is shared by all the isoforms and $\beta^{I_g}$ is $I_g$ specific.
+Now we are using EBSeq for expression inference of genes rather than isoforms, we made a modification to the original prior from EBSeq. 
+We still make $\alpha$ to be shared by all the genes and $\beta^g$ becomes gene specific parameter. 
+
+The modeling of $r_{g,s}$ is the same as what EBSeq does. Specifically, we further assume that $r_{g,s} = r_{g,0}*l_s$ where $r_{g,0}$ is an isoform specific parameter common across subtypes and $r_{g,s}$ depends on it through the sample-specific normalization factor $l_s$
 
 What we are interested at those $K$ groups comparison is the expression pattern, through EBSeq modeling we are able to obtain posterior probabilities over
 
@@ -183,7 +187,7 @@ Then the marginal distribution of counts $X_g^{1,2,3}$ is $\overset{5}{\underset
 \end{eqnarray*}
 
 
-
+In the optimization steps for determining the hyper parameters $\alpha$, $beta^g$ and proportion of DE patterns $p$, the computation and memory increase exponentially with the number of subtypes $K$. We use one-step EM as an approximation for the solution, that is $\alpha$ and $\beta^g$ are updated through gradient descent. $p$ can still be updated by the explicit form of the maximizer.
 
 
 \subsubsection{modalClust}
