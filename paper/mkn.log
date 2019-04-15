@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  14 APR 2019 19:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  14 APR 2019 19:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1309,17 +1309,17 @@ File: Figs/clussz.pdf Graphic file (type pdf)
 Package pdftex.def Info: Figs/clussz.pdf  used on input line 806.
 (pdftex.def)             Requested size: 216.0022pt x 216.00775pt.
  [17 <./Figs/DD95.pdf>] [18 <./Figs/clussz.pdf>]
-<Figs/fdr.pdf, id=368, 578.16pt x 361.35pt>
-File: Figs/fdr.pdf Graphic file (type pdf)
-<use Figs/fdr.pdf>
-Package pdftex.def Info: Figs/fdr.pdf  used on input line 829.
+<Figs/fdrCounts.pdf, id=368, 578.16pt x 361.35pt>
+File: Figs/fdrCounts.pdf Graphic file (type pdf)
+<use Figs/fdrCounts.pdf>
+Package pdftex.def Info: Figs/fdrCounts.pdf  used on input line 829.
 (pdftex.def)             Requested size: 251.9989pt x 157.49475pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 853--854
 
  []
 
-[19 <./Figs/fdr.pdf>]
+[19 <./Figs/fdrCounts.pdf>]
 <Figs/D3E_box.pdf, id=388, 505.89pt x 505.89pt>
 File: Figs/D3E_box.pdf Graphic file (type pdf)
 <use Figs/D3E_box.pdf>
@@ -1475,7 +1475,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1074.
  ) 
 Here is how much of TeX's memory you used:
  28647 strings out of 492649
- 542637 string characters out of 6129622
+ 542667 string characters out of 6129622
  620183 words of memory out of 5000000
  31929 multiletter control sequences out of 15000+600000
  572520 words of font info for 126 fonts, out of 8000000 for 9000
@@ -1495,7 +1495,7 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (29 pages, 700293 bytes).
+Output written on mkn.pdf (29 pages, 700450 bytes).
 PDF statistics:
  529 PDF objects out of 1000 (max. 8388607)
  448 compressed objects within 5 object streams
