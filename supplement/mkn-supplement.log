@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  14 APR 2019 20:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  14 APR 2019 20:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1532,7 +1532,11 @@ Overfull \hbox (21.98438pt too wide) detected at line 790
 []
  []
 
-[17] (./mkn-supplement.bbl)
+[17] (./mkn-supplement.bbl
+
+Package natbib Warning: Empty `thebibliography' environment on input line 6.
+
+)
 
 Package natbib Warning: There were undefined citations.
 
@@ -1554,8 +1558,8 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 28335 strings out of 492649
- 542029 string characters out of 6129622
+ 28336 strings out of 492649
+ 542040 string characters out of 6129622
  629457 words of memory out of 5000000
  31668 multiletter control sequences out of 15000+600000
  572012 words of font info for 125 fonts, out of 8000000 for 9000
@@ -1573,10 +1577,10 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (20 pages, 1300258 bytes).
+Output written on mkn-supplement.pdf (20 pages, 1300588 bytes).
 PDF statistics:
- 377 PDF objects out of 1000 (max. 8388607)
- 300 compressed objects within 3 object streams
- 76 named destinations out of 1000 (max. 500000)
+ 379 PDF objects out of 1000 (max. 8388607)
+ 301 compressed objects within 4 object streams
+ 77 named destinations out of 1000 (max. 500000)
  287 words of extra memory for PDF output out of 10000 (max. 10000000)
 
