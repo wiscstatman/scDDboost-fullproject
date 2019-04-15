@@ -187,7 +187,7 @@ Then the marginal distribution of counts $X_g^{1,2,3}$ is $\overset{5}{\underset
 \end{eqnarray*}
 
 
-In the optimization steps for determining the hyper parameters $\alpha$, $beta^g$ and proportion of DE patterns $p$, the computation and memory increase exponentially with the number of subtypes $K$. We use one-step EM as an approximation for the solution, that is $\alpha$ and $\beta^g$ are updated through gradient descent. $p$ can still be updated by the explicit form of the maximizer.
+In the optimization steps for determining the hyper parameters $\alpha$, $beta^g$ and proportion of DE patterns $p$, the computation and memory increase exponentially with the number of subtypes $K$. We use one-step EM as an approximation for the solution, that is $\alpha$ and $\beta^g$ are updated through gradient aescent. $p$ can still be updated by the explicit form of the maximizer of the log likelihood.
 
 
 \subsubsection{modalClust}
