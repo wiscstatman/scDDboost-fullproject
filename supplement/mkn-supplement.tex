@@ -103,7 +103,8 @@ This supplement is organized to match the sectioning of the main document.   In 
 
 \subsection{DEC vs EC}
 
-Potentially to be DD genes uniquely identified by us. 
+Using data from GSE75748, comparing conditions DEC vs EC.
+We have genes potentially to be DD uniquely identified by scDDboost. (supplementary Fig 1)
 
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/density_DECEC_DD.pdf}
@@ -171,7 +172,7 @@ For example $K = 3$, there are 5 expression pattern, $P_1, P_2, ..., P_5$
 &P5: q_g^1 \neq q_g^2 \neq q_g^3 \text{ and } q_g^1 \neq q_g^3
 \end{align*}
 
-Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can pool the counts from the two groups by viewing them come from same distribution i.e. $X_g^{I, J} | r_{g,s}, q_g \sim NB(r_{g,s}, q_g)$, $q_g | \alpha, \beta^{I_g} \sim Beta(\alpha, \beta^{I_g})$ and obtained the prior predictive function $f_0^{I_g}(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g,s}, q_g) * P(q_g | \alpha, \beta^{I_g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + r_{g,s} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S r_{g,s}, \beta^{I_g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{I_g})}$.  Consequently, we have prior predictive function for $P1, ..., P5$ as
+Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can pool the counts from the two groups by viewing them come from same distribution i.e. $X_g^{I, J} | r_{g,s}, q_g \sim NB(r_{g,s}, q_g)$, $q_g | \alpha, \beta^{g} \sim Beta(\alpha, \beta^{g})$ and obtained the prior predictive function $f_0^{g}(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g,s}, q_g) * P(q_g | \alpha, \beta^{g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + r_{g,s} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S r_{g,s}, \beta^{g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{g})}$.  Consequently, we have prior predictive function for $P1, ..., P5$ as
 
 \begin{align*}
 &P1: q_g^1 = q_g^2 = q_g^3\\
@@ -181,20 +182,20 @@ Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can poo
 &P5: q_g^1 \neq q_g^2 \neq q_g^3 \text{ and } q_g^1 \neq q_g^3
 \end{align*}
 
-Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can pool the counts from the two groups by viewing them come from same distribution i.e. $X_g^{I, J} | r_{g,s}, q_g \sim NB(r_{g,s}, q_g)$, $q_g | \alpha, \beta^{I_g} \sim Beta(\alpha, \beta^{I_g})$ and obtained the prior predictive function $f_0^{I_g}(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g,s}, q_g) * P(q_g | \alpha, \beta^{I_g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + r_{g,s} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S r_{g,s}, \beta^{I_g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{I_g})}$.  Consequently, we have prior predictive function for $P1, ..., P5$ as
+Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can pool the counts from the two groups by viewing them come from same distribution i.e. $X_g^{I, J} | r_{g,s}, q_g \sim NB(r_{g,s}, q_g)$, $q_g | \alpha, \beta^{g} \sim Beta(\alpha, \beta^{g})$ and obtained the prior predictive function $f_0^{g}(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g,s}, q_g) * P(q_g | \alpha, \beta^{g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + r_{g,s} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S r_{g,s}, \beta^{g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{g})}$.  Consequently, we have prior predictive function for $P1, ..., P5$ as
 
 \begin{align*}
-&g_1^{I_g}(X_g^{1,2,3}) = f_0^{I_g}(X_g^{1,2,3})\\
-&g_2^{I_g}(X_g^{1,2,3}) = f_0^{I_g}(X_g^{1,2})f_0^{I_g}(X_g^3)\\
-&g_3^{I_g}(X_g^{1,2,3}) = f_0^{I_g}(X_g^1)f_0^{I_g}(X_g^{2,3})\\
-&g_4^{I_g}(X_g^{1,2,3}) = f_0^{I_g}(X_g^{1,3})f_0^{I_g}(X_g^2)\\
-&g_5^{I_g}(X_g^{1,2,3}) = f_0^{I_g}(X_g^1)f_0^{I_g}(X_g^2)f_0^{I_g}(X_g^3)\\
+&g_1^{g}(X_g^{1,2,3}) = f_0^{g}(X_g^{1,2,3})\\
+&g_2^{g}(X_g^{1,2,3}) = f_0^{g}(X_g^{1,2})f_0^{g}(X_g^3)\\
+&g_3^{g}(X_g^{1,2,3}) = f_0^{g}(X_g^1)f_0^{g}(X_g^{2,3})\\
+&g_4^{g}(X_g^{1,2,3}) = f_0^{g}(X_g^{1,3})f_0^{g}(X_g^2)\\
+&g_5^{g}(X_g^{1,2,3}) = f_0^{g}(X_g^1)f_0^{g}(X_g^2)f_0^{g}(X_g^3)\\
 \end{align*}
 
 
-Then the marginal distribution of counts $X_g^{1,2,3}$ is $\overset{5}{\underset{k = 1}{\Sigma}} p_k g_k^{I_g}(X_g^{1,2,3})$, where proportion parameters $p_k$ satisfying $\overset{5}{\underset{k = 1}{\Sigma}} p_k = 1$ and are estimated by EM algorithm. Thus, the posterior probability of an expression pattern $k$ is obtained by:
+Then the marginal distribution of counts $X_g^{1,2,3}$ is $\overset{5}{\underset{k = 1}{\Sigma}} p_k g_k^{g}(X_g^{1,2,3})$, where proportion parameters $p_k$ satisfying $\overset{5}{\underset{k = 1}{\Sigma}} p_k = 1$ and are estimated by EM algorithm. Thus, the posterior probability of an expression pattern $k$ is obtained by:
 \begin{eqnarray*}
-\frac{p_k g_k(X_g^{1,2,3})}{\overset{5}{\underset{k = 1}{\Sigma}} p_k g_k^{I_g}(X_g^{1,2,3})}
+\frac{p_k g_k(X_g^{1,2,3})}{\overset{5}{\underset{k = 1}{\Sigma}} p_k g_k^{g}(X_g^{1,2,3})}
 \end{eqnarray*}
 
 
@@ -293,7 +294,7 @@ Similar proof for the case $h_1 > h_2$.
 
 \subsubsection{Selecting $K$}
 
-In order to determine the number of clusters, we consider the change of {\em validity} = $\frac{\textbf{intra}}{\textbf{inter}}$ defined in \cite{selK}, where $\textbf{intra} = \frac{1}{N}\overset{K}{\underset{i = 1}{\Sigma}}\underset{x \in C_i}{\Sigma} ||x - z_i||^2$, $\textbf{inter} = mean( || z_i - z_j||^2), i = 1,2,...,K-1. j = i+1,...,K$ and $z_i$ is the center(medoids) of cluster $i$. $\textbf{intra}$ is the average of distance of a point to its corresponding cluster center, which measures the compactness of clusters. We made a small change here, in original paper $\textbf{inter}$ was defined as minimum distance between medoids, we use average instead for the purpose of getting a smoother quantity. $\textbf{inter}$ is the average distance of two cluster centers, which measures the separation between clusters. We want to have a small intra-cluster distance and a big inter-cluster distance, consequently we wnat to minimize the {\em validity}. From empirical study, we constantly observe a monotone decreasing relation between number of clusters and {\em validity}. However this quantity stabilize when $K$ is sufficiently large. The stopping rule for searching $K$ is when $|validity_{K} - min(validity_K) | < \epsilon$ is satisfied. We set the default value of  $\epsilon$ to be 1.  As we found DD analysis results to be most consistent with other scRNA method.
+In order to determine the number of clusters, we consider the change of {\em validity} = $\frac{\textbf{intra}}{\textbf{inter}}$ defined in \cite{selK}, where $\textbf{intra} = \frac{1}{N}\overset{K}{\underset{i = 1}{\Sigma}}\underset{x \in C_i}{\Sigma} ||x - z_i||^2$, $\textbf{inter} = mean( || z_i - z_j||^2), i = 1,2,...,K-1. j = i+1,...,K$ and $z_i$ is the center(medoids) of cluster $i$. $\textbf{intra}$ is the average of distance of a point to its corresponding cluster center, which measures the compactness of clusters. We made a small change here, in original paper $\textbf{inter}$ was defined as minimum distance between medoids, we use average instead for the purpose of getting a smoother quantity. $\textbf{inter}$ is the average distance of two cluster centers, which measures the separation between clusters. We want to have a small intra-cluster distance and a big inter-cluster distance, consequently we want to minimize the {\em validity}. From empirical study, we constantly observe a monotone decreasing relation between number of clusters and {\em validity}. However this quantity stabilize when $K$ is sufficiently large. The stopping rule for searching $K$ is when $|validity_{K} - min(validity_K) | < \epsilon$ is satisfied. We set the default value of  $\epsilon$ to be 1.  As we found DD analysis results to be most consistent with other scRNA method.
 
 
 
