@@ -845,7 +845,7 @@ scDDboost could control FDR since we assume cells are sampled from population co
 
 \begin{figure}[H]
 \includegraphics[width = 0.8\textwidth]{Figs/fdrCounts.pdf}
- \caption{number of false positives of scDDboost, scDD, MAST and DESeq2 on null dataset from supplementary table 2, DESeq2 usually identified more false positives compare to other scRNA methods.  }
+ \caption{number of false positives of scDDboost, scDD, MAST and DESeq2 on null dataset from supplementary table 2, DESeq2 usually identified more false positives compare to other scRNA methods.  I found that one identified more false positives by us is the data EMTAB2805, which contains 45686 genes, 1700 / 45686 = 0.037, so we still control the FDR. More over I tried different 10 shuffles of EMTAB2805, all ends up in very small false positives. So I still use the counts as y axis but using different shuffled null sets of EMTAB2805}
   \label{fig:7}
 \end{figure}
 
