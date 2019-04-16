@@ -430,19 +430,32 @@ To convert $U_\pi$ to have form similar of $p_\pi$, We need $U_\pi \propto f_1 f
 
 \subsection{Synthetic Data}
 
- We first look at the pca plots of the simulated data (need updates)
+ We first look at the pca plots of the simulated data (supplementary figure 2,3,4)
 
 \begin{figure}[h!]
-  \includegraphics[ width = 0.8\textwidth]{Figs/pca.pdf}
-  \caption{first two principal components of transcripts under different parameters for simulated data. Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation, each setting has 2 replicates}
+  \includegraphics[ width = 0.8\textwidth]{Figs/pca3.pdf}
+  \caption{first two principal components of transcripts under different parameters for simulated data. Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation, each setting has 2 replicates K = 3}
   \label{fig:4}
 \end{figure}
 
-Roc curve for the simulated data, each sub-figure is averaged over two replicates under the same parameters setting.
+
+\begin{figure}[h!]
+\includegraphics[ width = 0.8\textwidth]{Figs/pca7.pdf}
+\caption{similar plots K = 7}
+\label{fig:5}
+\end{figure}
+
+\begin{figure}[h!]
+  \includegraphics[ width = 0.8\textwidth]{Figs/pca12.pdf}
+  \caption{similar plots K = 12}
+  \label{fig:6}
+  \end{figure}
+
+We also have roc curve for the simulated data, each sub-figure is averaged over two replicates under the same parameters setting. scDDboost tends to outperform other methods (supplementary figure 5)
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/Roc_supp.pdf}
   \caption{Roc curve of the 12 simulation settings, under each setting, TPR and FPR are averaged over two replicates, generally we found scDDboost perform better than other methods}
-  \label{fig:4}
+  \label{fig:7}
 \end{figure}
 
 
