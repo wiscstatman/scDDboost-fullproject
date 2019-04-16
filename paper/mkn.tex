@@ -164,19 +164,19 @@ problem.
 To set the context by way of example, 
 Figure~\ref{fig:whet} shows expression data from 91 human 
 stem cells known to be in the G1 phase of the cell cycle, as well as
-76 such cells known to be in the G2/M phase~\citep{ref:Leng}.  The three panels on the left compare expression of G1
-and G2/M cells at three genes (BIRC5, HMMR, and CKAP2)  that we know from prior studies  have differential activity between G1 and G2/M.  Standard statistical tools do not identify the differences in any of these genes
-to be statistically significant when controlling the false discovery rate (FDR) at 5\% (See Supplementary Material, 
-Section **).  But \verb+scDDboost+ does include these genes on its 5\% FDR list.
-Considering the prior studies, these subtle distributional changes are probably not false discoveries.
+from 76 such cells known to be in the G2/M phase~\citep{ref:Leng}.  The three panels on the left compare expression of G1
+and G2/M cells at three genes (BIRC5, HMMR, and CKAP2),  which we know from prior studies  have differential activity between G1 and G2/M.  Standard statistical tools do not identify the differences in any of these genes
+to be statistically significant when controlling the false discovery rate (FDR) at 5\% (Supplementary Material, 
+Section 1).  But \verb+scDDboost+ does include these genes on its 5\% FDR list.
+Considering prior studies, these subtle distributional changes are probably not false discoveries.
 The right panel in Figure~\ref{fig:whet} shows these three among
   many other genes known to be involved in cell-cycle regulation but
 not identified by standard tools as altered between G1 and G2/M at the 5\% FDR level.    The color panel above the
 heatmap hints at why \verb+scDDboost+ has identified these genes. Cells (columns) are clustered by their genome-wide
-expression profiles as being in distinct cellular subtypes, as indicated by the color panel.   Evidently, these 
+expression profiles into distinct cellular subtypes, as indicated by the color panel.   Evidently, these 
 subtypes have changed in their proportions between G1 and G2/M; for instance, there is a lower proportion
  of {\em red} cells   and a greater proportion of {\em orange} cells in G2/M. These proportion shifts
-are inferred from genome-wide data, and infuse information into gene-specific tests that measure 
+are inferred from genome-wide data, and they infuse information into gene-specific tests, which measure 
 changes between conditions in the mixture distribution of expression.  We note that \verb+scDDboost+ 
 agrees with other statistical tools on very strong differential-distribution signals (not shown), but it 
 has the potential to increase power for subtle signals owing to its unique approach to leveraging cell subtype
