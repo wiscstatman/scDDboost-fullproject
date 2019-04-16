@@ -161,12 +161,13 @@ to model the pair of multinomial probability vectors for subtype counts in two e
 Further elements are developed, on the selection of the number of subtypes and on accounting for uncertainty in the cluster output,  in order to provide an end-to-end solution to the differential distribution
 problem.  
 
-By way of example, 
+To set the context by way of example, 
 Figure~\ref{fig:whet} shows expression data from 91 human 
 stem cells known to be in the G1 phase of the cell cycle, as well as
 76 such cells known to be in the G2/M phase~\citep{ref:Leng}.  The three panels on the left compare expression of G1
-and G2/M cells at three genes (BIRC5, HMMR, and CKAP2)  that we know from prior studies  have differential activity between G1 and G2/M.  While standard statistical tools do not identify the differences in any of these genes
-to be statistically significant at 5\% FDR control, \verb+scDDboost+ does put these genes on its 5\% FDR list.
+and G2/M cells at three genes (BIRC5, HMMR, and CKAP2)  that we know from prior studies  have differential activity between G1 and G2/M.  Standard statistical tools do not identify the differences in any of these genes
+to be statistically significant when controlling the false discovery rate (FDR) at 5\% (See Supplementary Material, 
+Section **).  But \verb+scDDboost+ does include these genes on its 5\% FDR list.
 Considering the prior studies, these subtle distributional changes are probably not false discoveries.
 The right panel in Figure~\ref{fig:whet} shows these three among
   many other genes known to be involved in cell-cycle regulation but
@@ -174,7 +175,9 @@ not identified by standard tools as altered between G1 and G2/M at the 5\% FDR l
 heatmap hints at why \verb+scDDboost+ has identified these genes. Cells (columns) are clustered by their genome-wide
 expression profiles as being in distinct cellular subtypes, as indicated by the color panel.   Evidently, these 
 subtypes have changed in their proportions between G1 and G2/M; for instance, there is a lower proportion
- of {\em red} cells   and a greater proportion of {\em orange} cells in G2/M (right).  We note that \verb+scDDboost+ 
+ of {\em red} cells   and a greater proportion of {\em orange} cells in G2/M. These proportion shifts
+are inferred from genome-wide data, and infuse information into gene-specific tests that measure 
+changes between conditions in the mixture distribution of expression.  We note that \verb+scDDboost+ 
 agrees with other statistical tools on very strong differential-distribution signals (not shown), but it 
 has the potential to increase power for subtle signals owing to its unique approach to leveraging cell subtype
 information.
@@ -770,7 +773,7 @@ Grouping cells first enable us to detect the subtle change of expression level b
 scDD considered mixture structure underlying the transcrips as well, but scDD did not use the whole genome information to infer mixture components, which leads to inaccurate clustering at gene level and reduce the power. 
 
 \begin{figure}[H]
-  \includegraphics[width = 1.0\textwidth]{Figs/simuTPR.pdf}
+  \includegraphics[width = 0.95\textwidth]{Figs/simuTPR.pdf}
   \caption{True positive rate averaged over replicates of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes, threshold = 0.05, ordered by true positive rate of scDDboost
   names are in the format K / shape / scale}
   \label{fig:4}
@@ -785,7 +788,7 @@ scDD considered mixture structure underlying the transcrips as well, but scDD di
 
 
 \begin{figure}[H]
-  \includegraphics[width = 1.0\textwidth]{Figs/simuFDR.pdf}
+  \includegraphics[width = 0.95\textwidth]{Figs/simuFDR.pdf}
   \caption{FDR averaged over replicates of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes, threshold = 0.05,ordered by true positive rate of scDDboost same order as Fig 4
   }
   \label{fig:5}
@@ -809,7 +812,7 @@ We have also investigated performance of \verb+scDDboost+ under different cluste
 method, (\verb+sc3+~\citep{sc3}, Supplementary ***)  and obtain similar results as the default one.
 
 \begin{figure}[H]
-\includegraphics[width = 1\textwidth]{Figs/DD95.pdf}
+\includegraphics[width = 0.95\textwidth]{Figs/DD95.pdf}
  \caption{ Proportion of DD genes at 5\% threshold with respect to total number of genes identified by each method. Ranked by mean list size }
   \label{fig:6}
 \end{figure}
