@@ -11,6 +11,7 @@
 #' @param nrandom number of random generated distance matrix
 #' @param iter max number of iterations for EM
 #' @param reltol relative tolerance for optim on weighting paramters
+#' @param K number of subtypes, could be user specified or determined internally
 #' @return posterior probabilities of a gene to be differential distributed
 
 #' @examples
@@ -22,7 +23,7 @@
 #' @export
 
 
-PDD = function(data, cd, ncores,D, random = T, norm = T, epi = 1, Upper = 1000, nrandom = 30, iter = 20,reltol = 1e-3, stp1 = 1e-6, stp2 = 1e-2){
+PDD = function(data, cd, ncores,D, random = T, norm = T, epi = 1, Upper = 1000, nrandom = 30, iter = 20,reltol = 1e-3, stp1 = 1e-6, stp2 = 1e-2, K = 0){
     #data(ref.RData)
     
     G = nrow(data)
@@ -49,7 +50,11 @@ PDD = function(data, cd, ncores,D, random = T, norm = T, epi = 1, Upper = 1000, 
     #}
     if(norm)
     {
-        sz = rep(1, ncol(D))
+        if(is.matrix(D)){
+            sz = rep(1, ncol(D))
+        }else if(is.numeric(D)){
+            sz = rep(1, length(D))
+        }
     }else{
     sz = tryCatch({MedianNorm(data)},error = function(e){
         message("sizeFactor calculation failed, try normalized data")
@@ -64,7 +69,10 @@ PDD = function(data, cd, ncores,D, random = T, norm = T, epi = 1, Upper = 1000, 
     
     if(!random){
         if(is.matrix(D)){
-            K = detK(D,epi)
+            if(K == 0){
+                K = detK(D,epi)
+            }
+            
             message(paste0("estimated number of subtypes: ",K))
             ccl = pam(D, k = K, diss = T)$clustering
         }
@@ -129,7 +137,10 @@ PDD = function(data, cd, ncores,D, random = T, norm = T, epi = 1, Upper = 1000, 
         return(res)
     }
     else{
-        K = detK(D,epi)
+        if(K == 0){
+            K = detK(D,epi)
+        }
+        
         message(paste0("estimated number of subtypes: ",K))
         
         if(K == 1){
