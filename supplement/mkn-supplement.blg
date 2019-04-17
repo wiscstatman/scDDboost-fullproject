@@ -2,12 +2,6 @@ This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: mkn-supplement.aux
 The style file: imsart-nameyear.bst
-I couldn't open database file ./references/wlr_ref.bib
----line 73 of file mkn-supplement.aux
- : \bibdata{./references/wlr_ref
- :                              }
-I'm skipping whatever remains of this command
-I found no database files---while reading file mkn-supplement.aux
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
@@ -17,64 +11,51 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Warning--I didn't find a database entry for "ref:dahl"
-Warning--I didn't find a database entry for "selK"
-Warning--I didn't find a database entry for "Lane"
-Warning--I didn't find a database entry for "Shalek"
-Warning--I didn't find a database entry for "Trapnell"
-Warning--I didn't find a database entry for "Engel"
-Warning--I didn't find a database entry for "EMTAB"
-Warning--I didn't find a database entry for "Tasic"
-Warning--I didn't find a database entry for "oscope"
-Warning--I didn't find a database entry for "sc3"
-Warning--I didn't find a database entry for "Deng193"
-Warning--I didn't find a database entry for "Guo"
-Warning--I didn't find a database entry for "chu"
-Warning--I didn't find a database entry for "Darmanis"
-Warning--I didn't find a database entry for "ref:d3e"
+Database file #1: ./supp_references/wlr_ref.bib
 Warning--I didn't find a database entry for "ineq"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 0 entries,
+Warning--empty booktitle in selK
+You've used 15 entries,
             5204 wiz_defined-function locations,
-            869 strings with 5691 characters,
-and the built_in function-call counts, 38 in all, are:
-= -- 1
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 6
-:= -- 13
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 2
+            984 strings with 11604 characters,
+and the built_in function-call counts, 175726 in all, are:
+= -- 25719
+> -- 586
+< -- 17
++ -- 4870
+- -- 178
+* -- 14152
+:= -- 25695
+add.period$ -- 54
+call.type$ -- 15
+change.case$ -- 77
+chr.to.int$ -- 15
+cite$ -- 16
+duplicate$ -- 1142
+empty$ -- 11212
+format.name$ -- 909
+if$ -- 39864
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 6
-num.names$ -- 0
-pop$ -- 0
+newline$ -- 178
+num.names$ -- 63
+pop$ -- 739
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 47
 quote$ -- 0
-skip$ -- 1
+skip$ -- 14790
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 33740
+swap$ -- 562
+text.length$ -- 135
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
+type$ -- 390
+warning$ -- 1
+while$ -- 200
 width$ -- 0
-write$ -- 5
-(There were 2 error messages)
+write$ -- 357
+(There were 2 warnings)

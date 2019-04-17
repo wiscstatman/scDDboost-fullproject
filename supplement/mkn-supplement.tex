@@ -380,7 +380,7 @@ p_\pi(t^1_{\pi},t^2_{\pi}| y) &= \int_\Phi p(t_\pi^1 | \Phi) p(t_\pi^2 | \Phi) p
  \left[ \frac{ \prod_{b \in \pi} \Gamma( \beta_b + t^1_b + t^2_b )}{
 	\Gamma( n_1 + n_2 + \sum_{b \in \pi} \beta_b  )} \right].
 \end{align*}
-As prior of $\Phi$ is Dirchlet$[ \beta]$. $n_j = \sum_{b \in \pi} t_b^j}$ for $j = 1,2$
+As prior of $\Phi \text{ is Dirchlet}[ \beta ] \text{ and } n_j = \sum_{b \in \pi} t_b^j \text{ for } j = 1,2$
 \end{proof}
 
 
@@ -552,8 +552,9 @@ GSE79102null & patient1 & 26, 25 & human\\
 
 scDDboost may lose FDR control if we keep pushing number of subtypes $K$ bigger.
 \begin{figure}[h]
-\includegraphics[width = 0.7\textwidth]{Figs/NULL.pdf}
- \caption{under NULL case, using dataset GSE52529, when using too big $K$ we may completely lose FDR control (black line shows proportion of false positive identified by scDDboost under 0.05 threshold, while validity score become stable at $K$ = 3 }
+\includegraphics[width = 0.5\textwidth]{Figs/breakFDR.pdf}
+ \caption{under NULL case, using dataset EMTAB2805, when using too big $K$ we may lose FDR control (black dashed line shows proportion of false positive identified by scDDboost under 0.05 threshold, while validity score did not vary too much after $K$ is
+ greater than 2 }
   \label{fig:7}
 \end{figure}
 
@@ -961,8 +962,10 @@ l%og$f(n, b) = $log$(\Gamma(\beta_b + t_b^1 + t_b^2))$ - log$(\Gamma(\beta_b + t
 %\[\frac{J(t^1, t^2,\pi_1)}{J(t^1, t^2,\pi_2)} \rightarrow O_p(1)\quad a.s. \tag{B}\]
 %When $\pi_1$ have less blocks than $\pi_2$, $\sum_{b'\in\pi_2} g(n,b') - \sum_{b\in\pi_1} g(n,b) = O_p(\text{log}(n))$
 %\[\frac{J(t^1, t^2,\pi_1)}{J(t^1, t^2,\pi_2)} \rightarrow 0\quad a.s.\tag{C}\]
+
+%\bibliographystyle{IEEEtran}
 \bibliographystyle{imsart-nameyear}
-\bibliography{./references/wlr_ref}
+%\bibliography{./supp_references/wlr_ref}
 
 
 
