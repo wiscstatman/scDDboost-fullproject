@@ -1,4 +1,5 @@
-\documentclass[11pt]{extarticle}
+\documentclass[aoas,preprint]{imsart}
+%\documentclass[11pt]{extarticle}
 %\RequirePackage{mdframed}
 %\usepackage{mdframed}
 \usepackage[framemethod=TikZ]{mdframed}
@@ -501,16 +502,16 @@ GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human & \citep{
 
 
 
-\begin{figure}[h]
-\vspace{-\parskip}
-\minipage{0.5\textwidth}
-  \includegraphics[width=\textwidth]{Figs/sim_67.png}
-\endminipage\hfill
-\minipage{0.5\textwidth}
-  \includegraphics[width=\textwidth]{Figs/sim_78.png}
-  \endminipage
-\caption{comparison of posterior probabilities of being DD among different number of subtypes, when we underestimate the number of subtypes, the difference is huge, see PDD between 6 subtypes and 7 subtypes. There is an approximate horizontal line with massive points at the top of left panel, which indicate that we underestimate lots of DD genes due to underestimate the number of subtypes. While in the case when we overestimate the number of subtypes 7 subtypes vs. 8 subtypes, though inflating PDD but the variation of difference is small, from 6 to 8 subtypes the PDD become more linear related.}
-\end{figure}
+%\begin{figure}[h]
+%\vspace{-\parskip}
+%\minipage{0.5\textwidth}
+%!TEX encoding = UTF-8 Unicode  \includegraphics[width=\textwidth]{Figs/sim_67.png}
+%\endminipage\hfill
+%\minipage{0.5\textwidth}
+%  \includegraphics[width=\textwidth]{Figs/sim_78.png}
+  %\endminipage
+%\caption{comparison of posterior probabilities of being DD among different number of subtypes, when we underestimate the number of subtypes, the difference is huge, see PDD between 6 subtypes and 7 subtypes. There is an approximate horizontal line with massive points at the top of left panel, which indicate that we underestimate lots of DD genes due to underestimate the number of subtypes. While in the case when we overestimate the number of subtypes 7 subtypes vs. 8 subtypes, though inflating PDD but the variation of difference is small, from 6 to 8 subtypes the PDD become more linear related.}
+%\end{figure}
 
 
 
@@ -551,7 +552,7 @@ GSE79102null & patient1 & 26, 25 & human\\
 
 
 scDDboost may lose FDR control if we keep pushing number of subtypes $K$ bigger.
-\begin{figure}[h]
+\begin{figure}[h!]
 \includegraphics[width = 0.5\textwidth]{Figs/breakFDR.pdf}
  \caption{under NULL case, using dataset EMTAB2805, when using too big $K$ we may lose FDR control (black dashed line shows proportion of false positive identified by scDDboost under 0.05 threshold, while validity score did not vary too much after $K$ is
  greater than 2 }
@@ -562,8 +563,6 @@ scDDboost may lose FDR control if we keep pushing number of subtypes $K$ bigger.
 
 
 \section{Random weighting and proof for consistency theorems}
-
-
 
 
 \subsection{Stability of posterior under random weighting}
@@ -578,30 +577,11 @@ Too big $K$ may end up in an overfit such that two subtypes can be very similar,
 From our empirical experience, it would be sufficient to capture the heterogeneity underlying cells with number of clusters not greater than 9.  And we generally obtain stable in validity score and PDD simultaneously (see supplementary)
 
 
-We demonstrate the change of posterior probabilities of differential distribution given different number of subtypes at data GSE75748 and GSE48968. In both cases, if allowing one more subtype would result in a lot increases in posterior probabilities, which suggests that the number of subtypes is underestimated since we found more distribution differences between conditions given one more mixture component. If posterior inference is stable after increasing the number of subtypes, then we consider previous number of subtypes to be optimal. 
-\begin{figure}[H]
-
-\includegraphics[width = 0.7\textwidth]{Figs/s_78_GSE57872.pdf}
+We demonstrate the change of posterior probabilities of differential distribution given different number of subtypes at data GSE75748 and GSE48968. In both cases, if allowing one more subtype would result in a lot increases in posterior probabilities, which suggests that the number of subtypes is underestimated since we found more distribution differences between conditions given one more mixture component. If posterior inference is stable after increasing the number of subtypes, then we consider previous number of subtypes to be optimal.
 
 
 
-\minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{Figs/DN_67.png}
-\endminipage\hfill
-\minipage{0.5\textwidth}
-  \includegraphics[height = 5cm, width=\linewidth]{Figs/DN_78.png}
-\endminipage\hfill
-
-
-\caption{selecting number of subtypes for data GSE57872, we observe posterior probabilities become stable at more than 6 subtypes. Since increasing number of subtypes tends to decrease sample size of each subtypes, make complicate constraints for equivalent distribution and inflate estimated PDD.  We select number of subtypes to be 7}
-\end{figure}
-
-
-
-
-\begin{figure}[H]
-
-
+\begin{figure}[h!]
 
 \minipage{0.5\textwidth}
   \includegraphics[height = 5cm, width=\linewidth]{Figs/G48_56.png}
@@ -616,23 +596,24 @@ We demonstrate the change of posterior probabilities of differential distributio
 \caption{selecting number of subtypes for data GSE48968, we observe posterior probabilities become stable at more than 5 subtypes}
 \end{figure}
 
+
 \subsection{Bursting parameters}
 
 ***on the method estimated p-value, update later***
 
 D3E\citep{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset GSE71585\\
 
-\begin{figure}[H]
+%\begin{figure}[H]
 %\includegraphics[width = 1\textwidth]{Figs/d3eplot.pdf}
 %\includegraphics[width = 1\textwidth]{Figs/d3eplotdes.pdf}
 %\includegraphics[width = 1\textwidth]{Figs/d3eplotmast.pdf}
 %\includegraphics[width = 1\textwidth]{Figs/d3eplotscdd.pdf}
-\caption{D3E method will estimate 3 bursting parameters probability of a gene being on (\textbf{a}) and off (\textbf{b}) and the expression rate when the gene expression is on (\textbf{c}), we plot the hexbin plot of probability of a gene being DD under out method v.s. the absolute value of log fold change of \textbf{a} , \textbf{b} and \textbf{c}  across the two conditions accordingly. The log fold change is scaled by dividing the largest log fold change so that ends up in a value between 0 and 1 Here we use the GSE71585 data }
-\end{figure}
+%\caption{D3E method will estimate 3 bursting parameters probability of a gene being on (\textbf{a}) and off (\textbf{b}) and the expression rate when the gene expression is on (\textbf{c}), we plot the hexbin plot of probability of a gene being DD under out method v.s. the absolute value of log fold change of \textbf{a} , \textbf{b} and \textbf{c}  across the two conditions accordingly. The log fold change is scaled by dividing the largest log fold change so that ends up in a value between 0 and 1 Here we use the GSE71585 data }
+%\end{figure}
 
 
 
-\begin{figure}[H]
+\begin{figure}[h!]
 \vspace{-\parskip}
 \minipage{0.33\textwidth}
   \includegraphics[clip,width=\textwidth]{Figs/act.png}
@@ -965,7 +946,7 @@ l%og$f(n, b) = $log$(\Gamma(\beta_b + t_b^1 + t_b^2))$ - log$(\Gamma(\beta_b + t
 
 %\bibliographystyle{IEEEtran}
 \bibliographystyle{imsart-nameyear}
-%\bibliography{./supp_references/wlr_ref}
+\bibliography{./supp_references/wlr_ref}
 
 
 
