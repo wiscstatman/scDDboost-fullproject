@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  17 APR 2019 15:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  17 APR 2019 15:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1656,15 +1656,9 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 955.
  (./mkn-supplement.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 955.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 955.
+Package rerunfilecheck Info: File `mkn-supplement.out' has not changed.
+(rerunfilecheck)             Checksum: 3A52C2A54EB0170F77D9061D9D11BC85;1532.
 
-
-Package rerunfilecheck Warning: File `mkn-supplement.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `mkn-supplement.out':
-(rerunfilecheck)             Before: 5607CE5C4FC1C2988FF3B74C9707EC65;1532
-(rerunfilecheck)             After:  3A52C2A54EB0170F77D9061D9D11BC85;1532.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1674,32 +1668,29 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 955.
  ) 
 Here is how much of TeX's memory you used:
- 29370 strings out of 492649
- 552353 string characters out of 6129622
+ 29369 strings out of 492649
+ 552342 string characters out of 6129622
  640682 words of memory out of 5000000
  32671 multiletter control sequences out of 15000+600000
  571844 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,16n,64p,10432b,501s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{section*.16} has been referenced but does not exi
-st, replaced by a fixed one
-
-{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
-live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texl
-ive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texli
-ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive
-/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
-2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2
-018/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2018/t
-exmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2018/texmf
--dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/fo
-nts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/typ
-e1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/
-palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (22 pages, 1264832 bytes).
+{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
+xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
+live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texli
+ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
+e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive
+/2018/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2018
+/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2018/tex
+mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
+fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
+ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
+w/palatino/uplri8a.pfb>
+Output written on mkn-supplement.pdf (22 pages, 1264799 bytes).
 PDF statistics:
- 481 PDF objects out of 1000 (max. 8388607)
- 398 compressed objects within 4 object streams
- 97 named destinations out of 1000 (max. 500000)
+ 479 PDF objects out of 1000 (max. 8388607)
+ 396 compressed objects within 4 object streams
+ 96 named destinations out of 1000 (max. 500000)
  290 words of extra memory for PDF output out of 10000 (max. 10000000)
 
