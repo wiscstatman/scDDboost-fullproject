@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  17 APR 2019 20:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  17 APR 2019 20:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1216,7 +1216,7 @@ Package pdftex.def Info: Figs/HeatUni.png  used on input line 203.
 LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <9> not available
 (Font)              Font shape `OT1/pplx/b/n' tried instead on input line 214.
  [3] [4 <./Figs/FucciDD.pdf> <./Figs/HeatUni.png>] [5] [6]
-<Figs/schematic-1.png, id=212, 1541.76pt x 770.88pt>
+<Figs/schematic-1.png, id=213, 1541.76pt x 770.88pt>
 File: Figs/schematic-1.png Graphic file (type png)
 <use Figs/schematic-1.png>
 Package pdftex.def Info: Figs/schematic-1.png  used on input line 353.
@@ -1235,7 +1235,7 @@ OT1/zplm/m/n/10.95 = \OML/zplm/m/it/10.95 ^^Y[]$\OT1/pplx/m/it/10.95 , [].
  []
 
 [8 <./Figs/schematic-1.png>]
-<Figs/dag.png, id=229, 1027.84pt x 770.88pt>
+<Figs/dag.png, id=230, 1027.84pt x 770.88pt>
 File: Figs/dag.png Graphic file (type png)
 <use Figs/dag.png>
 Package pdftex.def Info: Figs/dag.png  used on input line 419.
@@ -1286,30 +1286,30 @@ is-tri-bu-tion for counts
  []
 
 [13] [14]
-<Figs/simuTPR.pdf, id=307, 722.7pt x 433.62pt>
+<Figs/simuTPR.pdf, id=308, 722.7pt x 433.62pt>
 File: Figs/simuTPR.pdf Graphic file (type pdf)
 <use Figs/simuTPR.pdf>
 Package pdftex.def Info: Figs/simuTPR.pdf  used on input line 782.
 (pdftex.def)             Requested size: 341.9989pt x 205.19751pt.
  [15]
-<Figs/simuFDR.pdf, id=312, 722.7pt x 433.62pt>
+<Figs/simuFDR.pdf, id=313, 722.7pt x 433.62pt>
 File: Figs/simuFDR.pdf Graphic file (type pdf)
 <use Figs/simuFDR.pdf>
 Package pdftex.def Info: Figs/simuFDR.pdf  used on input line 797.
 (pdftex.def)             Requested size: 341.9989pt x 205.19751pt.
  [16 <./Figs/simuTPR.pdf> <./Figs/simuFDR.pdf>]
-<Figs/DD95.pdf, id=335, 722.7pt x 433.62pt>
+<Figs/DD95.pdf, id=336, 722.7pt x 433.62pt>
 File: Figs/DD95.pdf Graphic file (type pdf)
 <use Figs/DD95.pdf>
 Package pdftex.def Info: Figs/DD95.pdf  used on input line 821.
 (pdftex.def)             Requested size: 341.9989pt x 205.19751pt.
-<Figs/clussz.pdf, id=336, 505.89pt x 505.89pt>
+<Figs/clussz.pdf, id=337, 505.89pt x 505.89pt>
 File: Figs/clussz.pdf Graphic file (type pdf)
 <use Figs/clussz.pdf>
 Package pdftex.def Info: Figs/clussz.pdf  used on input line 830.
 (pdftex.def)             Requested size: 288.0011pt x 288.0052pt.
  [17 <./Figs/DD95.pdf>] [18 <./Figs/clussz.pdf>]
-<Figs/fdrCounts.pdf, id=359, 578.16pt x 361.35pt>
+<Figs/fdrCounts.pdf, id=360, 578.16pt x 361.35pt>
 File: Figs/fdrCounts.pdf Graphic file (type pdf)
 <use Figs/fdrCounts.pdf>
 Package pdftex.def Info: Figs/fdrCounts.pdf  used on input line 853.
@@ -1319,13 +1319,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 877--878
 
  []
 
-<Figs/D3E_box.pdf, id=375, 505.89pt x 505.89pt>
+<Figs/D3E_box.pdf, id=376, 505.89pt x 505.89pt>
 File: Figs/D3E_box.pdf Graphic file (type pdf)
 <use Figs/D3E_box.pdf>
 Package pdftex.def Info: Figs/D3E_box.pdf  used on input line 888.
 (pdftex.def)             Requested size: 216.0022pt x 216.00775pt.
 [20] [21 <./Figs/D3E_box.pdf>]
-<Figs/overlap.png, id=390, 770.88pt x 443.6575pt>
+<Figs/overlap.png, id=391, 770.88pt x 443.6575pt>
 File: Figs/overlap.png Graphic file (type png)
 <use Figs/overlap.png>
 Package pdftex.def Info: Figs/overlap.png  used on input line 931.
@@ -1494,10 +1494,10 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (30 pages, 891433 bytes).
+Output written on mkn.pdf (30 pages, 891528 bytes).
 PDF statistics:
- 521 PDF objects out of 1000 (max. 8388607)
- 446 compressed objects within 5 object streams
+ 522 PDF objects out of 1000 (max. 8388607)
+ 447 compressed objects within 5 object streams
  115 named destinations out of 1000 (max. 500000)
  222 words of extra memory for PDF output out of 10000 (max. 10000000)
 
