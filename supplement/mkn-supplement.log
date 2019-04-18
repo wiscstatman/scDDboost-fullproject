@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  17 APR 2019 22:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  18 APR 2019 15:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1468,51 +1468,40 @@ Package pdftex.def Info: Figs/breakFDR.pdf  used on input line 556.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Figs/G48_56.png, id=229, 379.8993pt x 275.3487pt>
-File: Figs/G48_56.png Graphic file (type png)
-<use Figs/G48_56.png>
-Package pdftex.def Info: Figs/G48_56.png  used on input line 587.
-(pdftex.def)             Requested size: 271.02887pt x 142.26201pt.
-<Figs/G48_67.png, id=231, 379.8993pt x 275.3487pt>
-File: Figs/G48_67.png Graphic file (type png)
-<use Figs/G48_67.png>
-Package pdftex.def Info: Figs/G48_67.png  used on input line 590.
-(pdftex.def)             Requested size: 271.02887pt x 142.26201pt.
-<Figs/s_789_GSE48968.pdf, id=232, 495.8525pt x 135.50626pt>
-File: Figs/s_789_GSE48968.pdf Graphic file (type pdf)
-<use Figs/s_789_GSE48968.pdf>
-Package pdftex.def Info: Figs/s_789_GSE48968.pdf  used on input line 594.
-(pdftex.def)             Requested size: 542.02501pt x 148.13515pt.
+<Figs/Kchange.png, id=229, 767.86874pt x 244.915pt>
+File: Figs/Kchange.png Graphic file (type png)
+<use Figs/Kchange.png>
+Package pdftex.def Info: Figs/Kchange.png  used on input line 585.
+(pdftex.def)             Requested size: 542.02501pt x 172.89305pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [10 <./Figs/pca12.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 604--605
+Underfull \hbox (badness 10000) in paragraph at lines 594--595
 
  []
 
 [11 <./Figs/Roc_supp.pdf>]
-<Figs/overlap.png, id=276, 770.88pt x 443.6575pt>
+<Figs/overlap.png, id=274, 770.88pt x 443.6575pt>
 File: Figs/overlap.png Graphic file (type png)
 <use Figs/overlap.png>
-Package pdftex.def Info: Figs/overlap.png  used on input line 648.
+Package pdftex.def Info: Figs/overlap.png  used on input line 638.
 (pdftex.def)             Requested size: 385.43906pt x 221.8282pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 646--654
+Underfull \hbox (badness 10000) in paragraph at lines 636--644
 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[12] [13 <./Figs/breakFDR.pdf> <./Figs/G48_56.png> <./Figs/G48_67.png> <./Figs/
-s_789_GSE48968.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 662--664
+[12] [13 <./Figs/breakFDR.pdf> <./Figs/Kchange.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 652--654
 
  []
 
 [14 <./Figs/overlap.png>]
-Overfull \hbox (5.50514pt too wide) in paragraph at lines 706--707
+Overfull \hbox (5.50514pt too wide) in paragraph at lines 696--697
 []\OT1/pplx/m/n/12 Still us-ing above ex-am-ple, in lim-it-ing case, we have $\
 OML/zplm/m/it/12 p\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 A[]\OMS/zplm/m/n/12 j\OML
 /zplm/m/it/12 y\OT1/pplx/m/n/12 , \OML/zplm/m/it/12 z\OT1/zplm/m/n/12 ) = \OT1/
@@ -1524,35 +1513,34 @@ plm/m/it/12 z\OT1/zplm/m/n/12 ) =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 708--710
+Underfull \hbox (badness 10000) in paragraph at lines 698--700
 
  []
 
 [15]
-<Figs/try7-g.pdf, id=351, 505.89pt x 505.89pt>
+<Figs/try7-g.pdf, id=328, 505.89pt x 505.89pt>
 File: Figs/try7-g.pdf Graphic file (type pdf)
 <use Figs/try7-g.pdf>
-Package pdftex.def Info: Figs/try7-g.pdf  used on input line 744.
+Package pdftex.def Info: Figs/try7-g.pdf  used on input line 734.
 (pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Figs/ARI.pdf, id=352, 505.89pt x 505.89pt>
+<Figs/ARI.pdf, id=329, 505.89pt x 505.89pt>
 File: Figs/ARI.pdf Graphic file (type pdf)
 <use Figs/ARI.pdf>
-Package pdftex.def Info: Figs/ARI.pdf  used on input line 755.
+Package pdftex.def Info: Figs/ARI.pdf  used on input line 745.
 (pdftex.def)             Requested size: 404.71254pt x 404.71254pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+
+Package natbib Warning: Citation `ineq' on page 16 undefined on input line 761.
+
+
 [16]
-
-Package natbib Warning: Citation `ineq' on page 17 undefined on input line 771.
-
-
-
-Overfull \hbox (23.45146pt too wide) in paragraph at lines 791--795
+Overfull \hbox (23.45146pt too wide) in paragraph at lines 781--785
 []\OT1/pplx/m/n/12 Recall $\OML/zplm/m/it/12 ![] \OMS/zplm/m/n/12 / \OML/zplm/m
 /it/12 p[]\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 t[]\OMS/zplm/m/n/12 j\OML/zplm/m/
 it/12 t[]\OT1/pplx/m/n/12 , \OML/zplm/m/it/12 y\OT1/zplm/m/n/12 ) \OML/zplm/m/i
@@ -1570,7 +1558,7 @@ n/12 , \OML/zplm/m/it/12 ^^L\OT1/zplm/m/n/12 )$
  []
 
 
-Overfull \hbox (6.65352pt too wide) in paragraph at lines 798--800
+Overfull \hbox (6.65352pt too wide) in paragraph at lines 788--790
 \OT1/pplx/m/n/12 For no-ta-tion sim-plic-ity, we use the ab-bre-vi-a-tion $\OML
 /zplm/m/it/12 g\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 ^^Y\OT1/zplm/m/n/12 )\OT1/pp
 lx/m/n/12 , \OML/zplm/m/it/12 f\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 ^^Y\OT1/zplm
@@ -1584,7 +1572,7 @@ f\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 ^^Y\OT1/pplx/m/n/12 , \OML/zplm/m/it/12 t[
  []
 
 
-Overfull \hbox (20.53746pt too wide) in paragraph at lines 798--800
+Overfull \hbox (20.53746pt too wide) in paragraph at lines 788--790
 \OT1/pplx/m/n/12 We take log on $[]$, de-note it as LR. $[]\OML/zplm/m/it/12 R 
 \OT1/zplm/m/n/12 = []\OML/zplm/m/it/12 g\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 ^^Y
 []\OT1/zplm/m/n/12 ) \OMS/zplm/m/n/12 ^^@ []\OML/zplm/m/it/12 g\OT1/zplm/m/n/12
@@ -1597,12 +1585,12 @@ x/m/n/12 . De-note $\OML/zplm/m/it/12 C\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 ^^Y[
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 841--843
+Underfull \hbox (badness 10000) in paragraph at lines 831--833
 
  []
 
 
-Overfull \hbox (21.98438pt too wide) detected at line 879
+Overfull \hbox (21.98438pt too wide) detected at line 869
 []
  []
 
@@ -1627,7 +1615,7 @@ Type  H <return>  for immediate help.
 l.101 \bid{Delmans2016}
                        
 ? 
-[19] (/usr/local/texlive/2018/texmf-dist/tex/latex/ucs/data/uni-3.def
+(/usr/local/texlive/2018/texmf-dist/tex/latex/ucs/data/uni-3.def
 File: uni-3.def 2013/05/13 UCS: Unicode data U+0300..U+03FF
 )
 ./mkn-supplement.bbl:217: Undefined control sequence.
@@ -1636,61 +1624,52 @@ File: uni-3.def 2013/05/13 UCS: Unicode data U+0300..U+03FF
 l.217   to Dynamic Patterns of NF-κB Activation}
                                                  .
 ? 
-)
+[19])
 
 Package natbib Warning: There were undefined citations.
 
 [20]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 955.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 945.
  [21 <./Figs/try7-g.pdf>] [22 <./Figs/ARI.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 955.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 945.
  (./mkn-supplement.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 955.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 955.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 945.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 945.
+Package rerunfilecheck Info: File `mkn-supplement.out' has not changed.
+(rerunfilecheck)             Checksum: BD0554300FC465AE8C3A80A2DA7713BC;1532.
 
-
-Package rerunfilecheck Warning: File `mkn-supplement.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `mkn-supplement.out':
-(rerunfilecheck)             Before: 3A52C2A54EB0170F77D9061D9D11BC85;1532
-(rerunfilecheck)             After:  BD0554300FC465AE8C3A80A2DA7713BC;1532.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 955.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 945.
  ) 
 Here is how much of TeX's memory you used:
- 29354 strings out of 492649
- 552084 string characters out of 6129622
- 642683 words of memory out of 5000000
- 32659 multiletter control sequences out of 15000+600000
+ 29343 strings out of 492649
+ 551836 string characters out of 6129622
+ 641683 words of memory out of 5000000
+ 32651 multiletter control sequences out of 15000+600000
  571844 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,16n,64p,10432b,501s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{section*.15} has been referenced but does not exi
-st, replaced by a fixed one
-
-{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
-live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texl
-ive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texli
-ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive
-/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
-2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2
-018/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2018/t
-exmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2018/texmf
--dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/fo
-nts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/typ
-e1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/
-palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (22 pages, 1147189 bytes).
+{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
+xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
+live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texli
+ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
+e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive
+/2018/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2018
+/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2018/tex
+mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
+fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
+ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
+w/palatino/uplri8a.pfb>
+Output written on mkn-supplement.pdf (22 pages, 999137 bytes).
 PDF statistics:
- 467 PDF objects out of 1000 (max. 8388607)
- 393 compressed objects within 4 object streams
- 96 named destinations out of 1000 (max. 500000)
- 257 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 443 PDF objects out of 1000 (max. 8388607)
+ 376 compressed objects within 4 object streams
+ 95 named destinations out of 1000 (max. 500000)
+ 247 words of extra memory for PDF output out of 10000 (max. 10000000)
 
