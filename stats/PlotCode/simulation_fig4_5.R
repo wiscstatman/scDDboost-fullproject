@@ -44,15 +44,15 @@ FDR_scb = c(0.00243427458617332 ,0 ,0.0109567298011205 ,0.0226490887796029, 0.00
 pdf("simuTPR.pdf", height = 6, width = 10)
 par(mar=c(7,5,4,1)+.1)
 ORD = order(TP_scb)
-plot(TP_scb[ORD], type = "b", lwd = 2, col = "green",
+plot(TP_scb[ORD], type = "b", lwd = 4, col = "green",
      ylab = "", xaxt = 'n', xlab = "", ylim = c(-0.04,0.55))
 mtext("TPR", side=2, line=2.2, cex=1.2, yaxt = 'n')
-lines(TP_des[ORD] , type = "b", lwd = 2, col = "red")
-lines( TP_sc[ORD] , type = "b", lwd = 2, col = "blue")
-lines( TP_mst[ORD] , type = "b", lwd = 2)
+lines(TP_des[ORD] , type = "b", lwd = 4, col = "red")
+lines( TP_sc[ORD] , type = "b", lwd = 4, col = "blue")
+lines( TP_mst[ORD] , type = "b", lwd = 4)
 axis(1, at=1:12, labels = NM[ORD],cex.axis= 1.2, las = 2)
 legend("topleft", legend=c("MAST", "DESeq2", "scDD", "scDDboost"),
-       col=c("black", "red", "blue","green"),lty = 1, cex = 1.2,lwd = 2)
+       col=c("black", "red", "blue","green"),lty = 1, cex = 1.2,lwd = 4)
 dev.off()
 polygon( c(1,1, 4.5 ,4.5) , c(-0.04,-0.005,-0.005,-0.04) , col="lightgrey",
          border=FALSE )
@@ -94,16 +94,16 @@ dev.off()
 
 pdf("simuFDR.pdf", height = 6, width = 10)
 par(mar=c(7,5,4,1)+.1)
-plot(FDR_scb[ORD], type = "b", lwd = 2, col = "green",
+plot(FDR_scb[ORD], type = "b", lwd = 4, col = "green",
 ylab = "", xaxt = 'n', xlab = "", ylim = c(-0.025 / 2,0.1))
-abline(a=0.05,b=0,lwd = 2,lty = 2,col = "orange")
+abline(a=0.05,b=0,lwd = 4,lty = 2,col = "orange")
 mtext("FDR", side=2, line=2.2, cex=1.2, yaxt = 'n')
-lines(FDR_des[ORD] , type = "b", lwd = 2, col = "red")
-lines( FDR_sc[ORD] , type = "b", lwd = 2, col = "blue")
-lines( FDR_mst[ORD] , type = "b", lwd = 2)
+lines(FDR_des[ORD] , type = "b", lwd = 4, col = "red")
+lines( FDR_sc[ORD] , type = "b", lwd = 4, col = "blue")
+lines( FDR_mst[ORD] , type = "b", lwd = 4)
 axis(1, at=1:12, labels = NM[ORD],cex.axis= 1.2, las = 2)
 legend("topleft", legend=c("MAST", "DESeq2", "scDD", "scDDboost"),
-col=c("black", "red", "blue","green"),lty = 1, cex = 1.2,lwd = 2)
+col=c("black", "red", "blue","green"),lty = 1, cex = 1.2,lwd = 4)
 dev.off()
 polygon( c(1,1, 4.5 ,4.5) , c(-0.025 / 2,-0.003,-0.003,-0.025 / 2) , col="lightgrey",
 border=FALSE )
