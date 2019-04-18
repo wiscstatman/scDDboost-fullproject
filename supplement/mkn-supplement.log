@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  18 APR 2019 15:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  18 APR 2019 15:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1466,7 +1466,7 @@ File: Figs/breakFDR.pdf Graphic file (type pdf)
 Package pdftex.def Info: Figs/breakFDR.pdf  used on input line 556.
 (pdftex.def)             Requested size: 271.0125pt x 271.01514pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 <Figs/Kchange.png, id=229, 767.86874pt x 244.915pt>
 File: Figs/Kchange.png Graphic file (type png)
@@ -1474,7 +1474,7 @@ File: Figs/Kchange.png Graphic file (type png)
 Package pdftex.def Info: Figs/Kchange.png  used on input line 585.
 (pdftex.def)             Requested size: 542.02501pt x 172.89305pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 [10 <./Figs/pca12.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 594--595
@@ -1495,12 +1495,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 636--644
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[12] [13 <./Figs/breakFDR.pdf> <./Figs/Kchange.png>]
+[12]
 Underfull \hbox (badness 10000) in paragraph at lines 652--654
 
  []
 
-[14 <./Figs/overlap.png>]
+[13 <./Figs/breakFDR.pdf>] [14 <./Figs/Kchange.png> <./Figs/overlap.png>]
 Overfull \hbox (5.50514pt too wide) in paragraph at lines 696--697
 []\OT1/pplx/m/n/12 Still us-ing above ex-am-ple, in lim-it-ing case, we have $\
 OML/zplm/m/it/12 p\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 A[]\OMS/zplm/m/n/12 j\OML
@@ -1666,7 +1666,7 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (22 pages, 999137 bytes).
+Output written on mkn-supplement.pdf (22 pages, 999118 bytes).
 PDF statistics:
  443 PDF objects out of 1000 (max. 8388607)
  376 compressed objects within 4 object streams

@@ -552,7 +552,7 @@ GSE79102null & patient1 & 26, 25 & human\\
 
 
 scDDboost may lose FDR control if we keep pushing number of subtypes $K$ bigger.
-\begin{figure}[h!]
+\begin{figure}[h]
 \includegraphics[width = 0.5\textwidth]{Figs/breakFDR.pdf}
  \caption{under NULL case, using dataset EMTAB2805, when using too big $K$ we may lose FDR control (black dashed line shows proportion of false positive identified by scDDboost under 0.05 threshold, while validity score did not vary too much after $K$ is
  greater than 2 }
@@ -581,7 +581,7 @@ We demonstrate the change of posterior probabilities of differential distributio
 
 
 
-\begin{figure}[h!]
+\begin{figure}[h]
 \includegraphics[width = 1\textwidth]{Figs/Kchange.png}
 \caption{PDD change under different number of subtypes $K$, dataset used DEC-EC}
 \end{figure}
