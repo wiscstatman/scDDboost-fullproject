@@ -224,8 +224,8 @@ data available through \verb+conquer+ \citep{ref:Cq}.  Additional numerical expe
  activation~\citep{ref:d3e}.  Finally, we establish first-order asymptotic results for the methodology.  
 
 On manuscript organization, we present
-the modeling and methodology elements in Section~2, numerical experiments in Section~3, and a discussion
-in Section~4.  We relegate some details to an appendix and many others to a Supplementary 
+the modeling and methodology elements in Section~2, numerical experiments in Section~3,  asymptotic analysis in Section~4, and a discussion
+in Section~5.  We relegate some details to an appendix and many others to a Supplementary 
 Material document.
 
 
@@ -521,12 +521,14 @@ randomized clusterings $\hat z^*$.  These are not uniformly random, but rather a
 to a randomized distance matrix $D^*=\left( d_{i,j}\times w_{i,j}\right)$, 
 where $w_{i,j}$ are  unit mean, non-negative weights
 $w_{i,j} = 1/( e_i + e_j )$, and where $( e_i) $ are independent and identically Gamma$(\hat a, \hat b)$ distributed
-deviates for hyper-parameters $(\hat a, \hat b)$ derived from $D$.   We argue that the distribution of
+deviates for hyper-parameters $(\hat a, \hat b)$ derived from $D$.   
+The distribution of
 clusterings induced by this simple computational 
-scheme approximates a Bayesian posterior analysis (Supplementary Material
-Section **).   Pseudo-code for the resulting \textsc{scDDboost} is in Algorithm~\ref{alg:scDDboost} (Appendix).
-Averaging this way gives additional stability to the posterior probability statistics (Supplementary Material
-Section **).
+scheme approximates a Bayesian posterior analysis, as we argue in
+the Appendix, where we also present pseudo-code for the resulting \textsc{scDDboost} 
+Algorithm~\ref{alg:scDDboost}.
+Averaging over results from randomized clusterings 
+ gives additional stability to the posterior probability statistics.
 
 
 Computations become more intensive the larger is the number $K$ of cell subtypes. We also observe 
