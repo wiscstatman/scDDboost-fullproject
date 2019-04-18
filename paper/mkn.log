@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  17 APR 2019 20:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  17 APR 2019 20:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1208,11 +1208,11 @@ File: Figs/FucciDD.pdf Graphic file (type pdf)
 <use Figs/FucciDD.pdf>
 Package pdftex.def Info: Figs/FucciDD.pdf  used on input line 200.
 (pdftex.def)             Requested size: 129.60022pt x 259.21461pt.
-<Figs/HeatUni.png, id=153, 418.56375pt x 518.93875pt>
+<Figs/HeatUni.png, id=153, 391.4625pt x 480.79625pt>
 File: Figs/HeatUni.png Graphic file (type png)
 <use Figs/HeatUni.png>
 Package pdftex.def Info: Figs/HeatUni.png  used on input line 203.
-(pdftex.def)             Requested size: 230.39978pt x 285.64682pt.
+(pdftex.def)             Requested size: 230.39978pt x 282.9777pt.
 LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <9> not available
 (Font)              Font shape `OT1/pplx/b/n' tried instead on input line 214.
  [3] [4 <./Figs/FucciDD.pdf> <./Figs/HeatUni.png>] [5] [6]
@@ -1494,7 +1494,7 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (30 pages, 891535 bytes).
+Output written on mkn.pdf (30 pages, 758968 bytes).
 PDF statistics:
  522 PDF objects out of 1000 (max. 8388607)
  447 compressed objects within 5 object streams
