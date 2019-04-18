@@ -825,7 +825,7 @@ method, (\verb+sc3+~\citep{sc3}, Supplementary ***)  and obtain similar results 
 
 We observe that scDDboost generally identify more DD genes than other methods.
 
-***Benefits from share information from other genes in EBSeq. ***
+
 \begin{figure}[H]
 \includegraphics[width = 0.8\textwidth]{Figs/clussz.pdf}
  \caption{  boxplot of log transformed cluster size of DD genes of two categories. 
@@ -859,12 +859,16 @@ Number of subtypes $K$ is a crucial factor controlling the accuracy of our model
 Too small $K$ may end up in an underfit such that cells within same subtype can still be very different, such heterogeneity within the subtype introduced by insufficient number of clusters 
 tends to make our posterior inference of the DE patterns between subtypes more favorable for all equivalent expressed and reducing the power of \textsc{scDDboost}.
 Too big $K$ may end up in an overfit such that two subtypes can be very similar, given we have fixed number of samples (cells), allowing more clusters will introduce more patterns (both for mean expression change and proportion change) to infer. 
-Also notice the limitation of DDM model (see section 4), overestimating $K$ in \textsc{scDDboost} may losing FDR control (supplementary Fig number *** ). 
-%\begin{figure}[H]
-%\includegraphics[width = 0.7\textwidth]{Figs/NULL.pdf}
- %\caption{under NULL case, using dataset GSE52529, when using too big $K$ we may completely lose FDR control (black line shows proportion of false positive identified by scDDboost under 0.05 threshold, while validity score become stable at $K$ = 3 }
-  %\label{fig:7}
-%\end{figure}
+Also notice the limitation of DDM model (see section 4), overestimating $K$ in \textsc{scDDboost} may losing FDR control (supplementary Fig 6). 
+
+***Benefits from share information from other genes in EBSeq. ***
+\begin{figure}[H]
+\includegraphics[width = 0.7\textwidth]{Figs/nullpdd_box.pdf}
+ \caption{PDD of the same datasets used in Fig 7, we have types of PDD, the purple box is the PDD calculated by using the proportion of DE patterns inferred from the whole genome.  
+ The magenta box is the PDD using the trivial proportion of DE pattern (i.e. all DE patterns between subtypes have same probabilities), basically we do not borrow information from other genes. 
+ In the null case, we observed lower PDD when using information from the whole genome and this is consistent with the underlying ED structure.}
+  \label{fig:8}
+\end{figure}
 
 
 
