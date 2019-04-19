@@ -927,11 +927,11 @@ Under some parameters settings, the double dirichlet prior will have limited res
 
 We first give the expression of posterior probability. Since there is no information favorable of any particular $A_\pi$, we select discrete uniform distribution as the prior for it, then the posterior probability is
 \begin{align}
-p(A_\pi | t^1, t^2) = c*\sum_{\pi' \text{ refines } \pi} p(t^1 | t^1_{\pi'})\, p(t^2 |  t^2_{\pi'} )
- \, p( t^1_{\pi'}, t^2_{\pi'} | A_{\pi'} )
+p(A_\pi | t^1, t^2) = c*\sum_{\pi' \text{ refines } \pi} p(t^1 | t^1_{\pi'})\, p(t^2 |  t^2_{\pi'} ) 
+ \, p( t^1_{\pi'}, t^2_{\pi'} | A_{\pi'} ) \omega_\pi
 \end{align}
 for a normalizing constant $\frac{1}{c} = \underset{\pi' \in \Pi}\sum p(t^1 | t^1_{\pi'})\, p(t^2|  t^2_{\pi'} )
- \, p( t^1_{\pi'}, t^2_{\pi'} | A_{\pi'} )$.
+ \, p( t^1_{\pi'}, t^2_{\pi'} | A_{\pi'} ) \omega_\pi$.
  
 Let $\Omega = \{(\phi, \psi): \overset{K}{\underset{i = 1}\sum}\phi_i = \overset{K}{\underset{i = 1}\sum}\psi_i = 1, \phi_i \geq 0, \psi_i \geq 0 , i = 1,..., K\}$ be the whole space. There is a subset of $\Omega$ we lack posterior inference. Let us first see an example:
 \begin{figure}[h]
