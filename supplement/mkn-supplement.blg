@@ -12,50 +12,49 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ./supp_references/wlr_ref.bib
-Warning--I didn't find a database entry for "ineq"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty booktitle in selK
-You've used 14 entries,
+You've used 15 entries,
             5204 wiz_defined-function locations,
-            975 strings with 11335 characters,
-and the built_in function-call counts, 170932 in all, are:
-= -- 24890
-> -- 572
-< -- 15
-+ -- 4552
-- -- 172
-* -- 13923
-:= -- 24945
-add.period$ -- 49
-call.type$ -- 14
-change.case$ -- 71
-chr.to.int$ -- 14
-cite$ -- 15
-duplicate$ -- 1112
-empty$ -- 11032
-format.name$ -- 890
-if$ -- 38677
+            979 strings with 11467 characters,
+and the built_in function-call counts, 175022 in all, are:
+= -- 25599
+> -- 586
+< -- 17
++ -- 4870
+- -- 178
+* -- 14096
+:= -- 25607
+add.period$ -- 51
+call.type$ -- 15
+change.case$ -- 77
+chr.to.int$ -- 15
+cite$ -- 16
+duplicate$ -- 1144
+empty$ -- 11177
+format.name$ -- 909
+if$ -- 39709
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 165
-num.names$ -- 58
-pop$ -- 698
+newline$ -- 174
+num.names$ -- 63
+pop$ -- 726
 preamble$ -- 1
-purify$ -- 43
+purify$ -- 47
 quote$ -- 0
-skip$ -- 14307
+skip$ -- 14727
 stack$ -- 0
-substring$ -- 33155
-swap$ -- 552
-text.length$ -- 126
+substring$ -- 33575
+swap$ -- 561
+text.length$ -- 135
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 364
+type$ -- 392
 warning$ -- 1
-while$ -- 185
+while$ -- 199
 width$ -- 0
-write$ -- 332
-(There were 2 warnings)
+write$ -- 353
+(There was 1 warning)

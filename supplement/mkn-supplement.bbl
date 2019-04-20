@@ -1,4 +1,4 @@
-\begin{thebibliography}{14}
+\begin{thebibliography}{15}
 % BibTex style file: imsart-nameyear.bst, 2017-11-03
 % Default style options (sort=1,type=nameyear).
 % Used options (sort=1,type=nameyear).
@@ -226,6 +226,17 @@
 \bvolume{12}
 \bpages{947 EP -}.
 \end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Li and ping Chen}{2007}]{ineq}
+\begin{binproceedings}[author]
+\bauthor{\bsnm{Li},~\bfnm{Xin}\binits{X.}} \AND \bauthor{\bparticle{ping}
+  \bsnm{Chen},~\bfnm{Chao}\binits{C.}}
+(\byear{2007}).
+\btitle{Inequalities for the gamma function}.
+In \bbooktitle{2007), Art. 28. [ONLINE: http://jipam.vu.edu.au/
+  article.php?sid=842}.
+\end{binproceedings}
 \endbibitem
 
 \bibitem[\protect\citeauthoryear{Ray and Turi}{2000}]{selK}

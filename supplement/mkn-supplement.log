@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  20 APR 2019 17:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  20 APR 2019 17:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1264,11 +1264,6 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 298.
 
-./mkn-supplement.tex:300: Undefined control sequence.
-l.300 ...stimate $d_0$ by treating $d_{i,j} \appox
-                                                   \Delta_{i,j}$ and $\frac{...
-
-? 
 <Figs/ARI.pdf, id=136, 505.89pt x 505.89pt>
 File: Figs/ARI.pdf Graphic file (type pdf)
 <use Figs/ARI.pdf>
@@ -1548,10 +1543,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 727--729
 
  []
 
-
-Package natbib Warning: Citation `ineq' on page 17 undefined on input line 747.
-
-
 [17 <./Figs/overlap.png>]
 Overfull \hbox (23.45146pt too wide) in paragraph at lines 767--771
 []\OT1/pplx/m/n/12 Recall $\OML/zplm/m/it/12 ![] \OMS/zplm/m/n/12 / \OML/zplm/m
@@ -1627,11 +1618,7 @@ File: uni-3.def 2013/05/13 UCS: Unicode data U+0300..U+03FF
 l.202   to Dynamic Patterns of NF-κB Activation}
                                                  .
 ? 
-[20])
-
-Package natbib Warning: There were undefined citations.
-
-[21]
+[20]) [21]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 931.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 931.
  (./mkn-supplement.aux)
@@ -1649,10 +1636,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 931.
  ) 
 Here is how much of TeX's memory you used:
- 29337 strings out of 492649
- 551774 string characters out of 6129622
- 642440 words of memory out of 5000000
- 32648 multiletter control sequences out of 15000+600000
+ 29341 strings out of 492649
+ 551819 string characters out of 6129622
+ 642476 words of memory out of 5000000
+ 32651 multiletter control sequences out of 15000+600000
  571844 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,16n,64p,10432b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1668,10 +1655,10 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (21 pages, 1119341 bytes).
+Output written on mkn-supplement.pdf (21 pages, 1121194 bytes).
 PDF statistics:
- 446 PDF objects out of 1000 (max. 8388607)
- 375 compressed objects within 4 object streams
- 91 named destinations out of 1000 (max. 500000)
+ 449 PDF objects out of 1000 (max. 8388607)
+ 378 compressed objects within 4 object streams
+ 92 named destinations out of 1000 (max. 500000)
  228 words of extra memory for PDF output out of 10000 (max. 10000000)
 
