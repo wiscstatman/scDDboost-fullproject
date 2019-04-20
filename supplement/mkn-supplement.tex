@@ -784,8 +784,8 @@ d(\pi, t^1, t^2, \alpha, \beta) = \underset{b\in \pi}\Sigma h(\beta_b + t_b^1 + 
 
 Recall $\beta_b = \gamma_b^1 + \gamma_b^2$ and from lemma 2, $(x - c)\text{ln}(x) - x + 1 \leq h(x) \leq (x - 1/2)\text{ln}(x) - x + 1$ we have 
 \begin{align}
-d(\pi, t^1, t^2, \alpha, \beta) &\geq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - c) \text{ln}(\beta_b  + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - 1/2) \text{ln}(t_b^j + \gamma_b^j)\\
-d(\pi, t^1, t^2, \alpha, \beta) &\leq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - 1 / 2) \text{ln}(\beta_b  + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - c) \text{ln}(t_b^j + \gamma_b^j)
+d(\pi, t^1, t^2, \alpha, \beta) &\geq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - c) \text{ln}(\beta_b  + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - 1/2) \text{ln}(t_b^j + \gamma_b^j) + N(\pi)\\
+d(\pi, t^1, t^2, \alpha, \beta) &\leq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - 1 / 2) \text{ln}(\beta_b  + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - c) \text{ln}(t_b^j + \gamma_b^j) + N(\pi)
 \end{align}
 
 
@@ -825,7 +825,7 @@ $U(\pi) = \Sigma_{b\in\pi}\big[(2c - 1/2) \text{ln}(\beta_b + t_b^1 + t_b^2)
  + \Sigma_{b\in\pi_1}g(\xi_b)(Y_b^1 + Y_b^2)  - \Sigma_{b\in\pi_2}g(\xi_ b)(Y_b^1 + Y_b^2)\\
  \end{eqnarray*}
  
- By CLT we know $X_b^1, X_b^2$ are asymptotic gamma($\chi$-square) distributed and $Y_b^1, Y_b^2$ are $o_p(1)$, $g(\xi_b)$ has bounded variance and $T(\pi_1) - U(\pi_2) = -\text{ln}(n)$ if $N(\pi_2) < N(\pi_2)$
+ By CLT , LLN and Slutsky theorem we know $X_b^1, X_b^2$ are asymptotic gamma($\chi$-square) distributed and $Y_b^1, Y_b^2$ are $o_p(1)$, $g(\xi_b)$ has bounded variance and $T(\pi_1) - U(\pi_2) = -\text{ln}(n)$ if $N(\pi_2) < N(\pi_2)$
  as $ \text{ln}(\beta_b + t_b^1 + t_b^2)  -  \text{ln}(\beta_{b'} + t_{b'}^1 + t_{b'}^2) =  \text{ln}(\frac{\beta_b + t_b^1 + t_b^2}{n_1})  -  \text{ln}(\frac{\beta_{b'} + t_{b'}^1 + t_{b'}^2}{n_1}) \rightarrow 0 \quad a.s.$ so we complete the proof
 
 %Recall $t^1 \sim \text{multinomial}(n_1, \phi)$, $t^2 \sim \text{multinomial}(n_2, \psi)$.
