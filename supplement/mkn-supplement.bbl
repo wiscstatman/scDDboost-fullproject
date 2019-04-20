@@ -1,4 +1,4 @@
-\begin{thebibliography}{15}
+\begin{thebibliography}{14}
 % BibTex style file: imsart-nameyear.bst, 2017-11-03
 % Default style options (sort=1,type=nameyear).
 % Used options (sort=1,type=nameyear).
@@ -84,21 +84,6 @@
 \bvolume{21}
 \bpages{1399--1410}.
 \bdoi{10.1016/j.celrep.2017.10.030}
-\end{barticle}
-\endbibitem
-
-\bibitem[\protect\citeauthoryear{Delmans and Hemberg}{2016}]{ref:d3e}
-\begin{barticle}[author]
-\bauthor{\bsnm{Delmans},~\bfnm{Mihails}\binits{M.}} \AND
-  \bauthor{\bsnm{Hemberg},~\bfnm{Martin}\binits{M.}}
-(\byear{2016}).
-\btitle{Discrete distributional differential expression (D3E) - a tool for gene
-  expression analysis of single-cell RNA-seq data}.
-\bjournal{BMC Bioinformatics}
-\bvolume{17}
-\bpages{110}.
-\bdoi{10.1186/s12859-016-0944-6}.
-\bid{Delmans2016}
 \end{barticle}
 \endbibitem
 
