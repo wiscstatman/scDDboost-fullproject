@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  20 APR 2019 17:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  20 APR 2019 17:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1374,6 +1374,14 @@ gg$\OT1/pplx/m/n/10.95 ,
  []
 
 
+Overfull \hbox (0.89282pt too wide) in paragraph at lines 982--983
+[][][]\OT1/pplx/m/sc/10.95 Theorem \OT1/pplx/m/n/10.95 5\OT1/pplx/m/sc/10.95 . 
+[]\OT1/pplx/m/it/10.95 Fol-low-ing the con-di-tions in the-o-rem 4, when pa-ram
+-e-ter $\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 ^^^\OT1/pplx/m/n/10.95 , \OML
+/zplm/m/it/10.95  \OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 2
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 998--1000
 
  []
@@ -1501,7 +1509,7 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (29 pages, 762800 bytes).
+Output written on mkn.pdf (29 pages, 762691 bytes).
 PDF statistics:
  523 PDF objects out of 1000 (max. 8388607)
  447 compressed objects within 5 object streams
