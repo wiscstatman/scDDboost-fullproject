@@ -1078,25 +1078,43 @@ correspond to $\Phi_{\tilde \pi}$ and $\Psi_{\tilde \pi}$, which are equal on $A
 
 One way to frame the subtype problem is to suppose that subtype labels $z = (z_i)$ satisfy
  $z=f(\Delta)$, where $\Delta = \left( \delta_{i,j} \right)$ is
-a $n \times n$  matrix holding {\em true} distances, such as  $\delta_{i,j}$ between cells $i$ and $j$, 
+a $n \times n$  matrix holding {\em true}, unobservable distances, such as  $\delta_{i,j}$ between cells $i$ and $j$, 
 and that $f$ is some assignment
 function, like the one 
 induced by the $K-$medoids algorithm.  Then posterior uncertainty in $z$ would follow 
-directly from  posterior uncertainty in $\Delta$.  We could proceed via formal Bayesian analysis, say under
-a simple conjugate prior in which $1/\delta_{i,j} \sim \, $Gamma$(a_0,d_0)$ 
-and in which the observed distance
-$d_{i,j} | \delta_{i,j} \sim \, $Gamma$(a_1, a_1/\delta_{i,j})$, which would assure that $\delta_{i,j}$ is
-the expectation of $d_{i,j}$, and using additional parameters $a_0, d_0, $ and $a_1$.  Not accounting
-for any constraints imposed by both $D$ and $\Delta$ being distance matrices, we would have the marginal
-posterior distribution $1/\delta_{i,j} | D \sim \, $Gamma$(a_0+a_1, d_0 + a_1 d_{i,j} )$.  For any threshold
+directly from  posterior uncertainty in $\Delta$.  On one hand, 
+we could proceed via formal Bayesian analysis, say under
+a simple conjugate prior in which $1/\delta_{i,j} \sim \; $Gamma$(a_0,d_0)$, for hyperparameters
+$a_0$ and $d_0$, and in which the observed distance
+$d_{i,j} | \delta_{i,j} \sim \; $Gamma$(a_1, a_1/\delta_{i,j})$.  This would assure that $\delta_{i,j}$ is
+the expectation of $d_{i,j}$, with shape  parameter $a_1$ affecting variation of measured distances
+about their expected values.  Not accounting
+for any constraints imposed by both $D$ and $\Delta$ being distance matrices, we would have the 
+posterior distribution $1/\delta_{i,j} | D \sim \; $Gamma$(a_0+a_1,  d_0 + a_1 d_{i,j} )$.  For any threshold
 $c>0$, we would find
-\begin{eqnarray*}
-P\left( \delta_{i,j} \leq c | D \right) = P\left( U \geq  \frac{ d_0+a_1 d_{i,j}}{c(a_0+a_1)} \right)
-\end{eqnarray*}
+\begin{eqnarray}
+\label{eq:rw}
+P\left( \delta_{i,j} \leq c | D \right) = P\left( U \geq  \frac{  d_0+a_1 d_{i,j}}{c(a_0+a_1)} \right)
+\end{eqnarray}
 where $U \sim \, $Gamma$(a_0+a_1, a_0+a_1)$
 
-
-**
+Alternatively, we could form randomized distances $d^*_{i,j} = d_{i,j}/w_{i,j}$ where $w_{i,j}$ is 
+the analyst-supplied random weight distributed as Gamma$(\hat a , \hat a)$ as in Section 2.2.  Notice
+that 
+\begin{eqnarray*}
+P( d_{i,j}^* \leq c | D )  = P( w_{i,j} > d_{i,j}/c | D)
+\end{eqnarray*}
+which is also an upper tail probability for a unit-mean Gamma deviate with shape and scale equal to $\hat a$.  
+Comparing to~(\ref{eq:rw}),  by setting  $\hat a$ to equal $a_0 + a_1$, and making $d_0$ relatively small, 
+we find
+\begin{eqnarray*}
+P( d_{i,j}^* \leq c | D )  \approx  P( \delta_{i,j} \leq c | D).
+\end{eqnarray*}
+**check**
+In other words, the randomized distance procedure is providing approximate posterior draws of the underlying
+distance matrix.  In spite of limitations of this procedure for full Bayesian inference, it provides
+an elementary scheme to account for uncertainty in subtype allocations.  Numerical experiments
+in Supplementary Material make comparisons to a full, Dirichlet-process-based, posterior analysis.
 
 
 %In this section, we gave an intuitive justification for consistency between bayesian framework clustering analysis and random weighting procedure. A full bayesian analysis for clustering needs to specify the density of data given the partition. Specifically, in single cell analysis we need to know the density of transcripts of genes given the partitions which requires understanding of co-expression and dependence between genes. Instead of trying to untangle the mystery behind the dependence of genes, we consider following approximation
