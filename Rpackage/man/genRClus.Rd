@@ -2,7 +2,7 @@
 % Please edit documentation in R/genRClus.R
 \name{genRClus}
 \alias{genRClus}
-\title{determine number of clusters}
+\title{generate random clusterings}
 \usage{
 genRClus(D, a, K, seed)
 }
@@ -19,5 +19,5 @@ genRClus(D, a, K, seed)
 random generated clustering of cells
 }
 \description{
-determine number of clusters
+generate random clusterings
 }

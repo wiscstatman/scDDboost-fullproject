@@ -1,5 +1,5 @@
 
-#' determine number of clusters
+#' generate random clusterings
 #'
 #' @param D distance matrix of cells
 #' @param a paramter for weights
