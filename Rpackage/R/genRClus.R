@@ -10,7 +10,7 @@
 genRClus = function(D,a,K,seed){
     set.seed(seed)
     n = ncol(D)
-    e <- rgamma(n,shape= a / 2, rate= a / 2 )
+    e <- rgamma(n,shape= a / 2, rate= a )
     bar = D/outer(e,e,"+")
     #dst.star <- as.dist(bar)
     cstar = pam(bar, k = K, diss = T)$clustering
