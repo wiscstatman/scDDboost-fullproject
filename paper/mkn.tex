@@ -532,10 +532,10 @@ Averaging over results from randomized clusterings
 
 
 Computations become more intensive the larger is the number $K$ of cell subtypes. We also observe 
-that  taking $K$ to be too large may inflate the false positive rate (Figure **).  The approach
+that  taking $K$ to be too large may inflate the false positive rate (supplementary figure 8).  The approach
 taken in \verb+scDDboost+ is to set $K$ using the validity score~\citep{selK}, which measures 
 changes in within-cluster sum of squares as we increase $K$.  Our specific implementation is in
-Supplementary Material Section *.
+Supplementary Material Section 2.2.4.
 
 %%Although there are various options for clustering methods, none of them guarantee the accuracy and posterior inference of differential distributed genes can be sensitive to the initial partition. Here we provide a method to make our inferences robust to partitions. Given number of subtypes $K$, the final posterior probabilities is obtained by averaging results from iterative run of \textsc{scDDboost-core}  with randomly generated subtype labels $z^*$. Taking account of information contained in $D = dist(X)$ , instead of purely random assigning subtype labels, we generate the distance matrices of cells $D^*$ by dividing weights to the original one and assign labels based on $D^*$. Specifically,  we random sample a noise vector $e$ with length equal to number of cells and components are i.i.d. gamma distributed,  then constructing the weighting matrix $W$ by $W_{i,j} = e_i + e_j$ and random distance matrix is obtained by $D^* = D /  W$(division is performed componentwisely).  The choice of gamma distributed weights and dividing transformation is to matched the probability of two units classified into the same group under random weighting to bayesian framework (supplementary material). 
 
@@ -752,8 +752,8 @@ P(A_\pi|y,z) =
 
 
 \subsection{$P(M_{g,\pi}|X,z)$}
+We use the empirical bayesian scheme from EBSeq \citep{
 
-{\em briefly describe EB-seq without a ton of detail, but getting at the product formulation}
  
 \section{Numerical experiments}
 
