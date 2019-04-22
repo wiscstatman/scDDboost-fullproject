@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  22 APR 2019 14:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  22 APR 2019 15:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1507,29 +1507,17 @@ l.387 \bid{Zappia2017}
                       
 ? 
 ) [26]
-Overfull \hbox (6.77095pt too wide) in paragraph at lines 1067--1079
+Overfull \hbox (6.77095pt too wide) in paragraph at lines 1067--1081
  []\OT1/pplx/m/it/10.95 Randomizing dis-tances for ap-prox-i-mate pos-te-rior i
 n-fer-ence. \OT1/pplx/m/n/10.95 One way to frame
  []
 
-
-Overfull \hbox (59.96602pt too wide) in paragraph at lines 1067--1079
-\OT1/pplx/m/n/10.95 1\OT1/zplm/m/n/10.95 /\OML/zplm/m/it/10.95 ^^N[] \OMS/zplm/
-m/n/10.95 ^^X$\OT1/pplx/m/n/10.95 Gamma$\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.
-95 a[]\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 d[]\OT1/zplm/m/n/10.95 )$ \OT1
-/pplx/m/n/10.95 and in which the ob-served dis-tance $\OML/zplm/m/it/10.95 d[]\
-OMS/zplm/m/n/10.95 j\OML/zplm/m/it/10.95 ^^N[] \OMS/zplm/m/n/10.95 ^^X$\OT1/ppl
-x/m/n/10.95 Gamma$\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 a[]\OT1/pplx/m/n/10
-.95 , \OML/zplm/m/it/10.95 a[]\OT1/zplm/m/n/10.95 /\OML/zplm/m/it/10.95 ^^N[]\O
-T1/zplm/m/n/10.95 )$\OT1/pplx/m/n/10.95 ,
- []
-
 [27] [28]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1131.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1131.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1133.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1133.
  (./mkn.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1131.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1131.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1133.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1133.
 
 Package rerunfilecheck Info: File `mkn.out' has not changed.
 (rerunfilecheck)             Checksum: B3BD7B4F68AD020B00ABAC128F6B6370;1007.
@@ -1540,7 +1528,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1131.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1133.
  )
 (\end occurred inside a group at level 1)
 
@@ -1568,7 +1556,7 @@ e/2018/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/t
 exmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-di
 st/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplri8a.pfb>
-Output written on mkn.pdf (28 pages, 761456 bytes).
+Output written on mkn.pdf (28 pages, 761479 bytes).
 PDF statistics:
  520 PDF objects out of 1000 (max. 8388607)
  445 compressed objects within 5 object streams

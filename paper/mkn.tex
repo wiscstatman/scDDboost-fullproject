@@ -1068,18 +1068,20 @@ One way to frame the subtype problem is to suppose that subtype labels $z = (z_i
  $z=f(\Delta)$, where $\Delta = \left( \delta_{i,j} \right)$ is
 a $n \times n$  matrix holding {\em true} distances, such as  $\delta_{i,j}$ between cells $i$ and $j$, 
 and that $f$ is some assignment
-function, like that induced by the $K-$medoids algorithm.  Then posterior uncertainty in $z$ would follow 
-from  posterior uncertainty in $\Delta$.  We could proceed via formal Bayesian analysis, say under
-a simple conjugate prior in which $1/\delta_{i,j} \sim $Gamma$(a_0,d_0)$ and in which the observed distance
-$d_{i,j} | \delta_{i,j} \sim $Gamma$(a_1, a_1/\delta_{i,j})$, which would assure that $\delta_{i,j}$ is
-the expectation of $d_{i,j}$, and with additional parameters $a_0, d_0, $ and $a_1$.  Not accounting
+function, like the one 
+induced by the $K-$medoids algorithm.  Then posterior uncertainty in $z$ would follow 
+directly from  posterior uncertainty in $\Delta$.  We could proceed via formal Bayesian analysis, say under
+a simple conjugate prior in which $1/\delta_{i,j} \sim \, $Gamma$(a_0,d_0)$ 
+and in which the observed distance
+$d_{i,j} | \delta_{i,j} \sim \, $Gamma$(a_1, a_1/\delta_{i,j})$, which would assure that $\delta_{i,j}$ is
+the expectation of $d_{i,j}$, and using additional parameters $a_0, d_0, $ and $a_1$.  Not accounting
 for any constraints imposed by both $D$ and $\Delta$ being distance matrices, we would have the marginal
-posterior distribution $1/\delta_{i,j} | D \sim $Gamma$(a_0+a_1, d_0 + a_1 d_{i,j} )$.  For any threshold
+posterior distribution $1/\delta_{i,j} | D \sim \, $Gamma$(a_0+a_1, d_0 + a_1 d_{i,j} )$.  For any threshold
 $c>0$, we would find
 \begin{eqnarray*}
-P\left( \delta_{i,j} \leq c | D \right) = P\left( U \geq  \frac{c( d_0+a_1 d_{i,j})}{ a_0+a_1} \right)
+P\left( \delta_{i,j} \leq c | D \right) = P\left( U \geq  \frac{ d_0+a_1 d_{i,j}}{c(a_0+a_1)} \right)
 \end{eqnarray*}
-where $U \sim$Gamma$(a_0+a_1, a_0+a_1)$
+where $U \sim \, $Gamma$(a_0+a_1, a_0+a_1)$
 
 
 **
