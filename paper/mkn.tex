@@ -752,7 +752,7 @@ P(A_\pi|y,z) =
 
 
 \subsection{$P(M_{g,\pi}|X,z)$}
-We use the empirical bayesian scheme from EBSeq \citep{ref:Leng} for the inference. Specifically, for a transcript given the condition label $X_{g,s} | z_s$, we assume it is negative binomial distributed with hyper parameters($r_g, q_g^{z_s}$). As $r_g$ is shared among subtypes, to score the differential patterns between mean expression $\mu_{g,1},...,\mu_{g,K}$ can be equivalently scored for differential patterns between $q_g^1,...,q_g^K$. For such purpose, we assume $q_g^i \sim \text{Beta}(\alpha, \beta^g), i = 1,...,K$. 
+We use the empirical bayesian scheme from EBSeq \citep{ref:Leng} for the inference. Specifically, for a transcript given the subtype label $X_{g,s} | z_s$, we assume it is negative binomial distributed with hyper parameters($r_g, q_g^{z_s}$). As $r_g$ is shared among subtypes, to score the differential patterns between mean expression $\mu_{g,1},...,\mu_{g,K}$ can be equivalently scored for differential patterns between $q_g^1,...,q_g^K$. For such purpose, we assume $q_g^i \sim \text{Beta}(\alpha, \beta^g), i = 1,...,K$. 
 The posterior probability is calculated from
 \begin{eqnarray*}
 P(M_{g,\pi}|X,z) = \frac{ P(M_{g,\pi}, X,z)}{\sum_{\pi \in \Pi} P(M_{g,\pi}, X,z)}
