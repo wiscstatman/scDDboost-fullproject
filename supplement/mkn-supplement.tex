@@ -784,7 +784,7 @@ d(\pi, t^1, t^2, \alpha, \beta) &\leq \underset{b\in \pi}\Sigma (\beta_b + t_b^1
 \text{RHS of (4)} = \Sigma_b \big[ (t_b^1 + \gamma_b^1) \text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1})
  + (t_b^2 + \gamma_b^2) \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2})\\
  + (1 - c) \text{ln}(\beta_b + t_b^1 + t_b^2) 
-  - 1/2(\text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))\big]
+  - 1/2(\text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))\big] + N(\pi)
 \end{eqnarray*}
 
 By Taylor expansion at $x= 1$, $\text{ln}(x + 1) = \text{ln}2 + 1/2(x - 1) - 1/8(x - 1)^2 + g(\xi) (x - 1)^3$, where $g(\xi)$ is the reminder term of form $\frac{1}{3(1+\xi)^3}$ for $ 0 < \xi < x$
@@ -792,7 +792,7 @@ For a fixed $n_1, n_2$, we have
 
 \begin{eqnarray*}
 \text{RHS of (4)} = (n_1 + n_2) \text{ln}2  - \Sigma_{b\in\pi}(1/8 (X_b^1 + X_b^2)\\
-+ g(\xi_b) (Y_b^1 + Y_b^2) )+ T(\pi)
++ g(\xi_b) (Y_b^1 + Y_b^2) )+ T(\pi) + N(\pi)
 \end{eqnarray*}
 
 where $X_b^1 = \frac{(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2)^2}{t_b^1 + \gamma_b^1}$, $X_b^2 =  \frac{(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2)^2}{t_b^2 + \gamma_b^2}$,
@@ -802,7 +802,7 @@ and $T(\pi) = \Sigma_{b\in\pi}\big[(1 - c) \text{ln}(\beta_b + t_b^1 + t_b^2)
 Similarly
 \begin{eqnarray*}
 \text{RHS of (5)} = (n_1 + n_2) \text{ln}2  -\Sigma_{b\in\pi}(1/8 (X_b^1 + X_b^2)\\
-+ g(\xi_b) (Y_b^1 + Y_b^2)) + U(\pi)
++ g(\xi_b) (Y_b^1 + Y_b^2)) + U(\pi) + N(\pi)
 \end{eqnarray*}
   
 $U(\pi) = \Sigma_{b\in\pi}\big[(2c - 1/2) \text{ln}(\beta_b + t_b^1 + t_b^2) 
