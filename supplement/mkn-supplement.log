@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  23 APR 2019 17:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  23 APR 2019 17:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1067,7 +1067,20 @@ Document Style - pseudocode environments for use with the `algorithmicx' style
 \c@lemma=\count320
 \c@theorem=\count321
 \c@prop=\count322
- (./mkn-supplement.aux)
+ (./mkn-supplement.aux
+
+LaTeX Warning: Label `fig:1' multiply defined.
+
+
+LaTeX Warning: Label `fig:4' multiply defined.
+
+
+LaTeX Warning: Label `fig:7' multiply defined.
+
+
+LaTeX Warning: Label `fig:1' multiply defined.
+
+)
 \openout1 = `mkn-supplement.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
@@ -1086,8 +1099,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
 LaTeX Font Info:    ... okay on input line 46.
 LaTeX Font Info:    Try loading font information for OT1+pplx on input line 46.
 
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1pplx.fd
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1pplx.fd
 File: ot1pplx.fd 2004/09/06 font definitions for OT1/pplx.
 )
 \AtBeginShipoutBox=\box69
@@ -1234,12 +1246,7 @@ Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 151.
 
-[3]
-
-Package natbib Warning: Citation `ref:dahl' on page 4 undefined on input line 2
-16.
-
-[4]
+[3] [4]
 Overfull \hbox (8.13269pt too wide) in paragraph at lines 239--240
 []\OT1/pplx/m/n/12 if $\OML/zplm/m/it/12 X[]$ \OT1/pplx/m/n/12 and $\OML/zplm/m
 /it/12 X[]$ \OT1/pplx/m/n/12 are over-lapped, with-out loss of gen-er-al-ity, w
@@ -1257,7 +1264,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 289.
 
-<Figs/ARI.pdf, id=133, 505.89pt x 505.89pt>
+<Figs/ARI.pdf, id=136, 505.89pt x 505.89pt>
 File: Figs/ARI.pdf Graphic file (type pdf)
 <use Figs/ARI.pdf>
 Package pdftex.def Info: Figs/ARI.pdf  used on input line 295.
@@ -1271,7 +1278,7 @@ Overfull \hbox (20.15096pt too wide) in paragraph at lines 302--303
 d dataset. We ran-dom gen-er-ate one-dimensional
  []
 
-<Figs/try7-g.pdf, id=134, 505.89pt x 505.89pt>
+<Figs/try7-g.pdf, id=137, 505.89pt x 505.89pt>
 File: Figs/try7-g.pdf Graphic file (type pdf)
 <use Figs/try7-g.pdf>
 Package pdftex.def Info: Figs/try7-g.pdf  used on input line 305.
@@ -1286,9 +1293,6 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 315.
-
-
-Package natbib Warning: Citation `selK' on page 6 undefined on input line 315.
 
 [6] [7 <./Figs/ARI.pdf>] [8 <./Figs/try7-g.pdf>]
 Overfull \hbox (33.573pt too wide) in paragraph at lines 357--359
@@ -1348,7 +1352,7 @@ n/12 (\OML/zplm/m/it/12 t[]\OMS/zplm/m/n/12 j\OML/zplm/m/it/12 t[]\OT1/pplx/m/n
  .$
  []
 
-<Figs/pca3.pdf, id=169, 578.16pt x 361.35pt>
+<Figs/pca3.pdf, id=175, 578.16pt x 361.35pt>
 File: Figs/pca3.pdf Graphic file (type pdf)
 <use Figs/pca3.pdf>
 Package pdftex.def Info: Figs/pca3.pdf  used on input line 452.
@@ -1356,7 +1360,7 @@ Package pdftex.def Info: Figs/pca3.pdf  used on input line 452.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Figs/pca7.pdf, id=170, 578.16pt x 361.35pt>
+<Figs/pca7.pdf, id=176, 578.16pt x 361.35pt>
 File: Figs/pca7.pdf Graphic file (type pdf)
 <use Figs/pca7.pdf>
 Package pdftex.def Info: Figs/pca7.pdf  used on input line 459.
@@ -1364,7 +1368,7 @@ Package pdftex.def Info: Figs/pca7.pdf  used on input line 459.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Figs/pca12.pdf, id=171, 578.16pt x 361.35pt>
+<Figs/pca12.pdf, id=177, 578.16pt x 361.35pt>
 File: Figs/pca12.pdf Graphic file (type pdf)
 <use Figs/pca12.pdf>
 Package pdftex.def Info: Figs/pca12.pdf  used on input line 465.
@@ -1372,7 +1376,7 @@ Package pdftex.def Info: Figs/pca12.pdf  used on input line 465.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Figs/Roc_supp.pdf, id=172, 505.89pt x 505.89pt>
+<Figs/Roc_supp.pdf, id=178, 505.89pt x 505.89pt>
 File: Figs/Roc_supp.pdf Graphic file (type pdf)
 <use Figs/Roc_supp.pdf>
 Package pdftex.def Info: Figs/Roc_supp.pdf  used on input line 472.
@@ -1391,32 +1395,25 @@ Overfull \hbox (10.63446pt too wide) in paragraph at lines 489--489
 \OT1/pplx/m/n/10 cells/condition| 
  []
 
-LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <10> not available
-(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 490.
-
-Package natbib Warning: Citation `Lane' on page 11 undefined on input line 490.
-
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 491--491
 []|\OT1/pplx/m/n/10 GSE48968-
  []
 
 
-Package natbib Warning: Citation `Shalek' on page 11 undefined on input line 49
-1.
+Underfull \hbox (badness 10000) in paragraph at lines 491--491
+[]|\OT1/pplx/m/n/10 ([][]Shalek
+ []
 
 
-Package natbib Warning: Citation `Trapnell' on page 11 undefined on input line 
-493.
+Underfull \hbox (badness 10000) in paragraph at lines 493--493
+[]|\OT1/pplx/m/n/10 ([][]Trapnell
+ []
 
 
-Package natbib Warning: Citation `Engel' on page 11 undefined on input line 494
-.
-
-
-Package natbib Warning: Citation `EMTAB' on page 11 undefined on input line 495
-.
+Underfull \hbox (badness 10000) in paragraph at lines 495--495
+[]|\OT1/pplx/m/n/10 ([][]Buettner
+ []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 496--496
@@ -1427,21 +1424,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 496--496
 Underfull \hbox (badness 10000) in paragraph at lines 496--496
 []|\OT1/pplx/m/n/10 Gad2tdTpositive vs
  []
-
-
-Package natbib Warning: Citation `Tasic' on page 11 undefined on input line 496
-.
-
-
-Package natbib Warning: Citation `oscope' on page 11 undefined on input line 49
-7.
-
-
-Package natbib Warning: Citation `sc3' on page 11 undefined on input line 498.
-
-
-Package natbib Warning: Citation `Deng193' on page 11 undefined on input line 4
-99.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 500--500
@@ -1459,10 +1441,14 @@ Underfull \hbox (badness 2027) in paragraph at lines 500--500
  []
 
 
-Package natbib Warning: Citation `Guo' on page 11 undefined on input line 500.
+Underfull \hbox (badness 1052) in paragraph at lines 500--500
+[]|\OT1/pplx/m/n/10 ([][]Guo et al.[][],
+ []
 
 
-Package natbib Warning: Citation `chu' on page 11 undefined on input line 501.
+Underfull \hbox (badness 1127) in paragraph at lines 501--501
+[]|\OT1/pplx/m/n/10 ([][]Chu et al.[][],
+ []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 502--502
@@ -1470,10 +1456,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 502--502
  []
 
 
-Package natbib Warning: Citation `Darmanis' on page 11 undefined on input line 
-502.
+Underfull \hbox (badness 10000) in paragraph at lines 502--502
+[]|\OT1/pplx/m/n/10 ([][]Darmanis
+ []
 
 [11 <./Figs/pca3.pdf> <./Figs/pca7.pdf>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 540--540
 []|\OT1/pplx/m/n/9 Number of
  []
@@ -1491,7 +1482,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 557--557
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Figs/breakFDR.pdf, id=211, 505.89pt x 505.89pt>
+<Figs/breakFDR.pdf, id=241, 505.89pt x 505.89pt>
 File: Figs/breakFDR.pdf Graphic file (type pdf)
 <use Figs/breakFDR.pdf>
 Package pdftex.def Info: Figs/breakFDR.pdf  used on input line 570.
@@ -1499,17 +1490,15 @@ Package pdftex.def Info: Figs/breakFDR.pdf  used on input line 570.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[12 <./Figs/pca12.pdf>] [13 <./Figs/Roc_supp.pdf>]
-<Figs/Kchange.png, id=255, 767.86874pt x 244.915pt>
+<Figs/Kchange.png, id=242, 767.86874pt x 244.915pt>
 File: Figs/Kchange.png Graphic file (type png)
 <use Figs/Kchange.png>
 Package pdftex.def Info: Figs/Kchange.png  used on input line 599.
 (pdftex.def)             Requested size: 542.02501pt x 172.89305pt.
 
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Figs/rw.pdf, id=257, 495.8525pt x 212.795pt>
+<Figs/rw.pdf, id=244, 495.8525pt x 212.795pt>
 File: Figs/rw.pdf Graphic file (type pdf)
 <use Figs/rw.pdf>
 Package pdftex.def Info: Figs/rw.pdf  used on input line 605.
@@ -1517,8 +1506,8 @@ Package pdftex.def Info: Figs/rw.pdf  used on input line 605.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[14 <./Figs/breakFDR.pdf>]
-<Figs/overlap.png, id=269, 770.88pt x 443.6575pt>
+[12 <./Figs/pca12.pdf>]
+<Figs/overlap.png, id=264, 770.88pt x 443.6575pt>
 File: Figs/overlap.png Graphic file (type png)
 <use Figs/overlap.png>
 Package pdftex.def Info: Figs/overlap.png  used on input line 658.
@@ -1531,12 +1520,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 656--664
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[15 <./Figs/Kchange.png> <./Figs/rw.pdf>]
+[13 <./Figs/Roc_supp.pdf>] [14]
 Underfull \hbox (badness 10000) in paragraph at lines 672--674
 
  []
 
-[16 <./Figs/overlap.png>]
+[15 <./Figs/breakFDR.pdf>] [16 <./Figs/Kchange.png> <./Figs/rw.pdf>]
 Overfull \hbox (5.50514pt too wide) in paragraph at lines 716--717
 []\OT1/pplx/m/n/12 Still us-ing above ex-am-ple, in lim-it-ing case, we have $\
 OML/zplm/m/it/12 p\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 A[]\OMS/zplm/m/n/12 j\OML
@@ -1552,10 +1541,6 @@ plm/m/it/12 z\OT1/zplm/m/n/12 ) =
 Underfull \hbox (badness 10000) in paragraph at lines 718--720
 
  []
-
-
-Package natbib Warning: Citation `ineq' on page 17 undefined on input line 738.
-
 
 
 Overfull \hbox (23.45146pt too wide) in paragraph at lines 758--762
@@ -1575,7 +1560,7 @@ m/n/12 , \OML/zplm/m/it/12 ^^L\OT1/pplx/m/n/12 , \OML/zplm/m/it/12 n[]\OT1/pplx
 n/12 , \OML/zplm/m/it/12 ^^L\OT1/zplm/m/n/12 )$
  []
 
-[17]
+[17 <./Figs/overlap.png>]
 Overfull \hbox (6.65352pt too wide) in paragraph at lines 765--767
 \OT1/pplx/m/n/12 For no-ta-tion sim-plic-ity, we use the ab-bre-vi-a-tion $\OML
 /zplm/m/it/12 g\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 ^^Y\OT1/zplm/m/n/12 )\OT1/pp
@@ -1602,12 +1587,11 @@ x/m/n/12 . De-note $\OML/zplm/m/it/12 C\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 ^^Y[
  \OT1/pplx/m/n/12 , \OML/zplm/m/it/12 ^^L\OT1/zplm/m/n/12 ) =
  []
 
-
+[18]
 Underfull \hbox (badness 10000) in paragraph at lines 808--810
 
  []
 
-[18]
 ./mkn-supplement.tex:819: Extra }, or forgotten $.
 l.819 ...) / \sqrt{n})^2}{t_b^j + \gamma_b^j / n}}
                                                   $ is asymptotic gamma($\ch...
@@ -1638,19 +1622,10 @@ File: uni-3.def 2013/05/13 UCS: Unicode data U+0300..U+03FF
 l.202   to Dynamic Patterns of NF-κB Activation}
                                                  .
 ? 
-)
-
-Package natbib Warning: There were undefined citations.
-
-[20]
+) [20]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 924.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 924.
- (./mkn-supplement.aux
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-)
+ (./mkn-supplement.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 924.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 924.
 Package rerunfilecheck Info: File `mkn-supplement.out' has not changed.
@@ -1660,16 +1635,16 @@ Package rerunfilecheck Info: File `mkn-supplement.out' has not changed.
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 924.
  ) 
 Here is how much of TeX's memory you used:
- 29343 strings out of 492649
- 551830 string characters out of 6129622
- 635144 words of memory out of 5000000
- 32652 multiletter control sequences out of 15000+600000
- 573168 words of font info for 129 fonts, out of 8000000 for 9000
+ 29340 strings out of 492649
+ 551812 string characters out of 6129622
+ 643476 words of memory out of 5000000
+ 32651 multiletter control sequences out of 15000+600000
+ 571844 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,16n,64p,10432b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -1684,10 +1659,10 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (20 pages, 1117779 bytes).
+Output written on mkn-supplement.pdf (20 pages, 1119646 bytes).
 PDF statistics:
- 411 PDF objects out of 1000 (max. 8388607)
- 341 compressed objects within 4 object streams
+ 445 PDF objects out of 1000 (max. 8388607)
+ 375 compressed objects within 4 object streams
  91 named destinations out of 1000 (max. 500000)
  228 words of extra memory for PDF output out of 10000 (max. 10000000)
 

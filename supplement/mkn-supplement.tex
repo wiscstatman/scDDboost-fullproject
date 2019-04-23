@@ -816,7 +816,7 @@ $U(\pi) = \Sigma_{b\in\pi}\big[(2c - 1/2) \text{ln}(\beta_b + t_b^1 + t_b^2)
  + \Sigma_{b\in\pi_1}g(\xi_b)(Y_b^1 + Y_b^2)  - \Sigma_{b\in\pi_2}g(\xi_ b)(Y_b^1 + Y_b^2)\\
  \end{eqnarray*}
  
- $Y_b^j =  \frac{((t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n}))^3 / \sqrt{n}}{((t_b^j + \gamma_b^j) /n)^2}$, by LLN the denominator goes to a constant and by CLT in the numerator $(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n}$ goes to a normal distributed random variables when $\Phi_b = \Psi_b$. So $Y_b^j$ is $o_p(1)$. Similarly,  $X_b^j =  \frac{((t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n})^2}{t_b^j + \gamma_b^j / n}}$ is asymptotic gamma($\chi$-square) distributed.
+ $Y_b^j =  \frac{((t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n}))^3 / \sqrt{n}}{((t_b^j + \gamma_b^j) /n)^2}$, by LLN the denominator goes to a constant and by CLT in the numerator $(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n} \rightarrow (t_b^1 - t_b^2) / \sqrt{n} \rightarrow \sqrt{n}[(t_b^1 / n  - \Phi_b) - (t_b^2 / n - \Psi_b)] $, which goes to a normal distributed random variables when $\Phi_b = \Psi_b$. So $Y_b^j$ is $o_p(1)$. Similarly,  $X_b^j =  \frac{((t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n})^2}{t_b^j + \gamma_b^j / n}}$ is asymptotic gamma($\chi$-square) distributed.
 $g(\xi_b)$ has bounded variance,
  $U(\pi_1) - T(\pi_2) = -\text{ln}(n)$ if $N(\pi_2) < N(\pi_1)$
  as $ \text{ln}(\beta_b + t_b^1 + t_b^2)  -  \text{ln}(\beta_{b'} + t_{b'}^1 + t_{b'}^2) =  \text{ln}(\frac{\beta_b + t_b^1 + t_b^2}{n})  -  \text{ln}(\frac{\beta_{b'} + t_{b'}^1 + t_{b'}^2}{n}) \rightarrow O(1) \quad a.s.$ so we complete the proof
