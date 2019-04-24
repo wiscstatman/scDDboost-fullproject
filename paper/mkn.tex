@@ -569,7 +569,7 @@ We propose a spike-slab-style mixture prior with the following form:
 p(\phi,\psi) = \sum_{\pi \in \Pi} \omega_\pi  \, p_\pi(\phi,\psi ).
 \end{eqnarray} 
 Each mixture component $p_\pi(\phi,\psi)$ has support $A_\pi$;  
-the mixing proportions $\omega_\pi$ are any non-negative constants summing to one. 
+the mixing proportions $\omega_\pi$ are any positive constants summing to one. 
 To specify component $p_\pi$,  notice that on $A_\pi$ there is a 1-1 correspondence between pairs $(\phi, \psi)$ and 
 parameter states:
 \begin{eqnarray}
@@ -940,8 +940,17 @@ We observed that genes uniquely identified by scDDboost are associated with more
 
 The computations driving $P(A_\pi|y,z)$, from Section 2.3, are amenable to a first-order asymptotic analysis
 that provides further insight into model behavior.  The fact that support sets $A_\pi$ for DDM component 
-distributions $p_\pi( \phi,\psi)$ are not disjoint becomes an important issue. Here we investigate one
-case *** on refinements...on mixing masses **
+distributions $p_\pi( \phi,\psi)$ are not disjoint becomes an important issue.  
+
+Consider
+two partitions of subtypes $\{ 1, 2, \cdots, K\}$ , say $\pi^r$ and $\pi^c$, with $\pi^r$ a refinement of $\pi^c$.
+We know that in terms of the number of blocks in each partition, $N(\pi^c) < N(\pi^r)$.
+Following the discussion in Section~2.3, we also know that $A_{\pi^r} \subset A_{\pi^c}$, since refinement 
+imposes additional constraints on the pair $(\phi, \psi)$ of probability vectors.   
+With the data-generative state $(\phi, \psi) \in A_{\pi^r}$, one might ask how posterior probability mass
+tends to be allocated among the different containing support sets.  
+
+** on ratio of omega-posts **
 
 {\em more editing below}
 Under some parameters settings, the double dirichlet prior will have limited resolution and lead to inconsistency of posterior probabilities, which we investigate with the following asymptotic analysis.
