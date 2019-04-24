@@ -709,11 +709,12 @@ The DDM model is conjugate to multinomial sampling of $t^1$ and $t^2$:
 (\phi,\psi)|y,z  \sim {\mbox {\rm DDM}}\left[ \omega^{\rm post}=(\omega^{\rm post}_\pi), \alpha^1 + t^1, \alpha^2 + t^2  \right]
 \end{eqnarray*}
 where
-\begin{eqnarray*}
+\begin{eqnarray}
+\label{eq:postmix}
 \omega^{\rm post}_\pi \propto 
  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
  \, p_\pi( t^1_{\pi}, t^2_{\pi} | y ) \, \omega_\pi.
-\end{eqnarray*}
+\end{eqnarray}
 
 \end{theorem}
 
@@ -938,8 +939,14 @@ We observed that genes uniquely identified by scDDboost are associated with more
 
 
 
-\section{Theoretical issues}
-\subsection{Posterior consistency}
+\section{Asymptotics of the Double Dirichlet Mixture}
+
+The computations driving $P(A_\pi|y,z)$, from Section 2.3, are amenable to a first-order asymptotic analysis
+that provides further insight into model behavior.  The fact that support sets $A_\pi$ for DDM component 
+distributions $p_\pi( \phi,\psi)$ are not disjoint becomes an important issue. Here we investigate one
+case *** on refinements...on mixing masses **
+
+{\em more editing below}
 Under some parameters settings, the double dirichlet prior will have limited resolution and lead to inconsistency of posterior probabilities, which we investigate with the following asymptotic analysis.
 
 %We first give the expression of posterior probability. Since there is no information favorable of any particular $A_\pi$, we select discrete uniform distribution as the prior for it, then the posterior probability is
