@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  24 APR 2019 20:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  24 APR 2019 21:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1372,18 +1372,18 @@ File: Figs/D3E_box.pdf Graphic file (type pdf)
 Package pdftex.def Info: Figs/D3E_box.pdf  used on input line 911.
 (pdftex.def)             Requested size: 216.0022pt x 216.00775pt.
 [21 <./Figs/nullpdd_box.pdf>] [22 <./Figs/D3E_box.pdf>]
-<Figs/overlap.png, id=401, 770.88pt x 443.6575pt>
+<Figs/overlap.png, id=402, 770.88pt x 443.6575pt>
 File: Figs/overlap.png Graphic file (type png)
 <use Figs/overlap.png>
-Package pdftex.def Info: Figs/overlap.png  used on input line 976.
+Package pdftex.def Info: Figs/overlap.png  used on input line 978.
 (pdftex.def)             Requested size: 385.43906pt x 221.8282pt.
 
-Overfull \hbox (25.43906pt too wide) in paragraph at lines 976--977
+Overfull \hbox (25.43906pt too wide) in paragraph at lines 978--979
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 974--982
+Underfull \hbox (badness 10000) in paragraph at lines 976--984
 
  []
 
@@ -1391,7 +1391,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 974--982
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [23]
-Overfull \hbox (14.29294pt too wide) in paragraph at lines 990--992
+Overfull \hbox (14.29294pt too wide) in paragraph at lines 992--994
 \OT1/pplx/m/n/10.95 ence on $\OML/zplm/m/it/10.95 Q$\OT1/pplx/m/n/10.95 . To se
 e that we can rewrite $\OML/zplm/m/it/10.95 A[]$ \OT1/pplx/m/n/10.95 as $\OML/z
 plm/m/it/10.95 A[] \OT1/zplm/m/n/10.95 = \OML/zplm/m/it/10.95 A[] \OMS/zplm/m/n
@@ -1399,12 +1399,12 @@ plm/m/it/10.95 A[] \OT1/zplm/m/n/10.95 = \OML/zplm/m/it/10.95 A[] \OMS/zplm/m/n
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 990--992
+Underfull \hbox (badness 10000) in paragraph at lines 992--994
 
  []
 
 [24 <./Figs/overlap.png>]
-Overfull \hbox (11.4239pt too wide) in paragraph at lines 1017--1018
+Overfull \hbox (11.4239pt too wide) in paragraph at lines 1019--1020
 \OMS/zplm/m/n/10.95 ff\OT1/pplx/m/n/10.95 1, 2, 3\OMS/zplm/m/n/10.95 g\OT1/pplx
 /m/n/10.95 , \OMS/zplm/m/n/10.95 f\OT1/pplx/m/n/10.95 4, 5, 6, 7\OMS/zplm/m/n/1
 0.95 gg\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 ^^Y[] \OT1/zplm/m/n/10.95 = \
@@ -1417,7 +1417,7 @@ OT1/pplx/m/n/10.95 , \OMS/zplm/m/n/10.95 f\OT1/pplx/m/n/10.95 3, 5\OMS/zplm/m/n
  []
 
 
-Overfull \hbox (0.89282pt too wide) in paragraph at lines 1020--1021
+Overfull \hbox (0.89282pt too wide) in paragraph at lines 1022--1023
 [][][]\OT1/pplx/m/sc/10.95 Theorem \OT1/pplx/m/n/10.95 6\OT1/pplx/m/sc/10.95 . 
 []\OT1/pplx/m/it/10.95 Fol-low-ing the con-di-tions in the-o-rem 4, when pa-ram
 -e-ter $\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 ^^^\OT1/pplx/m/n/10.95 , \OML
@@ -1507,18 +1507,18 @@ l.387 \bid{Zappia2017}
                       
 ? 
 ) [28]
-Overfull \hbox (6.77095pt too wide) in paragraph at lines 1102--1118
+Overfull \hbox (6.77095pt too wide) in paragraph at lines 1104--1120
  []\OT1/pplx/m/it/10.95 Randomizing dis-tances for ap-prox-i-mate pos-te-rior i
 n-fer-ence. \OT1/pplx/m/n/10.95 One way to frame
  []
 
 [29] [30]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1185.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1187.
  [31]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1185.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1187.
  (./mkn.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1185.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1185.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1187.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1187.
 
 Package rerunfilecheck Info: File `mkn.out' has not changed.
 (rerunfilecheck)             Checksum: D9B86B42DB5D5DE15DD82ACF82F90FCF;961.
@@ -1529,7 +1529,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1185.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1187.
  ) 
 Here is how much of TeX's memory you used:
  29522 strings out of 492641
@@ -1556,10 +1556,10 @@ onts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/typ
 e1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/
 palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/palatin
 o/uplri8a.pfb>
-Output written on mkn.pdf (31 pages, 785935 bytes).
+Output written on mkn.pdf (31 pages, 786538 bytes).
 PDF statistics:
- 548 PDF objects out of 1000 (max. 8388607)
- 467 compressed objects within 5 object streams
+ 549 PDF objects out of 1000 (max. 8388607)
+ 468 compressed objects within 5 object streams
  119 named destinations out of 1000 (max. 500000)
  219 words of extra memory for PDF output out of 10000 (max. 10000000)
 

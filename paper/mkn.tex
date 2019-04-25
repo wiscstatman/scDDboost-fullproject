@@ -722,7 +722,7 @@ where
 The target probability $P(A_\pi|y,z)$ is an integral of the posterior distribution in Theorem~3.
 To evaluate it, we need to contend with the fact that sets $\{ A_\pi: \pi \in \Pi \}$ are not disjoint.
 Relevant overlaps have to do with partition refinement.  Recall 
-that a  partition $\pi^r$ is a refinement of a partition $\pi^c$ if $\forall b \in \pi^c$ there 
+that a  partition $\pi^r$ is a refinement of a partition $\pi^c$ if for any $b \in \pi^c$ there 
 exists $s \subset \pi^r$  such that $\underset{b'\in s}\cup b' = b$. 
 We say $\pi^c$  coarsens $\pi^r$ when $\pi^r$ refines $\pi^c$. Any partition both
 refines and coarsens itself, as a trivial case. 
@@ -946,16 +946,18 @@ distinct partitions $\pi_1$ and $\pi_2$  of subtypes $\{ 1, 2, \cdots, K\}$, and
 and  we also know that 
  $A_{\pi_2} \subset A_{\pi_1}$, since refinement 
 imposes additional constraints on the pair $(\phi, \psi)$ of probability vectors.   
-Supposing that the data-generative state $(\phi, \psi) \in A_{\pi_2}$, one might ask how posterior probability mass
+Supposing the data-generating state $(\phi, \psi) \in A_{\pi_2}$, one might ask how posterior probability mass
 tends to be allocated among the other support sets that contain this state.     The question is addressed 
 by the following:
 
-\begin{theorem}  Let $(\phi,\psi) \in A_{\pi_1} \cap A_{\pi_2}$ denote the data generating state for group
-labels $y_1, y_2, \cdots, y_n$ and subtype labels $z_1, z_2, \cdots, z_n$, and recall the posterior
-mixing proportions $\omega^{\rm post}_\pi$ from equation~().  As $n \longrightarrow \infty$
+\begin{theorem}  Let $\pi_1$ and $\pi_2$ denote two partitions for which $N(\pi_1) < N(\pi_2)$
+ and $A_{\pi_1} \cap A_{\pi_2}$ is non-empty. 
+ Let $(\phi,\psi) \in A_{\pi_1} \cap A_{\pi_2}$ denote the data generating state for 
+subtype labels $z_1, z_2, \cdots, z_n$ given i.i.d. Bernoulli condition labels $y_1, y_2, \cdots, y_n$, 
+and recall the posterior mixing proportions $\omega^{\rm post}_\pi$ from equation~(\ref{eq:postmix}).  Then
 \begin{eqnarray*}
 \frac{\omega^{\rm post}_{\pi_1} }{ \omega^{\rm post}_{\pi_2} } \longrightarrow_{a.s.} 0 \qquad 
- {\mbox {\rm if $N(\pi_1) < N(\pi_2)$}}
+ {\mbox {\rm as $n \longrightarrow \infty$}}. 
 \end{eqnarray*}
 \end{theorem}
 
