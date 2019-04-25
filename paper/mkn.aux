@@ -87,6 +87,7 @@
 \citation{Wag}
 \citation{ref:Leng}
 \newlabel{eq:postmix}{{9}{14}{}{equation.2.9}{}}
+\newlabel{eq:mainfinding}{{10}{14}{$P(A_\pi |y,z)$}{equation.2.10}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}$P(M_{g,\pi }|X,z)$}{14}{subsection.2.4}}
 \citation{ref:Zappia}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Numerical experiments}{15}{section.3}}
@@ -111,15 +112,15 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Bursting}{21}{subsection.3.4}}
 \@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces  Absolute value of log fold change of bursting parameters estimated by D3E methods across conditions (DEC vs EC). Purple box refers to those DD genes identified by other methods, magenta box refers to DD genes uniquely identified by scDDboost. In the D3E model, it assumes the counts are sampled from a poisson-beta model. Specifically, $x \sim \text  {Poi}(x | \gamma * p), p \sim \text  {Beta}(\alpha ,\beta )$, In D3E paper, it call $\alpha $ the rate of promoter activation, $\beta $ the rate of promoter inactivation and $\gamma $ the rate of transcripts when the promoter is in the active state. Such poisson-beta model should be the stationary distribution of the transcriptional bursting model. For each condition each gene D3E would estimate a triplet ($\alpha , \beta ,\gamma $). Instead of directly looking at the change of $\alpha $, $\beta $. I looked at the change of mean and variance of Beta prior for each condition. i.e. the change for mean and var for $p$ from the poisson-beta model. I think it would be more natural to look at $p$, as transcripts are more directly related to $p$ than $\alpha $ and $\beta $, $p = 0$ would mean the promoter is off and $p = 1$ means the promoter is on, so $p$ is more like a measure for how likely a promoter is on, I call the mean and var of $p$ as the mean and var of activation rate. Then I plot the absoluate value of log fold change of mean, var activation rate and rate of transcripts $\gamma $. Those uniquely identified genes by scDDboost are more consistent with the estimations from D3E since they are corresponding to more significant change of those bursting parameters\relax }}{22}{figure.caption.10}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Asymptotics of the Double Dirichlet Mixture}{23}{section.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Four subtypes of cells, simplexes of $(\phi ,\psi )$ satisfying different constraints.\relax }}{24}{figure.caption.11}}
-\newlabel{fig:1}{{11}{24}{Four subtypes of cells, simplexes of $(\phi ,\psi )$ satisfying different constraints.\relax }{figure.caption.11}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{26}{section.5}}
+\newlabel{eq:notQ}{{11}{23}{Asymptotics of the Double Dirichlet Mixture}{equation.4.11}{}}
 \bibstyle{imsart-nameyear}
 \bibdata{./references/wlr_ref}
 \bibcite{DES}{{1}{2010}{{Anders and Huber}}{{}}}
 \bibcite{Bacher2016}{{2}{2016}{{Bacher and Kendziorski}}{{}}}
 \bibcite{ref:dahl}{{3}{2009}{{Dahl}}{{}}}
 \bibcite{ref:d3e}{{4}{2016}{{Delmans and Hemberg}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{24}{section.5}}
+\@writefile{toc}{\contentsline {section}{References}{24}{section*.12}}
 \bibcite{RAD21}{{5}{2016}{{Dominguez et~al.}}{{}}}
 \bibcite{ref:MAST}{{6}{2015}{{Finak et~al.}}{{}}}
 \bibcite{kmedoids}{{7}{1987}{{Kaufman and Rousseeuw}}{{}}}
@@ -134,7 +135,6 @@
 \bibcite{cancer}{{16}{2015}{{Navin}}{{}}}
 \bibcite{scs}{{17}{2013}{{Nawy}}{{}}}
 \bibcite{immune}{{18}{2017}{{Papalexi and Satija}}{{}}}
-\@writefile{toc}{\contentsline {section}{References}{27}{section*.13}}
 \bibcite{ZIFA}{{19}{2015}{{Pierson and Yau}}{{}}}
 \bibcite{selK}{{20}{2000}{{Ray and Turi}}{{}}}
 \bibcite{HMMR}{{21}{2008}{{Sohr and Engeland}}{{}}}
@@ -144,9 +144,9 @@
 \bibcite{yak68}{{25}{1968}{{Yakowitz and Spragins}}{{}}}
 \bibcite{ref:Zappia}{{26}{2017}{{Zappia, Phipson and Oshlack}}{{}}}
 \citation{yak68}
-\@writefile{toc}{\contentsline {section}{Appendix}{29}{section*.15}}
-\newlabel{eq:cprobs}{{11}{29}{Proof of Theorem 1}{equation.5.11}{}}
-\newlabel{eq:rw}{{12}{30}{Randomizing distances for approximate posterior inference}{equation.5.12}{}}
-\@writefile{toc}{\contentsline {section}{Author's addresses}{30}{section*.19}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textsc  {scDDboost}\relax }}{31}{algorithm.2}}
-\newlabel{alg:scDDboost}{{2}{31}{\textsc {scDDboost}\relax }{algorithm.2}{}}
+\@writefile{toc}{\contentsline {section}{Appendix}{27}{section*.14}}
+\newlabel{eq:cprobs}{{12}{27}{Proof of Theorem 1}{equation.5.12}{}}
+\newlabel{eq:rw}{{13}{28}{Randomizing distances for approximate posterior inference}{equation.5.13}{}}
+\@writefile{toc}{\contentsline {section}{Author's addresses}{28}{section*.18}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textsc  {scDDboost}\relax }}{29}{algorithm.2}}
+\newlabel{alg:scDDboost}{{2}{29}{\textsc {scDDboost}\relax }{algorithm.2}{}}
