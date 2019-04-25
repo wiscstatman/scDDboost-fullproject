@@ -769,19 +769,22 @@ We further assume marginal of $M_{g,\pi}$ are shared by all genes and we estimat
 \subsection{Synthetic data} 
 
 \verb+splatter+  is an effective simulation system for generating sythetic scRNA-seq data~\citep{ref:Zappia}. 
-We utilized  this software to generate data for which the $DD$ status of genes is known,  thereby allowing us to 
+We utilized  this software (version *??*) 
+to generate data for which the $DD$ status of genes is known,  thereby allowing us to 
 measure operating characteristics of \verb+scDDboost+.  Specifically, 
 we entertained 12 different parameter settings for a two-group comparison on **?** genes.  Settings
 varied according to the number of subtypes $K$, the subtype frequency profiles $(\phi,\psi)$, as well
-as in \verb+splatter+-specific parameters $\theta$ and $\gamma$ controlling location and scale characteristics
+as the  \verb+splatter+-specific parameters $\theta$ and $\gamma$ controlling location and scale characteristics
 of expression levels *{\em ? did they differ on the amount of DD?}*. These settings were chosen to cover a range
-of scenarios we might expect to see in practice.  Two replicate data sets were simulated under each paramete setting.
-  Details of data generation are in
-Supplementary Material Section 3.1.   
+of scenarios we might expect to see in practice.  Two replicate data sets were simulated under each parameter setting.
+Further details are provided in Supplementary Material Section 3.1.   
 
 Figures~4 and~5 summarize the true positive rate and false discovery rate
-of \verb+scDDboost+ compared to three other methodologies: \verb+MAST+, \verb+scDD+, and \verb+DESeq2+.
-**discuss the findings**
+of \verb+scDDboost+ compared to three other methodologies: \verb+MAST+, \verb+scDD+, and \verb+DESeq2+. 
+(**{\em provide version numbers for these methods}**)
+The proposed \verb+scDDboost+ exhibits very good operating characteristics in this study, as it controls the 
+false discovery rate in all cases while also returning a higher rate of true positive genes in most case.
+**{\em maybe something else not yet shown; other FDR levels, other scenarios??}??**
 
 
 %To assess the performance of \verb+scDDboost+ we first  simulated
@@ -836,12 +839,32 @@ of \verb+scDDboost+ compared to three other methodologies: \verb+MAST+, \verb+sc
 
 \subsection{Empirical study}
 
+We deployed an empirical study, applying \verb+scDDboost+ to a collection of previously published
+data sets that are recorded at \verb+conquer+~\citep{ref:Cq} (*{\em citation}*).  Though not knowing the truly DD
+genes, we can examine how \verb+scDDboost+ output compares to output from other standard methods.  We selected
+12 data sets from \verb+conquer+  ({\em how?}) representing different species and experimental settings
+and inolving hundreds to thousands of cells.   Supplementary Table *** provides details.  Fig.~6 compares
+methods in terms of the size of the reported list of DD genes at the 5\% FDR target level.  
+We see a consistent improvement of gene yeild compared to MAST, scDD, and DESeq2.  For reference, one of these data 
+sets (GSE64016) happens to be the data behind Fig.~1, where we know from other information that some
+of the uniquely identified genes are likely not to be false positives.
 
-We use 12 data sets from previously published papers and \verb+conquer+~\citep{ref:Cq} to test 
-performance of our method on empirical data.(datasets information are in the supplementary material) 
-Among those 12 datasets. 11 of them each condition having $50 \sim 200$ cells and the other one (GSE84465) having larger number of cells with 1300 cells in condition 1 and 700 cells in condition 2.
-We generally assess the power of scDDboost by comparing the number of DD genes identified by different methods. 
-GSE64016(Fucci) dataset are used for further evaluation and validate that our method did uniquely identify some genes biologically meaningful.
+**maybe after null cases**
+We conjecture that \verb+scDDboost+  gains power through its novel approach to {\em borrowing strength}; 
+i.e., that the genomic data are providing information about cell subtypes and mixing proportions, 
+leaving gene-level data to gauge gene-specific mixture components.   One way to drill into this
+idea  is presented in Fig.~7.  In three data sets, we report on genes that are
+ identified by \verb+scDDboost+; those in red are uniquely identified by \verb+scDDboost+; the blue ones
+are also identifed by MAST, scDD, or DESeq2.  The vertical axis reports a model-based cluster size associated
+with each gene.  By virtue of the \verb+EBseq+ analysis inside \verb+scDDboost+, any gene may be assigned to
+a cluster of genes that all have the same highest-probability pattern of equality/inequality of means across
+the subtypes. Say $\hat \pi_g = {\rm argmax}_{\pi} P( M_{g,\pi} | \hat z, X)$. 
+
+
+%performance of our method on empirical data.(datasets information are in the supplementary material) 
+%Among those 12 datasets. 11 of them each condition having $50 \sim 200$ cells and the other one (GSE84465) having larger number of cells with 1300 cells in condition 1 and 700 cells in condition 2.
+%We generally assess the power of scDDboost by comparing the number of DD genes identified by different methods. 
+%GSE64016(Fucci) dataset are used for further evaluation and validate that our method did uniquely identify some genes biologically meaningful.
 
 %We compare our results with 
 %\verb+scDD+~\citep{ref:scDD}, \verb+MAST+~\citep{ref:MAST} and 
@@ -854,8 +877,6 @@ method, (\verb+sc3+~\citep{sc3}, Supplementary ***)  and obtain similar results 
  \caption{ Proportion of DD genes at 5\% threshold with respect to total number of genes identified by each method. Ranked by mean list size }
   \label{fig:6}
 \end{figure}
-
-We observe that scDDboost generally identify more DD genes than other methods.
 
 
 \begin{figure}[H]
