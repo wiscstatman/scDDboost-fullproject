@@ -940,18 +940,25 @@ We observed that genes uniquely identified by scDDboost are associated with more
 
 Summary statistics $P(A_\pi|y,z)$, from Section 2.3, are amenable to a first-order asymptotic analysis
 that provides further insight into DDM model behavior.  The fact that support sets $A_\pi$ for component 
-distributions $p_\pi( \phi,\psi)$ are not disjoint becomes an important issue.  
-
-Consider
-two partitions of subtypes $\{ 1, 2, \cdots, K\}$ , say $\pi^r$ and $\pi^c$, with $\pi^r$ a refinement of $\pi^c$.
-We know that in terms of the number of blocks in each partition, $N(\pi^c) < N(\pi^r)$.
-Following the discussion in Section~2.3, we also know that $A_{\pi^r} \subset A_{\pi^c}$, since refinement 
+distributions $p_\pi( \phi,\psi)$ are not disjoint becomes an important issue.  Consider
+distinct partitions $\pi_1$ and $\pi_2$  of subtypes $\{ 1, 2, \cdots, K\}$, and recall that $N(\pi)$ counts
+ the number of blocks in partition $\pi$.   In case $\pi_2$ refines $\pi_1$, then $N(\pi_1) < N(\pi_2)$,
+and  we also know that 
+ $A_{\pi_2} \subset A_{\pi_1}$, since refinement 
 imposes additional constraints on the pair $(\phi, \psi)$ of probability vectors.   
-Supposing that the data-generative state $(\phi, \psi) \in A_{\pi^r}$, one might ask how posterior probability mass
-tends to be allocated among the different support sets that contain this state.     In particular, we 
-consider the posterior mixing frequencies $\omega^{\rm post}_\pi$ from equation ** . We find:
+Supposing that the data-generative state $(\phi, \psi) \in A_{\pi_2}$, one might ask how posterior probability mass
+tends to be allocated among the other support sets that contain this state.     The question is addressed 
+by the following:
 
-**lemma/proposition/theorem? on ratio of omega-posts **
+\begin{theorem}  Let $(\phi,\psi) \in A_{\pi_1} \cap A_{\pi_2}$ denote the data generating state for group
+labels $y_1, y_2, \cdots, y_n$ and subtype labels $z_1, z_2, \cdots, z_n$, and recall the posterior
+mixing proportions $\omega^{\rm post}_\pi$ from equation~().  As $n \longrightarrow \infty$
+\begin{eqnarray*}
+\frac{\omega^{\rm post}_{\pi_1} }{ \omega^{\rm post}_{\pi_2} } \longrightarrow_{a.s.} 0 \qquad 
+ {\mbox {\rm if $N(\pi_1) < N(\pi_2)$}}
+\end{eqnarray*}
+\end{theorem}
+
 
 {\em more editing below}
 Under some parameters settings, the double dirichlet prior will have limited resolution and lead to inconsistency of posterior probabilities, which we investigate with the following asymptotic analysis.
