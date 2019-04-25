@@ -949,13 +949,13 @@ by the following:
  and $A_{\pi_1} \cap A_{\pi_2}$ is non-empty. 
  Let $(\phi,\psi) \in A_{\pi_1} \cap A_{\pi_2}$ denote the data generating state for 
 subtype labels $z_1, z_2, \cdots, z_n$ given i.i.d. Bernoulli condition labels $y_1, y_2, \cdots, y_n$, 
-and recall the posterior mixing proportions $\omega^{\rm post}_\pi$ from equation~(\ref{eq:postmix}) with hyper-parameters $\alpha_i^j \geq 1 \forall i = 1,..,K, j = 1,2$.   Then
+and recall the posterior mixing proportions $\omega^{\rm post}_\pi$ from equation~(\ref{eq:postmix}) with 
+hyper-parameters $\alpha_i^j \geq 1 \, {\mbox {\rm for}} \,  i = 1, \cdots, K, \, j = 1,2$.   Then
 \begin{eqnarray*}
 \frac{\omega^{\rm post}_{\pi_1} }{ \omega^{\rm post}_{\pi_2} } \longrightarrow_{a.s.} 0 \qquad 
  {\mbox {\rm as $n \longrightarrow \infty$}}. 
 \end{eqnarray*}
 \end{theorem}
-**do we need something about alpha's exceeding 1?**
 Essentially, mixing mass is transferred to components associated with the most refined partition
 consistent with a given parameter state.  To be precise, let $H(\phi,\psi) = \{ \pi: (\phi,\psi) \in A_{\pi} \}$
 record all the partitions associated with one state.   Typically, there is a most refined partition,
@@ -971,7 +971,6 @@ state $(\phi,\psi)$, then for any $\pi \in H(\phi,\psi)$, using Theorem~4 and~(\
 P(A_\pi|y_1,\cdots,y_n; z_1, \cdots z_n ) \longrightarrow_{a.s.} 1 \quad {\mbox {\rm as $n \longrightarrow \infty$}}.
 \end{eqnarray*}
 
-**XIUYU...IS THIS ANOTHER WAY TO GET OMEGA minus Q? I MIGHT BE WAY OFF!!**
 
 
 \section{Discussion}
