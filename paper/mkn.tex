@@ -779,7 +779,7 @@ of scenarios we might expect to see in practice.  Two replicate data sets were s
   Details of data generation are in
 Supplementary Material Section 3.1.   
 
-Figures~4 and~5 summarize the true positive rate and false positive rate
+Figures~4 and~5 summarize the true positive rate and false discovery rate
 of \verb+scDDboost+ compared to three other methodologies: \verb+MAST+, \verb+scDD+, and \verb+DESeq2+.
 **discuss the findings**
 
@@ -805,14 +805,16 @@ of \verb+scDDboost+ compared to three other methodologies: \verb+MAST+, \verb+sc
 %We compare the true positive rate and false discovery rate (results are averaged over replicates)  between the four methods(Fig 4 and 5) 
 %We found that scDDboost identified most true DD genes meanwhile having the lowest FDR. 
 
-The reason is that genes transcripts are distributed more homogeneously within the same cluster than between clusters. 
-Grouping cells first enable us to detect the subtle change of expression level between clusters, which may cause the marginally change not significant enough to be detected by other scRNA methods like MAST and DESeq2.
-scDD considered mixture structure underlying the transcrips as well, but scDD did not use the whole genome information to infer mixture components, which leads to inaccurate clustering at gene level and reduce the power. 
+%The reason is that genes transcripts are distributed more homogeneously within the same cluster than between clusters. 
+%Grouping cells first enable us to detect the subtle change of expression level between clusters, which may cause the marginally change not significant enough to be detected by other scRNA methods like MAST and DESeq2.
+%scDD considered mixture structure underlying the transcrips as well, but scDD did not use the whole genome information to infer mixture components, which leads to inaccurate clustering at gene level and reduce the power. 
 
 \begin{figure}[H]
   \includegraphics[width = 0.95\textwidth]{Figs/simuTPR.pdf}
-  \caption{True positive rate averaged over replicates of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes, threshold = 0.05, ordered by true positive rate of scDDboost
-  names are in the format $K / \theta / \gamma$ }
+  \caption{True positive rate, averaged over replicates, of four DD detection methods in 12 synthetic-data scenarios. 
+  Scenarios are labeled for $K / \theta / \gamma$  and ranked by scDDboost values. Each method
+ is targeting a 5\% false discovery rate (FDR).
+   }
   \label{fig:4}
 \end{figure}
 
@@ -826,8 +828,7 @@ scDD considered mixture structure underlying the transcrips as well, but scDD di
 
 \begin{figure}[H]
   \includegraphics[width = 0.95\textwidth]{Figs/simuFDR.pdf}
-  \caption{FDR averaged over replicates of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes, threshold = 0.05,ordered by true positive rate of scDDboost same order as Fig 4
-  }
+  \caption{Empirical false discovery rate of methods in scenarios from Fig.~4 }
   \label{fig:5}
 \end{figure}
 %Since we are modeling gene transcript within each subtype as negative-binomially distributed and we only test one parameter(mean) change among subtypes. In some scenario, it could be insufficient to model the variability within subtype. Even though there is no mean expression change among subtypes but more subtle distributional change occurred among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus limit power of scDDboost.\\
