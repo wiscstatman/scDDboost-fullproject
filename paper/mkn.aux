@@ -77,9 +77,9 @@
 \citation{ref:dahl}
 \citation{Cor}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Method structure and clustering}{10}{subsection.2.2}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces \textsc  {scDDBoost-core}\relax }}{10}{algorithm.1}}
-\newlabel{alg:scDDcore}{{1}{10}{\textsc {scDDBoost-core}\relax }{algorithm.1}{}}
 \citation{selK}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces \textsc  {scDDBoost-core}\relax }}{11}{algorithm.1}}
+\newlabel{alg:scDDcore}{{1}{11}{\textsc {scDDBoost-core}\relax }{algorithm.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}$P(A_\pi |y,z)$}{11}{subsection.2.3}}
 \newlabel{eq:ddmix}{{6}{12}{$P(A_\pi |y,z)$}{equation.2.6}{}}
 \newlabel{eq:onetoone}{{7}{12}{$P(A_\pi |y,z)$}{equation.2.7}{}}
@@ -113,16 +113,16 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces  Absolute value of log fold change of bursting parameters estimated by D3E methods across conditions (DEC vs EC). Purple box refers to those DD genes identified by other methods, magenta box refers to DD genes uniquely identified by scDDboost. In the D3E model, it assumes the counts are sampled from a poisson-beta model. Specifically, $x \sim \text  {Poi}(x | \gamma * p), p \sim \text  {Beta}(\alpha ,\beta )$, In D3E paper, it call $\alpha $ the rate of promoter activation, $\beta $ the rate of promoter inactivation and $\gamma $ the rate of transcripts when the promoter is in the active state. Such poisson-beta model should be the stationary distribution of the transcriptional bursting model. For each condition each gene D3E would estimate a triplet ($\alpha , \beta ,\gamma $). Instead of directly looking at the change of $\alpha $, $\beta $. I looked at the change of mean and variance of Beta prior for each condition. i.e. the change for mean and var for $p$ from the poisson-beta model. I think it would be more natural to look at $p$, as transcripts are more directly related to $p$ than $\alpha $ and $\beta $, $p = 0$ would mean the promoter is off and $p = 1$ means the promoter is on, so $p$ is more like a measure for how likely a promoter is on, I call the mean and var of $p$ as the mean and var of activation rate. Then I plot the absoluate value of log fold change of mean, var activation rate and rate of transcripts $\gamma $. Those uniquely identified genes by scDDboost are more consistent with the estimations from D3E since they are corresponding to more significant change of those bursting parameters\relax }}{22}{figure.caption.10}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Asymptotics of the Double Dirichlet Mixture}{23}{section.4}}
 \newlabel{eq:notQ}{{11}{23}{Asymptotics of the Double Dirichlet Mixture}{equation.4.11}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{23}{section.5}}
 \bibstyle{imsart-nameyear}
 \bibdata{./references/wlr_ref}
 \bibcite{DES}{{1}{2010}{{Anders and Huber}}{{}}}
 \bibcite{Bacher2016}{{2}{2016}{{Bacher and Kendziorski}}{{}}}
 \bibcite{ref:dahl}{{3}{2009}{{Dahl}}{{}}}
 \bibcite{ref:d3e}{{4}{2016}{{Delmans and Hemberg}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{24}{section.5}}
+\@writefile{toc}{\contentsline {section}{References}{24}{section*.12}}
 \bibcite{RAD21}{{5}{2016}{{Dominguez et~al.}}{{}}}
 \bibcite{ref:MAST}{{6}{2015}{{Finak et~al.}}{{}}}
-\@writefile{toc}{\contentsline {section}{References}{24}{section*.12}}
 \bibcite{kmedoids}{{7}{1987}{{Kaufman and Rousseeuw}}{{}}}
 \bibcite{Cor}{{8}{2018}{{Kim et~al.}}{{}}}
 \bibcite{sc3}{{9}{2017}{{Kiselev et~al.}}{{}}}
@@ -144,9 +144,9 @@
 \bibcite{yak68}{{25}{1968}{{Yakowitz and Spragins}}{{}}}
 \bibcite{ref:Zappia}{{26}{2017}{{Zappia, Phipson and Oshlack}}{{}}}
 \citation{yak68}
-\@writefile{toc}{\contentsline {section}{Appendix}{26}{section*.14}}
-\newlabel{eq:cprobs}{{12}{26}{Proof of Theorem 1}{equation.5.12}{}}
-\newlabel{eq:rw}{{13}{27}{Randomizing distances for approximate posterior inference}{equation.5.13}{}}
-\@writefile{toc}{\contentsline {section}{Author's addresses}{27}{section*.18}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textsc  {scDDboost}\relax }}{28}{algorithm.2}}
-\newlabel{alg:scDDboost}{{2}{28}{\textsc {scDDboost}\relax }{algorithm.2}{}}
+\@writefile{toc}{\contentsline {section}{Appendix}{27}{section*.14}}
+\newlabel{eq:cprobs}{{12}{27}{Proof of Theorem 1}{equation.5.12}{}}
+\newlabel{eq:rw}{{13}{28}{Randomizing distances for approximate posterior inference}{equation.5.13}{}}
+\@writefile{toc}{\contentsline {section}{Author's addresses}{28}{section*.18}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textsc  {scDDboost}\relax }}{29}{algorithm.2}}
+\newlabel{alg:scDDboost}{{2}{29}{\textsc {scDDboost}\relax }{algorithm.2}{}}
