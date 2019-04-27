@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  26 APR 2019 22:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  26 APR 2019 22:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1341,26 +1341,26 @@ tt/m/n/10.95 conquer []\OT1/pplx/m/n/10.95 ([][]Sone-son and Robin-
  []
 
 [16 <./Figs/simuTPR.pdf> <./Figs/simuFDR.pdf>]
-<Figs/DD95.pdf, id=337, 722.7pt x 433.62pt>
+<Figs/DD95.pdf, id=335, 722.7pt x 433.62pt>
 File: Figs/DD95.pdf Graphic file (type pdf)
 <use Figs/DD95.pdf>
 Package pdftex.def Info: Figs/DD95.pdf  used on input line 875.
 (pdftex.def)             Requested size: 341.9989pt x 205.19751pt.
  [17]
-<Figs/clussz.pdf, id=343, 505.89pt x 505.89pt>
+<Figs/clussz.pdf, id=341, 505.89pt x 505.89pt>
 File: Figs/clussz.pdf Graphic file (type pdf)
 <use Figs/clussz.pdf>
 Package pdftex.def Info: Figs/clussz.pdf  used on input line 882.
 (pdftex.def)             Requested size: 288.0011pt x 288.0052pt.
  [18 <./Figs/DD95.pdf>]
 [19 <./Figs/clussz.pdf>]
-<Figs/fdrCounts.pdf, id=367, 578.16pt x 361.35pt>
+<Figs/fdrCounts.pdf, id=365, 578.16pt x 361.35pt>
 File: Figs/fdrCounts.pdf Graphic file (type pdf)
 <use Figs/fdrCounts.pdf>
 Package pdftex.def Info: Figs/fdrCounts.pdf  used on input line 905.
 (pdftex.def)             Requested size: 288.0011pt x 179.99637pt.
  [20 <./Figs/fdrCounts.pdf>]
-<Figs/nullpdd_box.pdf, id=380, 505.89pt x 505.89pt>
+<Figs/nullpdd_box.pdf, id=378, 505.89pt x 505.89pt>
 File: Figs/nullpdd_box.pdf Graphic file (type pdf)
 <use Figs/nullpdd_box.pdf>
 Package pdftex.def Info: Figs/nullpdd_box.pdf  used on input line 918.
@@ -1376,7 +1376,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 932--933
 
  []
 
-<Figs/D3E_box.pdf, id=383, 505.89pt x 505.89pt>
+<Figs/D3E_box.pdf, id=381, 505.89pt x 505.89pt>
 File: Figs/D3E_box.pdf Graphic file (type pdf)
 <use Figs/D3E_box.pdf>
 Package pdftex.def Info: Figs/D3E_box.pdf  used on input line 943.
@@ -1510,10 +1510,10 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (29 pages, 648916 bytes).
+Output written on mkn.pdf (29 pages, 648654 bytes).
 PDF statistics:
- 526 PDF objects out of 1000 (max. 8388607)
- 452 compressed objects within 5 object streams
+ 524 PDF objects out of 1000 (max. 8388607)
+ 450 compressed objects within 5 object streams
  113 named destinations out of 1000 (max. 500000)
  214 words of extra memory for PDF output out of 10000 (max. 10000000)
 
