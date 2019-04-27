@@ -896,7 +896,7 @@ the subtypes. Say $\hat \pi_g = {\rm argmax}_{\pi} P( M_{g,\pi} | \hat z, X)$.
 
 \subsection{Null cases}
 
-We validate false positives on nine null datasets from supplementary table 2. For each null dataset, we randomly split the cells from one condition into two subsets and test difference of gene expression between those subsets. Since the two subsets of cells actually came from same condition, there should not be any differential distributed genes, any positive call would be a false positive. We repeat the random split and testing for five times on each null data set. We evaluate the type I error control for the methods returning nominal p-values, by recording the number of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (Fig 6).\\
+We validate false positives on nine null datasets from supplementary table 2. For each null dataset, we randomly split the cells from one condition into two subsets and test difference of gene expression between those subsets. Since the two subsets of cells actually came from same condition, there should not be any differential distributed genes, any positive call would be a false positive. We repeat the random split and testing for five times on each null data set. We evaluate the type I error control for the methods returning nominal p-values, by recording the number of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (Fig 8).\\
 We found bulk methods  {\em DESeq2} has a higher number of false positives comparing to other single cell methods, which also coincides with our observation from the simulation studies.
 {\em scDDboost} could control FDR, essentially we assume cells are sampled from a global population composed of different subtypes. Cells from one subtype are equal likely to be assigned to either one of the two subsets, it is very likely that proportions of subtypes remain unchanged among the two subsets.
 
@@ -911,7 +911,7 @@ We found bulk methods  {\em DESeq2} has a higher number of false positives compa
 Number of subtypes $K$ is a crucial factor controlling the accuracy of our modeling. 
 Too small $K$ may end up in an underfit such that cells within same subtype can still be very different, such heterogeneity within the subtype introduced by insufficient number of clusters 
 tends to make our posterior inference of the DE patterns between subtypes more favorable for all equivalent expressed and reducing the power of \textsc{scDDboost}.
-Too big $K$ may end up in an overfit such that two subtypes can be very similar, given we have fixed number of samples (cells), allowing more clusters will introduce more patterns (both for mean expression change and proportion change) to infer and thus reduce our estimation efficiency on those patterns. Overestimating $K$ in \textsc{scDDboost} may losing FDR control (supplementary Fig 6). 
+Too big $K$ may end up in an overfit such that two subtypes can be very similar, given we have fixed number of samples (cells), allowing more clusters will introduce more patterns (both for mean expression change and proportion change) to infer and thus reduce our estimation efficiency on those patterns. Overestimating $K$ in \textsc{scDDboost} may losing FDR control (supplementary Fig 8). 
 
 ***Benefits from share information from other genes in EBSeq. ***
 \begin{figure}[H]
