@@ -769,19 +769,18 @@ We further assume marginal of $M_{g,\pi}$ are shared by all genes and we estimat
 \subsection{Synthetic data} 
 
 \verb+splatter+  is an effective simulation system for generating sythetic scRNA-seq data~\citep{ref:Zappia}. 
-We utilized  this software (version *??*) 
+We utilized  this software (version 1.2.0) 
 to generate data for which the $DD$ status of genes is known,  thereby allowing us to 
 measure operating characteristics of \verb+scDDboost+.  Specifically, 
-we entertained 12 different parameter settings for a two-group comparison on **?** genes.  Settings
+we entertained 12 different parameter settings for a two-group comparison on 17421 genes with 10\% DD genes.  Settings
 varied according to the number of subtypes $K$, the subtype frequency profiles $(\phi,\psi)$, as well
 as the  \verb+splatter+-specific parameters $\theta$ and $\gamma$ controlling location and scale characteristics
-of expression levels *{\em ? did they differ on the amount of DD?}*. These settings were chosen to cover a range
+of expression levels. These settings were chosen to cover a range
 of scenarios we might expect to see in practice.  Two replicate data sets were simulated under each parameter setting.
 Further details are provided in Supplementary Material Section 3.1.   
 
 Figures~4 and~5 summarize the true positive rate and false discovery rate
-of \verb+scDDboost+ compared to three other methodologies: \verb+MAST+, \verb+scDD+, and \verb+DESeq2+. 
-(**{\em provide version numbers for these methods}**)
+of \verb+scDDboost+ compared to three other methodologies: \verb+MAST(1.4.0)+, \verb+scDD(1.2.0)+, and \verb+DESeq2(1.18.1)+. 
 The proposed \verb+scDDboost+ exhibits very good operating characteristics in this study, as it controls the 
 false discovery rate in all cases while also returning a higher rate of true positive genes in most case.
 **{\em maybe something else not yet shown; other FDR levels, other scenarios??}??**
@@ -842,8 +841,8 @@ false discovery rate in all cases while also returning a higher rate of true pos
 We applied \verb+scDDboost+ to a collection of previously published
 data sets that are recorded at \verb+conquer+~\citep{ref:Cq}.  Though not knowing the truly DD
 genes, we can examine how \verb+scDDboost+ output compares to output from other standard methods.  We selected
-12 data sets from \verb+conquer+  ({\em how?}) representing different species and experimental settings
-and inolving hundreds to thousands of cells.   Supplementary Table *** provides details.  Fig.~6 compares
+12 data sets from \verb+conquer+  ({\em how?} randomly selected) representing different species and experimental settings
+and involving hundreds to thousands of cells.   Supplementary Table 1 provides details.  Fig.~6 compares
 methods in terms of the size of the reported list of DD genes at the 5\% FDR target level.  
 We see a consistent improvement of gene yeild compared to MAST, scDD, and DESeq2.  For reference, one of these data 
 sets (GSE64016) happens to be the data behind Fig.~1, where we know from other information that some
