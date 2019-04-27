@@ -145,7 +145,7 @@ information.  We address this limitation, aiming to increase power to detect dif
 The proposed method measures changes in a gene's marginal mixture distribution, and
 acquires sensitivity  to a wide variety of distributional effects by how it integrates genome-wide with
 gene-level data.  It is implemented in  software 
-in the R package \verb+scDDboost+, at \verb+http://github.com/wiscstatman/scDDboost/+.
+in the R package \verb+scDDboost+~\footnote{http://github.com/wiscstatman/scDDboost/}.
 Modularity in the necessary elements provides some methodological advantages. For example,
 improvements in clustering may be used in place of the default clustering
 without altering the form of downstream analysis.  Also, by avoiding Markov chain Monte Carlo,
@@ -839,8 +839,8 @@ false discovery rate in all cases while also returning a higher rate of true pos
 
 \subsection{Empirical study}
 
-We deployed an empirical study, applying \verb+scDDboost+ to a collection of previously published
-data sets that are recorded at \verb+conquer+~\citep{ref:Cq} (*{\em citation}*).  Though not knowing the truly DD
+We applied \verb+scDDboost+ to a collection of previously published
+data sets that are recorded at \verb+conquer+~\citep{ref:Cq}.  Though not knowing the truly DD
 genes, we can examine how \verb+scDDboost+ output compares to output from other standard methods.  We selected
 12 data sets from \verb+conquer+  ({\em how?}) representing different species and experimental settings
 and inolving hundreds to thousands of cells.   Supplementary Table *** provides details.  Fig.~6 compares
