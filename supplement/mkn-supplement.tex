@@ -93,6 +93,7 @@ This supplement is organized to match the sectioning of the main document.   In 
    \item Synthetic data, \verb+splatter+
    \item Empirical study, \verb+conquer+
    \item Null cases 
+   \item Local fdr and 
    \end{itemize}
 \item Other asymptotic properties
   \begin{itemize}
@@ -507,13 +508,14 @@ GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human & \citep{
 
 
 
-%\begin{figure}[H]
-%\includegraphics[width = 0.6\textwidth]{Figs/sim.pdf}
-% \caption{ comparison of posterior probabilities of being DD among different number of subtypes, when we underestimate the number of subtypes, the difference is huge, see PDD between 6 subtypes and 7 subtypes. There is an approximate horizontal line with massive points at the top of left panel, which indicate that we underestimate lots of DD genes due to underestimate the number of subtypes. While in the case when we overestimate the number of subtypes 7 subtypes vs. 8 subtypes, though inflating PDD but the variation of difference is small, from 6 to 8 subtypes the PDD become more linear related.}
-%  \label{fig:6}
-%\end{figure}
+\begin{figure}[h!]
+\includegraphics[width = 0.6\textwidth]{Figs/Fucci_wadist.pdf}
+\caption{$P(ED_g|X,y)$ given by scDDboost versus empirical Wasserstein distance. 
+Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4-0.6, 0.6-0.8,0.8-1}
+ \label{fig:6}
+\end{figure}
 
-
+We observe consistent results with scDDboost estimation and wasserstein distance between the transcripts .Lower probabilities of equivalent distributed are associated with bigger distances.(supplementary Fig 7)
 
 
 %\begin{figure}[h]
