@@ -831,9 +831,9 @@ of the uniquely identified genes are likely not to be false positives.
 
 
 To check that the high yeild of \verb+scDDboost+ is not associated with an increased rate of false positives, we 
-applied it to a series of random splits of single-condition data sets (Appendix Table **). Figure~\ref{nullperm}
+applied it to a series of random splits of single-condition data sets (Appendix Table 2). Figure~\ref{nullperm}
 confirms a very low call rate in cases where no changes in distribution are expected.
-**{\em Xiuyu, your notes said other methods used nomial p-value of 0.05; but did you mean adjusted p-value?}**
+**{\em other methods use BH adjusted pvalue}**
 
 
 %We validate false positives on nine null datasets from supplementary table 2. For each null dataset, we randomly split the cells from one condition into two subsets and test difference of gene expression between those subsets. Since the two subsets of cells actually came from same condition, there should not be any differential distributed genes, any positive call would be a false positive. We repeat the random split and testing for five times on each null data set. We evaluate the type I error control for the methods returning nominal p-values, by recording the number of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (Figure 8).\\
@@ -844,8 +844,8 @@ confirms a very low call rate in cases where no changes in distribution are expe
 
 \begin{figure}[H]
 \includegraphics[width = 0.8\textwidth]{Figs/fdrCounts.pdf}
- \caption{False positive counts by several methods on  null **how many** random splits of **how many* single condition
-data sets from Appendix Table **} \label{fig:nullperm}
+ \caption{False positive counts by several methods on  null 5 random splits of 9 single condition
+data sets from Appendix Table 2} \label{nullperm}
 \end{figure}
 
 %%dataset from supplementary table 2, DESeq2 usually identified more false positives compare to other scRNA methods.  I found that one identified more false positives by us is the data EMTAB2805, which contains 45686 genes, 1700 / 45686 = 0.037, so we still control the FDR. More over I tried different 10 shuffles of EMTAB2805, all ends up in very small false positives. So I still use the counts as y axis but using different shuffled null sets of EMTAB2805}
