@@ -774,7 +774,7 @@ We further assume marginal of $M_{g,\pi}$ are shared by all genes and we estimat
 
 \verb+splatter+  is an effective simulation system for generating sythetic scRNA-seq data~\citep{ref:Zappia}. 
 We utilized  this software (version 1.2.0) 
-to generate data for which the $DD$ status of genes is known,  thereby allowing us to 
+to generate data for which the DD status of genes is known,  thereby allowing us to 
 measure operating characteristics of \verb+scDDboost+.  Specifically, 
 we entertained 12 different parameter settings for a two-group comparison on 17421 genes with 10\% DD genes.  Settings
 varied according to the number of subtypes $K$, the subtype frequency profiles $(\phi,\psi)$, as well
@@ -784,36 +784,13 @@ of scenarios we might expect to see in practice.  Two replicate data sets were s
 Further details are provided in Supplementary Material Section 3.1.   
 
 Figures~4 and~5 summarize the true positive rate and false discovery rate
-of \verb+scDDboost+ compared to three other methodologies: \verb+MAST(1.4.0)+, \verb+scDD(1.2.0)+, and \verb+DESeq2(1.18.1)+. 
+of \verb+scDDboost+ compared to three other methodologies: \verb+MAST (1.4.0)+, \verb+scDD (1.2.0)+, and 
+\verb+DESeq2 (1.18.1)+. 
 The proposed \verb+scDDboost+ exhibits very good operating characteristics in this study, as it controls the 
 false discovery rate in all cases while also returning a higher rate of true positive genes in most case.
 **{\em maybe something else not yet shown; other FDR levels, other scenarios??}??**
 
 
-%To assess the performance of \verb+scDDboost+ we first  simulated
-%synthetic data using \verb+splatter+~\citep{ref:Zappia}, 
-%a recently developed system having good empirical characteristics 
-%and providing interface for simulating cells from multiple groups. 
-%We assess the performance of \textsc scDDboost on identifying DD genes and comparing the power to other three methods scDD, MAST and DESeq2.
-%Splatter provides two user specified parameters: location $\theta$ and scale $\gamma$ for controlling how different the transcripts of a gene can be between groups. 
-%For simplicity of writing, we refer the pair of those two parameters as DE parameters.
-%In the paper, the author used $\theta = -0.1$ and $\gamma = 0.3$, in the R package, the default value is $\theta = 0.1$ and $\gamma = 0.4$.  
-%However, all of our candidate methods have low true positive rate under the default settings(Fig4) as the differences between groups are small. This is consistent with the phenomena reported in the splatter paper. 
-%To better evaluate those methods, we use another two configurations of $(\theta = -0.1, \gamma = 1)$ and $(\theta = 0.3, \gamma = 0.5)$, which zoom in the heterogeneities between subtypes
-% and keep the parameters close to default ones thus the identification of subtypes and DD analysis still remain chanllenging. Supplementary S1)
-%Other nuisance parameters are set to default values.
- 
-%We simulate datasets under 3 different number of groups : $K$ =  3, 7, 12.  
-%We assess whether \textsc scDDboost can still be powerful when underestimating the number of subtypes. For the 
-
-%Considering the above 4 choices of DE parameters and 3 choices of $K$, we have in total 12 simulation scenarios and each scenario we have 2 replicates. 
-
-%We compare the true positive rate and false discovery rate (results are averaged over replicates)  between the four methods(Fig 4 and 5) 
-%We found that scDDboost identified most true DD genes meanwhile having the lowest FDR. 
-
-%The reason is that genes transcripts are distributed more homogeneously within the same cluster than between clusters. 
-%Grouping cells first enable us to detect the subtle change of expression level between clusters, which may cause the marginally change not significant enough to be detected by other scRNA methods like MAST and DESeq2.
-%scDD considered mixture structure underlying the transcrips as well, but scDD did not use the whole genome information to infer mixture components, which leads to inaccurate clustering at gene level and reduce the power. 
 
 \begin{figure}[H]
   \includegraphics[width = 0.95\textwidth]{Figs/simuTPR.pdf}
@@ -825,19 +802,11 @@ false discovery rate in all cases while also returning a higher rate of true pos
 \end{figure}
 
 
-%\begin{figure}[H]
-%  \includegraphics[width = 0.8\textwidth]{Figs/simuFPR.pdf}
- % \caption{False positive rate of four methods under 3 settings of number of subtypes and 4 hyper parameters govern the difference between subtypes, threshold = 0.05}
- % \label{fig:5}
-%\end{figure}
-
-
 \begin{figure}[H]
   \includegraphics[width = 0.95\textwidth]{Figs/simuFDR.pdf}
-  \caption{Empirical false discovery rate of methods in scenarios from Fig.~4 }
+  \caption{Empirical false discovery rate of methods in scenarios from Figure~4 }
   \label{fig:5}
 \end{figure}
-%Since we are modeling gene transcript within each subtype as negative-binomially distributed and we only test one parameter(mean) change among subtypes. In some scenario, it could be insufficient to model the variability within subtype. Even though there is no mean expression change among subtypes but more subtle distributional change occurred among subtypes changed, EBSeq would fail to detect the discrepancies between subtypes, thus limit power of scDDboost.\\
 
 
 \subsection{Empirical study}
@@ -845,85 +814,82 @@ false discovery rate in all cases while also returning a higher rate of true pos
 We applied \verb+scDDboost+ to a collection of previously published
 data sets that are recorded at \verb+conquer+~\citep{ref:Cq}.  Though not knowing the truly DD
 genes, we can examine how \verb+scDDboost+ output compares to output from other standard methods.  We selected
-12 data sets from \verb+conquer+  ({\em how?} randomly selected) representing different species and experimental settings
-and involving hundreds to thousands of cells.   Supplementary Table 1 provides details.  Fig.~6 compares
+12 data sets from \verb+conquer+   representing different species and experimental settings
+and involving hundreds to thousands of cells.   Supplementary Table 1 provides details.  Figure~\ref{fig:es} compares
 methods in terms of the size of the reported list of DD genes at the 5\% FDR target level.  
-We see a consistent improvement of gene yeild compared to MAST, scDD, and DESeq2.  For reference, one of these data 
-sets (GSE64016) happens to be the data behind Fig.~1, where we know from other information that some
+We see a consistent improvement of gene yeild compared to the other tested methods.  For reference, one of these data 
+sets (GSE64016) happens to be the data behind Figure~1, where we know from other information that some
 of the uniquely identified genes are likely not to be false positives.
 
-**maybe after null cases**
-We conjecture that \verb+scDDboost+  gains power through its novel approach to {\em borrowing strength}; 
-i.e., that the genomic data are providing information about cell subtypes and mixing proportions, 
-leaving gene-level data to gauge gene-specific mixture components.   One way to drill into this
-idea  is presented in Fig.~7.  In three data sets, we report on genes that are
- identified by \verb+scDDboost+; those in red are uniquely identified by \verb+scDDboost+; the blue ones
-are also identifed by MAST, scDD, or DESeq2.  The vertical axis reports a model-based cluster size associated
-with each gene.  By virtue of the \verb+EBseq+ analysis inside \verb+scDDboost+, any gene may be assigned to
-a cluster of genes that all have the same highest-probability pattern of equality/inequality of means across
-the subtypes. Say $\hat \pi_g = {\rm argmax}_{\pi} P( M_{g,\pi} | \hat z, X)$. 
-
-
-%performance of our method on empirical data.(datasets information are in the supplementary material) 
-%Among those 12 datasets. 11 of them each condition having $50 \sim 200$ cells and the other one (GSE84465) having larger number of cells with 1300 cells in condition 1 and 700 cells in condition 2.
-%We generally assess the power of scDDboost by comparing the number of DD genes identified by different methods. 
-%GSE64016(Fucci) dataset are used for further evaluation and validate that our method did uniquely identify some genes biologically meaningful.
-
-%We compare our results with 
-%\verb+scDD+~\citep{ref:scDD}, \verb+MAST+~\citep{ref:MAST} and 
-%\verb+DESeq2+~\citep{ref:Des}, 
-%We have also investigated performance of \verb+scDDboost+ under different clustering 
-%method, (\verb+sc3+~\citep{sc3}, Supplementary Fig ***)  and obtain similar results as the default one.
 
 \begin{figure}[H]
 \includegraphics[width = 0.95\textwidth]{Figs/DD95.pdf}
- \caption{ Proportion of DD genes at 5\% threshold with respect to total number of genes identified by each method. Ranked by mean list size }
-  \label{fig:6}
+ \caption{Proportion of DD genes at 5\% threshold with respect to total number of genes identified by each method. Ranked by 
+ scDDboost list size }
+  \label{fig:es}
 \end{figure}
 
 
-\begin{figure}[H]
-\includegraphics[width = 0.8\textwidth]{Figs/clussz.pdf}
- \caption{  boxplot of log transformed cluster size of DD genes of two categories. 
- The red one are corresponding to the genes that have also been identified by other methods.
- The blue one are corresponding to the genes uniquely identified by scDDboost. 
- We grouped genes to the same cluster if they share the same  map DE pattern between subtypes inferred from EBSeq
- We use the number of genes within a cluster as the size for that cluster. 
- We observe a right shift for between blue and right, which indicates our uniquely identified DD genes are more likely to associate with DE patterns of larger sizes
- Datasets used for demonstration from left to right are GSE71585, GSE64016, EMTAB2805. 
- Here we used 0.01 threshold as it is more friendly for graphical demostration, 0.05 cases are in the supplementary fig *** (still have right shift, but hard to see from box plot as most of genes are associated with the largest cluster, the right shift did not change the quantile too much) }
-  \label{fig:7}
-\end{figure}
+To check that the high yeild of \verb+scDDboost+ is not associated with an increased rate of false positives, we 
+applied it to a series of random splits of single-condition data sets (Appendix Table **). Figure~\ref{nullperm}
+confirms a very low call rate in cases where no changes in distribution are expected.
+**{\em Xiuyu, your notes said other methods used nomial p-value of 0.05; but did you mean adjusted p-value?}**
 
 
-
-
-\subsection{Null cases}
-
-We validate false positives on nine null datasets from supplementary table 2. For each null dataset, we randomly split the cells from one condition into two subsets and test difference of gene expression between those subsets. Since the two subsets of cells actually came from same condition, there should not be any differential distributed genes, any positive call would be a false positive. We repeat the random split and testing for five times on each null data set. We evaluate the type I error control for the methods returning nominal p-values, by recording the number of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (Fig 8).\\
-We found bulk methods  {\em DESeq2} has a higher number of false positives comparing to other single cell methods, which also coincides with our observation from the simulation studies.
-{\em scDDboost} could control FDR, essentially we assume cells are sampled from a global population composed of different subtypes. Cells from one subtype are equal likely to be assigned to either one of the two subsets, it is very likely that proportions of subtypes remain unchanged among the two subsets.
+%We validate false positives on nine null datasets from supplementary table 2. For each null dataset, we randomly split the cells from one condition into two subsets and test difference of gene expression between those subsets. Since the two subsets of cells actually came from same condition, there should not be any differential distributed genes, any positive call would be a false positive. We repeat the random split and testing for five times on each null data set. We evaluate the type I error control for the methods returning nominal p-values, by recording the number of genes(with a valid p-value) that are assigned a nomial p-value below 0.05 (Figure 8).\\
+%We found bulk methods  {\em DESeq2} has a higher number of false positives comparing to other single cell methods, which also coincides with our observation from the simulation studies.
+%{\em scDDboost} could control FDR, essentially we assume cells are sampled from a global population composed of different subtypes. Cells from one subtype are equal likely to be assigned to either one of the two subsets, it is very likely that proportions of subtypes remain unchanged among the two subsets.
 
 
 
 \begin{figure}[H]
 \includegraphics[width = 0.8\textwidth]{Figs/fdrCounts.pdf}
- \caption{number of false positives of scDDboost, scDD, MAST and DESeq2 on null dataset from supplementary table 2, DESeq2 usually identified more false positives compare to other scRNA methods.  I found that one identified more false positives by us is the data EMTAB2805, which contains 45686 genes, 1700 / 45686 = 0.037, so we still control the FDR. More over I tried different 10 shuffles of EMTAB2805, all ends up in very small false positives. So I still use the counts as y axis but using different shuffled null sets of EMTAB2805}
-  \label{fig:7}
+ \caption{False positive counts by several methods on  null **how many** random splits of **how many* single condition
+data sets from Appendix Table **} \label{fig:nullperm}
 \end{figure}
+
+%%dataset from supplementary table 2, DESeq2 usually identified more false positives compare to other scRNA methods.  I found that one identified more false positives by us is the data EMTAB2805, which contains 45686 genes, 1700 / 45686 = 0.037, so we still control the FDR. More over I tried different 10 shuffles of EMTAB2805, all ends up in very small false positives. So I still use the counts as y axis but using different shuffled null sets of EMTAB2805}
+
+
+
+We conjecture that \verb+scDDboost+  gains power through its novel approach to {\em borrowing strength};
+i.e., that the genomic data are providing information about cell subtypes and mixing proportions,
+leaving gene-level data to handle gene-specific mixture components.   One way to drill into this
+idea  is presented in Figure~\ref{fig:clussz}.  In three data sets, we report on genes that are
+ identified by \verb+scDDboost+; those in red are uniquely identified by \verb+scDDboost+; the blue ones
+are also identifed by MAST, scDD, or DESeq2.  The vertical axis reports a model-based cluster size associated
+with each gene.  By virtue of the \verb+EBseq+ analysis inside \verb+scDDboost+, any gene may be assigned to
+a cluster of genes that all have the same highest-probability pattern of equality/inequality of means across
+the subtypes. Say $\hat \pi_g = {\rm argmax}_{\pi} P( M_{g,\pi} | \hat z, X)$.
+
+
+\begin{figure}[H]
+\includegraphics[width = 0.8\textwidth]{Figs/clussz.pdf}
+ \caption{  boxplot of log transformed cluster size of DD genes of two categories.
+ The red one are corresponding to the genes that have also been identified by other methods.
+ The blue one are corresponding to the genes uniquely identified by scDDboost.
+ We grouped genes to the same cluster if they share the same  map DE pattern between subtypes inferred from EBSeq
+ We use the number of genes within a cluster as the size for that cluster.
+ We observe a right shift for between blue and right, which indicates our uniquely identified DD genes are more likely to associate with DE patterns of larger sizes
+ Datasets used for demonstration from left to right are GSE71585, GSE64016, EMTAB2805.
+ Here we used 0.01 threshold as it is more friendly for graphical demostration, 0.05 cases are in the supplementary fig *** (still have right shift, but hard to see from box plot as most of genes are associated with the largest cluster, the right shift did not change the quantile too much) }
+  \label{fig:clussz}
+\end{figure}
+
+
 
 Number of subtypes $K$ is a crucial factor controlling the accuracy of our modeling. 
 Too small $K$ may end up in an underfit such that cells within same subtype can still be very different, such heterogeneity within the subtype introduced by insufficient number of clusters 
 tends to make our posterior inference of the DE patterns between subtypes more favorable for all equivalent expressed and reducing the power of \textsc{scDDboost}.
-Too big $K$ may end up in an overfit such that two subtypes can be very similar, given we have fixed number of samples (cells), allowing more clusters will introduce more patterns (both for mean expression change and proportion change) to infer and thus reduce our estimation efficiency on those patterns. Overestimating $K$ in \textsc{scDDboost} may losing FDR control (supplementary Fig 8). 
+Too big $K$ may end up in an overfit such that two subtypes can be very similar, given we have fixed number of samples (cells), allowing more clusters will introduce more patterns (both for mean expression change and proportion change) to infer and thus reduce our estimation efficiency on those patterns. Overestimating $K$ in \textsc{scDDboost} may losing FDR control (supplementary Figure 8). 
 
 ***Benefits from share information from other genes in EBSeq. ***
 \begin{figure}[H]
 \includegraphics[width = 0.7\textwidth]{Figs/nullpdd_box.pdf}
- \caption{PDD of the same datasets used in Fig 7, we have types of PDD, the purple box is the PDD calculated by using the proportion of DE patterns inferred from the whole genome.  
+ \caption{PDD of the same datasets used in Figure 7, we have types of PDD, the purple box is the PDD calculated by using the proportion of DE patterns inferred from the whole genome.  
  The magenta box is the PDD using the trivial proportion of DE pattern (i.e. all DE patterns between subtypes have same probabilities), basically we do not borrow information from other genes. 
  In the null case, we observed lower PDD when using information from the whole genome and this is consistent with the underlying ED structure. 
- Recall in Fig 7, genes uniquely identified by scDDboost tend to associate with DE pattern with large size. From the null case such behavior could make our PDD more correct}
+ Recall in Figure 7, genes uniquely identified by scDDboost tend to associate with DE pattern with large size. From the null case such behavior could make our PDD more correct}
   \label{fig:8}
 \end{figure}
 
@@ -969,7 +935,7 @@ For each condition each gene D3E would estimate a triplet ($\alpha, \beta,\gamma
 %\captionof{figure}{2D histogram for bursting parameters of DD genes identified by scDDboost from dataset EMTAB2805 estimated by D3E. Left panel  : comparison of rate of promoter activation between two conditions, similarly, middle panel  : rate of promoter inactivation and right panel: rate of transcription when the promoter is in the active state. We observe that difference between transcription rate is smaller compare to difference between the activation and inactivation rate.}
 %\end{figure}
 
-We observed that genes uniquely identified by scDDboost are associated with more significant changes between estimated bursting parameters compare to genes commonly identified by all four RNAseq methods. From previous study (Fucci data Fig1) our mixture model could be sensitive to the subtle changes of genes expressions. Using the bursting model, such shifts of distributions we identified are informative for the changes of bursting parameters and probably are not falsely discovered.
+We observed that genes uniquely identified by scDDboost are associated with more significant changes between estimated bursting parameters compare to genes commonly identified by all four RNAseq methods. From previous study (Fucci data Figure 1) our mixture model could be sensitive to the subtle changes of genes expressions. Using the bursting model, such shifts of distributions we identified are informative for the changes of bursting parameters and probably are not falsely discovered.
 
 
 \section{Asymptotics of the Double Dirichlet Mixture}
