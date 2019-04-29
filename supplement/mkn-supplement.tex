@@ -144,7 +144,6 @@ Thus we have $  P\left(A_\pi \cap M_{g,\pi} |X,y,z \right)
 
 \subsubsection{EBSeq}
 
-
 Suppose we have $K$ subtypes, let $X_g^I = X_{g, 1}^I, ... , X_{g, S_1}^I$ denote transcripts at gene $g$ from subtype $I, I = 1, ... K$.  In the EBSeq model it assumed that counts within subtype $I$ are distributed as Negative Binomial:
 $X_{g, s}^I | r_{g,s}, q_g^I \sim NB(r_{g,s}, q_g^I)$ Where
 
@@ -157,7 +156,8 @@ The EBSeq model assumed a prior distribution on $q_g^I : q_g^I | \alpha, \beta^{
 Now we are using EBSeq for expression inference of genes rather than isoforms, we made a modification to the original prior from EBSeq. 
 We still make $\alpha$ to be shared by all the genes and $\beta^g$ becomes gene specific parameter. 
 
-The modeling of $r_{g,s}$ is the same as what EBSeq does. Specifically, we further assume that $r_{g,s} = r_{g,0}*l_s$ where $r_{g,0}$ is an isoform specific parameter common across subtypes and $r_{g,s}$ depends on it through the sample-specific normalization factor $l_s$. Here we expected normalized data, so $l_s = 1$ for all samples, that is $r_{g,s}$ degenerate to $r_g$ only gene specific not sample specific. We use $r_g$ instead of $r_{g,s}$ in the following.
+The modeling of $r_{g,s}$ is the same as what EBSeq does. Specifically, we further assume that $r_{g,s} = r_{g,0}*l_s$ where $r_{g,0}$ is an isoform specific parameter common across subtypes and $r_{g,s}$ depends on it through the sample-specific normalization factor $l_s$. Here we expected normalized data, so $l_s = 1$ for all samples, that is $r_{g,s}$ degenerate to $
+\sigma_g$ only gene specific not sample specific. We use $\sigma_g$ instead of $r_{g,s}$ in the following. 
 
 What we are interested at those $K$ groups comparison is the expression pattern, through EBSeq modeling we are able to obtain posterior probabilities over
 
@@ -177,7 +177,7 @@ For example $K = 3$, there are 5 expression pattern, $P_1, P_2, ..., P_5$
 &P5: q_g^1 \neq q_g^2 \neq q_g^3 \text{ and } q_g^1 \neq q_g^3
 \end{align*}
 
-Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can pool the counts from the two groups by viewing them come from same distribution i.e. $X_g^{I, J} | r_{g}, q_g \sim NB(r_{g}, q_g)$, $q_g | \alpha, \beta^{g} \sim Beta(\alpha, \beta^{g})$ and obtained the prior predictive function $f_0^{g}(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g}, q_g) * P(q_g | \alpha, \beta^{g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + r_{g} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S r_{g}, \beta^{g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{g})}$.  Consequently, we have prior predictive function for $P1, ..., P5$ as
+Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can pool the counts from the two groups by viewing them come from same distribution i.e. $X_g^{I, J} | \sigma_{g}, q_g \sim NB(\sigma_{g}, q_g)$, $q_g | \alpha, \beta^{g} \sim Beta(\alpha, \beta^{g})$ and obtained the prior predictive function $f_0^{g}(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g}, q_g) * P(q_g | \alpha, \beta^{g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + \sigma_{g} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S \sigma_{g}, \beta^{g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{g})}$.  Consequently, we have prior predictive function for $P1, ..., P5$ as
 
 
 \begin{align*}
