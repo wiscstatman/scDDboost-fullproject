@@ -414,13 +414,13 @@ are in circles/ovals. }
 
 Key to computing the gene-specific 
 local false discovery rate $P(\text{ED}_g|X,y)$ is
-evaluating probabilities $P\left(A_\pi \cap M_{g,\pi} |X,y \right)$ for
-any subtype partition $\pi$ and gene $g$.
+evaluating probabilities $P\left(A_\pi \cap M_{g,\pi} |X,y \right)$.
 The dependence structure (Figure~\ref{fig:dag}) implies a useful reduction of this
-quantity, at least conditionally upon subtype labels $z=(z_c)$.
+quantity, at least conditionally upon subtype labels $z=(z_c)$. For each 
+subtype partition $\pi$ and gene $g$,
 
 \begin{theorem}  
-For each $\pi$, $P\left(A_\pi \cap M_{g,\pi} |X,y,z \right) 
+ $P\left(A_\pi \cap M_{g,\pi} |X,y,z \right) 
   =  P\left(A_\pi |y,z \right) 
                       P\left(M_{g,\pi}| X,z \right)$.
 \end{theorem}
@@ -730,31 +730,37 @@ P(A_\pi|y,z) =
 
 
 \subsection{$P(M_{g,\pi}|X,z)$}
-Here we leverage well-established modeling tools for transcript analysis. 
-EBSeq \citep{ref:Leng} factorize the $P( X_g | M_{g,\pi}, z)$ as product of predictive distribution under the equality constrains within each block $b\in\pi$.
+We leverage well-established modeling techniques for transcript analysis, including
+\citep{ref:Leng}, \citep{ref:Kendzior}, and~\citep{jensen}, which characterize
+ equivalent or differential expression in terms of shared or independently drawn mean effects.  Let
+$X_{g,b}$ denote
+the subvector of expression values at gene $g$ over cells $c$ with $z_c=k$ for which subtype $k$ is part of
+ block $b$ of partition $\pi$.  Conditioning on subtype labels $z=(z_c)$,  we assume that under $M_{g, \pi}$: 
+\begin{enumerate}
+\item {\em between blocks:} subvectors $\{ X_{g,b}: b \in \pi \}$ are mutually independent,
+\item {\em within blocks:} for cells mapping to block $b$, observations $X_{g,c}$ are i.i.d. 
+\item {\em mean effects:}  for each block $b$, there is a univariate mean, say $\mu_{g,b}$, 
+ shared by cells mapping to that block.  {\em a priori} these means are i.i.d.  between blocks.
+\end{enumerate}
+These modeling assumptions imply a useful factorization marginally to latent mean values,
+\begin{eqnarray}
+\label{eq:ebseq}
+P(X_g|M_{g,\pi}, z) = \prod_{b \in \pi} f(X_{g,b}),
+\end{eqnarray}
+where $f$ is a customized density kernel.  In our case we use \verb+EBseq+ from~\citep{ref:Leng}: 
+the sampling distribution of
+ $X_{g,c}$ is Negative binomial, and $f$ becomes a particular compound multivariate 
+Negative binomial formed from integrating
+uncertainty in the block-specific means (see Supplementary Material Section 2.4).  
+Through its gene-level mixing model,
+\verb+EBseq+ also gives estimates of $\{ P(M_{g,\pi}|z) \}$: the proportions of genes governed by any of the 
+different patterns $\pi$ of equivalent/differential expression among subtypes. With these estimates 
+and~(\ref{eq:ebseq}) we compute by Bayes' rule:
 \begin{eqnarray*}
-P(X_g | M_{g,\pi}, z) = \underset{b\in\pi}{\prod}P(X_g^k, k\in b | \mu_{g,i} = \mu_{g,j}, \forall i,j \in b)
+P(M_{g,\pi}|X,z) \propto P(M_{g,\pi}|z) \, \prod_{b \in \pi} f(X_{g,b}).
 \end{eqnarray*}
-where $X_g^k$ represent read counts at gene $g$ of cells from subtype $k$ and $X_g = (X_g^1,...,X_g^K)$.
+The proportionality is resolved by calculating over all partitions $\pi$.
 
-%{\em Xiuyu: this presentation still masks some of the essential structure; e.g. the
-%factorization aspects are far more critical than the particular Neg. Binom. assumption, and they should
-%be presented with the more important stuff first.} 
-The posterior probability is calculated from
-\begin{eqnarray*}
-P(M_{g,\pi}|X,z) = \frac{ P(M_{g,\pi}, X | z)}{\sum_{\pi \in \Pi} P(M_{g,\pi}, X | z)}
-\end{eqnarray*}
-where 
-\begin{align*}
-P(M_{g,\pi}, X | z) &= P(M_{g,\pi})P(X_g | M_{g,\pi}, z)\\
-%&= P(M_{g,\pi})\underset{b\in\pi}{\prod} P(X_{g,c}, z_c \in b | \mu_{g,i} = \mu_{g,j}, \forall i,j \in b)\\
-%&= P(M_{g,\pi})\underset{b\in\pi}{\prod} P(X_{g,s}, z_s \in b | q_g^i = q_g^j, \forall i,j \in b).
-\end{align*}
-Notice that left hand side of above formula is $P(M_{g,\pi}, X | z)$ rather than $P(M_{g,\pi}, X_g | z)$.
-The reason is that marginal density of $M_{g,\pi}$ are shared by and estimated from the whole genome, 
-which is an important feature for borrowing information from other genes.
-Hyper-parameters are estimated %$(P(M_{g,\pi}),\alpha,\beta^g)$%
-through first-order EM algorithm. (Details of calculation can be found at supplementary material 2.2.1)
  
 \section{Numerical experiments}
 
