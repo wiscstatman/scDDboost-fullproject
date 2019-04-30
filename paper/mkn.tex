@@ -184,14 +184,6 @@ agrees with other statistical tools on very strong differential-distribution sig
 has the potential to increase power for subtle signals owing to its unique approach to leveraging cell subtype
 information.
 
-% of G1 or G2/M phase that are called by \verb+scDDboost+ to be(e.g. {\tt bmi} and {\tt map}) 
-%differentially distributed between two populations of cells (91 cells from G1 and 76 cells from G2/M). These particular genes
-%were not detected by other standard approaches. Moreover, scDDboost identified in total 3395 DD genes, among them 409 genes are cell cycle annotated in Gene Ontology Cell 
-%Cycle biological process (GO:0007049) while other methods (MAST, scDD and DESeq2) in total identified 1970 genes with 228 genes are cell cycle related. (see Supplementary Material Section~1 for further details.)  
-%
-%The proposed method is often better able to detect weak changes
-%compared to other methods, while at the same time 
-%agreeing with these methods on the strong differential signals and also not inflating the false-discovery rate. 
 
 
 \begin{figure}[H]
@@ -347,7 +339,7 @@ the set $\Pi$ containing all partitions $\pi$ of $\{1,2, \cdots, K\}$
  has cardinality that grows rapidly with $K$. 
  We carry along an example
 involving $K=7$ cell types, and one three-block partition taken
-from the set of 877 possible partitions of $\{1, 2, \cdots, 7\}$ (Figure 1).
+from the set of 877 possible partitions of $\{1, 2, \cdots, 7\}$ (Figure~\ref{fig:scheme}).
 
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{Figs/schematic-1.png}
@@ -356,13 +348,8 @@ from the set of 877 possible partitions of $\{1, 2, \cdots, 7\}$ (Figure 1).
  remain same across conditions, while individual subtype frequencies change. 
  Depending on the changes in average expression among subtypes, these frequency changes
 may or may not induce changes between two conditions  in the  marginal distribution of some gene's expression.  }
-  \label{fig:1}
+  \label{fig:scheme}
 \end{figure}
-
-%% Xiuyu, the alternative figure you had offered gives the suggestion that blocks of the
-%% partition may need to be contiguous classes, which is not so...; with some other
-%% stylistic differences, I decided to go back to the original; I realize your simulation
-%% was not based on this one, but maybe that's ok
 
 
 For any partition $\pi=\{b\}$, consider aggregate subtype frequencies
@@ -412,7 +399,7 @@ statistics in large-scale testing (e.g., Efron, 2007; Muralidharan, 2010; Newton
 is the arithmetic mean of the associated local false discovery rates.  
 The partition representation guides construction of a prior distribution (Section 2.3) and a 
 model-based method (Section 2.2) for scoring  differential distribution.   Setting the stage, 
-Figure~2 shows the dependency structure of 
+Figure~\ref{fig:dag} shows the dependency structure of 
 the proposed compositional model and the partition-reliant prior specification.
 
 \begin{figure}[h!]
@@ -422,14 +409,14 @@ model and partition-reliant prior. The plate on the right side indicates i.i.d.
 copies over cells $c$, conditionally on mixing proportions and mixing components.
  Observed data are indicated in rectangles/squares, and unobserved variables
 are in circles/ovals. }
-  \label{fig:2}
+  \label{fig:dag}
 \end{figure}
 
 Key to computing the gene-specific 
 local false discovery rate $P(\text{ED}_g|X,y)$ is
 evaluating probabilities $P\left(A_\pi \cap M_{g,\pi} |X,y \right)$ for
 any subtype partition $\pi$ and gene $g$.
-The dependence structure (Figure~2) implies a useful reduction of this
+The dependence structure (Figure~\ref{fig:dag}) implies a useful reduction of this
 quantity, at least conditionally upon subtype labels $z=(z_c)$.
 
 \begin{theorem}  
@@ -474,9 +461,6 @@ summarizes how these elements combine to get the posterior probability of differ
 conditional on an estimate of the subtype labels.
 
 
-%Our approach take transcripts processed by normalizing methods (e.g. SCnorm \cite{ref:Rhonda}). 
-%The workflow contains two parts, classify cells into subtypes and posterior inference on distributional change. In the first part, recall subtype is a group of cells with distributions of transcripts that are specific to this group, regardless which condition the cells is from. Thus classification process is blind to conditions and can be done by clustering upon similarities between cells(supplementary material). 
-
 \begin{algorithm}
 \caption{\textsc{scDDBoost-core}}\label{alg:scDDcore}
 \raggedright\hspace*{\algorithmicindent} \textbf{Input}: \begin{list}{}{}
@@ -498,9 +482,6 @@ conditional on an estimate of the subtype labels.
 \end{algorithmic}
 \end{algorithm}
 
-
-
-%%One advantage of our approach is that the posterior inference can be incorporate with different clustering methods. With the development of technology, clustering methods taking care of newly discovered characteristic of scRNA seq data (e.g. SC3\cite{sc3}, CIDR\cite{CIDR} and ZIFA\cite{ZIFA}) could be substituted with our default one. No matter what clustering method is used, we estimate the mixture structure utilizing the whole genome information rather than estimating a gene specific mixture structure solely using information of that gene. Due to this reason, our model is more capable of capturing characteristic of scRNA seq data than scDD and we name our approach \textsc{scDDboost}. 
 
 We invoke $K-$medoids \citep{kmedoids} 
 as the default clustering method in \textsc{scDDboost}, and customize the cell-cell distance by integrating two measures.  
@@ -786,13 +767,12 @@ of expression levels. These settings were chosen to cover a range
 of scenarios we might expect to see in practice.  Two replicate data sets were simulated under each parameter setting.
 Further details are provided in Supplementary Material Section 3.1.   
 
-Figures~4 and~5 summarize the true positive rate and false discovery rate
+Figures~\ref{fig:sim1} and~\ref{fig:sim2} summarize the true positive rate and false discovery rate
 of \verb+scDDboost+ compared to three other methodologies: \verb+MAST (1.4.0)+, \verb+scDD (1.2.0)+, and 
 \verb+DESeq2 (1.18.1)+. 
 The proposed \verb+scDDboost+ exhibits very good operating characteristics in this study, as it controls the 
 false discovery rate in all cases while also returning a higher rate of true positive genes in most case.
 **{\em maybe something else not yet shown; other FDR levels, other scenarios??}??**
-
 
 
 \begin{figure}[H]
@@ -801,14 +781,14 @@ false discovery rate in all cases while also returning a higher rate of true pos
   Scenarios are labeled for $K / \theta / \gamma$  and ranked by scDDboost values. Each method
  is targeting a 5\% false discovery rate (FDR).
    }
-  \label{fig:4}
+  \label{fig:sim1}
 \end{figure}
 
 
 \begin{figure}[H]
   \includegraphics[width = 0.95\textwidth]{Figs/simuFDR.pdf}
   \caption{Empirical false discovery rate of methods in scenarios from Figure~4 }
-  \label{fig:5}
+  \label{fig:sim2}
 \end{figure}
 
 
@@ -816,7 +796,7 @@ false discovery rate in all cases while also returning a higher rate of true pos
 
 We applied \verb+scDDboost+ to a collection of previously published
 data sets that are recorded at \verb+conquer+~\citep{ref:Cq}.  Though not knowing the truly DD
-genes, we can examine how \verb+scDDboost+ output compares to output from other standard methods.  We selected
+genes, we can examine how \verb+scDDboost+ output compares to output from some standard methods.  We selected
 12 data sets from \verb+conquer+   representing different species and experimental settings
 and involving hundreds to thousands of cells.   Supplementary Table 1 provides details.  Figure~\ref{fig:es} compares
 methods in terms of the size of the reported list of DD genes at the 5\% FDR target level.  
