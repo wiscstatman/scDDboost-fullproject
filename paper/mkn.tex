@@ -730,28 +730,32 @@ P(A_\pi|y,z) =
 
 
 \subsection{$P(M_{g,\pi}|X,z)$}
-Here we leverage well-established modeling tools for transcript analysis.   
-{\em Xiuyu: this presentation still masks some of the essential structure; e.g. the
-factorization aspects are far more critical than the particular Neg. Binom. assumption, and they should
-be presented with the more important stuff first.} On $M_{g, \pi}$, cells within
-the same subtype, say all $c$ such that $z_c=k$, have $X_{g,c} | z_c = k \sim \text{Negative Binomial}(\sigma_g,\mu_{g,k})$, 
-%We use the empirical bayesian scheme from EBSeq \citep{ref:Leng} for the inference. Specifically, for a transcript given the subtype label $X_{g,s} | z_s$, we assume it is negative binomial distributed with hyper parameters($r_g, q_g^{z_s}$).  
-%\begin{eqnarray*}
-%P(q_g^1,q_g^2,...,q_g^K, M_{g,\pi}) = P(M_{g,\pi})P(q_g^1,q_g^2,...,q_g^K | M_{g,\pi})
-%\end{eqnarray*}
-and the posterior probability is calculated from
+Here we leverage well-established modeling tools for transcript analysis. 
+EBSeq \citep{ref:Leng} factorize the $P( X_g | M_{g,\pi}, z)$ as product of predictive distribution under the equality constrains within each block $b\in\pi$.
 \begin{eqnarray*}
-P(M_{g,\pi}|X,z) = \frac{ P(M_{g,\pi}, X,z)}{\sum_{\pi \in \Pi} P(M_{g,\pi}, X,z)}
+P(X_g | M_{g,\pi}, z) = \underset{b\in\pi}{\prod}P(X_g^k, k\in b | \mu_{g,i} = \mu_{g,j}, \forall i,j \in b)
 \end{eqnarray*}
+where $X_g^k$ represent read counts at gene $g$ of cells from subtype $k$ and $X_g = (X_g^1,...,X_g^K)$.
 
+%{\em Xiuyu: this presentation still masks some of the essential structure; e.g. the
+%factorization aspects are far more critical than the particular Neg. Binom. assumption, and they should
+%be presented with the more important stuff first.} 
+The posterior probability is calculated from
+\begin{eqnarray*}
+P(M_{g,\pi}|X,z) = \frac{ P(M_{g,\pi}, X | z)}{\sum_{\pi \in \Pi} P(M_{g,\pi}, X | z)}
+\end{eqnarray*}
 where 
 \begin{align*}
-P(M_{g,\pi}, X,z) &= P(M_{g,\pi})P(X,z | M_{g,\pi})\\
-&= P(M_{g,\pi})\underset{b\in\pi}{\prod} P(X_{g,c}, z_c \in b | \mu_{g,i} = \mu_{g,j}, \forall i,j \in b)\\
+P(M_{g,\pi}, X | z) &= P(M_{g,\pi})P(X | M_{g,\pi}, z)\\
+%&= P(M_{g,\pi})\underset{b\in\pi}{\prod} P(X_{g,c}, z_c \in b | \mu_{g,i} = \mu_{g,j}, \forall i,j \in b)\\
 %&= P(M_{g,\pi})\underset{b\in\pi}{\prod} P(X_{g,s}, z_s \in b | q_g^i = q_g^j, \forall i,j \in b).
 \end{align*}
-One important feature of EBSeq \citep{ref:Leng} is that marginal density of $M_{g,\pi}$ are shared by and estimated from the whole genome.
-Mass of DE patterns on one gene depends on mass of DE patterns on other genes, which increase accuracy of our methods Figure~\ref{fig:EBSeq}.
+
+On $M_{g, \pi}$, cells within
+the same subtype, say all $c$ such that $z_c=k$, have $X_{g,c} | z_c = k \sim \text{Negative Binomial}(\sigma_g,\mu_{g,k})$, 
+
+One important feature of information sharing is that marginal density of $M_{g,\pi}$ are shared by and estimated from the whole genome.
+Mass of DE patterns on one gene depends on mass of DE patterns on other genes.
 Hyper-parameters are estimated %$(P(M_{g,\pi}),\alpha,\beta^g)$%
 through first-order EM algorithm. (Details of calculation can be found at supplementary material 2.2.1)
  
