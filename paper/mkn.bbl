@@ -1,4 +1,4 @@
-\begin{thebibliography}{26}
+\begin{thebibliography}{28}
 % BibTex style file: imsart-nameyear.bst, 2017-11-03
 % Default style options (sort=1,type=nameyear).
 % Used options (sort=1,type=nameyear).
@@ -100,6 +100,22 @@
 \end{barticle}
 \endbibitem
 
+\bibitem[\protect\citeauthoryear{Jensen et~al.}{2009}]{Jensen:2009aa}
+\begin{barticle}[author]
+\bauthor{\bsnm{Jensen},~\bfnm{Shane~T.}\binits{S.~T.}},
+  \bauthor{\bsnm{Erkan},~\bfnm{Ibrahim}\binits{I.}},
+  \bauthor{\bsnm{Arnardottir},~\bfnm{Erna~S.}\binits{E.~S.}} \AND
+  \bauthor{\bsnm{Small},~\bfnm{Dylan~S.}\binits{D.~S.}}
+(\byear{2009}).
+\btitle{Bayesian testing of many hypotheses x many genes: A study of sleep
+  apnea}.
+\bjournal{Ann. Appl. Stat.}
+\bvolume{3}
+\bpages{1080--1101}.
+\bdoi{10.1214/09-AOAS241}
+\end{barticle}
+\endbibitem
+
 \bibitem[\protect\citeauthoryear{Kaufman and Rousseeuw}{1987}]{kmedoids}
 \begin{bbook}[author]
 \bauthor{\bsnm{Kaufman},~\bfnm{Leonard}\binits{L.}} \AND
@@ -108,6 +124,22 @@
 \btitle{Clustering by means of medoids}.
 \bpublisher{North-Holland}.
 \end{bbook}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Kendziorski et~al.}{2003}]{Kendziorski:2003aa}
+\begin{barticle}[author]
+\bauthor{\bsnm{Kendziorski},~\bfnm{C.~M.}\binits{C.~M.}},
+  \bauthor{\bsnm{Newton},~\bfnm{M.~A.}\binits{M.~A.}},
+  \bauthor{\bsnm{Lan},~\bfnm{H.}\binits{H.}} \AND
+  \bauthor{\bsnm{Gould},~\bfnm{M.~N.}\binits{M.~N.}}
+(\byear{2003}).
+\btitle{On parametric empirical Bayes methods for comparing multiple groups
+  using replicated gene expression profiles}.
+\bjournal{Statistics in Medicine}
+\bvolume{22}
+\bpages{3899--3914}.
+\bdoi{10.1002/sim.1548}
+\end{barticle}
 \endbibitem
 
 \bibitem[\protect\citeauthoryear{Kim et~al.}{2018}]{Cor}
