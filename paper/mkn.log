@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  29 APR 2019 19:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.11)  29 APR 2019 21:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1198,12 +1198,12 @@ ages cell-subtype
 
 ]
 [2]
-<Figs/FucciDD.pdf, id=145, 216.81pt x 433.62pt>
+<Figs/FucciDD.pdf, id=146, 216.81pt x 433.62pt>
 File: Figs/FucciDD.pdf Graphic file (type pdf)
 <use Figs/FucciDD.pdf>
 Package pdftex.def Info: Figs/FucciDD.pdf  used on input line 192.
 (pdftex.def)             Requested size: 129.60022pt x 259.21461pt.
-<Figs/HeatUni.png, id=147, 391.4625pt x 480.79625pt>
+<Figs/HeatUni.png, id=148, 391.4625pt x 480.79625pt>
 File: Figs/HeatUni.png Graphic file (type png)
 <use Figs/HeatUni.png>
 Package pdftex.def Info: Figs/HeatUni.png  used on input line 195.
@@ -1211,7 +1211,7 @@ Package pdftex.def Info: Figs/HeatUni.png  used on input line 195.
 LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <9> not available
 (Font)              Font shape `OT1/pplx/b/n' tried instead on input line 206.
  [3] [4 <./Figs/FucciDD.pdf> <./Figs/HeatUni.png>] [5] [6]
-<Figs/schematic-1.png, id=208, 1541.76pt x 770.88pt>
+<Figs/schematic-1.png, id=210, 1541.76pt x 770.88pt>
 File: Figs/schematic-1.png Graphic file (type png)
 <use Figs/schematic-1.png>
 Package pdftex.def Info: Figs/schematic-1.png  used on input line 345.
@@ -1230,7 +1230,7 @@ OT1/zplm/m/n/10.95 = \OML/zplm/m/it/10.95 ^^Y[]$\OT1/pplx/m/it/10.95 , [].
  []
 
 [8 <./Figs/schematic-1.png>]
-<Figs/dag.png, id=226, 1027.84pt x 770.88pt>
+<Figs/dag.png, id=228, 1027.84pt x 770.88pt>
 File: Figs/dag.png Graphic file (type png)
 <use Figs/dag.png>
 Package pdftex.def Info: Figs/dag.png  used on input line 406.
@@ -1315,64 +1315,63 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 733.
 
 [14]
-<Figs/simuTPR.pdf, id=310, 722.7pt x 433.62pt>
+<Figs/simuTPR.pdf, id=313, 722.7pt x 433.62pt>
 File: Figs/simuTPR.pdf Graphic file (type pdf)
 <use Figs/simuTPR.pdf>
-Package pdftex.def Info: Figs/simuTPR.pdf  used on input line 779.
+Package pdftex.def Info: Figs/simuTPR.pdf  used on input line 778.
 (pdftex.def)             Requested size: 341.9989pt x 205.19751pt.
  [15]
-<Figs/simuFDR.pdf, id=317, 722.7pt x 433.62pt>
+<Figs/simuFDR.pdf, id=321, 722.7pt x 433.62pt>
 File: Figs/simuFDR.pdf Graphic file (type pdf)
 <use Figs/simuFDR.pdf>
-Package pdftex.def Info: Figs/simuFDR.pdf  used on input line 789.
+Package pdftex.def Info: Figs/simuFDR.pdf  used on input line 788.
 (pdftex.def)             Requested size: 341.9989pt x 205.19751pt.
 
-Overfull \hbox (2.70686pt too wide) in paragraph at lines 797--806
+Overfull \hbox (2.70686pt too wide) in paragraph at lines 796--805
 \OT1/pplx/m/n/10.95 ously pub-lished data sets that are recorded at [][]\OT1/cm
 tt/m/n/10.95 conquer []\OT1/pplx/m/n/10.95 ([][]Sone-son and Robin-
  []
 
 [16 <./Figs/simuTPR.pdf> <./Figs/simuFDR.pdf>]
-<Figs/DD95.pdf, id=337, 722.7pt x 433.62pt>
+<Figs/DD95.pdf, id=344, 722.7pt x 433.62pt>
 File: Figs/DD95.pdf Graphic file (type pdf)
 <use Figs/DD95.pdf>
-Package pdftex.def Info: Figs/DD95.pdf  used on input line 809.
+Package pdftex.def Info: Figs/DD95.pdf  used on input line 808.
 (pdftex.def)             Requested size: 341.9989pt x 205.19751pt.
-<Figs/fdrCounts.pdf, id=339, 578.16pt x 361.35pt>
+<Figs/fdrCounts.pdf, id=346, 578.16pt x 361.35pt>
 File: Figs/fdrCounts.pdf Graphic file (type pdf)
 <use Figs/fdrCounts.pdf>
-Package pdftex.def Info: Figs/fdrCounts.pdf  used on input line 829.
+Package pdftex.def Info: Figs/fdrCounts.pdf  used on input line 823.
 (pdftex.def)             Requested size: 288.0011pt x 179.99637pt.
  [17 <./Figs/DD95.pdf>]
-<Figs/clussz.pdf, id=354, 505.89pt x 505.89pt>
+<Figs/clussz.pdf, id=361, 505.89pt x 505.89pt>
 File: Figs/clussz.pdf Graphic file (type pdf)
 <use Figs/clussz.pdf>
-Package pdftex.def Info: Figs/clussz.pdf  used on input line 850.
+Package pdftex.def Info: Figs/clussz.pdf  used on input line 841.
 (pdftex.def)             Requested size: 288.0011pt x 288.0052pt.
- [18 <./Figs/fdrCounts.pdf>] [19 <./Figs/clussz.pdf>]
-<Figs/nullpdd_box.pdf, id=378, 505.89pt x 505.89pt>
+ [18 <./Figs/fdrCounts.pdf>]
+<Figs/nullpdd_box.pdf, id=374, 505.89pt x 505.89pt>
 File: Figs/nullpdd_box.pdf Graphic file (type pdf)
 <use Figs/nullpdd_box.pdf>
-Package pdftex.def Info: Figs/nullpdd_box.pdf  used on input line 871.
+Package pdftex.def Info: Figs/nullpdd_box.pdf  used on input line 862.
 (pdftex.def)             Requested size: 251.9989pt x 252.00262pt.
-
-Overfull \hbox (19.76878pt too wide) in paragraph at lines 885--886
+ [19 <./Figs/clussz.pdf>]
+Overfull \hbox (19.76878pt too wide) in paragraph at lines 876--877
  \OT1/pplx/m/n/10.95 3.3.\OT1/pplx/m/it/10.95 Bursting.[][] \OT1/pplx/m/n/10.95
  D3E([][]Delmans and Hem-berg[][], [][]2016[][]) is a dis-tri-bu-tional method
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 885--886
+Underfull \hbox (badness 10000) in paragraph at lines 876--877
 
  []
 
-[20 <./Figs/nullpdd_box.pdf>]
-<Figs/D3E_box.pdf, id=391, 505.89pt x 505.89pt>
+<Figs/D3E_box.pdf, id=388, 505.89pt x 505.89pt>
 File: Figs/D3E_box.pdf Graphic file (type pdf)
 <use Figs/D3E_box.pdf>
-Package pdftex.def Info: Figs/D3E_box.pdf  used on input line 896.
+Package pdftex.def Info: Figs/D3E_box.pdf  used on input line 887.
 (pdftex.def)             Requested size: 216.0022pt x 216.00775pt.
- [21 <./Figs/D3E_box.pdf>] [22] (./mkn.bbl
+[20 <./Figs/nullpdd_box.pdf>] [21 <./Figs/D3E_box.pdf>] [22] (./mkn.bbl
 
 ! Package keyval Error: Bacher2016 undefined.
 
@@ -1393,7 +1392,6 @@ Type  H <return>  for immediate help.
 l.57 \bid{Delmans2016}
                       
 ? 
-[23]
 
 ! Package keyval Error: Finak2015 undefined.
 
@@ -1404,6 +1402,7 @@ Type  H <return>  for immediate help.
 l.99 \bid{Finak2015}
                     
 ? 
+[23]
 
 ! Package keyval Error: Korthauer2016 undefined.
 
@@ -1454,19 +1453,19 @@ Type  H <return>  for immediate help.
 l.387 \bid{Zappia2017}
                       
 ? 
-[24]) [25]
-Overfull \hbox (6.77095pt too wide) in paragraph at lines 1028--1044
+) [24]
+Overfull \hbox (6.77095pt too wide) in paragraph at lines 1019--1035
  []\OT1/pplx/m/it/10.95 Randomizing dis-tances for ap-prox-i-mate pos-te-rior i
 n-fer-ence. \OT1/pplx/m/n/10.95 One way to frame
  []
 
-[26] [27]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1111.
- [28]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1111.
+[25] [26]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1102.
+ [27]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1102.
  (./mkn.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1111.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1111.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1102.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1102.
 
 Package rerunfilecheck Info: File `mkn.out' has not changed.
 (rerunfilecheck)             Checksum: A157AF32F7A0BEF706DD31B22BCC9126;901.
@@ -1477,16 +1476,16 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1111.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1102.
  ) 
 Here is how much of TeX's memory you used:
- 29489 strings out of 492641
- 549418 string characters out of 6129330
- 626949 words of memory out of 5000000
+ 29488 strings out of 492641
+ 549411 string characters out of 6129330
+ 627647 words of memory out of 5000000
  32778 multiletter control sequences out of 15000+600000
  574139 words of font info for 127 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,16n,65p,1771b,520s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,16n,65p,1771b,480s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -1501,10 +1500,10 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (28 pages, 647120 bytes).
+Output written on mkn.pdf (27 pages, 644550 bytes).
 PDF statistics:
- 524 PDF objects out of 1000 (max. 8388607)
- 451 compressed objects within 5 object streams
- 111 named destinations out of 1000 (max. 500000)
+ 527 PDF objects out of 1000 (max. 8388607)
+ 454 compressed objects within 5 object streams
+ 110 named destinations out of 1000 (max. 500000)
  206 words of extra memory for PDF output out of 10000 (max. 10000000)
 
