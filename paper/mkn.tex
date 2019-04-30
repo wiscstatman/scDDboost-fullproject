@@ -751,7 +751,6 @@ P(M_{g,\pi}, X | z) &= P(M_{g,\pi})P(X_g | M_{g,\pi}, z)\\
 %&= P(M_{g,\pi})\underset{b\in\pi}{\prod} P(X_{g,s}, z_s \in b | q_g^i = q_g^j, \forall i,j \in b).
 \end{align*}
 Notice that left hand side of above formula is $P(M_{g,\pi}, X | z)$ rather than $P(M_{g,\pi}, X_g | z)$.
-%cells within the same subtype, say all $c$ such that $z_c=k$, have $X_{g,c} | z_c = k \sim \text{Negative Binomial}(\sigma_g,\mu_{g,k})$, 
 The reason is that marginal density of $M_{g,\pi}$ are shared by and estimated from the whole genome, 
 which is an important feature for borrowing information from other genes.
 Hyper-parameters are estimated %$(P(M_{g,\pi}),\alpha,\beta^g)$%
