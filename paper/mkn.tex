@@ -732,12 +732,11 @@ P(A_\pi|y,z) =
 \subsection{$P(M_{g,\pi}|X,z)$}
 Here we leverage well-established modeling tools for transcript analysis.   On $M_{g, \pi}$, cells within
 the same subtype, say all $c$ such that $z_c=k$, have $X_{g,c} | z_c = k \sim \text{Negative Binomial}(\sigma_g,\mu_{g,k})$, 
-%We use the empirical bayesian scheme from EBSeq \citep{ref:Leng} for the inference. Specifically, for a transcript given the subtype label $X_{g,s} | z_s$, we assume it is negative binomial distributed with hyper parameters($r_g, q_g^{z_s}$). 
-we use the Beta prior from EBSeq \citep{ref:Leng} and 
+%We use the empirical bayesian scheme from EBSeq \citep{ref:Leng} for the inference. Specifically, for a transcript given the subtype label $X_{g,s} | z_s$, we assume it is negative binomial distributed with hyper parameters($r_g, q_g^{z_s}$).  
 %\begin{eqnarray*}
 %P(q_g^1,q_g^2,...,q_g^K, M_{g,\pi}) = P(M_{g,\pi})P(q_g^1,q_g^2,...,q_g^K | M_{g,\pi})
 %\end{eqnarray*}
-the posterior probability is calculated from
+and the posterior probability is calculated from
 \begin{eqnarray*}
 P(M_{g,\pi}|X,z) = \frac{ P(M_{g,\pi}, X,z)}{\sum_{\pi \in \Pi} P(M_{g,\pi}, X,z)}
 \end{eqnarray*}
@@ -748,9 +747,10 @@ P(M_{g,\pi}, X,z) &= P(M_{g,\pi})P(X,z | M_{g,\pi})\\
 &= P(M_{g,\pi})\underset{b\in\pi}{\prod} P(X_{g,c}, z_c \in b | \mu_{g,i} = \mu_{g,j}, \forall i,j \in b)\\
 %&= P(M_{g,\pi})\underset{b\in\pi}{\prod} P(X_{g,s}, z_s \in b | q_g^i = q_g^j, \forall i,j \in b).
 \end{align*}
-
-Marginal density of $M_{g,\pi}$ are assumed to be shared by all genes and we estimate hyper-parameters %$(P(M_{g,\pi}),\alpha,\beta^g)$%
-through first-order EM algorithm. (Details at supplementary material 2.2.1)
+One important feature of EBSeq \citep{ref:Leng} is that marginal density of $M_{g,\pi}$ are shared by and estimated from the whole genome.
+Mass of DE patterns on one gene depends on mass of DE patterns on other genes, which increase accuracy of our methods Figure~\ref{fig:EBSeq}.
+Hyper-parameters are estimated %$(P(M_{g,\pi}),\alpha,\beta^g)$%
+through first-order EM algorithm. (Details of calculation can be found at supplementary material 2.2.1)
  
 \section{Numerical experiments}
 
@@ -864,7 +864,7 @@ the subtypes. Say $\hat \pi_g = {\rm argmax}_{\pi} P( M_{g,\pi} | \hat z, X)$.
  The magenta box is the PDD using the trivial proportion of DE pattern (i.e. all DE patterns between subtypes have same probabilities), basically we do not borrow information from other genes. 
  In the null case, we observed lower PDD when using information from the whole genome and this is consistent with the underlying ED structure. 
  Recall in Figure 7, genes uniquely identified by scDDboost tend to associate with DE pattern with large size. From the null case such behavior could make our PDD more correct}
-  \label{fig:8}
+  \label{fig:EBSeq}
 \end{figure}
 
 
