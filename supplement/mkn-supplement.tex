@@ -136,7 +136,7 @@ Recall $\theta = (\phi, \psi, \mu, \sigma)$.
 Through the sampling procedure of our model (Figure 3), assuming we known number of cells within each conditions $(n_1,n_2)$. We have $z^1, z^2$ are multinomial draw given $\phi$ and $\psi$, 
 thus the generation of $y, z$ only depends on $(\phi,\psi)$
 Also given $z$, $X_{g,c}$ is sampled through $\text{NB}(\mu_{g,z_c}, \sigma_g)$, only depends on $(\mu, \sigma)$.
-Thus $P(X,y,z | \theta) = P(y, z | \phi,\psi ) P(X | z, \mu, \sigma)$, and we separately give priors for $(\mu,\sigma)$ and $(\phi, \psi)$
+Thus $P(X,y,z | \theta) = P(y, z | \phi,\psi ) P(X | z, \mu, \sigma)$, and we independently give priors for $(\mu,\sigma)$ and $(\phi, \psi)$
 By the Baye's rule, 
 \begin{align*}
 P(\theta | X,y,z) &\propto P(X,y,z | \theta) P(\theta) \\
