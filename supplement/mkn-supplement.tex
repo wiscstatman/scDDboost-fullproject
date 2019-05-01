@@ -137,10 +137,10 @@ The theorem comes from three facts:\\
 1. Given condition and subtypes label $y,z$, $(\phi,\psi)$ is independent with $X$\\
 2. Given $X$ and $z$, $(\mu_{g,k}, \sigma_g)$ is independent with $y$\\
 3. Given $X,y$ and $z$, $(\phi, \psi) \perp (\mu_{g,k}, \sigma_g)$\\
-Through the sampling procedure of our model (Figure 3). We have $z^1, z^2$ are multinomial draw given $(\phi,\psi)$
-fact 1: $y,z$ is the sufficient statistics for the posterior of $(\phi,\psi)$\\
-fact 2: 
-fact 3:
+Through the sampling procedure of our model (Figure 3). We have $z^1, z^2$ are multinomial draw given $\phi$ and $\psi$, 
+thus the generation of $y, z$ only depends on $(\phi,\psi)$ and number of cells in each condition $n_1, n_2$. 
+Also Given $z$, $X_{g,c}$ is sampled through $\text{NB}(\mu_{g,z_c}, \sigma_g)$, only depends on $(\mu, \sigma)$.
+Thus $P(X,y,z | \theta, n_1, n_2) = P(y, z | (\phi,\psi), n_1, n_2) P(X | z, \mu, \sigma)$
 
 %The change of proportion of subtypes $A_\pi$ is independent with mean expression change between subtypes $M_{g,\pi}$ given expression data $X$, condition label $y$ and cluster label $z$.
 %Further, conditioning on condition label $y$ and cluster label $z$, the change of proportion of subtypes $A_\pi$ is independent with the expression data $X$ and similarly conditioning on $z$ and $X$, $M_{g,\pi}$ is independent with $y$. 
