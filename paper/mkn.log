@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  30 APR 2019 15:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  30 APR 2019 21:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1065,6 +1065,9 @@ LaTeX Warning: Label `t2thanks' multiply defined.
 
 LaTeX Warning: Label `k1thanks' multiply defined.
 
+
+LaTeX Warning: Label `fig:clussz' multiply defined.
+
 )
 \openout1 = `mkn.aux'.
 
@@ -1353,15 +1356,22 @@ Package pdftex.def Info: Figs/fdrCounts.pdf  used on input line 834.
 File: Figs/clussz.pdf Graphic file (type pdf)
 <use Figs/clussz.pdf>
 Package pdftex.def Info: Figs/clussz.pdf  used on input line 860.
-(pdftex.def)             Requested size: 288.0011pt x 288.0052pt.
+(pdftex.def)             Requested size: 216.0022pt x 216.00775pt.
 
 [19]
-<Figs/D3E_box.pdf, id=396, 505.89pt x 505.89pt>
+<Figs/shift.pdf, id=394, 650.43pt x 216.81pt>
+File: Figs/shift.pdf Graphic file (type pdf)
+<use Figs/shift.pdf>
+Package pdftex.def Info: Figs/shift.pdf  used on input line 870.
+(pdftex.def)             Requested size: 288.0011pt x 96.00209pt.
+ [20 <./Figs/clussz.pdf> <./Figs/shift.pdf>]
+<Figs/D3E_box.pdf, id=412, 505.89pt x 505.89pt>
 File: Figs/D3E_box.pdf Graphic file (type pdf)
 <use Figs/D3E_box.pdf>
-Package pdftex.def Info: Figs/D3E_box.pdf  used on input line 895.
+Package pdftex.def Info: Figs/D3E_box.pdf  used on input line 905.
 (pdftex.def)             Requested size: 216.0022pt x 216.00775pt.
- [20 <./Figs/clussz.pdf>] [21 <./Figs/D3E_box.pdf>] [22] (./mkn.bbl
+ [21 <./Figs/D3E_box.pdf>]
+[22] (./mkn.bbl
 
 ./mkn.bbl:30: Package keyval Error: Bacher2016 undefined.
 
@@ -1372,6 +1382,7 @@ Type  H <return>  for immediate help.
 l.30 \bid{Bacher2016}
                      
 ? 
+[23]
 
 ./mkn.bbl:57: Package keyval Error: Delmans2016 undefined.
 
@@ -1392,7 +1403,6 @@ Type  H <return>  for immediate help.
 l.99 \bid{Finak2015}
                     
 ? 
-[23]
 
 ./mkn.bbl:198: Package keyval Error: Korthauer2016 undefined.
 
@@ -1445,21 +1455,21 @@ l.419 \bid{Zappia2017}
                       
 ? 
 ) [25]
-Overfull \hbox (6.77095pt too wide) in paragraph at lines 1014--1030
+Overfull \hbox (6.77095pt too wide) in paragraph at lines 1024--1040
  []\OT1/pplx/m/it/10.95 Randomizing dis-tances for ap-prox-i-mate pos-te-rior i
 n-fer-ence. \OT1/pplx/m/n/10.95 One way to frame
  []
 
 [26] [27]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1097.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1107.
  [28]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1097.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1107.
  (./mkn.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1097.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1097.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1107.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1107.
 
 Package rerunfilecheck Info: File `mkn.out' has not changed.
-(rerunfilecheck)             Checksum: F18A6D32EC6D6C2316A294306E3D5CFA;901.
+(rerunfilecheck)             Checksum: A157AF32F7A0BEF706DD31B22BCC9126;901.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1467,16 +1477,16 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1097.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1107.
  ) 
 Here is how much of TeX's memory you used:
- 28653 strings out of 492649
- 542767 string characters out of 6129622
- 621048 words of memory out of 5000000
- 31934 multiletter control sequences out of 15000+600000
+ 28659 strings out of 492649
+ 542892 string characters out of 6129622
+ 621050 words of memory out of 5000000
+ 31938 multiletter control sequences out of 15000+600000
  572073 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,16n,64p,10421b,522s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,16n,64p,10421b,512s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -1491,10 +1501,10 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (28 pages, 642966 bytes).
+Output written on mkn.pdf (28 pages, 649412 bytes).
 PDF statistics:
- 541 PDF objects out of 1000 (max. 8388607)
- 469 compressed objects within 5 object streams
- 116 named destinations out of 1000 (max. 500000)
- 201 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 547 PDF objects out of 1000 (max. 8388607)
+ 473 compressed objects within 5 object streams
+ 117 named destinations out of 1000 (max. 500000)
+ 206 words of extra memory for PDF output out of 10000 (max. 10000000)
 
