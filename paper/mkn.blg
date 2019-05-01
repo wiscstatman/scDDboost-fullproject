@@ -1,48 +1,64 @@
 This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: mkn.aux
-I found no \citation commands---while reading file mkn.aux
-I found no \bibdata command---while reading file mkn.aux
-I found no \bibstyle command---while reading file mkn.aux
-You've used 0 entries,
-            0 wiz_defined-function locations,
-            83 strings with 480 characters,
-and the built_in function-call counts, 0 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 0
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 0
-format.name$ -- 0
-if$ -- 0
-int.to.chr$ -- 0
-int.to.str$ -- 0
+The style file: imsart-nameyear.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: ./references/wlr_ref.bib
+Warning--string name "aug" is undefined
+--line 445 of file ./references/wlr_ref.bib
+Warning--string name "mar" is undefined
+--line 490 of file ./references/wlr_ref.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty booktitle in selK
+You've used 28 entries,
+            5204 wiz_defined-function locations,
+            1105 strings with 12741 characters,
+and the built_in function-call counts, 163261 in all, are:
+= -- 26559
+> -- 500
+< -- 48
++ -- 8924
+- -- 180
+* -- 9621
+:= -- 25261
+add.period$ -- 110
+call.type$ -- 28
+change.case$ -- 160
+chr.to.int$ -- 28
+cite$ -- 29
+duplicate$ -- 1060
+empty$ -- 7651
+format.name$ -- 703
+if$ -- 39277
+int.to.chr$ -- 1
+int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 0
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 0
-purify$ -- 0
+newline$ -- 334
+num.names$ -- 129
+pop$ -- 834
+preamble$ -- 1
+purify$ -- 104
 quote$ -- 0
-skip$ -- 0
+skip$ -- 15498
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 23777
+swap$ -- 407
+text.length$ -- 252
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
+type$ -- 722
+warning$ -- 1
+while$ -- 392
 width$ -- 0
-write$ -- 0
-(There were 3 error messages)
+write$ -- 669
+(There were 3 warnings)
