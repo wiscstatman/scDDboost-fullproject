@@ -77,9 +77,9 @@
 \citation{ref:dahl}
 \citation{Cor}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Method structure and clustering}{10}{subsection.2.2}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces \textsc  {scDDBoost-core}\relax }}{10}{algorithm.1}}
+\newlabel{alg:scDDcore}{{1}{10}{\textsc {scDDBoost-core}\relax }{algorithm.1}{}}
 \citation{selK}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces \textsc  {scDDBoost-core}\relax }}{11}{algorithm.1}}
-\newlabel{alg:scDDcore}{{1}{11}{\textsc {scDDBoost-core}\relax }{algorithm.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}$P(A_\pi |y,z)$}{11}{subsection.2.3}}
 \newlabel{eq:ddmix}{{6}{12}{$P(A_\pi |y,z)$}{equation.2.6}{}}
 \newlabel{eq:onetoone}{{7}{12}{$P(A_\pi |y,z)$}{equation.2.7}{}}
@@ -96,61 +96,32 @@
 \newlabel{eq:ebseq}{{11}{15}{$P(M_{g,\pi }|X,z)$}{equation.2.11}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Numerical experiments}{15}{section.3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Synthetic data}{15}{subsection.3.1}}
+\citation{ref:Cq}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces True positive rate (vertical) of four DD detection methods in 12 synthetic-data settings (horizontal). Settings are labeled for $K / \theta / \gamma $ and ranked by scDDboost values. Each method is targeting a 5\% false discovery rate (FDR). The plot shows average rates over replicate simulated data in each setting. \relax }}{16}{figure.caption.4}}
 \newlabel{fig:sim1}{{4}{16}{True positive rate (vertical) of four DD detection methods in 12 synthetic-data settings (horizontal). Settings are labeled for $K / \theta / \gamma $ and ranked by scDDboost values. Each method is targeting a 5\% false discovery rate (FDR). The plot shows average rates over replicate simulated data in each setting. \relax }{figure.caption.4}{}}
-\citation{ref:Cq}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Empirical false discovery rate of methods in settings from Figure\nobreakspace  {}\ref  {fig:sim1} \relax }}{17}{figure.caption.5}}
-\newlabel{fig:sim2}{{5}{17}{Empirical false discovery rate of methods in settings from Figure~\ref {fig:sim1} \relax }{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Empirical false discovery rate of methods in settings from Figure\nobreakspace  {}\ref  {fig:sim1} \relax }}{16}{figure.caption.5}}
+\newlabel{fig:sim2}{{5}{16}{Empirical false discovery rate of methods in settings from Figure~\ref {fig:sim1} \relax }{figure.caption.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Empirical study}{17}{subsection.3.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Proportion of DD genes at 5\% threshold with respect to total number of genes identified by each method. Ranked by scDDboost list size \relax }}{18}{figure.caption.6}}
-\newlabel{fig:es}{{6}{18}{Proportion of DD genes at 5\% threshold with respect to total number of genes identified by each method. Ranked by scDDboost list size \relax }{figure.caption.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Proportion of DD genes at 5\% threshold with respect to total number of genes identified by each method. Ranked by scDDboost list size \relax }}{17}{figure.caption.6}}
+\newlabel{fig:es}{{6}{17}{Proportion of DD genes at 5\% threshold with respect to total number of genes identified by each method. Ranked by scDDboost list size \relax }{figure.caption.6}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces False positive counts by several methods on 5 random splits of 9 single-condition data sets from Appendix Table 2\relax }}{18}{figure.caption.7}}
 \newlabel{nullperm}{{7}{18}{False positive counts by several methods on 5 random splits of 9 single-condition data sets from Appendix Table 2\relax }{figure.caption.7}{}}
 \citation{ref:d3e}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Clusters of genes tend to be larger (vertical axis, log size) for genes uniquely identified by scDDboost (red) compared to other DD genes (blue), as indicated in three example data sets. Here genes are clustered by their pattern of differential expression across subtypes as inferred by the EBseq computation within scDDboost.\relax }}{20}{figure.caption.8}}
-\newlabel{fig:clussz}{{8}{20}{Clusters of genes tend to be larger (vertical axis, log size) for genes uniquely identified by scDDboost (red) compared to other DD genes (blue), as indicated in three example data sets. Here genes are clustered by their pattern of differential expression across subtypes as inferred by the EBseq computation within scDDboost.\relax }{figure.caption.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Clusters of genes tend to be larger (horizontal axis, log size) for genes uniquely identified by scDDboost (red) compared to other DD genes (blue), as indicated in three example data sets. Here genes are clustered by their pattern of differential expression across subtypes as inferred by the EBseq computation within scDDboost.\relax }}{20}{figure.caption.9}}
-\newlabel{fig:clussz}{{9}{20}{Clusters of genes tend to be larger (horizontal axis, log size) for genes uniquely identified by scDDboost (red) compared to other DD genes (blue), as indicated in three example data sets. Here genes are clustered by their pattern of differential expression across subtypes as inferred by the EBseq computation within scDDboost.\relax }{figure.caption.9}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Bursting}{21}{subsection.3.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces  Absolute value of log fold change of bursting parameters estimated by D3E methods across conditions (DEC vs EC). Purple box refers to those DD genes identified by other methods, magenta box refers to DD genes uniquely identified by scDDboost. In the D3E model, it assumes the counts are sampled from a poisson-beta model. Specifically, $x \sim \text  {Poi}(x | \gamma * p), p \sim \text  {Beta}(\alpha ,\beta )$, In D3E paper, it call $\alpha $ the rate of promoter activation, $\beta $ the rate of promoter inactivation and $\gamma $ the rate of transcripts when the promoter is in the active state. Such poisson-beta model should be the stationary distribution of the transcriptional bursting model. For each condition each gene D3E would estimate a triplet ($\alpha , \beta ,\gamma $). Instead of directly looking at the change of $\alpha $, $\beta $. I looked at the change of mean and variance of Beta prior for each condition. i.e. the change for mean and var for $p$ from the poisson-beta model. I think it would be more natural to look at $p$, as transcripts are more directly related to $p$ than $\alpha $ and $\beta $, $p = 0$ would mean the promoter is off and $p = 1$ means the promoter is on, so $p$ is more like a measure for how likely a promoter is on, I call the mean and var of $p$ as the mean and var of activation rate. Then I plot the absoluate value of log fold change of mean, var activation rate and rate of transcripts $\gamma $. Those uniquely identified genes by scDDboost are more consistent with the estimations from D3E since they are corresponding to more significant change of those bursting parameters\relax }}{21}{figure.caption.10}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Asymptotics of the Double Dirichlet Mixture}{22}{section.4}}
-\newlabel{eq:notQ}{{12}{22}{Asymptotics of the Double Dirichlet Mixture}{equation.4.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Clusters of genes tend to be larger (vertical axis, log size) for genes uniquely identified by scDDboost (red) compared to other DD genes (blue), as indicated in three example data sets. Here genes are clustered by their pattern of differential expression across subtypes as inferred by the EBseq computation within scDDboost.\relax }}{19}{figure.caption.8}}
+\newlabel{fig:clussz}{{8}{19}{Clusters of genes tend to be larger (vertical axis, log size) for genes uniquely identified by scDDboost (red) compared to other DD genes (blue), as indicated in three example data sets. Here genes are clustered by their pattern of differential expression across subtypes as inferred by the EBseq computation within scDDboost.\relax }{figure.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Clusters of genes tend to be larger (horizontal axis, log size) for genes uniquely identified by scDDboost (red) compared to other DD genes (blue), as indicated in three example data sets. Here genes are clustered by their pattern of differential expression across subtypes as inferred by the EBseq computation within scDDboost.\relax }}{19}{figure.caption.9}}
+\newlabel{fig:shift}{{9}{19}{Clusters of genes tend to be larger (horizontal axis, log size) for genes uniquely identified by scDDboost (red) compared to other DD genes (blue), as indicated in three example data sets. Here genes are clustered by their pattern of differential expression across subtypes as inferred by the EBseq computation within scDDboost.\relax }{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Bursting}{20}{subsection.3.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces  Absolute value of log fold change of bursting parameters estimated by D3E methods across conditions (DEC vs EC). Purple box refers to those DD genes identified by other methods, magenta box refers to DD genes uniquely identified by scDDboost. In the D3E model, it assumes the counts are sampled from a poisson-beta model. Specifically, $x \sim \text  {Poi}(x | \gamma * p), p \sim \text  {Beta}(\alpha ,\beta )$, In D3E paper, it call $\alpha $ the rate of promoter activation, $\beta $ the rate of promoter inactivation and $\gamma $ the rate of transcripts when the promoter is in the active state. Such poisson-beta model should be the stationary distribution of the transcriptional bursting model. For each condition each gene D3E would estimate a triplet ($\alpha , \beta ,\gamma $). Instead of directly looking at the change of $\alpha $, $\beta $. I looked at the change of mean and variance of Beta prior for each condition. i.e. the change for mean and var for $p$ from the poisson-beta model. I think it would be more natural to look at $p$, as transcripts are more directly related to $p$ than $\alpha $ and $\beta $, $p = 0$ would mean the promoter is off and $p = 1$ means the promoter is on, so $p$ is more like a measure for how likely a promoter is on, I call the mean and var of $p$ as the mean and var of activation rate. Then I plot the absoluate value of log fold change of mean, var activation rate and rate of transcripts $\gamma $. Those uniquely identified genes by scDDboost are more consistent with the estimations from D3E since they are corresponding to more significant change of those bursting parameters\relax }}{20}{figure.caption.10}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Asymptotics of the Double Dirichlet Mixture}{21}{section.4}}
+\newlabel{eq:notQ}{{12}{21}{Asymptotics of the Double Dirichlet Mixture}{equation.4.12}{}}
 \bibstyle{imsart-nameyear}
 \bibdata{./references/wlr_ref}
-\bibcite{DES}{{1}{2010}{{Anders and Huber}}{{}}}
-\bibcite{Bacher2016}{{2}{2016}{{Bacher and Kendziorski}}{{}}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{23}{section.5}}
-\@writefile{toc}{\contentsline {section}{References}{23}{section*.12}}
-\bibcite{ref:dahl}{{3}{2009}{{Dahl}}{{}}}
-\bibcite{ref:d3e}{{4}{2016}{{Delmans and Hemberg}}{{}}}
-\bibcite{RAD21}{{5}{2016}{{Dominguez et~al.}}{{}}}
-\bibcite{ref:MAST}{{6}{2015}{{Finak et~al.}}{{}}}
-\bibcite{Jensen:2009aa}{{7}{2009}{{Jensen et~al.}}{{}}}
-\bibcite{kmedoids}{{8}{1987}{{Kaufman and Rousseeuw}}{{}}}
-\bibcite{Kendziorski:2003aa}{{9}{2003}{{Kendziorski et~al.}}{{}}}
-\bibcite{Cor}{{10}{2018}{{Kim et~al.}}{{}}}
-\bibcite{sc3}{{11}{2017}{{Kiselev et~al.}}{{}}}
-\bibcite{ref:scDD}{{12}{2016}{{Korthauer et~al.}}{{}}}
-\bibcite{ref:Leng}{{13}{2013}{{Leng et~al.}}{{}}}
-\bibcite{BIRC5}{{14}{1999}{{Li and Altieri}}{{}}}
-\bibcite{CIDR}{{15}{2017}{{Lin, Troup and Ho}}{{}}}
-\bibcite{ref:Des}{{16}{2014}{{Love, Huber and Anders}}{{}}}
-\bibcite{dv}{{17}{2017}{{Marioni and Arendt}}{{}}}
-\bibcite{cancer}{{18}{2015}{{Navin}}{{}}}
-\bibcite{scs}{{19}{2013}{{Nawy}}{{}}}
-\bibcite{immune}{{20}{2017}{{Papalexi and Satija}}{{}}}
-\bibcite{ZIFA}{{21}{2015}{{Pierson and Yau}}{{}}}
-\bibcite{selK}{{22}{2000}{{Ray and Turi}}{{}}}
-\bibcite{HMMR}{{23}{2008}{{Sohr and Engeland}}{{}}}
-\bibcite{ref:Cq}{{24}{2017}{{Soneson and Robinson}}{{}}}
-\bibcite{ref:cspa}{{25}{2003}{{Strehl and Ghosh}}{{}}}
-\bibcite{Wag}{{26}{1986}{{Wagner and Taudes}}{{}}}
-\bibcite{yak68}{{27}{1968}{{Yakowitz and Spragins}}{{}}}
-\bibcite{ref:Zappia}{{28}{2017}{{Zappia, Phipson and Oshlack}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{22}{section.5}}
 \citation{yak68}
-\@writefile{toc}{\contentsline {section}{Appendix}{26}{section*.14}}
-\newlabel{eq:cprobs}{{13}{26}{Proof of Theorem 1}{equation.5.13}{}}
-\newlabel{eq:rw}{{14}{27}{Randomizing distances for approximate posterior inference}{equation.5.14}{}}
-\@writefile{toc}{\contentsline {section}{Author's addresses}{27}{section*.18}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textsc  {scDDboost}\relax }}{28}{algorithm.2}}
-\newlabel{alg:scDDboost}{{2}{28}{\textsc {scDDboost}\relax }{algorithm.2}{}}
+\@writefile{toc}{\contentsline {section}{Appendix}{23}{section*.12}}
+\newlabel{eq:cprobs}{{13}{23}{Proof of Theorem 1}{equation.5.13}{}}
+\newlabel{eq:rw}{{14}{24}{Randomizing distances for approximate posterior inference}{equation.5.14}{}}
+\@writefile{toc}{\contentsline {section}{Author's addresses}{24}{section*.16}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textsc  {scDDboost}\relax }}{25}{algorithm.2}}
+\newlabel{alg:scDDboost}{{2}{25}{\textsc {scDDboost}\relax }{algorithm.2}{}}
