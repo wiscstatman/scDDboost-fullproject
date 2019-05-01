@@ -133,20 +133,26 @@ Proof of Theorem 2.
 
 \begin{proof}
 Recall $\theta = (\phi, \psi, \mu, \sigma)$.
-The theorem comes from three facts:\\
-1. Given condition and subtypes label $y,z$, $(\phi,\psi)$ is independent with $X$\\
-2. Given $X$ and $z$, $(\mu_{g,k}, \sigma_g)$ is independent with $y$\\
-3. Given $X,y$ and $z$, $(\phi, \psi) \perp (\mu_{g,k}, \sigma_g)$\\
-Through the sampling procedure of our model (Figure 3). We have $z^1, z^2$ are multinomial draw given $\phi$ and $\psi$, 
-thus the generation of $y, z$ only depends on $(\phi,\psi)$ and number of cells in each condition $n_1, n_2$. 
-Also Given $z$, $X_{g,c}$ is sampled through $\text{NB}(\mu_{g,z_c}, \sigma_g)$, only depends on $(\mu, \sigma)$.
-Thus $P(X,y,z | \theta, n_1, n_2) = P(y, z | (\phi,\psi), n_1, n_2) P(X | z, \mu, \sigma)$
-
-%The change of proportion of subtypes $A_\pi$ is independent with mean expression change between subtypes $M_{g,\pi}$ given expression data $X$, condition label $y$ and cluster label $z$.
-%Further, conditioning on condition label $y$ and cluster label $z$, the change of proportion of subtypes $A_\pi$ is independent with the expression data $X$ and similarly conditioning on $z$ and $X$, $M_{g,\pi}$ is independent with $y$. 
-%Thus we have $  P\left(A_\pi \cap M_{g,\pi} |X,y,z \right) 
-%  =  P\left(A_\pi |y,z \right) \, 
- %                     P\left(M_{g,\pi}| X,z \right).  $
+Through the sampling procedure of our model (Figure 3), assuming we known number of cells within each conditions $(n_1,n_2)$. We have $z^1, z^2$ are multinomial draw given $\phi$ and $\psi$, 
+thus the generation of $y, z$ only depends on $(\phi,\psi)$
+Also given $z$, $X_{g,c}$ is sampled through $\text{NB}(\mu_{g,z_c}, \sigma_g)$, only depends on $(\mu, \sigma)$.
+Thus $P(X,y,z | \theta) = P(y, z | \phi,\psi ) P(X | z, \mu, \sigma)$, and we separately give priors for $(\mu,\sigma)$ and $(\phi, \psi)$
+By the Baye's rule, 
+\begin{align*}
+P(\theta | X,y,z) &\propto P(X,y,z | \theta) P(\theta) \\
+P(X,y,z | \theta) P(\theta)  &=  P(y, z | \phi,\psi ) P(X | z, \mu, \sigma) P(\mu,\sigma | z) P(\phi, \psi)\\
+P(\phi,\psi | y, z) &\propto P(y, z | \phi,\psi )P(\phi, \psi)\\
+P(\mu, \sigma | X, z) &\propto P(X | z, \mu, \sigma) P(\mu,\sigma | z)\\
+\text{Thus }
+P(\theta | X,y,z) &\propto P(\phi,\psi | y, z) P(\mu, \sigma | X, z)
+\end{align*}
+From this we know\\
+1. Given $X,y$ and $z$, $(\phi, \psi) \perp (\mu_{g,k}, \sigma_g)$\\ 
+2. Given condition and subtypes label $y,z$, $(\phi,\psi)$ is independent with $X$\\
+3. Given $X$ and $z$, $(\mu_{g,k}, \sigma_g)$ is independent with $y$\\
+Thus we have $  P\left(A_\pi \cap M_{g,\pi} |X,y,z \right) 
+ =  P\left(A_\pi |y,z \right) \, 
+                      P\left(M_{g,\pi}| X,z \right).  $
 \end{proof}
 
 
