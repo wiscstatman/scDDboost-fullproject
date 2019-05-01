@@ -107,16 +107,18 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces False positive counts by several methods on 5 random splits of 9 single-condition data sets from Appendix Table 2\relax }}{18}{figure.caption.7}}
 \newlabel{nullperm}{{7}{18}{False positive counts by several methods on 5 random splits of 9 single-condition data sets from Appendix Table 2\relax }{figure.caption.7}{}}
 \citation{Raj:2008aa}
+\citation{ref:d3e}
+\citation{Peccoud:1995aa}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Clusters of genes tend to be larger (vertical axis, log size) for genes uniquely identified by scDDboost (red) compared to other DD genes (blue), as indicated in three example data sets. Here genes are clustered by their pattern of differential expression across subtypes as inferred by the EBseq computation within scDDboost.\relax }}{20}{figure.caption.8}}
 \newlabel{fig:clussz}{{8}{20}{Clusters of genes tend to be larger (vertical axis, log size) for genes uniquely identified by scDDboost (red) compared to other DD genes (blue), as indicated in three example data sets. Here genes are clustered by their pattern of differential expression across subtypes as inferred by the EBseq computation within scDDboost.\relax }{figure.caption.8}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Clusters of genes tend to be larger (horizontal axis, log size) for genes uniquely identified by scDDboost (red) compared to other DD genes (blue), as indicated in three example data sets. Here genes are clustered by their pattern of differential expression across subtypes as inferred by the EBseq computation within scDDboost.\relax }}{20}{figure.caption.9}}
 \newlabel{fig:shift}{{9}{20}{Clusters of genes tend to be larger (horizontal axis, log size) for genes uniquely identified by scDDboost (red) compared to other DD genes (blue), as indicated in three example data sets. Here genes are clustered by their pattern of differential expression across subtypes as inferred by the EBseq computation within scDDboost.\relax }{figure.caption.9}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Bursting}{20}{subsection.3.3}}
-\citation{ref:d3e}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces  Absolute value of log fold change of bursting parameters estimated by D3E methods across conditions (DEC vs EC). Purple box refers to those DD genes identified by other methods, magenta box refers to DD genes uniquely identified by scDDboost. In the D3E model, it assumes the counts are sampled from a poisson-beta model. Specifically, $x \sim \text  {Poi}(x | \gamma * p), p \sim \text  {Beta}(\alpha ,\beta )$, In D3E paper, it call $\alpha $ the rate of promoter activation, $\beta $ the rate of promoter inactivation and $\gamma $ the rate of transcripts when the promoter is in the active state. Such poisson-beta model should be the stationary distribution of the transcriptional bursting model. For each condition each gene D3E would estimate a triplet ($\alpha , \beta ,\gamma $). Instead of directly looking at the change of $\alpha $, $\beta $. I looked at the change of mean and variance of Beta prior for each condition. i.e. the change for mean and var for $p$ from the poisson-beta model. I think it would be more natural to look at $p$, as transcripts are more directly related to $p$ than $\alpha $ and $\beta $, $p = 0$ would mean the promoter is off and $p = 1$ means the promoter is on, so $p$ is more like a measure for how likely a promoter is on, I call the mean and var of $p$ as the mean and var of activation rate. Then I plot the absoluate value of log fold change of mean, var activation rate and rate of transcripts $\gamma $. Those uniquely identified genes by scDDboost are more consistent with the estimations from D3E since they are corresponding to more significant change of those bursting parameters\relax }}{22}{figure.caption.10}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Asymptotics of the Double Dirichlet Mixture}{23}{section.4}}
-\newlabel{eq:notQ}{{12}{23}{Asymptotics of the Double Dirichlet Mixture}{equation.4.12}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{23}{section.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces  Absolute values of log fold changes of bursting parameters tend to be larger for genes uniquely identified by scDDboost (red) compare to other genes (blue).\relax }}{21}{figure.caption.10}}
+\newlabel{fig:bursting}{{10}{21}{Absolute values of log fold changes of bursting parameters tend to be larger for genes uniquely identified by scDDboost (red) compare to other genes (blue).\relax }{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Asymptotics of the Double Dirichlet Mixture}{22}{section.4}}
+\newlabel{eq:notQ}{{12}{22}{Asymptotics of the Double Dirichlet Mixture}{equation.4.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{22}{section.5}}
 \bibstyle{imsart-nameyear}
 \bibdata{./references/wlr_ref}
 \bibcite{DES}{{1}{2010}{{Anders and Huber}}{{}}}
@@ -125,7 +127,7 @@
 \bibcite{ref:d3e}{{4}{2016}{{Delmans and Hemberg}}{{}}}
 \bibcite{RAD21}{{5}{2016}{{Dominguez et~al.}}{{}}}
 \bibcite{ref:MAST}{{6}{2015}{{Finak et~al.}}{{}}}
-\@writefile{toc}{\contentsline {section}{References}{24}{section*.12}}
+\@writefile{toc}{\contentsline {section}{References}{23}{section*.12}}
 \bibcite{Jensen:2009aa}{{7}{2009}{{Jensen et~al.}}{{}}}
 \bibcite{kmedoids}{{8}{1987}{{Kaufman and Rousseeuw}}{{}}}
 \bibcite{Kendziorski:2003aa}{{9}{2003}{{Kendziorski et~al.}}{{}}}
@@ -140,18 +142,20 @@
 \bibcite{cancer}{{18}{2015}{{Navin}}{{}}}
 \bibcite{scs}{{19}{2013}{{Nawy}}{{}}}
 \bibcite{immune}{{20}{2017}{{Papalexi and Satija}}{{}}}
-\bibcite{ZIFA}{{21}{2015}{{Pierson and Yau}}{{}}}
-\bibcite{selK}{{22}{2000}{{Ray and Turi}}{{}}}
-\bibcite{HMMR}{{23}{2008}{{Sohr and Engeland}}{{}}}
-\bibcite{ref:Cq}{{24}{2017}{{Soneson and Robinson}}{{}}}
-\bibcite{ref:cspa}{{25}{2003}{{Strehl and Ghosh}}{{}}}
-\bibcite{Wag}{{26}{1986}{{Wagner and Taudes}}{{}}}
-\bibcite{yak68}{{27}{1968}{{Yakowitz and Spragins}}{{}}}
-\bibcite{ref:Zappia}{{28}{2017}{{Zappia, Phipson and Oshlack}}{{}}}
+\bibcite{Peccoud:1995aa}{{21}{1995}{{Peccoud and Ycart}}{{}}}
+\bibcite{ZIFA}{{22}{2015}{{Pierson and Yau}}{{}}}
+\bibcite{Raj:2008aa}{{23}{2008}{{Raj and van Oudenaarden}}{{}}}
+\bibcite{selK}{{24}{2000}{{Ray and Turi}}{{}}}
+\bibcite{HMMR}{{25}{2008}{{Sohr and Engeland}}{{}}}
+\bibcite{ref:Cq}{{26}{2017}{{Soneson and Robinson}}{{}}}
+\bibcite{ref:cspa}{{27}{2003}{{Strehl and Ghosh}}{{}}}
+\bibcite{Wag}{{28}{1986}{{Wagner and Taudes}}{{}}}
+\bibcite{yak68}{{29}{1968}{{Yakowitz and Spragins}}{{}}}
+\bibcite{ref:Zappia}{{30}{2017}{{Zappia, Phipson and Oshlack}}{{}}}
 \citation{yak68}
-\@writefile{toc}{\contentsline {section}{Appendix}{27}{section*.14}}
-\newlabel{eq:cprobs}{{13}{27}{Proof of Theorem 1}{equation.5.13}{}}
-\newlabel{eq:rw}{{14}{28}{Randomizing distances for approximate posterior inference}{equation.5.14}{}}
-\@writefile{toc}{\contentsline {section}{Author's addresses}{28}{section*.18}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textsc  {scDDboost}\relax }}{29}{algorithm.2}}
-\newlabel{alg:scDDboost}{{2}{29}{\textsc {scDDboost}\relax }{algorithm.2}{}}
+\@writefile{toc}{\contentsline {section}{Appendix}{26}{section*.14}}
+\newlabel{eq:cprobs}{{13}{26}{Proof of Theorem 1}{equation.5.13}{}}
+\newlabel{eq:rw}{{14}{27}{Randomizing distances for approximate posterior inference}{equation.5.14}{}}
+\@writefile{toc}{\contentsline {section}{Author's addresses}{27}{section*.18}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textsc  {scDDboost}\relax }}{28}{algorithm.2}}
+\newlabel{alg:scDDboost}{{2}{28}{\textsc {scDDboost}\relax }{algorithm.2}{}}

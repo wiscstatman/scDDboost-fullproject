@@ -1,4 +1,4 @@
-\begin{thebibliography}{28}
+\begin{thebibliography}{30}
 % BibTex style file: imsart-nameyear.bst, 2017-11-03
 % Default style options (sort=1,type=nameyear).
 % Used options (sort=1,type=nameyear).
@@ -315,6 +315,19 @@
 \end{barticle}
 \endbibitem
 
+\bibitem[\protect\citeauthoryear{Peccoud and Ycart}{1995}]{Peccoud:1995aa}
+\begin{barticle}[author]
+\bauthor{\bsnm{Peccoud},~\bfnm{J.}\binits{J.}} \AND
+  \bauthor{\bsnm{Ycart},~\bfnm{B.}\binits{B.}}
+(\byear{1995}).
+\btitle{Markovian Modeling of Gene-Product Synthesis}.
+\bjournal{Theoretical Population Biology}
+\bvolume{48}
+\bpages{222--234}.
+\bdoi{https://doi.org/10.1006/tpbi.1995.1027}
+\end{barticle}
+\endbibitem
+
 \bibitem[\protect\citeauthoryear{Pierson and Yau}{2015}]{ZIFA}
 \begin{barticle}[author]
 \bauthor{\bsnm{Pierson},~\bfnm{Emma}\binits{E.}} \AND
@@ -327,6 +340,20 @@
 \bpages{241}.
 \bdoi{10.1186/s13059-015-0805-z}.
 \bid{Pierson2015}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Raj and van Oudenaarden}{2008}]{Raj:2008aa}
+\begin{barticle}[author]
+\bauthor{\bsnm{Raj},~\bfnm{Arjun}\binits{A.}} \AND \bauthor{\bparticle{van}
+  \bsnm{Oudenaarden},~\bfnm{Alexander}\binits{A.}}
+(\byear{2008}).
+\btitle{Nature, nurture, or chance: stochastic gene expression and its
+  consequences}.
+\bjournal{Cell}
+\bvolume{135}
+\bpages{216--226}.
+\bdoi{10.1016/j.cell.2008.09.050}
 \end{barticle}
 \endbibitem
 

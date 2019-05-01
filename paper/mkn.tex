@@ -899,26 +899,28 @@ the EBseq computation within scDDboost.}
 **{\em Xiuyu, this section needs to be more carefully written. Please take a crack; explain the essense of D3E as
 an attempt to get at a mechanistic model; right now far too much is in the Figure caption}...**
 
-Transcriptional bursting is a fundamental property of genes. In its simplest form, the gene is proposed to exist in two states, one where activity is negligible and one where there is a certain probability of activation\citep{Raj:2008aa}. Such biological phenomena would create subtle changes of transcripts between conditions. 
-
-
-D3E\citep{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset GSE71585
+Transcriptional bursting is a fundamental property of genes. In its simplest form, the gene is proposed to exist in two states, one where activity is negligible and one where there is a certain probability of activation\citep{Raj:2008aa}. Composition of multiple states leads subtle change of transcripts between conditions. 
+D3E\citep{ref:d3e} is a method for DE gene analysis rooted in quantifing the parameters of bursting process. It modeled transcripts as the stationary distribution from a widely used, experimentally validated stochastic process of single-cell gene expression \citep{Peccoud:1995aa}. 
+Three biologically meaningful parameters (Rate of promoter activation, rate of promoter inactivation and the rate of transcription) characterize the model, which made
+D3E capable of detecting distributional change when the mean level remains unchanged.
+We investigate DD genes identified by scDDboost and their changes of those three parameters on dataset GSE71585 (Figure~\ref{fig:bursting}).
 
 
 \begin{figure}[H]
 \includegraphics[width = 0.6\textwidth]{Figs/D3E_box.pdf}
-\caption{ Absolute value of log fold change of bursting parameters estimated by D3E methods across conditions (DEC vs EC). Purple box refers to those DD genes identified by other methods, magenta box refers to DD genes uniquely identified by scDDboost. 
-In the D3E model, it assumes the counts are sampled from a poisson-beta model. Specifically,  $x \sim \text{Poi}(x | \gamma * p), p \sim \text{Beta}(\alpha,\beta)$, In D3E paper, it call $\alpha$ the rate of promoter activation, $\beta$ the rate of promoter inactivation 
-and $\gamma$ the rate of transcripts when the promoter is in the active state.  Such poisson-beta model should be the stationary distribution of the transcriptional bursting model.
-For each condition each gene D3E would estimate a triplet ($\alpha, \beta,\gamma$).
- Instead of directly looking at the change of $\alpha$, $\beta$. I looked at the change of mean and variance of Beta prior for each condition.
- i.e. the change for mean and var for $p$ from the poisson-beta model. I think it would be more natural to look at $p$, as transcripts are more directly related to $p$ than $\alpha$ and $\beta$, 
- $p = 0$ would mean the promoter is off and $p = 1$ means the promoter is on, so $p$ is more like a measure for how likely a promoter is on, I call the mean and var of $p$ as the mean and var of activation rate.
- Then I plot the absoluate value of log fold change of mean, var activation rate and rate of transcripts $\gamma$. 
- Those uniquely identified genes by scDDboost are more consistent with the estimations from D3E since they are corresponding to more significant change of those bursting parameters}
+\caption{ Absolute values of log fold changes of bursting parameters tend to be larger for genes uniquely identified by scDDboost (red) compare to other genes (blue).}
+%In the D3E model, it assumes the counts are sampled from a poisson-beta model. Specifically,  $x \sim \text{Poi}(x | \gamma * p), p \sim \text{Beta}(\alpha,\beta)$, In D3E paper, it call $\alpha$ the rate of promoter activation, $\beta$ the rate of promoter inactivation 
+%and $\gamma$ the rate of transcripts when the promoter is in the active state.  Such poisson-beta model should be the stationary distribution of the transcriptional bursting model.
+%For each condition each gene D3E would estimate a triplet ($\alpha, \beta,\gamma$).
+% Instead of directly looking at the change of $\alpha$, $\beta$. I looked at the change of mean and variance of Beta prior for each condition.
+% i.e. the change for mean and var for $p$ from the poisson-beta model. I think it would be more natural to look at $p$, as transcripts are more directly related to $p$ than $\alpha$ and $\beta$, 
+% $p = 0$ would mean the promoter is off and $p = 1$ means the promoter is on, so $p$ is more like a measure for how likely a promoter is on, I call the mean and var of $p$ as the mean and var of activation rate.
+% Then I plot the absoluate value of log fold change of mean, var activation rate and rate of transcripts $\gamma$. 
+% Those uniquely identified genes by scDDboost are more consistent with the estimations from D3E since they are corresponding to more significant change of those %bursting parameters}
+ \label{fig:bursting}
 \end{figure}
 
-We observed that genes uniquely identified by scDDboost are associated with more significant changes between estimated bursting parameters compare to genes commonly identified by all four RNAseq methods. From previous study (Fucci data Figure 1) our mixture model could be sensitive to the subtle changes of genes expressions. Using the bursting model, such shifts of distributions we identified are informative for the changes of bursting parameters and probably are not falsely discovered.
+We observed that genes uniquely identified by scDDboost are associated with more significant changes between estimated bursting parameters compare to genes commonly identified by all four RNAseq methods. From previous study (Figure~\ref{fig:whet}) our mixture model could be sensitive to the subtle changes of genes expressions. Using the bursting model, such shifts of distributions we identified are informative for the changes of bursting parameters and probably are not falsely discovered.
 
 
 \section{Asymptotics of the Double Dirichlet Mixture}
