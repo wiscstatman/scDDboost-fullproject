@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  1 MAY 2019 11:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  1 MAY 2019 11:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1389,6 +1389,7 @@ Type  H <return>  for immediate help.
 l.57 \bid{Delmans2016}
                       
 ? 
+[23]
 
 ./mkn.bbl:99: Package keyval Error: Finak2015 undefined.
 
@@ -1399,7 +1400,6 @@ Type  H <return>  for immediate help.
 l.99 \bid{Finak2015}
                     
 ? 
-[23]
 
 ./mkn.bbl:198: Package keyval Error: Korthauer2016 undefined.
 
@@ -1483,7 +1483,7 @@ Here is how much of TeX's memory you used:
  31946 multiletter control sequences out of 15000+600000
  572073 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,16n,64p,10421b,522s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,16n,64p,10421b,518s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -1498,7 +1498,7 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (28 pages, 648669 bytes).
+Output written on mkn.pdf (28 pages, 648736 bytes).
 PDF statistics:
  555 PDF objects out of 1000 (max. 8388607)
  481 compressed objects within 5 object streams
