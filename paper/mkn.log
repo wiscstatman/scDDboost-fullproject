@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  2 MAY 2019 16:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  2 MAY 2019 16:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1487,103 +1487,28 @@ n-fer-ence. \OT1/pplx/m/n/10.95 One way to frame
  []
 
 [25] [26]
-Underfull \hbox (badness 10000) in paragraph at lines 1154--1154
-[]|\OT1/pplx/m/n/10 Number of
+Underfull \hbox (badness 10000) in paragraph at lines 1140--1140
+[]|\OT1/pplx/m/n/6 Number of
  []
 
 
-Overfull \hbox (10.63446pt too wide) in paragraph at lines 1154--1154
-\OT1/pplx/m/n/10 cells/condition| 
+Underfull \hbox (badness 10000) in paragraph at lines 1152--1152
+[]|\OT1/pplx/m/n/6 ([][]Darmanis et al.[][],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1154--1154
-[]|\OT1/pplx/m/n/10 GSE48968-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1154--1154
-[]|\OT1/pplx/m/n/10 ([][]Shalek
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1154--1154
-[]|\OT1/pplx/m/n/10 ([][]Trapnell
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1154--1154
-[]|\OT1/pplx/m/n/10 ([][]Buettner
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1154--1154
-[]|\OT1/pplx/m/n/10 GSE71585-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1154--1154
-[]|\OT1/pplx/m/n/10 Gad2tdTpositive vs
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1154--1154
-[]|\OT1/pplx/m/n/10 Primordial Germ Cells,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1154--1154
-\OT1/pplx/m/n/10 ges-ta-tion vs So-matic Cells,
- []
-
-
-Underfull \hbox (badness 2027) in paragraph at lines 1154--1154
-\OT1/pplx/m/n/10 de-vel-op-men-tal stage: 7 week
- []
-
-
-Underfull \hbox (badness 1052) in paragraph at lines 1154--1154
-[]|\OT1/pplx/m/n/10 ([][]Guo et al.[][],
- []
-
-
-Underfull \hbox (badness 1127) in paragraph at lines 1154--1154
-[]|\OT1/pplx/m/n/10 ([][]Chu et al.[][],
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1154--1154
-[]|\OT1/pplx/m/n/10 neoplastic cells vs non-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1154--1154
-[]|\OT1/pplx/m/n/10 ([][]Darmanis
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1164--1165
-[]|\OT1/pplx/m/n/9 Number of
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1173--1173
-[]|\OT1/pplx/m/n/9 GSE48968-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1181--1181
-[]|\OT1/pplx/m/n/9 GSE71585-
+Overfull \hbox (72.28575pt too wide) in paragraph at lines 1138--1154
+ [][] 
  []
 
 [27] [28] [29
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1194.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1194.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1193.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1193.
  (./mkn.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1194.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1194.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1193.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1193.
 
 Package rerunfilecheck Info: File `mkn.out' has not changed.
 (rerunfilecheck)             Checksum: 7F83354A1330447A63F3704CBEC2F59E;901.
@@ -1594,14 +1519,14 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1194.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1193.
  ) 
 Here is how much of TeX's memory you used:
- 29106 strings out of 492649
- 548050 string characters out of 6129622
- 632871 words of memory out of 5000000
- 32361 multiletter control sequences out of 15000+600000
- 575546 words of font info for 134 fonts, out of 8000000 for 9000
+ 29097 strings out of 492649
+ 547908 string characters out of 6129622
+ 628871 words of memory out of 5000000
+ 32352 multiletter control sequences out of 15000+600000
+ 572073 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,13n,64p,10421b,526s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -1618,10 +1543,10 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (29 pages, 711008 bytes).
+Output written on mkn.pdf (29 pages, 710857 bytes).
 PDF statistics:
- 583 PDF objects out of 1000 (max. 8388607)
- 513 compressed objects within 6 object streams
+ 579 PDF objects out of 1000 (max. 8388607)
+ 509 compressed objects within 6 object streams
  133 named destinations out of 1000 (max. 500000)
  184 words of extra memory for PDF output out of 10000 (max. 10000000)
 
