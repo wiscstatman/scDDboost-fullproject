@@ -17,6 +17,7 @@
 \DeclareCaptionFont{small}{\footnotesize}
 \DeclareCaptionFont{blue}{\color{blue}} 
 \DeclareCaptionFont{bf}{\bfseries}
+\renewcommand{\tablename}{Appendix Table}
 \captionsetup[figure]{format=myformat,labelfont={blue,bf,small},font=small}
 \usepackage{booktabs}% http://ctan.org/pkg/booktabs
 
@@ -799,7 +800,7 @@ We applied \verb+scDDboost+ to a collection of previously published
 data sets that are recorded at \verb+conquer+~\citep{ref:Cq}.  Though not knowing the truly DD
 genes, we can examine how \verb+scDDboost+ output compares to output from some standard methods.  We selected
 12 data sets from \verb+conquer+   representing different species and experimental settings
-and involving hundreds to thousands of cells.   Supplementary Table 1 provides details.  Figure~\ref{fig:es} compares
+and involving hundreds to thousands of cells.   Appendix Table 1 provides details.  Figure~\ref{fig:es} compares
 methods in terms of the size of the reported list of DD genes at the 5\% FDR target level.  
 We see a consistently high yield of \verb+scDDboost+ among the evaluated  methods.  For reference, one of these data 
 sets (GSE64016) happens to be the data behind Figure~\ref{fig:whet}, where we know from other information that some
@@ -889,8 +890,8 @@ the EBseq computation within scDDboost.}
 
 Transcriptional bursting is a fundamental property of genes. In its simplest form, the gene is proposed to exist in two states: one where activity is negligible and one where there is a certain probability of 
 activation~\citep{Raj:2008aa}. Composition of multiple states yields subtle change of transcripts between conditions. 
-D3E\citep{ref:d3e} is a **{\em computationally intensive}?** 
- method for DE gene analysis rooted in quantifing the parameters of bursting process. It 
+D3E\citep{ref:d3e} is a computationally intensive 
+method for DE gene analysis rooted in quantifing the parameters of bursting process. It 
 models transcripts as in the stationary distribution from an 
 experimentally validated stochastic process of single-cell gene expression \citep{Peccoud:1995aa}. 
 Three mechanistic parameters (rate of promoter activation, rate of promoter inactivation, 
@@ -1117,6 +1118,32 @@ in Supplementary Material make comparisons to a full, Dirichlet-process-based, p
 \end{algorithmic}
 \end{algorithm}
 
+\clearpage
+
+\subsection*{Empirical datasets}
+
+\begin{table}[ht!]
+\small
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{ |p{2cm}|p{5cm}|p{2cm}|p{2cm}|p{2cm}|p{1cm}|}
+\hline
+ Data set & Conditions & Number of cells/condition & Organism  & Ref & K\\ \hline \hline
+GSE94383 & 0 min unstim vs 75min stim & 186,145 & human & \citep{Lane} & 9\\ \hline
+GSE48968-GPL13112 & BMDC (2h LPS stimulation) vs 6h LPS & 96,96 & mouse & \citep{Shalek} & 4\\ \hline
+GSE52529 & T0 vs T72 & 69,74 & human & \citep{Trapnell} & 7\\ \hline
+GSE74596 & NKT1 vs NTK2 & 46,68 & mouse & \citep{Engel} & 7\\ \hline
+EMTAB2805 & G1 vs G2M & 95,96 & mouse & \citep{EMTAB} & 6\\ \hline
+GSE71585-GPL13112 &Gad2tdTpositive vs Cux2tdTnegative  & 80,140 & mouse & \citep{Tasic} & 4\\ \hline
+GSE64016 & G1 vs G2 & 91,76 & human & \citep{oscope} & 6\\ \hline
+GSE79102 & patient1 vs patient2 & 51, 89 & human & \cite{sc3} & 4\\ \hline
+GSE45719 & 16-cell stage blastomere vs mid blastocyst cell & 50, 60 & mouse & \citep{Deng193} & 4\\ \hline
+GSE63818 & Primordial Germ Cells, develop- mental stage: 7 week gestation vs Somatic Cells, developmental stage: 7 week gestation & 40,26 & mouse & \citep{Guo} & 6\\ \hline
+GSE75748 & DEC vs EC & 64, 64 & human & \citep{chu} & 5\\ \hline
+GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human & \citep{Darmanis} & 7\\ \hline
+\end{tabular}}
+\captionof{table}{datasets used for comparisons of DD analysis under different methods}
+\end{table}
 
 
 
