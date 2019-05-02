@@ -970,15 +970,22 @@ P(A_\pi|y_1,\cdots,y_n; z_1, \cdots z_n ) \longrightarrow_{a.s.} 1 \quad {\mbox 
 
 
 \section{Discussion}
-We have presented \verb+scDDboost+,  a tool for
- detecting differentially distributed genes from scRNA-seq data that is based on a compositional model
-in which these data are a mixture of cellular subtypes.  The methodology links established model-based
+We have presented \verb+scDDboost+,  a compositional model for
+ detecting differentially distributed genes from scRNA-seq data,
+where transcripts are modeled as mixture of cellular subtypes. 
+The methodology links established model-based
 techniques with novel empirical Bayesian 
- modeling and computational elements to  provide a powerful detection method showing 
+modeling and computational elements to  provide a powerful detection method showing 
 comparatively good operating characteristics in simulation, empirical, and asymptotic studies.
 
- One advantage of \verb+scDDboost+ is its flexibility to allow user 
-specified clustering methods of cells, with more and more studies of the scRNA-seq data, there will be more accurate distance matrix between cells, which will yield better estimation of subtypes and inference of DD genes. We combine estimations of changes of subtypes' proportions across conditions and changes of mean expressions across subtypes to infer distributional changes of transcripts. To estimate changes of subtypes' proportions across conditions, we use empirical Bayes and developed a double Dirichlet prior distribution.  We invented a random weighting scheme that stabilize our DD inference as well as approximating the results as if we have done a fully bayesian clustering analysis based on Dirichlet prior.  We demonstrated that scDDboost outperforms existing approaches in simulation and tends to be more powerful than existing methods on a wide range of public available empirical datasets.   
+One advantage of verb+scDDboost is to allow information shared across whole genome. 
+Cell level clustering and marginal level DE pattern inferred by the whole genome data contribute to gene level DD analysis. 
+Another advantage of \verb+scDDboost+ is its flexibility to allow user specified clustering of cells, which make our method competent for newly developed clustering methods.
+We combine estimations of changes of subtypes' proportions across conditions and changes of mean expressions across subtypes to infer distributional changes of transcripts.
+To estimate changes of subtypes' proportions across conditions, we use empirical Bayes and developed a double Dirichlet prior distribution.  
+We invented a random weighting scheme that stabilize our DD inference as well as approximating the results as if we have done a fully bayesian clustering analysis based on Dirichlet prior. 
+We demonstrated that scDDboost outperforms existing approaches in simulation and tends to be more powerful than existing methods on a wide range of public available empirical datasets.
+   
 
 One current limitation of \verb+scDDboost+ is that current \verb+EBseq+ 
 inference of the DE patterns is computationally not feasible when $K$ is large. 
