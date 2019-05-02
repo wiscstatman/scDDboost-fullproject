@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  2 MAY 2019 15:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  2 MAY 2019 15:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1249,7 +1249,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 File: Figs/ARI.pdf Graphic file (type pdf)
 <use Figs/ARI.pdf>
 Package pdftex.def Info: Figs/ARI.pdf  used on input line 315.
-(pdftex.def)             Requested size: 404.71254pt x 404.71254pt.
+(pdftex.def)             Requested size: 354.12057pt x 354.12057pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1598,15 +1598,12 @@ Package rerunfilecheck Info: File `mkn-supplement.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 951.
  ) 
 Here is how much of TeX's memory you used:
  29339 strings out of 492649
  551813 string characters out of 6129622
- 636833 words of memory out of 5000000
+ 636805 words of memory out of 5000000
  32656 multiletter control sequences out of 15000+600000
  572179 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1623,7 +1620,7 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (20 pages, 969397 bytes).
+Output written on mkn-supplement.pdf (20 pages, 969439 bytes).
 PDF statistics:
  440 PDF objects out of 1000 (max. 8388607)
  370 compressed objects within 4 object streams
