@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  2 MAY 2019 15:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  2 MAY 2019 15:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1494,7 +1494,7 @@ File: Figs/breakFDR.pdf Graphic file (type pdf)
 <use Figs/breakFDR.pdf>
 Package pdftex.def Info: Figs/breakFDR.pdf  used on input line 608.
 (pdftex.def)             Requested size: 271.0125pt x 271.01514pt.
-<Figs/Kchange.png, id=310, 767.86874pt x 244.915pt>
+<Figs/Kchange.png, id=311, 767.86874pt x 244.915pt>
 File: Figs/Kchange.png Graphic file (type png)
 <use Figs/Kchange.png>
 Package pdftex.def Info: Figs/Kchange.png  used on input line 624.
@@ -1503,7 +1503,7 @@ Package pdftex.def Info: Figs/Kchange.png  used on input line 624.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Figs/rw.pdf, id=312, 495.8525pt x 212.795pt>
+<Figs/rw.pdf, id=313, 495.8525pt x 212.795pt>
 File: Figs/rw.pdf Graphic file (type pdf)
 <use Figs/rw.pdf>
 Package pdftex.def Info: Figs/rw.pdf  used on input line 631.
@@ -1632,10 +1632,10 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (20 pages, 969364 bytes).
+Output written on mkn-supplement.pdf (20 pages, 969404 bytes).
 PDF statistics:
- 438 PDF objects out of 1000 (max. 8388607)
- 368 compressed objects within 4 object streams
+ 439 PDF objects out of 1000 (max. 8388607)
+ 369 compressed objects within 4 object streams
  83 named destinations out of 1000 (max. 500000)
  212 words of extra memory for PDF output out of 10000 (max. 10000000)
 
