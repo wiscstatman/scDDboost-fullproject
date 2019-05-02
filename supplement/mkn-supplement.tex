@@ -173,17 +173,17 @@ Now we are using EBSeq for expression inference of genes rather than isoforms, w
 We still make $\alpha$ to be shared by all the genes and $\beta^g$ becomes gene specific parameter. 
 
 The modeling of $r_{g,s}$ is the same as what EBSeq does. Specifically, we further assume that $r_{g,s} = r_{g,0}*l_s$ where $r_{g,0}$ is an isoform specific parameter common across subtypes and $r_{g,s}$ depends on it through the sample-specific normalization factor $l_s$. Here we expected normalized data, so $l_s = 1$ for all samples, that is $r_{g,s}$ degenerate to $
-\sigma_g$ only gene specific not sample specific. We use $\sigma_g$ instead of $r_{g,s}$ in the following. 
+\sigma_g$, which does not depend on sample. We use $\sigma_g$ instead of $r_{g,s}$ in the following. 
 
-What we are interested at those $K$ groups comparison is the expression pattern, through EBSeq modeling we are able to obtain posterior probabilities over
+What we are interested at those $K$ groups comparison is the expression pattern, 
 
 \begin{eqnarray*}
 M_{g,\pi} = \{ \theta \in \Theta: \; \mu_{g,k} = \mu_{g,k'} \iff k,k' \in b, b \in \pi \}.
 \end{eqnarray*}
 
-For any partition $\pi$ of $K$ elements.
 
-For example $K = 3$, there are 5 expression pattern, $P_1, P_2, ..., P_5$
+
+For example $K = 3$, there are 5 expression pattern, $P_1, P_2, ..., P_5$, Comparison between $\mu$ is equivalent as comparison between $q$.
 
 \begin{align*}
 &P1: q_g^1 = q_g^2 = q_g^3\\
@@ -205,13 +205,14 @@ Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can poo
 \end{align*}
 
 
-Then the marginal distribution of counts $X_g^{1,2,3}$ is $\overset{5}{\underset{k = 1}{\Sigma}} p_k h_k^{g}(X_g^{1,2,3})$, where proportion parameters $p_k$ satisfying $\overset{5}{\underset{k = 1}{\Sigma}} p_k = 1$ and are estimated by EM algorithm. Thus, the posterior probability of an expression pattern $k$ is obtained by:
+Then the marginal distribution of counts $X_g^{1,2,3}$ is $\overset{5}{\underset{k = 1}{\Sigma}} p_k h_k^{g}(X_g^{1,2,3})$, 
+where the marginal $p_k = P(M_{g,\pi} | z)$\\(shared by all genome) satisfying $\overset{5}{\underset{k = 1}{\Sigma}} p_k = 1$ and are estimated by EM algorithm. Thus, the posterior probability of an expression pattern $k$ is obtained by:
 \begin{eqnarray*}
 \frac{p_k h_k(X_g^{1,2,3})}{\overset{5}{\underset{k = 1}{\Sigma}} p_k h_k^{g}(X_g^{1,2,3})}
 \end{eqnarray*}
 
 
-In the optimization steps for determining the hyper parameters $\alpha$, $\beta^g$ and proportion of DE patterns $p$, the computation and memory increase exponentially with the number of subtypes $K$. We use one-step EM as an approximation for the solution, that is $\alpha$ and $\beta^g$ are updated through gradient aescent. $p$ can still be updated by the explicit form of the maximizer of the log likelihood.
+In the optimization steps for determining the hyper parameters $(\alpha, \beta^g, p)$, the computation and memory increase exponentially with the number of subtypes $K$. We use one-step EM as an approximation for the solution, that is $\alpha$ and $\beta^g$ are updated through gradient ascent. $p$ is updated by the explicit form of the maximizer of the log likelihood.
 
 
 \subsubsection{modalClust}
@@ -495,7 +496,8 @@ We also have roc curve for the simulated data, each sub-figure is averaged over 
 \subsection{Empirical Study}
 
 \noindent
-{\bf Data sets} details for the datasets used in the empirical studies of the main paper (supplementary table 1)
+{\bf Data sets} details for the datasets used in the empirical studies of the main paper and the estimated number of subtypes $K$ (supplementary table 1)
+
 
 
 \begin{table}[h!]
@@ -541,18 +543,6 @@ Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0
  \label{fig:8}
 \end{figure}
 
-
-
-%\begin{figure}[h]
-%\vspace{-\parskip}
-%\minipage{0.5\textwidth}
-%!TEX encoding = UTF-8 Unicode  \includegraphics[width=\textwidth]{Figs/sim_67.png}
-%\endminipage\hfill
-%\minipage{0.5\textwidth}
-%  \includegraphics[width=\textwidth]{Figs/sim_78.png}
-  %\endminipage
-%\caption{comparison of posterior probabilities of being DD among different number of subtypes, when we underestimate the number of subtypes, the difference is huge, see PDD between 6 subtypes and 7 subtypes. There is an approximate horizontal line with massive points at the top of left panel, which indicate that we underestimate lots of DD genes due to underestimate the number of subtypes. While in the case when we overestimate the number of subtypes 7 subtypes vs. 8 subtypes, though inflating PDD but the variation of difference is small, from 6 to 8 subtypes the PDD become more linear related.}
-%\end{figure}
 
 
 
