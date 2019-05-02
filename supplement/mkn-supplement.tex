@@ -229,11 +229,11 @@ p(X|\pi) = \overset{q}{\underset{i = 1}{\prod}}f(X_{S_i})
 where $X_{S_i}$ is the vector of observations corresponding to the items of component $S_i$, The component likelihood $f(X_{S})$ is defined for any non-empty component $S$ and can take any form. The partition $\pi$ is the only parameter we are interested at.
 Any other parameters that may have been involved in the model have been integrated over their prior.
 
-The prior distribution for a partition $\pi$ is also taken as a product form. We use the partition that maximize the posterior $p(\pi | X) \propto p(X|\pi) p(\pi)$ as the estimated clustering of $X$.
+The prior distribution for a partition $\pi$ is also taken as a product form. We use the MAP partition(maximize the posterior $p(\pi | X) \propto p(X|\pi) p(\pi)$) as the estimated clustering.
 
 Dahl demonstrated by some choice of $f$ and prior of $\pi$, we can reduce the time complexity of finding the MAP partition from factorial($n$) to $O(n^2)$ \citep{ref:dahl},
-And the crucial condition for $f$ is that if $X_{S_1}$ and $X_{S_2}$ are overlapped in the sense that  min$\{X_{S_2}\}  <$ max$\{X_{S_1}\}  <$ max$\{X_{S_2}\}$ or min$\{X_{S_1}\}  <$ max$\{X_{S_2}\}  <$ max$\{X_{S_1}\}$, $X_{S_1^*} and X_{S_2^*}$ be the sets of swapping one pair of those overlapped terms and keep the other unchanged. Then $f(X_{S_1}) f(X_{S_2}) \leq f(X_{S_1^*}) f(X_{S_2^*})$. Under such condition, we know that possible MAP candidates must be those partition that for any two subgroups of data, all the data from subgroup1 has to be either greater or smaller than all the data from subgroup2.
-
+And the crucial condition for $f$ is that if $X_{S_1}$ and $X_{S_2}$ are overlapped in the sense that  min$\{X_{S_2}\}  <$ max$\{X_{S_1}\}  <$ max$\{X_{S_2}\}$ or min$\{X_{S_1}\}  <$ max$\{X_{S_2}\}  <$ max$\{X_{S_1}\}$, 
+let $X_{S_1^*} \text{ and } X_{S_2^*}$ be the sets of swapping one pair of those overlapped terms and keep the other unchanged. Then $f(X_{S_1}) f(X_{S_2}) \leq f(X_{S_1^*}) f(X_{S_2^*})$. Under such condition, we know that possible MAP candidates must be those partition $\pi$s that for any two blocks $b_1, b_2 \in \pi$, either $\underset{i \in b_1}{\text{max}}(X_i) \leq \underset{j\in b_2}{\text{min}}(X_j)$ or $\underset{i \in b_1}{\text{min}}(X_i) \geq \underset{j\in b_2}{\text{max}}(X_j)$.
 
 In Poisson-Gamma Model we assuming:
 
@@ -249,7 +249,7 @@ where $p(\pi)\propto \overset{q}{\underset{i = 1}{\prod}}\eta_0\Gamma(|S_i|)$. I
 f(X_{S}) = \frac{\beta^\alpha}{(|S| + \beta)^{\underset{i \in S}{\Sigma} X_i + \alpha}} \frac{\Gamma(\underset{i \in S}{\Sigma} X_i  + \alpha)}{\Gamma(\alpha)} \frac{1}{\underset{i \in S}{\prod }X_i}
 \end{eqnarray*}
 
-$f(X_S)$ still satisfying the condition mentioned
+To apply modal-cluster on Poisson-Gamma model, we need to show $f(X_S)$ still satisfying the condition mentioned before.
 
 
 

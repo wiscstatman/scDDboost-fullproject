@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  2 MAY 2019 14:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  2 MAY 2019 14:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1505,11 +1505,12 @@ File: Figs/breakFDR.pdf Graphic file (type pdf)
 <use Figs/breakFDR.pdf>
 Package pdftex.def Info: Figs/breakFDR.pdf  used on input line 592.
 (pdftex.def)             Requested size: 271.0125pt x 271.01514pt.
+[10 <./Figs/pca3.pdf>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[10 <./Figs/pca3.pdf>] [11 <./Figs/pca7.pdf> <./Figs/pca12.pdf>]
-<Figs/Kchange.png, id=245, 767.86874pt x 244.915pt>
+[11 <./Figs/pca7.pdf> <./Figs/pca12.pdf>] [12 <./Figs/Roc_supp.pdf>]
+<Figs/Kchange.png, id=266, 767.86874pt x 244.915pt>
 File: Figs/Kchange.png Graphic file (type png)
 <use Figs/Kchange.png>
 Package pdftex.def Info: Figs/Kchange.png  used on input line 621.
@@ -1518,7 +1519,7 @@ Package pdftex.def Info: Figs/Kchange.png  used on input line 621.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Figs/rw.pdf, id=247, 495.8525pt x 212.795pt>
+<Figs/rw.pdf, id=268, 495.8525pt x 212.795pt>
 File: Figs/rw.pdf Graphic file (type pdf)
 <use Figs/rw.pdf>
 Package pdftex.def Info: Figs/rw.pdf  used on input line 627.
@@ -1526,8 +1527,7 @@ Package pdftex.def Info: Figs/rw.pdf  used on input line 627.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[12 <./Figs/Roc_supp.pdf>] [13 <./Figs/Fucci_wadist.pdf>] [14 <./Figs/simu_wadi
-st.pdf>]
+[13 <./Figs/Fucci_wadist.pdf>] [14 <./Figs/simu_wadist.pdf>]
 Overfull \hbox (23.45146pt too wide) in paragraph at lines 779--783
 []\OT1/pplx/m/n/12 Recall $\OML/zplm/m/it/12 ![] \OMS/zplm/m/n/12 / \OML/zplm/m
 /it/12 p[]\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 t[]\OMS/zplm/m/n/12 j\OML/zplm/m/
@@ -1582,12 +1582,12 @@ l.840 ...) / \sqrt{n})^2}{t_b^j + \gamma_b^j / n}}
                                                   $ is asymptotic gamma($\ch...
 
 ? 
-
+[17]
 Overfull \hbox (21.98438pt too wide) detected at line 869
 []
  []
 
-[17] (./mkn-supplement.bbl
+(./mkn-supplement.bbl
 
 ./mkn-supplement.bbl:45: Package keyval Error: Chu2016 undefined.
 
@@ -1644,7 +1644,7 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (19 pages, 970056 bytes).
+Output written on mkn-supplement.pdf (19 pages, 969984 bytes).
 PDF statistics:
  433 PDF objects out of 1000 (max. 8388607)
  364 compressed objects within 4 object streams
