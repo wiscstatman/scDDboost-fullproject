@@ -13,6 +13,8 @@
 \usepackage{dsfont}
 \usepackage{graphicx}
 \usepackage{caption}
+\usepackage{flafter}
+
 \DeclareCaptionFormat{myformat}{\hrulefill \\ #1#2#3}
 \DeclareCaptionFont{small}{\footnotesize}
 \DeclareCaptionFont{blue}{\color{blue}} 
@@ -1122,7 +1124,7 @@ in Supplementary Material make comparisons to a full, Dirichlet-process-based, p
 
 \subsection*{Empirical datasets}
 
-\begin{table}[ht!]
+\begin{table}[htp]
 \small
 \centering
 \resizebox{\textwidth}{!}{
@@ -1143,6 +1145,41 @@ GSE75748 & DEC vs EC & 64, 64 & human & \citep{chu} \\ \hline
 GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human & \citep{Darmanis} \\ \hline
 \end{tabular}}
 \captionof{table}{datasets used for comparisons of DD analysis under different methods}
+\end{table}
+
+\clearpage
+
+
+\begin{table}[hb!]
+\footnotesize
+\centering
+\begin{tabular}{ |p{5cm}|p{5cm}|}
+\hline
+ Data set & Conditions \\
+\hline
+\hline
+GSE63818null & 7 week gestation  \\
+\hline
+GSE75748null & DEC \\
+\hline
+GSE94383null & T0\\
+\hline
+GSE48968-GPL13112null & BMDC (2h LPS stimulation) \\
+%\hline
+% GSE60749-GPL13112null & v6.5 mouse embryonic stem cells, culture conditions: 2i+LIF & 45,45 & mouse \\
+ \hline
+ GSE74596null & NKT1\\
+ \hline
+ EMTAB2805null & G1 \\
+ \hline
+GSE71585-GPL13112null &Gad2tdTpositive  \\
+\hline
+GSE64016null & G1  \\
+\hline
+GSE79102null & patient1 \\
+\hline
+\end{tabular}
+\captionof{table}{datasets used for null cases, as cells are coming from same biological condition, there should not be any differential distributed genes, any positive call is false positive}
 \end{table}
 
 
