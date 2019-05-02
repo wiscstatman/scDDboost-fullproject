@@ -1456,12 +1456,6 @@ File: Figs/Fucci_wadist.pdf Graphic file (type pdf)
 <use Figs/Fucci_wadist.pdf>
 Package pdftex.def Info: Figs/Fucci_wadist.pdf  used on input line 540.
 (pdftex.def)             Requested size: 216.80669pt x 216.81056pt.
-
-Overfull \hbox (37.88701pt too wide) in paragraph at lines 546--548
-\OT1/pplx/m/n/12 tran-scripts . Lower prob-a-bil-i-ties of equiv-a-lent dis-tri
-buted are as-so-ci-ated with big-ger dis-tances.(supplementary
- []
-
 [13
 
  <./Figs/Fucci_wadist.pdf>]
@@ -1626,7 +1620,7 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (20 pages, 969412 bytes).
+Output written on mkn-supplement.pdf (20 pages, 969403 bytes).
 PDF statistics:
  440 PDF objects out of 1000 (max. 8388607)
  370 compressed objects within 4 object streams
