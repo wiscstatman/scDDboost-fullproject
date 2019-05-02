@@ -26,18 +26,14 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}modalClust}{3}{subsubsection.2.2.2}}
 \citation{ref:dahl}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.3}Randomized $K-$means}{5}{subsubsection.2.2.3}}
+\citation{selK}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Adjusted rand indexes to the clustering based on the original distance matrix without dividing weights. We investigate the randomness of clustering given by our weights through 8 datasets. All have stopping threshold for nlminb optimizing function in r with relative tolerance as 0.001\relax }}{6}{figure.caption.1}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:1}{{1}{6}{Adjusted rand indexes to the clustering based on the original distance matrix without dividing weights. We investigate the randomness of clustering given by our weights through 8 datasets. All have stopping threshold for nlminb optimizing function in r with relative tolerance as 0.001\relax }{figure.caption.1}{}}
-\citation{selK}
+\newlabel{fig:ARI}{{1}{6}{Adjusted rand indexes to the clustering based on the original distance matrix without dividing weights. We investigate the randomness of clustering given by our weights through 8 datasets. All have stopping threshold for nlminb optimizing function in r with relative tolerance as 0.001\relax }{figure.caption.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.4}Selecting $K$}{6}{subsubsection.2.2.4}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces comparison between random weighting scheme and bayesian clustering procedure in terms of posterior probabilities that two elements belong to the same class given the whole data and adjusted rand index comparing to the underlying true class label\relax }}{7}{figure.caption.2}}
-\newlabel{fig:1}{{2}{7}{comparison between random weighting scheme and bayesian clustering procedure in terms of posterior probabilities that two elements belong to the same class given the whole data and adjusted rand index comparing to the underlying true class label\relax }{figure.caption.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.4}Selecting $K$}{7}{subsubsection.2.2.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Double Dirichlet Mixture}{8}{subsection.2.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Numerical Experiments}{10}{section.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Synthetic Data}{10}{subsection.3.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces first two principal components of transcripts under different parameters for simulated data. Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation, each setting has 2 replicates K = 3\relax }}{10}{figure.caption.3}}
-\newlabel{fig:4}{{3}{10}{first two principal components of transcripts under different parameters for simulated data. Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation, each setting has 2 replicates K = 3\relax }{figure.caption.3}{}}
+\newlabel{fig:simu}{{2}{7}{comparison between random weighting scheme and bayesian clustering procedure in terms of posterior probabilities that two elements belong to the same class given the whole data and adjusted rand index comparing to the underlying true class label\relax }{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Double Dirichlet Mixture}{7}{subsection.2.3}}
 \citation{Lane}
 \citation{Shalek}
 \citation{Trapnell}
@@ -50,27 +46,31 @@
 \citation{Guo}
 \citation{chu}
 \citation{Darmanis}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Numerical Experiments}{10}{section.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Synthetic Data}{10}{subsection.3.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces first two principal components of transcripts under different parameters for simulated data. Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation, each setting has 2 replicates K = 3\relax }}{10}{figure.caption.3}}
+\newlabel{fig:4}{{3}{10}{first two principal components of transcripts under different parameters for simulated data. Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation, each setting has 2 replicates K = 3\relax }{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Empirical Study}{10}{subsection.3.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Null cases}{10}{subsection.3.3}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces similar plots K = 7\relax }}{11}{figure.caption.4}}
 \newlabel{fig:5}{{4}{11}{similar plots K = 7\relax }{figure.caption.4}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces similar plots K = 12\relax }}{11}{figure.caption.5}}
 \newlabel{fig:6}{{5}{11}{similar plots K = 12\relax }{figure.caption.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Empirical Study}{11}{subsection.3.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Random weighting}{11}{section.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Stability of posterior under random weighting}{11}{subsection.4.1}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Roc curve of the 12 simulation settings, under each setting, TPR and FPR are averaged over two replicates, generally we found scDDboost perform better than other methods\relax }}{12}{figure.caption.6}}
 \newlabel{fig:7}{{6}{12}{Roc curve of the 12 simulation settings, under each setting, TPR and FPR are averaged over two replicates, generally we found scDDboost perform better than other methods\relax }{figure.caption.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Null cases}{12}{subsection.3.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Random weighting}{12}{section.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Stability of posterior under random weighting}{12}{subsection.4.1}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces datasets used for comparisons of DD analysis under different methods\relax }}{13}{table.caption.7}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces $P(ED_g|X,y)$ given by scDDboost versus empirical Wasserstein distance. Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4-0.6, 0.6-0.8,0.8-1, data used: FUCCI\relax }}{13}{figure.caption.8}}
 \newlabel{fig:7}{{7}{13}{$P(ED_g|X,y)$ given by scDDboost versus empirical Wasserstein distance. Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4-0.6, 0.6-0.8,0.8-1, data used: FUCCI\relax }{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Posterior consistency}{13}{section.5}}
+\citation{ineq}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces $P(ED_g|X,y)$ given by scDDboost versus empirical Wasserstein distance. Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4-0.6, 0.6-0.8,0.8-1, similar plots as supplementary Fig 7, for the simulation cases\relax }}{14}{figure.caption.9}}
 \newlabel{fig:8}{{8}{14}{$P(ED_g|X,y)$ given by scDDboost versus empirical Wasserstein distance. Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4-0.6, 0.6-0.8,0.8-1, similar plots as supplementary Fig 7, for the simulation cases\relax }{figure.caption.9}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces datasets used for null cases, as cells are coming from same biological condition, there should not be any differential distributed genes, any positive call is false positive\relax }}{14}{table.caption.10}}
-\citation{ineq}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces under NULL case, using dataset EMTAB2805, when using too big $K$ we may lose FDR control (black dashed line shows proportion of false positive identified by scDDboost under 0.05 threshold, while validity score did not vary too much after $K$ is greater than 2 \relax }}{15}{figure.caption.11}}
 \newlabel{fig:7}{{9}{15}{under NULL case, using dataset EMTAB2805, when using too big $K$ we may lose FDR control (black dashed line shows proportion of false positive identified by scDDboost under 0.05 threshold, while validity score did not vary too much after $K$ is greater than 2 \relax }{figure.caption.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces PDD change under different number of subtypes $K$, dataset used DEC-EC, our rule for selecting $K$ tends also to make PDD stabilize\relax }}{15}{figure.caption.12}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Posterior consistency}{15}{section.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces PDD change under different number of subtypes $K$, dataset used DEC-EC, our rule for selecting $K$ tends also to make PDD stabilize\relax }}{16}{figure.caption.12}}
 \@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces DEC-EC, PDD under K = 5 vs. K = 6, left panel is without the randomized distance and right panel is with randomized distance. We increase robustness of our methods through random weighting\relax }}{16}{figure.caption.13}}
 \bibstyle{imsart-nameyear}
 \bibdata{./supp_references/wlr_ref}
@@ -86,7 +86,7 @@
 \bibcite{oscope}{{10}{2015}{{Leng et~al.}}{{}}}
 \bibcite{ineq}{{11}{2007}{{Li and ping Chen}}{{}}}
 \bibcite{selK}{{12}{2000}{{Ray and Turi}}{{}}}
+\@writefile{toc}{\contentsline {section}{References}{18}{section*.15}}
 \bibcite{Shalek}{{13}{2014}{{Shalek et~al.}}{{}}}
 \bibcite{Tasic}{{14}{2016}{{Tasic et~al.}}{{}}}
 \bibcite{Trapnell}{{15}{2014}{{Trapnell et~al.}}{{}}}
-\@writefile{toc}{\contentsline {section}{References}{19}{section*.15}}
