@@ -14,7 +14,7 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{flafter}
-
+\usepackage[section]{placeins}
 \DeclareCaptionFormat{myformat}{\hrulefill \\ #1#2#3}
 \DeclareCaptionFont{small}{\footnotesize}
 \DeclareCaptionFont{blue}{\color{blue}} 
@@ -1092,9 +1092,9 @@ in Supplementary Material make comparisons to a full, Dirichlet-process-based, p
 %We gave a brief justification for this approximation, suppose units $i$ and $j$ are merged into a common cluster if (and only if) $d_{i,j} < c$. Then $P(d^*_{i,j} < c) = P(w_{i,j} > c / d_{i,j})$, $w_{i,j} \sim$ Gamma$(a, a)$. From Bayesian perspective, given the true distance $\Delta_{i,j}$, $d_{i,j} | \Delta_{i,j} \sim$ Gamma($a_1, a_1 / \Delta_{i,j}$), so that the sampling mean of $d_{i,j}$ is $\Delta_{i,j}$.  Further, for simplicity we ignore any issues about the $d$'s or $\Delta$'s being true distances. The condition for qualifiable distance matrix is the triangle inequality among the pairwise distances, such condition would not affect our clustering results too much. But, a simple analysis might suppose that a-priori $1 / \Delta_{i,j} \sim$ Gamma($a_0, d_0$). The scaling is such that E$(1 / \Delta_{i,j}) = a_0 /  d_0$. The posterior, by conjugacy, has $1 / \Delta_{i,j} | d_{i,j} \sim$ Gamma($a_0 + a_1, d_0 + a_1d_{i,j}$). Then the posterior probability that $i$ and $j$ should be clustered is the posterior probability that $\Delta_{i,j} < c$, which is $P($Gamma($(a_0 + a_1),(a_0 + a_1)) > (d_0 + a_1 * d_{i,j}) / (a_0 + a_1) * 1/c )$. In order to match the posterior probability that elements $i$ and $j$ belongs to the same cluster through the simple bayesian analysis to random weighting, we need $d_0$ to be small and $a = a_0 + a_1$. For the estimation, we fixed $d_0$ and estimating $(a_0, a_1)$ from maximizing the marginal likelihood of $d_{i,j}$. (details in supplementary material)
 %Therefore, we gave a way of modeling the distribution of weights such that partition based on random generated distance $D / W$ would approximate the partition given data based on a full bayesian framework.
 
-
+\newpage
 \subsection*{Pseudo-code}
-
+Computing procedure
 \begin{algorithm}
 \caption{\textsc{scDDboost}}\label{alg:scDDboost}
 \raggedright\hspace*{\algorithmicindent} \textbf{Input}: \begin{list}{}{}
@@ -1119,12 +1119,12 @@ in Supplementary Material make comparisons to a full, Dirichlet-process-based, p
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
+\FloatBarrier
 
-\clearpage
 
 \subsection*{Empirical datasets}
 
-\begin{table}[htp]
+\begin{table}[b]
 \small
 \centering
 \resizebox{\textwidth}{!}{
@@ -1147,10 +1147,8 @@ GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human & \citep{
 \captionof{table}{datasets used for comparisons of DD analysis under different methods}
 \end{table}
 
-\clearpage
 
-
-\begin{table}[hb!]
+\begin{table}[b]
 \footnotesize
 \centering
 \begin{tabular}{ |p{3cm}|p{5cm}|p{2cm}|}
@@ -1182,7 +1180,7 @@ GSE79102null & patient1 & 51\\
 \captionof{table}{datasets used for null cases, as cells are coming from same biological condition, there should not be any differential distributed genes, any positive call is false positive}
 \end{table}
 
-
+\clearpage
 
 
 \end{document}  
