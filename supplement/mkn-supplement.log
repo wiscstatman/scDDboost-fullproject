@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  2 MAY 2019 14:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  2 MAY 2019 15:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1071,9 +1071,6 @@ Document Style - pseudocode environments for use with the `algorithmicx' style
 
 LaTeX Warning: Label `fig:7' multiply defined.
 
-
-LaTeX Warning: Label `fig:7' multiply defined.
-
 )
 \openout1 = `mkn-supplement.aux'.
 
@@ -1491,33 +1488,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 584--584
 []|\OT1/pplx/m/n/9 GSE71585-
  []
 
-<Figs/breakFDR.pdf, id=296, 505.89pt x 505.89pt>
+[14 <./Figs/simu_wadist.pdf>]
+<Figs/breakFDR.pdf, id=309, 505.89pt x 505.89pt>
 File: Figs/breakFDR.pdf Graphic file (type pdf)
 <use Figs/breakFDR.pdf>
-Package pdftex.def Info: Figs/breakFDR.pdf  used on input line 597.
+Package pdftex.def Info: Figs/breakFDR.pdf  used on input line 608.
 (pdftex.def)             Requested size: 271.0125pt x 271.01514pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[14 <./Figs/simu_wadist.pdf>]
-<Figs/Kchange.png, id=309, 767.86874pt x 244.915pt>
+<Figs/Kchange.png, id=310, 767.86874pt x 244.915pt>
 File: Figs/Kchange.png Graphic file (type png)
 <use Figs/Kchange.png>
-Package pdftex.def Info: Figs/Kchange.png  used on input line 626.
+Package pdftex.def Info: Figs/Kchange.png  used on input line 624.
 (pdftex.def)             Requested size: 542.02501pt x 172.89305pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Figs/rw.pdf, id=311, 495.8525pt x 212.795pt>
+<Figs/rw.pdf, id=312, 495.8525pt x 212.795pt>
 File: Figs/rw.pdf Graphic file (type pdf)
 <use Figs/rw.pdf>
-Package pdftex.def Info: Figs/rw.pdf  used on input line 632.
+Package pdftex.def Info: Figs/rw.pdf  used on input line 631.
 (pdftex.def)             Requested size: 379.41585pt x 162.82658pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[15 <./Figs/breakFDR.pdf>]
+[15
+
+ <./Figs/breakFDR.pdf>] [16 <./Figs/Kchange.png> <./Figs/rw.pdf>]
 Overfull \hbox (23.45146pt too wide) in paragraph at lines 784--788
 []\OT1/pplx/m/n/12 Recall $\OML/zplm/m/it/12 ![] \OMS/zplm/m/n/12 / \OML/zplm/m
 /it/12 p[]\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 t[]\OMS/zplm/m/n/12 j\OML/zplm/m/
@@ -1535,7 +1531,7 @@ m/n/12 , \OML/zplm/m/it/12 ^^L\OT1/pplx/m/n/12 , \OML/zplm/m/it/12 n[]\OT1/pplx
 n/12 , \OML/zplm/m/it/12 ^^L\OT1/zplm/m/n/12 )$
  []
 
-[16 <./Figs/Kchange.png> <./Figs/rw.pdf>]
+
 Overfull \hbox (6.65352pt too wide) in paragraph at lines 791--793
 \OT1/pplx/m/n/12 For no-ta-tion sim-plic-ity, we use the ab-bre-vi-a-tion $\OML
 /zplm/m/it/12 g\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 ^^Y\OT1/zplm/m/n/12 )\OT1/pp
@@ -1562,23 +1558,24 @@ x/m/n/12 . De-note $\OML/zplm/m/it/12 C\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 ^^Y[
  \OT1/pplx/m/n/12 , \OML/zplm/m/it/12 ^^L\OT1/zplm/m/n/12 ) =
  []
 
+[17
 
+]
 Underfull \hbox (badness 10000) in paragraph at lines 834--836
 
  []
 
-[17]
 ./mkn-supplement.tex:845: Extra }, or forgotten $.
 l.845 ...) / \sqrt{n})^2}{t_b^j + \gamma_b^j / n}}
                                                   $ is asymptotic gamma($\ch...
 
 ? 
-
+[18]
 Overfull \hbox (21.98438pt too wide) detected at line 874
 []
  []
 
-[18] (./mkn-supplement.bbl
+(./mkn-supplement.bbl
 
 ./mkn-supplement.bbl:45: Package keyval Error: Chu2016 undefined.
 
@@ -1598,7 +1595,7 @@ File: uni-3.def 2013/05/13 UCS: Unicode data U+0300..U+03FF
 l.202   to Dynamic Patterns of NF-κB Activation}
                                                  .
 ? 
-) [19]
+[19]) [20]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 950.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 950.
  (./mkn-supplement.aux)
@@ -1616,10 +1613,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 950.
  ) 
 Here is how much of TeX's memory you used:
- 29335 strings out of 492649
- 551778 string characters out of 6129622
- 637242 words of memory out of 5000000
- 32653 multiletter control sequences out of 15000+600000
+ 29338 strings out of 492649
+ 551804 string characters out of 6129622
+ 636650 words of memory out of 5000000
+ 32655 multiletter control sequences out of 15000+600000
  572179 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,16n,64p,10432b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1635,10 +1632,10 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (19 pages, 969713 bytes).
+Output written on mkn-supplement.pdf (20 pages, 969364 bytes).
 PDF statistics:
- 433 PDF objects out of 1000 (max. 8388607)
- 364 compressed objects within 4 object streams
- 82 named destinations out of 1000 (max. 500000)
+ 438 PDF objects out of 1000 (max. 8388607)
+ 368 compressed objects within 4 object streams
+ 83 named destinations out of 1000 (max. 500000)
  212 words of extra memory for PDF output out of 10000 (max. 10000000)
 
