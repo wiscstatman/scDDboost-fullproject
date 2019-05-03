@@ -424,12 +424,11 @@ As prior of $\Phi \text{ is Dirchlet}[ \beta ] \text{ and } n_j = \sum_{b \in \p
 \end{proof}
 
 
-
+To prove property 6, we need a lemma of dimensionality of the intersection of two $A_\pi$s 
 \begin{lemma}
 If $\pi_2$ is not refinement of $\pi_1$ then $A_{\pi_1} \cap A_{\pi_2}$ is a lower dimensional subset of $A_{\pi_2}$
 \end{lemma}
 
-in order to proof property 6 we gave a lemma of dimensionality of the intersection of two $A_\pi$s 
 Proof of lemma 1
 \begin{proof}
 Let $V$ denote the orthogonal space of $\phi - \psi$, when $(\phi,\psi)\in A_{\pi_1} \cap A_{\pi_2}$, and $\text{dim}(A_{\pi_1} \cap A_{\pi_2}) = \text{dim}(\phi - \psi) + \text{dim}(\psi) = 2K - \text{dim}(V) - 1$. Also let $\pi_1 = \{b_1^1,...,b_s^1\}, \pi_2 = \{b_1^2,...,b_t^2\}$. The corresponding vectors are $v_1^1,...,v_s^1$ and $v_1^2,...,v_t^2$. We claim there must be a $b_i^1\in \pi$ whose corresponding $v_i^1$ is linear independent with $v_1^2,...,v_t^2$. If not, for every $v_i^1$ there exists $\alpha_1^i,...,\alpha_t^i$ such that 
@@ -442,7 +441,9 @@ Consequently there exists $b\in\pi_1$ with $v(b)$ linear independent with $v(b')
 
 Proof of property 6
 \begin{proof}
-by lemma 1, it is easy to verify.
+For a $\pi$, $P(A_\pi, | y, z) = \underset{\tilde \pi \in \Pi}{\sum} \int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi$, notice the support of $\omega_{\tilde \pi}^{\text{post}$ is $A_{\tilde \pi}$. 
+By lemma 1, we know if $\tilde \pi$ does not refine $\pi$, then $\int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi$ is an integral on lower dimension set and vanish. if $\tilde \pi$ refines $\pi$, then 
+$\int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi = $\int_{A_{\tilde \pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi = \omega_{\tilde \pi}^{\text{post}}$. We have $P(A_\pi, | y, z) = \underset{\tilde \pi \in \Pi}{\sum} \omega_{\tilde \pi}^{\text{post}} 1[\tilde \pi \text{ refines } \pi ]$
 \end{proof}
 
 Proof of theorem 3
