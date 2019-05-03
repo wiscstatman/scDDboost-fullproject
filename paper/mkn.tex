@@ -490,7 +490,7 @@ conditional on an estimate of the subtype labels.
 We invoke $K-$medoids \citep{kmedoids} 
 as the default clustering method in \textsc{scDDboost}, and customize the cell-cell distance by integrating two measures.  
 The first assembles gene-level information by cluster-based-similarity partitioning~\citep{ref:cspa}.
- Separately at each gene,   modal clustering (\cite{ref:dahl} and Appendix B) partitions the cells, and
+ Separately at each gene,   modal clustering (\cite{ref:dahl} and Supplementary Material Section~2.2) partitions the cells, and
 then we define dissimilarity between cells as the mahattan distance of those gene specific partition labels.
 A second measure defines dissimilarity by one minus the 
 Pearson correlation between cells, which is computationally inexpensive,
@@ -744,8 +744,8 @@ P(X_g|M_{g,\pi}, z) = \prod_{b \in \pi} f(X_{g,b}),
 \end{eqnarray}
 where $f$ is a customized density kernel.  In our case we use \verb+EBseq+ from~\citep{ref:Leng}: 
 the sampling distribution of
- $X_{g,c}$ is Negative binomial, and $f$ becomes a particular compound multivariate 
-Negative binomial formed from integrating
+ $X_{g,c}$ is negative binomial, and $f$ becomes a particular compound multivariate 
+negative binomial formed from integrating
 uncertainty in the block-specific means (see Supplementary Material Section 2.4).  
 Through its gene-level mixing model,
 \verb+EBseq+ also gives estimates of $\{ P(M_{g,\pi}|z) \}$: the proportions of genes governed by any of the 
@@ -891,9 +891,9 @@ the EBseq computation within scDDboost.}
 \subsection{Bursting}
 
 
-Transcriptional bursting is a fundamental property of genes. In its simplest form, the gene is proposed to exist in two states: one where activity is negligible and one where there is a certain probability of 
+Transcriptional bursting is a fundamental property of genes. In its simplest form, the gene exists in two states: one where activity is negligible and one where there is a certain probability of 
 activation~\citep{Raj:2008aa}. Composition of multiple states yields subtle change of transcripts between conditions. 
-D3E\citep{ref:d3e} is a computationally intensive 
+D3E~\citep{ref:d3e} is a computationally intensive 
 method for DE gene analysis rooted in quantifing the parameters of bursting process. It 
 models transcripts as in the stationary distribution from an 
 experimentally validated stochastic process of single-cell gene expression \citep{Peccoud:1995aa}. 
@@ -971,7 +971,7 @@ P(A_\pi|y_1,\cdots,y_n; z_1, \cdots z_n ) \longrightarrow_{a.s.} 1 \quad {\mbox 
 
 
 \section{Discussion}
-We have presented \verb+scDDboost+,  a compositional model for
+We have presented \verb+scDDboost+,  a tool for
  detecting differentially distributed genes from scRNA-seq data,
 where transcripts are modeled as mixture of cellular subtypes. 
 The methodology links established model-based
@@ -979,7 +979,7 @@ techniques with novel empirical Bayesian
 modeling and computational elements to  provide a powerful detection method showing 
 comparatively good operating characteristics in simulation, empirical, and asymptotic studies.
 
-One advantage of verb+scDDboost is to allow information shared across whole genome. 
+One advantage of \verb+scDDboost+ is to allow information shared across whole genome. 
 Cell level clustering and marginal level DE pattern inferred by the whole genome data contribute to gene level DD analysis. 
 Another advantage of \verb+scDDboost+ is its flexibility to allow user specified clustering of cells, which make our method competent for newly developed clustering methods.
 We combine estimations of changes of subtypes' proportions across conditions and changes of mean expressions across subtypes to infer distributional changes of transcripts.
@@ -1102,7 +1102,7 @@ in Supplementary Material make comparisons to a full, Dirichlet-process-based, p
 
 \newpage
 \subsection*{Pseudo-code}
-Computing procedure
+
 \begin{algorithm}
 \caption{\textsc{scDDboost}}\label{alg:scDDboost}
 \raggedright\hspace*{\algorithmicindent} \textbf{Input}: \begin{list}{}{}
@@ -1137,7 +1137,7 @@ Computing procedure
 \centering
 \begin{tabular}{ |p{2cm}|p{5cm}|p{2cm}|p{2cm}|p{2cm}|}
 \hline
- Data set & Conditions & Number of cells/condition & Organism  & Ref \\ \hline \hline
+ Data set & Conditions & Cells per condition & Organism  & Ref \\ \hline \hline
 GSE94383 & 0 min unstim vs 75min stim & 186,145 & human & \citep{Lane} \\ \hline
 GSE48968-GPL13112 & BMDC (2h LPS stimulation) vs 6h LPS & 96,96 & mouse & \citep{Shalek} \\ \hline
 GSE52529 & T0 vs T72 & 69,74 & human & \citep{Trapnell} \\ \hline
@@ -1151,7 +1151,7 @@ GSE63818 & Primordial Germ Cells, develop- mental stage: 7 week gestation vs Som
 GSE75748 & DEC vs EC & 64, 64 & human & \citep{chu} \\ \hline
 GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human & \citep{Darmanis} \\ \hline
 \end{tabular}
-\captionof{table}{datasets used for comparisons of DD analysis under different methods}
+\captionof{table}{Data sets used for the empirical study of scDDboost}
 \end{table}
 
 
@@ -1160,7 +1160,7 @@ GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human & \citep{
 \centering
 \begin{tabular}{ |p{2.5cm}|p{4.5cm}|p{3cm}|}
 \hline
- Data set & Conditions & Number of cells \\
+ Data set & Condition & Cells \\
 \hline
 \hline
 GSE63818null & 7 week gestation  & 40 \\
@@ -1184,7 +1184,7 @@ GSE64016null & G1 & 91 \\
 GSE79102null & patient1 & 51\\
 \hline
 \end{tabular}
-\captionof{table}{datasets used for null cases, as cells are coming from same biological condition, there should not be any differential distributed genes, any positive call is false positive}
+\captionof{table}{Single-condition data sets used in the random-splitting experiment.}
 \end{table}
 
 \clearpage
