@@ -270,7 +270,7 @@ Our working hypothesis, referred to as the {\em compositional model},  is that a
 between $y_c=1$ and $y_c=2$ (i.e., any condition effects) are attributable 
 to differences between the conditions 
 in the underlying composition of cell types; i.e.,
-owing to $\phi \neq \psi$.  We reckon that cells of any given subtype $k$ will
+owing to $\phi \neq \psi$.  We suppose that cells of any given subtype $k$ will
 present data according to a distribution reflecting technical 
 and biological variation specific to that class of cells, regardless of the 
 condition the cell finds itself in.   Some care is needed in this, as an overly
@@ -433,7 +433,7 @@ In what follows, we develop the  modeling and computational elements necessary  
 Theorems~1 and~2.  Roughly, the methodological idea is that subtype labels $z$
 have relatively low uncertainty, and may be estimated from genome-wide 
 clustering of cells in the absence of condition information $y$ (up to an arbitrary label permutation). 
-The modest bit of uncertainty in $z$
+The modest uncertainty in $z$
 we handle through a computationally efficient randomized clustering scheme.
  Theorem~2 indicates that our computational task then separates into
 two parts given $z$.  On one hand, cell subtype frequencies 
@@ -850,20 +850,11 @@ uniquely identified by \verb+scDDboost+ (red) tend to be larger.  Essentially,  
 matches a large number of other genes. 
 
 
-%\begin{figure}[H]
-%\includegraphics[width = 0.6\textwidth]{Figs/clussz.pdf}
-% \caption{Clusters of genes tend to be larger (vertical axis, log size) for genes uniquely
-% identified by scDDboost (red) compared to other DD genes (blue), as indicated in three example data sets.
-% Here genes are clustered by their pattern of differential expression across subtypes as inferred by
-%the EBseq computation within scDDboost.}
-%  \label{fig:clussz}
-%\end{figure}
-
 
 \begin{figure}[H]
 \includegraphics[width = 0.9\textwidth]{Figs/shift.pdf}
  \caption{Sets of similarly-patterned genes tend to be larger (horizontal axis, log size) for genes uniquely
- identified by scDDboost (red) compared to other DD genes (blue), as indicated in three example data sets.
+ identified by scDDboost (red) compared to other DD genes (blue), at 1\% FDR, as indicated in three example data sets.
  Here genes are grouped by their pattern of differential expression across subtypes as inferred by
 the EBseq computation within scDDboost.}
   \label{fig:shift}
@@ -892,10 +883,10 @@ the EBseq computation within scDDboost.}
 
 
 Transcriptional bursting is a fundamental property of genes. In its simplest form, the gene exists in two states: one where activity is negligible and one where there is a certain probability of 
-activation~\citep{Raj:2008aa}. Composition of multiple states yields subtle change of transcripts between conditions. 
+activation~\citep{Raj:2008aa}. 
 D3E~\citep{ref:d3e} is a computationally intensive 
-method for DE gene analysis rooted in quantifing the parameters of bursting process. It 
-models transcripts as in the stationary distribution from an 
+method for DE gene analysis rooted in modeling the bursting process. It 
+considers transcripts as in the stationary distribution from an 
 experimentally validated stochastic process of single-cell gene expression \citep{Peccoud:1995aa}. 
 Three mechanistic parameters (rate of promoter activation, rate of promoter inactivation, 
  and the conditional rate of transcription given an active  promoter) characterize the model, which allow
@@ -905,26 +896,16 @@ comparison methods, Figure~\ref{fig:bursting} shows  changes of these bursting p
  genes uniquely identified by \verb+scDDboost+ are associated with more 
 significant changes between estimated bursting parameters compared to commonly identified genes.
 This finding and similar findings on other data sets (not shown) provide some evidence that \verb+scDDboost+
-is able to detect biologically meaningful changes in distributions.
+is able to detect biologically meaningful changes in the expression distribution.
 
-% From previous study (Figure~\ref{fig:whet}) our mixture model could be sensitive to the subtle changes of genes expressions. Using the bursting model, such shifts of distributions we identified are informative for the changes of bursting parameters and probably are not falsely discovered.
 
 
 \begin{figure}[H]
 \includegraphics[width = 0.6\textwidth]{Figs/D3E_box.pdf}
-\caption{ Absolute values of log fold changes of bursting parameters tend to be larger for genes uniquely identified by scDDboost (red) compare to other genes (blue).}
-%In the D3E model, it assumes the counts are sampled from a poisson-beta model. Specifically,  $x \sim \text{Poi}(x | \gamma * p), p \sim \text{Beta}(\alpha,\beta)$, In D3E paper, it call $\alpha$ the rate of promoter activation, $\beta$ the rate of promoter inactivation 
-%and $\gamma$ the rate of transcripts when the promoter is in the active state.  Such poisson-beta model should be the stationary distribution of the transcriptional bursting model.
-%For each condition each gene D3E would estimate a triplet ($\alpha, \beta,\gamma$).
-% Instead of directly looking at the change of $\alpha$, $\beta$. I looked at the change of mean and variance of Beta prior for each condition.
-% i.e. the change for mean and var for $p$ from the poisson-beta model. I think it would be more natural to look at $p$, as transcripts are more directly related to $p$ than $\alpha$ and $\beta$, 
-% $p = 0$ would mean the promoter is off and $p = 1$ means the promoter is on, so $p$ is more like a measure for how likely a promoter is on, I call the mean and var of $p$ as the mean and var of activation rate.
-% Then I plot the absoluate value of log fold change of mean, var activation rate and rate of transcripts $\gamma$. 
-% Those uniquely identified genes by scDDboost are more consistent with the estimations from D3E since they are corresponding to more significant change of those %bursting parameters}
+\caption{ Absolute values of log fold changes of bursting parameters tend to be larger for genes uniquely identified by scDDboost (red) compare to other genes (blue). **XIUYU, is this 5 or 1\% FDR?**}
  \label{fig:bursting}
 \end{figure}
 
-%We observed that genes uniquely identified by scDDboost are associated with more significant changes between estimated bursting parameters compare to genes commonly identified by all four RNAseq methods. From previous study (Figure~\ref{fig:whet}) our mixture model could be sensitive to the subtle changes of genes expressions. Using the bursting model, such shifts of distributions we identified are informative for the changes of bursting parameters and probably are not falsely discovered.
 
 
 \section{Asymptotics of the Double Dirichlet Mixture}
@@ -970,7 +951,8 @@ P(A_\pi|y_1,\cdots,y_n; z_1, \cdots z_n ) \longrightarrow_{a.s.} 1 \quad {\mbox 
 
 
 
-\section{Discussion}
+\section{Concluding remarks}
+
 We have presented \verb+scDDboost+,  a tool for
  detecting differentially distributed genes from scRNA-seq data,
 where transcripts are modeled as mixture of cellular subtypes. 
@@ -979,22 +961,42 @@ techniques with novel empirical Bayesian
 modeling and computational elements to  provide a powerful detection method showing 
 comparatively good operating characteristics in simulation, empirical, and asymptotic studies.
 
-One advantage of \verb+scDDboost+ is to allow information shared across whole genome. 
-Cell level clustering and marginal level DE pattern inferred by the whole genome data contribute to gene level DD analysis. 
-Another advantage of \verb+scDDboost+ is its flexibility to allow user specified clustering of cells, which make our method competent for newly developed clustering methods.
-We combine estimations of changes of subtypes' proportions across conditions and changes of mean expressions across subtypes to infer distributional changes of transcripts.
-To estimate changes of subtypes' proportions across conditions, we use empirical Bayes and developed a double Dirichlet prior distribution.  
-We invented a random weighting scheme that stabilize our DD inference as well as approximating the results as if we have done a fully bayesian clustering analysis based on Dirichlet prior. 
-We demonstrated that scDDboost outperforms existing approaches in simulation and tends to be more powerful than existing methods on a wide range of public available empirical datasets.
+In the software and numerical experiments we made specific choices,
+ such as to use mixtures of negative binomial components per gene, and to use K-medoids
+clustering on particular cell-cell distances.   These choices have evident advantages, but the 
+model structure and theory developed in Section~2 carry through for other cases. Future experiments
+could study other formulations within the same schema; for example there may be cell-cell 
+distances that better capture the intrinsic dimensionality of expression programs, including, perhaps
+distances based on diffusions (e.g., Haghverdi {\em et al.} 2015 **bioinformatics**) or 
+the longest-leg path distance (e.g., Little {\em et al.} 2017 **arXiv:1712.06206**).
+Further, assuming a compositional structure to drive model-based computations may not be restrictive,
+since it allows great flexibility in the form of each gene/condition-specific expression distribution
+(as coded, they are finite mixtures of negative binomials).
+
+%We invented a random weighting scheme that stabilize our DD inference as well as approximating the results as if we have done a fully bayesian clustering analysis based on Dirichlet prior. 
    
 
-One current limitation of \verb+scDDboost+ is that current \verb+EBseq+ 
-inference of the DE patterns is computationally not feasible when $K$ is large. 
-Given the noise level among the single cell data and especially if we want to identify DD genes among conditions containing thousands of cells, allowing a big number of subtypes would make cells under same subtype more homogeneous and result in a more accurate estimations for the distribution of transcripts. Further research is needed for acceleration of \verb+EBseq+, 
-one direction is to reduce the calculation on those patterns that would have small posterior probabilities. 
+For computational reasons we impose the rule $K \leq 9$ in
+ \verb+scDDboost+ (v. 1.0).  **{\em Xiuyu...we should give a ballpark figure on compute time for end-end
+analysis on one data set}**  This problem traces to \verb+EBseq+, which  currently 
+searches all partitions of $K$ and encodes a hyper-paramter estimation algorithm that scales poorly with $K$.
+Several approximations present themselves that may redress the problem, since 
+in the mixture model context, only patterns $\pi$ corresponding to relatively probable expression-change
+patterns over subtypes will have a big impact on the final posterior inference.   Even resolving this
+bottleneck there are advantages to having $K$ small compared to $n$.  Numerical experiments
+show increased false discoveries when $K$ is over-estimated.  But even accurate estimation with large $K$ would
+not be expected to provide much improved power, since that depends on accurate estimation of subtypes and their
+frequencies which relies on $K$ being relatively small compared to $n$.
 
 
+%inference of the DE patterns is computationally not feasible when $K$ is large. 
+%Given the noise level among the single cell data and especially if we want to identify DD genes among conditions containing thousands of cells, allowing a big number of subtypes would make cells under same subtype more homogeneous and result in a more accurate estimations for the distribution of transcripts. Further research is needed for acceleration of \verb+EBseq+, 
+%one direction is to reduce the calculation on those patterns that would have small posterior probabilities. 
 
+
+{\em Not sure: maybe we should have a statement about how we are not exhaustively comparing to all known
+ DE methods; we compare to MAST, SCDD, DESEQ2, and D3E...maybe say something, since a referee for sure will
+ want us to compare to his/her method}
 
 %\bibliographystyle{IEEEtran}
 %\bibliographystyle {plainnat}
@@ -1135,9 +1137,9 @@ in Supplementary Material make comparisons to a full, Dirichlet-process-based, p
 \begin{table}[b]
 \tiny
 \centering
-\begin{tabular}{ |p{2cm}|p{5cm}|p{2cm}|p{2cm}|p{2cm}|}
+\begin{tabular}{ |p{2cm}|p{5cm}|p{1.5cm}|p{1.5cm}|p{2cm}|}
 \hline
- Data set & Conditions & Cells per condition & Organism  & Ref \\ \hline \hline
+ Data set & Conditions & $\#$ cells & Organism  & Ref \\ \hline \hline
 GSE94383 & 0 min unstim vs 75min stim & 186,145 & human & \citep{Lane} \\ \hline
 GSE48968-GPL13112 & BMDC (2h LPS stimulation) vs 6h LPS & 96,96 & mouse & \citep{Shalek} \\ \hline
 GSE52529 & T0 vs T72 & 69,74 & human & \citep{Trapnell} \\ \hline
@@ -1158,9 +1160,9 @@ GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human & \citep{
 \begin{table}[b]
 \tiny
 \centering
-\begin{tabular}{ |p{2.5cm}|p{4.5cm}|p{3cm}|}
+\begin{tabular}{ |p{2.5cm}|p{4.5cm}|p{2cm}|}
 \hline
- Data set & Condition & Cells \\
+ Data set & Condition & $\#$ cells \\
 \hline
 \hline
 GSE63818null & 7 week gestation  & 40 \\
