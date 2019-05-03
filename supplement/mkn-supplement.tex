@@ -374,12 +374,12 @@ Those computing units will serve as key components for proofing property 1 $\sim
 Proof of property 1
 \begin{proof}
 When $\phi$ and $\psi$ only satisfy the coarsest constrants: $\sum_{i = 1}^K \phi_i = \sum_{i = 1}^K \psi_i = 1$. $\phi$ and $\psi$ are independently Dirichlet distributed.
-When $\phi$ and $\psi$ satisfy finer constraints, $P(\phi | \psi ) \neq P(\phi)$ as there is some subsets $b$ such that $\sum_{i\in b} \phi = \sum_{i \in b} \psi$. So $\phi$ and $\psi$ are dependent
+When $\phi$ and $\psi$ satisfy finer constraints, $P(\phi | \psi ) \neq P(\phi)$ as there is some subsets $b \neq \pi$ such that $\sum_{i\in b} \phi = \sum_{i \in b} \psi$. So $\phi$ and $\psi$ are dependent
 \end{proof}
 
 Proof of property 2
 \begin{proof}
-$E_{\pi}(\phi_k) = E_{\tilde{\phi}_b}(\tilde{\phi}_k)E_{\Phi}(\Phi_b)$ where $b$ is the block containing subtype index $k$. As $\tilde{\phi}_b \sim  \text{Dirichlet}_{N(b)}[ \alpha_b^1 ]$ and  $\Phi_\pi  \sim \text{Dirichlet}_{N(\pi)}[   \beta_\pi   ] $
+$E_{\pi}(\phi_k) = E_{\pi}(\phi_k | \Phi_b) E_{\Phi}(\Phi_b) = E_{\tilde{\phi}_b}(\tilde{\phi}_k)E_{\Phi}(\Phi_b)$ where $b$ is the block containing subtype index $k$.As $\tilde{\phi}_b \sim  \text{Dirichlet}_{N(b)}[ \alpha_b^1 ]$ and  $\Phi_\pi  \sim \text{Dirichlet}_{N(\pi)}[   \beta_\pi   ] $
 We have $E_{\tilde{\phi}_b}(\tilde{\phi}_k) =  \frac{ \alpha^1_k }{ \sum_{k' \in b} \alpha^1_{k'} } $ and $E_{\Phi}(\Phi_b) = \frac{ \beta_b }{ \sum_{b' \in \pi} \beta_{b'} } $. Similarly we could proof the case for $E_{\pi}(\psi_k)$
 \end{proof}
 

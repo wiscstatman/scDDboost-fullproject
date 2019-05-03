@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  2 MAY 2019 21:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  2 MAY 2019 22:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1288,16 +1288,6 @@ l.337 ...y we want to minimize the \verb validity.
                                                   
 ? 
 [6 <./Figs/ARI.pdf>] [7 <./Figs/try7-g.pdf>]
-Overfull \hbox (33.573pt too wide) in paragraph at lines 382--384
-[]$\OML/zplm/m/it/12 E[]\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 ^^^[]\OT1/zplm/m/n/
-12 ) = \OML/zplm/m/it/12 E[]\OT1/zplm/m/n/12 ([])\OML/zplm/m/it/12 E[]\OT1/zplm
-/m/n/12 (^^H[])$ \OT1/pplx/m/n/12 where $\OML/zplm/m/it/12 b$ \OT1/pplx/m/n/12 
-is the block con-tain-ing sub-type in-dex $\OML/zplm/m/it/12 k$\OT1/pplx/m/n/12
- . As $[] \OMS/zplm/m/n/12 ^^X [][]\OT1/zplm/m/n/12 [\OML/zplm/m/it/12 []\OT1/
-zplm/m/n/12 ]$
- []
-
-
 Overfull \hbox (33.28723pt too wide) in paragraph at lines 413--414
 []$\OML/zplm/m/it/12 t[]$ \OT1/pplx/m/n/12 and $\OML/zplm/m/it/12 t[]$ \OT1/ppl
 x/m/n/12 given the con-di-tion la-bel $\OML/zplm/m/it/12 y$ \OT1/pplx/m/n/12 ar
@@ -1620,7 +1610,7 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (20 pages, 969442 bytes).
+Output written on mkn-supplement.pdf (20 pages, 969472 bytes).
 PDF statistics:
  440 PDF objects out of 1000 (max. 8388607)
  370 compressed objects within 4 object streams
