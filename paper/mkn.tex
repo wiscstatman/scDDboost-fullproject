@@ -979,10 +979,10 @@ since it allows great flexibility in the form of each gene/condition-specific ex
 For computational reasons we impose the rule $K \leq 9$ in
  \verb+scDDboost+ (v. 1.0).  **{\em Xiuyu...we should give a ballpark figure on compute time for end-end
 analysis on one data set}**  This problem traces to \verb+EBseq+, which  currently 
-searches all partitions of $K$ and encodes a hyper-paramter estimation algorithm that scales poorly with $K$.
-Several approximations present themselves that may redress the problem, since 
+searches all partitions of $K$ and encodes a hyper-parameter estimation algorithm that scales poorly with $K$.
+Several approximations present themselves that may redress the problem, since,
 in the mixture model context, only patterns $\pi$ corresponding to relatively probable expression-change
-patterns over subtypes will have a big impact on the final posterior inference.   Even resolving this
+patterns over subtypes have a big impact on the final posterior inference.   Even resolving this
 bottleneck there are advantages to having $K$ small compared to $n$.  Numerical experiments
 show increased false discoveries when $K$ is over-estimated.  But even accurate estimation with large $K$ would
 not be expected to provide much improved power, since that depends on accurate estimation of subtypes and their
