@@ -604,33 +604,28 @@ Too small $K$ may end up in an underfit such that cells within same subtype can 
 mean expression change among subtypes is incapable to capture the distribution change for some genes and consequently reducing the power of \textsc{scDDboost}.
 Too big $K$ may end up in an overfit such that two subtypes can be very similar, given we have fixed number of samples (cells), allowing more clusters will introduce may patterns (both for mean expression change and proportion change) to infer. Also notice the limitation of DDM model (see section 4), overestimating $K$ in \textsc{scDDboost} may losing FDR control (supplementary Figure \ref{fig:lfdr}).
 
-scDDboost may lose FDR control if we keep pushing number of subtypes $K$ bigger.
-\begin{figure}[h]
-\includegraphics[width = 0.5\textwidth]{Figs/breakFDR.pdf}
- \caption{under NULL case, using dataset EMTAB2805, when using too big $K$ we may lose FDR control (black dashed line shows proportion of false positive identified by scDDboost under 0.05 threshold, while validity score did not vary too much after $K$ is
- greater than 2 }
-  \label{fig:lfdr}
-\end{figure}
-
 From our empirical experience, 
-it would be sufficient to capture the heterogeneity underlying cells with number of clusters less than 9.  
-And we generally obtain stable in validity score and PDD simultaneously (supplementary Table 1, supplementary Figure \ref{fig:rwk})
-
-
-We demonstrate the change of posterior probabilities of differential distribution given different $K$ at data GSE75748. The variance of the differential term $\text{PDD}_{K + 1} - \text{PDD}_K$ keep decreasing from $K = 3 - 6$. Our selected $K = 5$.  
-
-
-
+it would be sufficient to capture the heterogeneity underlying cells with number of clusters less than 10(supplementary Table 1).  
+And we generally obtain stable validity score and PDD simultaneously (supplementary Figure \ref{fig:rwk})
+We demonstrate the change of PDD given different $K$ at data GSE75748. When we increase $K$, the variance of the differential term $\text{PDD}_{K + 1} - \text{PDD}_K$ keeps decreasing and PDD keeps increasing. Our selection criterion (K = 5) happens to choose $K$ such that  change between $\text{PDD}_{K + 1}$ and $\text{PDD}_K$ is small while not inflating PDD.
 \begin{figure}[h]
 \includegraphics[width = 1\textwidth]{Figs/Kchange.png}
 \caption{PDD change under different number of subtypes $K$, dataset used DEC-EC, our rule for selecting $K$ tends also to make PDD stabilize}
 \label{fig:rwk}
 \end{figure}
 
-
+The random weighting scheme help us gain robust PDD. 
 \begin{figure}[h]
 \includegraphics[width = 0.7\textwidth]{Figs/rw.pdf}
 \caption{DEC-EC, PDD under K = 5 vs. K = 6, left panel is without the randomized distance and right panel is with randomized distance. We increase robustness of our methods through random weighting}
+\end{figure}
+
+scDDboost may lose FDR control if we keep pushing number of subtypes $K$ bigger.
+\begin{figure}[h]
+\includegraphics[width = 0.5\textwidth]{Figs/breakFDR.pdf}
+ \caption{under NULL case, using dataset EMTAB2805, when using too big $K$ we may lose FDR control (black dashed line shows proportion of false positive identified by scDDboost under 0.05 threshold, while validity score did not vary too much after $K$ is
+ greater than 2 }
+  \label{fig:lfdr}
 \end{figure}
 
 \clearpage
