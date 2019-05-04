@@ -613,11 +613,11 @@ scDDboost may lose FDR control if we keep pushing number of subtypes $K$ bigger.
 \end{figure}
 
 From our empirical experience, 
-it would be sufficient to capture the heterogeneity underlying cells with number of clusters not greater than 9.  
+it would be sufficient to capture the heterogeneity underlying cells with number of clusters less than 9.  
 And we generally obtain stable in validity score and PDD simultaneously (supplementary Table 1, supplementary Figure \ref{fig:rwk})
 
 
-We demonstrate the change of posterior probabilities of differential distribution given different $K$ at data GSE75748. If allowing one more subtype would result in a lot increases in posterior probabilities of DD, which suggests that the number of subtypes is underestimated since we found more distribution differences between conditions given one more mixture component. If posterior inference is stable after increasing the number of subtypes, then we consider previous number of subtypes to be optimal.
+We demonstrate the change of posterior probabilities of differential distribution given different $K$ at data GSE75748. The variance of the differential term $\text{PDD}_{K + 1} - \text{PDD}_K$ keep decreasing from $K = 3 - 6$. Our selected $K = 5$.  
 
 
 

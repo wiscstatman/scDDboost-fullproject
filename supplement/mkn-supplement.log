@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  3 MAY 2019 22:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 MAY 2019 13:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1596,15 +1596,9 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 951.
  (./mkn-supplement.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 951.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 951.
+Package rerunfilecheck Info: File `mkn-supplement.out' has not changed.
+(rerunfilecheck)             Checksum: 106575F38BF76E55756C311DB90D4E85;1169.
 
-
-Package rerunfilecheck Warning: File `mkn-supplement.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `mkn-supplement.out':
-(rerunfilecheck)             Before: EFACA1FF223BE4BA601350413888894F;1175
-(rerunfilecheck)             After:  106575F38BF76E55756C311DB90D4E85;1169.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1630,7 +1624,7 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (20 pages, 969885 bytes).
+Output written on mkn-supplement.pdf (20 pages, 969840 bytes).
 PDF statistics:
  440 PDF objects out of 1000 (max. 8388607)
  370 compressed objects within 4 object streams
