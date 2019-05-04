@@ -11,8 +11,6 @@
 \BOOKMARK [1][-]{section.3}{Numerical Experiments}{}% 11
 \BOOKMARK [2][-]{subsection.3.1}{Synthetic Data}{section.3}% 12
 \BOOKMARK [2][-]{subsection.3.2}{Empirical Study}{section.3}% 13
-\BOOKMARK [2][-]{subsection.3.3}{Null cases}{section.3}% 14
-\BOOKMARK [1][-]{section.4}{Robustness}{}% 15
-\BOOKMARK [2][-]{subsection.4.1}{Stability of posterior under random weighting}{section.4}% 16
-\BOOKMARK [1][-]{section.5}{Posterior consistency}{}% 17
-\BOOKMARK [1][-]{section*.15}{References}{}% 18
+\BOOKMARK [2][-]{subsection.3.3}{Robustness}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Posterior consistency}{}% 15
+\BOOKMARK [1][-]{section*.15}{References}{}% 16

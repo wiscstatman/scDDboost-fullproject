@@ -555,10 +555,6 @@ Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0
 \end{figure}
 
 
-
-
-\subsection{Null cases}
-
 datasets used for generating the Null cases (supplementary table 2)
 \begin{table}[h!]
 \footnotesize
@@ -594,10 +590,7 @@ GSE79102null & patient1 & 26, 25 & human\\
 
 \clearpage
 
-\section{Robustness}
-
-
-\subsection{Stability of posterior under random weighting}
+\subsection{Robustness}
 
 Number of subtypes $K$ is a crucial factor controlling the accuracy of our modeling. 
 Too small $K$ may end up in an underfit such that cells within same subtype can still be very different,
@@ -614,7 +607,7 @@ We demonstrate the change of PDD given different $K$ at data GSE75748. When we i
 \label{fig:rwk}
 \end{figure}
 
-The random weighting scheme help us gain robust PDD. 
+The random weighting scheme help us obtain robust PDD. 
 \begin{figure}[h]
 \includegraphics[width = 0.7\textwidth]{Figs/rw.pdf}
 \caption{DEC-EC, PDD under K = 5 vs. K = 6, left panel is without the randomized distance and right panel is with randomized distance. We increase robustness of our methods through random weighting}
