@@ -451,22 +451,35 @@ $\int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi = $\int_{A_{\tilde
 
 Proof of theorem 3
 \begin{proof}
-$p_\pi ( t^1 | t_\pi^1, y) p_\pi ( t^2 | t_\pi^2 , y) p_\pi ( t_\pi^1, t_\pi^2 | y )$
-The DDM: $p(\phi,\psi) = \sum_{\pi \in \Pi} p_\pi(\phi,\psi)$.
-we know $p(\phi,\psi | y,z) \propto p(\phi,\psi, y, z) = \sum_{\pi \in \Pi}  p(y, z | \phi,\psi) p_\pi(\phi,\psi)\omega_\pi$
-And $p(y, z | \phi,\psi) p_\pi(\phi,\psi) = p(y, z | \tilde{\phi} , \tilde{\psi}, \Phi_\pi) p(\tilde{\phi}) p (\tilde{\psi}) p(\Phi_\pi)$ consider the support of $p_\pi(\phi, \psi)$.\\
-Right hand side of the above equation is 
+%$p_\pi ( t^1 | t_\pi^1, y) p_\pi ( t^2 | t_\pi^2 , y) p_\pi ( t_\pi^1, t_\pi^2 | y )$
+Recall the DDM prior: $p(\phi,\psi) = \sum_{\pi \in \Pi} p_\pi(\phi,\psi)$. 
+By bayes' rule we know $p(\phi,\psi | y,z) \propto p(\phi,\psi, y, z) = \sum_{\pi \in \Pi}  p(y, z | \phi,\psi) p_\pi(\phi,\psi)\omega_\pi$
+and we use the 1-1 map from $(\phi,\psi)$ to $(\tilde \phi, \tilde \psi, \Phi)$ to get
 \begin{eqnarray*}
-U_\pi = A_1 * A_2 * A_3 *\prod_{k = 1}^K (\tilde{ \phi }_k)^{t_k^1 + \alpha_k^1} (\tilde{ \psi }_k)^{t_k^2 + \alpha_k^2}   \prod_{b \in \pi} (\Phi_b)^{t_b^1 + t_b^2 + \beta_b}
+p(y, z | \phi,\psi) p_\pi(\phi,\psi) = p(y, z | \tilde{\phi} , \tilde{\psi}, \Phi_\pi) p(\tilde{\phi}) p (\tilde{\psi}) p(\Phi_\pi)
+\end{eqnarray*}
+when $(\phi,\psi) \in A_\pi$.
+Let us denote right hand side of the above equation as $U_\pi$, then
+\begin{eqnarray*}
+U_\pi = \omega_\pi A_1 A_2 A_3\prod_{k = 1}^K (\tilde{ \phi }_k)^{t_k^1 + \alpha_k^1} (\tilde{ \psi }_k)^{t_k^2 + \alpha_k^2}   \prod_{b \in \pi} (\Phi_b)^{t_b^1 + t_b^2 + \beta_b}
 \end{eqnarray*}
 Where $A_1$ is the product of normalizing terms from multinomial distribution of $z^1$ and $z^2$, $A_1 =  \frac{\Gamma(n_1 + 1)\Gamma(n_2 + 1)}{\prod_{j = 1}^2\prod_{k = 1}^K \Gamma(t_k^j + 1) } $\\
 $A_2$ is the product of normalizing terms from Dirichlet distribution of $\tilde{\phi}$ and $\tilde{\psi}$,
 $A_2 = \frac{ \Gamma( \sum_{k = 1}^K \alpha_k^1 + 1)  \Gamma( \sum_{k = 1}^K \alpha_k^2 + 1)}{ \prod_{j = 1}^2 \prod_{k = 1}^2 \Gamma(\alpha_k^j + 1)}$\\
 $A_3$ is the normalizing term from Dirichle distribution of $\Phi_\pi$, $A_3 = \frac{\Gamma(\sum_{b \in \pi } \beta_b + 1)}{\prod_{b\in \pi} \Gamma(\beta_b + 1)}$\\
-To convert $U_\pi$ to have form similar of $p_\pi$, We need $U_\pi \propto f_1 f_2 f_3$ proportional to product of three Dirichlet densities. We know $f_1 \sim \text{Dirichlet}[\alpha^1 + t^1]$, $f_2 \sim \text{Dirichlet}[\alpha^2 + t^2]$ and $f_3 \sim \text{Dirichlet}[\beta + t^1 + t^2]$. Considering the normalizing factors for $f_1,f_2$ and $f_3$, and multiplying them with $A_1, A_2$ and $A_3$. We have the $U_\pi = C_\pi * f_1 f_2 f_3$. The final normalizing term is $ p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
- \, p_\pi( t^1_{\pi}, t^2_{\pi} | y )$ Then we have $(\phi,\psi)|y,z  \sim {\mbox {\rm DDM}}\left[ \omega^{\rm post}=(\omega^{\rm post}_\pi), \alpha^1 + t^1, \alpha^2 + t^2  \right]$ and $\omega^{\rm post}_\pi \propto 
+Looking at the indexes of $\tilde \phi, \tilde \psi \text{ and } \Phi$, we can decompose $U_\pi$ as product of three Dirichlet densities with a normalizing term. 
+Namely $U_\pi = C_\pi * f_1 f_2 f_3$, where
+$f_1 \sim \text{Dirichlet}[\alpha^1 + t^1]$, $f_2 \sim \text{Dirichlet}[\alpha^2 + t^2]$ and $f_3 \sim \text{Dirichlet}[\beta + t^1 + t^2]$.
+Considering the normalizing factors for densities $f_1,f_2$ and $f_3$, and multiplying them with $A_1, A_2$ and $A_3$. 
+We have the $C_\pi =  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
+ \, p_\pi( t^1_{\pi}, t^2_{\pi} | y ) \omega_\pi$. \\
+ Consequently, we have 
+ \begin{eqnarray*}
+ (\phi,\psi)|y,z  \sim {\mbox {\rm DDM}}\left[ \omega^{\rm post}=(\omega^{\rm post}_\pi), \alpha^1 + t^1, \alpha^2 + t^2  \right] \text{ and } \omega^{\rm post}_\pi \propto 
  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
- \, p_\pi( t^1_{\pi}, t^2_{\pi} | y ) \, \omega_\pi.$ Notice in DDM, we constrained $\beta = \alpha^1 + \alpha^2$.
+ \, p_\pi( t^1_{\pi}, t^2_{\pi} | y ) \, \omega_\pi.
+ \end{enqarray*}
+ Notice in DDM, we restricted $\beta = \alpha^1 + \alpha^2$.
 
 \end{proof}
 
