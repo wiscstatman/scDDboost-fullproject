@@ -23,6 +23,7 @@
 \renewcommand{\figurename}{Supplementary Figure}
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\tablename}{Supplementary Table}
+\renewcommand{\thetable}{S\arabic{table}}
 \captionsetup[figure]{format=myformat,labelfont={blue,bf,small},font=small}
 \usepackage{booktabs}% http://ctan.org/pkg/booktabs
 
@@ -478,7 +479,7 @@ We have the $C_\pi =  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
  (\phi,\psi)|y,z  \sim {\mbox {\rm DDM}}\left[ \omega^{\rm post}=(\omega^{\rm post}_\pi), \alpha^1 + t^1, \alpha^2 + t^2  \right] \text{ and } \omega^{\rm post}_\pi \propto 
  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
  \, p_\pi( t^1_{\pi}, t^2_{\pi} | y ) \, \omega_\pi.
- \end{enqarray*}
+ \end{eqnarray*}
  Notice in DDM, we restricted $\beta = \alpha^1 + \alpha^2$.
 
 \end{proof}
@@ -488,35 +489,53 @@ We have the $C_\pi =  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
 
 \subsection{Synthetic Data}
 
- We first look at the pca plots of the simulated data (supplementary figure 2,3,4)
+We first look at the pca plots of the simulated data (supplementary figure \ref{fig:pca1}, \ref{fig:pca2}, \ref{fig:pca3}).
+For $K = 7 \text{ and } 12$, each scenario there were some subtypes nested in the 2d PCA projection. 
+The distributional change of transcripts becomes difficult to detect. 
+\texttt{scDDboost} benefits from the compositional structure and is more sensitive to those subtle changes.
 
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/pca3.pdf}
   \caption{first two principal components of transcripts under different parameters for simulated data. Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation, each setting has 2 replicates K = 3}
-  \label{fig:4}
+  \label{fig:pca1}
 \end{figure}
 
 
 \begin{figure}[h!]
 \includegraphics[ width = 0.8\textwidth]{Figs/pca7.pdf}
 \caption{K = 7}
-\label{fig:5}
+\label{fig:pca2}
 \end{figure}
 
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/pca12.pdf}
   \caption{K = 12}
-  \label{fig:6}
+  \label{fig:pca3}
   \end{figure}
+  
+  
+We observed consistent measurements of distributional change based on \texttt{scDDboost} and Wasserstein distance between the empirical distribution of transcripts.(supplementary figure \ref{fig:simu_wad})
+Lower probabilities of equivalent distributed are associated with bigger distances.
+\begin{figure}[h!]
+\includegraphics[width = 0.6\textwidth]{Figs/simu_wadist.pdf}
+\caption{$P(ED_g|X,y)$ given by scDDboost versus empirical Wasserstein distance. 
+Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4 - 0.6, 0.6 - 0.8, 0.8 - 1. For the simulation cases}
+ \label{fig:simu_wad}
+\end{figure}
 
+
+  
+  
 \clearpage
 
-We also have roc curve for the simulated data, each sub-figure is averaged over two replicates under the same parameters setting. scDDboost tends to outperform other methods (supplementary figure 5)
+We also have roc curve for the simulated data, each sub-figure is averaged over two replicates under the same parameters setting. scDDboost tends to outperform other methods (supplementary figure \ref{fig:roc})
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/Roc_supp.pdf}
   \caption{Roc curve of the 12 simulation settings, under each setting, TPR and FPR are averaged over two replicates, generally we found scDDboost perform better than other methods}
-  \label{fig:7}
+  \label{fig:roc}
 \end{figure}
+
+
 
 \clearpage
 
@@ -551,7 +570,8 @@ GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human & \citep{
 \end{table}
 
 
-
+We also observed consistent distributional change measurements by \texttt{scDDboost} and Wasserstein distance between the empirical distribution of transcripts .
+(supplementary Figure \ref{fig:wad})
 
 \begin{figure}[h!]
 \includegraphics[width = 0.4\textwidth]{Figs/Fucci_wadist.pdf}
@@ -560,16 +580,9 @@ Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0
  \label{fig:wad}
 \end{figure}
 
-We observed consistent results with scDDboost estimation and wasserstein distance between the transcripts .
-Lower probabilities of equivalent distributed are associated with bigger distances.\\(supplementary Figure \ref{fig:wad})
 
 
-\begin{figure}[h!]
-\includegraphics[width = 0.6\textwidth]{Figs/simu_wadist.pdf}
-\caption{$P(ED_g|X,y)$ given by scDDboost versus empirical Wasserstein distance. 
-Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4 - 0.6, 0.6 - 0.8, 0.8 - 1, similar plots as supplementary Fig 7, now is for the simulation cases}
- \label{fig:8}
-\end{figure}
+
 
 
 datasets used for generating the Null cases (supplementary table 2)
