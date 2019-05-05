@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 MAY 2019 22:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  5 MAY 2019 02:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1223,7 +1223,7 @@ LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <10.95> not available
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 167.
+(amsmath)                 on input line 169.
 
 [2
 
@@ -1599,15 +1599,12 @@ Package rerunfilecheck Info: File `mkn-supplement.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 940.
  ) 
 Here is how much of TeX's memory you used:
  29335 strings out of 492649
  551763 string characters out of 6129622
- 636810 words of memory out of 5000000
+ 636819 words of memory out of 5000000
  32654 multiletter control sequences out of 15000+600000
  572179 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1624,7 +1621,7 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (20 pages, 969847 bytes).
+Output written on mkn-supplement.pdf (20 pages, 969608 bytes).
 PDF statistics:
  432 PDF objects out of 1000 (max. 8388607)
  362 compressed objects within 4 object streams
