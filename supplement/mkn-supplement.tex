@@ -196,7 +196,7 @@ For example $K = 3$, there are 5 expression pattern, $P_1, P_2, ..., P_5$, Compa
 &P5: q_g^1 \neq q_g^2 \neq q_g^3 \text{ and } q_g^1 \neq q_g^3
 \end{align*}
 
-Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can pool the counts from the two groups by viewing them come from same distribution i.e. $X_g^{I, J} | \sigma_{g}, q_g \sim NB(\sigma_{g}, q_g)$, $q_g | \alpha, \beta^{g} \sim Beta(\alpha, \beta^{g})$ and obtained the prior predictive function $f(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g}, q_g) * P(q_g | \alpha, \beta^{g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + \sigma_{g} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S \sigma_{g}, \beta^{g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{g})}$.  Consequently, we have prior predictive function for $P1, ..., P5$ as
+Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can pool the counts from the two groups by viewing them come from same distribution i.e. $X_g^{I, J} | \sigma_{g}, q_g \sim NB(\sigma_{g}, q_g)$, $q_g | \alpha, \beta^{g} \sim \text{Beta}(\alpha, \beta^{g})$ and obtained the prior predictive function $f(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g}, q_g) * P(q_g | \alpha, \beta^{g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + \sigma_{g} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S \sigma_{g}, \beta^{g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{g})}$.  Consequently, we have prior predictive function for $P1, ..., P5$ as
 
 
 \begin{align*}
@@ -388,19 +388,19 @@ We have $E_{\tilde{\phi}_b}(\tilde{\phi}_k) =  \frac{ \alpha^1_k }{ \sum_{k' \in
 
 Proof of property 3
 \begin{proof}
-$t^1 / t_{\pi}^1$ is independent with $t^2 / t_{\pi}^2$ conditioning on $t_\pi^1$ and $t_\pi^2$ by the Neutrality property of dirichlet distribution
+$t^1 / t_{\pi}^1$ is independent with $t^2 / t_{\pi}^2$ conditioning on $t_\pi^1$ and $t_\pi^2$ by the Neutrality property of Dirichlet distribution
 \end{proof}
 
 Proof of property 4
 \begin{proof}
 For $j = 1,2$,
 let $T_b^j$ be the vector of $t_k^j$ such that $k \in b$. Recall $t_b^j = \sum_{k \in b} t_k^j$.
-Without loss of generality, we consider the case condition $j = 1$.
-We can decompose the density to each blocks by the property of multinomial distribution
+Without loss of generality, we consider the case condition $j = 1$.\\
+At the support of $p_\pi$, for different blocks, $T_b^1 | \tilde \phi_b$ are mutually independent. Then we have factorization:
 \begin{eqnarray*}
 p_\pi(t^1 | t_\pi^1, y) = \prod_{b\in \pi}(p(T_b^1 | t_b^1,y) )
 \end{eqnarray*}
-and prior predictive function can be obtained via integral out $ \tilde{\phi}_b$ given the prior $\text{Dirichlet} [ \alpha_b^1]$ and  $p(T_b^1  | \tilde{\phi}_b)$ is multinomial($\tilde{\phi}_b)$ distributed.
+and right hand side prior predictive function can be obtained via integral out $ \tilde{\phi}_b$ given the prior $\text{Dirichlet} [ \alpha_b^1]$ and  $p(T_b^1  | \tilde{\phi}_b)$ is multinomial($\tilde{\phi}_b)$ distributed.
 \begin{align*}
 p(T_b^1  | t_b^1,y) &= \int_{\tilde{\phi}_b} p(T_b^1  | \tilde{\phi}_b) p(\tilde{\phi}_b) d\tilde{\phi}_b\\
                                       &= \left\{\left[ \frac{ \Gamma(t^j_b +1 ) }{\prod_{k \in b} \Gamma( t^j_k + 1 ) }\right]
