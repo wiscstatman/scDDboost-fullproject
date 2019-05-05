@@ -1,4 +1,4 @@
-\begin{thebibliography}{41}
+\begin{thebibliography}{43}
 % BibTex style file: imsart-nameyear.bst, 2017-11-03
 % Default style options (sort=1,type=nameyear).
 % Used options (sort=1,type=nameyear).
@@ -248,6 +248,22 @@
 \end{barticle}
 \endbibitem
 
+\bibitem[\protect\citeauthoryear{Haghverdi, Buettner and
+  Theis}{2015}]{Haghverdi:2015aa}
+\begin{barticle}[author]
+\bauthor{\bsnm{Haghverdi},~\bfnm{Laleh}\binits{L.}},
+  \bauthor{\bsnm{Buettner},~\bfnm{Florian}\binits{F.}} \AND
+  \bauthor{\bsnm{Theis},~\bfnm{Fabian~J.}\binits{F.~J.}}
+(\byear{2015}).
+\btitle{Diffusion maps for high-dimensional single-cell analysis of
+  differentiation data}.
+\bjournal{Bioinformatics}
+\bvolume{31}
+\bpages{2989--2998}.
+\bdoi{10.1093/bioinformatics/btv325}
+\end{barticle}
+\endbibitem
+
 \bibitem[\protect\citeauthoryear{Jensen et~al.}{2009}]{Jensen:2009aa}
 \begin{barticle}[author]
 \bauthor{\bsnm{Jensen},~\bfnm{Shane~T.}\binits{S.~T.}},
@@ -439,6 +455,18 @@
 \bdoi{10.1186/s13059-017-1188-0}.
 \bid{Lin2017}
 \end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Little, Maggioni and
+  Murphy}{2017}]{Little2017PathBasedSC}
+\begin{binproceedings}[author]
+\bauthor{\bsnm{Little},~\bfnm{Anna~F}\binits{A.~F.}},
+  \bauthor{\bsnm{Maggioni},~\bfnm{Mauro}\binits{M.}} \AND
+  \bauthor{\bsnm{Murphy},~\bfnm{James~M.}\binits{J.~M.}}
+(\byear{2017}).
+\btitle{Path-Based Spectral Clustering: Guarantees, Robustness to Outliers, and
+  Fast Algorithms}.
+\end{binproceedings}
 \endbibitem
 
 \bibitem[\protect\citeauthoryear{Love, Huber and Anders}{2014}]{ref:Des}

@@ -13,52 +13,53 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ./references/wlr_ref.bib
 Warning--string name "aug" is undefined
---line 492 of file ./references/wlr_ref.bib
+--line 513 of file ./references/wlr_ref.bib
 Warning--string name "mar" is undefined
---line 537 of file ./references/wlr_ref.bib
+--line 558 of file ./references/wlr_ref.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty booktitle in Little2017PathBasedSC
 Warning--empty booktitle in selK
-You've used 41 entries,
+You've used 43 entries,
             5204 wiz_defined-function locations,
-            1220 strings with 18179 characters,
-and the built_in function-call counts, 322813 in all, are:
-= -- 49793
-> -- 1039
-< -- 63
-+ -- 13155
-- -- 344
-* -- 22662
-:= -- 48532
-add.period$ -- 158
-call.type$ -- 41
-change.case$ -- 227
-chr.to.int$ -- 41
-cite$ -- 42
-duplicate$ -- 2100
-empty$ -- 17948
-format.name$ -- 1545
-if$ -- 75371
+            1234 strings with 18634 characters,
+and the built_in function-call counts, 333504 in all, are:
+= -- 51549
+> -- 1077
+< -- 69
++ -- 13797
+- -- 362
+* -- 23255
+:= -- 50206
+add.period$ -- 164
+call.type$ -- 43
+change.case$ -- 241
+chr.to.int$ -- 43
+cite$ -- 45
+duplicate$ -- 2172
+empty$ -- 18423
+format.name$ -- 1599
+if$ -- 77964
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 486
-num.names$ -- 183
-pop$ -- 1482
+newline$ -- 506
+num.names$ -- 191
+pop$ -- 1538
 preamble$ -- 1
-purify$ -- 145
+purify$ -- 155
 quote$ -- 0
-skip$ -- 28832
+skip$ -- 29861
 stack$ -- 0
-substring$ -- 54722
-swap$ -- 928
-text.length$ -- 369
+substring$ -- 56175
+swap$ -- 952
+text.length$ -- 387
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1060
-warning$ -- 1
-while$ -- 564
+type$ -- 1112
+warning$ -- 2
+while$ -- 592
 width$ -- 0
-write$ -- 977
-(There were 3 warnings)
+write$ -- 1021
+(There were 4 warnings)

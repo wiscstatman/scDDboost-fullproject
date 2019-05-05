@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 MAY 2019 22:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 MAY 2019 22:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1413,57 +1413,57 @@ l.207 \bid{Finak2015}
                      
 ? 
 
-./mkn.bbl:346: Package keyval Error: Korthauer2016 undefined.
+./mkn.bbl:362: Package keyval Error: Korthauer2016 undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.346 \bid{Korthauer2016}
+l.362 \bid{Korthauer2016}
                          
 ? 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/ucs/data/uni-3.def
 File: uni-3.def 2013/05/13 UCS: Unicode data U+0300..U+03FF
 )
-./mkn.bbl:365: Undefined control sequence.
+./mkn.bbl:381: Undefined control sequence.
 \u-default-954 #1->\textkappa 
                               
-l.365   to Dynamic Patterns of NF-κB Activation}
+l.381   to Dynamic Patterns of NF-κB Activation}
                                                  .
 ? 
 
-./mkn.bbl:440: Package keyval Error: Lin2017 undefined.
+./mkn.bbl:456: Package keyval Error: Lin2017 undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.440 \bid{Lin2017}
+l.456 \bid{Lin2017}
                    
-? 
-
-./mkn.bbl:456: Package keyval Error: Love2014 undefined.
-
-See the keyval package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.456 \bid{Love2014}
-                    
 ? 
 [23]
 
-./mkn.bbl:534: Package keyval Error: Pierson2015 undefined.
+./mkn.bbl:484: Package keyval Error: Love2014 undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.534 \bid{Pierson2015}
+l.484 \bid{Love2014}
+                    
+? 
+
+./mkn.bbl:562: Package keyval Error: Pierson2015 undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.562 \bid{Pierson2015}
                        
 ? 
 
-Underfull \hbox (badness 2221) in paragraph at lines 670--689
+Underfull \hbox (badness 2221) in paragraph at lines 698--717
 []\OT1/pplx/m/sc/9 Trapnell, C.\OT1/pplx/m/n/9 , \OT1/pplx/m/sc/9 Cac-chiarelli
 , D.\OT1/pplx/m/n/9 , \OT1/pplx/m/sc/9 Grimsby, J.\OT1/pplx/m/n/9 , \OT1/pplx/m
 /sc/9 Pokharel, P.\OT1/pplx/m/n/9 , \OT1/pplx/m/sc/9 Li, S.\OT1/pplx/m/n/9 , \O
@@ -1471,13 +1471,13 @@ T1/pplx/m/sc/9 Morse, M.\OT1/pplx/m/n/9 ,
  []
 
 
-./mkn.bbl:726: Package keyval Error: Zappia2017 undefined.
+./mkn.bbl:754: Package keyval Error: Zappia2017 undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.726 \bid{Zappia2017}
+l.754 \bid{Zappia2017}
                       
 ? 
 ) [24]
@@ -1517,13 +1517,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1195.
  ) 
 Here is how much of TeX's memory you used:
- 29097 strings out of 492649
- 547908 string characters out of 6129622
- 629914 words of memory out of 5000000
- 32352 multiletter control sequences out of 15000+600000
+ 29105 strings out of 492649
+ 548114 string characters out of 6129622
+ 629988 words of memory out of 5000000
+ 32358 multiletter control sequences out of 15000+600000
  572073 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,13n,64p,10421b,519s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,13n,64p,10421b,521s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -1538,10 +1538,10 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (29 pages, 712630 bytes).
+Output written on mkn.pdf (29 pages, 713161 bytes).
 PDF statistics:
- 579 PDF objects out of 1000 (max. 8388607)
- 509 compressed objects within 6 object streams
- 133 named destinations out of 1000 (max. 500000)
+ 587 PDF objects out of 1000 (max. 8388607)
+ 517 compressed objects within 6 object streams
+ 135 named destinations out of 1000 (max. 500000)
  184 words of extra memory for PDF output out of 10000 (max. 10000000)
 

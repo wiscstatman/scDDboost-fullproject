@@ -1,12 +1,33 @@
 %% This BibTeX bibliography file was created using BibDesk.
 %% http://bibdesk.sourceforge.net/
 
-%% Created for Xiuyu Ma at 2019-05-01 11:07:53 -0500 
+%% Created for Xiuyu Ma at 2019-05-04 22:32:24 -0500 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
 
+
+@article{Haghverdi:2015aa,
+	Abstract = {Motivation: Single-cell technologies have recently gained popularity in cellular differentiation studies regarding their ability to resolve potential heterogeneities in cell populations. Analyzing such high-dimensional single-cell data has its own statistical and computational challenges. Popular multivariate approaches are based on data normalization, followed by dimension reduction and clustering to identify subgroups. However, in the case of cellular differentiation, we would not expect clear clusters to be present but instead expect the cells to follow continuous branching lineages.Results: Here, we propose the use of diffusion maps to deal with the problem of defining differentiation trajectories. We adapt this method to single-cell data by adequate choice of kernel width and inclusion of uncertainties or missing measurement values, which enables the establishment of a pseudotemporal ordering of single cells in a high-dimensional gene expression space. We expect this output to reflect cell differentiation trajectories, where the data originates from intrinsic diffusion-like dynamics. Starting from a pluripotent stage, cells move smoothly within the transcriptional landscape towards more differentiated states with some stochasticity along their path. We demonstrate the robustness of our method with respect to extrinsic noise (e.g. measurement noise) and sampling density heterogeneities on simulated toy data as well as two single-cell quantitative polymerase chain reaction datasets (i.e. mouse haematopoietic stem cells and mouse embryonic stem cells) and an RNA-Seq data of human pre-implantation embryos. We show that diffusion maps perform considerably better than Principal Component Analysis and are advantageous over other techniques for non-linear dimension reduction such as t-distributed Stochastic Neighbour Embedding for preserving the global structures and pseudotemporal ordering of cells.Availability and implementation: The Matlab implementation of diffusion maps for single-cell data is available at https://www.helmholtz-muenchen.de/icb/single-cell-diffusion-map.Contact:fbuettner.phys{\char64}gmail.com, fabian.theis{\char64}helmholtz-muenchen.deSupplementary information:Supplementary data are available at Bioinformatics online.},
+	Author = {Haghverdi, Laleh and Buettner, Florian and Theis, Fabian J.},
+	Booktitle = {Bioinformatics},
+	Date-Added = {2019-05-05 03:32:15 +0000},
+	Date-Modified = {2019-05-05 03:32:15 +0000},
+	Doi = {10.1093/bioinformatics/btv325},
+	Isbn = {1367-4803},
+	Journal = {Bioinformatics},
+	Journal1 = {bioinformatics},
+	Month = {5/5/2019},
+	Number = {18},
+	Pages = {2989--2998},
+	Title = {Diffusion maps for high-dimensional single-cell analysis of differentiation data},
+	Ty = {JOUR},
+	Url = {https://doi.org/10.1093/bioinformatics/btv325},
+	Volume = {31},
+	Year = {2015},
+	Year1 = {2015/05/21/},
+	Bdsk-Url-1 = {https://doi.org/10.1093/bioinformatics/btv325}}
 
 @article{Peccoud:1995aa,
 	Abstract = {We propose a Markovian model for the gene induction process. This model is a particular case of a birth-and-death process in Markovian environment. The environment is represented by the state of the gene (active or inactive). The protein population size is ruled by the birth-and-death process. Proteins can be produced by the gene when it is activated (birth). They can disappear as well due to their denaturation (death). The distribution of the protein number is computed explicitly for both the transient and stationary cases. It is shown that three out of the four parameters of the model can be estimated from an observed sample of protein numbers collected during the stationary regime.},
@@ -917,3 +938,11 @@
 	Publisher = {North-Holland},
 	Title = {Clustering by means of medoids},
 	Year = {1987}}
+	
+@inproceedings{Little2017PathBasedSC,
+  title={Path-Based Spectral Clustering: Guarantees, Robustness to Outliers, and Fast Algorithms},
+  author={Anna F Little and Mauro Maggioni and James M. Murphy},
+  year={2017}
+}
+	
+	
