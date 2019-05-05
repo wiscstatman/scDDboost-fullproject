@@ -174,7 +174,11 @@ The EBSeq model assumed a prior distribution on $q_g^I : q_g^I | \alpha, \beta^{
 Now we are using EBSeq for expression inference of genes rather than isoforms, we made a modification to the original prior from EBSeq. 
 We still make $\alpha$ to be shared by all the genes and $\beta^g$ becomes gene specific parameter. 
 
-We use method of moments to estimate $\sigma_g$. Specifically, if 
+We assume marginal density of $X_{g,s}$ is approximately NB with a shared $\sigma_g$ and over-dispersion rate $o_g$ for all subtypes, then we use method of moments to estimate $\sigma_g$ and $o_g$. Namely, we have\\
+1. gene-level sample mean $m_g = \frac{1}{n}\sum_{s = 1}^n X_{g,s}$, where $n = n_1 + n_2$ is the total number of cells \\
+2. averaged sample variance within subtype $v_g = \frac{1}{K} \sum_{I = 1}^K v_g^I$.\\
+3.$v_g^I$ is the unadjusted sample variance within subtype $I$, i.e. $v_g^I = \frac{1}{n^I}\sum_{s, z_s = I} (X_{g,s} - m_g^I)^2$ with $m_g^I$ is the sample mean within subtype $I$ and $n^I$ is the number of cells within subtype $I$.\\
+We estimate pooled over-dispersion rate by $o_g = \frac{v_g}{m_g}$ and obtain $\sigma_g = m_g \frac{o_g}{1 - o_g}$ by the formula of mean of NB\\
 What we are interested at those $K$ groups comparison is the expression pattern, 
 
 \begin{eqnarray*}
@@ -197,18 +201,18 @@ Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can poo
 
 
 \begin{align*}
-&h_1^{g}(X_g^{1,2,3}) = f(X_g^{1,2,3})\\
-&h_2^{g}(X_g^{1,2,3}) = f(X_g^{1,2})f(X_g^3)\\
-&h_3^{g}(X_g^{1,2,3}) = f(X_g^1)f(X_g^{2,3})\\
-&h_4^{g}(X_g^{1,2,3}) = f(X_g^{1,3})f(X_g^2)\\
-&h_5^{g}(X_g^{1,2,3}) = f(X_g^1)f(X_g^2)f(X_g^3)\\
+&h_1^{g}(X_g) = f(X_g^{1,2,3})\\
+&h_2^{g}(X_g) = f(X_g^{1,2})f(X_g^3)\\
+&h_3^{g}(X_g) = f(X_g^1)f(X_g^{2,3})\\
+&h_4^{g}(X_g) = f(X_g^{1,3})f(X_g^2)\\
+&h_5^{g}(X_g) = f(X_g^1)f(X_g^2)f(X_g^3)\\
 \end{align*}
 
-
-Then the marginal distribution of counts $X_g^{1,2,3}$ is $\overset{5}{\underset{k = 1}{\Sigma}} p_k h_k^{g}(X_g^{1,2,3})$, 
-where the marginal $p_k = P(M_{g,\pi} | z)$\\(shared by all genome) satisfying $\overset{5}{\underset{k = 1}{\Sigma}} p_k = 1$ and are estimated by EM algorithm. Thus, the posterior probability of an expression pattern $k$ is obtained by:
+where $h_i^{g}(X_g)$ = $P(X_g | M_{g,\pi_i},z)$ for associated $\pi_i$.
+Then the marginal distribution of counts $X_g$ is $\overset{5}{\underset{k = 1}{\Sigma}} p_k h_k^{g}(X_g^{1,2,3})$, 
+where the marginal $p_k = P(M_{g,\pi} | z)$(shared by all genome). Thus, the posterior probability of an expression pattern $k$ is obtained by:
 \begin{eqnarray*}
-\frac{p_k h_k(X_g^{1,2,3})}{\overset{5}{\underset{k = 1}{\Sigma}} p_k h_k^{g}(X_g^{1,2,3})}
+\frac{p_k h_k(X_g)}{\overset{5}{\underset{k = 1}{\Sigma}} p_k h_k^{g}(X_g)}
 \end{eqnarray*}
 
 
