@@ -20,6 +20,7 @@
 \DeclareCaptionFont{blue}{\color{blue}} 
 \DeclareCaptionFont{bf}{\bfseries}
 \renewcommand{\tablename}{Appendix Table}
+\renewcommand{\thetable}{A\arabic{table}}
 \captionsetup[figure]{format=myformat,labelfont={blue,bf,small},font=small}
 \usepackage{booktabs}% http://ctan.org/pkg/booktabs
 
@@ -803,7 +804,7 @@ We applied \verb+scDDboost+ to a collection of previously published
 data sets that are recorded at \verb+conquer+~\citep{ref:Cq}.  Though not knowing the truly DD
 genes, we can examine how \verb+scDDboost+ output compares to output from some standard methods.  We selected
 12 data sets from \verb+conquer+   representing different species and experimental settings
-and involving hundreds to thousands of cells.   Appendix Table 1 provides details.  Figure~\ref{fig:es} compares
+and involving hundreds to thousands of cells.   Appendix Table \ref{table:1} provides details.  Figure~\ref{fig:es} compares
 methods in terms of the size of the reported list of DD genes at the 5\% FDR target level.  
 We see a consistently high yield of \verb+scDDboost+ among the evaluated  methods.  For reference, one of these data 
 sets (GSE64016) happens to be the data behind Figure~\ref{fig:whet}, where we know from other information that some
@@ -820,7 +821,7 @@ of the uniquely identified genes are likely not to be false positives.
 
 To check that the increased discovery rate
 of   \verb+scDDboost+ is  not associated with an increased rate of false calls, we 
-applied it to a series of random splits of single-condition data sets (Appendix Table 2). Figure~\ref{nullperm}
+applied it to a series of random splits of single-condition data sets (Appendix Table \ref{table:2}). Figure~\ref{nullperm}
 confirms a very low call rate in cases where no changes in distribution are expected.
 
 
@@ -1158,6 +1159,7 @@ GSE75748 & DEC vs EC & 64, 64 & human & \citep{chu} \\ \hline
 GSE84465 & neoplastic cells vs non-neoplastic cells & 546, 664 & human & \citep{Darmanis} \\ \hline
 \end{tabular}
 \captionof{table}{Data sets used for the empirical study of scDDboost}
+\label{table:1}
 \end{table}
 
 
@@ -1191,6 +1193,7 @@ GSE79102null & patient1 & 51\\
 \hline
 \end{tabular}
 \captionof{table}{Single-condition data sets used in the random-splitting experiment.}
+\label{table:2}
 \end{table}
 
 \clearpage
