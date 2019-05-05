@@ -173,7 +173,7 @@ and $\mu_{g,s}^I = \sigma_g(1 - q_g^I) / q_g^I$; For the ease of later deriving 
 From \texttt{EBSeq}, we assumed a prior distribution on $q_g^I : q_g^I | \alpha, \beta^{g} \sim Beta(\alpha, \beta^{g}).$ The hyperparameter $\alpha$ is shared by whole genome and $\beta^{g}$ is gene specific.
  
 
-We assume marginal density of $X_{g,s}$ is approximately NB with a shared $\sigma_g$ and over-dispersion rate $o_g$ for all subtypes, then we use method of moments to estimate $\sigma_g$ and $o_g$. Namely, we have\\
+We force the size factor to be 1 for all cells and use the same procedure from \texttt{EBSeq} to estimate number of failure parameter $\sigma_g$. Namely, we have\\
 1. gene-level sample mean $m_g = \frac{1}{n}\sum_{s = 1}^n X_{g,s}$, where $n = n_1 + n_2$ is the total number of cells \\
 2. averaged sample variance within subtype $v_g = \frac{1}{K} \sum_{I = 1}^K v_g^I$.\\
 3.$v_g^I$ is the unadjusted sample variance within subtype $I$, i.e. $v_g^I = \frac{1}{n^I}\sum_{s, z_s = I} (X_{g,s} - m_g^I)^2$ with $m_g^I$ is the sample mean within subtype $I$ and $n^I$ is the number of cells within subtype $I$.\\
