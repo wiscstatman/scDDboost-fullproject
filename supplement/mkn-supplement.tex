@@ -159,20 +159,19 @@ Thus we have $  P\left(A_\pi \cap M_{g,\pi} |X,y,z \right)
 \subsection{Method Structure and Clustering}
 
 \subsubsection{EBSeq}
-In this subsection, we go through how we implement and modified EBSeq to get $P(M_{g,\pi} | X, z)$.
+In this subsection, we go through how we implement and modified \texttt{EBSeq} to get $P(M_{g,\pi} | X, z)$.
 
-Suppose we have $K$ subtypes, let $X_g^I = X_{g, 1}^I, ... , X_{g, S_1}^I$ denote transcripts at gene $g$ from subtype $I, I = 1, ... K$.  In the EBSeq model it assumed that counts within subtype $I$ are distributed as Negative Binomial:
-$X_{g, s}^I | r_{g,s}, q_g^I \sim NB(r_{g,s}, q_g^I)$,  we made a change to parameter $r$, rather than making it sample specific, we let it be shared at gene level across all samples, i.e. 
+Suppose we have $K$ subtypes, let $X_g^I = X_{g, 1}^I, ... , X_{g, S_1}^I$ denote transcripts at gene $g$ from subtype $I, I = 1, ... K$.  In the \texttt{EBSeq}, it assumed that counts within subtype $I$ are distributed as Negative Binomial:
+$X_{g, s}^I | r_{g,s}, q_g^I \sim NB(r_{g,s}, q_g^I)$. Due to sample specific sizefactor in the raw counts, r is made sample specific. However, we are dealing with normalized counts rather than raw counts in \texttt{EBSeq}, We make $r$ shared at gene level across all samples, i.e. 
 $X_{g, s}^I | \sigma_g, q_g^I \sim NB(\sigma_g, q_g^I)$
 
 \begin{eqnarray*}
 P(X_{g,s}^I | \sigma_g, q_g^I ) = {X_{g,s} + \sigma_g - 1 \choose X_{g,s} }(1 - q_g^I)^{X_{g,s}^I} (q_g^I)^{\sigma_g}
 \end{eqnarray*}
-and $\mu_{g,s}^I = \sigma_g(1 - q_g^I) / q_g^I$; For the ease of later deriving the prior predictive function of EB framework we use $q$ rather than $\mu$ to parameterize the NB.  %\sigma_{g,s}^I = r_{g,s}(1 - q_g^I)/ (q_g^I)^2.$
+and $\mu_{g,s}^I = \sigma_g(1 - q_g^I) / q_g^I$; For the ease of later deriving the density kernel $f$, we use $q$ rather than $\mu$ to parameterize the NB.  %\sigma_{g,s}^I = r_{g,s}(1 - q_g^I)/ (q_g^I)^2.$
 
-The EBSeq model assumed a prior distribution on $q_g^I : q_g^I | \alpha, \beta^{I_g} \sim Beta(\alpha, \beta^{I_g}).$ The hyperparameter $\alpha$ is shared by all the isoforms and $\beta^{I_g}$ is $I_g$ specific.
-Now we are using EBSeq for expression inference of genes rather than isoforms, we made a modification to the original prior from EBSeq. 
-We still make $\alpha$ to be shared by all the genes and $\beta^g$ becomes gene specific parameter. 
+From \texttt{EBSeq}, we assumed a prior distribution on $q_g^I : q_g^I | \alpha, \beta^{g} \sim Beta(\alpha, \beta^{g}).$ The hyperparameter $\alpha$ is shared by whole genome and $\beta^{g}$ is gene specific.
+ 
 
 We assume marginal density of $X_{g,s}$ is approximately NB with a shared $\sigma_g$ and over-dispersion rate $o_g$ for all subtypes, then we use method of moments to estimate $\sigma_g$ and $o_g$. Namely, we have\\
 1. gene-level sample mean $m_g = \frac{1}{n}\sum_{s = 1}^n X_{g,s}$, where $n = n_1 + n_2$ is the total number of cells \\
