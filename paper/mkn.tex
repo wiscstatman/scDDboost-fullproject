@@ -491,7 +491,7 @@ conditional on an estimate of the subtype labels.
 We invoke $K-$medoids \citep{kmedoids} 
 as the default clustering method in \textsc{scDDboost}, and customize the cell-cell distance by integrating two measures.  
 The first assembles gene-level information by cluster-based-similarity partitioning~\citep{ref:cspa}.
- Separately at each gene,   modal clustering (\cite{ref:dahl} and Supplementary Material Section~2.2) partitions the cells, and
+ Separately at each gene,   modal clustering (\cite{ref:dahl} and Supplementary Material Section~2.2.2) partitions the cells, and
 then we define dissimilarity between cells as the mahattan distance of those gene specific partition labels.
 A second measure defines dissimilarity by one minus the 
 Pearson correlation between cells, which is computationally inexpensive,
@@ -747,7 +747,7 @@ where $f$ is a customized density kernel.  In our case we use \verb+EBseq+ from~
 the sampling distribution of
  $X_{g,c}$ is negative binomial, and $f$ becomes a particular compound multivariate 
 negative binomial formed from integrating
-uncertainty in the block-specific means (see Supplementary Material Section 2.4).  
+uncertainty in the block-specific means (see Supplementary Material Section 2.2.1).  
 Through its gene-level mixing model,
 \verb+EBseq+ also gives estimates of $\{ P(M_{g,\pi}|z) \}$: the proportions of genes governed by any of the 
 different patterns $\pi$ of equivalent/differential expression among subtypes. With these estimates 
