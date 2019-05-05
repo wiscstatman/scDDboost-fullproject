@@ -514,12 +514,12 @@ scheme approximates a Bayesian posterior analysis, as we argue in
 the Appendix, where we also present pseudo-code for the resulting \textsc{scDDboost} 
 Algorithm~\ref{alg:scDDboost}.
 Averaging over results from randomized clusterings 
- gives additional stability to the posterior probability statistics.
+ gives additional stability to the posterior probability statistics.(Supplementary Figure S10).
 
 
 Computations become more intensive the larger is the number $K$ of cell subtypes. Version 1.0 of 
 \verb+scDDboost+ is restricted to $K\leq 9$. Further, 
- taking $K$ to be too large may inflate the false positive rate (Supplementary Figure S8).
+ taking $K$ to be too large may inflate the false positive rate (Supplementary Figure S11).
  To mitigate these issues, the approach
 taken in \verb+scDDboost+ is to set $K$ using the validity score~\citep{selK}, which measures 
 changes in within-cluster sum of squares as we increase $K$.  Our specific implementation is in
