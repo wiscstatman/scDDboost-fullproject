@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 MAY 2019 22:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 MAY 2019 23:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1380,6 +1380,7 @@ Type  H <return>  for immediate help.
 l.30 \bid{Bacher2016}
                      
 ? 
+[22]
 
 ./mkn.bbl:73: Package keyval Error: Chu2016 undefined.
 
@@ -1390,7 +1391,6 @@ Type  H <return>  for immediate help.
 l.73 \bid{Chu2016}
                   
 ? 
-[22]
 
 ./mkn.bbl:129: Package keyval Error: Delmans2016 undefined.
 
@@ -1411,6 +1411,7 @@ Type  H <return>  for immediate help.
 l.207 \bid{Finak2015}
                      
 ? 
+[23]
 
 ./mkn.bbl:362: Package keyval Error: Korthauer2016 undefined.
 
@@ -1430,7 +1431,6 @@ File: uni-3.def 2013/05/13 UCS: Unicode data U+0300..U+03FF
 l.381   to Dynamic Patterns of NF-κB Activation}
                                                  .
 ? 
-[23]
 
 ./mkn.bbl:456: Package keyval Error: Lin2017 undefined.
 
@@ -1461,7 +1461,7 @@ Type  H <return>  for immediate help.
 l.562 \bid{Pierson2015}
                        
 ? 
-
+[24]
 Underfull \hbox (badness 2221) in paragraph at lines 698--717
 []\OT1/pplx/m/sc/9 Trapnell, C.\OT1/pplx/m/n/9 , \OT1/pplx/m/sc/9 Cac-chiarelli
 , D.\OT1/pplx/m/n/9 , \OT1/pplx/m/sc/9 Grimsby, J.\OT1/pplx/m/n/9 , \OT1/pplx/m
@@ -1469,7 +1469,6 @@ Underfull \hbox (badness 2221) in paragraph at lines 698--717
 T1/pplx/m/sc/9 Morse, M.\OT1/pplx/m/n/9 ,
  []
 
-[24]
 
 ./mkn.bbl:754: Package keyval Error: Zappia2017 undefined.
 
@@ -1481,29 +1480,29 @@ l.754 \bid{Zappia2017}
                       
 ? 
 ) [25]
-Overfull \hbox (6.77095pt too wide) in paragraph at lines 1054--1070
+Overfull \hbox (6.77095pt too wide) in paragraph at lines 1058--1074
  []\OT1/pplx/m/it/10.95 Randomizing dis-tances for ap-prox-i-mate pos-te-rior i
 n-fer-ence. \OT1/pplx/m/n/10.95 One way to frame
  []
 
 [26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 1154--1154
+Underfull \hbox (badness 10000) in paragraph at lines 1158--1158
 []|\OT1/pplx/m/n/6 ([][]Darmanis et al.[][],
  []
 
 
-Overfull \hbox (43.833pt too wide) in paragraph at lines 1140--1156
+Overfull \hbox (43.833pt too wide) in paragraph at lines 1144--1160
  [][] 
  []
 
 [28] [29] [30
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1195.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1195.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1199.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1199.
  (./mkn.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1195.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1195.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1199.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1199.
 
 Package rerunfilecheck Info: File `mkn.out' has not changed.
 (rerunfilecheck)             Checksum: 36047B231477C48AA23FE9A93E7A7BE8;909.
@@ -1514,16 +1513,16 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1195.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1199.
  ) 
 Here is how much of TeX's memory you used:
  29106 strings out of 492649
  548121 string characters out of 6129622
- 628988 words of memory out of 5000000
+ 629988 words of memory out of 5000000
  32358 multiletter control sequences out of 15000+600000
  572073 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,13n,64p,10421b,548s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,13n,64p,10421b,546s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -1538,7 +1537,7 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkn.pdf (30 pages, 713942 bytes).
+Output written on mkn.pdf (30 pages, 713925 bytes).
 PDF statistics:
  591 PDF objects out of 1000 (max. 8388607)
  520 compressed objects within 6 object streams

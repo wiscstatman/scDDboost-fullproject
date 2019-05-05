@@ -977,8 +977,10 @@ since it allows great flexibility in the form of each gene/condition-specific ex
    
 
 For computational reasons we impose the rule $K \leq 9$ in
- \verb+scDDboost+ (v. 1.0).  **{\em Xiuyu...we should give a ballpark figure on compute time for end-end
-analysis on one data set}**  This problem traces to \verb+EBseq+, which  currently 
+ \verb+scDDboost+ (v. 1.0).  Typically, for a dataset containing 20000 genes and 200 cells.  
+ When $K \leq 6$, it takes \texttt{scDDboost} less than 15 minutes for computing. 
+The computation time increases exponentially with $K$ and it would take 10 to 20 hours under $K = 9$. 
+This problem traces to \verb+EBseq+, which  currently 
 searches all partitions of $K$ and encodes a hyper-parameter estimation algorithm that scales poorly with $K$.
 Several approximations present themselves that may redress the problem, since,
 in the mixture model context, only patterns $\pi$ corresponding to relatively probable expression-change
@@ -997,6 +999,8 @@ frequencies which relies on $K$ being relatively small compared to $n$.
 {\em Not sure: maybe we should have a statement about how we are not exhaustively comparing to all known
  DE methods; we compare to MAST, SCDD, DESEQ2, and D3E...maybe say something, since a referee for sure will
  want us to compare to his/her method}
+ 
+{\em Since we are applying DE methods through many datasets. We select those computationally efficient methods and did not exhaust all DE methods.}
 
 %\bibliographystyle{IEEEtran}
 %\bibliographystyle {plainnat}
