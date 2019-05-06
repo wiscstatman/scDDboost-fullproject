@@ -979,7 +979,8 @@ since it allows great flexibility in the form of each gene/condition-specific ex
 
 For computational reasons we impose the rule $K \leq 9$ in
  \verb+scDDboost+ (v. 1.0).  Typically, for a dataset containing 20000 genes and 200 cells.  
- When $K \leq 6$, it takes \texttt{scDDboost} less than 15 minutes for computing. 
+ When $K \leq 6$, it takes \texttt{scDDboost} less than 15 minutes for computation using a MacBook Pro laptop 
+ with 2.2 GHz Intel Core i7 and 16 Gb RAM. 
 The computation time increases exponentially with $K$ and it would take 10 to 20 hours under $K = 9$. 
 This problem traces to \verb+EBseq+, which  currently 
 searches all partitions of $K$ and encodes a hyper-parameter estimation algorithm that scales poorly with $K$.
