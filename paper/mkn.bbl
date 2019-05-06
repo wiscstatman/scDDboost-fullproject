@@ -534,18 +534,23 @@
 \end{barticle}
 \endbibitem
 
-\bibitem[\protect\citeauthoryear{McDavid, Finak and
-  Gottardo}{2016}]{McDavid:2016aa}
+\bibitem[\protect\citeauthoryear{McDavid et~al.}{2014}]{McDavid:2014aa}
 \begin{barticle}[author]
 \bauthor{\bsnm{McDavid},~\bfnm{Andrew}\binits{A.}},
-  \bauthor{\bsnm{Finak},~\bfnm{Greg}\binits{G.}} \AND
+  \bauthor{\bsnm{Dennis},~\bfnm{Lucas}\binits{L.}},
+  \bauthor{\bsnm{Danaher},~\bfnm{Patrick}\binits{P.}},
+  \bauthor{\bsnm{Finak},~\bfnm{Greg}\binits{G.}},
+  \bauthor{\bsnm{Krouse},~\bfnm{Michael}\binits{M.}},
+  \bauthor{\bsnm{Wang},~\bfnm{Alice}\binits{A.}},
+  \bauthor{\bsnm{Webster},~\bfnm{Philippa}\binits{P.}},
+  \bauthor{\bsnm{Beechem},~\bfnm{Joseph}\binits{J.}} \AND
   \bauthor{\bsnm{Gottardo},~\bfnm{Raphael}\binits{R.}}
-(\byear{2016}).
-\btitle{The contribution of cell cycle to heterogeneity in single-cell RNA-seq
-  data}.
-\bjournal{Nature Biotechnology}
-\bvolume{34}
-\bpages{591 EP -}.
+(\byear{2014}).
+\btitle{Modeling Bi-modality Improves Characterization of Cell Cycle on Gene
+  Expression in Single Cells}.
+\bjournal{PLOS Computational Biology}
+\bvolume{10}
+\bpages{e1003696--}.
 \end{barticle}
 \endbibitem
 

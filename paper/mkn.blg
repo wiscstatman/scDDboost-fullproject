@@ -13,9 +13,9 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ./references/wlr_ref.bib
 Warning--string name "aug" is undefined
---line 615 of file ./references/wlr_ref.bib
+--line 617 of file ./references/wlr_ref.bib
 Warning--string name "mar" is undefined
---line 660 of file ./references/wlr_ref.bib
+--line 662 of file ./references/wlr_ref.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -23,43 +23,43 @@ Warning--empty booktitle in Little2017PathBasedSC
 Warning--empty booktitle in selK
 You've used 48 entries,
             5204 wiz_defined-function locations,
-            1279 strings with 19903 characters,
-and the built_in function-call counts, 362807 in all, are:
-= -- 56296
-> -- 1166
-< -- 76
-+ -- 15388
+            1280 strings with 20103 characters,
+and the built_in function-call counts, 367629 in all, are:
+= -- 56926
+> -- 1179
+< -- 74
++ -- 15389
 - -- 391
-* -- 25009
-:= -- 54748
+* -- 25493
+:= -- 55410
 add.period$ -- 184
 call.type$ -- 48
-change.case$ -- 268
+change.case$ -- 266
 chr.to.int$ -- 48
 cite$ -- 50
-duplicate$ -- 2367
-empty$ -- 19809
-format.name$ -- 1720
-if$ -- 85002
+duplicate$ -- 2397
+empty$ -- 20201
+format.name$ -- 1742
+if$ -- 86034
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 0
 newline$ -- 566
 num.names$ -- 213
-pop$ -- 1672
+pop$ -- 1689
 preamble$ -- 1
-purify$ -- 172
+purify$ -- 170
 quote$ -- 0
-skip$ -- 32640
+skip$ -- 32998
 stack$ -- 0
-substring$ -- 60464
-swap$ -- 1029
+substring$ -- 61634
+swap$ -- 1047
 text.length$ -- 432
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 1242
 warning$ -- 2
-while$ -- 661
+while$ -- 660
 width$ -- 0
 write$ -- 1141
 (There were 4 warnings)
