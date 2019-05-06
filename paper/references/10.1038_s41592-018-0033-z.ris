@@ -1,0 +1,25 @@
+TY  - JOUR
+AU  - Huang, Mo
+AU  - Wang, Jingshu
+AU  - Torre, Eduardo
+AU  - Dueck, Hannah
+AU  - Shaffer, Sydney
+AU  - Bonasio, Roberto
+AU  - Murray, John I.
+AU  - Raj, Arjun
+AU  - Li, Mingyao
+AU  - Zhang, Nancy R.
+PY  - 2018
+DA  - 2018/07/01
+TI  - SAVER: gene expression recovery for single-cell RNA sequencing
+JO  - Nature Methods
+SP  - 539
+EP  - 542
+VL  - 15
+IS  - 7
+AB  - In single-cell RNA sequencing (scRNA-seq) studies, only a small fraction of the transcripts present in each cell are sequenced. This leads to unreliable quantification of genes with low or moderate expression, which hinders downstream analysis. To address this challenge, we developed SAVER (single-cell analysis via expression recovery), an expression recovery method for unique molecule index (UMI)-based scRNA-seq data that borrows information across genes and cells to provide accurate expression estimates for all genes.
+SN  - 1548-7105
+UR  - https://doi.org/10.1038/s41592-018-0033-z
+DO  - 10.1038/s41592-018-0033-z
+ID  - Huang2018
+ER  - 

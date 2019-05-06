@@ -307,8 +307,8 @@ set each $f_{g,k}$ to have a a negative-binomial form, say with mean $\mu_{g,k}$
 and shape parameter $\sigma_g$; e.g. \cite{ref:Leng}, \cite{DES}, and \cite{ref:Des}. 
 This choice is effective in our numerical experiments though it is 
 not critical to the modeling formulation.  The use of mixtures per gene has proven
-useful in related model-based approaches (e.g., Finak {\em et al.} 2015; McDavid {\em et al.} 2016;
-Huang {\em et al.} 2018).
+useful in related model-based approaches (e.g., \citep{ref:MAST}; \citep{McDavid:2016aa};
+\citep{Huang:2018aa}).
 Our perspective is that  genome-wide data may usefully inform the  mixing proportions.
 
 We seek methodology to prioritize genes for evidence
@@ -399,8 +399,8 @@ a formula for local false discovery rates:
  P(\text{ED}_g|X,y) = \sum_{\pi \in \Pi} P\left(A_\pi \cap M_{g,\pi} |X,y \right).
 \end{align}
 Such local false discovery rates are important empirical Bayesian 
-statistics in large-scale testing (e.g., Efron, 2007; Muralidharan, 2010; Newton 
-{\em et al.} 2004).  For example, the conditional false discovery rate of a list of genes 
+statistics in large-scale testing (\citep{Efron:2007aa}; \citep{Muralidharan:2010aa}; \citep{Newton:2004aa}).  
+For example, the conditional false discovery rate of a list of genes 
 is the arithmetic mean of the associated local false discovery rates.  
 The partition representation guides construction of a prior distribution (Section 2.3) and a 
 model-based method (Section 2.2) for scoring  differential distribution.   Setting the stage, 
@@ -979,7 +979,7 @@ since it allows great flexibility in the form of each gene/condition-specific ex
 
 For computational reasons we impose the rule $K \leq 9$ in
  \verb+scDDboost+ (v. 1.0).  Typically, for a dataset containing 20000 genes and 200 cells.  
- When $K \leq 6$, it takes \texttt{scDDboost} less than 15 minutes for computation using a MacBook Pro laptop 
+ When $K \leq 6$, it takes \texttt{scDDboost} less than 15 minutes for computation using a 4 cores MacBook Pro laptop 
  with 2.2 GHz Intel Core i7 and 16 Gb RAM. 
 The computation time increases exponentially with $K$ and it would take 10 to 20 hours under $K = 9$. 
 This problem traces to \verb+EBseq+, which  currently 

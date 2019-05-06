@@ -1,4 +1,4 @@
-\begin{thebibliography}{43}
+\begin{thebibliography}{48}
 % BibTex style file: imsart-nameyear.bst, 2017-11-03
 % Default style options (sort=1,type=nameyear).
 % Used options (sort=1,type=nameyear).
@@ -163,6 +163,18 @@
 \end{barticle}
 \endbibitem
 
+\bibitem[\protect\citeauthoryear{Efron}{2007}]{Efron:2007aa}
+\begin{barticle}[author]
+\bauthor{\bsnm{Efron},~\bfnm{Bradley}\binits{B.}}
+(\byear{2007}).
+\btitle{Size, power and false discovery rates}.
+\bjournal{Ann. Statist.}
+\bvolume{35}
+\bpages{1351--1377}.
+\bdoi{10.1214/009053606000001460}
+\end{barticle}
+\endbibitem
+
 \bibitem[\protect\citeauthoryear{Engel et~al.}{2016}]{Engel}
 \begin{barticle}[author]
 \bauthor{\bsnm{Engel},~\bfnm{Isaac}\binits{I.}},
@@ -261,6 +273,28 @@
 \bvolume{31}
 \bpages{2989--2998}.
 \bdoi{10.1093/bioinformatics/btv325}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Huang et~al.}{2018}]{Huang:2018aa}
+\begin{barticle}[author]
+\bauthor{\bsnm{Huang},~\bfnm{Mo}\binits{M.}},
+  \bauthor{\bsnm{Wang},~\bfnm{Jingshu}\binits{J.}},
+  \bauthor{\bsnm{Torre},~\bfnm{Eduardo}\binits{E.}},
+  \bauthor{\bsnm{Dueck},~\bfnm{Hannah}\binits{H.}},
+  \bauthor{\bsnm{Shaffer},~\bfnm{Sydney}\binits{S.}},
+  \bauthor{\bsnm{Bonasio},~\bfnm{Roberto}\binits{R.}},
+  \bauthor{\bsnm{Murray},~\bfnm{John~I.}\binits{J.~I.}},
+  \bauthor{\bsnm{Raj},~\bfnm{Arjun}\binits{A.}},
+  \bauthor{\bsnm{Li},~\bfnm{Mingyao}\binits{M.}} \AND
+  \bauthor{\bsnm{Zhang},~\bfnm{Nancy~R.}\binits{N.~R.}}
+(\byear{2018}).
+\btitle{SAVER: gene expression recovery for single-cell RNA sequencing}.
+\bjournal{Nature Methods}
+\bvolume{15}
+\bpages{539--542}.
+\bdoi{10.1038/s41592-018-0033-z}.
+\bid{Huang2018}
 \end{barticle}
 \endbibitem
 
@@ -500,6 +534,34 @@
 \end{barticle}
 \endbibitem
 
+\bibitem[\protect\citeauthoryear{McDavid, Finak and
+  Gottardo}{2016}]{McDavid:2016aa}
+\begin{barticle}[author]
+\bauthor{\bsnm{McDavid},~\bfnm{Andrew}\binits{A.}},
+  \bauthor{\bsnm{Finak},~\bfnm{Greg}\binits{G.}} \AND
+  \bauthor{\bsnm{Gottardo},~\bfnm{Raphael}\binits{R.}}
+(\byear{2016}).
+\btitle{The contribution of cell cycle to heterogeneity in single-cell RNA-seq
+  data}.
+\bjournal{Nature Biotechnology}
+\bvolume{34}
+\bpages{591 EP -}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Muralidharan}{2010}]{Muralidharan:2010aa}
+\begin{barticle}[author]
+\bauthor{\bsnm{Muralidharan},~\bfnm{Omkar}\binits{O.}}
+(\byear{2010}).
+\btitle{An empirical Bayes mixture method for effect size and false discovery
+  rate estimation}.
+\bjournal{Ann. Appl. Stat.}
+\bvolume{4}
+\bpages{422--438}.
+\bdoi{10.1214/09-AOAS276}
+\end{barticle}
+\endbibitem
+
 \bibitem[\protect\citeauthoryear{Navin}{2015}]{cancer}
 \begin{barticle}[author]
 \bauthor{\bsnm{Navin},~\bfnm{Nicholas~E}\binits{N.~E.}}
@@ -520,6 +582,22 @@
 \bjournal{Nature Methods}
 \bvolume{11}
 \bpages{18 EP -}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Newton et~al.}{2004}]{Newton:2004aa}
+\begin{barticle}[author]
+\bauthor{\bsnm{Newton},~\bfnm{Michael~A.}\binits{M.~A.}},
+  \bauthor{\bsnm{Noueiry},~\bfnm{Amine}\binits{A.}},
+  \bauthor{\bsnm{Sarkar},~\bfnm{Deepayan}\binits{D.}} \AND
+  \bauthor{\bsnm{Ahlquist},~\bfnm{Paul}\binits{P.}}
+(\byear{2004}).
+\btitle{Detecting differential gene expression with a semiparametric
+  hierarchical mixture method}.
+\bjournal{Biostatistics}
+\bvolume{5}
+\bpages{155--176}.
+\bdoi{10.1093/biostatistics/5.2.155}
 \end{barticle}
 \endbibitem
 
