@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  5 MAY 2019 15:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  10 MAY 2019 11:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**mkn-supplement.tex
-(./mkn-supplement.tex
+**mkkn-supplement.tex
+(./mkkn-supplement.tex
 LaTeX2e <2018-04-01> patch level 2
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (./imsart.cls
@@ -1067,8 +1067,8 @@ Document Style - pseudocode environments for use with the `algorithmicx' style
 \c@lemma=\count320
 \c@theorem=\count321
 \c@prop=\count322
- (./mkn-supplement.aux)
-\openout1 = `mkn-supplement.aux'.
+ (./mkkn-supplement.aux)
+\openout1 = `mkkn-supplement.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
 LaTeX Font Info:    ... okay on input line 48.
@@ -1140,9 +1140,9 @@ LaTeX Info: Redefining \ref on input line 48.
 LaTeX Info: Redefining \pageref on input line 48.
 LaTeX Info: Redefining \nameref on input line 48.
 
-(./mkn-supplement.out) (./mkn-supplement.out)
+(./mkkn-supplement.out) (./mkkn-supplement.out)
 \@outlinefile=\write4
-\openout4 = `mkn-supplement.out'.
+\openout4 = `mkkn-supplement.out'.
 
 
 *geometry* driver: auto-detecting
@@ -1276,7 +1276,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 342.
 
 
-./mkn-supplement.tex:347: LaTeX Error: \verb ended by end of line.
+./mkkn-supplement.tex:347: LaTeX Error: \verb ended by end of line.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -1294,13 +1294,13 @@ e in-de-pen-dent iden-ti-cal dis-tributed. $\OML/zplm/m/it/12 t[]\OMS/zplm/m/n/
 1/zplm/m/n/12 (^^H)$ 
  []
 
-./mkn-supplement.tex:456: Missing } inserted.
+./mkkn-supplement.tex:456: Missing } inserted.
 <inserted text> 
                 }
 l.456 ...ort of $\omega_{\tilde \pi}^{\text{post}$
                                                    is $A_{\tilde \pi}$.
 ? 
-./mkn-supplement.tex:458: Missing $ inserted.
+./mkkn-supplement.tex:458: Missing $ inserted.
 <inserted text> 
                 $
 l.458 ...de \pi}^{\text{post}} d\phi d\psi = $\int
@@ -1319,7 +1319,7 @@ Overfull \hbox (30.90688pt too wide) in alignment at lines 486--490
  [][][] []
  []
 
-./mkn-supplement.tex:501: Undefined control sequence.
+./mkkn-supplement.tex:501: Undefined control sequence.
 l.501 Finally, roc curve illustrates that \textt
                                                 {scDDboost} having a good op...
 
@@ -1536,7 +1536,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 873--875
 
  []
 
-./mkn-supplement.tex:884: Extra }, or forgotten $.
+./mkkn-supplement.tex:884: Extra }, or forgotten $.
 l.884 ...) / \sqrt{n})^2}{t_b^j + \gamma_b^j / n}}
                                                   $ is asymptotic gamma($\ch...
 
@@ -1546,9 +1546,9 @@ Overfull \hbox (21.98438pt too wide) detected at line 913
 []
  []
 
-(./mkn-supplement.bbl
+(./mkkn-supplement.bbl
 
-./mkn-supplement.bbl:45: Package keyval Error: Chu2016 undefined.
+./mkkn-supplement.bbl:45: Package keyval Error: Chu2016 undefined.
 
 See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1560,7 +1560,7 @@ l.45 \bid{Chu2016}
 (/usr/local/texlive/2018/texmf-dist/tex/latex/ucs/data/uni-3.def
 File: uni-3.def 2013/05/13 UCS: Unicode data U+0300..U+03FF
 )
-./mkn-supplement.bbl:202: Undefined control sequence.
+./mkkn-supplement.bbl:202: Undefined control sequence.
 \u-default-954 #1->\textkappa 
                               
 l.202   to Dynamic Patterns of NF-κB Activation}
@@ -1569,10 +1569,10 @@ l.202   to Dynamic Patterns of NF-κB Activation}
 [20]) [21]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 989.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 989.
- (./mkn-supplement.aux)
+ (./mkkn-supplement.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 989.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 989.
-Package rerunfilecheck Info: File `mkn-supplement.out' has not changed.
+Package rerunfilecheck Info: File `mkkn-supplement.out' has not changed.
 (rerunfilecheck)             Checksum: FAAB16CFB810708D000CB4F392BBF9B5;1028.
 
 
@@ -1582,12 +1582,12 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 989.
  ) 
 Here is how much of TeX's memory you used:
  29336 strings out of 492649
- 551788 string characters out of 6129622
- 636782 words of memory out of 5000000
+ 551803 string characters out of 6129622
+ 636787 words of memory out of 5000000
  32654 multiletter control sequences out of 15000+600000
  572179 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,16n,64p,10432b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,16n,64p,10433b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -1600,7 +1600,7 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkn-supplement.pdf (21 pages, 972297 bytes).
+Output written on mkkn-supplement.pdf (21 pages, 972302 bytes).
 PDF statistics:
  440 PDF objects out of 1000 (max. 8388607)
  369 compressed objects within 4 object streams
