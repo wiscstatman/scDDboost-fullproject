@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  10 MAY 2019 12:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  10 MAY 2019 12:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1440,26 +1440,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 582--582
 []|\OT1/pplx/m/n/10 ([][]Darmanis
  []
 
-<Figs/Fucci_wadist.pdf, id=274, 505.89pt x 505.89pt>
+<Figs/Fucci_wadist.pdf, id=275, 505.89pt x 505.89pt>
 File: Figs/Fucci_wadist.pdf Graphic file (type pdf)
 <use Figs/Fucci_wadist.pdf>
-Package pdftex.def Info: Figs/Fucci_wadist.pdf  used on input line 595.
+Package pdftex.def Info: Figs/Fucci_wadist.pdf  used on input line 596.
 (pdftex.def)             Requested size: 216.80669pt x 216.81056pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 612--612
+Underfull \hbox (badness 10000) in paragraph at lines 614--614
 []|\OT1/pplx/m/n/9 Number of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 621--621
+Underfull \hbox (badness 10000) in paragraph at lines 623--623
 []|\OT1/pplx/m/n/9 GSE48968-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 629--629
+Underfull \hbox (badness 10000) in paragraph at lines 631--631
 []|\OT1/pplx/m/n/9 GSE71585-
  []
 
@@ -1469,26 +1469,26 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [14
 
 ] [15 <./Figs/Fucci_wadist.pdf>]
-<Figs/Kchange.png, id=311, 767.86874pt x 244.915pt>
+<Figs/Kchange.png, id=313, 767.86874pt x 244.915pt>
 File: Figs/Kchange.png Graphic file (type png)
 <use Figs/Kchange.png>
-Package pdftex.def Info: Figs/Kchange.png  used on input line 655.
+Package pdftex.def Info: Figs/Kchange.png  used on input line 658.
 (pdftex.def)             Requested size: 542.02501pt x 172.89305pt.
-<Figs/rw.pdf, id=313, 495.8525pt x 212.795pt>
+<Figs/rw.pdf, id=315, 495.8525pt x 212.795pt>
 File: Figs/rw.pdf Graphic file (type pdf)
 <use Figs/rw.pdf>
-Package pdftex.def Info: Figs/rw.pdf  used on input line 662.
+Package pdftex.def Info: Figs/rw.pdf  used on input line 665.
 (pdftex.def)             Requested size: 379.41585pt x 162.82658pt.
-<Figs/breakFDR.pdf, id=314, 505.89pt x 505.89pt>
+<Figs/breakFDR.pdf, id=316, 505.89pt x 505.89pt>
 File: Figs/breakFDR.pdf Graphic file (type pdf)
 <use Figs/breakFDR.pdf>
-Package pdftex.def Info: Figs/breakFDR.pdf  used on input line 668.
+Package pdftex.def Info: Figs/breakFDR.pdf  used on input line 671.
 (pdftex.def)             Requested size: 271.0125pt x 271.01514pt.
  [16
 
  <./Figs/Kchange.png> <./Figs/rw.pdf>]
 [17 <./Figs/breakFDR.pdf>]
-Overfull \hbox (23.45146pt too wide) in paragraph at lines 826--830
+Overfull \hbox (23.45146pt too wide) in paragraph at lines 829--833
 []\OT1/pplx/m/n/12 Recall $\OML/zplm/m/it/12 ![] \OMS/zplm/m/n/12 / \OML/zplm/m
 /it/12 p[]\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 t[]\OMS/zplm/m/n/12 j\OML/zplm/m/
 it/12 t[]\OT1/pplx/m/n/12 , \OML/zplm/m/it/12 y\OT1/zplm/m/n/12 ) \OML/zplm/m/i
@@ -1506,7 +1506,7 @@ n/12 , \OML/zplm/m/it/12 ^^L\OT1/zplm/m/n/12 )$
  []
 
 
-Overfull \hbox (6.65352pt too wide) in paragraph at lines 833--835
+Overfull \hbox (6.65352pt too wide) in paragraph at lines 836--838
 \OT1/pplx/m/n/12 For no-ta-tion sim-plic-ity, we use the ab-bre-vi-a-tion $\OML
 /zplm/m/it/12 g\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 ^^Y\OT1/zplm/m/n/12 )\OT1/pp
 lx/m/n/12 , \OML/zplm/m/it/12 f\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 ^^Y\OT1/zplm
@@ -1520,7 +1520,7 @@ f\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 ^^Y\OT1/pplx/m/n/12 , \OML/zplm/m/it/12 t[
  []
 
 
-Overfull \hbox (20.53746pt too wide) in paragraph at lines 833--835
+Overfull \hbox (20.53746pt too wide) in paragraph at lines 836--838
 \OT1/pplx/m/n/12 We take log on $[]$, de-note it as LR. $[]\OML/zplm/m/it/12 R 
 \OT1/zplm/m/n/12 = []\OML/zplm/m/it/12 g\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 ^^Y
 []\OT1/zplm/m/n/12 ) \OMS/zplm/m/n/12 ^^@ []\OML/zplm/m/it/12 g\OT1/zplm/m/n/12
@@ -1535,17 +1535,17 @@ x/m/n/12 . De-note $\OML/zplm/m/it/12 C\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 ^^Y[
 [18
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 876--878
+Underfull \hbox (badness 10000) in paragraph at lines 879--881
 
  []
 
-./mkkn-supplement.tex:887: Extra }, or forgotten $.
-l.887 ...) / \sqrt{n})^2}{t_b^j + \gamma_b^j / n}}
+./mkkn-supplement.tex:890: Extra }, or forgotten $.
+l.890 ...) / \sqrt{n})^2}{t_b^j + \gamma_b^j / n}}
                                                   $ is asymptotic gamma($\ch...
 
 ? 
 [19]
-Overfull \hbox (21.98438pt too wide) detected at line 916
+Overfull \hbox (21.98438pt too wide) detected at line 919
 []
  []
 
@@ -1570,24 +1570,24 @@ l.202   to Dynamic Patterns of NF-κB Activation}
                                                  .
 ? 
 [20]) [21]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 992.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 992.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 995.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 995.
  (./mkkn-supplement.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 992.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 992.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 995.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 995.
 Package rerunfilecheck Info: File `mkkn-supplement.out' has not changed.
 (rerunfilecheck)             Checksum: FAAB16CFB810708D000CB4F392BBF9B5;1028.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 992.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 995.
  ) 
 Here is how much of TeX's memory you used:
- 29336 strings out of 492649
- 551803 string characters out of 6129622
- 637787 words of memory out of 5000000
- 32654 multiletter control sequences out of 15000+600000
+ 29338 strings out of 492649
+ 551821 string characters out of 6129622
+ 638093 words of memory out of 5000000
+ 32656 multiletter control sequences out of 15000+600000
  572179 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,16n,64p,10433b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1603,10 +1603,10 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkkn-supplement.pdf (21 pages, 973042 bytes).
+Output written on mkkn-supplement.pdf (21 pages, 973146 bytes).
 PDF statistics:
- 440 PDF objects out of 1000 (max. 8388607)
- 369 compressed objects within 4 object streams
+ 442 PDF objects out of 1000 (max. 8388607)
+ 371 compressed objects within 4 object streams
  82 named destinations out of 1000 (max. 500000)
  196 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -557,7 +557,7 @@ In this section, we gave details of the empirical datasets and also demonstrate 
 
 
 \noindent
-{\bf Data sets} details for the datasets used in the empirical studies of the main paper and the estimated number of subtypes $K$ (supplementary table 1)
+{\bf Data sets} details for the datasets used in the empirical studies of the main paper and the estimated number of subtypes $K$ (supplementary table \ref{table:1})
 
 
 
@@ -582,6 +582,7 @@ GSE75748 & DEC vs EC & 64, 64 & human & \citep{chu} & 5\\ \hline
 GSE84465 & neoplastic cells vs non-neoplastic cells & 1000, 1000 & human & \citep{Darmanis} & 9\\ \hline
 \end{tabular}
 \captionof{table}{datasets used for comparisons of DD analysis under different methods}
+\label{table:1}
 \end{table}
 
 The largest dataset we tried is GSE84465, we randomly sampled 1000 cells from each condition, the reason is we in total have 3500 cells, which take more times to compute if consider all the samples and 
@@ -603,7 +604,8 @@ Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0
 
 
 
-datasets used for generating the Null cases (supplementary table 2)
+Datasets used for generating the Null cases (supplementary table \ref{table:2})
+
 \begin{table}[h!]
 \footnotesize
 \centering
@@ -634,6 +636,7 @@ GSE79102null & patient1 & 26, 25 & human\\
 \hline
 \end{tabular}
 \captionof{table}{datasets used for null cases, as cells are coming from same biological condition, there should not be any differential distributed genes, any positive call is false positive}
+\label{table:2}
 \end{table}
 
 \clearpage
