@@ -23,7 +23,7 @@
 #' @export
 
 
-PDD = function(data, cd, ncores,D, random = T, norm = T, epi = 1, Upper = 1000, nrandom = 30, iter = 20,reltol = 1e-3, stp1 = 1e-6, stp2 = 1e-2, K = 0){
+PDD = function(data, cd, ncores,D, random = T, norm = T, epi = 1, Upper = 1000, nrandom = 50, iter = 20,reltol = 1e-3, stp1 = 1e-6, stp2 = 1e-2, K = 0){
     #data(ref.RData)
     
     G = nrow(data)
