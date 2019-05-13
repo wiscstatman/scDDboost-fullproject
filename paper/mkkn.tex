@@ -307,8 +307,8 @@ set each $f_{g,k}$ to have a a negative-binomial form, say with mean $\mu_{g,k}$
 and shape parameter $\sigma_g$; e.g. \cite{ref:Leng}, \cite{DES}, and \cite{ref:Des}. 
 This choice is effective in our numerical experiments though it is 
 not critical to the modeling formulation.  The use of mixtures per gene has proven
-useful in related model-based approaches (e.g., \citep{ref:MAST}; \citep{McDavid:2014aa};
-\citep{Huang:2018aa}).
+useful in related model-based approaches (e.g., 
+\cite{ref:MAST}; \cite{McDavid:2014aa}; \cite{Huang:2018aa}).
 Our perspective is that  genome-wide data may usefully inform the  mixing proportions.
 
 We seek methodology to prioritize genes for evidence
@@ -399,7 +399,7 @@ a formula for local false discovery rates:
  P(\text{ED}_g|X,y) = \sum_{\pi \in \Pi} P\left(A_\pi \cap M_{g,\pi} |X,y \right).
 \end{align}
 Such local false discovery rates are important empirical Bayesian 
-statistics in large-scale testing (\citep{Efron:2007aa}; \citep{Muralidharan:2010aa}; \citep{Newton:2004aa}).  
+statistics in large-scale testing (\cite{Efron:2007aa}; \cite{Muralidharan:2010aa}; \cite{Newton:2004aa}).  
 For example, the conditional false discovery rate of a list of genes 
 is the arithmetic mean of the associated local false discovery rates.  
 The partition representation guides construction of a prior distribution (Section 2.3) and a 
@@ -492,14 +492,16 @@ We invoke $K-$medoids \citep{kmedoids}
 as the default clustering method in \textsc{scDDboost}, and customize the cell-cell distance by integrating two measures.  
 The first assembles gene-level information by cluster-based-similarity partitioning~\citep{ref:cspa}.
  Separately at each gene,   modal clustering (\cite{ref:dahl} and Supplementary Material Section~2.2.2) partitions the cells, and
-then we define dissimilarity between cells as the mahattan distance of those gene specific partition labels.
+then we define dissimilarity between cells as the Manhattan distance of those gene specific partition labels.
 A second measure defines dissimilarity by one minus the 
 Pearson correlation between cells, which is computationally inexpensive,
 less sensitive to outliers than Euclidean distance, and effective at detecting cellular clusters in 
 scRNA-seq~\citep{Cor}.
- We combine the two measures by a weighted average, 
-with  $w_C = \frac{\sigma_P}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_C$. where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster-based distance and Pearson-correlation distance, respectively.
-The final distance matrix is denoted $D=\left( d_{i,j} \right)$. 
+ For the default clustering in~\verb+scDDboost+, we combine these 
+two measures by a weighted average, 
+with  $w_C = \frac{\sigma_P}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_C$. where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster-based distance and Pearson-correlation distance, respectively.  The software allows 
+other distances; in any case 
+the final distance matrix is denoted $D=\left( d_{i,j} \right)$. 
 
 Any clustering method  entails classification errors, and so $\hat z_c \neq z_c$ for some cells. To mitigate
 the effects of this uncertainty, \textsc{scDDboost} averages output probabilities from \textsc{scDDboost-core} over
@@ -515,13 +517,15 @@ scheme approximates a Bayesian posterior analysis, as we argue in
 the Appendix, where we also present pseudo-code for the resulting \textsc{scDDboost} 
 Algorithm~\ref{alg:scDDboost}.
 Averaging over results from randomized clusterings 
- gives additional stability to the posterior probability statistics.(Supplementary Figure S10).
+ gives additional stability to the posterior probability statistics
+ (Supplementary Figure S10).
 
 
 Computations become more intensive the larger is the number $K$ of cell subtypes. Version 1.0 of 
-\verb+scDDboost+ is restricted to $K\leq 9$. Further, 
+\verb+scDDboost+ is restricted to $K\leq 9$, and we consider further computational
+strategies in Section~5. Inferentially, 
  taking $K$ to be too large may inflate the false positive rate (Supplementary Figure S11).
- To mitigate these issues, the approach
+ The approach
 taken in \verb+scDDboost+ is to set $K$ using the validity score~\citep{selK}, which measures 
 changes in within-cluster sum of squares as we increase $K$.  Our specific implementation is in
 Supplementary Material Section 2.2.4.
@@ -727,7 +731,7 @@ P(A_\pi|y,z) =
 
 \subsection{$P(M_{g,\pi}|X,z)$}
 We leverage well-established modeling techniques for transcript analysis, including
-\citep{ref:Leng}, \citep{Kendziorski:2003aa}, and~\citep{Jensen:2009aa}, which characterize
+\cite{ref:Leng}, \cite{Kendziorski:2003aa}, and~\cite{Jensen:2009aa}, which characterize
  equivalent or differential expression in terms of shared or independently drawn mean effects.  Let
 $X_{g,b}$ denote
 the subvector of expression values at gene $g$ over cells $c$ with $z_c=k$ for which subtype $k$ is part of
@@ -743,7 +747,7 @@ These assumptions imply a useful factorization marginally to latent means,
 \label{eq:ebseq}
 P(X_g|M_{g,\pi}, z) = \prod_{b \in \pi} f(X_{g,b}),
 \end{eqnarray}
-where $f$ is a customized density kernel.  In our case we use \verb+EBseq+ from~\citep{ref:Leng}: 
+where $f$ is a customized density kernel.  In our case we use \verb+EBseq+ from~\cite{ref:Leng}: 
 the sampling distribution of
  $X_{g,c}$ is negative binomial, and $f$ becomes a particular compound multivariate 
 negative binomial formed from integrating
@@ -968,8 +972,8 @@ clustering on particular cell-cell distances.   These choices have evident advan
 model structure and theory developed in Section~2 carry through for other cases. Future experiments
 could study other formulations within the same schema; for example there may be cell-cell 
 distances that better capture the intrinsic dimensionality of expression programs, including, perhaps
-distances based on diffusions (\citep{Haghverdi:2015aa}) or 
-the longest-leg path distance (e.g., \citep{Little2017PathBasedSC}).
+distances based on diffusions \citep{Haghverdi:2015aa} or  
+the longest-leg path distance \citep{Little2017PathBasedSC}.
 Further, assuming a compositional structure to drive model-based computations may not be restrictive,
 since it allows great flexibility in the form of each gene/condition-specific expression distribution
 (as coded, they are finite mixtures of negative binomials).
@@ -977,12 +981,13 @@ since it allows great flexibility in the form of each gene/condition-specific ex
 %We invented a random weighting scheme that stabilize our DD inference as well as approximating the results as if we have done a fully bayesian clustering analysis based on Dirichlet prior. 
    
 
-For computational reasons we impose the rule $K \leq 9$ in
- \verb+scDDboost+ (v. 1.0).  Typically, for a dataset containing 20000 genes and 200 cells.  
- When $K \leq 6$, it takes \texttt{scDDboost} less than 15 minutes for computation using a 4 cores MacBook Pro laptop 
- with 2.2 GHz Intel Core i7 and 16 Gb RAM. 
-The computation time increases exponentially with $K$ and it would take 10 to 20 hours under $K = 9$. 
-This problem traces to \verb+EBseq+, which  currently 
+We have imposed the computational limit  $K \leq 9$ in
+ \verb+scDDboost+ (v. 1.0).  In a typical case involving 20000 genes and 200 cells,  
+ \verb+scDDboost+  is relatively efficient for $K \leq 6$ requiring 
+ less than 15 CPU minutes on, for example, a quad-core 2.2 GHz Intel Core i7 with 16 Gb of RAM.
+{\em Xiuyu...how many randomized distances in this typical case?}
+ The same data might require 10 to 20 CPU hours when $K=9$.
+The bottleneck  traces to \verb+EBseq+, which  currently 
 searches all partitions of $K$ and encodes a hyper-parameter estimation algorithm that scales poorly with $K$.
 Several approximations present themselves that may redress the problem, since,
 in the mixture model context, only patterns $\pi$ corresponding to relatively probable expression-change
