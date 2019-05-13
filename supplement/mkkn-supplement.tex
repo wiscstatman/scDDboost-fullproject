@@ -586,7 +586,7 @@ GSE84465 & neoplastic cells vs non-neoplastic cells & 1000, 1000 & human & \cite
 \end{table}
 
 The largest dataset we tried is GSE84465, we randomly sampled 1000 cells from each condition. The reason is that we in total have 3500 cells, it takes more time and memories to compute if we consider all the samples and 
-1000 cells each condition would be enough to represent the heterogeneity. We found \texttt{DESeq} identified significant smaller number of positives than others. It is intuitive that we may encounter a lot more subtle changes
+1000 cells each condition would be enough to represent the heterogeneity. We found \texttt{DESeq} identified significant smaller number of positives than others. It is intuitive that we are more likely to encounter subtle changes
 when we have large samples. Only consider mean shifts would have limited power. For other datasets we use all the cells within that condition under same batch.
 
 We also observed consistent distributional change measurements by \texttt{scDDboost} and Wasserstein distance between the empirical distribution of transcripts .
