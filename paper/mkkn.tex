@@ -983,9 +983,10 @@ since it allows great flexibility in the form of each gene/condition-specific ex
 
 We have imposed the computational limit  $K \leq 9$ in
  \verb+scDDboost+ (v. 1.0).  In a typical case involving 20000 genes and 200 cells,  
+ under 50 times of randomized distances 
  \verb+scDDboost+  is relatively efficient for $K \leq 6$ requiring 
  less than 15 CPU minutes on, for example, a quad-core 2.2 GHz Intel Core i7 with 16 Gb of RAM.
-{\em Xiuyu...how many randomized distances in this typical case?}
+
  The same data might require 10 to 20 CPU hours when $K=9$.
 The bottleneck  traces to \verb+EBseq+, which  currently 
 searches all partitions of $K$ and encodes a hyper-parameter estimation algorithm that scales poorly with $K$.
