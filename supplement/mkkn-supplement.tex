@@ -176,10 +176,10 @@ From \texttt{EBSeq}, we assumed a prior distribution on $q_g^I : q_g^I | \alpha,
 
 We force the size factor to be 1 for all cells and use the same procedure from \texttt{EBSeq} to estimate number of failure parameter $\sigma_g$. Namely, we have\\
 1. gene-level sample mean $m_g = \frac{1}{n}\sum_{s = 1}^n X_{g,s}$, where $n = n_1 + n_2$ is the total number of cells \\
-2. averaged sample variance within subtype $v_g = \frac{1}{K} \sum_{I = 1}^K v_g^I$.\\
-3.$v_g^I$ is the unadjusted sample variance within subtype $I$, i.e. $v_g^I = \frac{1}{n^I}\sum_{s, z_s = I} (X_{g,s} - m_g^I)^2$ with $m_g^I$ is the sample mean within subtype $I$ and $n^I$ is the number of cells within subtype $I$.\\
-We estimate pooled over-dispersion rate by $o_g = \frac{v_g}{m_g}$ and obtain $\sigma_g = m_g \frac{o_g}{1 - o_g}$ by the formula of mean of NB\\
-What we are interested at those $K$ groups comparison is the expression pattern, 
+2. average of sample variances over subtypes $v_g = \frac{1}{K} \sum_{I = 1}^K v_g^I$.\\
+3. $v_g^I$ is the unadjusted sample variance for subtype $I$, i.e. $v_g^I = \frac{1}{n^I}\sum_{s, z_s = I} (X_{g,s} - m_g^I)^2$ with $m_g^I$ is the sample mean within subtype $I$ and $n^I$ is the number of cells within subtype $I$.\\
+We estimate pooled over-dispersion rate by $o_g = \frac{v_g}{m_g}$ and obtain $\sigma_g = m_g \frac{o_g}{1 - o_g}$ from first moment of NB\\
+Our target is to quantify the expression pattern between $K$ groups, 
 
 \begin{eqnarray*}
 M_{g,\pi} = \{ \theta \in \Theta: \; \mu_{g,k} = \mu_{g,k'} \iff k,k' \in b, b \in \pi \}.
