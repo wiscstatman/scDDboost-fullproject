@@ -124,9 +124,10 @@ This supplement is organized to match the sectioning of the main document.   In 
 
 \subsection{R package}
 
-Reference can be found at github site ...
+We developed a R package \texttt{scDDboost} providing the function to quantify distributional change of scRNA data. 
+Details can be found at github site ....
 
-**on scDDboost, web page, etc**
+
 
 \section{Modeling}
 
@@ -337,10 +338,10 @@ The MLE estimators are obtained through \verb+nlminb+ function in \verb+R+. One 
 We plot the ARI (adjusted random index) between the randomly generated clustering to clustering under the original distance across eight datasets. Though the mean varies, the interquartile range is wide enough to present a reasonable variation of our random weighting scheme.
 
 We also check validity of random weighting on simulated dataset. 
-We simulate one-dimensional data $X$ from a mixture of 5 normal distributions with different means and same variance ($\mu = (-3,-1,0,1,5), \sigma = 1$). 
+We simulate one-dimensional data $X$ from a mixture of 5 normal distributions with different means and same variance ($\mu = (-6,-2,0,2,10), \sigma = 1$). 
 We compare clustering results between random weighting and Bayesian clustering using the Dirichlet process as a prior in terms of posterior probabilities that two elements belong to the same class given the whole data. 
 We also compare accuracy of the two procedures by looking at the ARI comparing to true class label (Supplementary Figure \ref{fig:simu}).  
-We found that random weighting scheme tends to give better results than classical Bayesian clustering. \todo{Fig S2: missing heatmap legend; labels on scatterplot are vague. Added more detail to legend - please double check it's accurate.}
+We found that random weighting scheme tends to give better results than classical Bayesian clustering. \todo{Fig S2: missing heatmap legend;}
 
 \begin{figure}[h!]
 \includegraphics[scale = 0.9]{Figs/try7-g.pdf}
@@ -571,7 +572,7 @@ We also show ROC curves for the simulated data in Supplementary Figure \ref{fig:
 
 \subsection{Empirical Study}
 
-In this section, we provide details of the empirical datasets and also demonstrate consistency to Wasserstein distance on one dataset (FUCCI). \todo{citation?}
+In this section, we provide details of the empirical datasets and also demonstrate consistency to Wasserstein distance on one dataset FUCCI \citep{oscope}.
 
 
 \noindent
@@ -666,11 +667,14 @@ In this section, we demonstrate change of PDD under different $K$ and the robust
 the number of subtypes $K$ is a crucial parameter controlling the accuracy of our modeling. 
 Too small $K$ may end up underfitting such that cells within same subtype can still be very different.
 If the mean expression change among subtypes is incapable to capture the distribution change for some genes, the power of \textsc{scDDboost} will be reduced.
-Too big $K$ may end up overfitting such that two subtypes can be very similar. Given that we have a fixed number of samples (cells), allowing more clusters will introduce many patterns (both for mean expression change and proportion change) to infer. Also note the limitation of DDM model (see Section 4). \todo{what limitation is this referring to?} Overestimating $K$ in \textsc{scDDboost} may losing FDR control (Supplementary Figure \ref{fig:lfdr}).
+Too big $K$ may end up overfitting such that two subtypes can be very similar. Given that we have a fixed number of samples (cells), allowing more clusters will introduce a lot of patterns (both for mean expression change and proportion change) to infer. 
+The increase of time and memory cost make the computation infeasible. \\
 
 From our empirical experience, 
-it is sufficient to capture the heterogeneity underlying cells with number of clusters less than 10 (Supplementary Table\ref{table:1}).  
-To demonstrate the change of PDD given different $K$, we present an example using dataset GSE75748. When we increase $K$, the variance of the differential term $\text{PDD}_{K + 1} - \text{PDD}_K$ keeps decreasing and PDD keeps increasing. Our selection criterion (K = 5) happens to choose $K$ such thatchange between $\text{PDD}_{K + 1}$ and $\text{PDD}_K$ is small while not inflating PDD. We generally obtain stable validity score and PDD simultaneously (Supplementary Figure~\ref{fig:rwk}). In addition, the random weighting scheme help us obtain robust PDD (Supplementary Figure~\ref{fig:s10}). Finally, we note that scDDboost may lose FDR control if we keep increasing $K$ (Supplementary Figure~\label{fig:lfdr}).
+it is sufficient to capture the heterogeneity underlying cells with number of clusters less than 10 ($K$ in Supplementary Table\ref{table:1}).  
+To demonstrate the change of PDD given different $K$, we present an example using dataset GSE75748. When we increase $K$, the variance of the differential term $\text{PDD}_{K + 1} - \text{PDD}_K$ keeps decreasing and PDD keeps increasing. Our selection criterion (K = 5) happens to choose $K$ such thatchange between $\text{PDD}_{K + 1}$ and $\text{PDD}_K$ is small while not inflating PDD. We generally obtain stable validity score and PDD simultaneously (Supplementary Figure~\ref{fig:rwk}). In addition, the random weighting scheme help us obtain robust PDD (Supplementary Figure~\ref{fig:s10}). 
+There is one thing we need to be cautious, \texttt{scDDboost} may lose FDR control if we keep increasing $K$ (Supplementary Figure~\label{fig:lfdr}).
+But from our simulation study, our selecting rule never overestimate $K$. 
 
 \begin{figure}[h]
 \includegraphics[width = 1\textwidth]{Figs/Kchange.png}
