@@ -197,7 +197,7 @@ For example $K = 3$, there are 5 expression pattern, $P_1, P_2, ..., P_5$, Compa
 &P5: q_g^1 \neq q_g^2 \neq q_g^3 \text{ and } q_g^1 \neq q_g^3
 \end{align*}
 
-Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can pool the counts from the two groups by viewing them come from same distribution i.e. $X_g^{I, J} | \sigma_{g}, q_g \sim NB(\sigma_{g}, q_g)$, $q_g | \alpha, \beta^{g} \sim \text{Beta}(\alpha, \beta^{g})$ and obtained the prior predictive function $f(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g}, q_g) * P(q_g | \alpha, \beta^{g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + \sigma_{g} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S \sigma_{g}, \beta^{g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{g})}$.  Consequently, we have prior predictive function for $P1, ..., P5$ as
+Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can pool the counts from the two groups by viewing them sampled from same distribution i.e. $X_g^{I, J} | \sigma_{g}, q_g \sim NB(\sigma_{g}, q_g)$, $q_g | \alpha, \beta^{g} \sim \text{Beta}(\alpha, \beta^{g})$ and obtained the prior predictive function $f(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g}, q_g) * P(q_g | \alpha, \beta^{g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + \sigma_{g} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S \sigma_{g}, \beta^{g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{g})}$.  Consequently, we have prior predictive function for $P1, ..., P5$ as
 
 
 \begin{align*}
@@ -216,7 +216,9 @@ where the marginal $p_k = P(M_{g,\pi} | z)$(shared by all genome). Thus, the pos
 \end{eqnarray*}
 
 
-In the optimization steps for determining the hyper parameters $(\alpha, \beta^g, p)$, the computation and memory increase exponentially with the number of subtypes $K$. We use one-step EM as an approximation for the solution, that is $\alpha$ and $\beta^g$ are updated through gradient ascent. $p$ is updated by the explicit form of the maximizer of the log likelihood.
+In the optimization steps for determining the hyper parameters $(\alpha, \beta^g, p)$, the computation and memory increase exponentially with the number of subtypes $K$. 
+We use one-step EM as an approximation for the solution, $\alpha$ and $\beta^g$ are updated through gradient ascent 
+while $p$ is updated by the explicit form of the maximizer of the log likelihood.
 
 
 \subsubsection{modalClust}
