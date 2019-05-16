@@ -239,24 +239,21 @@ Any other parameters that may have been involved in the model have been integrat
 The prior distribution for a partition $\pi$ is also taken as a product form. We use the MAP partition(maximize the posterior $p(\pi | X) \propto p(X|\pi) p(\pi)$) as the estimated clustering.
 
 Dahl demonstrated by some choice of $f$ and prior of $\pi$, we can reduce the time complexity of finding the MAP partition from factorial($n$) to $O(n^2)$ \citep{ref:dahl},
-And the crucial condition for $f$ is that if $X_{S_1}$ and $X_{S_2}$ are overlapped in the sense that  min$\{X_{S_2}\}  <$ max$\{X_{S_1}\}  <$ max$\{X_{S_2}\}$ or min$\{X_{S_1}\}  <$ max$\{X_{S_2}\}  <$ max$\{X_{S_1}\}$, 
-let $X_{S_1^*} \text{ and } X_{S_2^*}$ be the sets of swapping one pair of those overlapped terms and keep the other unchanged. Then $f(X_{S_1}) f(X_{S_2}) \leq f(X_{S_1^*}) f(X_{S_2^*})$. Under such condition, we know that possible MAP candidates must be those partition $\pi$s that for any two blocks $b_1, b_2 \in \pi$, either $\underset{i \in b_1}{\text{max}}(X_i) \leq \underset{j\in b_2}{\text{min}}(X_j)$ or $\underset{i \in b_1}{\text{min}}(X_i) \geq \underset{j\in b_2}{\text{max}}(X_j)$.
-
-In Poisson-Gamma Model we assuming:
-
+And the crucial condition for $f$ is the \textbf{non-overlapping} condition:
+if $X_{S_1}$ and $X_{S_2}$ are overlapped in the sense that  min$\{X_{S_2}\}  <$ max$\{X_{S_1}\}  <$ max$\{X_{S_2}\}$ or min$\{X_{S_1}\}  <$ max$\{X_{S_2}\}  <$ max$\{X_{S_1}\}$, 
+let $X_{S_1^*} \text{ and } X_{S_2^*}$ be the sets of swapping one pair of those overlapped terms and keep the other unchanged. Then $f(X_{S_1}) f(X_{S_2}) \leq f(X_{S_1^*}) f(X_{S_2^*})$. 
+Under the \textbf{non-overlapping} condition of density kernel $f$, we know that a partition $\pi$ in order to be MAP must satisfy that for any two blocks $b_1, b_2 \in \pi$, either $\underset{i \in b_1}{\text{max}}(X_i) \leq \underset{j\in b_2}{\text{min}}(X_j)$ or $\underset{i \in b_1}{\text{min}}(X_i) \geq \underset{j\in b_2}{\text{max}}(X_j)$. Thus we reduce the solution space and reduce the time complexity.\\
+In Poisson-Gamma Model we assuming:\\
 \begin{align*}
 X_i | \pi, \lambda &\sim Poisson(X_i | \lambda_1\textbf{I}\{i\in S_1\} + ... + \lambda_q\textbf{I}\{i \in S_q\})\\
 \pi &\sim p(\pi)\\
 \lambda_j &\sim Gamma(\alpha_0, \beta_0)
 \end{align*}
-
 where $p(\pi)\propto \overset{q}{\underset{i = 1}{\prod}}\eta_0\Gamma(|S_i|)$. Integrate out $\lambda$, $f(X_{S})$ is obtained as:
-
 \begin{eqnarray*}
 f(X_{S}) = \frac{\beta^\alpha}{(|S| + \beta)^{\underset{i \in S}{\Sigma} X_i + \alpha}} \frac{\Gamma(\underset{i \in S}{\Sigma} X_i  + \alpha)}{\Gamma(\alpha)} \frac{1}{\underset{i \in S}{\prod }X_i}
 \end{eqnarray*}
-
-To apply modal-cluster on Poisson-Gamma model, we need to show $f(X_S)$ still satisfying the condition mentioned before.
+To apply modal-cluster on Poisson-Gamma model, we need to show kernel $f(X_S)$ satisfying the \textbf{non-overlapping} condition.
 
 
 
