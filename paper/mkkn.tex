@@ -33,7 +33,8 @@
 \RequirePackage{xcolor}
 %\usepackage{mdframed}
 
-
+%%%% next line added by Keegan for easy commenting; feel free to remove!
+\usepackage[colorinlistoftodos]{todonotes}
 
 
 %\documentclass[11pt]{amsart}
@@ -66,7 +67,7 @@
 \begin{aug}
 
 \author{\fnms{Xiuyu} \snm{Ma}\thanksref{t1}\ead[label=e1]{ma79@wisc.edu}},
-\author{\fnms{Keegan} \snm{Korthauer}\thanksref{k1}\ead[label=e2]{second@somewhere.com}},
+\author{\fnms{Keegan} \snm{Korthauer}\thanksref{k1,k2}\ead[label=e2]{keegan@jimmy.harvard.edu}},
 \author{\fnms{Christina} \snm{Kendziorski}\thanksref{t2}\ead[label=e2]{kendzior@biostat.wisc.edu}},
 \and
 \author{\fnms{Michael} \snm{Newton}\thanksref{t1,t2}
@@ -75,7 +76,8 @@
 
 \affiliation{Department of Statistics\thanksmark{t1}, 
 Department of Biostatistics and Medical Informatics\thanksmark{t2}, University of Wisconsin - Madison;
-Dana Farber\thanksmark{k1} }
+Department of Data Sciences, Dana-Farber Cancer Institute\thanksmark{k1};
+Department of Biostatistics, Harvard T.H. Chan School of Public Health\thanksmark{k2}}
 
 \address{Address of the First and Second authors\\
 Usually a few lines long\\
@@ -140,15 +142,16 @@ to improve their operating characteristics.
 
 Assessing the magnitude and statistical significance of changes in gene
 expression associated with changes in cellular condition has been a central
-statistical problem in genomics for which new tools specific to
-the single-cell RNAseq data structure have been deployed: \verb+MAST+ \citep{ref:MAST},
-\verb+SCDD+ \citep{ref:scDD}, \verb+D3E+ \citep{ref:d3e}, etc.  These tools respond
+statistical problem in genomics. New tools specific to
+the single-cell RNAseq data structure, including \verb+MAST+
+\citep{ref:MAST}, \verb+scDD+ \citep{ref:scDD}, \verb+D3E+ \citep{ref:d3e},
+have been deployed to address this problem.
+These tools respond
 to scRNAseq characteristics, such as high prevelance of zero counts and
 gene-level multimodality, but they do not fully exploit cellular-subtype
 information.  We address this limitation, aiming to increase power to detect differential distribution.
 The proposed method measures changes in a gene's marginal mixture distribution, and
-acquires sensitivity  to a wide variety of distributional effects by how it integrates genome-wide with
-gene-level data.  It is implemented in  software 
+acquires sensitivity to a wide variety of distributional effects by how it integrates commonalities gene-level data for learned cellular subtypes.  It is implemented in  software 
 in the R package \verb+scDDboost+~\footnote{http://github.com/wiscstatman/scDDboost/}.
 Modularity in the necessary elements provides some methodological advantages. For example,
 improvements in clustering may be used in place of the default clustering
@@ -159,29 +162,30 @@ Through the compositional model underlying \verb+scDDboost+, subtypes inferred b
 inform the analysis of gene-level expression.  The proposed methodology merges two lines of computation
 after cell clustering: one concerns patterns of differential expression among 
 the cellular subtypes, and here we take advantage of the powerful \verb+EBseq+ method for detecting
-patterns in negative-binomially-distributed expression data~\citep{ref:Leng}.  The second concerns 
+patterns in negative-binomially-distributed expression data~\citep{ref:oscope}.  The second concerns 
 the counts of cells in various subtypes; for this we propose a Double-Dirichlet-Mixture distribution
 to model the pair of multinomial probability vectors for subtype counts in two experimental conditions.
 Further elements are developed, on the selection of the number of subtypes and on accounting for uncertainty in the cluster output,  in order to provide an end-to-end solution to the differential distribution
-problem.  
+problem.
 
 To set the context by way of example, 
-Figure~\ref{fig:whet} shows expression data from 91 human 
+Figure~\ref{fig:whet} highlights the ability of \verb+scDDboost+ to detect subtype composition changes that lead to subtle gene expression changes that go undetected by other methods. 
+The three panels on the left compare expression from 91 human 
 stem cells known to be in the G1 phase of the cell cycle, as well as
-from 76 such cells known to be in the G2/M phase~\citep{ref:Leng}.  The three panels on the left compare expression of G1
-and G2/M cells at three genes (BIRC5, HMMR, and CKAP2),  which we happen to know from prior studies  have differential activity between G1 and G2/M~\citep{BIRC5,HMMR,RAD21}.  
-Standard statistical tools applied to the data behind Figure~\ref{fig:whet} do not find the observed
+from 76 such cells known to be in the G2/M phase~\citep{ref:Leng} in three genes (BIRC5, HMMR, and CKAP2), which we happen to know from prior studies have differential activity between G1 and G2/M~\citep{BIRC5,HMMR,RAD21}.  
+Standard statistical tools \todo{which standard statistical tools?} applied to the data behind Figure~\ref{fig:whet} do not find the observed
  differences in any of these genes
 to be statistically significant when controlling the false discovery rate (FDR) at 5\%. 
 But \verb+scDDboost+ does include these genes on its 5\% FDR list.
-Considering prior studies, these subtle distributional changes are probably not false discoveries.
+Considering prior studies, these subtle distributional changes are probably not false discoveries. \todo{From the heatmap, these genes look
+to be srikingly bimodal. But I don't get that sense from the violin plots. Are the same transformations, treatment of dropouts used for both panels? Perhaps it would help to see the color scale legend for the heatmap?}
 The right panel in Figure~\ref{fig:whet} shows these three among
   many other genes also known to be involved in cell-cycle regulation but
 not identified by standard tools as altered between G1 and G2/M at the 5\% FDR level.    The color panel above the
 heatmap hints at why \verb+scDDboost+ has identified these genes. Cells (columns) are clustered by their genome-wide
 expression profiles into distinct cellular subtypes, as indicated by the color panel.   Evidently, these 
 subtypes have changed in their proportions between G1 and G2/M; for instance, there is a lower proportion
- of {\em red} cells   and a greater proportion of {\em orange} cells in G2/M. These proportion shifts, 
+ of {\em red} cells and a greater proportion of {\em orange} cells in G2/M. These proportion shifts, 
 inferred from genome-wide data, infuse information into gene-specific tests which measure 
 changes between conditions in the mixture distribution of expression.  We note that \verb+scDDboost+ 
 agrees with other statistical tools on very strong differential-distribution signals (not shown), but it 
@@ -203,15 +207,21 @@ information.
  \caption{Genes involved in cell-cycle that are identified by scDDboost, but not standard approaches,
  as differentially distributed between cell-cycle phases G1 and G2/M in human embryonic stem cells. 
   Density estimates on the left show expression data (log2 scale)
-of three genes identified by scDDboost at 5\% FDR, but not similarly identified by other approaches. 
+of three genes identified by scDDboost at 5\% FDR, but not similarly identified by other approaches.
  Prior studies have shown that the expression
  of  BIRC5, CKAP2, and HMMR is dependent on the phase of cell-cycle,
  suggesting that these subtle shifts are not false positives. 
  Heatmap (right) shows these three genes among 137 other cell-cycle genes (GO:0007049). 
+ Cells (columns) are clustered by their genome-wide
+expression profiles into distinct cellular subtypes, as indicated by the color panel. 
+
+
  \label{fig:whet} }
 \end{figure}
 
 
+\todo{Fig 1(left): Where are the dropouts? Was a pseudocount used?}
+\todo{Fig 1(right): Missing legend for color scale}
 Numerical experiments  on both synthetic and published scRNA-seq data bear out the incidental finding 
 in Figure~\ref{fig:whet}, that \verb+scDDboost+ has sensitivity for detecting subtle distribution changes. 
   In these experiments we take advantage of
@@ -337,8 +347,8 @@ where $\phi=(\phi_1, \phi_2, \cdots, \phi_K)$ and $\psi=(\psi_1, \psi_2, \cdots,
 are as before, where $\mu = \{ \mu_{g,k} \}$ holds  all the subtype-and-gene-specific expected
 values, and where $\sigma = \{ \sigma_g \}$ holds all the gene-specific negative-binomial
 shape parameters.  Critical to our construction are special subsets of $\Theta$ corresponding
-to partitions of the $K$ cell subtypes.  A single partition, say $\pi$, is a set of
-mutually exclusive and exhaustive blocks, $b$, say, each a subset of $\{1, 2, 
+to partitions of the $K$ cell subtypes.  A single partition, $\pi$, is a set of
+mutually exclusive and exhaustive blocks, $b$, where each block is a subset of $\{1, 2, 
 \cdots, K\}$, and we write $\pi = \{ b \}$.  Of course,
 the set $\Pi$ containing all partitions $\pi$ of $\{1,2, \cdots, K\}$
  has cardinality that grows rapidly with $K$. 
@@ -450,7 +460,9 @@ data in order to sharpen our assessments of between-condition expression changes
 \subsection{Method structure and clustering}
 
 We leverage the extensive research on how to cluster cells into subtypes using scRNA-seq data:
-for example,  SC3~\citep{sc3}, CIDR~\citep{CIDR}, and ZIFA~\citep{ZIFA}.   We propose clustering on the full set
+for example,  SC3~\citep{sc3}, CIDR~\citep{CIDR}, and ZIFA~\citep{ZIFA}. 
+\todo{How are these methods related to the K-mediods construction used?}
+We propose clustering on the full set
 of profiles in a way that is blind to the condition label vector $y$, in order to have as many cells as possible
 to inform the subtype structure.  We investigated several clustering schemes in numerical experiments and allow 
 flexibility in this choice within the \textsc{scDDboost} software. 
@@ -490,6 +502,7 @@ conditional on an estimate of the subtype labels.
 
 We invoke $K-$medoids \citep{kmedoids} 
 as the default clustering method in \textsc{scDDboost}, and customize the cell-cell distance by integrating two measures.  
+\todo{is K-mediods used over SC3/CIDR/ZIFA because it's easier to carry out randomized clusterings? Or why?}
 The first assembles gene-level information by cluster-based-similarity partitioning~\citep{ref:cspa}.
  Separately at each gene,   modal clustering (\cite{ref:dahl} and Supplementary Material Section~2.2.2) partitions the cells, and
 then we define dissimilarity between cells as the Manhattan distance of those gene specific partition labels.
@@ -763,6 +776,7 @@ The proportionality is resolved by calculating over all partitions $\pi$.
 
  
 \section{Numerical experiments}
+\todo{What I don't get a sense from the sims is how it scales with n}
 
 \subsection{Synthetic data} 
 We used \verb+splatter+ (v. 1.2.0)  
@@ -797,7 +811,7 @@ FDR in all cases while also delivering a relatively high rate of true positives 
 
 \begin{figure}[H]
   \includegraphics[width = 0.95\textwidth]{Figs/simuFDR.pdf}
-  \caption{False discovery rate (vertical) of methods in settings (horizontal) from Figure~\ref{fig:sim1} }
+  \caption{False discovery rate (vertical) of methods in settings (horizontal, same order) from Figure~\ref{fig:sim1} }
   \label{fig:sim2}
 \end{figure}
 
@@ -805,7 +819,10 @@ FDR in all cases while also delivering a relatively high rate of true positives 
 \subsection{Empirical study}
 
 We applied \verb+scDDboost+ to a collection of previously published
-data sets that are recorded at \verb+conquer+~\citep{ref:Cq}.  Though not knowing the truly DD
+data sets that are recorded at \verb+conquer+~\citep{ref:Cq}.  
+\todo{All are non-UMI protocols, correct? Curious to see performance on
+a UMI dataset, as they present further challenges}
+Though not knowing the truly DD
 genes, we can examine how \verb+scDDboost+ output compares to output from some standard methods.  We selected
 12 data sets from \verb+conquer+   representing different species and experimental settings
 and involving hundreds to thousands of cells.   Appendix Table \ref{table:1} provides details.  Figure~\ref{fig:es} compares
@@ -817,7 +834,7 @@ of the uniquely identified genes are likely not to be false positives.
 
 \begin{figure}[H]
 \includegraphics[width = 0.95\textwidth]{Figs/DD95.pdf}
- \caption{Proportion of DD genes at 5\% threshold with respect to total number of genes identified by each method. Ranked by 
+ \caption{Proportion of DD genes at 5\% FDR threshold with respect to total number of genes identified by each method. Ranked by 
  scDDboost list size }
   \label{fig:es}
 \end{figure}
@@ -832,39 +849,40 @@ confirms a very low call rate in cases where no changes in distribution are expe
 
 \begin{figure}[H]
 \includegraphics[width = 0.8\textwidth]{Figs/fdrCounts.pdf}
- \caption{False positive counts by several methods on  5 random splits of 9 single-condition
+ \caption{False positive counts at 5\% FDR threshold by several methods on  5 random splits of 9 single-condition
 data sets from Appendix Table \ref{table:2}} \label{nullperm}
 \end{figure}
 
 
-We conjecture that \verb+scDDboost+  gains power through its novel approach to  borrowing strength;
+We conjecture that \verb+scDDboost+ gains power through its novel approach to borrowing strength across genes;
 i.e., that the genomic data are providing information about cell subtypes and mixing proportions,
-leaving gene-level data to guide gene-specific mixture components.   One way to drill into this
+leaving gene-level data to guide gene-specific mixture components. One way to drill into this
 idea is to consider how many genes have similar expression characteristics to a given gene on
-test. We report cumulative distribution
-functions of a size statistic measured for all genes 
- identified by \verb+scDDboost+; red is the subset uniquely identified by \verb+scDDboost+; blue 
-are those also identifed by our comparison methods (\verb+MAST+, \verb+scDD+, or \verb+DESeq2+). 
- The horizontal axis reports the log-scale size of a certain gene-specific  set.  
- By virtue of the \verb+EBseq+ analysis inside \verb+scDDboost+, any gene may be assigned to
-a set of genes that all have the same highest-probability pattern of equality/inequality of means across
-the subtypes. Say $\hat \pi_g = {\rm argmax}_{\pi} P( M_{g,\pi} | \hat z, X)$.  Figure~\ref{fig:shift} shows
+test.
+\todo{Not sure what is meant by 'on test'} 
+By virtue of the \verb+EBseq+ analysis inside \verb+scDDboost+, we may assign each gene to
+a set that all have the same highest-probability pattern of equality/inequality of means across
+the subtypes. Say $\hat \pi_g = {\rm argmax}_{\pi} P( M_{g,\pi} | \hat z, X)$. 
+In Figure~\ref{fig:shift}, we show
 that compared to DD genes commonly identified by multiple methods (blue), the set sizes for genes
-uniquely identified by \verb+scDDboost+ (red) tend to be larger.  Essentially,  the proposed methodology
+uniquely identified by \verb+scDDboost+ (red) tend to be larger.  Essentially, the proposed methodology
  boosts weak DD evidence when a gene's pattern of differential expression among cell subtypes
 matches a large number of other genes. 
 
 
-
 \begin{figure}[H]
 \includegraphics[width = 0.9\textwidth]{Figs/shift.pdf}
- \caption{Sets of similarly-patterned genes tend to be larger (horizontal axis, log size) for genes uniquely
- identified by scDDboost (red) compared to other DD genes (blue), at 5\% FDR, as indicated in three example data sets.
- Here genes are grouped by their pattern of differential expression across subtypes as inferred by
-the EBseq computation within scDDboost.}
+ \caption{
+ Genes are grouped by their pattern of differential expression across subtypes as inferred by
+the EBseq computation within scDDboost for three example datasets.
+ Cumulative distribution
+functions of the log-scale size statistic for all genes 
+ identified by scDDboost are plotted; red is the subset uniquely identified by scDDboost; blue are those also identifed by the comparison methods (MAST, scDD, or DESeq2).
+ Sets of similarly-patterned genes tend to be larger (horizontal axis, log size) for genes uniquely
+ identified by scDDboost (red) compared to other DD genes (blue), at 5\% FDR.}
   \label{fig:shift}
 \end{figure}
-
+\todo{axes labels missing in fig 8}
 % Datasets used for demonstration from left to right are GSE71585, GSE64016, EMTAB2805.
 
 
@@ -902,19 +920,19 @@ comparison methods, Figure~\ref{fig:bursting} shows  changes of these bursting p
 significant changes between estimated bursting parameters compared to commonly identified genes.
 This finding and similar findings on other data sets (not shown) provide some evidence that \verb+scDDboost+
 is able to detect biologically meaningful changes in the expression distribution.
-
+\todo{how many points are in each boxplotin figure 9? }
 
 
 \begin{figure}[H]
 \includegraphics[width = 0.85\textwidth]{Figs/D3E_box.pdf}
-\caption{ Absolute values of log fold changes of bursting parameters tend to be larger for genes uniquely identified by scDDboost (red) compare to other genes (blue). at 5\% FDR}
+\caption{ Absolute values of log fold changes of bursting parameters tend to be larger for genes uniquely identified by scDDboost (red) compare to other genes (blue) at 5\% FDR}
  \label{fig:bursting}
 \end{figure}
 
 
 
 \section{Asymptotics of the Double Dirichlet Mixture}
-
+\todo{Might be informative to emphasize the practical significance of the finding}
 Summary statistics $P(A_\pi|y,z)$, from Section 2.3, are amenable to a first-order asymptotic analysis
 that provides further insight into DDM model behavior.  The fact that support sets $A_\pi$ for component 
 distributions $p_\pi( \phi,\psi)$ are not disjoint becomes an important issue.  Consider
@@ -990,10 +1008,11 @@ We have imposed the computational limit  $K \leq 9$ in
  The same data might require 10 to 20 CPU hours when $K=9$.
 The bottleneck  traces to \verb+EBseq+, which  currently 
 searches all partitions of $K$ and encodes a hyper-parameter estimation algorithm that scales poorly with $K$.
+\todo{Still curious about how scales with n}
 Several approximations present themselves that may redress the problem, since,
 in the mixture model context, only patterns $\pi$ corresponding to relatively probable expression-change
 patterns over subtypes have a big impact on the final posterior inference.   Even resolving this
-bottleneck there are advantages to having $K$ small compared to $n$.  Numerical experiments
+bottleneck there are advantages to having $K$ small compared to $n$.  Numerical experiments (see Supplement)
 show increased false discoveries when $K$ is over-estimated.  But even accurate estimation with large $K$ would
 not be expected to provide much improved power, since that depends on accurate estimation of subtypes and their
 frequencies which relies on $K$ being relatively small compared to $n$.
@@ -1008,7 +1027,7 @@ frequencies which relies on $K$ being relatively small compared to $n$.
  DE methods; we compare to MAST, SCDD, DESEQ2, and D3E...maybe say something, since a referee for sure will
  want us to compare to his/her method}
  
-{\em Since we are applying DE methods through many datasets. We select those computationally efficient methods and did not exhaust all DE methods.}
+{\em Since we are applying DE methods through many datasets. We select those computationally efficient methods (and those that are widely used) and did not exhaust all DE methods.}
 
 %\bibliographystyle{IEEEtran}
 %\bibliographystyle {plainnat}

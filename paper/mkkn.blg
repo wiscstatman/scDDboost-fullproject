@@ -1,6 +1,6 @@
-This is BibTeX, Version 0.99d (TeX Live 2018)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
-The top-level auxiliary file: mkn.aux
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: mkkn.aux
 The style file: imsart-nameyear.bst
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
@@ -16,6 +16,7 @@ Warning--string name "aug" is undefined
 --line 617 of file ./references/wlr_ref.bib
 Warning--string name "mar" is undefined
 --line 662 of file ./references/wlr_ref.bib
+Warning--I didn't find a database entry for "ref:oscope"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -23,7 +24,7 @@ Warning--empty booktitle in Little2017PathBasedSC
 Warning--empty booktitle in selK
 You've used 48 entries,
             5204 wiz_defined-function locations,
-            1280 strings with 20103 characters,
+            1281 strings with 20115 characters,
 and the built_in function-call counts, 367629 in all, are:
 = -- 56926
 > -- 1179
@@ -62,4 +63,4 @@ warning$ -- 2
 while$ -- 660
 width$ -- 0
 write$ -- 1141
-(There were 4 warnings)
+(There were 5 warnings)
