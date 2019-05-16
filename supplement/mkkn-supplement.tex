@@ -176,10 +176,10 @@ From \texttt{EBSeq}, we assumed a prior distribution on $q_g^I : q_g^I | \alpha,
 
 We force the size factor to be 1 for all cells and use the same procedure from \texttt{EBSeq} to estimate number of failure parameter $\sigma_g$. Namely, we have\\
 1. gene-level sample mean $m_g = \frac{1}{n}\sum_{s = 1}^n X_{g,s}$, where $n = n_1 + n_2$ is the total number of cells \\
-2. averaged sample variance within subtype $v_g = \frac{1}{K} \sum_{I = 1}^K v_g^I$.\\
-3.$v_g^I$ is the unadjusted sample variance within subtype $I$, i.e. $v_g^I = \frac{1}{n^I}\sum_{s, z_s = I} (X_{g,s} - m_g^I)^2$ with $m_g^I$ is the sample mean within subtype $I$ and $n^I$ is the number of cells within subtype $I$.\\
-We estimate pooled over-dispersion rate by $o_g = \frac{v_g}{m_g}$ and obtain $\sigma_g = m_g \frac{o_g}{1 - o_g}$ by the formula of mean of NB\\
-What we are interested at those $K$ groups comparison is the expression pattern, 
+2. average of sample variances over subtypes $v_g = \frac{1}{K} \sum_{I = 1}^K v_g^I$.\\
+3. $v_g^I$ is the unadjusted sample variance for subtype $I$, i.e. $v_g^I = \frac{1}{n^I}\sum_{s, z_s = I} (X_{g,s} - m_g^I)^2$ with $m_g^I$ is the sample mean within subtype $I$ and $n^I$ is the number of cells within subtype $I$.\\
+We estimate pooled over-dispersion rate by $o_g = \frac{v_g}{m_g}$ and obtain $\sigma_g = m_g \frac{o_g}{1 - o_g}$ from the first moment of NB\\
+Our target is to quantify the expression pattern between $K$ groups, 
 
 \begin{eqnarray*}
 M_{g,\pi} = \{ \theta \in \Theta: \; \mu_{g,k} = \mu_{g,k'} \iff k,k' \in b, b \in \pi \}.
@@ -197,7 +197,7 @@ For example $K = 3$, there are 5 expression pattern, $P_1, P_2, ..., P_5$, Compa
 &P5: q_g^1 \neq q_g^2 \neq q_g^3 \text{ and } q_g^1 \neq q_g^3
 \end{align*}
 
-Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can pool the counts from the two groups by viewing them come from same distribution i.e. $X_g^{I, J} | \sigma_{g}, q_g \sim NB(\sigma_{g}, q_g)$, $q_g | \alpha, \beta^{g} \sim \text{Beta}(\alpha, \beta^{g})$ and obtained the prior predictive function $f(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g}, q_g) * P(q_g | \alpha, \beta^{g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + \sigma_{g} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S \sigma_{g}, \beta^{g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{g})}$.  Consequently, we have prior predictive function for $P1, ..., P5$ as
+Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can pool the counts from the two groups by viewing them sampled from same distribution i.e. $X_g^{I, J} | \sigma_{g}, q_g \sim NB(\sigma_{g}, q_g)$, $q_g | \alpha, \beta^{g} \sim \text{Beta}(\alpha, \beta^{g})$ and obtained the prior predictive function $f(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g}, q_g) * P(q_g | \alpha, \beta^{g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + \sigma_{g} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S \sigma_{g}, \beta^{g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{g})}$.  Consequently, we have prior predictive function for $P1, ..., P5$ as
 
 
 \begin{align*}
@@ -216,12 +216,14 @@ where the marginal $p_k = P(M_{g,\pi} | z)$(shared by all genome). Thus, the pos
 \end{eqnarray*}
 
 
-In the optimization steps for determining the hyper parameters $(\alpha, \beta^g, p)$, the computation and memory increase exponentially with the number of subtypes $K$. We use one-step EM as an approximation for the solution, that is $\alpha$ and $\beta^g$ are updated through gradient ascent. $p$ is updated by the explicit form of the maximizer of the log likelihood.
+In the optimization steps for determining the hyper parameters $(\alpha, \beta^g, p)$, the computation and memory increase exponentially with the number of subtypes $K$. 
+We use one-step EM as an approximation for the solution, $\alpha$ and $\beta^g$ are updated through gradient ascent 
+while $p$ is updated by the explicit form of the maximizer of the log likelihood.
 
 
 \subsubsection{modalClust}
 
-In this section, we review the procedure of modal-clustering and proof the compatibility of our Poisson-Gamma model.
+In this section, we review the procedure of modal-clustering and proof the compatibility of density kernel from Poisson-Gamma model.
 
 \noindent
 {\bf Product Partition Model}
@@ -237,24 +239,21 @@ Any other parameters that may have been involved in the model have been integrat
 The prior distribution for a partition $\pi$ is also taken as a product form. We use the MAP partition(maximize the posterior $p(\pi | X) \propto p(X|\pi) p(\pi)$) as the estimated clustering.
 
 Dahl demonstrated by some choice of $f$ and prior of $\pi$, we can reduce the time complexity of finding the MAP partition from factorial($n$) to $O(n^2)$ \citep{ref:dahl},
-And the crucial condition for $f$ is that if $X_{S_1}$ and $X_{S_2}$ are overlapped in the sense that  min$\{X_{S_2}\}  <$ max$\{X_{S_1}\}  <$ max$\{X_{S_2}\}$ or min$\{X_{S_1}\}  <$ max$\{X_{S_2}\}  <$ max$\{X_{S_1}\}$, 
-let $X_{S_1^*} \text{ and } X_{S_2^*}$ be the sets of swapping one pair of those overlapped terms and keep the other unchanged. Then $f(X_{S_1}) f(X_{S_2}) \leq f(X_{S_1^*}) f(X_{S_2^*})$. Under such condition, we know that possible MAP candidates must be those partition $\pi$s that for any two blocks $b_1, b_2 \in \pi$, either $\underset{i \in b_1}{\text{max}}(X_i) \leq \underset{j\in b_2}{\text{min}}(X_j)$ or $\underset{i \in b_1}{\text{min}}(X_i) \geq \underset{j\in b_2}{\text{max}}(X_j)$.
-
-In Poisson-Gamma Model we assuming:
-
+And the crucial condition for $f$ is the \textbf{non-overlapping} condition:
+if $X_{S_1}$ and $X_{S_2}$ are overlapped in the sense that  min$\{X_{S_2}\}  <$ max$\{X_{S_1}\}  <$ max$\{X_{S_2}\}$ or min$\{X_{S_1}\}  <$ max$\{X_{S_2}\}  <$ max$\{X_{S_1}\}$, 
+let $X_{S_1^*} \text{ and } X_{S_2^*}$ be the sets of swapping one pair of those overlapped terms and keep the other unchanged. Then $f(X_{S_1}) f(X_{S_2}) \leq f(X_{S_1^*}) f(X_{S_2^*})$. 
+Under the \textbf{non-overlapping} condition of density kernel $f$, we know that a partition $\pi$ in order to be MAP must satisfy that for any two blocks $b_1, b_2 \in \pi$, either $\underset{i \in b_1}{\text{max}}(X_i) \leq \underset{j\in b_2}{\text{min}}(X_j)$ or $\underset{i \in b_1}{\text{min}}(X_i) \geq \underset{j\in b_2}{\text{max}}(X_j)$. Thus we reduce the solution space and reduce the time complexity.\\
+In Poisson-Gamma Model we assuming:\\
 \begin{align*}
 X_i | \pi, \lambda &\sim Poisson(X_i | \lambda_1\textbf{I}\{i\in S_1\} + ... + \lambda_q\textbf{I}\{i \in S_q\})\\
 \pi &\sim p(\pi)\\
 \lambda_j &\sim Gamma(\alpha_0, \beta_0)
 \end{align*}
-
 where $p(\pi)\propto \overset{q}{\underset{i = 1}{\prod}}\eta_0\Gamma(|S_i|)$. Integrate out $\lambda$, $f(X_{S})$ is obtained as:
-
 \begin{eqnarray*}
 f(X_{S}) = \frac{\beta^\alpha}{(|S| + \beta)^{\underset{i \in S}{\Sigma} X_i + \alpha}} \frac{\Gamma(\underset{i \in S}{\Sigma} X_i  + \alpha)}{\Gamma(\alpha)} \frac{1}{\underset{i \in S}{\prod }X_i}
 \end{eqnarray*}
-
-To apply modal-cluster on Poisson-Gamma model, we need to show $f(X_S)$ still satisfying the condition mentioned before.
+To apply modal-cluster on Poisson-Gamma model, we need to show kernel $f(X_S)$ satisfying the \textbf{non-overlapping} condition.
 
 
 
@@ -311,23 +310,32 @@ Similar proof for the case $h_1 > h_2$.
 \subsubsection{Randomized $K-$means}
 %We dividing component-wisely a weighting matrix $W$ from input distance $D$ matrix.  Components from $W$ is generated by adding two gamma distributed random variables, i.e.  $w_{i,j} = e_i + e_j$. $e_1,...,e_n$ is i.i.d. Gamma$(a,a)$ distributed, where $n$ is number of cells or number of columns of $D$. We further assuming the true distance between cells $\Delta_{i,j}$ is inverse gamma distributed, i.e. $ 1 / \Delta_{i,j} \sim \text{Gamma}(a_0,d_0)$ and our observed distance $d_{i,j} | \Delta_{i,j} \sim \text{Gamma}(a_1, a_1 / \Delta_{i,j})$. As we would have the consistency of the mean $Ed_{i,j} = \Delta_{i,j}$. Through a simple bayesian argument and  for simplicity we ignore any issues about the $d$'s or $\Delta$'s being true distances. The posterior, by conjugacy, has $1 / \Delta_{i,j} | d_{i,j} \sim$ Gamma($a_0 + a_1, d_0 + a_1d_{i,j}$). Then the posterior probability that $i$ and $j$ should be clustered is the posterior probability that $\Delta_{i,j} < c$, which is $P($Gamma($(a_0 + a_1),(a_0 + a_1)) > (d_0 + a_1 * d_{i,j}) / (a_0 + a_1) * 1/c )$. In order to match the posterior probability that elements $i$ and $j$ belongs to the same cluster through the simple bayesian analysis to random weighting, we need $d_0$ to be small and $a = a_0 + a_1$. 
 
-In this section, we illustrate how we estimated parameters for random weighing and demonstrate variability, accuracy and approximation to fully bayesian scheme of generated clustering. 
+In this section, we illustrate how we estimate parameters for distribution of weights and demonstrate variability of generated clustering on empirical data. 
+We also investigated accuracy of random weighting and how it approaches the fully bayesian scheme in simulation.
 
 To find the value of $a_0, a_1$ and $d_0$, we have the marginal likelihood of $d_{i,j}$. 
 $$P(d_{i,j} | a_0, a_1, d_0) = \frac{\Gamma(a_0 + a_1)}{\Gamma(a_0)\Gamma(a_1)} \frac{d_0^{a_0} d_{i,j}^{a_1 - 1}a_1^{a_1}}{(d_0 + a_1 * d_{i,j})^{a_0 + a_1}}$$
 We estimate $d_0$ by treating $d_{i,j} \approx \Delta_{i,j}$ and based on the mean-variance ratio ($\frac{\text{E}(1/\Delta_{i,j})}{\text{Var}(1/\Delta_{i,j})} = d_0$), $d_0$ can be approximately estimated by moments of $1 / d_{i,j}$,
 then we obtain $a_0, a_1$ from MLE of marginal density of $d_{i,j}$. 
-The MLE estimators are obtained through "nlminb" function in r, one issue is that the default value for tolerance rate of stopping is 1e-10, which yields large value of $a_1 + a_0$ and resulting in non-randomness of our weighting matrix. We set tolerance rate as 1e-3. And obtained moderate deviation from $D$ (supplementary Figure \ref{fig:ARI})
+The MLE estimators are obtained through "nlminb" function in r, one issue is that the default value for tolerance rate of stopping is 1e-10, which yields large value of $a_1 + a_0$ and resulting in non-randomness of our weighting matrix. We set tolerance rate as 1e-3 and obtained moderate deviation from $D$ (supplementary Figure \ref{fig:ARI})
  
 \begin{figure}[h!]
 \includegraphics[scale = 0.7]{Figs/ARI.pdf}
- \caption{Adjusted rand indexes to the clustering based on the original distance matrix without dividing weights. We investigate the randomness of clustering given by our weights through 8 datasets. All have stopping threshold for nlminb optimizing function in r with relative tolerance as 0.001}
+ \caption{
+ Adjusted rand indexes of randomly generated clustering to the one generated by the original distance matrix. 
+ We investigate the variation of clustering given by random weighting through 8 datasets 
+ and each dataset we are using 100 random distances.
+}
   \label{fig:ARI}
 \end{figure}
 
 We plot the ARI(adjusted random index) between the randomly generated clustering to clustering under the original distance across eight datasets. Though the mean varies, the interquartile range is wide enough presenting a reasonable variation of our random weighting scheme.
 
-We also check validity of random weighting on simulated dataset. We random generate one-dimensional data $X$ from a mixture of 5 normal distributions with different means and same variance. We compare clustering results between random weighting and bayesian clustering with Dirichlet process prior in terms of posterior probabilities that two elements belong to the same class given the whole data. We also compare accuracy of the two procedures by looking at the ARI comparing to true class label (supplementary Figure \ref{fig:simu}).  We found that random weighting scheme tends to give better results than classical bayesian clustering.
+We also check validity of random weighting on simulated dataset. 
+We simulate one-dimensional data $X$ from a mixture of 5 normal distributions with different means and same variance ($\mu = (-3,-1,0,1,5), \sigma = 1$). 
+We compare clustering results between random weighting and bayesian clustering using Dirichlet process as prior in terms of posterior probabilities that two elements belong to the same class given the whole data. 
+We also compare accuracy of the two procedures by looking at the ARI comparing to true class label (supplementary Figure \ref{fig:simu}).  
+We found that random weighting scheme tends to give better results than classical bayesian clustering.
 
 \begin{figure}[h!]
 \includegraphics[scale = 1]{Figs/try7-g.pdf}
@@ -344,9 +352,14 @@ In this section, we gave the criterion to select $K$.
 In order to determine the number of clusters and inspired by \verb validity defined in \cite{selK},
 We consider a modified \verb validity = $\frac{\textbf{intra}}{\textbf{inter}}$.
 where $\textbf{intra} = \frac{1}{N}\overset{K}{\underset{i = 1}{\Sigma}}\underset{x \in C_i}{\Sigma} ||x - z_i||^2$, 
-$\textbf{inter} = mean( || z_i - z_j||^2), i,j = 1,2,...K$ and $z_i$ is the center(medoids) of cluster $i$. $\textbf{intra}$ is the average of distance of a point to its corresponding cluster center, which measures the compactness of clusters. We made a small change here, in original paper $\textbf{inter}$ was defined as minimum distance between medoids, we use average instead for the purpose of getting a smoother quantity. $\textbf{inter}$ is the average distance of two cluster centers, which measures the separation between clusters. We want to have a small intra-cluster distance and a big inter-cluster distance, consequently we want to minimize the \verb validity.
-From empirical study, we constantly observe a monotone decreasing relation between number of clusters and \verb validity. However this quantity stabilize when $K$ is sufficiently large. The stopping rule for searching $K$ is when $\texttt{validity}_{K}  < \epsilon$ is satisfied. We set the default value of  $\epsilon$ to be 1.  As we found DD analysis results to be most consistent with other scRNA method.
-
+$\textbf{inter} = mean( || z_i - z_j||^2), i,j = 1,2,...K$ and $z_i$ is the center(medoids) of cluster $i$. 
+$\textbf{intra}$ is the average of distance of a point to its corresponding cluster center, which measures the compactness of clusters. 
+$\textbf{inter}$ is the average distance of two cluster centers, which measures the separation between clusters.
+Here, we made a small change, in original paper $\textbf{inter}$ was defined as minimum distance between medoids, 
+we use average for the purpose of getting a smoother quantity. 
+We want to have a small intra-cluster distance and a big inter-cluster distance, consequently we want to minimize the \verb validity.
+From empirical study, we constantly observe a monotone decreasing relation between number of clusters and \verb validity. 
+However this quantity stabilize when $K$ is sufficiently large. The stopping rule for searching $K$ is when $\texttt{validity}_{K}  < \epsilon$ is satisfied. We set the default value of  $\epsilon$ to be 1.  As we found DD analysis results to be most consistent with other scRNA method.
 
 
 
@@ -497,7 +510,7 @@ We have the $C_\pi =  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
 
 \subsection{Synthetic Data}
 In this section, we use pca plots to show the subtle changes underlying each subtypes of simulated data and 
-we demonstrate consistency of distributional changes based on \texttt{scDDboost} and Wasserstein distance between the empirical distribution of transcripts.
+we demonstrate consistency of estimated distributional changes based on \texttt{scDDboost} and Wasserstein distance.
 Finally, roc curve illustrates that \textt{scDDboost} having a good operating characteristic. 
 
 
