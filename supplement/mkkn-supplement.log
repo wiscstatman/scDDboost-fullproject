@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  15 MAY 2019 20:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  15 MAY 2019 20:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1253,7 +1253,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 <Figs/ARI.pdf, id=109, 505.89pt x 505.89pt>
 File: Figs/ARI.pdf Graphic file (type pdf)
 <use Figs/ARI.pdf>
-Package pdftex.def Info: Figs/ARI.pdf  used on input line 322.
+Package pdftex.def Info: Figs/ARI.pdf  used on input line 323.
 (pdftex.def)             Requested size: 354.12057pt x 354.12057pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1262,7 +1262,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <Figs/try7-g.pdf, id=115, 505.89pt x 505.89pt>
 File: Figs/try7-g.pdf Graphic file (type pdf)
 <use Figs/try7-g.pdf>
-Package pdftex.def Info: Figs/try7-g.pdf  used on input line 340.
+Package pdftex.def Info: Figs/try7-g.pdf  used on input line 341.
 (pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
 
 
@@ -1270,22 +1270,12 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 349.
+(hyperref)                removing `math shift' on input line 350.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 349.
+(hyperref)                removing `math shift' on input line 350.
 
-
-./mkkn-supplement.tex:359: LaTeX Error: \verb ended by end of line.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.359 ...y we want to minimize the \verb validity.
-                                                  
-? 
 
 ./mkkn-supplement.tex:360: LaTeX Error: \verb ended by end of line.
 
@@ -1293,7 +1283,17 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.360 ...en number of clusters and \verb validity.
+l.360 ...y we want to minimize the \verb validity.
+                                                  
+? 
+
+./mkkn-supplement.tex:361: LaTeX Error: \verb ended by end of line.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.361 ...en number of clusters and \verb validity.
                                                   
 ? 
 [6 <./Figs/ARI.pdf>] [7 <./Figs/try7-g.pdf>] [8]
@@ -1615,7 +1615,7 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkkn-supplement.pdf (21 pages, 973506 bytes).
+Output written on mkkn-supplement.pdf (21 pages, 973544 bytes).
 PDF statistics:
  442 PDF objects out of 1000 (max. 8388607)
  371 compressed objects within 4 object streams
