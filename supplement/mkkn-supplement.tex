@@ -333,7 +333,11 @@ The MLE estimators are obtained through "nlminb" function in r, one issue is tha
 
 We plot the ARI(adjusted random index) between the randomly generated clustering to clustering under the original distance across eight datasets. Though the mean varies, the interquartile range is wide enough presenting a reasonable variation of our random weighting scheme.
 
-We also check validity of random weighting on simulated dataset. We random generate one-dimensional data $X$ from a mixture of 5 normal distributions with different means and same variance. We compare clustering results between random weighting and bayesian clustering with Dirichlet process prior in terms of posterior probabilities that two elements belong to the same class given the whole data. We also compare accuracy of the two procedures by looking at the ARI comparing to true class label (supplementary Figure \ref{fig:simu}).  We found that random weighting scheme tends to give better results than classical bayesian clustering.
+We also check validity of random weighting on simulated dataset. 
+We simulate one-dimensional data $X$ from a mixture of 5 normal distributions with different means and same variance ($\mu = (-3,-1,0,1,5), \sigma = 1$). 
+We compare clustering results between random weighting and bayesian clustering using Dirichlet process as prior in terms of posterior probabilities that two elements belong to the same class given the whole data. 
+We also compare accuracy of the two procedures by looking at the ARI comparing to true class label (supplementary Figure \ref{fig:simu}).  
+We found that random weighting scheme tends to give better results than classical bayesian clustering.
 
 \begin{figure}[h!]
 \includegraphics[scale = 1]{Figs/try7-g.pdf}
