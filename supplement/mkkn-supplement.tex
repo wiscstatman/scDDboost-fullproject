@@ -667,8 +667,8 @@ In this section, we demonstrate change of PDD under different $K$ and the robust
 the number of subtypes $K$ is a crucial parameter controlling the accuracy of our modeling. 
 Too small $K$ may end up underfitting such that cells within same subtype can still be very different.
 If the mean expression change among subtypes is incapable to capture the distribution change for some genes, the power of \textsc{scDDboost} will be reduced.
-Too big $K$ may end up overfitting such that two subtypes can be very similar. Given that we have a fixed number of samples (cells), allowing more clusters will introduce a lot of patterns (both for mean expression change and proportion change) to infer. 
-The increase of time and memory cost make the computation infeasible. \\
+Too big $K$ may end up overfitting such that two subtypes can be very similar. Given that we have a fixed number of samples (cells), allowing more clusters will not only increase the burden of computation 
+but decrease the accuracy of our inference. \\
 
 From our empirical experience, 
 it is sufficient to capture the heterogeneity underlying cells with number of clusters less than 10 ($K$ in Supplementary Table\ref{table:1}).  
