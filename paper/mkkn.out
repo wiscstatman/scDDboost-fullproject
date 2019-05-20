@@ -4,12 +4,13 @@
 \BOOKMARK [2][-]{subsection.2.2}{Method structure and clustering}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.3}{P\(A|y,z\)}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.4}{P\(Mg,|X,z\)}{section.2}% 6
-\BOOKMARK [1][-]{section.3}{Numerical experiments}{}% 7
-\BOOKMARK [2][-]{subsection.3.1}{Synthetic data}{section.3}% 8
-\BOOKMARK [2][-]{subsection.3.2}{Empirical study}{section.3}% 9
-\BOOKMARK [2][-]{subsection.3.3}{Bursting}{section.3}% 10
-\BOOKMARK [1][-]{section.4}{Asymptotics of the Double Dirichlet Mixture}{}% 11
-\BOOKMARK [1][-]{section.5}{Concluding remarks}{}% 12
-\BOOKMARK [1][-]{section*.11}{References}{}% 13
-\BOOKMARK [1][-]{section*.13}{Appendix}{}% 14
-\BOOKMARK [1][-]{section*.20}{Author's addresses}{}% 15
+\BOOKMARK [1][-]{section*.10}{Numerical experiments}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Synthetic data}{section*.10}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Empirical study}{section*.10}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Bursting}{section*.10}% 10
+\BOOKMARK [2][-]{subsection.3.4}{Time Complexity}{section*.10}% 11
+\BOOKMARK [1][-]{section*.21}{Asymptotics of the Double Dirichlet Mixture}{}% 12
+\BOOKMARK [1][-]{section.5}{Concluding remarks}{}% 13
+\BOOKMARK [1][-]{section*.24}{References}{}% 14
+\BOOKMARK [1][-]{section*.26}{Appendix}{}% 15
+\BOOKMARK [1][-]{section*.33}{Author's addresses}{}% 16

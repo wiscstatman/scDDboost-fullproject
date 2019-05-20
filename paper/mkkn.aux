@@ -22,12 +22,9 @@
 \citation{cancer}
 \citation{scs}
 \citation{Bacher2016}
-\citation{sc3}
-\citation{CIDR}
-\citation{ZIFA}
 \gdef\hy@title{A compositional model to assess expression changes from single-cell RNA-seq data}
 \thanksnewlabel{e1@email}{{ma79@wisc.edu}{1}}
-\thanksnewlabel{e2@email}{{second@somewhere.com}{1}}
+\thanksnewlabel{e2@email}{{keegan@jimmy.harvard.edu}{1}}
 \thanksnewlabel{e2@email}{{kendzior@biostat.wisc.edu}{1}}
 \thanksnewlabel{e3@email}{{newton@stat.wisc.edu}{1}}
 \thanksnewlabel{u1@fullurl}{{http://www.foo.com}{1}}
@@ -37,23 +34,45 @@
 \thanksnewlabel{t2thanks}{{\TextOrMath  {\textdagger }{\dagger }}{1}}
 \thanksnewlabel{k1thanks}{{\TextOrMath  {\textdaggerdbl }{\ddagger }}{1}}
 \thanksnewlabel{k1thanks}{{\TextOrMath  {\textdaggerdbl }{\ddagger }}{1}}
+\thanksnewlabel{k2thanks}{{\TextOrMath  {\textsection }{\mathsection }}{1}}
+\thanksnewlabel{k2thanks}{{\TextOrMath  {\textsection }{\mathsection }}{1}}
 \gdef\hy@author{Xiuyu Ma, Keegan Korthauer, Christina Kendziorski and Michael Newton  }
 \gdef\hy@subject{Submitted to the Annals of Applied Statistics }
 \gdef\hy@keywords{}
 \gdef\author@num{4}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}}
+\citation{sc3}
+\citation{CIDR}
+\citation{ZIFA}
 \citation{ref:MAST}
 \citation{ref:scDD}
 \citation{ref:d3e}
-\citation{ref:Leng}
+\citation{ref:oscope}
 \citation{ref:Leng}
 \citation{BIRC5,HMMR,RAD21}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ which standard statistical tools?}{3}{section*.1}}
+\pgfsyspdfmark {pgfid1}{28612590}{34920007}
+\pgfsyspdfmark {pgfid4}{34440478}{34915882}
+\pgfsyspdfmark {pgfid5}{36357406}{34667585}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ From the heatmap, these genes look to be srikingly bimodal. But I don't get that sense from the violin plots. Are the same transformations, treatment of dropouts used for both panels? Perhaps it would help to see the color scale legend for the heatmap?}{3}{section*.2}}
+\pgfsyspdfmark {pgfid6}{19288024}{30463557}
+\pgfsyspdfmark {pgfid9}{34440478}{30459432}
+\pgfsyspdfmark {pgfid10}{36357406}{30211135}
 \citation{ref:Zappia}
 \citation{ref:Cq}
 \citation{ref:d3e}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Genes involved in cell-cycle that are identified by scDDboost, but not standard approaches, as differentially distributed between cell-cycle phases G1 and G2/M in human embryonic stem cells. Density estimates on the left show expression data (log2 scale) of three genes identified by scDDboost at 5\% FDR, but not similarly identified by other approaches. Prior studies have shown that the expression of BIRC5, CKAP2, and HMMR is dependent on the phase of cell-cycle, suggesting that these subtle shifts are not false positives. Heatmap (right) shows these three genes among 137 other cell-cycle genes (GO:0007049).  \relax }}{4}{figure.caption.1}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:whet}{{1}{4}{Genes involved in cell-cycle that are identified by scDDboost, but not standard approaches, as differentially distributed between cell-cycle phases G1 and G2/M in human embryonic stem cells. Density estimates on the left show expression data (log2 scale) of three genes identified by scDDboost at 5\% FDR, but not similarly identified by other approaches. Prior studies have shown that the expression of BIRC5, CKAP2, and HMMR is dependent on the phase of cell-cycle, suggesting that these subtle shifts are not false positives. Heatmap (right) shows these three genes among 137 other cell-cycle genes (GO:0007049).  \relax }{figure.caption.1}{}}
+\newlabel{fig:whet}{{1}{4}{Introduction}{figure.caption.3}{}}
+\newlabel{fig:whet}{{1}{4}{Introduction}{figure.caption.3}{}}
+\newlabel{fig:whet}{{1}{4}{Introduction}{figure.caption.3}{}}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ Fig 1(left): Where are the dropouts? Was a pseudocount used?}{4}{section*.4}}
+\pgfsyspdfmark {pgfid11}{9061662}{14308249}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ Fig 1(right): Missing legend for color scale}{4}{section*.5}}
+\pgfsyspdfmark {pgfid16}{9061662}{14308249}
+\pgfsyspdfmark {pgfid14}{34440478}{14304124}
+\pgfsyspdfmark {pgfid15}{36357406}{14055827}
+\pgfsyspdfmark {pgfid19}{34440478}{5762476}
+\pgfsyspdfmark {pgfid20}{36357406}{5514179}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Modeling}{5}{section.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Data structure, sampling model, and parameters}{5}{subsection.2.1}}
 \newlabel{eq:counts}{{1}{5}{Data structure, sampling model, and parameters}{equation.2.1}{}}
@@ -64,16 +83,16 @@
 \citation{ref:MAST}
 \citation{McDavid:2014aa}
 \citation{Huang:2018aa}
-\newlabel{eq:asets}{{3}{7}{Data structure, sampling model, and parameters}{equation.2.3}{}}
-\newlabel{eq:msets}{{4}{7}{Data structure, sampling model, and parameters}{equation.2.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Proportions of $K=7$ cellular subtypes in different conditions. Aggregated proportions of subtypes 3 and 4, subtypes 2, 5, and 6, and subtypes 1, and 7 remain same across conditions, while individual subtype frequencies change. Depending on the changes in average expression among subtypes, these frequency changes may or may not induce changes between two conditions in the marginal distribution of some gene's expression. \relax }}{8}{figure.caption.6}}
+\newlabel{fig:scheme}{{2}{8}{Proportions of $K=7$ cellular subtypes in different conditions. Aggregated proportions of subtypes 3 and 4, subtypes 2, 5, and 6, and subtypes 1, and 7 remain same across conditions, while individual subtype frequencies change. Depending on the changes in average expression among subtypes, these frequency changes may or may not induce changes between two conditions in the marginal distribution of some gene's expression. \relax }{figure.caption.6}{}}
+\newlabel{eq:asets}{{3}{8}{Data structure, sampling model, and parameters}{equation.2.3}{}}
+\newlabel{eq:msets}{{4}{8}{Data structure, sampling model, and parameters}{equation.2.4}{}}
 \citation{Efron:2007aa}
 \citation{Muralidharan:2010aa}
 \citation{Newton:2004aa}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Proportions of $K=7$ cellular subtypes in different conditions. Aggregated proportions of subtypes 3 and 4, subtypes 2, 5, and 6, and subtypes 1, and 7 remain same across conditions, while individual subtype frequencies change. Depending on the changes in average expression among subtypes, these frequency changes may or may not induce changes between two conditions in the marginal distribution of some gene's expression. \relax }}{8}{figure.caption.2}}
-\newlabel{fig:scheme}{{2}{8}{Proportions of $K=7$ cellular subtypes in different conditions. Aggregated proportions of subtypes 3 and 4, subtypes 2, 5, and 6, and subtypes 1, and 7 remain same across conditions, while individual subtype frequencies change. Depending on the changes in average expression among subtypes, these frequency changes may or may not induce changes between two conditions in the marginal distribution of some gene's expression. \relax }{figure.caption.2}{}}
-\newlabel{eq:lfdr}{{5}{8}{Data structure, sampling model, and parameters}{equation.2.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Directed acyclic graph structure of compositional model and partition-reliant prior. The plate on the right side indicates i.i.d. copies over cells $c$, conditionally on mixing proportions and mixing components. Observed data are indicated in rectangles/squares, and unobserved variables are in circles/ovals. \relax }}{9}{figure.caption.3}}
-\newlabel{fig:dag}{{3}{9}{Directed acyclic graph structure of compositional model and partition-reliant prior. The plate on the right side indicates i.i.d. copies over cells $c$, conditionally on mixing proportions and mixing components. Observed data are indicated in rectangles/squares, and unobserved variables are in circles/ovals. \relax }{figure.caption.3}{}}
+\newlabel{eq:lfdr}{{5}{9}{Data structure, sampling model, and parameters}{equation.2.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Directed acyclic graph structure of compositional model and partition-reliant prior. The plate on the right side indicates i.i.d. copies over cells $c$, conditionally on mixing proportions and mixing components. Observed data are indicated in rectangles/squares, and unobserved variables are in circles/ovals. \relax }}{9}{figure.caption.7}}
+\newlabel{fig:dag}{{3}{9}{Directed acyclic graph structure of compositional model and partition-reliant prior. The plate on the right side indicates i.i.d. copies over cells $c$, conditionally on mixing proportions and mixing components. Observed data are indicated in rectangles/squares, and unobserved variables are in circles/ovals. \relax }{figure.caption.7}{}}
 \citation{sc3}
 \citation{CIDR}
 \citation{ZIFA}
@@ -83,48 +102,81 @@
 \citation{ref:dahl}
 \citation{Cor}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Method structure and clustering}{10}{subsection.2.2}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces \textsc  {scDDBoost-core}\relax }}{10}{algorithm.1}}
-\newlabel{alg:scDDcore}{{1}{10}{\textsc {scDDBoost-core}\relax }{algorithm.1}{}}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ How are these methods related to the K-mediods construction used?}{10}{section*.8}}
+\pgfsyspdfmark {pgfid21}{15036465}{27003255}
+\pgfsyspdfmark {pgfid24}{34440478}{26999130}
+\pgfsyspdfmark {pgfid25}{36357406}{26750833}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ is K-mediods used over SC3/CIDR/ZIFA because it's easier to carry out randomized clusterings? Or why?}{10}{section*.9}}
+\pgfsyspdfmark {pgfid26}{17007500}{10651061}
+\pgfsyspdfmark {pgfid29}{34440478}{10646936}
+\pgfsyspdfmark {pgfid30}{36357406}{10398639}
 \citation{selK}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}$P(A_\pi |y,z)$}{11}{subsection.2.3}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces \textsc  {scDDBoost-core}\relax }}{11}{algorithm.1}}
+\newlabel{alg:scDDcore}{{1}{11}{\textsc {scDDBoost-core}\relax }{algorithm.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}$P(A_\pi |y,z)$}{12}{subsection.2.3}}
 \newlabel{eq:ddmix}{{6}{12}{$P(A_\pi |y,z)$}{equation.2.6}{}}
 \newlabel{eq:onetoone}{{7}{12}{$P(A_\pi |y,z)$}{equation.2.7}{}}
-\newlabel{eq:doubledir}{{8}{12}{$P(A_\pi |y,z)$}{equation.2.8}{}}
+\newlabel{eq:doubledir}{{8}{13}{$P(A_\pi |y,z)$}{equation.2.8}{}}
 \citation{Wag}
+\newlabel{eq:postmix}{{9}{14}{}{equation.2.9}{}}
 \citation{ref:Leng}
 \citation{Kendziorski:2003aa}
 \citation{Jensen:2009aa}
 \citation{ref:Leng}
-\newlabel{eq:postmix}{{9}{14}{}{equation.2.9}{}}
-\newlabel{eq:mainfinding}{{10}{14}{$P(A_\pi |y,z)$}{equation.2.10}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}$P(M_{g,\pi }|X,z)$}{14}{subsection.2.4}}
-\newlabel{eq:ebseq}{{11}{14}{$P(M_{g,\pi }|X,z)$}{equation.2.11}{}}
 \citation{ref:Zappia}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Numerical experiments}{15}{section.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Synthetic data}{15}{subsection.3.1}}
+\newlabel{eq:mainfinding}{{10}{15}{$P(A_\pi |y,z)$}{equation.2.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}$P(M_{g,\pi }|X,z)$}{15}{subsection.2.4}}
+\newlabel{eq:ebseq}{{11}{15}{$P(M_{g,\pi }|X,z)$}{equation.2.11}{}}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ What I don't get a sense from the sims is how it scales with n}{15}{section*.10}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Numerical experiments}{15}{section*.10}}
+\pgfsyspdfmark {pgfid31}{18525784}{10759506}
+\pgfsyspdfmark {pgfid34}{34440478}{10755381}
+\pgfsyspdfmark {pgfid35}{36357406}{10507084}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Synthetic data}{16}{subsection.3.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces True positive rate (vertical) of four DD detection methods in 12 synthetic-data settings (horizontal). Settings are labeled for $K / \theta / \gamma $ and ranked by scDDboost values. Each method is targeting a 5\% false discovery rate (FDR). The plot shows average rates over replicate simulated data in each setting. \relax }}{16}{figure.caption.11}}
+\newlabel{fig:sim1}{{4}{16}{True positive rate (vertical) of four DD detection methods in 12 synthetic-data settings (horizontal). Settings are labeled for $K / \theta / \gamma $ and ranked by scDDboost values. Each method is targeting a 5\% false discovery rate (FDR). The plot shows average rates over replicate simulated data in each setting. \relax }{figure.caption.11}{}}
 \citation{ref:Cq}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces True positive rate (vertical) of four DD detection methods in 12 synthetic-data settings (horizontal). Settings are labeled for $K / \theta / \gamma $ and ranked by scDDboost values. Each method is targeting a 5\% false discovery rate (FDR). The plot shows average rates over replicate simulated data in each setting. \relax }}{16}{figure.caption.4}}
-\newlabel{fig:sim1}{{4}{16}{True positive rate (vertical) of four DD detection methods in 12 synthetic-data settings (horizontal). Settings are labeled for $K / \theta / \gamma $ and ranked by scDDboost values. Each method is targeting a 5\% false discovery rate (FDR). The plot shows average rates over replicate simulated data in each setting. \relax }{figure.caption.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces False discovery rate (vertical) of methods in settings (horizontal) from Figure\nobreakspace  {}\ref  {fig:sim1} \relax }}{16}{figure.caption.5}}
-\newlabel{fig:sim2}{{5}{16}{False discovery rate (vertical) of methods in settings (horizontal) from Figure~\ref {fig:sim1} \relax }{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces False discovery rate (vertical) of methods in settings (horizontal, same order) from Figure\nobreakspace  {}\ref  {fig:sim1} \relax }}{17}{figure.caption.12}}
+\newlabel{fig:sim2}{{5}{17}{False discovery rate (vertical) of methods in settings (horizontal, same order) from Figure~\ref {fig:sim1} \relax }{figure.caption.12}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Empirical study}{17}{subsection.3.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Proportion of DD genes at 5\% threshold with respect to total number of genes identified by each method. Ranked by scDDboost list size \relax }}{17}{figure.caption.6}}
-\newlabel{fig:es}{{6}{17}{Proportion of DD genes at 5\% threshold with respect to total number of genes identified by each method. Ranked by scDDboost list size \relax }{figure.caption.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces False positive counts by several methods on 5 random splits of 9 single-condition data sets from Appendix Table \ref  {table:2}\relax }}{18}{figure.caption.7}}
-\newlabel{nullperm}{{7}{18}{False positive counts by several methods on 5 random splits of 9 single-condition data sets from Appendix Table \ref {table:2}\relax }{figure.caption.7}{}}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ All are non-UMI protocols, correct? Curious to see performance on a UMI dataset, as they present further challenges}{17}{section*.13}}
+\pgfsyspdfmark {pgfid36}{12104759}{25043896}
+\pgfsyspdfmark {pgfid39}{34440478}{25039771}
+\pgfsyspdfmark {pgfid40}{36357406}{24791474}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Proportion of DD genes at 5\% FDR threshold with respect to total number of genes identified by each method. Ranked by scDDboost list size \relax }}{18}{figure.caption.14}}
+\newlabel{fig:es}{{6}{18}{Proportion of DD genes at 5\% FDR threshold with respect to total number of genes identified by each method. Ranked by scDDboost list size \relax }{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces False positive counts at 5\% FDR threshold by several methods on 5 random splits of 9 single-condition data sets from Appendix Table \ref  {table:2}\relax }}{18}{figure.caption.15}}
+\newlabel{nullperm}{{7}{18}{False positive counts at 5\% FDR threshold by several methods on 5 random splits of 9 single-condition data sets from Appendix Table \ref {table:2}\relax }{figure.caption.15}{}}
 \citation{Raj:2008aa}
 \citation{ref:d3e}
 \citation{Peccoud:1995aa}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Sets of similarly-patterned genes tend to be larger (horizontal axis, log size) for genes uniquely identified by scDDboost (red) compared to other DD genes (blue), at 5\% FDR, as indicated in three example data sets. Here genes are grouped by their pattern of differential expression across subtypes as inferred by the EBseq computation within scDDboost.\relax }}{19}{figure.caption.8}}
-\newlabel{fig:shift}{{8}{19}{Sets of similarly-patterned genes tend to be larger (horizontal axis, log size) for genes uniquely identified by scDDboost (red) compared to other DD genes (blue), at 5\% FDR, as indicated in three example data sets. Here genes are grouped by their pattern of differential expression across subtypes as inferred by the EBseq computation within scDDboost.\relax }{figure.caption.8}{}}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ Not sure what is meant by 'on test'}{19}{section*.16}}
+\pgfsyspdfmark {pgfid41}{20766339}{39685431}
+\pgfsyspdfmark {pgfid44}{34440478}{39681306}
+\pgfsyspdfmark {pgfid45}{36357406}{39433009}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces  Genes are grouped by their pattern of differential expression across subtypes as inferred by the EBseq computation within scDDboost for three example datasets. Cumulative distribution functions of the log-scale size statistic for all genes identified by scDDboost are plotted; red is the subset uniquely identified by scDDboost; blue are those also identifed by the comparison methods (MAST, scDD, or DESeq2). Sets of similarly-patterned genes tend to be larger (horizontal axis, log size) for genes uniquely identified by scDDboost (red) compared to other DD genes (blue), at 5\% FDR.\relax }}{19}{figure.caption.17}}
+\newlabel{fig:shift}{{8}{19}{Genes are grouped by their pattern of differential expression across subtypes as inferred by the EBseq computation within scDDboost for three example datasets. Cumulative distribution functions of the log-scale size statistic for all genes identified by scDDboost are plotted; red is the subset uniquely identified by scDDboost; blue are those also identifed by the comparison methods (MAST, scDD, or DESeq2). Sets of similarly-patterned genes tend to be larger (horizontal axis, log size) for genes uniquely identified by scDDboost (red) compared to other DD genes (blue), at 5\% FDR.\relax }{figure.caption.17}{}}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ axes labels missing in fig 8}{19}{section*.18}}
+\pgfsyspdfmark {pgfid46}{9061662}{16229857}
+\pgfsyspdfmark {pgfid49}{34440478}{16225732}
+\pgfsyspdfmark {pgfid50}{36357406}{15977435}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Bursting}{19}{subsection.3.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces  Absolute values of log fold changes of bursting parameters tend to be larger for genes uniquely identified by scDDboost (red) compare to other genes (blue). at 5\% FDR\relax }}{20}{figure.caption.9}}
-\newlabel{fig:bursting}{{9}{20}{Absolute values of log fold changes of bursting parameters tend to be larger for genes uniquely identified by scDDboost (red) compare to other genes (blue). at 5\% FDR\relax }{figure.caption.9}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Asymptotics of the Double Dirichlet Mixture}{20}{section.4}}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ how many points are in each boxplotin figure 9? }{20}{section*.19}}
+\pgfsyspdfmark {pgfid51}{28613243}{34337691}
+\pgfsyspdfmark {pgfid54}{34440478}{34333566}
+\pgfsyspdfmark {pgfid55}{36357406}{34085269}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces  Absolute values of log fold changes of bursting parameters tend to be larger for 1758 genes uniquely identified by scDDboost (red) compare to other 2983 genes (blue) at 5\% FDR\relax }}{20}{figure.caption.20}}
+\newlabel{fig:bursting}{{9}{20}{Absolute values of log fold changes of bursting parameters tend to be larger for 1758 genes uniquely identified by scDDboost (red) compare to other 2983 genes (blue) at 5\% FDR\relax }{figure.caption.20}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Time Complexity}{21}{subsection.3.4}}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ Might be informative to emphasize the practical significance of the finding}{21}{section*.21}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Asymptotics of the Double Dirichlet Mixture}{21}{section*.21}}
+\pgfsyspdfmark {pgfid56}{25804603}{31481184}
+\pgfsyspdfmark {pgfid59}{34440478}{31477059}
+\pgfsyspdfmark {pgfid60}{36357406}{31228762}
 \citation{Haghverdi:2015aa}
 \citation{Little2017PathBasedSC}
-\newlabel{eq:notQ}{{12}{21}{Asymptotics of the Double Dirichlet Mixture}{equation.4.12}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Concluding remarks}{21}{section.5}}
+\newlabel{eq:notQ}{{12}{22}{Asymptotics of the Double Dirichlet Mixture}{equation.4.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Concluding remarks}{22}{section.5}}
 \bibstyle{imsart-nameyear}
 \bibdata{./references/wlr_ref}
 \bibcite{DES}{{1}{2010}{{Anders and Huber}}{{}}}
@@ -132,11 +184,15 @@
 \bibcite{EMTAB}{{3}{2015}{{Buettner et~al.}}{{}}}
 \bibcite{chu}{{4}{2016}{{Chu et~al.}}{{}}}
 \bibcite{ref:dahl}{{5}{2009}{{Dahl}}{{}}}
-\@writefile{toc}{\contentsline {section}{References}{22}{section*.11}}
 \bibcite{Darmanis}{{6}{2017}{{Darmanis et~al.}}{{}}}
 \bibcite{ref:d3e}{{7}{2016}{{Delmans and Hemberg}}{{}}}
 \bibcite{Deng193}{{8}{2014}{{Deng et~al.}}{{}}}
 \bibcite{RAD21}{{9}{2016}{{Dominguez et~al.}}{{}}}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ Still curious about how scales with n}{23}{section*.22}}
+\pgfsyspdfmark {pgfid61}{10948235}{44141881}
+\pgfsyspdfmark {pgfid64}{34440478}{44137756}
+\pgfsyspdfmark {pgfid65}{36357406}{43889459}
+\@writefile{toc}{\contentsline {section}{References}{23}{section*.24}}
 \bibcite{Efron:2007aa}{{10}{2007}{{Efron}}{{}}}
 \bibcite{Engel}{{11}{2016}{{Engel et~al.}}{{}}}
 \bibcite{ref:MAST}{{12}{2015}{{Finak et~al.}}{{}}}
@@ -177,9 +233,9 @@
 \bibcite{yak68}{{47}{1968}{{Yakowitz and Spragins}}{{}}}
 \bibcite{ref:Zappia}{{48}{2017}{{Zappia, Phipson and Oshlack}}{{}}}
 \citation{yak68}
-\@writefile{toc}{\contentsline {section}{Appendix}{26}{section*.13}}
-\newlabel{eq:cprobs}{{13}{26}{Proof of Theorem 1}{equation.5.13}{}}
-\newlabel{eq:rw}{{14}{27}{Randomizing distances for approximate posterior inference}{equation.5.14}{}}
+\@writefile{toc}{\contentsline {section}{Appendix}{27}{section*.26}}
+\newlabel{eq:cprobs}{{13}{27}{Proof of Theorem 1}{equation.5.13}{}}
+\newlabel{eq:rw}{{14}{28}{Randomizing distances for approximate posterior inference}{equation.5.14}{}}
 \citation{Lane}
 \citation{Shalek}
 \citation{Trapnell}
@@ -192,10 +248,10 @@
 \citation{Guo}
 \citation{chu}
 \citation{Darmanis}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textsc  {scDDboost}\relax }}{28}{algorithm.2}}
-\newlabel{alg:scDDboost}{{2}{28}{\textsc {scDDboost}\relax }{algorithm.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {A1}{\ignorespaces Data sets used for the empirical study of scDDboost\relax }}{28}{table.caption.18}}
-\newlabel{table:1}{{A1}{28}{Data sets used for the empirical study of scDDboost\relax }{table.caption.18}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {A2}{\ignorespaces Single-condition data sets used in the random-splitting experiment.\relax }}{29}{table.caption.19}}
-\newlabel{table:2}{{A2}{29}{Single-condition data sets used in the random-splitting experiment.\relax }{table.caption.19}{}}
-\@writefile{toc}{\contentsline {section}{Author's addresses}{30}{section*.20}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textsc  {scDDboost}\relax }}{29}{algorithm.2}}
+\newlabel{alg:scDDboost}{{2}{29}{\textsc {scDDboost}\relax }{algorithm.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {A1}{\ignorespaces Data sets used for the empirical study of scDDboost\relax }}{29}{table.caption.31}}
+\newlabel{table:1}{{A1}{29}{Data sets used for the empirical study of scDDboost\relax }{table.caption.31}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {A2}{\ignorespaces Single-condition data sets used in the random-splitting experiment.\relax }}{30}{table.caption.32}}
+\newlabel{table:2}{{A2}{30}{Single-condition data sets used in the random-splitting experiment.\relax }{table.caption.32}{}}
+\@writefile{toc}{\contentsline {section}{Author's addresses}{31}{section*.33}}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  13 MAY 2019 16:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  19 MAY 2019 21:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1056,10 +1056,43 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \ALG@tmplength=\skip132
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/todonotes/todonotes.sty
+Package: todonotes 2015/07/09 .dtx Todonotes source and documentation.
+Package: todonotes 2012/07/25
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2018/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks51
+\XKV@tempa@toks=\toks52
 )
-\c@lemma=\count317
-\c@theorem=\count318
-\c@prop=\count319
+\XKV@depth=\count317
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count318
+\calc@Bcount=\count319
+\calc@Adimen=\dimen280
+\calc@Bdimen=\dimen281
+\calc@Askip=\skip133
+\calc@Bskip=\skip134
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count320
+\calc@Cskip=\skip135
+)
+\c@@todonotes@numberoftodonotes=\count321
+)
+\c@lemma=\count322
+\c@theorem=\count323
+\c@prop=\count324
  (./mkkn.aux
 
 LaTeX Warning: Label `e2@email' multiply defined.
@@ -1073,51 +1106,52 @@ LaTeX Warning: Label `t2thanks' multiply defined.
 
 LaTeX Warning: Label `k1thanks' multiply defined.
 
+
+LaTeX Warning: Label `k2thanks' multiply defined.
+
+
+LaTeX Warning: Label `fig:whet' multiply defined.
+
+
+LaTeX Warning: Label `fig:whet' multiply defined.
+
 )
-Runaway argument?
-{{4}{16}{True positive rate (vertical) of four DD detection methods i\ETC.
-./mkkn.tex:60: File ended while scanning use of \@newl@bel.
-<inserted text> 
-                \par 
-l.60 \begin{document}
-                     
-? 
 \openout1 = `mkkn.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Try loading font information for OT1+pplx on input line 60.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Try loading font information for OT1+pplx on input line 61.
 
-(/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1pplx.fd
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1pplx.fd
 File: ot1pplx.fd 2004/09/06 font definitions for OT1/pplx.
 )
 \AtBeginShipoutBox=\box69
 
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count320
-\scratchdimen=\dimen280
+\scratchcounter=\count325
+\scratchdimen=\dimen282
 \scratchbox=\box70
-\nofMPsegments=\count321
-\nofMParguments=\count322
-\everyMPshowfont=\toks51
-\MPscratchCnt=\count323
-\MPscratchDim=\dimen281
-\MPnumerator=\count324
-\makeMPintoPDFobject=\count325
-\everyMPtoPDFconversion=\toks52
+\nofMPsegments=\count326
+\nofMParguments=\count327
+\everyMPshowfont=\toks53
+\MPscratchCnt=\count328
+\MPscratchDim=\dimen283
+\MPnumerator=\count329
+\makeMPintoPDFobject=\count330
+\everyMPtoPDFconversion=\toks54
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -1139,7 +1173,7 @@ ABD: EveryShipout initializing macros
 (/usr/local/texlive/2018/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
-Package hyperref Info: Link coloring ON on input line 60.
+Package hyperref Info: Link coloring ON on input line 61.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1147,11 +1181,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count326
+\c@section@level=\count331
 )
-LaTeX Info: Redefining \ref on input line 60.
-LaTeX Info: Redefining \pageref on input line 60.
-LaTeX Info: Redefining \nameref on input line 60.
+LaTeX Info: Redefining \ref on input line 61.
+LaTeX Info: Redefining \pageref on input line 61.
+LaTeX Info: Redefining \nameref on input line 61.
 
 (./mkkn.out) (./mkkn.out)
 \@outlinefile=\write4
@@ -1161,172 +1195,127 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 64.
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 64.
+(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 65.
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 65.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 64.
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 65.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 64.
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 65.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 64.
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 65.
 
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+pplx on input line 68.
+LaTeX Font Info:    Try loading font information for OMS+pplx on input line 69.
 
-LaTeX Font Info:    No file OMSpplx.fd. on input line 68.
+LaTeX Font Info:    No file OMSpplx.fd. on input line 69.
 
 
 LaTeX Font Warning: Font shape `OMS/pplx/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textasteriskcentered' on input line 68.
+(Font)              for symbol `textasteriskcentered' on input line 69.
 
-\@address@1=\toks53
-\@address@2=\toks54
+\@address@1=\toks55
+\@address@2=\toks56
 
-Overfull \hbox (6.70776pt too wide) in paragraph at lines 96--111
+Overfull \hbox (6.70776pt too wide) in paragraph at lines 98--113
  \OT1/pplx/m/n/9 dis-tri-bu-tion of single-cell ex-pres-sion, we in-tro-duce a 
 em-pir-i-cal Bayesian 
  []
 
 
-Overfull \hbox (13.0887pt too wide) in paragraph at lines 96--111
+Overfull \hbox (13.0887pt too wide) in paragraph at lines 98--113
  \OT1/pplx/m/n/9 of nu-mer-i-cal ex-per-i-ments. The pro-posed ap-proach lever-
 ages cell-subtype 
  []
 
-
-Package natbib Warning: Citation `immune' on page 1 undefined on input line 121
-.
-
-
-Package natbib Warning: Citation `dv' on page 1 undefined on input line 122.
-
-
-Package natbib Warning: Citation `cancer' on page 1 undefined on input line 122
-.
-
-
-Package natbib Warning: Citation `scs' on page 1 undefined on input line 122.
-
-
-Package natbib Warning: Citation `Bacher2016' on page 1 undefined on input line
- 128.
-
-
-Package natbib Warning: Citation `sc3' on page 1 undefined on input line 136.
-
-
-Package natbib Warning: Citation `CIDR' on page 1 undefined on input line 136.
-
-
-Package natbib Warning: Citation `ZIFA' on page 1 undefined on input line 136.
-
 [1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-
-Package natbib Warning: Citation `ref:MAST' on page 2 undefined on input line 1
-44.
-
-
-Package natbib Warning: Citation `ref:scDD' on page 2 undefined on input line 1
-45.
+Overfull \hbox (20.65367pt too wide) in paragraph at lines 143--160
+\OT1/pplx/m/n/10.95 down-stream anal-y-sis. Also, by avoid-ing Markov chain Mon
+te Carlo, [][]\OT1/cmtt/m/n/10.95 scDDboost
+ []
 
 
-Package natbib Warning: Citation `ref:d3e' on page 2 undefined on input line 14
-5.
-
-
-Package natbib Warning: Citation `ref:Leng' on page 2 undefined on input line 1
-62.
-
-
-Package natbib Warning: Citation `ref:Leng' on page 2 undefined on input line 1
-71.
-
-
-Package natbib Warning: Citation `BIRC5' on page 2 undefined on input line 172.
-
-
-
-Package natbib Warning: Citation `HMMR' on page 2 undefined on input line 172.
-
-
-Package natbib Warning: Citation `RAD21' on page 2 undefined on input line 172.
-
+Package natbib Warning: Citation `ref:oscope' on page 2 undefined on input line
+ 165.
 
 [2]
-<Figs/Fig1.png, id=41, 629.35126pt x 477.785pt>
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
+ine 176.
+<Figs/Fig1.png, id=150, 629.35126pt x 477.785pt>
 File: Figs/Fig1.png Graphic file (type png)
 <use Figs/Fig1.png>
-Package pdftex.def Info: Figs/Fig1.png  used on input line 200.
+Package pdftex.def Info: Figs/Fig1.png  used on input line 204.
 (pdftex.def)             Requested size: 360.0pt x 273.30261pt.
-LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <9> not available
-(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 211.
- [3]
 
-Package natbib Warning: Citation `ref:Zappia' on page 4 undefined on input line
- 218.
+Runaway argument?
+{Genes involved in cell-cycle that are identified by scDDboost, but n\ETC.
+./mkkn.tex:219: Paragraph ended before \caption@prepareanchor was complete.
+<to be read again> 
+                   \par 
+l.219  \label{fig:whet} }
+                         
+? 
+Runaway argument?
+{\ignorespaces Genes involved in cell-cycle that are identified by sc\ETC.
+./mkkn.tex:219: Paragraph ended before \caption@@@addcontentsline was complete.
+<to be read again> 
+                   \par 
+l.219  \label{fig:whet} }
+                         
+? 
+./mkkn.tex:219: Extra }, or forgotten \endgroup.
+\caption@@addcontentsline ...}{\ignorespaces #2}}}
+                                                  
+l.219  \label{fig:whet} }
+                         
+? 
+./mkkn.tex:220: Extra }, or forgotten \endgroup.
+\@endfloatbox ...pagefalse \outer@nobreak \egroup 
+                                                  \color@endbox 
+l.220 \end{figure}
+                  
+? 
+[3]
 
+LaTeX Warning: Marginpar on page 4 moved.
 
-Package natbib Warning: Citation `ref:Cq' on page 4 undefined on input line 219
-.
+[4pdfTeX warning (ext4): destination with the same identifier (name{figure.capt
+ion.3}) has been already used, duplicate ignored
 
-
-Package natbib Warning: Citation `ref:d3e' on page 4 undefined on input line 22
-1.
-
-[4 <./Figs/Fig1.png>] [5]
-
-Package natbib Warning: Citation `ref:Leng' on page 6 undefined on input line 3
-07.
-
-
-Package natbib Warning: Citation `DES' on page 6 undefined on input line 307.
-
-
-Package natbib Warning: Citation `ref:Des' on page 6 undefined on input line 30
-7.
-
-
-Package natbib Warning: Citation `ref:MAST' on page 6 undefined on input line 3
-11.
-
-
-Package natbib Warning: Citation `McDavid:2014aa' on page 6 undefined on input 
-line 311.
-
-
-Package natbib Warning: Citation `Huang:2018aa' on page 6 undefined on input li
-ne 311.
-
-[6]
-<Figs/schematic-1.png, id=71, 1541.76pt x 770.88pt>
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.232 
+       <./Figs/Fig1.png>] [5] [6]
+<Figs/schematic-1.png, id=213, 1541.76pt x 770.88pt>
 File: Figs/schematic-1.png Graphic file (type png)
 <use Figs/schematic-1.png>
-Package pdftex.def Info: Figs/schematic-1.png  used on input line 350.
+Package pdftex.def Info: Figs/schematic-1.png  used on input line 360.
 (pdftex.def)             Requested size: 360.0pt x 179.99232pt.
+LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <9> not available
+(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 365.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [7]
-Overfull \hbox (18.41515pt too wide) in paragraph at lines 386--389
+Overfull \hbox (18.41515pt too wide) in paragraph at lines 396--399
 [][][]\OT1/pplx/m/sc/10.95 Theorem \OT1/pplx/m/n/10.95 1\OT1/pplx/m/sc/10.95 . 
 []\OT1/pplx/m/it/10.95 Let $\OML/zplm/m/it/10.95 C[] \OT1/zplm/m/n/10.95 = \OML
 /zplm/m/it/10.95 A[] \OMS/zplm/m/n/10.95 \ \OML/zplm/m/it/10.95 M[]$\OT1/pplx/m
@@ -1334,30 +1323,19 @@ Overfull \hbox (18.41515pt too wide) in paragraph at lines 386--389
 OT1/zplm/m/n/10.95 = \OML/zplm/m/it/10.95 ^^Y[]$\OT1/pplx/m/it/10.95 , [].
  []
 
-
-Package natbib Warning: Citation `Efron:2007aa' on page 8 undefined on input li
-ne 402.
-
-
-Package natbib Warning: Citation `Muralidharan:2010aa' on page 8 undefined on i
-nput line 402.
-
-
-Package natbib Warning: Citation `Newton:2004aa' on page 8 undefined on input l
-ine 402.
-
-<Figs/dag.png, id=81, 1027.84pt x 770.88pt>
+[8 <./Figs/schematic-1.png>]
+<Figs/dag.png, id=238, 1027.84pt x 770.88pt>
 File: Figs/dag.png Graphic file (type png)
 <use Figs/dag.png>
-Package pdftex.def Info: Figs/dag.png  used on input line 411.
+Package pdftex.def Info: Figs/dag.png  used on input line 421.
 (pdftex.def)             Requested size: 361.34999pt x 193.92429pt.
 
-Overfull \hbox (1.34999pt too wide) in paragraph at lines 411--416
+Overfull \hbox (1.34999pt too wide) in paragraph at lines 421--426
  [][] 
  []
 
-[8 <./Figs/schematic-1.png>]
-Overfull \hbox (2.21275pt too wide) in paragraph at lines 420--426
+
+Overfull \hbox (2.21275pt too wide) in paragraph at lines 430--436
 []\OT1/pplx/m/n/10.95 Key to com-put-ing the gene-specific lo-cal false dis-cov
 -ery rate $\OML/zplm/m/it/10.95 P\OT1/zplm/m/n/10.95 ([][]\OMS/zplm/m/n/10.95 j
 \OML/zplm/m/it/10.95 X\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 y\OT1/zplm/m/n
@@ -1365,248 +1343,156 @@ Overfull \hbox (2.21275pt too wide) in paragraph at lines 420--426
  []
 
 [9 <./Figs/dag.png>]
-
-Package natbib Warning: Citation `sc3' on page 10 undefined on input line 453.
-
-
-Package natbib Warning: Citation `CIDR' on page 10 undefined on input line 453.
-
-
-
-Package natbib Warning: Citation `ZIFA' on page 10 undefined on input line 453.
-
-
-
-Package natbib Warning: Citation `ref:Leng' on page 10 undefined on input line 
-463.
-
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 470.
+put line 482.
 
-Package natbib Warning: Citation `kmedoids' on page 10 undefined on input line 
-491.
-
-
-Package natbib Warning: Citation `ref:cspa' on page 10 undefined on input line 
-493.
+Overfull \hbox (34.50983pt too wide) in paragraph at lines 505--505
+\OT1/pplx/m/n/10.95 SC3/CIDR/ZIFA 
+ []
 
 
-Package natbib Warning: Citation `ref:dahl' on page 10 undefined on input line 
-494.
+Overfull \hbox (34.50983pt too wide) in paragraph at lines 505--505
+\OT1/pplx/m/n/10.95 SC3/CIDR/ZIFA 
+ []
 
 
-Package natbib Warning: Citation `Cor' on page 10 undefined on input line 499.
-
-[10]
-
-LaTeX Warning: Reference `alg:scDDboost' on page 11 undefined on input line 518
-.
+Overfull \hbox (34.50983pt too wide) in paragraph at lines 505--505
+\OT1/pplx/m/n/10.95 SC3/CIDR/ZIFA 
+ []
 
 
-Package natbib Warning: Citation `selK' on page 11 undefined on input line 529.
+Overfull \hbox (34.50983pt too wide) in paragraph at lines 505--505
+\OT1/pplx/m/n/10.95 SC3/CIDR/ZIFA 
+ []
 
+[10] [11]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 555.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 542.
+(hyperref)                removing `subscript' on input line 555.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 542.
+(hyperref)                removing `\pi' on input line 555.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\pi' on input line 542.
+(hyperref)                removing `math shift' on input line 555.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 542.
-
-[11]
-Overfull \hbox (32.90495pt too wide) in paragraph at lines 585--591
+[12]
+Overfull \hbox (32.90495pt too wide) in paragraph at lines 598--604
 \OT1/pplx/m/n/10.95 Mix-ing over $\OML/zplm/m/it/10.95 ^^Y$ \OT1/pplx/m/n/10.95
  as in ([][]6[][]), we write $\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 ^^^\OT1
 /pplx/m/n/10.95 , \OML/zplm/m/it/10.95  \OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.
 95 ^^X [] [] \OT1/pplx/m/n/10.95 .$ 
  []
 
-[12]
-Overfull \hbox (11.99883pt too wide) in alignment at lines 625--634
+
+Overfull \hbox (11.99883pt too wide) in alignment at lines 638--647
  [][][] []
  []
 
 
-Overfull \hbox (55.95021pt too wide) in alignment at lines 638--646
+Overfull \hbox (55.95021pt too wide) in alignment at lines 651--659
+ [][][] []
+ []
+
+[13]
+Overfull \hbox (50.2934pt too wide) in alignment at lines 688--697
  [][][] []
  []
 
 
-Package natbib Warning: Citation `Wag' on page 13 undefined on input line 665.
-
-
-Overfull \hbox (50.2934pt too wide) in alignment at lines 675--684
- [][][] []
- []
-
-
-Overfull \hbox (14.05144pt too wide) in paragraph at lines 684--688
+Overfull \hbox (14.05144pt too wide) in paragraph at lines 697--701
 \OT1/pplx/m/n/10.95 which cor-re-sponds to Dirichlet-multinomial pre-dic-tive d
 is-tri-bu-tion for counts
  []
 
-[13]
+[14]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 733.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 733.
+(hyperref)                removing `math shift' on input line 746.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\pi' on input line 733.
+(hyperref)                removing `subscript' on input line 746.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 733.
+(hyperref)                removing `\pi' on input line 746.
 
 
-Package natbib Warning: Citation `ref:Leng' on page 14 undefined on input line 
-734.
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 746.
 
 
-Package natbib Warning: Citation `Kendziorski:2003aa' on page 14 undefined on i
-nput line 734.
-
-
-Package natbib Warning: Citation `Jensen:2009aa' on page 14 undefined on input 
-line 734.
-
-
-Overfull \hbox (0.60483pt too wide) in paragraph at lines 745--746
+Overfull \hbox (0.60483pt too wide) in paragraph at lines 758--759
 \OT1/pplx/m/n/10.95 These as-sump-tions im-ply a use-ful fac-tor-iza-tion margi
 nally to la-tent means, 
  []
 
 
-Package natbib Warning: Citation `ref:Leng' on page 14 undefined on input line 
-750.
+Overfull \hbox (3.03548pt too wide) in paragraph at lines 762--772
+\OT1/pplx/m/n/10.95 where $\OML/zplm/m/it/10.95 f$ \OT1/pplx/m/n/10.95 is a cus
+-tomized den-sity ker-nel. In our case we use [][]\OT1/cmtt/m/n/10.95 EBseq []\
+OT1/pplx/m/n/10.95 from [][]Leng
+ []
 
-[14]
-
-Package natbib Warning: Citation `ref:Zappia' on page 15 undefined on input lin
-e 769.
-
-
-LaTeX Warning: Reference `fig:sim1' on page 15 undefined on input line 780.
-
-
-LaTeX Warning: Reference `fig:sim2' on page 15 undefined on input line 780.
-
-<Figs/simuTPR.pdf, id=146, 722.7pt x 433.62pt>
+[15]
+<Figs/simuTPR.pdf, id=348, 722.7pt x 433.62pt>
 File: Figs/simuTPR.pdf Graphic file (type pdf)
 <use Figs/simuTPR.pdf>
-Package pdftex.def Info: Figs/simuTPR.pdf  used on input line 788.
+Package pdftex.def Info: Figs/simuTPR.pdf  used on input line 802.
 (pdftex.def)             Requested size: 341.9989pt x 205.19751pt.
-[15]
-<Figs/simuFDR.pdf, id=153, 722.7pt x 433.62pt>
+<Figs/simuFDR.pdf, id=349, 722.7pt x 433.62pt>
 File: Figs/simuFDR.pdf Graphic file (type pdf)
 <use Figs/simuFDR.pdf>
-Package pdftex.def Info: Figs/simuFDR.pdf  used on input line 799.
+Package pdftex.def Info: Figs/simuFDR.pdf  used on input line 813.
 (pdftex.def)             Requested size: 341.9989pt x 205.19751pt.
+ [16 <./Figs/simuTPR.pdf>]
+Overfull \hbox (2.70686pt too wide) in paragraph at lines 821--833
+\OT1/pplx/m/n/10.95 ously pub-lished data sets that are recorded at [][]\OT1/cm
+tt/m/n/10.95 conquer []\OT1/pplx/m/n/10.95 ([][]Sone-son and Robin-
+ []
 
-
-LaTeX Warning: Reference `fig:sim1' on page 16 undefined on input line 800.
-
-
-LaTeX Warning: Reference `fig:sim1' on page 16 undefined on input line 800.
-
-
-Package natbib Warning: Citation `ref:Cq' on page 16 undefined on input line 80
-8.
-
-
-LaTeX Warning: Reference `table:1' on page 16 undefined on input line 811.
-
-
-LaTeX Warning: Reference `fig:es' on page 16 undefined on input line 811.
-
-[16 <./Figs/simuTPR.pdf> <./Figs/simuFDR.pdf>]
-<Figs/DD95.pdf, id=173, 722.7pt x 433.62pt>
+<Figs/DD95.pdf, id=370, 722.7pt x 433.62pt>
 File: Figs/DD95.pdf Graphic file (type pdf)
 <use Figs/DD95.pdf>
-Package pdftex.def Info: Figs/DD95.pdf  used on input line 819.
+Package pdftex.def Info: Figs/DD95.pdf  used on input line 836.
 (pdftex.def)             Requested size: 341.9989pt x 205.19751pt.
-
-
-LaTeX Warning: Reference `table:2' on page 17 undefined on input line 828.
-
-
-LaTeX Warning: Reference `nullperm' on page 17 undefined on input line 828.
-
-<Figs/fdrCounts.pdf, id=174, 578.16pt x 361.35pt>
+[17 <./Figs/simuFDR.pdf>]
+<Figs/fdrCounts.pdf, id=387, 578.16pt x 361.35pt>
 File: Figs/fdrCounts.pdf Graphic file (type pdf)
 <use Figs/fdrCounts.pdf>
-Package pdftex.def Info: Figs/fdrCounts.pdf  used on input line 834.
+Package pdftex.def Info: Figs/fdrCounts.pdf  used on input line 851.
 (pdftex.def)             Requested size: 288.0011pt x 179.99637pt.
-
-LaTeX Warning: Reference `table:2' on page 17 undefined on input line 836.
-
-
-LaTeX Warning: Reference `table:2' on page 17 undefined on input line 836.
-
-[17 <./Figs/DD95.pdf>]
-
-LaTeX Warning: Reference `fig:shift' on page 18 undefined on input line 851.
-
-<Figs/shift.pdf, id=187, 650.43pt x 216.81pt>
+ [18 <./Figs/DD95.pdf> <./Figs/fdrCounts.pdf>]
+<Figs/shift.pdf, id=410, 650.43pt x 216.81pt>
 File: Figs/shift.pdf Graphic file (type pdf)
 <use Figs/shift.pdf>
-Package pdftex.def Info: Figs/shift.pdf  used on input line 860.
+Package pdftex.def Info: Figs/shift.pdf  used on input line 874.
 (pdftex.def)             Requested size: 323.9978pt x 108.00111pt.
-[18 <./Figs/fdrCounts.pdf>]
 
-Package natbib Warning: Citation `Raj:2008aa' on page 19 undefined on input lin
-e 891.
-
-
-Package natbib Warning: Citation `ref:d3e' on page 19 undefined on input line 8
-92.
-
-
-Package natbib Warning: Citation `Peccoud:1995aa' on page 19 undefined on input
- line 895.
-
-
-LaTeX Warning: Reference `fig:bursting' on page 19 undefined on input line 900.
-
-
-<Figs/D3E_box.pdf, id=200, 505.89pt x 505.89pt>
+[19 <./Figs/shift.pdf>]
+<Figs/D3E_box.pdf, id=434, 505.89pt x 505.89pt>
 File: Figs/D3E_box.pdf Graphic file (type pdf)
 <use Figs/D3E_box.pdf>
-Package pdftex.def Info: Figs/D3E_box.pdf  used on input line 909.
+Package pdftex.def Info: Figs/D3E_box.pdf  used on input line 927.
 (pdftex.def)             Requested size: 306.0022pt x 306.00648pt.
-[19 <./Figs/shift.pdf>] [20 <./Figs/D3E_box.pdf>]
 
-LaTeX Warning: Reference `eq:notQ' on page 21 undefined on input line 951.
+./mkkn.tex:942: Undefined control sequence.
+l.942 ... genes and the computation cost in \textt
+                                                  {EBSeq} is linear with $n$.
+? 
+[20 <./Figs/D3E_box.pdf>] [21] [22] (./mkkn.bbl
 
-
-LaTeX Warning: Reference `eq:notQ' on page 21 undefined on input line 951.
-
-
-Package natbib Warning: Citation `Haghverdi:2015aa' on page 21 undefined on inp
-ut line 975.
+./mkkn.bbl:30: Package xkeyval Error: `Bacher2016' undefined in families `bid'.
 
 
-Package natbib Warning: Citation `Little2017PathBasedSC' on page 21 undefined o
-n input line 976.
-
-[21] (./mkkn.bbl
-
-./mkkn.bbl:30: Package keyval Error: Bacher2016 undefined.
-
-See the keyval package documentation for explanation.
+See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
@@ -1614,30 +1500,32 @@ l.30 \bid{Bacher2016}
                      
 ? 
 
-./mkkn.bbl:73: Package keyval Error: Chu2016 undefined.
+./mkkn.bbl:73: Package xkeyval Error: `Chu2016' undefined in families `bid'.
 
-See the keyval package documentation for explanation.
+See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.73 \bid{Chu2016}
                   
 ? 
-[22]
 
-./mkkn.bbl:129: Package keyval Error: Delmans2016 undefined.
+./mkkn.bbl:129: Package xkeyval Error: `Delmans2016' undefined in families `bid
+'.
 
-See the keyval package documentation for explanation.
+See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.129 \bid{Delmans2016}
                        
 ? 
+[23]
 
-./mkkn.bbl:219: Package keyval Error: Finak2015 undefined.
+./mkkn.bbl:219: Package xkeyval Error: `Finak2015' undefined in families `bid'.
 
-See the keyval package documentation for explanation.
+
+See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
@@ -1645,9 +1533,10 @@ l.219 \bid{Finak2015}
                      
 ? 
 
-./mkkn.bbl:297: Package keyval Error: Huang2018 undefined.
+./mkkn.bbl:297: Package xkeyval Error: `Huang2018' undefined in families `bid'.
 
-See the keyval package documentation for explanation.
+
+See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
@@ -1655,9 +1544,10 @@ l.297 \bid{Huang2018}
                      
 ? 
 
-./mkkn.bbl:396: Package keyval Error: Korthauer2016 undefined.
+./mkkn.bbl:396: Package xkeyval Error: `Korthauer2016' undefined in families `b
+id'.
 
-See the keyval package documentation for explanation.
+See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
@@ -1673,21 +1563,21 @@ File: uni-3.def 2013/05/13 UCS: Unicode data U+0300..U+03FF
 l.415   to Dynamic Patterns of NF-κB Activation}
                                                  .
 ? 
-[23]
 
-./mkkn.bbl:490: Package keyval Error: Lin2017 undefined.
+./mkkn.bbl:490: Package xkeyval Error: `Lin2017' undefined in families `bid'.
 
-See the keyval package documentation for explanation.
+See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.490 \bid{Lin2017}
                    
 ? 
+[24]
 
-./mkkn.bbl:518: Package keyval Error: Love2014 undefined.
+./mkkn.bbl:518: Package xkeyval Error: `Love2014' undefined in families `bid'.
 
-See the keyval package documentation for explanation.
+See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
@@ -1695,16 +1585,17 @@ l.518 \bid{Love2014}
                     
 ? 
 
-./mkkn.bbl:645: Package keyval Error: Pierson2015 undefined.
+./mkkn.bbl:645: Package xkeyval Error: `Pierson2015' undefined in families `bid
+'.
 
-See the keyval package documentation for explanation.
+See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.645 \bid{Pierson2015}
                        
 ? 
-[24]
+
 Underfull \hbox (badness 2221) in paragraph at lines 781--800
 []\OT1/pplx/m/sc/9 Trapnell, C.\OT1/pplx/m/n/9 , \OT1/pplx/m/sc/9 Cac-chiarelli
 , D.\OT1/pplx/m/n/9 , \OT1/pplx/m/sc/9 Grimsby, J.\OT1/pplx/m/n/9 , \OT1/pplx/m
@@ -1712,138 +1603,66 @@ Underfull \hbox (badness 2221) in paragraph at lines 781--800
 T1/pplx/m/sc/9 Morse, M.\OT1/pplx/m/n/9 ,
  []
 
+[25]
 
-./mkkn.bbl:837: Package keyval Error: Zappia2017 undefined.
+./mkkn.bbl:837: Package xkeyval Error: `Zappia2017' undefined in families `bid'
+.
 
-See the keyval package documentation for explanation.
+See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.837 \bid{Zappia2017}
                       
 ? 
-) [25]
-
-Package natbib Warning: Citation `yak68' on page 26 undefined on input line 105
-6.
-
-
-LaTeX Warning: Reference `eq:cprobs' on page 26 undefined on input line 1060.
-
-
-Overfull \hbox (6.77095pt too wide) in paragraph at lines 1066--1082
+) [26]
+Overfull \hbox (6.77095pt too wide) in paragraph at lines 1099--1115
  []\OT1/pplx/m/it/10.95 Randomizing dis-tances for ap-prox-i-mate pos-te-rior i
 n-fer-ence. \OT1/pplx/m/n/10.95 One way to frame
  []
 
-[26]
-
-LaTeX Warning: Reference `eq:rw' on page 27 undefined on input line 1095.
-
-[27]
-LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <6> not available
-(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 1155.
+[27] [28]
+Underfull \hbox (badness 10000) in paragraph at lines 1199--1199
+[]|\OT1/pplx/m/n/6 ([][]Darmanis et al.[][],
+ []
 
 
-
-Package natbib Warning: Citation `Lane' on page 28 undefined on input line 1155
-.
-
-
-Package natbib Warning: Citation `Shalek' on page 28 undefined on input line 11
-56.
-
-
-Package natbib Warning: Citation `Trapnell' on page 28 undefined on input line 
-1157.
-
-
-Package natbib Warning: Citation `Engel' on page 28 undefined on input line 115
-8.
-
-
-Package natbib Warning: Citation `EMTAB' on page 28 undefined on input line 115
-9.
-
-
-Package natbib Warning: Citation `Tasic' on page 28 undefined on input line 116
-0.
-
-
-Package natbib Warning: Citation `oscope' on page 28 undefined on input line 11
-61.
-
-
-Package natbib Warning: Citation `sc3' on page 28 undefined on input line 1162.
-
-
-
-Package natbib Warning: Citation `Deng193' on page 28 undefined on input line 1
-163.
-
-
-Package natbib Warning: Citation `Guo' on page 28 undefined on input line 1164.
-
-
-
-Package natbib Warning: Citation `chu' on page 28 undefined on input line 1165.
-
-
-
-Package natbib Warning: Citation `Darmanis' on page 28 undefined on input line 
-1166.
-
-
-Overfull \hbox (43.833pt too wide) in paragraph at lines 1152--1168
+Overfull \hbox (43.833pt too wide) in paragraph at lines 1185--1201
  [][] 
  []
 
-[28] [29]
+[29] [30]
 
 Package natbib Warning: There were undefined citations.
 
-[30
+[31
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1209.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1209.
- (./mkkn.aux
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1242.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1242.
+ (./mkkn.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1242.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1242.
 
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
+Package rerunfilecheck Info: File `mkkn.out' has not changed.
+(rerunfilecheck)             Checksum: 145CAB254CFC3B00655CFB4BF233E0CE;986.
 
-)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1209.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1209.
-
-
-
-Package rerunfilecheck Warning: File `mkkn.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `mkkn.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  36047B231477C48AA23FE9A93E7A7BE8;909.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1209.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1242.
  ) 
 Here is how much of TeX's memory you used:
- 29116 strings out of 492649
- 548403 string characters out of 6129622
- 625880 words of memory out of 5000000
- 32361 multiletter control sequences out of 15000+600000
- 573397 words of font info for 128 fonts, out of 8000000 for 9000
+ 29831 strings out of 492649
+ 563208 string characters out of 6129622
+ 667817 words of memory out of 5000000
+ 33041 multiletter control sequences out of 15000+600000
+ 572073 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,13n,64p,10422b,550s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,13n,77p,10422b,711s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -1858,10 +1677,10 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkkn.pdf (30 pages, 709105 bytes).
+Output written on mkkn.pdf (31 pages, 724567 bytes).
 PDF statistics:
- 411 PDF objects out of 1000 (max. 8388607)
- 343 compressed objects within 4 object streams
- 141 named destinations out of 1000 (max. 500000)
- 64 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 641 PDF objects out of 1000 (max. 8388607)
+ 568 compressed objects within 6 object streams
+ 158 named destinations out of 1000 (max. 500000)
+ 192 words of extra memory for PDF output out of 10000 (max. 10000000)
 
