@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  19 MAY 2019 21:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  20 MAY 2019 12:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1483,8 +1483,8 @@ File: Figs/D3E_box.pdf Graphic file (type pdf)
 Package pdftex.def Info: Figs/D3E_box.pdf  used on input line 927.
 (pdftex.def)             Requested size: 306.0022pt x 306.00648pt.
 
-./mkkn.tex:942: Undefined control sequence.
-l.942 ... genes and the computation cost in \textt
+./mkkn.tex:944: Undefined control sequence.
+l.944 ... genes and the computation cost in \textt
                                                   {EBSeq} is linear with $n$.
 ? 
 [20 <./Figs/D3E_box.pdf>] [21] [22] (./mkkn.bbl
@@ -1616,18 +1616,18 @@ l.837 \bid{Zappia2017}
                       
 ? 
 ) [26]
-Overfull \hbox (6.77095pt too wide) in paragraph at lines 1099--1115
+Overfull \hbox (6.77095pt too wide) in paragraph at lines 1101--1117
  []\OT1/pplx/m/it/10.95 Randomizing dis-tances for ap-prox-i-mate pos-te-rior i
 n-fer-ence. \OT1/pplx/m/n/10.95 One way to frame
  []
 
 [27] [28]
-Underfull \hbox (badness 10000) in paragraph at lines 1199--1199
+Underfull \hbox (badness 10000) in paragraph at lines 1201--1201
 []|\OT1/pplx/m/n/6 ([][]Darmanis et al.[][],
  []
 
 
-Overfull \hbox (43.833pt too wide) in paragraph at lines 1185--1201
+Overfull \hbox (43.833pt too wide) in paragraph at lines 1187--1203
  [][] 
  []
 
@@ -1638,11 +1638,11 @@ Package natbib Warning: There were undefined citations.
 [31
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1242.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1242.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1244.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1244.
  (./mkkn.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1242.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1242.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1244.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1244.
 
 Package rerunfilecheck Info: File `mkkn.out' has not changed.
 (rerunfilecheck)             Checksum: 145CAB254CFC3B00655CFB4BF233E0CE;986.
@@ -1653,12 +1653,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1242.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1244.
  ) 
 Here is how much of TeX's memory you used:
  29831 strings out of 492649
  563208 string characters out of 6129622
- 667817 words of memory out of 5000000
+ 668817 words of memory out of 5000000
  33041 multiletter control sequences out of 15000+600000
  572073 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1677,7 +1677,7 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkkn.pdf (31 pages, 724567 bytes).
+Output written on mkkn.pdf (31 pages, 724583 bytes).
 PDF statistics:
  641 PDF objects out of 1000 (max. 8388607)
  568 compressed objects within 6 object streams
