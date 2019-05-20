@@ -930,6 +930,19 @@ is able to detect biologically meaningful changes in the expression distribution
 \end{figure}
 
 
+\subsection{Time Complexity}
+
+Time complexity of \texttt{scDDboost} can attribute to two parts: clustering and \texttt{EBSeq}. Recall $n$ for number of cells, $G$ for number of genes and $K$ for number of subtypes. 
+The time complexity for clustering on one gene is O($n^2$) and thus in total O($Gn^2$). 
+\texttt{EBSeq} use sum of counts within each subtype (sufficient statistics) to compute density kernel and for each gene there are Bell$(K)$ DE patterns to compute, which yields the time complexity: O($n$) + O($G\text{Bell}(K)$). 
+Where Bell($K$) is the bell number(number of ways to partition $K$ elements.) 
+As $G$ is roughly O(10000) and fixed.
+The scalability of \texttt{scDDboost} to large samples depends on $n$ and $K$.  
+\texttt{scDDboost} can efficiently dealing with large $n$ under moderate size of $K$. 
+As clustering can be parallel computed by genes and the computation cost in \textt{EBSeq} is linear with $n$. 
+Currently it is a computational challenge for big $K$, we will revisit this at section 5.
+
+
 
 \section{Asymptotics of the Double Dirichlet Mixture}
 \todo{Might be informative to emphasize the practical significance of the finding}
@@ -971,6 +984,7 @@ state $(\phi,\psi)$, then for any $\pi \in H(\phi,\psi)$, using Theorem~4 and~(\
 \begin{eqnarray*}
 P(A_\pi|y_1,\cdots,y_n; z_1, \cdots z_n ) \longrightarrow_{a.s.} 1 \quad {\mbox {\rm as $n \longrightarrow \infty$}}.
 \end{eqnarray*}
+
 
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  16 MAY 2019 16:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  19 MAY 2019 21:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1258,7 +1258,7 @@ Package natbib Warning: Citation `ref:oscope' on page 2 undefined on input line
 [2]
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
 ine 176.
-<Figs/Fig1.png, id=146, 629.35126pt x 477.785pt>
+<Figs/Fig1.png, id=150, 629.35126pt x 477.785pt>
 File: Figs/Fig1.png Graphic file (type png)
 <use Figs/Fig1.png>
 Package pdftex.def Info: Figs/Fig1.png  used on input line 204.
@@ -1303,7 +1303,7 @@ ion.3}) has been already used, duplicate ignored
                                                   \fi \fi 
 l.232 
        <./Figs/Fig1.png>] [5] [6]
-<Figs/schematic-1.png, id=209, 1541.76pt x 770.88pt>
+<Figs/schematic-1.png, id=213, 1541.76pt x 770.88pt>
 File: Figs/schematic-1.png Graphic file (type png)
 <use Figs/schematic-1.png>
 Package pdftex.def Info: Figs/schematic-1.png  used on input line 360.
@@ -1324,7 +1324,7 @@ OT1/zplm/m/n/10.95 = \OML/zplm/m/it/10.95 ^^Y[]$\OT1/pplx/m/it/10.95 , [].
  []
 
 [8 <./Figs/schematic-1.png>]
-<Figs/dag.png, id=234, 1027.84pt x 770.88pt>
+<Figs/dag.png, id=238, 1027.84pt x 770.88pt>
 File: Figs/dag.png Graphic file (type png)
 <use Figs/dag.png>
 Package pdftex.def Info: Figs/dag.png  used on input line 421.
@@ -1442,12 +1442,12 @@ OT1/pplx/m/n/10.95 from [][]Leng
  []
 
 [15]
-<Figs/simuTPR.pdf, id=344, 722.7pt x 433.62pt>
+<Figs/simuTPR.pdf, id=348, 722.7pt x 433.62pt>
 File: Figs/simuTPR.pdf Graphic file (type pdf)
 <use Figs/simuTPR.pdf>
 Package pdftex.def Info: Figs/simuTPR.pdf  used on input line 802.
 (pdftex.def)             Requested size: 341.9989pt x 205.19751pt.
-<Figs/simuFDR.pdf, id=345, 722.7pt x 433.62pt>
+<Figs/simuFDR.pdf, id=349, 722.7pt x 433.62pt>
 File: Figs/simuFDR.pdf Graphic file (type pdf)
 <use Figs/simuFDR.pdf>
 Package pdftex.def Info: Figs/simuFDR.pdf  used on input line 813.
@@ -1458,35 +1458,36 @@ Overfull \hbox (2.70686pt too wide) in paragraph at lines 821--833
 tt/m/n/10.95 conquer []\OT1/pplx/m/n/10.95 ([][]Sone-son and Robin-
  []
 
-<Figs/DD95.pdf, id=366, 722.7pt x 433.62pt>
+<Figs/DD95.pdf, id=370, 722.7pt x 433.62pt>
 File: Figs/DD95.pdf Graphic file (type pdf)
 <use Figs/DD95.pdf>
 Package pdftex.def Info: Figs/DD95.pdf  used on input line 836.
 (pdftex.def)             Requested size: 341.9989pt x 205.19751pt.
 [17 <./Figs/simuFDR.pdf>]
-<Figs/fdrCounts.pdf, id=382, 578.16pt x 361.35pt>
+<Figs/fdrCounts.pdf, id=387, 578.16pt x 361.35pt>
 File: Figs/fdrCounts.pdf Graphic file (type pdf)
 <use Figs/fdrCounts.pdf>
 Package pdftex.def Info: Figs/fdrCounts.pdf  used on input line 851.
 (pdftex.def)             Requested size: 288.0011pt x 179.99637pt.
  [18 <./Figs/DD95.pdf> <./Figs/fdrCounts.pdf>]
-<Figs/shift.pdf, id=405, 650.43pt x 216.81pt>
+<Figs/shift.pdf, id=410, 650.43pt x 216.81pt>
 File: Figs/shift.pdf Graphic file (type pdf)
 <use Figs/shift.pdf>
 Package pdftex.def Info: Figs/shift.pdf  used on input line 874.
 (pdftex.def)             Requested size: 323.9978pt x 108.00111pt.
 
 [19 <./Figs/shift.pdf>]
-<Figs/D3E_box.pdf, id=429, 505.89pt x 505.89pt>
+<Figs/D3E_box.pdf, id=434, 505.89pt x 505.89pt>
 File: Figs/D3E_box.pdf Graphic file (type pdf)
 <use Figs/D3E_box.pdf>
 Package pdftex.def Info: Figs/D3E_box.pdf  used on input line 927.
 (pdftex.def)             Requested size: 306.0022pt x 306.00648pt.
- [20 <./Figs/D3E_box.pdf>]
 
-LaTeX Warning: Marginpar on page 21 moved.
-
-[21] [22] (./mkkn.bbl
+./mkkn.tex:942: Undefined control sequence.
+l.942 ... genes and the computation cost in \textt
+                                                  {EBSeq} is linear with $n$.
+? 
+[20 <./Figs/D3E_box.pdf>] [21] [22] (./mkkn.bbl
 
 ./mkkn.bbl:30: Package xkeyval Error: `Bacher2016' undefined in families `bid'.
 
@@ -1519,6 +1520,7 @@ Type  H <return>  for immediate help.
 l.129 \bid{Delmans2016}
                        
 ? 
+[23]
 
 ./mkkn.bbl:219: Package xkeyval Error: `Finak2015' undefined in families `bid'.
 
@@ -1530,7 +1532,6 @@ Type  H <return>  for immediate help.
 l.219 \bid{Finak2015}
                      
 ? 
-[23]
 
 ./mkkn.bbl:297: Package xkeyval Error: `Huang2018' undefined in families `bid'.
 
@@ -1572,6 +1573,7 @@ Type  H <return>  for immediate help.
 l.490 \bid{Lin2017}
                    
 ? 
+[24]
 
 ./mkkn.bbl:518: Package xkeyval Error: `Love2014' undefined in families `bid'.
 
@@ -1582,7 +1584,6 @@ Type  H <return>  for immediate help.
 l.518 \bid{Love2014}
                     
 ? 
-[24]
 
 ./mkkn.bbl:645: Package xkeyval Error: `Pierson2015' undefined in families `bid
 '.
@@ -1602,6 +1603,7 @@ Underfull \hbox (badness 2221) in paragraph at lines 781--800
 T1/pplx/m/sc/9 Morse, M.\OT1/pplx/m/n/9 ,
  []
 
+[25]
 
 ./mkkn.bbl:837: Package xkeyval Error: `Zappia2017' undefined in families `bid'
 .
@@ -1613,84 +1615,72 @@ Type  H <return>  for immediate help.
 l.837 \bid{Zappia2017}
                       
 ? 
-) [25]
-Overfull \hbox (6.77095pt too wide) in paragraph at lines 1085--1101
+) [26]
+Overfull \hbox (6.77095pt too wide) in paragraph at lines 1099--1115
  []\OT1/pplx/m/it/10.95 Randomizing dis-tances for ap-prox-i-mate pos-te-rior i
 n-fer-ence. \OT1/pplx/m/n/10.95 One way to frame
  []
 
-[26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 1185--1185
+[27] [28]
+Underfull \hbox (badness 10000) in paragraph at lines 1199--1199
 []|\OT1/pplx/m/n/6 ([][]Darmanis et al.[][],
  []
 
 
-Overfull \hbox (43.833pt too wide) in paragraph at lines 1171--1187
+Overfull \hbox (43.833pt too wide) in paragraph at lines 1185--1201
  [][] 
  []
 
-[28] [29]
+[29] [30]
 
 Package natbib Warning: There were undefined citations.
 
-[30
+[31
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1228.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1228.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1242.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1242.
  (./mkkn.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1228.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1228.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1242.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1242.
 
+Package rerunfilecheck Info: File `mkkn.out' has not changed.
+(rerunfilecheck)             Checksum: 145CAB254CFC3B00655CFB4BF233E0CE;986.
 
-
-Package rerunfilecheck Warning: File `mkkn.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `mkkn.out':
-(rerunfilecheck)             Before: 36047B231477C48AA23FE9A93E7A7BE8;909
-(rerunfilecheck)             After:  63D838B21B0DF119B05B7B6E461917DC;919.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1228.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1242.
  ) 
 Here is how much of TeX's memory you used:
- 29830 strings out of 492649
- 563189 string characters out of 6129622
- 668801 words of memory out of 5000000
- 33040 multiletter control sequences out of 15000+600000
+ 29831 strings out of 492649
+ 563208 string characters out of 6129622
+ 667817 words of memory out of 5000000
+ 33041 multiletter control sequences out of 15000+600000
  572073 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,13n,77p,10422b,711s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{section*.20} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.11} has been referenced but does not exist
-, replaced by a fixed one
-
-{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
-live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texl
-ive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texli
-ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive
-/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
-2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
-18/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/201
-8/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2018/
-texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2018/texmf
--dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2018/texmf-dis
-t/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/
-type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/u
-rw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pala
-tino/uplri8a.pfb>
-Output written on mkkn.pdf (30 pages, 722615 bytes).
+{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
+xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
+live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texli
+ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
+e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
+2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2
+018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/201
+8/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2018/tex
+mf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2018/texmf-d
+ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
+s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
+/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
+latino/uplri8a.pfb>
+Output written on mkkn.pdf (31 pages, 724567 bytes).
 PDF statistics:
- 634 PDF objects out of 1000 (max. 8388607)
- 562 compressed objects within 6 object streams
+ 641 PDF objects out of 1000 (max. 8388607)
+ 568 compressed objects within 6 object streams
  158 named destinations out of 1000 (max. 500000)
- 184 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 192 words of extra memory for PDF output out of 10000 (max. 10000000)
 
