@@ -1,4 +1,4 @@
-
+\documentclass[aoas,preprint]{imsart}
 %\RequirePackage{mdframed}
 %\usepackage{mdframed}
 \usepackage[framemethod=TikZ]{mdframed}
@@ -820,8 +820,8 @@ FDR in all cases while also delivering a relatively high rate of true positives 
 
 We applied \verb+scDDboost+ to a collection of previously published
 data sets that are recorded at \verb+conquer+~\citep{ref:Cq}.  
-\todo{All are non-UMI protocols, correct? Curious to see performance on
-a UMI dataset, as they present further challenges}
+%\todo{All are non-UMI protocols, correct? Curious to see performance on
+%a UMI dataset, as they present further challenges}
 Though not knowing the truly DD
 genes, we can examine how \verb+scDDboost+ output compares to output from some standard methods.  We selected
 12 data sets from \verb+conquer+   representing different species and experimental settings
@@ -880,7 +880,7 @@ functions of the log-scale size statistic for all genes
  identified by scDDboost (red) compared to other DD genes (blue), at 5\% FDR.}
   \label{fig:shift}
 \end{figure}
-\todo{axes labels missing in fig 8}
+%\todo{axes labels missing in fig 8}
 % Datasets used for demonstration from left to right are GSE71585, GSE64016, EMTAB2805.
 
 
@@ -918,7 +918,7 @@ comparison methods, Figure~\ref{fig:bursting} shows  changes of these bursting p
 significant changes between estimated bursting parameters compared to commonly identified genes.
 This finding and similar findings on other data sets (not shown) provide some evidence that \verb+scDDboost+
 is able to detect biologically meaningful changes in the expression distribution.
-\todo{how many points are in each boxplotin figure 9? }
+%\todo{how many points are in each boxplotin figure 9? }
 
 
 \begin{figure}[H]
@@ -1018,7 +1018,7 @@ show increased false discoveries when $K$ is over-estimated.  But even accurate 
 not be expected to provide much improved power, since that depends on accurate estimation of subtypes and their
 frequencies which relies on $K$ being relatively small compared to $n$.
 
-
+Future numerical experiments would also assess the operating characteristic when we have large number of cells and low reads each cell.(e.g. UMI data)
 
 {\em Not sure: maybe we should have a statement about how we are not exhaustively comparing to all known
  DE methods; we compare to MAST, SCDD, DESEQ2, and D3E...maybe say something, since a referee for sure will
