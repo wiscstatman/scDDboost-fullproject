@@ -63,7 +63,7 @@ Authors: Ma, Korthauer, Kendziorski, and Newton
 \vspace{.2in}
 \noindent
 %% Version: May 5, 2019
-Version:  \date
+Version:  \today
 
 \vspace{.4in}
 
@@ -135,9 +135,8 @@ Details can be found at github site ....
 \subsection{Data Structure, Sampling Model, and Parameters}
 
 
-Proof of Theorem 2.
 
-\begin{proof}
+\begin{proof}[Proof of Theorem 2]
 Recall $\theta = (\phi, \psi, \mu, \sigma)$.
 Through the sampling procedure of our model (Figure 3), assuming a known number of cells within each condition $(n_1,n_2)$. We have $z^1, z^2$ are multinomial draw given $\phi$ and $\psi$, 
 thus the generation of $y, z$ only depends on $(\phi,\psi)$.
@@ -154,8 +153,8 @@ P(\theta | X,y,z) &\propto P(\phi,\psi | y, z) P(\mu, \sigma | X, z)
 \end{align*}
 From this we know\\
 1. Given $X,y$ and $z$, $(\phi, \psi) \perp (\mu, \sigma)$\\ 
-2. Given condition and subtypes label $y,z$, $(\phi,\psi)$ \perp $X$\\
-3. Given $X$ and $z$, $(\mu, \sigma)$ \perp $y$\\
+2. Given condition and subtypes label $y,z$, $(\phi,\psi) \perp X$\\
+3. Given $X$ and $z$, $(\mu, \sigma) \perp y$\\
 Thus we have $  P\left(A_\pi \cap M_{g,\pi} |X,y,z \right) 
  =  P\left(A_\pi |y,z \right) \, 
                       P\left(M_{g,\pi}| X,z \right).  $
@@ -364,8 +363,8 @@ $\textbf{inter} = mean( || z_i - z_j||^2), i,j = 1,2,...K$, and $z_i$ is the cen
 $\textbf{intra}$ is the average of distance of a point to its corresponding cluster center, which measures the compactness of clusters. 
 $\textbf{inter}$ is the average distance of two cluster centers, which measures the separation between clusters.
 In the original paper $\textbf{inter}$ was defined as minimum distance between medoids \citep{selK}. Here, we instead use the average for the purpose of getting a smoother quantity. 
-We want to have a small intra-cluster distance and a big inter-cluster distance. Consequently we want to minimize the \verb validity. 
-From empirical study, we typically observe a monotonically decreasing relationship between the number of clusters and \verb validity. 
+We want to have a small intra-cluster distance and a big inter-cluster distance. Consequently we want to minimize \verb+validity+. 
+From empirical study, we often observe a monotonically decreasing relationship between the number of clusters and \verb+validity+. 
 However, this trend stabilizes when $K$ is sufficiently large. The stopping rule for searching $K$ is when $\texttt{validity}_{K}  < \epsilon$ is satisfied. We set the default value of  $\epsilon$ to be 1, as we found this yields DD analysis results most consistent with other scRNAseq methods.
 
 
@@ -403,25 +402,21 @@ p( \tilde \psi_b )
 
 Those computing units will serve as key components for proving property 1 $\sim$ 6 in section 2.3
 
-Proof of property 1
-\begin{proof}
+\begin{proof}[Proof of Property 1]
 When $\phi$ and $\psi$ only satisfy the coarsest constrants: $\sum_{i = 1}^K \phi_i = \sum_{i = 1}^K \psi_i = 1$. $\phi$ and $\psi$ are independently Dirichlet distributed.
 When $\phi$ and $\psi$ satisfy finer constraints, $P(\phi | \psi ) \neq P(\phi)$ as there is some subsets $b \neq \pi$ such that $\sum_{i\in b} \phi = \sum_{i \in b} \psi$. So $\phi$ and $\psi$ are dependent.
 \end{proof}
 
-Proof of property 2
-\begin{proof}
+\begin{proof}[Proof of Property 2]
 $E_{\pi}(\phi_k) = E_{\pi}(\phi_k | \Phi_b) E_{\Phi}(\Phi_b) = E_{\tilde{\phi}_b}(\tilde{\phi}_k)E_{\Phi}(\Phi_b)$ where $b$ is the block containing subtype index $k$. As $\tilde{\phi}_b \sim  \text{Dirichlet}_{N(b)}[ \alpha_b^1 ]$ and  $\Phi_\pi  \sim \text{Dirichlet}_{N(\pi)}[   \beta_\pi   ] $
 We have $E_{\tilde{\phi}_b}(\tilde{\phi}_k) =  \frac{ \alpha^1_k }{ \sum_{k' \in b} \alpha^1_{k'} } $ and $E_{\Phi}(\Phi_b) = \frac{ \beta_b }{ \sum_{b' \in \pi} \beta_{b'} } $. Similarly we could prove the case for $E_{\pi}(\psi_k)$.
 \end{proof}
 
-Proof of property 3
-\begin{proof}
+\begin{proof}[Proof of Property 3]
 $t^1 / t_{\pi}^1$ is independent of $t^2 / t_{\pi}^2$ conditioning on $t_\pi^1$ and $t_\pi^2$ by the Neutrality property of Dirichlet distribution
 \end{proof}
 
-Proof of property 4
-\begin{proof}
+\begin{proof}[Proof of Property 4]
 For $j = 1,2$,
 let $T_b^j$ be the vector of $t_k^j$ such that $k \in b$. Recall $t_b^j = \sum_{k \in b} t_k^j$.
 Without loss of generality, we consider the case condition $j = 1$.\\
@@ -440,8 +435,7 @@ p(T_b^1  | t_b^1,y) &= \int_{\tilde{\phi}_b} p(T_b^1  | \tilde{\phi}_b) p(\tilde
 \end{align*}
 \end{proof}
 
-Proof of property 5
-\begin{proof}
+\begin{proof}[Proof of Property 5]
 $t_\pi^1$ and $t_\pi^2$, given the condition label $y$, are independent and identically distributed. $t_\pi^1 |\Phi \sim$ multinomial$(\Phi)$
 \begin{align*}
 p_\pi(t^1_{\pi},t^2_{\pi}| y) &= \int_\Phi p(t_\pi^1 | \Phi) p(t_\pi^2 | \Phi) p(\Phi) d\Phi \\
@@ -461,8 +455,7 @@ To prove property 6, we need a lemma of dimensionality of the intersection of tw
 If $\pi_2$ is not refinement of $\pi_1$ then $A_{\pi_1} \cap A_{\pi_2}$ is a lower dimensional subset of $A_{\pi_2}$.
 \end{lemma}
 
-Proof of lemma 1
-\begin{proof}
+\begin{proof}[Proof of lemma 1]
 Let $V$ denote the orthogonal space of $\phi - \psi$, when $(\phi,\psi)\in A_{\pi_1} \cap A_{\pi_2}$, and $\text{dim}(A_{\pi_1} \cap A_{\pi_2}) = \text{dim}(\phi - \psi) + \text{dim}(\psi) = 2K - \text{dim}(V) - 1$. Also let $\pi_1 = \{b_1^1,...,b_s^1\}, \pi_2 = \{b_1^2,...,b_t^2\}$. The corresponding vectors are $v_1^1,...,v_s^1$ and $v_1^2,...,v_t^2$. We claim there must be a $b_i^1\in \pi$ whose corresponding $v_i^1$ is linear independent with $v_1^2,...,v_t^2$. If not, for every $v_i^1$ there exists $\alpha_1^i,...,\alpha_t^i$ such that 
 \[
 v_i^1 = \sum_{j = 1}^t \alpha_j^i v_j^2 \quad\quad\quad(*)
@@ -471,15 +464,13 @@ If $b_j^2 \cap b_i^1 \neq \emptyset$, then multiply $v_j^2$ on both sides of (*)
 Consequently, there exists $b\in\pi_1$ with $v(b)$ linear independent with $v(b'), b'\in\pi_2$. $\text{dim}(V)$ is at least $N(\pi_2) + 1, \dim(A_{\pi_1} \cap A_{\pi_2}) < \text{dim}(A_{\pi_2})$.
 \end{proof}
 
-Proof of property 6
-\begin{proof}
-For a $\pi$, $P(A_\pi, | y, z) = \underset{\tilde \pi \in \Pi}{\sum} \int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi$, notice the support of $\omega_{\tilde \pi}^{\text{post}$ is $A_{\tilde \pi}$. 
+\begin{proof}[Proof of Property 6]
+For a $\pi$, $P(A_\pi, | y, z) = \underset{\tilde \pi \in \Pi}{\sum} \int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi$, notice the support of $\omega_{\tilde \pi}^{\text{post}}$ is $A_{\tilde \pi}$. 
 By lemma 1, we know if $\tilde \pi$ does not refine $\pi$, then $\int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi$ is an integral on lower dimension set and vanishes. if $\tilde \pi$ refines $\pi$, then 
-$\int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi = $\int_{A_{\tilde \pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi = \omega_{\tilde \pi}^{\text{post}}$. We have $P(A_\pi, | y, z) = \underset{\tilde \pi \in \Pi}{\sum} \omega_{\tilde \pi}^{\text{post}} 1[\tilde \pi \text{ refines } \pi ]$.
+$\int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi = \int_{A_{\tilde \pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi = \omega_{\tilde \pi}^{\text{post}}$. We have $P(A_\pi, | y, z) = \underset{\tilde \pi \in \Pi}{\sum} \omega_{\tilde \pi}^{\text{post}} 1[\tilde \pi \text{ refines } \pi ]$.
 \end{proof}
 
-Proof of theorem 3
-\begin{proof}
+\begin{proof}[Proof of Theorem 3]
 %$p_\pi ( t^1 | t_\pi^1, y) p_\pi ( t^2 | t_\pi^2 , y) p_\pi ( t_\pi^1, t_\pi^2 | y )$
 Recall the DDM prior: $p(\phi,\psi) = \sum_{\pi \in \Pi} p_\pi(\phi,\psi)$. 
 By bayes' rule we know $p(\phi,\psi | y,z) \propto p(\phi,\psi, y, z) = \sum_{\pi \in \Pi}  p(y, z | \phi,\psi) p_\pi(\phi,\psi)\omega_\pi$
@@ -518,7 +509,7 @@ we have $C_\pi =  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
 \subsection{Synthetic Data}
 In this section, we use PCA plots to show the subtle changes underlying each subtype of simulated data and 
 we demonstrate consistency of estimated distributional changes based on \texttt{scDDboost} and Wasserstein distance.
-Finally, ROC curves illustrate that \textt{scDDboost} has favorable operating characteristics. 
+Finally, ROC curves illustrate that \verb+scDDboost+ has favorable operating characteristics. 
 
 
 We first look at the PCA plots of the simulated data (Supplementary Figure \ref{fig:pca1}, \ref{fig:pca2}, \ref{fig:pca3}). \todo{Figs S3-S5 missing axis labels}
@@ -911,7 +902,7 @@ $U(\pi) = \Sigma_{b\in\pi}\big[(2c - 1/2) \text{ln}(\beta_b + t_b^1 + t_b^2)
  + \Sigma_{b\in\pi_1}g(\xi_b)(Y_b^1 + Y_b^2)  - \Sigma_{b\in\pi_2}g(\xi_ b)(Y_b^1 + Y_b^2)\\
  \end{eqnarray*}
  
- $Y_b^j =  \frac{((t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n}))^3 / \sqrt{n}}{((t_b^j + \gamma_b^j) /n)^2}$, by LLN the denominator goes to a constant and by CLT in the numerator $(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n} \rightarrow (t_b^1 - t_b^2) / \sqrt{n} \rightarrow \sqrt{n}[(t_b^1 / n  - \Phi_b) - (t_b^2 / n - \Psi_b)] $, which goes to a normal distributed random variable when $\Phi_b = \Psi_b$. So $Y_b^j$ is $o_p(1)$. Similarly,  $X_b^j =  \frac{((t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n})^2}{t_b^j + \gamma_b^j / n}}$ is asymptotic gamma($\chi$-square) distributed.
+ $Y_b^j =  \frac{((t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n}))^3 / \sqrt{n}}{((t_b^j + \gamma_b^j) /n)^2}$, by LLN the denominator goes to a constant and by CLT in the numerator $(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n} \rightarrow (t_b^1 - t_b^2) / \sqrt{n} \rightarrow \sqrt{n}[(t_b^1 / n  - \Phi_b) - (t_b^2 / n - \Psi_b)]$, which goes to a normal distributed random variable when $\Phi_b = \Psi_b$. So $Y_b^j$ is $o_p(1)$. Similarly,  $X_b^j =  \frac{((t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n})^2}{t_b^j + \gamma_b^j / n}$ is asymptotic gamma ($\chi$-square) distributed.
 $g(\xi_b)$ has bounded variance,
  $U(\pi_1) - T(\pi_2) = -\text{ln}(n)$ if $N(\pi_2) < N(\pi_1)$
  as $ \text{ln}(\beta_b + t_b^1 + t_b^2)  -  \text{ln}(\beta_{b'} + t_{b'}^1 + t_{b'}^2) =  \text{ln}(\frac{\beta_b + t_b^1 + t_b^2}{n})  -  \text{ln}(\frac{\beta_{b'} + t_{b'}^1 + t_{b'}^2}{n}) \rightarrow O(1) \quad a.s.$ so we complete the proof.
