@@ -932,9 +932,11 @@ is able to detect biologically meaningful changes in the expression distribution
 
 \subsection{Time Complexity}
 
-Time complexity of \texttt{scDDboost} can attribute to two parts: clustering and \texttt{EBSeq}. Recall $n$ for number of cells, $G$ for number of genes and $K$ for number of subtypes. 
-The time complexity for clustering on one gene is O($n^2$) and thus in total O($Gn^2$). 
-\texttt{EBSeq} use sum of counts within each subtype (sufficient statistics) to compute density kernel and for each gene there are Bell$(K)$ DE patterns to compute, which yields the time complexity: O($n$) + O($G\text{Bell}(K)$). 
+Time complexity of \texttt{scDDboost} can attribute to two parts: clustering and \texttt{EBSeq}. 
+Recall the notation that $n$ for number of cells, $G$ for number of genes and $K$ for number of subtypes. 
+The time complexity for clustering is O($Gn^2$)( O($n^2$) for one gene, supplementary section 2.2.2).
+\texttt{EBSeq} use sum of counts within each subtype (sufficient statistics) to compute density kernel and for each gene there are Bell$(K)$ DE patterns to compute, 
+which yields the time complexity: O($n$) + O($G\text{Bell}(K)$). 
 Where Bell($K$) is the bell number(number of ways to partition $K$ elements.) 
 As $G$ is roughly O(10000) and fixed.
 The scalability of \texttt{scDDboost} to large samples depends on $n$ and $K$.  
