@@ -1,4 +1,4 @@
-\documentclass[aoas,preprint]{imsart}
+
 %\RequirePackage{mdframed}
 %\usepackage{mdframed}
 \usepackage[framemethod=TikZ]{mdframed}
@@ -173,12 +173,13 @@ Figure~\ref{fig:whet} highlights the ability of \verb+scDDboost+ to detect subty
 The three panels on the left compare expression from 91 human 
 stem cells known to be in the G1 phase of the cell cycle, as well as
 from 76 such cells known to be in the G2/M phase~\citep{ref:Leng} in three genes (BIRC5, HMMR, and CKAP2), which we happen to know from prior studies have differential activity between G1 and G2/M~\citep{BIRC5,HMMR,RAD21}.  
-Standard statistical tools \todo{which standard statistical tools?} applied to the data behind Figure~\ref{fig:whet} do not find the observed
+Several standard statistical tools applied to the data behind Figure~\ref{fig:whet} do not find the observed
  differences in any of these genes
 to be statistically significant when controlling the false discovery rate (FDR) at 5\%. 
 But \verb+scDDboost+ does include these genes on its 5\% FDR list.
-Considering prior studies, these subtle distributional changes are probably not false discoveries. \todo{From the heatmap, these genes look
-to be srikingly bimodal. But I don't get that sense from the violin plots. Are the same transformations, treatment of dropouts used for both panels? Perhaps it would help to see the color scale legend for the heatmap?}
+Considering prior studies, these subtle distributional changes are probably not false discoveries. 
+%\todo{From the heatmap, these genes look
+%to be srikingly bimodal. But I don't get that sense from the violin plots. Are the same transformations, treatment of dropouts used for both panels? Perhaps it would help to see the color scale legend for the heatmap?}
 The right panel in Figure~\ref{fig:whet} shows these three among
   many other genes also known to be involved in cell-cycle regulation but
 not identified by standard tools as altered between G1 and G2/M at the 5\% FDR level.    The color panel above the
@@ -207,12 +208,12 @@ information.
  \caption{Genes involved in cell-cycle that are identified by scDDboost, but not standard approaches,
  as differentially distributed between cell-cycle phases G1 and G2/M in human embryonic stem cells. 
   Density estimates on the left show expression data (log2 scale)
-of three genes identified by scDDboost at 5\% FDR, but not similarly identified by other approaches.
+of three genes identified by scDDboost at 5\% FDR, but not similarly identified by MAST, scDD, and DESeq2.
  Prior studies have shown that the expression
  of  BIRC5, CKAP2, and HMMR is dependent on the phase of cell-cycle,
  suggesting that these subtle shifts are not false positives. 
- Heatmap (right) shows these three genes among 137 other cell-cycle genes (GO:0007049). 
- Cells (columns) are clustered by their genome-wide
+ Heatmap (right) shows these three genes among 137 other cell-cycle genes (GO:0007049), with expression from low (blue) to high 
+(red).  Cells (columns) are clustered by their genome-wide
 expression profiles into distinct cellular subtypes, as indicated by the color panel. 
 
 
@@ -220,8 +221,8 @@ expression profiles into distinct cellular subtypes, as indicated by the color p
 \end{figure}
 
 
-\todo{Fig 1(left): Where are the dropouts? Was a pseudocount used?}
-\todo{Fig 1(right): Missing legend for color scale}
+%\todo{Fig 1(left): Where are the dropouts? Was a pseudocount used?}
+%\todo{Fig 1(right): Missing legend for color scale}
 Numerical experiments  on both synthetic and published scRNA-seq data bear out the incidental finding 
 in Figure~\ref{fig:whet}, that \verb+scDDboost+ has sensitivity for detecting subtle distribution changes. 
   In these experiments we take advantage of
@@ -461,8 +462,7 @@ data in order to sharpen our assessments of between-condition expression changes
 
 We leverage the extensive research on how to cluster cells into subtypes using scRNA-seq data:
 for example,  SC3~\citep{sc3}, CIDR~\citep{CIDR}, and ZIFA~\citep{ZIFA}. 
-\todo{How are these methods related to the K-mediods construction used?}
-We propose clustering on the full set
+We propose $K-$medoids clustering on the full set
 of profiles in a way that is blind to the condition label vector $y$, in order to have as many cells as possible
 to inform the subtype structure.  We investigated several clustering schemes in numerical experiments and allow 
 flexibility in this choice within the \textsc{scDDboost} software. 
@@ -502,7 +502,7 @@ conditional on an estimate of the subtype labels.
 
 We invoke $K-$medoids \citep{kmedoids} 
 as the default clustering method in \textsc{scDDboost}, and customize the cell-cell distance by integrating two measures.  
-\todo{is K-mediods used over SC3/CIDR/ZIFA because it's easier to carry out randomized clusterings? Or why?}
+%\todo{is K-mediods used over SC3/CIDR/ZIFA because it's easier to carry out randomized clusterings? Or why?}
 The first assembles gene-level information by cluster-based-similarity partitioning~\citep{ref:cspa}.
  Separately at each gene,   modal clustering (\cite{ref:dahl} and Supplementary Material Section~2.2.2) partitions the cells, and
 then we define dissimilarity between cells as the Manhattan distance of those gene specific partition labels.
@@ -776,7 +776,7 @@ The proportionality is resolved by calculating over all partitions $\pi$.
 
  
 \section{Numerical experiments}
-\todo{What I don't get a sense from the sims is how it scales with n}
+%\todo{What I don't get a sense from the sims is how it scales with n}
 
 \subsection{Synthetic data} 
 We used \verb+splatter+ (v. 1.2.0)  
@@ -857,9 +857,7 @@ data sets from Appendix Table \ref{table:2}} \label{nullperm}
 We conjecture that \verb+scDDboost+ gains power through its novel approach to borrowing strength across genes;
 i.e., that the genomic data are providing information about cell subtypes and mixing proportions,
 leaving gene-level data to guide gene-specific mixture components. One way to drill into this
-idea is to consider how many genes have similar expression characteristics to a given gene on
-test.
-\todo{Not sure what is meant by 'on test'} 
+idea is to consider how many genes have similar expression characteristics to a given gene.
 By virtue of the \verb+EBseq+ analysis inside \verb+scDDboost+, we may assign each gene to
 a set that all have the same highest-probability pattern of equality/inequality of means across
 the subtypes. Say $\hat \pi_g = {\rm argmax}_{\pi} P( M_{g,\pi} | \hat z, X)$. 
@@ -932,22 +930,20 @@ is able to detect biologically meaningful changes in the expression distribution
 
 \subsection{Time Complexity}
 
-Time complexity of \texttt{scDDboost} can attribute to two parts: clustering and \texttt{EBSeq}. 
+Run time complexity of \texttt{scDDboost} is dominated by the cost of clustering cells and of running \texttt{EBSeq} to measure differences between subtypes. 
 Recall the notation that $n$ for number of cells, $G$ for number of genes and $K$ for number of subtypes. 
-The time complexity for clustering is O($Gn^2$)( O($n^2$) for one gene, supplementary section 2.2.2).
-\texttt{EBSeq} use sum of counts within each subtype (sufficient statistics) to compute density kernel and for each gene there are Bell$(K)$ DE patterns to compute, 
-which yields the time complexity: O($n$) + O($G\text{Bell}(K)$). 
-Where Bell($K$) is the bell number(number of ways to partition $K$ elements.) 
-As $G$ is roughly O(10000) and fixed.
-The scalability of \texttt{scDDboost} to large samples depends on $n$ and $K$.  
-\texttt{scDDboost} can efficiently dealing with large $n$ under moderate size of $K$. 
-As clustering can be parallel computed by genes and the computation cost in \textt{EBSeq} is linear with $n$. 
-Currently it is a computational challenge for big $K$, we will revisit this at section 5.
+Our distance-based clustering  $n$ cells measuring $G$ genes requires on the order of $G \times n^2$ operations (see Supplementary Material Section 2.2.2).
+Further, \texttt{EBSeq} uses sum of counts within each subtype for each gene to compute its density kernel, and there are Bell$(K)$ differential patterns to compute,
+where Bell counts the partitions of $K$.  
+Our implementation \texttt{scDDboost} efficiently deals with large $n$ under moderate $K$.  We have imposed the computational limit  $K \leq 9$ in
+ \verb+scDDboost+ (v. 1.0).  In a typical case involving 20000 genes and 200 cells,
+ under 50 times of randomized distances \verb+scDDboost+  is relatively efficient for $K \leq 6$ requiring
+ less than 15 CPU minutes on, for example, a quad-core 2.2 GHz Intel Core i7 with 16 Gb of RAM.
+ The same data might require 10 to 20 CPU hours when $K=9$.  In Section~5 we mention some opportunities to improve this speed.
 
 
 
 \section{Asymptotics of the Double Dirichlet Mixture}
-\todo{Might be informative to emphasize the practical significance of the finding}
 Summary statistics $P(A_\pi|y,z)$, from Section 2.3, are amenable to a first-order asymptotic analysis
 that provides further insight into DDM model behavior.  The fact that support sets $A_\pi$ for component 
 distributions $p_\pi( \phi,\psi)$ are not disjoint becomes an important issue.  Consider
@@ -986,8 +982,7 @@ state $(\phi,\psi)$, then for any $\pi \in H(\phi,\psi)$, using Theorem~4 and~(\
 \begin{eqnarray*}
 P(A_\pi|y_1,\cdots,y_n; z_1, \cdots z_n ) \longrightarrow_{a.s.} 1 \quad {\mbox {\rm as $n \longrightarrow \infty$}}.
 \end{eqnarray*}
-
-
+This provides conditions under which we expect good performance for large numbers of cells.
 
 
 \section{Concluding remarks}
@@ -1012,19 +1007,9 @@ Further, assuming a compositional structure to drive model-based computations ma
 since it allows great flexibility in the form of each gene/condition-specific expression distribution
 (as coded, they are finite mixtures of negative binomials).
 
-%We invented a random weighting scheme that stabilize our DD inference as well as approximating the results as if we have done a fully bayesian clustering analysis based on Dirichlet prior. 
    
-
-We have imposed the computational limit  $K \leq 9$ in
- \verb+scDDboost+ (v. 1.0).  In a typical case involving 20000 genes and 200 cells,  
- under 50 times of randomized distances 
- \verb+scDDboost+  is relatively efficient for $K \leq 6$ requiring 
- less than 15 CPU minutes on, for example, a quad-core 2.2 GHz Intel Core i7 with 16 Gb of RAM.
-
- The same data might require 10 to 20 CPU hours when $K=9$.
-The bottleneck  traces to \verb+EBseq+, which  currently 
+\verb+EBSeq+ currently presents a computational bottleneck for \verb+scDDboost+, since it
 searches all partitions of $K$ and encodes a hyper-parameter estimation algorithm that scales poorly with $K$.
-\todo{Still curious about how scales with n}
 Several approximations present themselves that may redress the problem, since,
 in the mixture model context, only patterns $\pi$ corresponding to relatively probable expression-change
 patterns over subtypes have a big impact on the final posterior inference.   Even resolving this
@@ -1033,10 +1018,6 @@ show increased false discoveries when $K$ is over-estimated.  But even accurate 
 not be expected to provide much improved power, since that depends on accurate estimation of subtypes and their
 frequencies which relies on $K$ being relatively small compared to $n$.
 
-
-%inference of the DE patterns is computationally not feasible when $K$ is large. 
-%Given the noise level among the single cell data and especially if we want to identify DD genes among conditions containing thousands of cells, allowing a big number of subtypes would make cells under same subtype more homogeneous and result in a more accurate estimations for the distribution of transcripts. Further research is needed for acceleration of \verb+EBseq+, 
-%one direction is to reduce the calculation on those patterns that would have small posterior probabilities. 
 
 
 {\em Not sure: maybe we should have a statement about how we are not exhaustively comparing to all known
