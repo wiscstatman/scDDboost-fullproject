@@ -341,7 +341,7 @@ We also check validity of random weighting on simulated dataset.
 We simulate one-dimensional data $X$ from a mixture of 5 normal distributions with different means and same variance ($\mu = (-6,-2,0,2,10), \sigma = 1$). 
 We compare clustering results between random weighting and Bayesian clustering using the Dirichlet process as a prior in terms of posterior probabilities that two elements belong to the same class given the whole data. 
 We also compare accuracy of the two procedures by looking at the ARI comparing to true class label (Supplementary Figure \ref{fig:simu}).  
-We found that random weighting scheme tends to give better results than classical Bayesian clustering. \todo{Fig S2: missing heatmap legend;}
+We found that random weighting scheme tends to give better results than classical Bayesian clustering. %\todo{Fig S2: missing heatmap legend;}
 
 \begin{figure}[h!]
 \includegraphics[scale = 0.9]{Figs/try7-g.pdf}
@@ -512,9 +512,9 @@ we demonstrate consistency of estimated distributional changes based on \texttt{
 Finally, ROC curves illustrate that \verb+scDDboost+ has favorable operating characteristics. 
 
 
-We first look at the PCA plots of the simulated data (Supplementary Figure \ref{fig:pca1}, \ref{fig:pca2}, \ref{fig:pca3}). \todo{Figs S3-S5 missing axis labels}
-For $K = 7 \text{ and } 12$, in each scenario there were some subtypes nested in the 2d PCA projection. \todo{Do they separate in higher order PCs?}
-Here, the distributional change of transcripts becomes difficult to detect. 
+We first look at the PCA plots of the simulated data (Supplementary Figure \ref{fig:pca1}, \ref{fig:pca2}, \ref{fig:pca3}). $\todo{Figs S3-S5 missing axis labels}
+For $K = 7 \text{ and } 12$, in each scenario there were some subtypes nested in the 2d PCA projection \todo{Do they separate in higher order PCs?}
+and the distributional change of transcripts becomes difficult to detect. 
 \texttt{scDDboost} benefits from the compositional structure and is more sensitive to those subtle changes.
 
 \begin{figure}[h!]
@@ -595,9 +595,12 @@ GSE84465 & neoplastic cells vs non-neoplastic cells & 1000, 1000 & human & \cite
 \label{table:1}
 \end{table}
 
-The largest dataset we explored is GSE84465, which contains 3500 cells in total. For this dataset, we randomly sampled 1000 cells from each condition, because it takes more time and memory to compute using all the samples. For other datasets we use all the cells within that condition under same batch.
-1000 cells each condition seems to be enough to represent the heterogeneity. \todo{How different are results on a different random subset of 1000?}
-We found \texttt{DESeq} found significantly smaller numbers of discoveries than others. It is intuitive that we are more likely to encounter subtle changes
+For the first 11 datasets in supplementary table \ref{table:1} we use all the cells within that condition under same batch.
+The last one is the largest dataset we explored containing 3589 cells and comparing neoplastic cells (1091 cells) vs non-neoplastic cells (2498 cells).
+We randomly sampled 1000 cells from each condition, because it takes a lot of time for \texttt{DESeq} and \textt{scDD} to compute when using all the samples
+and we conjecture that 1000 cells each condition would be enough to represent the heterogeneity. %\todo{How different are results on a different random subset of 1000?}
+We run the comparison on those subsamples instead 
+and found \texttt{DESeq} identified significantly smaller numbers of positives than other methods. It is intuitive that we are more likely to encounter subtle changes
 when we have large samples, and only considering mean shifts would have limited power. 
 
 We also observed consistent distributional change measurements by \texttt{scDDboost} and Wasserstein distance between the empirical distribution of transcripts
