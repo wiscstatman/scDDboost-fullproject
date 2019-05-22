@@ -519,20 +519,23 @@ and the distributional change of transcripts becomes difficult to detect.
 
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/pca3.pdf}
-  \caption{first two principal components of transcripts under different parameters for simulated data. Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation, each setting has 2 replicates and K = 3}
+  \caption{first two principal components of transcripts under different parameters for simulated data. 
+  Horizontal axis refers to first component, vertical axis refers to second component.
+  Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation, each setting has 2 replicates.
+  From left to right, the associated hyper-parameters are (0.1,0.4), (-0.1,0.3), (0.3,0.5), (-0.1,1) and K = 3}
   \label{fig:pca1}
 \end{figure}
 
 
 \begin{figure}[h!]
 \includegraphics[ width = 0.8\textwidth]{Figs/pca7.pdf}
-\caption{Same as Supplementary Figure~\ref{fig:pca1}, but for K = 7}
+\caption{similar plots as Supplementary Figure~\ref{fig:pca1}, but for K = 7}
 \label{fig:pca2}
 \end{figure}
 
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/pca12.pdf}
-  \caption{Same as Sumpplementary Figure~\ref{fig:pca1}, but for K = 12}
+  \caption{similar plots as Sumpplementary Figure~\ref{fig:pca1}, but for K = 12}
   \label{fig:pca3}
   \end{figure}
   
@@ -542,7 +545,8 @@ Lower probabilities of equivalent distributed are associated with bigger distanc
 \begin{figure}[h!]
 \includegraphics[width = 0.6\textwidth]{Figs/simu_wadist.pdf}
 \caption{$P(ED_g|X,y)$ given by scDDboost versus empirical Wasserstein distance. 
-Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4 - 0.6, 0.6 - 0.8, 0.8 - 1. For the simulation cases}
+Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4 - 0.6, 0.6 - 0.8, 0.8 - 1. 
+For simulation cases with parameters in the format: number of clusters / shape / scale}
  \label{fig:simu_wad}
 \end{figure}
 
