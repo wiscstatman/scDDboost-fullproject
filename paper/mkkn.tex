@@ -120,14 +120,14 @@ numerical experiments, is improved sensitivity compared to several standard appr
 The ability to measure genome-wide gene expression at single-cell resolution 
 has accelerated the pace of biological discovery.  Overcoming data
 analysis challenges caused by the scale and unique variation properties of single-cell
-data will surely fuel further advances in immunology \citep{immune}, developmental
-biology \citep{dv}, cancer \citep{cancer}, and other areas \citep{scs}. 
+data will surely fuel further advances in immunology (\cite{immune}), developmental
+biology (\cite{dv}), cancer (\cite{cancer}), and other areas (\cite{scs}). 
  Computational tools and statistical methodologies 
 created for data of lower-resolution (e.g., bulk RNA-seq) or lower dimension 
 (e.g., flow cytometry)  guide our response to 
  the data science demands of new measurement platforms,
 but they remain inadequate for efficient knowledge discovery in this
-rapidly advancing domain~\citep{Bacher2016}.
+rapidly advancing domain~(\cite{Bacher2016}).
 
 An important feature of single-cell studies that could be leveraged better
 statistically is the fact that cells populate distinct, identifiable subtypes
@@ -135,7 +135,7 @@ determined by lineage history, epigenetic state, the activity
 of various transcriptional programs, or other 
 distinguishing factors. Extensive research on clustering cells
 has produced tools for identifying subtypes, including: 
- \verb+SC3+ \citep{sc3}, \verb+CIDR+ \citep{CIDR} and \verb+ZIFA+ \citep{ZIFA}.
+ \verb+SC3+ (\cite{sc3}), \verb+CIDR+ (\cite{CIDR}) and \verb+ZIFA+ (\cite{ZIFA}).
 We hypothesize that such
 subtype information may be usefully injected into other inference procedures in order
 to improve their operating characteristics. 
@@ -144,7 +144,7 @@ Assessing the magnitude and statistical significance of changes in gene
 expression associated with changes in cellular condition has been a central
 statistical problem in genomics. New tools specific to
 the single-cell RNAseq data structure, including \verb+MAST+
-\citep{ref:MAST}, \verb+scDD+ \citep{ref:scDD}, \verb+D3E+ \citep{ref:d3e},
+(\cite{ref:MAST}), \verb+scDD+ (\cite{ref:scDD}), \verb+D3E+ (\cite{ref:d3e}),
 have been deployed to address this problem.
 These tools respond
 to scRNAseq characteristics, such as high prevelance of zero counts and
@@ -162,7 +162,7 @@ Through the compositional model underlying \verb+scDDboost+, subtypes inferred b
 inform the analysis of gene-level expression.  The proposed methodology merges two lines of computation
 after cell clustering: one concerns patterns of differential expression among 
 the cellular subtypes, and here we take advantage of the powerful \verb+EBseq+ method for detecting
-patterns in negative-binomially-distributed expression data~\citep{oscope}.  The second concerns 
+patterns in negative-binomially-distributed expression data~(\cite{oscope}).  The second concerns 
 the counts of cells in various subtypes; for this we propose a Double-Dirichlet-Mixture distribution
 to model the pair of multinomial probability vectors for subtype counts in two experimental conditions.
 Further elements are developed, on the selection of the number of subtypes and on accounting for uncertainty in the cluster output,  in order to provide an end-to-end solution to the differential distribution
@@ -172,7 +172,7 @@ To set the context by way of example,
 Figure~\ref{fig:whet} highlights the ability of \verb+scDDboost+ to detect subtype composition changes that lead to subtle gene expression changes that go undetected by other methods. 
 The three panels on the left compare expression from 91 human 
 stem cells known to be in the G1 phase of the cell cycle, as well as
-from 76 such cells known to be in the G2/M phase~\citep{ref:Leng} in three genes (BIRC5, HMMR, and CKAP2), which we happen to know from prior studies have differential activity between G1 and G2/M~\citep{BIRC5,HMMR,RAD21}.  
+from 76 such cells known to be in the G2/M phase~(\cite{ref:Leng}) in three genes (BIRC5, HMMR, and CKAP2), which we happen to know from prior studies have differential activity between G1 and G2/M~(\cite{BIRC5,HMMR,RAD21}).  
 Several standard statistical tools applied to the data behind Figure~\ref{fig:whet} do not find the observed
  differences in any of these genes
 to be statistically significant when controlling the false discovery rate (FDR) at 5\%. 
@@ -226,10 +226,10 @@ expression profiles into distinct cellular subtypes, as indicated by the color p
 Numerical experiments  on both synthetic and published scRNA-seq data bear out the incidental finding 
 in Figure~\ref{fig:whet}, that \verb+scDDboost+ has sensitivity for detecting subtle distribution changes. 
   In these experiments we take advantage of
-\verb+splatter+ for generating synthetic data~\citep{ref:Zappia} as well as the compendium of scRNA-seq
-data available through \verb+conquer+ \citep{ref:Cq}.  Additional numerical experiments show a relationship
+\verb+splatter+ for generating synthetic data~(\cite{ref:Zappia}) as well as the compendium of scRNA-seq
+data available through \verb+conquer+ (\cite{ref:Cq}).  Additional numerical experiments show a relationship
  between \verb+scDDboost+ findings and more mechanistic attempts to parameterize transcriptional
- activation~\citep{ref:d3e}.  Finally, we establish first-order asymptotic results for the methodology.  
+ activation~(\cite{ref:d3e}).  Finally, we establish first-order asymptotic results for the methodology.  
 
 On manuscript organization, we present
 the modeling and methodology elements in Section~2, numerical experiments in Section~3,  asymptotic analysis in Section~4, and a discussion
@@ -315,7 +315,7 @@ $f_g^1 \neq f_g^2$,
 if $f_g^1(x) \neq f_g^2(x)$ for some $x$, and otherwise it is equivalently distributed
 (${\rm ED}_g$). Motivated by findings from bulk RNAseq data analysis, we further
 set each $f_{g,k}$ to have a a negative-binomial form, say with mean $\mu_{g,k}$
-and shape parameter $\sigma_g$; e.g. \cite{ref:Leng}, \cite{DES}, and \cite{ref:Des}. 
+and shape parameter $\sigma_g$; e.g. (\cite{ref:Leng}, \cite{DES}, \cite{ref:Des} and \cite{Chen:2018aa}). 
 This choice is effective in our numerical experiments though it is 
 not critical to the modeling formulation.  The use of mixtures per gene has proven
 useful in related model-based approaches (e.g., 
@@ -461,7 +461,7 @@ data in order to sharpen our assessments of between-condition expression changes
 \subsection{Method structure and clustering}
 
 We leverage the extensive research on how to cluster cells into subtypes using scRNA-seq data:
-for example,  SC3~\citep{sc3}, CIDR~\citep{CIDR}, and ZIFA~\citep{ZIFA}. 
+for example,  SC3~(\cite{sc3}), CIDR~(\cite{CIDR}), and ZIFA~(\cite{ZIFA}). 
 We propose distance-based clustering on the full set
 of profiles in a way that is blind to the condition label vector $y$, in order to have as many cells as possible
 to inform the subtype structure.  We investigated several clustering schemes in numerical experiments and allow 
@@ -472,7 +472,7 @@ posterior probabilities $P(A_\pi|y, \hat z)$ and $P(M_{g, \pi}| X, \hat z)$ that
 differential distribution. The first probability concerns patterns of cell counts over subtypes in the two conditions,
 and has a convenient closed form within the double-Dirichlet model (Section~2.3).
 The second probability concerns patterns of changes in expected expression levels among subtypes, and this is
-also conveniently computed for negative-binomial counts using \textsc{EBSeq} \citep{ref:Leng}. 
+also conveniently computed for negative-binomial counts using \texttt{EBSeq} (\cite{ref:Leng}). 
 Algorithm~\ref{alg:scDDcore}
 summarizes how these elements combine to get the posterior probability of differential distribution per gene,
 conditional on an estimate of the subtype labels.
@@ -500,16 +500,16 @@ conditional on an estimate of the subtype labels.
 \end{algorithm}
 
 
-We invoke $K-$medoids \citep{kmedoids} 
-as the default clustering method in \textsc{scDDboost}, and customize the cell-cell distance by integrating two measures.  
+We invoke $K-$medoids \cite{kmedoids} 
+as the default clustering method in \texttt{scDDboost}, and customize the cell-cell distance by integrating two measures.  
 %\todo{is K-mediods used over SC3/CIDR/ZIFA because it's easier to carry out randomized clusterings? Or why?}
-The first assembles gene-level information by cluster-based-similarity partitioning~\citep{ref:cspa}.
+The first assembles gene-level information by cluster-based-similarity partitioning~\cite{ref:cspa}.
  Separately at each gene,   modal clustering (\cite{ref:dahl} and Supplementary Material Section~2.2.2) partitions the cells, and
 then we define dissimilarity between cells as the Manhattan distance of those gene specific partition labels.
 A second measure defines dissimilarity by one minus the 
 Pearson correlation between cells, which is computationally inexpensive,
 less sensitive to outliers than Euclidean distance, and effective at detecting cellular clusters in 
-scRNA-seq~\citep{Cor}.
+scRNA-seq~(\cite{Cor}).
  For the default clustering in~\verb+scDDboost+, we combine these 
 two measures by a weighted average, 
 with  $w_C = \frac{\sigma_P}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_C$. where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster-based distance and Pearson-correlation distance, respectively.  The software allows 
@@ -517,7 +517,7 @@ other distances; in any case
 the final distance matrix is denoted $D=\left( d_{i,j} \right)$. 
 
 Any clustering method  entails classification errors, and so $\hat z_c \neq z_c$ for some cells. To mitigate
-the effects of this uncertainty, \textsc{scDDboost} averages output probabilities from \textsc{scDDboost-core} over
+the effects of this uncertainty, \texttt{scDDboost} averages output probabilities from \textsc{scDDboost-core} over
 randomized clusterings $\hat z^*$.  These are not uniformly random, but rather are generated by applying $K-$medoids
 to a randomized distance matrix $D^*=\left( d_{i,j}/ w_{i,j}\right)$, 
 where $w_{i,j}$ are   non-negative weights
@@ -527,7 +527,7 @@ and where $\hat a$ is estimated from $D$. (Thus $w_{i,j}$ is Gamma$(\hat a, \hat
 The distribution of
 clusterings induced by this simple computational 
 scheme approximates a Bayesian posterior analysis, as we argue in
-the Appendix, where we also present pseudo-code for the resulting \textsc{scDDboost} 
+the Appendix, where we also present pseudo-code for the resulting \texttt{scDDboost} 
 Algorithm~\ref{alg:scDDboost}.
 Averaging over results from randomized clusterings 
  gives additional stability to the posterior probability statistics
@@ -539,7 +539,7 @@ Computations become more intensive the larger is the number $K$ of cell subtypes
 strategies in Section~5. Inferentially, 
  taking $K$ to be too large may inflate the false positive rate (Supplementary Figure S11).
  The approach
-taken in \verb+scDDboost+ is to set $K$ using the validity score~\citep{selK}, which measures 
+taken in \verb+scDDboost+ is to set $K$ using the validity score~(\cite{selK}), which measures 
 changes in within-cluster sum of squares as we increase $K$.  Our specific implementation is in
 Supplementary Material Section 2.2.4.
 
@@ -675,7 +675,7 @@ p_\pi(t^j | t^j_{\pi},y) =
                 \Gamma(t^j_k + 1 )}\right]
 \end{eqnarray*}
 which is the well-known Dirichlet-multinomial predictive distribution
-for counts $t^j$~\citep{Wag}.  E.g, taking $\alpha_k^j=1$ for all types $k$ 
+for counts $t^j$~(\cite{Wag}).  E.g, taking $\alpha_k^j=1$ for all types $k$ 
 we get the uniform distribution
 \begin{eqnarray*}
 p_\pi(t^j | t^j_{\pi},y) = 
@@ -744,7 +744,7 @@ P(A_\pi|y,z) =
 
 \subsection{$P(M_{g,\pi}|X,z)$}
 We leverage well-established modeling techniques for transcript analysis, including
-\cite{ref:Leng}, \cite{Kendziorski:2003aa}, and~\cite{Jensen:2009aa}, which characterize
+(\cite{ref:Leng}, \cite{Kendziorski:2003aa}, and~\cite{Jensen:2009aa}), which characterize
  equivalent or differential expression in terms of shared or independently drawn mean effects.  Let
 $X_{g,b}$ denote
 the subvector of expression values at gene $g$ over cells $c$ with $z_c=k$ for which subtype $k$ is part of
@@ -760,7 +760,7 @@ These assumptions imply a useful factorization marginally to latent means,
 \label{eq:ebseq}
 P(X_g|M_{g,\pi}, z) = \prod_{b \in \pi} f(X_{g,b}),
 \end{eqnarray}
-where $f$ is a customized density kernel.  In our case we use \verb+EBseq+ from~\cite{ref:Leng}: 
+where $f$ is a customized density kernel.  In our case we use \verb+EBseq+ from~(\cite{ref:Leng}): 
 the sampling distribution of
  $X_{g,c}$ is negative binomial, and $f$ becomes a particular compound multivariate 
 negative binomial formed from integrating
@@ -780,7 +780,7 @@ The proportionality is resolved by calculating over all partitions $\pi$.
 
 \subsection{Synthetic data} 
 We used \verb+splatter+ (v. 1.2.0)  
-to generate synthetic scRNA-seq  data for which the DD status of genes is known~\citep{ref:Zappia}, 
+to generate synthetic scRNA-seq  data for which the DD status of genes is known~(\cite{ref:Zappia}), 
  thereby allowing us to 
 measure operating characteristics of \verb+scDDboost+.  Our hypothetical two-condition comparison involved
 17421 genes, 10\% of which exhibited actual shifts in distribution between the two conditions. 
@@ -819,7 +819,7 @@ FDR in all cases while also delivering a relatively high rate of true positives 
 \subsection{Empirical study}
 
 We applied \verb+scDDboost+ to a collection of previously published
-data sets that are recorded at \verb+conquer+~\citep{ref:Cq}.  
+data sets that are recorded at \verb+conquer+~(\cite{ref:Cq}).  
 %\todo{All are non-UMI protocols, correct? Curious to see performance on
 %a UMI dataset, as they present further challenges}
 Though not knowing the truly DD
@@ -904,11 +904,11 @@ functions of the log-scale size statistic for all genes
 
 
 Transcriptional bursting is a fundamental property of genes. In its simplest form, the gene exists in two states: one where activity is negligible and one where there is a certain probability of 
-activation~\citep{Raj:2008aa}. 
-D3E~\citep{ref:d3e} is a computationally intensive 
+activation~(\cite{Raj:2008aa}). 
+D3E~(\cite{ref:d3e}) is a computationally intensive 
 method for DE gene analysis rooted in modeling the bursting process. It 
 considers transcripts as in the stationary distribution from an 
-experimentally validated stochastic process of single-cell gene expression \citep{Peccoud:1995aa}. 
+experimentally validated stochastic process of single-cell gene expression (\cite{Peccoud:1995aa}). 
 Three mechanistic parameters (rate of promoter activation, rate of promoter inactivation, 
  and the conditional rate of transcription given an active  promoter) characterize the model, which allow
  distributional changes between conditions without changing the mean expression level.
@@ -1001,10 +1001,10 @@ clustering on particular cell-cell distances.   These choices have evident advan
 model structure and theory developed in Section~2 carry through for other cases. Future experiments
 could study other formulations within the same schema; for example there may be cell-cell 
 distances that better capture the intrinsic dimensionality of expression programs, including, perhaps
-distances based on diffusions \citep{Haghverdi:2015aa} or  
-the longest-leg path distance \citep{Little2017PathBasedSC}.
+distances based on diffusions (\cite{Haghverdi:2015aa}) or  
+the longest-leg path distance (\cite{Little2017PathBasedSC}).
 Future experiments could also further assess operating characteristics when the number of cells is very large 
-and the number of reads is relatively small, as may arise with unique molecular identifiers \citep{Chen:2018aa}.
+and the number of reads is relatively small, as may arise with unique molecular identifiers (\cite{Chen:2018aa}).
 Further, assuming a compositional structure to drive model-based computations may not be restrictive,
 since it allows great flexibility in the form of each gene/condition-specific expression distribution
 (as coded, they are finite mixtures of negative binomials).
@@ -1170,18 +1170,18 @@ in Supplementary Material make comparisons to a full, Dirichlet-process-based, p
 \begin{tabular}{ |p{2cm}|p{5cm}|p{1.5cm}|p{1.5cm}|p{2cm}|}
 \hline
  Data set & Conditions & $\#$ cells & Organism  & Ref \\ \hline \hline
-GSE94383 & 0 min unstim vs 75min stim & 186,145 & human & \citep{Lane} \\ \hline
-GSE48968-GPL13112 & BMDC (2h LPS stimulation) vs 6h LPS & 96,96 & mouse & \citep{Shalek} \\ \hline
-GSE52529 & T0 vs T72 & 69,74 & human & \citep{Trapnell} \\ \hline
-GSE74596 & NKT1 vs NTK2 & 46,68 & mouse & \citep{Engel} \\ \hline
-EMTAB2805 & G1 vs G2M & 95,96 & mouse & \citep{EMTAB} \\ \hline
-GSE71585-GPL13112 &Gad2tdTpositive vs Cux2tdTnegative  & 80,140 & mouse & \citep{Tasic} \\ \hline
-GSE64016 & G1 vs G2 & 91,76 & human & \citep{oscope} \\ \hline
+GSE94383 & 0 min unstim vs 75min stim & 186,145 & human & \cite{Lane} \\ \hline
+GSE48968-GPL13112 & BMDC (2h LPS stimulation) vs 6h LPS & 96,96 & mouse & \cite{Shalek} \\ \hline
+GSE52529 & T0 vs T72 & 69,74 & human & \cite{Trapnell} \\ \hline
+GSE74596 & NKT1 vs NTK2 & 46,68 & mouse & \cite{Engel} \\ \hline
+EMTAB2805 & G1 vs G2M & 95,96 & mouse & \cite{EMTAB} \\ \hline
+GSE71585-GPL13112 &Gad2tdTpositive vs Cux2tdTnegative  & 80,140 & mouse & \cite{Tasic} \\ \hline
+GSE64016 & G1 vs G2 & 91,76 & human & \cite{oscope} \\ \hline
 GSE79102 & patient1 vs patient2 & 51, 89 & human & \cite{sc3} \\ \hline
-GSE45719 & 16-cell stage blastomere vs mid blastocyst cell & 50, 60 & mouse & \citep{Deng193} \\ \hline
-GSE63818 & Primordial Germ Cells, develop- mental stage: 7 week gestation vs Somatic Cells, developmental stage: 7 week gestation & 40,26 & mouse & \citep{Guo} \\ \hline
-GSE75748 & DEC vs EC & 64, 64 & human & \citep{chu} \\ \hline
-GSE84465 & neoplastic cells vs non-neoplastic cells & 1000, 1000 & human & \citep{Darmanis} \\ \hline
+GSE45719 & 16-cell stage blastomere vs mid blastocyst cell & 50, 60 & mouse & \cite{Deng193} \\ \hline
+GSE63818 & Primordial Germ Cells, develop- mental stage: 7 week gestation vs Somatic Cells, developmental stage: 7 week gestation & 40,26 & mouse & \cite{Guo} \\ \hline
+GSE75748 & DEC vs EC & 64, 64 & human & \cite{chu} \\ \hline
+GSE84465 & neoplastic cells vs non-neoplastic cells & 1000, 1000 & human & \cite{Darmanis} \\ \hline
 \end{tabular}
 \captionof{table}{Data sets used for the empirical study of scDDboost}
 \label{table:1}
