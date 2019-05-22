@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  22 MAY 2019 00:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  22 MAY 2019 01:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1563,9 +1563,10 @@ File: Figs/Fucci_wadist.pdf Graphic file (type pdf)
 <use Figs/Fucci_wadist.pdf>
 Package pdftex.def Info: Figs/Fucci_wadist.pdf  used on input line 610.
 (pdftex.def)             Requested size: 187.89914pt x 187.90196pt.
-[16
 
-]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 628--628
 []|\OT1/pplx/m/n/9 Number of
  []
@@ -1580,7 +1581,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 645--645
 []|\OT1/pplx/m/n/9 GSE71585-
  []
 
-[17 <./Figs/Fucci_wadist.pdf>]
+[16
+
+] [17 <./Figs/Fucci_wadist.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 662--667
 
  []
@@ -1670,7 +1673,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1016.
 Here is how much of TeX's memory you used:
  29943 strings out of 492649
  564313 string characters out of 6129622
- 648985 words of memory out of 5000000
+ 650986 words of memory out of 5000000
  33236 multiletter control sequences out of 15000+600000
  572179 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1687,7 +1690,7 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkkn-supplement.pdf (23 pages, 975890 bytes).
+Output written on mkkn-supplement.pdf (23 pages, 975807 bytes).
 PDF statistics:
  464 PDF objects out of 1000 (max. 8388607)
  389 compressed objects within 4 object streams
