@@ -364,8 +364,9 @@ $\textbf{intra}$ is the average of distance of a point to its corresponding clus
 $\textbf{inter}$ is the average distance of two cluster centers, which measures the separation between clusters.
 In the original paper $\textbf{inter}$ was defined as minimum distance between medoids \citep{selK}. Here, we instead use the average for the purpose of getting a smoother quantity. 
 We want to have a small intra-cluster distance and a big inter-cluster distance. Consequently we want to minimize \verb+validity+. 
-From empirical study, we often observe a monotonically decreasing relationship between the number of clusters and \verb+validity+. 
-However, this trend stabilizes when $K$ is sufficiently large. The stopping rule for searching $K$ is when $\texttt{validity}_{K}  < \epsilon$ is satisfied. We set the default value of  $\epsilon$ to be 1, as we found this yields DD analysis results most consistent with other scRNAseq methods.
+From empirical study, we observed that \verb+validity+. is monotonic decreasing with $K$
+and this trend stabilizes when $K$ is sufficiently big. The stopping rule for searching $K$ is when $\texttt{validity}_{K}  < \epsilon$ is satisfied. 
+We set the default value of  $\epsilon$ to be 1, as we found this yields results most consistent with other scRNA-seq methods.
 
 
 
