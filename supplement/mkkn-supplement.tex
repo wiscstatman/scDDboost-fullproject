@@ -660,10 +660,11 @@ GSE79102null & patient1 & 26, 25 & human\\
 In this section, we demonstrate change of PDD under different $K$ and the robustness we gain through random weighting. We also give a warning that using arbitrarily large $K$ will inflate FDR. 
 
 the number of subtypes $K$ is a crucial parameter controlling the accuracy of our modeling. 
-Too small $K$ may end up underfitting such that cells within same subtype can still be very different.
-If the mean expression change among subtypes is incapable to capture the distribution change for some genes, the power of \textsc{scDDboost} will be reduced.
-Too big $K$ may end up overfitting such that two subtypes can be very similar. Given that we have a fixed number of samples (cells), allowing more clusters will not only increase the burden of computation 
-but decrease the accuracy of our inference. \\
+Too small $K$ may end up underfitting such that cells within same subtype can still be very different, 
+the mean expression change among subtypes is incapable to capture the marginal distribution change.
+Consequently reducing the power of \texttt{scDDboost}.
+Too big $K$ may end up overfitting such that two subtypes can be very similar. Given that we have a fixed number of cells, allowing more clusters will not only increase the burden of computation 
+but decrease the certainty of our inference on DE pattern. \\
 
 From our empirical experience, 
 it is sufficient to capture the heterogeneity underlying cells with number of clusters less than 10 ($K$ in Supplementary Table\ref{table:1}).  
