@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  22 MAY 2019 15:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  22 MAY 2019 15:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1503,12 +1503,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 666--672
 
  []
 
-<Figs/Kchange.png, id=336, 767.86874pt x 244.915pt>
+<Figs/Kchange.png, id=337, 767.86874pt x 244.915pt>
 File: Figs/Kchange.png Graphic file (type png)
 <use Figs/Kchange.png>
 Package pdftex.def Info: Figs/Kchange.png  used on input line 680.
 (pdftex.def)             Requested size: 469.75502pt x 149.83142pt.
-<Figs/rw.pdf, id=338, 495.8525pt x 212.795pt>
+<Figs/rw.pdf, id=339, 495.8525pt x 212.795pt>
 File: Figs/rw.pdf Graphic file (type pdf)
 <use Figs/rw.pdf>
 Package pdftex.def Info: Figs/rw.pdf  used on input line 687.
@@ -1516,7 +1516,7 @@ Package pdftex.def Info: Figs/rw.pdf  used on input line 687.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Figs/breakFDR.pdf, id=339, 505.89pt x 505.89pt>
+<Figs/breakFDR.pdf, id=340, 505.89pt x 505.89pt>
 File: Figs/breakFDR.pdf Graphic file (type pdf)
 <use Figs/breakFDR.pdf>
 Package pdftex.def Info: Figs/breakFDR.pdf  used on input line 693.
@@ -1605,10 +1605,10 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkkn-supplement.pdf (23 pages, 974341 bytes).
+Output written on mkkn-supplement.pdf (23 pages, 974376 bytes).
 PDF statistics:
- 461 PDF objects out of 1000 (max. 8388607)
- 386 compressed objects within 4 object streams
+ 462 PDF objects out of 1000 (max. 8388607)
+ 387 compressed objects within 4 object streams
  83 named destinations out of 1000 (max. 500000)
  196 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -673,7 +673,7 @@ but decrease the certainty of our inference on DE pattern. \\
 From our empirical experience, 
 it is sufficient to capture the heterogeneity underlying cells with number of clusters less than 10 ($K$ in Supplementary Table\ref{table:1}).  
 To demonstrate the change of PDD given different $K$, we present an example using dataset GSE75748. When we increase $K$, the variance of the differential term $\text{PDD}_{K + 1} - \text{PDD}_K$ keeps decreasing and PDD keeps increasing. Our selection criterion (K = 5) happens to choose $K$ such that change between $\text{PDD}_{K + 1}$ and $\text{PDD}_K$ is small while not inflating PDD. We generally obtain stable validity score and PDD simultaneously (Supplementary Figure~\ref{fig:rwk}). In addition, the random weighting scheme help us obtain robust PDD (Supplementary Figure~\ref{fig:s10}). 
-There is one thing we need to be cautious, \texttt{scDDboost} may lose FDR control if we keep increasing $K$ (Supplementary Figure~\label{fig:lfdr}).
+There is one thing we need to be cautious, \texttt{scDDboost} may lose FDR control if we keep increasing $K$ (Supplementary Figure~\ref{fig:lfdr}).
 But from our simulation study, our selecting rule never overestimate $K$. 
 
 \begin{figure}[h]
