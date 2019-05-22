@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  22 MAY 2019 00:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  22 MAY 2019 12:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1453,7 +1453,7 @@ File: Figs/D3E_box.pdf Graphic file (type pdf)
 Package pdftex.def Info: Figs/D3E_box.pdf  used on input line 925.
 (pdftex.def)             Requested size: 306.0022pt x 306.00648pt.
  [20 <./Figs/D3E_box.pdf>] [21]
-Overfull \hbox (4.08498pt too wide) in paragraph at lines 1011--1020
+Overfull \hbox (4.08498pt too wide) in paragraph at lines 1013--1022
 [][][]\OT1/cmtt/m/n/10.95 EBSeq []\OT1/pplx/m/n/10.95 cur-rently presents a com
 -pu-ta-tional bot-tle-neck for [][]\OT1/cmtt/m/n/10.95 scDDboost[]\OT1/pplx/m/n
 /10.95 , since
@@ -1472,145 +1472,154 @@ l.30 \bid{Bacher2016}
                      
 ? 
 
-./mkkn.bbl:73: Package xkeyval Error: `Chu2016' undefined in families `bid'.
+./mkkn.bbl:69: Package xkeyval Error: `Chen2018' undefined in families `bid'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.73 \bid{Chu2016}
+l.69 \bid{Chen2018}
+                   
+? 
+
+./mkkn.bbl:92: Package xkeyval Error: `Chu2016' undefined in families `bid'.
+
+See the xkeyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.92 \bid{Chu2016}
                   
 ? 
 
-./mkkn.bbl:129: Package xkeyval Error: `Delmans2016' undefined in families `bid
+./mkkn.bbl:148: Package xkeyval Error: `Delmans2016' undefined in families `bid
 '.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.129 \bid{Delmans2016}
+l.148 \bid{Delmans2016}
                        
 ? 
 [23]
 
-./mkkn.bbl:219: Package xkeyval Error: `Finak2015' undefined in families `bid'.
+./mkkn.bbl:238: Package xkeyval Error: `Finak2015' undefined in families `bid'.
 
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.219 \bid{Finak2015}
+l.238 \bid{Finak2015}
                      
 ? 
 
-./mkkn.bbl:297: Package xkeyval Error: `Huang2018' undefined in families `bid'.
+./mkkn.bbl:316: Package xkeyval Error: `Huang2018' undefined in families `bid'.
 
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.297 \bid{Huang2018}
+l.316 \bid{Huang2018}
                      
 ? 
 
-./mkkn.bbl:396: Package xkeyval Error: `Korthauer2016' undefined in families `b
+./mkkn.bbl:415: Package xkeyval Error: `Korthauer2016' undefined in families `b
 id'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.396 \bid{Korthauer2016}
+l.415 \bid{Korthauer2016}
                          
 ? 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/ucs/data/uni-3.def
 File: uni-3.def 2013/05/13 UCS: Unicode data U+0300..U+03FF
 )
-./mkkn.bbl:415: Undefined control sequence.
+./mkkn.bbl:434: Undefined control sequence.
 \u-default-954 #1->\textkappa 
                               
-l.415   to Dynamic Patterns of NF-κB Activation}
+l.434   to Dynamic Patterns of NF-κB Activation}
                                                  .
 ? 
-[24]
 
-./mkkn.bbl:490: Package xkeyval Error: `Lin2017' undefined in families `bid'.
+./mkkn.bbl:509: Package xkeyval Error: `Lin2017' undefined in families `bid'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.490 \bid{Lin2017}
+l.509 \bid{Lin2017}
                    
 ? 
 
-./mkkn.bbl:518: Package xkeyval Error: `Love2014' undefined in families `bid'.
+./mkkn.bbl:537: Package xkeyval Error: `Love2014' undefined in families `bid'.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.518 \bid{Love2014}
+l.537 \bid{Love2014}
                     
 ? 
+[24]
 
-./mkkn.bbl:645: Package xkeyval Error: `Pierson2015' undefined in families `bid
+./mkkn.bbl:664: Package xkeyval Error: `Pierson2015' undefined in families `bid
 '.
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.645 \bid{Pierson2015}
+l.664 \bid{Pierson2015}
                        
 ? 
 
-Underfull \hbox (badness 2221) in paragraph at lines 781--800
+Underfull \hbox (badness 2221) in paragraph at lines 800--819
 []\OT1/pplx/m/sc/9 Trapnell, C.\OT1/pplx/m/n/9 , \OT1/pplx/m/sc/9 Cac-chiarelli
 , D.\OT1/pplx/m/n/9 , \OT1/pplx/m/sc/9 Grimsby, J.\OT1/pplx/m/n/9 , \OT1/pplx/m
 /sc/9 Pokharel, P.\OT1/pplx/m/n/9 , \OT1/pplx/m/sc/9 Li, S.\OT1/pplx/m/n/9 , \O
 T1/pplx/m/sc/9 Morse, M.\OT1/pplx/m/n/9 ,
  []
 
-[25]
 
-./mkkn.bbl:837: Package xkeyval Error: `Zappia2017' undefined in families `bid'
+./mkkn.bbl:856: Package xkeyval Error: `Zappia2017' undefined in families `bid'
 .
 
 See the xkeyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.837 \bid{Zappia2017}
+l.856 \bid{Zappia2017}
                       
 ? 
-) [26]
-Overfull \hbox (6.77095pt too wide) in paragraph at lines 1082--1098
+[25]) [26]
+Overfull \hbox (6.77095pt too wide) in paragraph at lines 1084--1100
  []\OT1/pplx/m/it/10.95 Randomizing dis-tances for ap-prox-i-mate pos-te-rior i
 n-fer-ence. \OT1/pplx/m/n/10.95 One way to frame
  []
 
 [27] [28]
-Underfull \hbox (badness 10000) in paragraph at lines 1182--1182
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1184
 []|\OT1/pplx/m/n/6 ([][]Darmanis et al.[][],
  []
 
 
-Overfull \hbox (43.833pt too wide) in paragraph at lines 1168--1184
+Overfull \hbox (43.833pt too wide) in paragraph at lines 1170--1186
  [][] 
  []
 
 [29] [30] [31
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1225.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1225.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1227.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1227.
  (./mkkn.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1225.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1225.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1227.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1227.
 
 Package rerunfilecheck Info: File `mkkn.out' has not changed.
 (rerunfilecheck)             Checksum: 63BCBE71ECF72D26FBD25465453CDDB7;974.
@@ -1621,16 +1630,16 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1225.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1227.
  ) 
 Here is how much of TeX's memory you used:
- 29646 strings out of 492649
- 559052 string characters out of 6129622
- 641494 words of memory out of 5000000
- 32869 multiletter control sequences out of 15000+600000
+ 29650 strings out of 492649
+ 559125 string characters out of 6129622
+ 641527 words of memory out of 5000000
+ 32872 multiletter control sequences out of 15000+600000
  572073 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,13n,77p,10422b,564s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,13n,77p,10422b,572s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -1645,10 +1654,10 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkkn.pdf (31 pages, 718681 bytes).
+Output written on mkkn.pdf (31 pages, 717700 bytes).
 PDF statistics:
- 628 PDF objects out of 1000 (max. 8388607)
- 555 compressed objects within 6 object streams
- 145 named destinations out of 1000 (max. 500000)
+ 631 PDF objects out of 1000 (max. 8388607)
+ 558 compressed objects within 6 object streams
+ 146 named destinations out of 1000 (max. 500000)
  192 words of extra memory for PDF output out of 10000 (max. 10000000)
 

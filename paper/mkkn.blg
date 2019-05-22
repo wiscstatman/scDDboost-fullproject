@@ -13,54 +13,53 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ./references/wlr_ref.bib
 Warning--string name "aug" is undefined
---line 617 of file ./references/wlr_ref.bib
+--line 636 of file ./references/wlr_ref.bib
 Warning--string name "mar" is undefined
---line 662 of file ./references/wlr_ref.bib
-Warning--I didn't find a database entry for "ref:oscope"
+--line 681 of file ./references/wlr_ref.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty booktitle in Little2017PathBasedSC
 Warning--empty booktitle in selK
-You've used 48 entries,
+You've used 49 entries,
             5204 wiz_defined-function locations,
-            1281 strings with 20115 characters,
-and the built_in function-call counts, 367629 in all, are:
-= -- 56926
-> -- 1179
-< -- 74
-+ -- 15389
-- -- 391
-* -- 25493
-:= -- 55410
-add.period$ -- 184
-call.type$ -- 48
-change.case$ -- 266
-chr.to.int$ -- 48
-cite$ -- 50
-duplicate$ -- 2397
-empty$ -- 20201
-format.name$ -- 1742
-if$ -- 86034
+            1288 strings with 20381 characters,
+and the built_in function-call counts, 374754 in all, are:
+= -- 58050
+> -- 1202
+< -- 75
++ -- 15708
+- -- 397
+* -- 25978
+:= -- 56486
+add.period$ -- 189
+call.type$ -- 49
+change.case$ -- 271
+chr.to.int$ -- 49
+cite$ -- 51
+duplicate$ -- 2447
+empty$ -- 20573
+format.name$ -- 1776
+if$ -- 87715
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 566
-num.names$ -- 213
-pop$ -- 1689
+newline$ -- 579
+num.names$ -- 217
+pop$ -- 1734
 preamble$ -- 1
-purify$ -- 170
+purify$ -- 173
 quote$ -- 0
-skip$ -- 32998
+skip$ -- 33648
 stack$ -- 0
-substring$ -- 61634
-swap$ -- 1047
-text.length$ -- 432
+substring$ -- 62764
+swap$ -- 1069
+text.length$ -- 441
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1242
+type$ -- 1268
 warning$ -- 2
-while$ -- 660
+while$ -- 674
 width$ -- 0
-write$ -- 1141
-(There were 5 warnings)
+write$ -- 1166
+(There were 4 warnings)

@@ -1,4 +1,4 @@
-\begin{thebibliography}{48}
+\begin{thebibliography}{49}
 % BibTex style file: imsart-nameyear.bst, 2017-11-03
 % Default style options (sort=1,type=nameyear).
 % Used options (sort=1,type=nameyear).
@@ -48,6 +48,25 @@
 \bjournal{Nature Biotechnology}
 \bvolume{33}
 \bpages{155 EP -}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Chen et~al.}{2018}]{Chen:2018aa}
+\begin{barticle}[author]
+\bauthor{\bsnm{Chen},~\bfnm{Wenan}\binits{W.}},
+  \bauthor{\bsnm{Li},~\bfnm{Yan}\binits{Y.}},
+  \bauthor{\bsnm{Easton},~\bfnm{John}\binits{J.}},
+  \bauthor{\bsnm{Finkelstein},~\bfnm{David}\binits{D.}},
+  \bauthor{\bsnm{Wu},~\bfnm{Gang}\binits{G.}} \AND
+  \bauthor{\bsnm{Chen},~\bfnm{Xiang}\binits{X.}}
+(\byear{2018}).
+\btitle{UMI-count modeling and differential expression analysis for single-cell
+  RNA sequencing}.
+\bjournal{Genome Biology}
+\bvolume{19}
+\bpages{70}.
+\bdoi{10.1186/s13059-018-1438-9}.
+\bid{Chen2018}
 \end{barticle}
 \endbibitem
 

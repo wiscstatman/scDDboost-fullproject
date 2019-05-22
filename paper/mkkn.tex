@@ -462,7 +462,7 @@ data in order to sharpen our assessments of between-condition expression changes
 
 We leverage the extensive research on how to cluster cells into subtypes using scRNA-seq data:
 for example,  SC3~\citep{sc3}, CIDR~\citep{CIDR}, and ZIFA~\citep{ZIFA}. 
-We propose $K-$medoids clustering on the full set
+We propose distance-based clustering on the full set
 of profiles in a way that is blind to the condition label vector $y$, in order to have as many cells as possible
 to inform the subtype structure.  We investigated several clustering schemes in numerical experiments and allow 
 flexibility in this choice within the \textsc{scDDboost} software. 
@@ -1003,6 +1003,8 @@ could study other formulations within the same schema; for example there may be 
 distances that better capture the intrinsic dimensionality of expression programs, including, perhaps
 distances based on diffusions \citep{Haghverdi:2015aa} or  
 the longest-leg path distance \citep{Little2017PathBasedSC}.
+Future experiments could also further assess operating characteristics when the number of cells is very large 
+and the number of reads is relatively small, as may arise with unique molecular identifiers \citep{Chen:2018aa}.
 Further, assuming a compositional structure to drive model-based computations may not be restrictive,
 since it allows great flexibility in the form of each gene/condition-specific expression distribution
 (as coded, they are finite mixtures of negative binomials).
@@ -1018,13 +1020,13 @@ show increased false discoveries when $K$ is over-estimated.  But even accurate 
 not be expected to provide much improved power, since that depends on accurate estimation of subtypes and their
 frequencies which relies on $K$ being relatively small compared to $n$.
 
-Future numerical experiments would also assess the operating characteristic when we have large number of cells with low reads each cell.(e.g. UMI data)
 
-{\em Not sure: maybe we should have a statement about how we are not exhaustively comparing to all known
- DE methods; we compare to MAST, SCDD, DESEQ2, and D3E...maybe say something, since a referee for sure will
- want us to compare to his/her method}
+
+%{\em Not sure: maybe we should have a statement about how we are not exhaustively comparing to all known
+% DE methods; we compare to MAST, SCDD, DESEQ2, and D3E...maybe say something, since a referee for sure will
+% want us to compare to his/her method}
  
-{\em Since we are applying DE methods through many datasets. We select those computationally efficient methods (and those that are widely used) and did not exhaust all DE methods.}
+%{\em Since we are applying DE methods through many datasets. We select those computationally efficient methods (and those that are widely used) and did not exhaust all DE methods.}
 
 %\bibliographystyle{IEEEtran}
 %\bibliographystyle {plainnat}
