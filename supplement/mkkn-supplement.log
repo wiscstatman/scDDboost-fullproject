@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  23 MAY 2019 12:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  23 MAY 2019 14:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1576,9 +1576,6 @@ Package rerunfilecheck Info: File `mkkn-supplement.out' has not changed.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1022.
  ) 
