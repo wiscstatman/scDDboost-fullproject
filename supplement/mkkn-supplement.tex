@@ -322,7 +322,7 @@ We also investigate the accuracy of random weighting and how it approaches the f
 To find the value of $a_0, a_1$ and $d_0$, we have the marginal likelihood of $d_{i,j}$ 
 $$P(d_{i,j} | a_0, a_1, d_0) = \frac{\Gamma(a_0 + a_1)}{\Gamma(a_0)\Gamma(a_1)} \frac{d_0^{a_0} d_{i,j}^{a_1 - 1}a_1^{a_1}}{(d_0 + a_1 * d_{i,j})^{a_0 + a_1}}$$  
 We estimate $d_0$ by treating $d_{i,j} \approx \Delta_{i,j}$ and based on the mean-variance ratio ($\frac{\text{E}(1/\Delta_{i,j})}{\text{Var}(1/\Delta_{i,j})} = d_0$), $d_0$ can be approximately estimated by moments of $1 / d_{i,j}$.
-Then we obtain $a_0, a_1$ from MLE of marginal density of $d_{i,j}$. 
+Then we obtain $a_0, a_1$ from maximizing marginal density of $d_{i,j}$. 
 The MLE estimators are obtained through \verb+nlminb+ function in \verb+R+. One issue that arises is that the default value for tolerance rate of stopping is 1e-10, which yields large value of $a_1 + a_0$ and results in non-randomness of our weighting matrix. To avoid this issue, we set tolerance rate as 1e-3 to obtain moderate deviation from $D$ (Supplementary Figure \ref{fig:ARI}).
  
 \begin{figure}[h!]
