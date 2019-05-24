@@ -359,14 +359,14 @@ In this section, we give the criterion to select $K$.
 To determine the number of clusters, we implement a procedure inspired by \verb+validity+, as defined in \cite{selK}.
 We consider a modified \verb validity = $\frac{\textbf{intra}}{\textbf{inter}}$,
 where $\textbf{intra} = \frac{1}{N}\overset{K}{\underset{i = 1}{\Sigma}}\underset{x \in C_i}{\Sigma} ||x - z_i||^2$, 
-$\textbf{inter} = mean( || z_i - z_j||^2), i,j = 1,2,...K$, and $z_i$ is the center (medoid) of cluster $i$. 
-$\textbf{intra}$ is the average of distance of a point to its corresponding cluster center, which measures the compactness of clusters. 
-$\textbf{inter}$ is the average distance of two cluster centers, which measures the separation between clusters.
-In the original paper $\textbf{inter}$ was defined as minimum distance between medoids \citep{selK}. Here, we instead use the average for the purpose of getting a smoother quantity. 
+$\textbf{inter} = \text{mean}( || z_i - z_j||^2), i,j = 1,2,...K$, and $z_i$ is the center (medoid) of cluster $i$. 
+$\textbf{intra}$ is the average of distance of a point to the center of its corresponding cluster, which measures the compactness of clusters. 
+$\textbf{inter}$ is the average distance between centers, which measures the separation between clusters.
+In the original paper $\textbf{inter}$ was defined as minimum distance between medoids \citep{selK}. Here, we instead use the average for smoothness. 
 We want to have a small intra-cluster distance and a big inter-cluster distance. Consequently we want to minimize \verb+validity+. 
 From empirical study, we observed that \verb+validity+. is monotonic decreasing with $K$
-and this trend stabilizes when $K$ is sufficiently big. The stopping rule for searching $K$ is when $\texttt{validity}_{K}  < \epsilon$ is satisfied. 
-We set the default value of  $\epsilon$ to be 1, as we found this yields results most consistent with other scRNA-seq methods.
+and this trend stabilizes when $K$ is sufficiently big. We select the first $K$ satisfying $\texttt{validity}_{K}  < \epsilon$. 
+We set the default value of  $\epsilon$ to be 1, as we found this yields good performance on simulations and consistent results with other scRNA-methods (e.g. number of DD genes identified).
 
 
 
