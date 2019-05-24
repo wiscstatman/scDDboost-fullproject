@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  23 MAY 2019 21:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  23 MAY 2019 21:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1470,7 +1470,7 @@ l.605 ...lot of time for \texttt{DESeq} and \textt
                                                   {scDD} to compute when usi...
 
 ? 
-<Figs/Fucci_wadist.pdf, id=297, 505.89pt x 505.89pt>
+<Figs/Fucci_wadist.pdf, id=298, 505.89pt x 505.89pt>
 File: Figs/Fucci_wadist.pdf Graphic file (type pdf)
 <use Figs/Fucci_wadist.pdf>
 Package pdftex.def Info: Figs/Fucci_wadist.pdf  used on input line 615.
@@ -1500,12 +1500,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 667--673
 
  []
 
-<Figs/Kchange.png, id=337, 767.86874pt x 244.915pt>
+<Figs/Kchange.png, id=338, 767.86874pt x 244.915pt>
 File: Figs/Kchange.png Graphic file (type png)
 <use Figs/Kchange.png>
 Package pdftex.def Info: Figs/Kchange.png  used on input line 681.
 (pdftex.def)             Requested size: 469.75502pt x 149.83142pt.
-<Figs/rw.pdf, id=339, 495.8525pt x 212.795pt>
+<Figs/rw.pdf, id=340, 495.8525pt x 212.795pt>
 File: Figs/rw.pdf Graphic file (type pdf)
 <use Figs/rw.pdf>
 Package pdftex.def Info: Figs/rw.pdf  used on input line 688.
@@ -1513,7 +1513,7 @@ Package pdftex.def Info: Figs/rw.pdf  used on input line 688.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Figs/breakFDR.pdf, id=340, 505.89pt x 505.89pt>
+<Figs/breakFDR.pdf, id=341, 505.89pt x 505.89pt>
 File: Figs/breakFDR.pdf Graphic file (type pdf)
 <use Figs/breakFDR.pdf>
 Package pdftex.def Info: Figs/breakFDR.pdf  used on input line 694.
@@ -1577,6 +1577,9 @@ Package rerunfilecheck Info: File `mkkn-supplement.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1021.
  ) 
 Here is how much of TeX's memory you used:
@@ -1600,7 +1603,7 @@ exmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2018/texmf
 nts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/typ
 e1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/
 palatino/uplri8a.pfb>
-Output written on mkkn-supplement.pdf (23 pages, 982284 bytes).
+Output written on mkkn-supplement.pdf (23 pages, 982320 bytes).
 PDF statistics:
  466 PDF objects out of 1000 (max. 8388607)
  390 compressed objects within 4 object streams
