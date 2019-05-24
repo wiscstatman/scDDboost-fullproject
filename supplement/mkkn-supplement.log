@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  23 MAY 2019 21:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  23 MAY 2019 21:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1577,12 +1577,15 @@ Package rerunfilecheck Info: File `mkkn-supplement.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1022.
  ) 
 Here is how much of TeX's memory you used:
  29862 strings out of 492649
  562379 string characters out of 6129622
- 651109 words of memory out of 5000000
+ 651089 words of memory out of 5000000
  33156 multiletter control sequences out of 15000+600000
  573464 words of font info for 131 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1599,7 +1602,7 @@ mf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/
 fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/ur
 w/palatino/uplri8a.pfb>
-Output written on mkkn-supplement.pdf (23 pages, 974359 bytes).
+Output written on mkkn-supplement.pdf (23 pages, 974351 bytes).
 PDF statistics:
  462 PDF objects out of 1000 (max. 8388607)
  387 compressed objects within 4 object streams
