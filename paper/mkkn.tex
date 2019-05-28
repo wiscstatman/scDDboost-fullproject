@@ -70,7 +70,7 @@
 \author{\fnms{Keegan} \snm{Korthauer}\thanksref{k1,k2}\ead[label=e4]{keegan@jimmy.harvard.edu}},
 \author{\fnms{Christina} \snm{Kendziorski}\thanksref{t2}\ead[label=e3]{kendzior@biostat.wisc.edu}},
 \and
-\author{\fnms{Michael} \snm{Newton}\thanksref{t1,t2}
+\author{\fnms{Michael A.} \snm{Newton}\thanksref{t1,t2}
 \ead[label=e2]{newton@stat.wisc.edu}
 \ead[label=u1,url]{http://www.foo.com}}
 
@@ -110,7 +110,7 @@ Madison, WI 53706\\
 
 \begin{abstract}
 On the problem of scoring genes for evidence of changes in the distribution of single-cell expression, we
-introduce a empirical Bayesian mixture approach and evaluate its operating characteristics 
+introduce an empirical Bayesian mixture approach and evaluate its operating characteristics 
 in a range of numerical experiments.  The proposed approach leverages cell-subtype 
 structure revealed in cluster analysis in order to boost gene-level information on expression changes.
 Cell clustering informs gene-level analysis through a specially-constructed prior distribution
@@ -151,14 +151,14 @@ distinguishing factors. Extensive research on clustering cells
 has produced tools for identifying subtypes, including: 
  \verb+SC3+ (\cite{sc3}), \verb+CIDR+ (\cite{CIDR}) and \verb+ZIFA+ (\cite{ZIFA}).
 We hypothesize that such
-subtype information may be usefully injected into other inference procedures in order
+subtype information may be usefully utilized in other inference procedures in order
 to improve their operating characteristics. 
 
 Assessing the magnitude and statistical significance of changes in gene
 expression associated with changes in cellular condition has been a central
 statistical problem in genomics. New tools specific to
 the single-cell RNAseq data structure, including \verb+MAST+
-(\cite{ref:MAST}), \verb+scDD+ (\cite{ref:scDD}), \verb+D3E+ (\cite{ref:d3e}),
+(\cite{ref:MAST}), \verb+scDD+ (\cite{ref:scDD}), and \verb+D3E+ (\cite{ref:d3e}),
 have been deployed to address this problem.
 These tools respond
 to scRNAseq characteristics, such as high prevelance of zero counts and
@@ -167,10 +167,6 @@ information.  We address this limitation, aiming to increase power to detect dif
 The proposed method measures changes in a gene's marginal mixture distribution, and
 acquires sensitivity to a wide variety of distributional effects by how it integrates commonalities gene-level data for learned cellular subtypes.  It is implemented in  software 
 in the R package \verb+scDDboost+~\footnote{http://github.com/wiscstatman/scDDboost/}.
-Modularity in the necessary elements provides some methodological advantages. For example,
-improvements in clustering may be used in place of the default clustering
-without altering the form of downstream analysis.  Also, by avoiding Markov chain Monte Carlo,
-\verb+scDDboost+ computations are relatively inexpensive for a Bayesian procedure.
 
 Through the compositional model underlying \verb+scDDboost+, subtypes inferred by clustering 
 inform the analysis of gene-level expression.  The proposed methodology merges two lines of computation
@@ -180,29 +176,36 @@ patterns in negative-binomially-distributed expression data~(\cite{oscope}).  Th
 the counts of cells in various subtypes; for this we propose a Double-Dirichlet-Mixture distribution
 to model the pair of multinomial probability vectors for subtype counts in two experimental conditions.
 Further elements are developed, on the selection of the number of subtypes and on accounting for uncertainty in the cluster output,  in order to provide an end-to-end solution to the differential distribution
-problem.
+problem.  We note that modularity in the necessary elements provides some methodological advantages. For example,
+improvements in clustering may be used in place of the default clustering
+without altering the form of downstream analysis.  Also, by avoiding Markov chain Monte Carlo,
+\verb+scDDboost+ computations are relatively inexpensive for a Bayesian procedure.
+
 
 To set the context by way of example, 
-Figure~\ref{fig:whet} highlights the ability of \verb+scDDboost+ to detect subtype composition changes that lead to subtle gene expression changes that go undetected by other methods. 
+Figure~\ref{fig:whet} highlights the ability of \verb+scDDboost+ to sense subtype composition changes 
+and thus detect subtle gene expression changes between conditions.
 The three panels on the left compare expression from 91 human 
 stem cells known to be in the G1 phase of the cell cycle, as well as
 from 76 such cells known to be in the G2/M phase~(\cite{ref:Leng}) in three genes (BIRC5, HMMR, and CKAP2), which we happen to know from prior studies have differential activity between G1 and G2/M~(\cite{BIRC5,HMMR,RAD21}).  
 Several standard statistical tools applied to the data behind Figure~\ref{fig:whet} do not find the observed
  differences in any of these genes
-to be statistically significant when controlling the false discovery rate (FDR) at 5\%. 
-But \verb+scDDboost+ does include these genes on its 5\% FDR list.
+to be statistically significant when controlling the false discovery rate (FDR) at 5\%,
+but \verb+scDDboost+ does include these genes on its 5\% FDR list.
 Considering prior studies, these subtle distributional changes are probably not false discoveries. 
 %\todo{From the heatmap, these genes look
 %to be srikingly bimodal. But I don't get that sense from the violin plots. Are the same transformations, treatment of dropouts used for both panels? Perhaps it would help to see the color scale legend for the heatmap?}
 The right panel in Figure~\ref{fig:whet} shows these three among
   many other genes also known to be involved in cell-cycle regulation but
-not identified by standard tools as altered between G1 and G2/M at the 5\% FDR level.    The color panel above the
-heatmap hints at why \verb+scDDboost+ has identified these genes. Cells (columns) are clustered by their genome-wide
-expression profiles into distinct cellular subtypes, as indicated by the color panel.   Evidently, these 
-subtypes have changed in their proportions between G1 and G2/M; for instance, there is a lower proportion
- of {\em red} cells and a greater proportion of {\em orange} cells in G2/M. These proportion shifts, 
-inferred from genome-wide data, infuse information into gene-specific tests which measure 
-changes between conditions in the mixture distribution of expression.  We note that \verb+scDDboost+ 
+not identified by standard tools as altered between G1 and G2/M at the 5\% FDR level.    
+The color panel provides insight into 
+ why \verb+scDDboost+ has identified these genes.  For this data set, four cellular subtypes
+ were identified in the first step of \verb+scDDboost+ (colors red, blue, green, and orange).
+ These subtypes have changed in their proportions between G1 and G2/M;  there is a lower proportion
+ of red cells and a greater proportion of  orange cells in G2/M. These proportion shifts, 
+which are inferred from genome-wide data, stabilize gene-specific statistics that measure 
+changes between conditions in the mixture distribution of expression, and thereby increase power.  
+We note that \verb+scDDboost+ 
 agrees with other statistical tools on very strong differential-distribution signals (not shown), but it 
 has the potential to increase power for subtle signals owing to its unique approach to leveraging cell subtype
 information.
@@ -226,7 +229,8 @@ of three genes identified by scDDboost at 5\% FDR, but not similarly identified 
  Prior studies have shown that the expression
  of  BIRC5, CKAP2, and HMMR is dependent on the phase of cell-cycle,
  suggesting that these subtle shifts are not false positives. 
- Heatmap (right) shows these three genes among 137 other cell-cycle genes (GO:0007049), with expression from low (blue) to high 
+ Heatmap (right) shows these three genes among 137 other cell-cycle genes (GO:0007049) identified
+exclusively by scDDboost, with expression from low (blue) to high 
 (red).  Cells (columns) are clustered by their genome-wide
 expression profiles into distinct cellular subtypes, as indicated by the color panel.}
 
@@ -257,7 +261,7 @@ Material document.
 
 In modeling scRNASeq data, we
 imagine that each cell $c$ falls into one of $K>1$ classes, which we think of as
-subtypes or subpopulations of cells. For notation, $z_c=k$ means that cell $c$ happens to be of subtype $k$, with the vector $z=(z_c)$ recording
+subtypes or subpopulations of cells. For notation, $z_c=k$ means that cell $c$ is of subtype $k$, with the vector $z=(z_c)$ recording
 the states of all sampled cells.  Knowledge of this class structure
  prior to measurement is not required, as it will be inferred as necessary from
  available genomic data.   We expect that cells arise from multiple
@@ -270,9 +274,9 @@ Further let \begin{eqnarray}
 \label{eq:counts}
 t^j_k = t^j_k(y,z) = \sum_c 1[y_c=j, z_c=k] 
 \end{eqnarray}
-denote the number of cells of subtype $k$ in condition $j$;
-we infer something about these counts using genome-wide data.  As for molecular data, the 
-normalized expression of gene $g$ in cell $c$, say $X_{g,c}$, is one entry
+denote the number of cells of subtype $k$ in condition $j$
+and $X_{g,c}$ denote
+the normalized expression of gene $g$ in cell $c$. This is one entry
 in a typically large {\sc{genes}} by {\sc{cells}} data matrix $X$.  Thus, the data structure entails an expression matrix
 $X$, a treatment label vector $y$, and a vector $z$ of latent subtype labels.
 
@@ -299,7 +303,7 @@ in the underlying composition of cell types; i.e.,
 owing to $\phi \neq \psi$.  We suppose that cells of any given subtype $k$ will
 present data according to a distribution reflecting technical 
 and biological variation specific to that class of cells, regardless of the 
-condition the cell finds itself in.   Some care is needed in this, as an overly
+the condition $y_c$ of the cell.   Some care is needed in this, as an overly
 broad cell subtype (e.g., {\em epithelial cells}) could have
 further subtypes that show differential response to some treatment, for example,
 and so cellular condition (treatment) would then affect the distribution of 
@@ -324,24 +328,23 @@ f_g^2(x) = \sum_{k=1}^K \psi_k f_{g,k} (x).
 \end{eqnarray*}
 In other words,  $X_{g,c} |[ y_c=j]  \sim f_g^j$  and $X_{g,c} |[ z_c=k, y_c=j] \sim f_{g,k}$.
 
-We say that gene $g$ is {\em differentially distributed}, denote ${\rm DD}_g$ and indicated
-$f_g^1 \neq f_g^2$,
+We say that gene $g$ is {\em differentially distributed}, denoted ${\rm DD}_g$ and indicated
+by $f_g^1 \neq f_g^2$,
 if $f_g^1(x) \neq f_g^2(x)$ for some $x$, and otherwise it is equivalently distributed
-(${\rm ED}_g$). Motivated by findings from bulk RNAseq data analysis, we further
-set each $f_{g,k}$ to have a a negative-binomial form, say with mean $\mu_{g,k}$
-and shape parameter $\sigma_g$; e.g. (\cite{ref:Leng}, \cite{DES}, \cite{ref:Des} and \cite{Chen:2018aa}). 
+(${\rm ED}_g$). Motivated by findings from bulk RNA-seq data analysis, we further
+set each $f_{g,k}$ to have a a negative-binomial form, with mean $\mu_{g,k}$
+and shape parameter $\sigma_g$, as in  (\cite{ref:Leng}, \cite{DES}, \cite{ref:Des} and \cite{Chen:2018aa}). 
 This choice is effective in our numerical experiments though it is 
 not critical to the modeling formulation.  The use of mixtures per gene has proven
 useful in related model-based approaches (e.g., 
 \cite{ref:MAST}; \cite{McDavid:2014aa}; \cite{Huang:2018aa}).
-Our perspective is that  genome-wide data may usefully inform the  mixing proportions.
 
 We seek methodology to prioritize genes for evidence
 of ${\rm DD}_g$.  Interestingly, even if we have evidence for condition effects
 on the subtype frequencies, it does not follow that a given
 gene will have $f^1_g \neq f^2_g$; that depends on whether or not the subtypes
 show the right pattern of {\em differential expression} at $g$, to use the 
-standard terminology from bulk RNAseq.  For example, if two subtypes have 
+standard terminology from bulk RNA-seq.  For example, if two subtypes have 
 different frequencies between the two conditions ($\phi_1 \neq \psi_1$ and 
  $\phi_2 \neq \psi_2$) but the same aggregate frequency
 ($\phi_1+\phi_2 = \psi_1 + \psi_2$),  and also  if $\mu_{g,1} = \mu_{g,2}$
@@ -389,7 +392,7 @@ For any partition $\pi=\{b\}$, consider aggregate subtype frequencies
 \end{eqnarray*}
 and extend the notation, allowing vectors $\Phi_\pi = \{ \Phi_b: b \in \pi \}$ and similarly
 for $\Psi_\pi$. Recall the partial ordering of partitions based on refinement, and note that
-as long as $\pi$ is not the most refined partition (every cell type its own block),
+as long as $\pi$ is not the most refined partition (every cell type is in its own block),
 then the mapping from $( \phi, \psi )$ to $( \Phi_\pi, \Psi_\pi)$ is many-to-one.
 Further, define sets
 \begin{eqnarray}
@@ -766,7 +769,7 @@ the subvector of expression values at gene $g$ over cells $c$ with $z_c=k$ for w
 \begin{enumerate}
 \item {\em between blocks:} subvectors $\{ X_{g,b}: b \in \pi \}$ are mutually independent,
 \item {\em within blocks:} for cells mapping to block $b$, observations $X_{g,c}$ are i.i.d. 
-\item {\em mean effects:}  for each block $b$, there is a univariate mean, say $\mu_{g,b}$, 
+\item {\em mean effects:}  for each block $b$, there is a univariate mean,  $\mu_{g,b}$, 
  shared by cells mapping to that block.  {\em a priori} these means are i.i.d.  between blocks.
 \end{enumerate}
 These assumptions imply a useful factorization marginally to latent means,
@@ -985,7 +988,7 @@ hyper-parameters $\alpha_i^j \geq 1 \, {\mbox {\rm for}} \,  i = 1, \cdots, K, \
 Essentially, mixing mass is transferred to components associated with the most refined partition
 consistent with a given parameter state.  To be precise, let $H(\phi,\psi) = \{ \pi: (\phi,\psi) \in A_{\pi} \}$
 record all the partitions associated with one state.   Typically, there is a most refined partition,
-say $\pi^* = \pi^*(\phi,\psi)$, such that
+$\pi^* = \pi^*(\phi,\psi)$, such that
 \begin{eqnarray}
 \label{eq:notQ}
 A_{\pi^*} = \bigcap_{\pi \in H(\phi,\psi)} A_\pi.
