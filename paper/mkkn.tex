@@ -517,10 +517,10 @@ conditional on an estimate of the subtype labels.
 \end{algorithm}
 
 
-We invoke $K-$medoids \cite{kmedoids} 
+We invoke $K-$medoids (\cite{kmedoids}) 
 as the default clustering method in \texttt{scDDboost}, and customize the cell-cell distance by integrating two measures.  
 %\todo{is K-mediods used over SC3/CIDR/ZIFA because it's easier to carry out randomized clusterings? Or why?}
-The first assembles gene-level information by cluster-based-similarity partitioning~\cite{ref:cspa}.
+The first assembles gene-level information by cluster-based-similarity partitioning~(\cite{ref:cspa}).
  Separately at each gene,   modal clustering (\cite{ref:dahl} and Supplementary Material Section~2.2.2) partitions the cells, and
 then we define dissimilarity between cells as the Manhattan distance of those gene specific partition labels.
 A second measure defines dissimilarity by one minus the 
