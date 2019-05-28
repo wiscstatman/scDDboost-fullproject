@@ -277,7 +277,7 @@ t^j_k = t^j_k(y,z) = \sum_c 1[y_c=j, z_c=k]
 denote the number of cells of subtype $k$ in condition $j$
 and $X_{g,c}$ denote
 the normalized expression of gene $g$ in cell $c$. This is one entry
-in a typically large {\sc{genes}} by {\sc{cells}} data matrix $X$.  Thus, the data structure entails an expression matrix
+in a typically large genes by cells data matrix $X$.  Thus, the data structure entails an expression matrix
 $X$, a treatment label vector $y$, and a vector $z$ of latent subtype labels.
 
 
@@ -376,7 +376,7 @@ from the set of 877 possible partitions of $\{1, 2, \cdots, 7\}$ (Figure~\ref{fi
 
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{Figs/schematic-1.png}
-  \caption{Proportions of $K=7$ cellular subtypes in different conditions. 
+  \caption{Proportions of $K=7$ cellular subtypes in two different conditions. 
  Aggregated proportions of subtypes 3 and 4, subtypes 2, 5, and 6, and subtypes 1, and 7 
  remain same across conditions, while individual subtype frequencies change. 
  Depending on the changes in average expression among subtypes, these frequency changes
@@ -426,7 +426,7 @@ a formula for local false discovery rates:
 1-P(\text{DD}_g|X,y) = 
  P(\text{ED}_g|X,y) = \sum_{\pi \in \Pi} P\left(A_\pi \cap M_{g,\pi} |X,y \right).
 \end{align}
-Such local false discovery rates are important empirical Bayesian 
+Local false discovery rates are important empirical Bayesian 
 statistics in large-scale testing (\cite{Efron:2007aa}; \cite{Muralidharan:2010aa}; \cite{Newton:2004aa}).  
 For example, the conditional false discovery rate of a list of genes 
 is the arithmetic mean of the associated local false discovery rates.  
@@ -477,7 +477,7 @@ data in order to sharpen our assessments of between-condition expression changes
 
 \subsection{Method structure and clustering}
 
-We leverage the extensive research on how to cluster cells into subtypes using scRNA-seq data:
+To infer subtypes, we leverage the extensive research on how to cluster cells using scRNA-seq data:
 for example,  SC3~(\cite{sc3}), CIDR~(\cite{CIDR}), and ZIFA~(\cite{ZIFA}). 
 We propose distance-based clustering on the full set
 of profiles in a way that is blind to the condition label vector $y$, in order to have as many cells as possible
@@ -800,7 +800,7 @@ We used \verb+splatter+ (v. 1.2.0)
 to generate synthetic scRNA-seq  data for which the DD status of genes is known~(\cite{ref:Zappia}), 
  thereby allowing us to 
 measure operating characteristics of \verb+scDDboost+.  Our hypothetical two-condition comparison involved
-17421 genes, 10\% of which exhibited actual shifts in distribution between the two conditions. 
+17421 genes, 10\% of which exhibited actual shifts in distribution between two conditions. 
 We entertained 12 different parameter settings encoding these distributional shifts, 
 varying the number of subtypes $K$, the subtype frequency profiles $(\phi,\psi)$, as well
 as the  \verb+splatter+-specific parameters $\theta$ and $\gamma$ controlling location and scale characteristics
@@ -840,7 +840,7 @@ data sets that are recorded at \verb+conquer+~(\cite{ref:Cq}).
 %\todo{All are non-UMI protocols, correct? Curious to see performance on
 %a UMI dataset, as they present further challenges}
 Though not knowing the truly DD
-genes, we can examine how \verb+scDDboost+ output compares to output from some standard methods.  We selected
+genes, we can examine how \verb+scDDboost+ output compares to output from several standard methods.  We selected
 12 data sets from \verb+conquer+   representing different species and experimental settings
 and involving hundreds to thousands of cells.   Appendix Table \ref{table:1} provides details.  Figure~\ref{fig:es} compares
 methods in terms of the size of the reported list of DD genes at the 5\% FDR target level.  
@@ -876,7 +876,7 @@ i.e., that the genomic data are providing information about cell subtypes and mi
 leaving gene-level data to guide gene-specific mixture components. One way to drill into this
 idea is to consider how many genes have similar expression characteristics to a given gene.
 By virtue of the \verb+EBseq+ analysis inside \verb+scDDboost+, we may assign each gene to
-a set that all have the same highest-probability pattern of equality/inequality of means across
+a set of related genes  that all have the same highest-probability pattern of equality/inequality of means across
 the subtypes. Say $\hat \pi_g = {\rm argmax}_{\pi} P( M_{g,\pi} | \hat z, X)$. 
 In Figure~\ref{fig:shift}, we show
 that compared to DD genes commonly identified by multiple methods (blue), the set sizes for genes
@@ -920,8 +920,8 @@ functions of the log-scale size statistic for all genes
 \subsection{Bursting}
 
 
-Transcriptional bursting is a fundamental property of genes. In its simplest form, the gene exists in two states: one where activity is negligible and one where there is a certain probability of 
-activation~(\cite{Raj:2008aa}). 
+Transcriptional bursting is a fundamental property of genes, wherein transcription is either
+negligible or attains a certain probability of activation~(\cite{Raj:2008aa}). 
 D3E~(\cite{ref:d3e}) is a computationally intensive 
 method for DE gene analysis rooted in modeling the bursting process. It 
 considers transcripts as in the stationary distribution from an 
