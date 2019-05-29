@@ -193,16 +193,14 @@ Several standard statistical tools applied to the data behind Figure~\ref{fig:wh
 to be statistically significant when controlling the false discovery rate (FDR) at 5\%,
 but \verb+scDDboost+ does include these genes on its 5\% FDR list.
 Considering prior studies, these subtle distributional changes are probably not false discoveries. 
-%\todo{From the heatmap, these genes look
-%to be srikingly bimodal. But I don't get that sense from the violin plots. Are the same transformations, treatment of dropouts used for both panels? Perhaps it would help to see the color scale legend for the heatmap?}
-The right panel in Figure~\ref{fig:whet} shows these three among
-  many other genes also known to be involved in cell-cycle regulation but
+The right panel in Figure~\ref{fig:whet} shows these three among 
+many other genes also known to be involved in cell-cycle regulation but
 not identified by standard tools as altered between G1 and G2/M at the 5\% FDR level.    
 The color panel provides insight into 
- why \verb+scDDboost+ has identified these genes.  For this data set, four cellular subtypes
- were identified in the first step of \verb+scDDboost+ (colors red, blue, green, and orange).
- These subtypes have changed in their proportions between G1 and G2/M;  there is a lower proportion
- of red cells and a greater proportion of  orange cells in G2/M. These proportion shifts, 
+why \verb+scDDboost+ has identified these genes.  For this data set, four cellular subtypes 
+were identified in the first step of \verb+scDDboost+ (colors red, blue, green, and orange). 
+These subtypes have changed in their proportions between G1 and G2/M;  there is a lower proportion 
+of red cells and a greater proportion of orange cells in G2/M. These proportion shifts, 
 which are inferred from genome-wide data, stabilize gene-specific statistics that measure 
 changes between conditions in the mixture distribution of expression, and thereby increase power.  
 We note that \verb+scDDboost+ 
@@ -241,7 +239,7 @@ expression profiles into distinct cellular subtypes, as indicated by the color p
 
 %\todo{Fig 1(left): Where are the dropouts? Was a pseudocount used?}
 %\todo{Fig 1(right): Missing legend for color scale}
-Numerical experiments  on both synthetic and published scRNA-seq data bear out the incidental finding 
+Numerical experiments on both synthetic and published scRNA-seq data bear out the incidental finding 
 in Figure~\ref{fig:whet}, that \verb+scDDboost+ has sensitivity for detecting subtle distribution changes. 
   In these experiments we take advantage of
 \verb+splatter+ for generating synthetic data~(\cite{ref:Zappia}) as well as the compendium of scRNA-seq
@@ -314,7 +312,7 @@ heterogeneity. A  risk in this approach is that $K$ could approach $n$, as if
 every cell were  its own subtype.  We find, however,
 that data sets often encountered do not display this theoretical phenomenon
 when considering a broad class of within-subtype expression distributions.
-We revisit the issue in Section~4, but for now we proceed assuming 
+We revisit the issue in Section~4, but for now, we proceed assuming 
 that cellular condition affects the composition of subtypes but not the distribution of expression
 within a subtype.
 
@@ -430,14 +428,14 @@ Local false discovery rates are important empirical Bayesian
 statistics in large-scale testing (\cite{Efron:2007aa}; \cite{Muralidharan:2010aa}; \cite{Newton:2004aa}).  
 For example, the conditional false discovery rate of a list of genes 
 is the arithmetic mean of the associated local false discovery rates.  
-The partition representation guides construction of a prior distribution (Section 2.3) and a 
+The partition representation guides the construction of a prior distribution (Section 2.3) and a 
 model-based method (Section 2.2) for scoring  differential distribution.   Setting the stage, 
 Figure~\ref{fig:dag} shows the dependency structure of 
 the proposed compositional model and the partition-reliant prior specification.
 
 \begin{figure}[h!]
 \includegraphics[trim={4cm 6cm 4cm 6cm}, clip, width=5in]{Figs/dag.png}
-  \caption{Directed acyclic graph structure of compositional 
+  \caption{Directed acyclic graph structure of the compositional 
 model and partition-reliant prior. The plate on the right side indicates i.i.d.
 copies over cells $c$, conditionally on mixing proportions and mixing components.
  Observed data are indicated in rectangles/squares, and unobserved variables
