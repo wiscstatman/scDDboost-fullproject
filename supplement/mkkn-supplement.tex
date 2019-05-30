@@ -190,11 +190,8 @@ $K$ groups:
 \begin{eqnarray*}
 M_{g,\pi} = \{ \theta \in \Theta: \; \mu_{g,k} = \mu_{g,k'} \iff k,k' \in b, b \in \pi \}.
 \end{eqnarray*}
-
-
 For example, if $K = 3$, there are 5 expression patterns, which may be written equivalently 
 in terms of parameters $q$:
-
 \begin{align*}
 &P1: q_g^1 = q_g^2 = q_g^3\\
 &P2: q_g^1 = q_g^2 \neq q_g^3\\
@@ -202,12 +199,12 @@ in terms of parameters $q$:
 &P4: q_g^1 = q_g^3 \neq q_g^2\\
 &P5: q_g^1 \neq q_g^2 \neq q_g^3 \text{ and } q_g^1 \neq q_g^3
 \end{align*}
-
 In a pattern where two groups $I$ and $J$ share the same $q_g$ 
 the counts from these groups are essentially pooled: 
  i.e. $X_g^{I, J} | \sigma_{g}, q_g \sim NB(\sigma_{g}, q_g)$, $q_g | \alpha, \beta^{g} \sim \text{Beta}(\alpha, \beta^{g})$. The prior predictive function is
- $f(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g}, q_g) * P(q_g | \alpha, \beta^{g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + \sigma_{g} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S \sigma_{g}, \beta^{g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{g})}$.  Consequently, the prior predictive function for $P1, \cdots , P5$ is
-
+ $f(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g}, q_g) * P(q_g | \alpha, \beta^{g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + \sigma_{g} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S \sigma_{g}, \beta^{g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{g})}$.  
+Consequently, the prior predictive function for $P1, \cdots , P5$ takes a convenient form
+if we further treat the distinct $q$'s as independently drawn from the  common Beta mixing distribution:
 
 \begin{align*}
 &h_1^{g}(X_g) = f(X_g^{1,2,3})\\
@@ -216,14 +213,13 @@ the counts from these groups are essentially pooled:
 &h_4^{g}(X_g) = f(X_g^{1,3})f(X_g^2)\\
 &h_5^{g}(X_g) = f(X_g^1)f(X_g^2)f(X_g^3)\\
 \end{align*}
-where $h_i^{g}(X_g)$ = $P(X_g | M_{g,\pi_i},z)$ for associated $\pi_i$.
-Then the 
-marginal distribution of count vector $X_g$ is 
+where $h_k^{g}(X_g)$ = $P(X_g | M_{g,\pi_k},z)$ for the  associated pattern $\pi_k$.
+Then the marginal distribution of count vector $X_g$ is 
 $\overset{5}{\underset{k = 1}{\Sigma}} p_k h_k^{g}(X_g)$, 
 where the mixing mass $p_k = P(M_{g,\pi} | z)$ is shared by all genes. 
 Then, the posterior probability of an expression pattern $k$ is obtained by:
 \begin{eqnarray*}
-\frac{p_k h_k(X_g)}{\overset{5}{\underset{k = 1}{\Sigma}} p_k h_k^{g}(X_g)}
+\frac{p_k h^g_k(X_g)}{\overset{5}{\underset{l = 1}{\Sigma}} p_l h_l^{g}(X_g)}.
 \end{eqnarray*}
 
 
@@ -241,12 +237,11 @@ It operates on data from one gene at a time, and extends to Poisson-distributed 
 the modal-clust procedure.
 
 \noindent
-{\bf Product Partition Model}
-
-Let $X = (X_1, X_2, ...,X_n)$ be a vector of observed data (say at one gene). 
-Given a partition for the data $\pi = \{S_1, \cdots, S_q\}$, where $S_i$ are disjoint subsets 
-of $\{1,2,\cdots,n\}$ and $\bigcup_{i = 1}^{q} S_i = \{1,2,\cdots,n\}$, the probability 
-for $X$ satisfying such partition is
+{\bf Product Partition Model (PPM)}:
+Let $X = (X_1, X_2, ...,X_n)$ be a vector of data (say at one gene). 
+Given a partition $\pi = \{S_1, \cdots, S_q\}$, where $S_i$ are disjoint subsets 
+of $\{1,2,\cdots,n\}$ and $\bigcup_{i = 1}^{q} S_i = \{1,2,\cdots,n\}$, a PPM 
+for $X$ entails
 \begin{eqnarray*}
 p(X|\pi) = \overset{q}{\underset{i = 1}{\prod}}f(X_{S_i})
 \end{eqnarray*}
@@ -255,7 +250,8 @@ The partition $\pi$, which clusters cells,  is the parameter we are interested i
 Other parameters that may have been involved in the model are integrated out.
 (Note the partition here has no relation to the partition of subtypes, as, e.g. in Figure~3.)
 
-The prior distribution for a partition $\pi$  also takes a product form. We aim to compute
+When the prior distribution for a partition $\pi$  also takes a product form then so does the
+posterior.  We aim to compute
 the MAP partition (maximizing the posterior $p(\pi | X) \propto p(X|\pi) p(\pi)$) to be used
 as an initial  estimated clustering.
 \cite{ref:dahl} demonstrated that by some choice of $f$ and prior of $\pi$, we can reduce the time complexity of finding the MAP partition to $O(n^2)$.
