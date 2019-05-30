@@ -428,16 +428,18 @@ p( \tilde \psi_b )
 These serve as key components for proving DDM properties.
 
 \begin{proof}[Proof of Property 1]
-When $\phi$ and $\psi$ satisfy only the coarsest constrants: 
+When $\phi$ and $\psi$ only satisfy the coarsest constraint: 
 $\sum_{i = 1}^K \phi_i = \sum_{i = 1}^K \psi_i = 1$, then
  $\phi$ and $\psi$ are independently Dirichlet distributed.
-When $\phi$ and $\psi$ satisfy finer constraints, $P(\phi | \psi ) \neq P(\phi)$ as there is some subsets $b \neq \pi$ such that $\sum_{i\in b} \phi = \sum_{i \in b} \psi$. So $\phi$ and $\psi$ are dependent.
+Finer constraints will lead to dependency between $\phi$ and $\psi$  as there is a proper subset $b$ of $\pi$ such that $\sum_{i\in b} \phi = \sum_{i \in b} \psi$, which make $P(\phi | \psi ) \neq P(\phi)$.
 \end{proof}
 
 \begin{proof}[Proof of Property 2]
-$E_{\pi}(\phi_k) = E_{\pi}(\phi_k | \Phi_b) E_{\Phi}(\Phi_b) = E_{\tilde{\phi}_b}(\tilde{\phi}_k)E_{\Phi}(\Phi_b)$ where $b$ is the block containing subtype index $k$. As $\tilde{\phi}_b \sim  \text{Dirichlet}_{N(b)}[ \alpha_b^1 ]$ and  $\Phi_\pi  \sim \text{Dirichlet}_{N(\pi)}[   \beta_\pi   ] $,
-we have $E_{\tilde{\phi}_b}(\tilde{\phi}_k) =  \frac{ \alpha^1_k }{ \sum_{k' \in b} \alpha^1_{k'} } $ and $E_{\Phi}(\Phi_b) = \frac{ \beta_b }{ \sum_{b' \in \pi} \beta_{b'} } $. The case for $E_{\pi}(\psi_k)$ 
-is similar.
+By the law of total expectation, 
+$E_{\pi}(\phi_k) = E_{\pi}(E_\pi((\phi_k | \Phi_b)) = E_\pi(E_{\tilde{\phi}_b}(\tilde{\phi}_k)) =  E_{\tilde{\phi}_b}(\tilde{\phi}_k)E_{\Phi}(\Phi_b)$ where $b$ is the block containing subtype index $k$. 
+Since $\tilde{\phi}_b \sim  \text{Dirichlet}_{N(b)}[ \alpha_b^1 ]$ and  $\Phi_\pi  \sim \text{Dirichlet}_{N(\pi)}[   \beta_\pi   ] $,
+we have $E_{\tilde{\phi}_b}(\tilde{\phi}_k) =  \frac{ \alpha^1_k }{ \sum_{k' \in b} \alpha^1_{k'} } $, $E_{\Phi}(\Phi_b) = \frac{ \beta_b }{ \sum_{b' \in \pi} \beta_{b'} } $ and $E_{\pi}(\phi_k) = \frac{ \alpha^1_k }{ \sum_{k' \in b} \alpha^1_{k'} } \frac{ \beta_b }{ \sum_{b' \in \pi} \beta_{b'} } $ . 
+The case for $E_{\pi}(\psi_k)$ is similar.
 \end{proof}
 
 \begin{proof}[Proof of Property 3]
@@ -453,7 +455,7 @@ At the support of $p_\pi$, for different blocks, $T_b^1 | \tilde \phi_b$ are mut
 \begin{eqnarray*}
 p_\pi(t^1 | t_\pi^1, y) = \prod_{b\in \pi}p(T_b^1 | t_b^1,y) 
 \end{eqnarray*}
-and right hand side prior predictive function can be obtained by integrating out $ \tilde{\phi}_b$ given the prior $\text{Dirichlet} [ \alpha_b^1]$, and  $p(T_b^1  | \tilde{\phi}_b)$ is multinomial($\tilde{\phi}_b)$ distributed.
+and right hand side prior predictive function can be obtained by integrating out $ \tilde{\phi}_b$. Namely
 \begin{align*}
 p(T_b^1  | t_b^1,y) &= \int_{\tilde{\phi}_b} p(T_b^1  | \tilde{\phi}_b) p(\tilde{\phi}_b) d\tilde{\phi}_b\\
                                       &= \left\{\left[ \frac{ \Gamma(t^j_b +1 ) }{\prod_{k \in b} \Gamma( t^j_k + 1 ) }\right]
@@ -462,10 +464,11 @@ p(T_b^1  | t_b^1,y) &= \int_{\tilde{\phi}_b} p(T_b^1  | \tilde{\phi}_b) p(\tilde
        \left[        \frac{ \prod_{k \in b} \Gamma(\alpha_k^j + t^j_k)  }{
 		\Gamma(t^j_b + \sum_{k\in b} \alpha_k^j ) )}\right]\right\}
 \end{align*}
+given the prior $\text{Dirichlet} [ \alpha_b^1]$ of $ \tilde{\phi}_b$ and  $p(T_b^1  | \tilde{\phi}_b)$ is multinomial($\tilde{\phi}_b)$ distributed
 \end{proof}
 
 \begin{proof}[Proof of Property 5]
-$t_\pi^1$ and $t_\pi^2$, given the condition label $y$, are independent and identically distributed. $t_\pi^1 |\Phi \sim$ multinomial$(\Phi)$
+$t_\pi^1$ and $t_\pi^2$, given the condition label $y$, are independent and identically distributed with $t_\pi^1 |\Phi \sim$ multinomial$(\Phi)$. Thus
 \begin{align*}
 p_\pi(t^1_{\pi},t^2_{\pi}| y) &= \int_\Phi p(t_\pi^1 | \Phi) p(t_\pi^2 | \Phi) p(\Phi) d\Phi \\
 &= \left[ \frac{ \Gamma(n_1+1) \Gamma(n_2+1) }{ \prod_{b \in \pi} \Gamma(t^1_b+1) 
@@ -485,22 +488,26 @@ If $\pi_2$ is not a refinement of $\pi_1$ then $A_{\pi_1} \cap A_{\pi_2}$ is a l
 \end{lemma}
 
 \begin{proof}[Proof of Lemma 1]
-Let $V$ denote the orthogonal space of $\phi - \psi$, when $(\phi,\psi)\in A_{\pi_1} \cap A_{\pi_2}$, and $\text{dim}(A_{\pi_1} \cap A_{\pi_2}) = \text{dim}(\phi - \psi) + \text{dim}(\psi) = 2K - \text{dim}(V) - 1$. Also let $\pi_1 = \{b_1^1,\cdots,b_s^1\}$, and  $\pi_2 = \{b_1^2,\cdots,b_t^2\}$. 
+To formalize the problem in linear algebra, 
+we consider the vector space $R^{2K}$, and define a map from block to vector in $R^K$ :$g(b) = v_b$, where $i$th component of $v_b$ is 1 if $i \in b$ and 0 otherwise.
+
+Let $V$ denote the orthogonal space of $\phi - \psi$. Notice that $\text{dim}(A_{\pi_1} \cap A_{\pi_2}) = \text{dim}(\phi - \psi) + \text{dim}(\psi) = K - \text{dim}(V)  + K- 1=  2K -  \text{dim}(V)  -1$. 
+Assuming $\pi_1 = \{b_1^1,\cdots,b_s^1\}$, and  $\pi_2 = \{b_1^2,\cdots,b_t^2\}$. 
 The corresponding vectors are $v_1^1,\cdots,v_s^1$ and $v_1^2,\cdots,v_t^2$. 
-We claim there must be a $b_i^1\in \pi$ whose corresponding $v_i^1$ is linear independent 
+We claim there must be a $b_i^1\in \pi_1$ whose corresponding vector $v_i^1$ is linear independent 
 with $v_1^2,\cdots,v_t^2$. If not, for every $v_i^1$ there exists $\alpha_1^i,\cdots,\alpha_t^i$ 
 such that 
 \[
 v_i^1 = \sum_{j = 1}^t \alpha_j^i v_j^2 \quad\quad\quad(*)
 \]
-If $b_j^2 \cap b_i^1 \neq \emptyset$, then multiply $v_j^2$ on both sides of (*), we obtain $v_i^1 * v_j^2 = \alpha_j^i (v_j^2)^2$, as $v_j^2$ are orthogonal vectors, and $v_i^1 * v_j^2 > 0$ implies $\alpha_j^i > 0$. Consider $x = f(b_j^2\setminus b_i^1)$. We have $x*v_i^1 = 0$ and multiply $x$ on both sides of (*) to obtain $\alpha_j^i v_j^2*x = 0$. Thus x must be the zero vector and $b_j^2\setminus b_i^1= \emptyset$, which implies $b_j^2 \subset b_i^1$. That is to say when $b_j^2 \cap b_i^1 \neq \emptyset$, $b_j^2$ must 
-be  a subset of $b_i^1$. So $b_i^1$ is the union of some blocks in $\pi_2$. 
+If $b_j^2 \cap b_i^1 \neq \emptyset$, then $v_i^1 * v_j^2 > 0$ and we multiply $v_j^2$ on both sides of (*), we obtain $v_i^1 * v_j^2 = \alpha_j^i (v_j^2)^2$, as $v_p^2 * v_q^2 = 0 \text{ if } p\neq q$. This implies $\alpha_j^i > 0$. Consider $x = g(b_j^2\setminus b_i^1)$. We have $x*v_i^1 = 0$ and multiply $x$ on both sides of (*) to obtain $\alpha_j^i v_j^2*x = 0$. Thus x must be the zero vector and $b_j^2\setminus b_i^1= \emptyset$, which implies $b_j^2 \subset b_i^1$. That is to say when $b_j^2 \cap b_i^1 \neq \emptyset$, $b_j^2$ must 
+be  a subset of $b_i^1$. So $b_i^1$ is the union of some blocks in $\pi_2$.  
  This implies $\pi_2$ is a refinement of $\pi_1$, which is  a contradiction.
-Consequently, there exists $b\in\pi_1$ with $v(b)$ linear independent with $v(b'), b'\in\pi_2$. $\text{dim}(V)$ is at least $N(\pi_2) + 1, \dim(A_{\pi_1} \cap A_{\pi_2}) < \text{dim}(A_{\pi_2})$.
+Consequently, there exists $b\in\pi_1$ whose $v_b$ is linear independent with $v_{b'}, \forall b'\in\pi_2$. Thus the dimension of orthogonal space for $\{\phi- \psi: (\phi,\psi)\in A_{\pi_1} \cap A_{\pi_2} \}$ is is at least $N(\pi_2) + 1, \dim(A_{\pi_1} \cap A_{\pi_2}) < \text{dim}(A_{\pi_2})$.
 \end{proof}
 
 \begin{proof}[Proof of Property 6]
-For some $\pi$, $P(A_\pi, | y, z) = \underset{\tilde \pi \in \Pi}{\sum} \int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi$, 
+For any $\pi$, $P(A_\pi, | y, z) = \underset{\tilde \pi \in \Pi}{\sum} \int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi$, 
 notice the support of $\omega_{\tilde \pi}^{\text{post}}$ is $A_{\tilde \pi}$. 
 By Lemma 1, we know if $\tilde \pi$ does not refine $\pi$, then $\int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi$ is an integral on lower dimension set and vanishes. if $\tilde \pi$ refines $\pi$, then 
 $\int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi = \int_{A_{\tilde \pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi = \omega_{\tilde \pi}^{\text{post}}$. We have $P(A_\pi, | y, z) = \underset{\tilde \pi \in \Pi}{\sum} \omega_{\tilde \pi}^{\text{post}} 1[\tilde \pi \text{ refines } \pi ]$.
@@ -509,8 +516,8 @@ $\int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi = \int_{A_{\tilde 
 \begin{proof}[Proof of Theorem 3]
 %$p_\pi ( t^1 | t_\pi^1, y) p_\pi ( t^2 | t_\pi^2 , y) p_\pi ( t_\pi^1, t_\pi^2 | y )$
 Recall the DDM prior: $p(\phi,\psi) = \sum_{\pi \in \Pi} p_\pi(\phi,\psi)$. 
-By Bayes's rule we know $p(\phi,\psi | y,z) \propto p(\phi,\psi, y, z) = \sum_{\pi \in \Pi}  p(y, z | \phi,\psi) p_\pi(\phi,\psi)\omega_\pi$
-and we use the 1-1 map from $(\phi,\psi)$ to $(\tilde \phi, \tilde \psi, \Phi)$ to get
+By Bayes's rule $p(\phi,\psi | y,z) \propto p(\phi,\psi, y, z) = \sum_{\pi \in \Pi}  p(y, z | \phi,\psi) p_\pi(\phi,\psi)\omega_\pi$
+and the 1-1 map from $(\phi,\psi)$ to $(\tilde \phi, \tilde \psi, \Phi)$, we have
 \begin{eqnarray*}
 p(y, z | \phi,\psi) p_\pi(\phi,\psi) = p(y, z | \tilde{\phi} , \tilde{\psi}, \Phi_\pi) p(\tilde{\phi}) p (\tilde{\psi}) p(\Phi_\pi)
 \end{eqnarray*}
