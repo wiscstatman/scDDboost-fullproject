@@ -102,7 +102,7 @@ This supplement is organized to match the sectioning of the main document.   In 
    \end{itemize}
 \item Posterior consistency
   \begin{itemize}
-   \item proof of theorem 4
+   \item proof of Theorem 4
   \end{itemize}
 \end{enumerate}
 
@@ -125,7 +125,8 @@ This supplement is organized to match the sectioning of the main document.   In 
 
 \subsection{R package}
 
-We developed a R package \texttt{scDDboost} providing clustering of cells, EBSeq and final PDD calculation. 
+We developed a R package \texttt{scDDboost} providing clustering of cells, EBSeq and final 
+DD posterior probabilities. 
 Details can be found at github site \url {https://github.com/wiscstatman/scDDboost}
 
 
@@ -138,11 +139,14 @@ Details can be found at github site \url {https://github.com/wiscstatman/scDDboo
 
 \begin{proof}[Proof of Theorem 2]
 Recall $\theta = (\phi, \psi, \mu, \sigma)$.
-Through the sampling procedure of our model (Figure 3), assuming a known number of cells within each condition $(n_1,n_2)$. We have $z^1, z^2$ are multinomial draw given $\phi$ and $\psi$, 
-thus the generation of $y, z$ only depends on $(\phi,\psi)$.
-Also given $z$, $X_{g,c}$ is sampled through $\text{NB}(\mu_{g,z_c}, \sigma_g)$, and only depends on $(\mu, \sigma)$.
-Thus $P(X,y,z | \theta) = P(y, z | \phi,\psi ) P(X | z, \mu, \sigma)$, and we independently give priors for $(\mu,\sigma)$ and $(\phi, \psi)$.
-By the Baye's rule, 
+Through the graphical structure of our model (Figure 3), given
+$n_1$ and $n_2$  numbers of cells within each condition,  we 
+note that $z^1, z^2$ are multinomial draws, also  given $\phi$ and $\psi$. 
+Also given $z$, $X_{g,c}$ is sampled through $\text{NB}(\mu_{g,z_c}, \sigma_g)$, and only depends on 
+$(\mu, \sigma)$.
+Thus $P(X,y,z | \theta) = P(y, z | \phi,\psi ) P(X | z, \mu, \sigma)$,  
+and also  $(\mu,\sigma)$ and $(\phi, \psi)$ are independent a priori given $\pi$.
+By Bayes's rule (and always conditioning on $\pi$), 
 \begin{align*}
 P(\theta | X,y,z) &\propto P(X,y,z | \theta) P(\theta) \\
 P(X,y,z | \theta) P(\theta)  &=  P(y, z | \phi,\psi ) P(X | z, \mu, \sigma) P(\mu,\sigma | z) P(\phi, \psi)\\
@@ -151,12 +155,12 @@ P(\mu, \sigma | X, z) &\propto P(X | z, \mu, \sigma) P(\mu,\sigma | z)\\
 \text{Thus }
 P(\theta | X,y,z) &\propto P(\phi,\psi | y, z) P(\mu, \sigma | X, z)
 \end{align*}
-From above we know\\
-1. Given condition and subtypes label $y,z$, $(\phi,\psi) \perp X$\\
-2. Given $X$ and $z$, $(\mu, \sigma) \perp y$\\
-3. Given $X,y$ and $z$, $(\phi, \psi) \perp (\mu, \sigma)$\\ 
-Thus we have $  P\left(A_\pi \cap M_{g,\pi} |X,y,z \right) 
- =  P\left(A_\pi |y,z \right) \, 
+It thus follows by integration over the parameter space that
+%1. Given condition and subtypes label $y,z$, $(\phi,\psi) \perp X$\\
+%2. Given $X$ and $z$, $(\mu, \sigma) \perp y$\\
+%3. Given $X,y$ and $z$, $(\phi, \psi) \perp (\mu, \sigma)$\\ 
+%Thus we have 
+$ P\left(A_\pi \cap M_{g,\pi} |X,y,z \right) =  P\left(A_\pi |y,z \right) \, 
                       P\left(M_{g,\pi}| X,z \right).  $
 \end{proof}
 
@@ -164,9 +168,9 @@ Thus we have $  P\left(A_\pi \cap M_{g,\pi} |X,y,z \right)
 \subsection{Method Structure and Clustering}
 
 \subsubsection{EBSeq}
-In this subsection, we go through how we implemented and modified \texttt{EBSeq} to get $P(M_{g,\pi} | X, z)$.
-
-Suppose we have $K$ subtypes, let $X_g^I = X_{g, 1}^I, ... , X_{g, S_1}^I$ denote transcripts at gene $g$ from subtype $I, I = 1, ... K$.  The \texttt{EBSeq} model assumes that counts within subtype $I$ are distributed as Negative Binomial:
+Here we recall some key elements from Leng {\em et al.} (2013) on the model behind \texttt{EBSeq},
+which we adapt to get $P(M_{g,\pi} | X, z)$.  Suppose we have $K$ subtypes, let $X_g^I = X_{g, 1}^I, \cdots , X_{g, S_1}^I$ 
+denote transcripts at gene $g$ from subtype $I, I = 1, \cdots, K$.  The \texttt{EBSeq} model assumes that counts within subtype $I$ are distributed as Negative Binomial:
 $X_{g, s}^I | r_{g,s}, q_g^I \sim NB(r_{g,s}, q_g^I)$. Due to sample-specific size factor in the raw counts, r is made sample-specific. However, we are dealing with normalized counts rather than raw counts in \texttt{EBSeq}, we instead make $r$ shared at gene level across all samples, i.e. 
 $X_{g, s}^I | \sigma_g, q_g^I \sim NB(\sigma_g, q_g^I)$
 
@@ -175,25 +179,21 @@ P(X_{g,s}^I | \sigma_g, q_g^I ) = {X_{g,s} + \sigma_g - 1 \choose X_{g,s} }(1 - 
 \end{eqnarray*}
 and $\mu_{g,s}^I = \sigma_g(1 - q_g^I) / q_g^I$; For ease in later deriving the density kernel $f$, we use $q$ rather than $\mu$ to parameterize the NB.  %\sigma_{g,s}^I = r_{g,s}(1 - q_g^I)/ (q_g^I)^2.$
 
-Following \texttt{EBSeq}, we assume a prior distribution on $q_g^I : q_g^I | \alpha, \beta^{g} \sim Beta(\alpha, \beta^{g}).$ The hyperparameter $\alpha$ is shared by the whole genome and $\beta^{g}$ is gene-specific.
- 
-
-We force the size factor to be 1 for all cells and use the same procedure as \texttt{EBSeq} to estimate the shape parameter $\sigma_g$. Namely, we have\\
+Following Leng {\em et al}, we assume a prior distribution on $q_g^I : q_g^I | \alpha, \beta^{g} \sim Beta(\alpha, \beta^{g}).$ The hyperparameter $\alpha$ is shared by the whole genome and $\beta^{g}$ is gene-specific.  We force the size factor to be 1 for all cells and use the same procedure as \texttt{EBSeq} to estimate the shape parameter $\sigma_g$. Namely, we have
 \begin{enumerate}
 \item gene-level sample mean $m_g = \frac{1}{n}\sum_{s = 1}^n X_{g,s}$, where $n = n_1 + n_2$ is the total number of cells \\
 \item average of sample variances over subtypes $v_g = \frac{1}{K} \sum_{I = 1}^K v_g^I$.\\
 \item $v_g^I$ is the unadjusted sample variance for subtype $I$, i.e. $v_g^I = \frac{1}{n^I}\sum_{s, z_s = I} (X_{g,s} - m_g^I)^2$ where $m_g^I$ is the sample mean within subtype $I$ and $n^I$ is the number of cells within subtype $I$.\\
 \end{enumerate}
-We estimate the pooled over-dispersion rate by $o_g = \frac{v_g}{m_g}$ and obtain $\sigma_g = m_g \frac{o_g}{1 - o_g}$ from the first moment of NB.\\
-Our target is to quantify the expression pattern between $K$ groups, 
-
+We estimate the pooled over-dispersion rate by $o_g = \frac{v_g}{m_g}$ and obtain $\sigma_g = m_g \frac{o_g}{1 - o_g}$ from the first moment of NB.  Our aim is to quantify the expression pattern among 
+$K$ groups: 
 \begin{eqnarray*}
 M_{g,\pi} = \{ \theta \in \Theta: \; \mu_{g,k} = \mu_{g,k'} \iff k,k' \in b, b \in \pi \}.
 \end{eqnarray*}
 
 
-
-For example, if $K = 3$, there are 5 expression patterns: $P_1, P_2, ..., P_5$. Comparison between $\mu$ is equivalent to comparison between $q$.
+For example, if $K = 3$, there are 5 expression patterns, which may be written equivalently 
+in terms of parameters $q$:
 
 \begin{align*}
 &P1: q_g^1 = q_g^2 = q_g^3\\
@@ -203,7 +203,10 @@ For example, if $K = 3$, there are 5 expression patterns: $P_1, P_2, ..., P_5$. 
 &P5: q_g^1 \neq q_g^2 \neq q_g^3 \text{ and } q_g^1 \neq q_g^3
 \end{align*}
 
-Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can pool the counts from the two groups by viewing them as sampled from same distribution, i.e. $X_g^{I, J} | \sigma_{g}, q_g \sim NB(\sigma_{g}, q_g)$, $q_g | \alpha, \beta^{g} \sim \text{Beta}(\alpha, \beta^{g})$. Then we obtain the prior predictive function $f(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g}, q_g) * P(q_g | \alpha, \beta^{g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + \sigma_{g} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S \sigma_{g}, \beta^{g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{g})}$.  Consequently, the prior predictive function for $P1, ..., P5$ is
+In a pattern where two groups $I$ and $J$ share the same $q_g$ 
+the counts from these groups are essentially pooled: 
+ i.e. $X_g^{I, J} | \sigma_{g}, q_g \sim NB(\sigma_{g}, q_g)$, $q_g | \alpha, \beta^{g} \sim \text{Beta}(\alpha, \beta^{g})$. The prior predictive function is
+ $f(X_g^{I,J}) = \int_0 ^1 P(X_g^{I,J} | r_{g}, q_g) * P(q_g | \alpha, \beta^{g}) dq_g = \Big[ \overset{S}{\underset{s = 1}{\prod}} {X_{g,s} + \sigma_{g} - 1 \choose X_{g,s}} \Big] \frac{Beta(\alpha + \Sigma_{s = 1}^S \sigma_{g}, \beta^{g} + \Sigma_{s = 1}^S X_{g,s})}{Beta(\alpha, \beta^{g})}$.  Consequently, the prior predictive function for $P1, \cdots , P5$ is
 
 
 \begin{align*}
@@ -213,46 +216,60 @@ Under the assumption that two groups $I$ and $J$ share the same $q_g$ we can poo
 &h_4^{g}(X_g) = f(X_g^{1,3})f(X_g^2)\\
 &h_5^{g}(X_g) = f(X_g^1)f(X_g^2)f(X_g^3)\\
 \end{align*}
-
 where $h_i^{g}(X_g)$ = $P(X_g | M_{g,\pi_i},z)$ for associated $\pi_i$.
-Then the marginal distribution of counts $X_g$ is $\overset{5}{\underset{k = 1}{\Sigma}} p_k h_k^{g}(X_g)$, 
-where the marginal $p_k = P(M_{g,\pi} | z)$(shared by all genome). Thus, the posterior probability of an expression pattern $k$ is obtained by:
+Then the 
+marginal distribution of count vector $X_g$ is 
+$\overset{5}{\underset{k = 1}{\Sigma}} p_k h_k^{g}(X_g)$, 
+where the mixing mass $p_k = P(M_{g,\pi} | z)$ is shared by all genes. 
+Then, the posterior probability of an expression pattern $k$ is obtained by:
 \begin{eqnarray*}
 \frac{p_k h_k(X_g)}{\overset{5}{\underset{k = 1}{\Sigma}} p_k h_k^{g}(X_g)}
 \end{eqnarray*}
 
 
-In the optimization steps for determining the hyperparameters $(\alpha, \beta^g, p)$, the computation and memory increase exponentially with the number of subtypes $K$. 
-We use one-step EM as an approximation for the solution, $\alpha$ and $\beta^g$ are updated through gradient ascent 
-while $p$ is updated by the explicit form of the maximizer of the log likelihood.
+In the optimization for determining the hyperparameters 
+$(\alpha, \beta^g, p)$, we use EM for the mixing proportions and
+we use in each cycle a single gradient ascent step for $\alpha$ and $\beta^g$, in 
+contrast to a full root-finding step used by \verb+EBSeq+. 
 
 
 \subsubsection{modalClust}
 
-In this section, we review the procedure of modal-clustering and proof the compatibility of density kernel from Poisson-Gamma model.
+In this section, we review and extend Dahl's modal clustering procedure  (Dahl 2009).
+This extension is part of the default cell clustering method of \verb+scDDboost+.
+It operates on data from one gene at a time, and extends to Poisson-distributed observations
+the modal-clust procedure.
 
 \noindent
 {\bf Product Partition Model}
 
-Let $X = (X_1, X_2, ...,X_n)$ be a vector of observed data. Given a partition for the data $\pi = \{S_1, ..., S_q\}$, where $S_i$ are disjoint subsets of $\{1,2,...,n\}$ and $\bigcup_{i = 1}^{q} S_i = \{1,2,...,n\}$, the likelihood for $X$ satisfying such partition is
+Let $X = (X_1, X_2, ...,X_n)$ be a vector of observed data (say at one gene). 
+Given a partition for the data $\pi = \{S_1, \cdots, S_q\}$, where $S_i$ are disjoint subsets 
+of $\{1,2,\cdots,n\}$ and $\bigcup_{i = 1}^{q} S_i = \{1,2,\cdots,n\}$, the probability 
+for $X$ satisfying such partition is
 \begin{eqnarray*}
 p(X|\pi) = \overset{q}{\underset{i = 1}{\prod}}f(X_{S_i})
 \end{eqnarray*}
+where $X_{S_i}$ is the vector of observations corresponding to the items of component $S_i$. The component likelihood $f(X_{S})$ is defined for any non-empty component $S$ and can take many forms. 
+The partition $\pi$, which clusters cells,  is the parameter we are interested in.
+Other parameters that may have been involved in the model are integrated out.
+(Note the partition here has no relation to the partition of subtypes, as, e.g. in Figure~3.)
 
-where $X_{S_i}$ is the vector of observations corresponding to the items of component $S_i$. The component likelihood $f(X_{S})$ is defined for any non-empty component $S$ and can take any form. The partition $\pi$ is the only parameter we are interested in.
-Any other parameters that may have been involved in the model have been integrated over their prior.
-
-The prior distribution for a partition $\pi$ is also taken as a product form. We use the MAP partition (maximizing the posterior $p(\pi | X) \propto p(X|\pi) p(\pi)$) as the estimated clustering.
-
-\cite{ref:dahl} demonstrated that by some choice of $f$ and prior of $\pi$, we can reduce the time complexity of finding the MAP partition from factorial($n$) to $O(n^2)$.
+The prior distribution for a partition $\pi$  also takes a product form. We aim to compute
+the MAP partition (maximizing the posterior $p(\pi | X) \propto p(X|\pi) p(\pi)$) to be used
+as an initial  estimated clustering.
+\cite{ref:dahl} demonstrated that by some choice of $f$ and prior of $\pi$, we can reduce the time complexity of finding the MAP partition to $O(n^2)$.
 The crucial condition for $f$ is the \textbf{non-overlapping} condition:
 if $X_{S_1}$ and $X_{S_2}$ are overlapped in the sense that  min$\{X_{S_2}\}  <$ max$\{X_{S_1}\}  <$ max$\{X_{S_2}\}$ or min$\{X_{S_1}\}  <$ max$\{X_{S_2}\}  <$ max$\{X_{S_1}\}$, 
-let $X_{S_1^*} \text{ and } X_{S_2^*}$ be the sets of swapping one pair of those overlapped terms and keep the other unchanged. Then $f(X_{S_1}) f(X_{S_2}) \leq f(X_{S_1^*}) f(X_{S_2^*})$.\\
+let $X_{S_1^*} \text{ and } X_{S_2^*}$ be the sets of swapping one pair of those overlapped terms and keep the other unchanged. Then $f(X_{S_1}) f(X_{S_2}) \leq f(X_{S_1^*}) f(X_{S_2^*})$. Here we 
+confirm the non-overlapping condition for Poisson-Gamma observations.
 
-Under the \textbf{non-overlapping} condition of density kernel $f$, we know that in order to be MAP, a partition $\pi$ must satisfy that for any two blocks $b_1, b_2 \in \pi$, either $\underset{i \in b_1}{\text{max}}(X_i) \leq \underset{j\in b_2}{\text{min}}(X_j)$ or $\underset{i \in b_1}{\text{min}}(X_i) \geq \underset{j\in b_2}{\text{max}}(X_j)$. Thus we reduce the solution space and reduce the time complexity.\\
-In the Poisson-Gamma Model we assume:\\
+Under the non-overlapping condition of density kernel $f$, 
+the MAP partition $\pi$ satisfies 
+that for any two blocks $b_1, b_2 \in \pi$, either $\underset{i \in b_1}{\text{max}}(X_i) \leq \underset{j\in b_2}{\text{min}}(X_j)$ or $\underset{i \in b_1}{\text{min}}(X_i) \geq \underset{j\in b_2}{\text{max}}(X_j)$. Thus we reduce the solution space and reduce the time complexity.
+In the Poisson-Gamma model we have:
 \begin{align*}
-X_i | \pi, \lambda &\sim Poisson(X_i | \lambda_1\textbf{I}\{i\in S_1\} + ... + \lambda_q\textbf{I}\{i \in S_q\})\\
+X_i | \pi, \lambda &\sim Poisson(X_i | \lambda_1\textbf{I}\{i\in S_1\} + \cdots + \lambda_q\textbf{I}\{i \in S_q\})\\
 \pi &\sim p(\pi)\\
 \lambda_j &\sim Gamma(\alpha_0, \beta_0)
 \end{align*}
@@ -260,12 +277,14 @@ where $p(\pi)\propto \overset{q}{\underset{i = 1}{\prod}}\eta_0\Gamma(|S_i|)$. I
 \begin{eqnarray*}
 f(X_{S}) = \frac{\beta^\alpha}{(|S| + \beta)^{\underset{i \in S}{\Sigma} X_i + \alpha}} \frac{\Gamma(\underset{i \in S}{\Sigma} X_i  + \alpha)}{\Gamma(\alpha)} \frac{1}{\underset{i \in S}{\prod }X_i}
 \end{eqnarray*}
-To apply modal-clustering on Poisson-Gamma model, we need to show the kernel $f(X_S)$ satisfies the \textbf{non-overlapping} condition.
+To apply modal-clustering on Poisson-Gamma model, we need to show the kernel $f(X_S)$ satisfies the 
+non-overlapping condition.
 
 
 
 \begin{proof}
-if $X_{S_1}$ and $X_{S_2}$ are overlapping, without loss of generality, we assume min$\{X_{S_2}\}  <$ max$\{X_{S_1}\}  <$ max$\{X_{S_2}\}$, and we swap max$\{X_{S_1}\}$ with min$\{X_{S_2}\}$ and keep the rest unchanged or we could also swap max$\{X_{S_1}\}$ with max$\{X_{S_2}\}$. We denote the new set forming by swap of max$\{X_{S_1}\}$ with min$\{X_{S_2}\}$  as $S_1^*$ and $S_2^*$ and swap of max$\{X_{S_1}\}$ with max$\{X_{S_2}\}$ as $S_1^{**}, S_2^{**}$ accordingly.
+if $X_{S_1}$ and $X_{S_2}$ are overlapping, without loss of generality, we assume min$\{X_{S_2}\}  <$ max$\{X_{S_1}\}  <$ max$\{X_{S_2}\}$, and we swap max$\{X_{S_1}\}$ with min$\{X_{S_2}\}$ and keep the rest unchanged or we could also swap max$\{X_{S_1}\}$ with max$\{X_{S_2}\}$. We denote the new set formed 
+by swap of max$\{X_{S_1}\}$ with min$\{X_{S_2}\}$  as $S_1^*$ and $S_2^*$ and swap of max$\{X_{S_1}\}$ with max$\{X_{S_2}\}$ as $S_1^{**}, S_2^{**}$ accordingly.
 
 Then we need to show  at least one of the following happens
 \begin{align}
@@ -283,7 +302,8 @@ f(X_{S_1^*}) f(X_{S_2^*}) &\geq f(X_{S_1}) f(X_{S_2})\\
 \frac{\Gamma(h_1 + a + \alpha)}{\Gamma(h_1 + b + \alpha)} \frac{\Gamma(h_2 + b + \alpha)}{\Gamma(h_2 + a + \alpha)} &\leq (\frac{n_1 + \beta}{n_2 + \beta})^{a - b} \\
 \end{align*}
 
-The left hand side of the above formula is $\text{LHS}_1 = \frac{(h_1 + b + \alpha)...(h_1 + a - 1 + \alpha)}{(h_2 + b + \alpha) ... (h_2 + a - 1 + \alpha)}$ by the property of Gamma function and $X_i$ are integers.
+The left hand side of the above formula is $\text{LHS}_1 = \frac{(h_1 + b + \alpha)...(h_1 + a - 1 + \alpha)}{(h_2 + b + \alpha) ... (h_2 + a - 1 + \alpha)}$ by the property of Gamma function and that 
+ $X_i$ are integers.
 
 Similarly,
 \begin{align*}
@@ -316,10 +336,10 @@ The proof for case $h_1 > h_2$ follows similarly.
 \subsubsection{Randomized $K-$means}
 %We dividing component-wisely a weighting matrix $W$ from input distance $D$ matrix.  Components from $W$ is generated by adding two gamma distributed random variables, i.e.  $w_{i,j} = e_i + e_j$. $e_1,...,e_n$ is i.i.d. Gamma$(a,a)$ distributed, where $n$ is number of cells or number of columns of $D$. We further assuming the true distance between cells $\Delta_{i,j}$ is inverse gamma distributed, i.e. $ 1 / \Delta_{i,j} \sim \text{Gamma}(a_0,d_0)$ and our observed distance $d_{i,j} | \Delta_{i,j} \sim \text{Gamma}(a_1, a_1 / \Delta_{i,j})$. As we would have the consistency of the mean $Ed_{i,j} = \Delta_{i,j}$. Through a simple bayesian argument and  for simplicity we ignore any issues about the $d$'s or $\Delta$'s being true distances. The posterior, by conjugacy, has $1 / \Delta_{i,j} | d_{i,j} \sim$ Gamma($a_0 + a_1, d_0 + a_1d_{i,j}$). Then the posterior probability that $i$ and $j$ should be clustered is the posterior probability that $\Delta_{i,j} < c$, which is $P($Gamma($(a_0 + a_1),(a_0 + a_1)) > (d_0 + a_1 * d_{i,j}) / (a_0 + a_1) * 1/c )$. In order to match the posterior probability that elements $i$ and $j$ belongs to the same cluster through the simple bayesian analysis to random weighting, we need $d_0$ to be small and $a = a_0 + a_1$. 
 
-In this section, we illustrate how we estimate parameters for the distribution of weights and demonstrate variability of generated clustering on empirical data. 
-We also investigate the accuracy of random weighting and how it approaches the fully Bayesian scheme in simulation.
-
-To find the value of $a_0, a_1$ and $d_0$, we have the marginal likelihood of $d_{i,j}$ 
+In this section, we consider  parameters for the distribution of random weights 
+and some properties the induced distribution over cell clusterings. Referring to the appendix
+in the main paper, to find the value of $a_0, a_1$ and $d_0$, 
+we have the marginal likelihood of $d_{i,j}$ 
 $$P(d_{i,j} | a_0, a_1, d_0) = \frac{\Gamma(a_0 + a_1)}{\Gamma(a_0)\Gamma(a_1)} \frac{d_0^{a_0} d_{i,j}^{a_1 - 1}a_1^{a_1}}{(d_0 + a_1 * d_{i,j})^{a_0 + a_1}}$$  
 We estimate $d_0$ by treating $d_{i,j} \approx \Delta_{i,j}$ and based on the mean-variance ratio ($\frac{\text{E}(1/\Delta_{i,j})}{\text{Var}(1/\Delta_{i,j})} = d_0$), $d_0$ can be approximately estimated by moments of $1 / d_{i,j}$.
 Then we obtain $a_0, a_1$ from maximizing marginal density of $d_{i,j}$. 
@@ -328,25 +348,31 @@ The MLE estimators are obtained through \verb+nlminb+ function in \verb+R+. One 
 \begin{figure}[h!]
 \includegraphics[scale = 0.7]{Figs/ARI.pdf}
  \caption{
- Adjusted rand indexes of randomly generated clustering to the one generated by the original distance matrix. 
+ Adjusted RAND index of 
+ clusterings generated by randomizing distances.
  We investigate the variation of clustering given by random weighting through 8 datasets 
  and each dataset we are using 100 random distances.
 }
   \label{fig:ARI}
 \end{figure}
 
-We plot the ARI (adjusted random index) between the randomly generated clustering to clustering under the original distance across eight datasets. Though the mean varies, the interquartile range is wide enough to present a reasonable variation of our random weighting scheme.
+We plot the ARI (adjusted RAND index) between the randomly generated clustering to clustering under the original distance across eight datasets. The boxplots indicate that random weighting is inducing
+substantial variation in the distribution of cell partitions.
 
-We also check validity of random weighting on simulated dataset. 
+We also check validity of random weighting by comparing it to Dirichlet-process-based 
+clustering (Jara et al. 2011)  on  a simulated dataset. 
 We simulate one-dimensional data $X$ from a mixture of 5 normal distributions with different means and same variance ($\mu = (-6,-2,0,2,10), \sigma = 1$). 
-We compare clustering results between random weighting and Bayesian clustering using the Dirichlet process prior in terms of posterior probabilities that two elements belong to the same class given the whole data. 
+We compare clustering results between random weighting and Bayesian clustering 
+using the Dirichlet process prior (using  \verb+DPpackage+) 
+in terms of posterior probabilities that two elements belong to the same class given the whole data. 
 We also compare accuracy of the two procedures by looking at the ARI comparing to true class label (Supplementary Figure \ref{fig:simu}).  
-We found that random weighting scheme tends to give better results than classical Bayesian clustering. %\todo{Fig S2: missing heatmap legend;}
+We find that random weighting scheme closely matches the distributional features of the Dirichlet-process
+computation, and, in this case, tends to put more mass close to the data-generating partition. 
 
 \begin{figure}[h!]
 \includegraphics[scale = 0.9]{Figs/try7-g.pdf}
- \caption{Comparison between random weighting scheme and bayesian clustering procedure. 
- Top: heatmap of posterior probabilities that two elements belong to the same class given the whole data. Bottom: scatterplot of these posterior probabilities (left), and adjusted rand index comparing to the underlying true class label (right).}
+ \caption{Comparison between random weighting scheme and Dirichlet-process procedure. 
+ Top: heatmap of probabilities that two elements belong to the same class given the whole data. Bottom: scatterplot of these posterior probabilities (left), and adjusted RAND index comparing to the underlying true class label (right).}
   \label{fig:simu}
 \end{figure}
 
@@ -354,28 +380,27 @@ We found that random weighting scheme tends to give better results than classica
 
 \subsubsection{Selecting $K$}
 
-In this section, we give the criterion to select $K$.
-
-To determine the number of clusters, we implement a procedure inspired by \verb+validity+, as defined in \cite{selK}.
+In this section, we give the criterion to select the number of subtypes $K$.
+We implement a procedure inspired by \verb+validity+, as defined in \cite{selK}.
 We consider a modified \verb validity = $\frac{\textbf{intra}}{\textbf{inter}}$,
 where $\textbf{intra} = \frac{1}{N}\overset{K}{\underset{i = 1}{\Sigma}}\underset{x \in C_i}{\Sigma} ||x - z_i||^2$, 
 $\textbf{inter} = \text{mean}( || z_i - z_j||^2), i,j = 1,2,...K$, and $z_i$ is the center (medoid) of cluster $i$. 
 $\textbf{intra}$ is the average of distance of a point to the center of its corresponding cluster, which measures the compactness of clusters. 
 $\textbf{inter}$ is the average distance between centers, which measures the separation between clusters.
 In the original paper $\textbf{inter}$ was defined as minimum distance between medoids \citep{selK}. Here, we instead use the average for smoothness. 
-We want to have a small intra-cluster distance and a big inter-cluster distance. Consequently we want to minimize \verb+validity+. 
-From empirical study, we observed that \verb+validity+. is monotonic decreasing with $K$
+By minimizing \verb+validity+ (contrary to what the name suggests)  
+we aim for  small intra-cluster distance and large inter-cluster distance. 
+We find empirically that \verb+validity+ is monotonic decreasing with $K$
 and this trend stabilizes when $K$ is sufficiently big. We select the first $K$ satisfying $\texttt{validity}_{K}  < \epsilon$. 
-We set the default value of  $\epsilon$ to be 1, as we found this yields good performance in simulation and consistent results with other scRNA-seq methods (e.g. number of DD genes identified).
+We set the default value of  $\epsilon$ to be 1, as we found this yields good performance in 
+simulation. 
 
 
 
 \subsection{Double Dirichlet Mixture}
 
-In this section, we give proofs for the properties and theorem for DDM in section 2.3 of the main paper.
-
-On the double Dirichlet masses, using notations from the main paper, we have density functions:
-
+In this section, we give proofs for the properties of  DDM in section 2.3 of the main paper.
+Using notation from the main paper, we have density functions:
 
 \begin{eqnarray*}
 p_\pi(\phi,\psi) =
@@ -400,30 +425,33 @@ p( \tilde \psi_b )
 \frac{ \Gamma( \sum_{k\in b} \alpha_k ) }{ \prod_{k\in b} \Gamma(\alpha_k) }
 \prod_{k \in b} \tilde \psi_k^{\alpha_k -1 }.
 \end{eqnarray*}
-
-Those computing units will serve as key components for proving property 1 $\sim$ 6 in section 2.3
+These serve as key components for proving DDM properties.
 
 \begin{proof}[Proof of Property 1]
-When $\phi$ and $\psi$ only satisfy the coarsest constrants: $\sum_{i = 1}^K \phi_i = \sum_{i = 1}^K \psi_i = 1$. $\phi$ and $\psi$ are independently Dirichlet distributed.
+When $\phi$ and $\psi$ satisfy only the coarsest constrants: 
+$\sum_{i = 1}^K \phi_i = \sum_{i = 1}^K \psi_i = 1$, then
+ $\phi$ and $\psi$ are independently Dirichlet distributed.
 When $\phi$ and $\psi$ satisfy finer constraints, $P(\phi | \psi ) \neq P(\phi)$ as there is some subsets $b \neq \pi$ such that $\sum_{i\in b} \phi = \sum_{i \in b} \psi$. So $\phi$ and $\psi$ are dependent.
 \end{proof}
 
 \begin{proof}[Proof of Property 2]
-$E_{\pi}(\phi_k) = E_{\pi}(\phi_k | \Phi_b) E_{\Phi}(\Phi_b) = E_{\tilde{\phi}_b}(\tilde{\phi}_k)E_{\Phi}(\Phi_b)$ where $b$ is the block containing subtype index $k$. As $\tilde{\phi}_b \sim  \text{Dirichlet}_{N(b)}[ \alpha_b^1 ]$ and  $\Phi_\pi  \sim \text{Dirichlet}_{N(\pi)}[   \beta_\pi   ] $
-We have $E_{\tilde{\phi}_b}(\tilde{\phi}_k) =  \frac{ \alpha^1_k }{ \sum_{k' \in b} \alpha^1_{k'} } $ and $E_{\Phi}(\Phi_b) = \frac{ \beta_b }{ \sum_{b' \in \pi} \beta_{b'} } $. Similarly we could prove the case for $E_{\pi}(\psi_k)$.
+$E_{\pi}(\phi_k) = E_{\pi}(\phi_k | \Phi_b) E_{\Phi}(\Phi_b) = E_{\tilde{\phi}_b}(\tilde{\phi}_k)E_{\Phi}(\Phi_b)$ where $b$ is the block containing subtype index $k$. As $\tilde{\phi}_b \sim  \text{Dirichlet}_{N(b)}[ \alpha_b^1 ]$ and  $\Phi_\pi  \sim \text{Dirichlet}_{N(\pi)}[   \beta_\pi   ] $,
+we have $E_{\tilde{\phi}_b}(\tilde{\phi}_k) =  \frac{ \alpha^1_k }{ \sum_{k' \in b} \alpha^1_{k'} } $ and $E_{\Phi}(\Phi_b) = \frac{ \beta_b }{ \sum_{b' \in \pi} \beta_{b'} } $. The case for $E_{\pi}(\psi_k)$ 
+is similar.
 \end{proof}
 
 \begin{proof}[Proof of Property 3]
-$t^1 / t_{\pi}^1$ is independent of $t^2 / t_{\pi}^2$ conditioning on $t_\pi^1$ and $t_\pi^2$ by the Neutrality property of Dirichlet distribution
+$t^1 / t_{\pi}^1$ is independent of $t^2 / t_{\pi}^2$ conditioning on $t_\pi^1$ and $t_\pi^2$ by the 
+neutrality property of Dirichlet distribution
 \end{proof}
 
 \begin{proof}[Proof of Property 4]
 For $j = 1,2$,
 let $T_b^j$ be the vector of $t_k^j$ such that $k \in b$. Recall $t_b^j = \sum_{k \in b} t_k^j$.
-Without loss of generality, we consider the case condition $j = 1$.\\
+Without loss of generality, we consider the case condition $j = 1$.
 At the support of $p_\pi$, for different blocks, $T_b^1 | \tilde \phi_b$ are mutually independent. Then we have factorization:
 \begin{eqnarray*}
-p_\pi(t^1 | t_\pi^1, y) = \prod_{b\in \pi}(p(T_b^1 | t_b^1,y) )
+p_\pi(t^1 | t_\pi^1, y) = \prod_{b\in \pi}p(T_b^1 | t_b^1,y) 
 \end{eqnarray*}
 and right hand side prior predictive function can be obtained by integrating out $ \tilde{\phi}_b$ given the prior $\text{Dirichlet} [ \alpha_b^1]$, and  $p(T_b^1  | \tilde{\phi}_b)$ is multinomial($\tilde{\phi}_b)$ distributed.
 \begin{align*}
@@ -451,30 +479,37 @@ As prior of $\Phi \text{ is Dirchlet}[ \beta ] \text{ and } n_j = \sum_{b \in \p
 \end{proof}
 
 
-To prove property 6, we need a lemma of dimensionality of the intersection of two $A_\pi$s. 
+To prove Property 6, we need a fact about  dimensionality of the intersection of two $A_\pi$'s. 
 \begin{lemma}
-If $\pi_2$ is not refinement of $\pi_1$ then $A_{\pi_1} \cap A_{\pi_2}$ is a lower dimensional subset of $A_{\pi_2}$.
+If $\pi_2$ is not a refinement of $\pi_1$ then $A_{\pi_1} \cap A_{\pi_2}$ is a lower dimensional subset of $A_{\pi_2}$.
 \end{lemma}
 
-\begin{proof}[Proof of lemma 1]
-Let $V$ denote the orthogonal space of $\phi - \psi$, when $(\phi,\psi)\in A_{\pi_1} \cap A_{\pi_2}$, and $\text{dim}(A_{\pi_1} \cap A_{\pi_2}) = \text{dim}(\phi - \psi) + \text{dim}(\psi) = 2K - \text{dim}(V) - 1$. Also let $\pi_1 = \{b_1^1,...,b_s^1\}, \pi_2 = \{b_1^2,...,b_t^2\}$. The corresponding vectors are $v_1^1,...,v_s^1$ and $v_1^2,...,v_t^2$. We claim there must be a $b_i^1\in \pi$ whose corresponding $v_i^1$ is linear independent with $v_1^2,...,v_t^2$. If not, for every $v_i^1$ there exists $\alpha_1^i,...,\alpha_t^i$ such that 
+\begin{proof}[Proof of Lemma 1]
+Let $V$ denote the orthogonal space of $\phi - \psi$, when $(\phi,\psi)\in A_{\pi_1} \cap A_{\pi_2}$, and $\text{dim}(A_{\pi_1} \cap A_{\pi_2}) = \text{dim}(\phi - \psi) + \text{dim}(\psi) = 2K - \text{dim}(V) - 1$. Also let $\pi_1 = \{b_1^1,\cdots,b_s^1\}$, and  $\pi_2 = \{b_1^2,\cdots,b_t^2\}$. 
+The corresponding vectors are $v_1^1,\cdots,v_s^1$ and $v_1^2,\cdots,v_t^2$. 
+We claim there must be a $b_i^1\in \pi$ whose corresponding $v_i^1$ is linear independent 
+with $v_1^2,\cdots,v_t^2$. If not, for every $v_i^1$ there exists $\alpha_1^i,\cdots,\alpha_t^i$ 
+such that 
 \[
 v_i^1 = \sum_{j = 1}^t \alpha_j^i v_j^2 \quad\quad\quad(*)
 \]
-If $b_j^2 \cap b_i^1 \neq \emptyset$, then multiply $v_j^2$ on both sides of (*), we obtain $v_i^1 * v_j^2 = \alpha_j^i (v_j^2)^2$, as $v_j^2$ are orthogonal vectors, and $v_i^1 * v_j^2 > 0$ implies $\alpha_j^i > 0$. Consider $x = f(b_j^2\setminus b_i^1)$. We have $x*v_i^1 = 0$ and multiply $x$ on both sides of (*) to obtain $\alpha_j^i v_j^2*x = 0$. Thus x must be zero vector and $b_j^2\setminus b_i^1= \emptyset$, which implies $b_j^2 \subset b_i^1$. That is to say when $b_j^2 \cap b_i^1 \neq \emptyset$, $b_j^2$ must be subset of $b_i^1$. So $b_i^1$ is union of some blocks in $\pi_2$. This implies $\pi_2$ is refinement of $\pi_1$: a contradiction.\\
+If $b_j^2 \cap b_i^1 \neq \emptyset$, then multiply $v_j^2$ on both sides of (*), we obtain $v_i^1 * v_j^2 = \alpha_j^i (v_j^2)^2$, as $v_j^2$ are orthogonal vectors, and $v_i^1 * v_j^2 > 0$ implies $\alpha_j^i > 0$. Consider $x = f(b_j^2\setminus b_i^1)$. We have $x*v_i^1 = 0$ and multiply $x$ on both sides of (*) to obtain $\alpha_j^i v_j^2*x = 0$. Thus x must be the zero vector and $b_j^2\setminus b_i^1= \emptyset$, which implies $b_j^2 \subset b_i^1$. That is to say when $b_j^2 \cap b_i^1 \neq \emptyset$, $b_j^2$ must 
+be  a subset of $b_i^1$. So $b_i^1$ is the union of some blocks in $\pi_2$. 
+ This implies $\pi_2$ is a refinement of $\pi_1$, which is  a contradiction.
 Consequently, there exists $b\in\pi_1$ with $v(b)$ linear independent with $v(b'), b'\in\pi_2$. $\text{dim}(V)$ is at least $N(\pi_2) + 1, \dim(A_{\pi_1} \cap A_{\pi_2}) < \text{dim}(A_{\pi_2})$.
 \end{proof}
 
 \begin{proof}[Proof of Property 6]
-For a $\pi$, $P(A_\pi, | y, z) = \underset{\tilde \pi \in \Pi}{\sum} \int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi$, notice the support of $\omega_{\tilde \pi}^{\text{post}}$ is $A_{\tilde \pi}$. 
-By lemma 1, we know if $\tilde \pi$ does not refine $\pi$, then $\int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi$ is an integral on lower dimension set and vanishes. if $\tilde \pi$ refines $\pi$, then 
+For some $\pi$, $P(A_\pi, | y, z) = \underset{\tilde \pi \in \Pi}{\sum} \int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi$, 
+notice the support of $\omega_{\tilde \pi}^{\text{post}}$ is $A_{\tilde \pi}$. 
+By Lemma 1, we know if $\tilde \pi$ does not refine $\pi$, then $\int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi$ is an integral on lower dimension set and vanishes. if $\tilde \pi$ refines $\pi$, then 
 $\int_{A_{\pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi = \int_{A_{\tilde \pi}} \omega_{\tilde \pi}^{\text{post}} d\phi d\psi = \omega_{\tilde \pi}^{\text{post}}$. We have $P(A_\pi, | y, z) = \underset{\tilde \pi \in \Pi}{\sum} \omega_{\tilde \pi}^{\text{post}} 1[\tilde \pi \text{ refines } \pi ]$.
 \end{proof}
 
 \begin{proof}[Proof of Theorem 3]
 %$p_\pi ( t^1 | t_\pi^1, y) p_\pi ( t^2 | t_\pi^2 , y) p_\pi ( t_\pi^1, t_\pi^2 | y )$
 Recall the DDM prior: $p(\phi,\psi) = \sum_{\pi \in \Pi} p_\pi(\phi,\psi)$. 
-By bayes' rule we know $p(\phi,\psi | y,z) \propto p(\phi,\psi, y, z) = \sum_{\pi \in \Pi}  p(y, z | \phi,\psi) p_\pi(\phi,\psi)\omega_\pi$
+By Bayes's rule we know $p(\phi,\psi | y,z) \propto p(\phi,\psi, y, z) = \sum_{\pi \in \Pi}  p(y, z | \phi,\psi) p_\pi(\phi,\psi)\omega_\pi$
 and we use the 1-1 map from $(\phi,\psi)$ to $(\tilde \phi, \tilde \psi, \Phi)$ to get
 \begin{eqnarray*}
 p(y, z | \phi,\psi) p_\pi(\phi,\psi) = p(y, z | \tilde{\phi} , \tilde{\psi}, \Phi_\pi) p(\tilde{\phi}) p (\tilde{\psi}) p(\Phi_\pi)
@@ -482,19 +517,17 @@ p(y, z | \phi,\psi) p_\pi(\phi,\psi) = p(y, z | \tilde{\phi} , \tilde{\psi}, \Ph
 when $(\phi,\psi) \in A_\pi$.
 Let us denote right hand side of the above equation as $U_\pi$, then
 \begin{eqnarray*}
-U_\pi = \omega_\pi A_1 A_2 A_3\prod_{k = 1}^K (\tilde{ \phi }_k)^{t_k^1 + \alpha_k^1} (\tilde{ \psi }_k)^{t_k^2 + \alpha_k^2}   \prod_{b \in \pi} (\Phi_b)^{t_b^1 + t_b^2 + \beta_b}
+U_\pi = \omega_\pi A_1 A_2 A_3\prod_{k = 1}^K (\tilde{ \phi }_k)^{t_k^1 + \alpha_k^1} (\tilde{ \psi }_k)^{t_k^2 + \alpha_k^2}   \prod_{b \in \pi} (\Phi_b)^{t_b^1 + t_b^2 + \beta_b},
 \end{eqnarray*}
-Where $A_1$ is the product of normalizing terms from multinomial distribution of $z^1$ and $z^2$, $A_1 =  \frac{\Gamma(n_1 + 1)\Gamma(n_2 + 1)}{\prod_{j = 1}^2\prod_{k = 1}^K \Gamma(t_k^j + 1) } $.\\
+where $A_1$ is the product of normalizing terms from multinomial distribution of $z^1$ and $z^2$, $A_1 =  \frac{\Gamma(n_1 + 1)\Gamma(n_2 + 1)}{\prod_{j = 1}^2\prod_{k = 1}^K \Gamma(t_k^j + 1) } $, and
 $A_2$ is the product of normalizing terms from Dirichlet distribution of $\tilde{\phi}$ and $\tilde{\psi}$,
-$A_2 = \frac{ \Gamma( \sum_{k = 1}^K \alpha_k^1 + 1)  \Gamma( \sum_{k = 1}^K \alpha_k^2 + 1)}{ \prod_{j = 1}^2 \prod_{k = 1}^2 \Gamma(\alpha_k^j + 1)}$.\\
-$A_3$ is the normalizing term from Dirichle distribution of $\Phi_\pi$, $A_3 = \frac{\Gamma(\sum_{b \in \pi } \beta_b + 1)}{\prod_{b\in \pi} \Gamma(\beta_b + 1)}$.\\
-Looking at the indexes of $\tilde \phi, \tilde \psi \text{ and } \Phi$, we can decompose $U_\pi$ as a product of three Dirichlet densities with a normalizing term. 
+$A_2 = \frac{ \Gamma( \sum_{k = 1}^K \alpha_k^1 + 1)  \Gamma( \sum_{k = 1}^K \alpha_k^2 + 1)}{ \prod_{j = 1}^2 \prod_{k = 1}^2 \Gamma(\alpha_k^j + 1)}$, and
+$A_3$ is the normalizing term from Dirichlet distribution of $\Phi_\pi$, $A_3 = \frac{\Gamma(\sum_{b \in \pi } \beta_b + 1)}{\prod_{b\in \pi} \Gamma(\beta_b + 1)}$.  Looking at the indices of $\tilde \phi, \tilde \psi \text{ and } \Phi$, we can decompose $U_\pi$ as a product of three Dirichlet densities with a normalizing term. 
 Namely $U_\pi = C_\pi * f_1 f_2 f_3$, where
 $f_1 \sim \text{Dirichlet}[\alpha^1 + t^1]$, $f_2 \sim \text{Dirichlet}[\alpha^2 + t^2]$ and $f_3 \sim \text{Dirichlet}[\beta + t^1 + t^2]$.
 Considering the normalizing factors for densities $f_1,f_2$ and $f_3$, and multiplying them with $A_1, A_2$ and $A_3$,
 we have $C_\pi =  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
- \, p_\pi( t^1_{\pi}, t^2_{\pi} | y ) \omega_\pi$. \\
- Consequently, we have 
+ \, p_\pi( t^1_{\pi}, t^2_{\pi} | y ) \omega_\pi$.  Consequently, we have 
  \begin{eqnarray*}
  (\phi,\psi)|y,z  \sim {\mbox {\rm DDM}}\left[ \omega^{\rm post}=(\omega^{\rm post}_\pi), \alpha^1 + t^1, \alpha^2 + t^2  \right] \text{ and } \omega^{\rm post}_\pi \propto 
  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
@@ -508,7 +541,8 @@ we have $C_\pi =  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
 \section{Numerical Experiments}
 
 \subsection{Synthetic Data}
-In this section, we use PCA plots to show the subtle changes underlying each subtype of simulated data and 
+In this section we look more closely at the synthetic data generated using \verb+splatter+.
+We use PCA plots to show the subtle changes underlying each subtype of simulated data and 
 we demonstrate consistency of estimated distributional changes based on \texttt{scDDboost} and Wasserstein distance.
 Finally, ROC curves illustrate that \verb+scDDboost+ has favorable operating characteristics. 
 
@@ -600,9 +634,9 @@ GSE84465 & neoplastic cells vs non-neoplastic cells & 1000, 1000 & human & \cite
 \label{table:1}
 \end{table}
 
-For the first 11 datasets in supplementary table \ref{table:1} we use all the cells within that condition under same batch.
+For the first 11 datasets in Supplementary Table \ref{table:1} we use all the cells within that condition under same batch.
 The last one is the largest dataset we explored containing 3589 cells and comparing neoplastic cells (1091 cells) vs non-neoplastic cells (2498 cells).
-We randomly sampled 1000 cells from each condition, because it takes a lot of time for \texttt{DESeq} and \textt{scDD} to compute when using all the samples
+We randomly sampled 1000 cells from each condition, because it takes a lot of time for \texttt{DESeq} and \texttt{scDD} to compute when using all the samples
 and we conjecture that 1000 cells each condition would be enough to represent the heterogeneity. %\todo{How different are results on a different random subset of 1000?}
 We run the comparison on those subsamples instead 
 and found \texttt{DESeq} identified significantly smaller numbers of positives than other methods. It is intuitive that we are more likely to encounter subtle changes
@@ -662,20 +696,25 @@ GSE79102null & patient1 & 26, 25 & human\\
 
 \subsection{Robustness}
 
-In this section, we demonstrate change of PDD under different $K$ and the robustness we gain through random weighting. We also give a warning that using arbitrarily large $K$ will inflate FDR. 
+In this section, we demonstrate change of the posterior probability of DD
+ under different $K$,  and also  the robustness provided by random weighting. 
+We also give an example where very large $K$ inflates FDR. 
 
-the number of subtypes $K$ is a crucial parameter controlling the accuracy of our modeling. 
-Too small $K$ may end up underfitting such that cells within same subtype can still be very different, 
+The number of subtypes $K$ is a crucial parameter controlling the accuracy of our modeling. 
+Taking  $K$ too small
+ may end up underfitting such that cells within same subtype can still be very different, 
 the mean expression change among subtypes is incapable to capture the marginal distribution change.
-Consequently reducing the power of \texttt{scDDboost}.
-Too big $K$ may end up overfitting such that two subtypes can be very similar. Given that we have a fixed number of cells, allowing more clusters will not only increase the burden of computation 
-but decrease the certainty of our inference on DE pattern. \\
+This would lead to reduced power.
+Too large $K$ may end up overfitting such that two subtypes can be very similar. Given that we have a fixed number of cells, allowing more clusters will not only increase the burden of computation 
+but decrease the certainty of our inference on DE pattern. 
+Empirically we find that taking $K \leq 10$ is often sufficient (Supplementary Table\ref{table:1}).  
+In any case, we note here that $K$ affects the posterior probability of DD (PDD).
 
-From our empirical experience, 
-it is sufficient to capture the heterogeneity underlying cells with number of clusters less than 10 ($K$ in Supplementary Table\ref{table:1}).  
-To demonstrate the change of PDD given different $K$, we present an example using dataset GSE75748. When we increase $K$, the variance of the differential term $\text{PDD}_{K + 1} - \text{PDD}_K$ keeps decreasing and PDD keeps increasing. Our selection criterion (K = 5) happens to choose $K$ such that change between $\text{PDD}_{K + 1}$ and $\text{PDD}_K$ is small while not inflating PDD. We generally obtain stable validity score and PDD simultaneously (Supplementary Figure~\ref{fig:rwk}). In addition, the random weighting scheme help us obtain robust PDD (Supplementary Figure~\ref{fig:s10}). 
+To demonstrate the change of PDD over different $K$, we present an example using dataset 
+GSE75748. When we increase $K$, the variance of the differential term $\text{PDD}_{K + 1} - \text{PDD}_K$ keeps decreasing and PDD keeps increasing. Our selection criterion (K = 5) happens to choose $K$ such that change between $\text{PDD}_{K + 1}$ and $\text{PDD}_K$ is small while not inflating PDD. We generally obtain stable validity score and PDD simultaneously (Supplementary Figure~\ref{fig:rwk}). In addition, the random weighting scheme helps by smoothing PDD (Supplementary Figure~\ref{fig:s10}). 
 There is one thing we need to be cautious, \texttt{scDDboost} may lose FDR control if we keep increasing $K$ (Supplementary Figure~\ref{fig:lfdr}).
-But from our simulation study, we never overestimate $K$. 
+But in our simulation study, we note that the validity score method was always conservative, and did
+not lead to overestimating $K$.
 
 \begin{figure}[h]
 \includegraphics[width = 1\textwidth]{Figs/Kchange.png}
@@ -732,9 +771,6 @@ But from our simulation study, we never overestimate $K$.
 
 
 
-\section{Posterior consistency}
-%\subsection{Posterior consistency}
-In this section, we prove theorem 4 and we demonstrate the cases when condition (12) fails. 
 
 
 %\begin{prop}
@@ -746,7 +782,7 @@ In this section, we prove theorem 4 and we demonstrate the cases when condition 
 %Let $K$ be number of subtypes. When $K >  3, Q \neq \emptyset$, when $K \leq 3, Q = \emptyset$
 %\end{prop}
 %\hfill\\
-%When the number of subtypes is bigger than three, we lack posterior inference on $Q$. To see that we can rewrite $A_\pi^*$ as $A_\pi^* = A_\pi\setminus \underset{\tilde{\pi} \text{ is not coarser than } \pi }\cup (A_{\tilde{\pi}}\cap A_\pi)$, $\tilde{\pi}$ is not coarser than $\pi$, which is equivalently to say $\pi$ is not refinement of $\tilde{\pi}$. By property 8 in section 2, $A_{\tilde{\pi}}\cap A_\pi$ is a lower dimensional subset of $A_\pi$. So $A_\pi \setminus A_\pi^*$ is a lower dimensional subset of $A_\pi$. For posterior on $Q$, it degenerates to integral on a lower dimensional subset of the simplex associating with densities, which will vanish\\
+%When the number of subtypes is bigger than three, we lack posterior inference on $Q$. To see that we can rewrite $A_\pi^*$ as $A_\pi^* = A_\pi\setminus \underset{\tilde{\pi} \text{ is not coarser than } \pi }\cup (A_{\tilde{\pi}}\cap A_\pi)$, $\tilde{\pi}$ is not coarser than $\pi$, which is equivalently to say $\pi$ is not refinement of $\tilde{\pi}$. By Property 8 in section 2, $A_{\tilde{\pi}}\cap A_\pi$ is a lower dimensional subset of $A_\pi$. So $A_\pi \setminus A_\pi^*$ is a lower dimensional subset of $A_\pi$. For posterior on $Q$, it degenerates to integral on a lower dimensional subset of the simplex associating with densities, which will vanish\\
 %\begin{prop}
 %When $K >  3$, $p(Q | z^1, z^2) = 0$
 %\end{prop}
@@ -755,7 +791,7 @@ In this section, we prove theorem 4 and we demonstrate the cases when condition 
 %\begin{align}
 %p(A_\pi | y,z) = \frac{1}{c'}\sum_{\pi' \in \text{RF}(\pi)}\prod_{b\in \pi'}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(N(b) + t_b^1)\Gamma(N(b) + t_b^2)} \frac{\Gamma(N(b))}{\Gamma(2N(b))}
 %\end{align}
-%$c'$ is the total sum over all partitions $c' = \sum_{\pi}\prod_{b\in \pi}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(N(b) + t_b^1)\Gamma(N(b) + t_b^2)} \frac{\Gamma(N(b))}{\Gamma(2N(b))} $ And we have theorem 4.\\
+%$c'$ is the total sum over all partitions $c' = \sum_{\pi}\prod_{b\in \pi}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(N(b) + t_b^1)\Gamma(N(b) + t_b^2)} \frac{\Gamma(N(b))}{\Gamma(2N(b))} $ And we have Theorem 4.\\
 
 %\begin{theorem} Let $n = min(n_1, n_2)$ be the smaller number of cells of two conditions and $n_1 = O(n_2)$ namely $\text{ln}(\frac{n_1}{n_2}) = 0$, and hyper parameters of DDM $\alpha^1, \alpha^2$ be vectors of constants, $\alpha_k^j \geq 1$, $\forall k, j$ and $\beta = \alpha^1 + \alpha^2$. Then if parameter $(\phi, \psi)\in \Omega\setminus Q $ we have 
 %\begin{eqnarray*}
@@ -803,14 +839,18 @@ In this section, we prove theorem 4 and we demonstrate the cases when condition 
 %{\bf Proofs:}
 
 
-The density of DDM is computed by product or ratio over several gamma functions and the gamma function is not easy to directly derive limiting theorem.
-To prove theorem 4, we need a crucial lemma which gives us an approximation to the gamma function, namely
+
+
+\section{Posterior consistency}
+In this section, we prove Theorem~4 and we discuss cases when condition (12) fails.
+The density of DDM is computed by product or ratio over several gamma functions.
+We use a crucial lemma which gives us an approximation to the gamma function, namely
 
 \begin{lemma}
 For $x \geq 1$, $\frac{x^{x - c}}{e^{x - 1}} \leq \Gamma(x) \leq \frac{x^{x-1/2}}{e^{x - 1}}$, where $c = 0.577215...$ is the Euler-Mascheroni constant.
 \end{lemma}
 
-\begin{proof}
+\begin{proof}[Proof of Lemma 2]
 By \citep{ineq},  we have $\frac{x^{x - c}}{e^{x - 1}} \leq \Gamma(x) \leq \frac{x^{x-1/2}}{e^{x - 1}}$ for $x > 1$ and now we added the case when $x = 1, \Gamma(x) = 1$ so that both sides will include the equality case. 
 \end{proof}
 
@@ -821,16 +861,16 @@ By \citep{ineq},  we have $\frac{x^{x - c}}{e^{x - 1}} \leq \Gamma(x) \leq \frac
 
 
 
-We have another lemma and theorem 4 is just proposition of the lemma
+We have another lemma.
 \begin{lemma}
- If $(\phi, \psi) \in A_{\pi_1} \cap A_{\pi_2}$, follow the conditions in theorem 1 then 
+ If $(\phi, \psi) \in A_{\pi_1} \cap A_{\pi_2}$, follow the conditions in Theorem 1 then 
  \begin{eqnarray*}
     \frac{\omega_{\pi_1}^{\text post}}{\omega_{\pi_2}^{\text post}} \xrightarrow[n\rightarrow\infty]{\text{a.s.}} 0 \quad \text{if } N(\pi_1) < N(\pi_2)\\
  \end{eqnarray*}
 \end{lemma}
 
 
-\begin{proof}
+\begin{proof}[Proof of Lemma 3]
 Recall $ \omega^{\rm post}_\pi \propto 
  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
  \, p_\pi( t^1_{\pi}, t^2_{\pi} | y ) \, \omega_\pi$ and \\
@@ -839,7 +879,7 @@ Recall $ \omega^{\rm post}_\pi \propto
  g(\pi, t^1, t^2, \alpha, \beta) = \big[ \overset{2}{\underset{j = 1}{\prod}}\underset{b\in \pi}\prod \frac{\Gamma(\Sigma_{k\in b} \alpha_k^j)}{\prod_{k\in b} \Gamma(\alpha_k^j)} \big ] \frac{\Gamma(n_1 + 1) \Gamma(n_2 + 1)}{\prod_{b\in \pi} \Gamma(\beta_b)} \frac{\Gamma(\Sigma_{b \in \pi} \beta_b)}{\Gamma(n_1 + n_2 + \Sigma_{b\in\pi} \beta_b)}\\
 f(\pi, t^1, t^2, \alpha, \beta) = \big[ \overset{2}{\underset{j = 1}{\prod}}\underset{b\in \pi}\prod \frac{1}{\prod_{k \in b}\Gamma(t_k^j + 1)}\frac{\prod_{k \in b}\Gamma(\alpha_k^j + t_k^j)}{\Gamma(t_b^j + \Sigma_{k\in b}\alpha_k^j)}\big ] \underset{b\in \pi}\prod \Gamma(\beta_b + t_b^1 + t_b^2) 
 \end{eqnarray*}
-For notation simplicity, we use the abbreviation $g(\pi), f(\pi)$ to substitute \\
+For notational simplicity, we use the abbreviation $g(\pi), f(\pi)$ to substitute \\
 $g(\pi, \alpha, \beta, n_1, n_2),f(\pi, t^1, t^2, \alpha, \beta)$.  We take log on $\frac{\omega_{\pi_1}^{\text post}}{\omega_{\pi_2}^{\text post}}$, denote it as LR. $\text LR = \text{ln}g(\pi_1) - \text{ln}g(\pi_2) + \text{ln}f(\pi_1) - \text{ln}f(\pi_2)$. Denote $C(\pi_1, \pi_2, \alpha, \beta) = \text{ln}g(\pi_1) - \text{ln}g(\pi_2)$, $C(\pi_1, \pi_2, \alpha, \beta)$ does not change with sample size $n_1, n_2$ and is a constant determined by partition $\pi_1, \pi_2$ and hyper parameters $\alpha, \beta$.  For further convenience of notation let $h(x) = \text ln\Gamma(x)$ and $\gamma_b^j = \Sigma_{k\in b} \alpha_k^j$. Denote $R(\pi_1, \pi_2, t^1, t^2, \alpha, \beta) = \text{ln}f(\pi_1) - \text{ln}f(\pi_2)$. And removing the common part of $f(\pi_1)$ and $f(\pi_2)$, we have 
 \begin{eqnarray*}
 R(\pi_1, \pi_2, t^1, t^2, \alpha, \beta) = d(\pi_1, t^1, t^2, \alpha, \beta) - d(\pi_2, t^1, t^2, \alpha, \beta)\\
@@ -850,7 +890,7 @@ d(\pi, t^1, t^2, \alpha, \beta) = \underset{b\in \pi}\Sigma h(\beta_b + t_b^1 + 
 \end{eqnarray*}
 
 
-Recall $\beta_b = \gamma_b^1 + \gamma_b^2$ and from lemma 2, $(x - c)\text{ln}(x) - x + 1 \leq h(x) \leq (x - 1/2)\text{ln}(x) - x + 1$ we have 
+Recall $\beta_b = \gamma_b^1 + \gamma_b^2$ and from Lemma 2, $(x - c)\text{ln}(x) - x + 1 \leq h(x) \leq (x - 1/2)\text{ln}(x) - x + 1$ we have 
 \begin{align}
 d(\pi, t^1, t^2, \alpha, \beta) &\geq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - c) \text{ln}(\beta_b  + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - 1/2) \text{ln}(t_b^j + \gamma_b^j) + N(\pi)\\
 d(\pi, t^1, t^2, \alpha, \beta) &\leq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - 1 / 2) \text{ln}(\beta_b  + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - c) \text{ln}(t_b^j + \gamma_b^j) + N(\pi)
@@ -893,10 +933,11 @@ $U(\pi) = \Sigma_{b\in\pi}\big[(2c - 1/2) \text{ln}(\beta_b + t_b^1 + t_b^2)
  + \Sigma_{b\in\pi_1}g(\xi_b)(Y_b^1 + Y_b^2)  - \Sigma_{b\in\pi_2}g(\xi_ b)(Y_b^1 + Y_b^2)\\
  \end{eqnarray*}
  
- $Y_b^j =  \frac{((t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n}))^3 / \sqrt{n}}{((t_b^j + \gamma_b^j) /n)^2}$, by LLN the denominator goes to a constant and by CLT in the numerator $(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n} \rightarrow (t_b^1 - t_b^2) / \sqrt{n} \rightarrow \sqrt{n}[(t_b^1 / n  - \Phi_b) - (t_b^2 / n - \Psi_b)]$, which goes to a normal distributed random variable when $\Phi_b = \Psi_b$. So $Y_b^j$ is $o_p(1)$. Similarly,  $X_b^j =  \frac{((t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n})^2}{t_b^j + \gamma_b^j / n}$ is asymptotic gamma ($\chi$-square) distributed.
+ $Y_b^j =  \frac{((t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n}))^3 / \sqrt{n}}{((t_b^j + \gamma_b^j) /n)^2}$, by LLN the denominator goes to a constant and by CLT in the numerator $(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n} \rightarrow (t_b^1 - t_b^2) / \sqrt{n} \rightarrow \sqrt{n}[(t_b^1 / n  - \Phi_b) - (t_b^2 / n - \Psi_b)]$, 
+which converges to a normally distributed random variable when $\Phi_b = \Psi_b$. So $Y_b^j$ is $o_p(1)$. Similarly,  $X_b^j =  \frac{((t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n})^2}{t_b^j + \gamma_b^j / n}$ is asymptotically gamma ($\chi$-square) distributed.
 $g(\xi_b)$ has bounded variance,
  $U(\pi_1) - T(\pi_2) = -\text{ln}(n)$ if $N(\pi_2) < N(\pi_1)$
- as $ \text{ln}(\beta_b + t_b^1 + t_b^2)  -  \text{ln}(\beta_{b'} + t_{b'}^1 + t_{b'}^2) =  \text{ln}(\frac{\beta_b + t_b^1 + t_b^2}{n})  -  \text{ln}(\frac{\beta_{b'} + t_{b'}^1 + t_{b'}^2}{n}) \rightarrow O(1) \quad a.s.$ so we complete the proof.
+ as $ \text{ln}(\beta_b + t_b^1 + t_b^2)  -  \text{ln}(\beta_{b'} + t_{b'}^1 + t_{b'}^2) =  \text{ln}(\frac{\beta_b + t_b^1 + t_b^2}{n})  -  \text{ln}(\frac{\beta_{b'} + t_{b'}^1 + t_{b'}^2}{n}) \rightarrow O(1) \quad a.s.$, which completes the proof.
 
 %Recall $t^1 \sim \text{multinomial}(n_1, \phi)$, $t^2 \sim \text{multinomial}(n_2, \psi)$.
 
@@ -905,7 +946,8 @@ $g(\xi_b)$ has bounded variance,
 \end{proof}
 
 %When condition (12) does not hold, namely there is not a finest partition $\pi*$ for set $H(\phi,\psi)$. Then there could be multiple $\pi$s, for example,  $\pi_1$ and $\pi_2$ such that, $N(\pi_1) = N(\pi_2) = \text{min}_{\pi \in H(\phi,\psi)} N(\pi)$. 
-%We need to study the limiting performance of ratio between $\omega_\pi^{\text{post}}$. Thus we have lemma 5.
+%We need to study the limiting performance of ratio between $\omega_\pi^{\text{post}}$. Thus we have 
+%Lemma 5.
 
 %\begin{lemma}
 %If $(\phi, \psi) \in A_{\pi_1} \cap A_{\pi_2}$, follow the conditions in theorem 1 and further we have $\alpha^j, j = 1,2$ be vectors of integers then 
@@ -948,12 +990,11 @@ $g(\xi_b)$ has bounded variance,
 %\end{theorem}
 
 
-\hfill\\
-Proof of theorem 4 
-\begin{proof}
+
+\begin{proof}[Proof of Theorem 4]
 
 Recall $\sum_{\pi \in \Pi} \omega^{\rm post}_{ \pi} = 1$ and $P(A_\pi|y,z) = 
-\sum_{\tilde \pi \in \Pi} \omega^{\rm post}_{\tilde \pi} \,  1[ {\mbox {\rm $\tilde \pi$ refines $\pi$}} ].$  If $(\phi, \psi) \notin \text{Q}$, for all the $A_\pi$ covers $(\phi, \psi)$ there is one finest $\pi^*$ with the largest $N(\pi^*)$ and every other $\pi$ that $(\phi,\psi) \in A_\pi$ is coarser than $\pi^*$. We get the results of theorem 4 by lemma 3.
+\sum_{\tilde \pi \in \Pi} \omega^{\rm post}_{\tilde \pi} \,  1[ {\mbox {\rm $\tilde \pi$ refines $\pi$}} ].$  If $(\phi, \psi) \notin \text{Q}$, for all the $A_\pi$ covers $(\phi, \psi)$ there is one finest $\pi^*$ with the largest $N(\pi^*)$ and every other $\pi$ that $(\phi,\psi) \in A_\pi$ is coarser than $\pi^*$.  Theorem~4 now follows by Lemma~3.
 
 %Similarly we use lemma 5 could proof theorem 5. 
 
@@ -978,7 +1019,9 @@ Under some choices of $(\phi,\psi)$, condition (12) could fail.
 \hfill\\
 In Supplementary Figure \ref{fig:issue}, there are four subtypes, the rectangle with magenta boundary is a simplex $A_{\pi_1} = \{(\phi,\psi) : \phi_1 + \phi_2 = \psi_1 + \psi_2\}$, the rectangle with blue boundary is another simplex $A_{\pi_2} = \{(\phi,\psi) : \phi_1 + \phi_3 = \psi_1 + \psi_3\}$. The green line refers to $A_{\pi_3} = \{(\phi,\psi) : \phi_1 = \psi_1, \phi_2 = \psi_2\}$, the yellow line refers to $A_{\pi_4} = \{(\phi,\psi) : \phi_1 = \psi_1, \phi_3 = \psi_3\}$.  
 the purple line refers to $O = \{(\phi,\psi) : \phi_1 + \phi_2 = \psi_1 + \psi_2, \phi_1 + \phi_3 = \psi_1 + \psi_3\}$, which is the intersection of $A_{\pi_1}$ and $A_{\pi_2}$, 
-and finally the black dot which is the intersection of those three lines refers to the simplex with finest partitions, $\phi_i = \psi_i, \forall i = 1,..,4$.  When $(\phi,\psi)$ is from the purple line except the black dot, condition (12) would fail. As there is not a finest $\pi^*$ of $H(\phi,\psi)$
+and finally the black dot which is the intersection of those three lines refers to the simplex with finest partitions, $\phi_i = \psi_i, \forall i = 1,\cdots,4$.  When $(\phi,\psi)$ is from the purple line except the black dot, condition (12) would fail as there is not a finest $\pi^*$ of $H(\phi,\psi)$.  
+This may be of theoretical interest, but the 
+practical implications of this finding are negligible as further computations have demonstrated.
 
 
 
