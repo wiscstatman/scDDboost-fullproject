@@ -168,7 +168,7 @@ $ P\left(A_\pi \cap M_{g,\pi} |X,y,z \right) =  P\left(A_\pi |y,z \right) \,
 \subsection{Method Structure and Clustering}
 
 \subsubsection{EBSeq}
-Here we recall some key elements from Leng {\em et al.} (2013) on the model behind \texttt{EBSeq},
+Here we recall some key elements from \cite{ref:Leng} on the model behind \texttt{EBSeq},
 which we adapt to get $P(M_{g,\pi} | X, z)$.  Suppose we have $K$ subtypes, let $X_g^I = X_{g, 1}^I, \cdots , X_{g, S_1}^I$ 
 denote transcripts at gene $g$ from subtype $I, I = 1, \cdots, K$.  The \texttt{EBSeq} model assumes that counts within subtype $I$ are distributed as Negative Binomial:
 $X_{g, s}^I | r_{g,s}, q_g^I \sim NB(r_{g,s}, q_g^I)$. Due to sample-specific size factor in the raw counts, r is made sample-specific. However, we are dealing with normalized counts rather than raw counts in \texttt{EBSeq}, we instead make $r$ shared at gene level across all samples, i.e. 
@@ -179,7 +179,7 @@ P(X_{g,s}^I | \sigma_g, q_g^I ) = {X_{g,s} + \sigma_g - 1 \choose X_{g,s} }(1 - 
 \end{eqnarray*}
 and $\mu_{g,s}^I = \sigma_g(1 - q_g^I) / q_g^I$; For ease in later deriving the density kernel $f$, we use $q$ rather than $\mu$ to parameterize the NB.  %\sigma_{g,s}^I = r_{g,s}(1 - q_g^I)/ (q_g^I)^2.$
 
-Following Leng {\em et al}, we assume a prior distribution on $q_g^I : q_g^I | \alpha, \beta^{g} \sim Beta(\alpha, \beta^{g}).$ The hyperparameter $\alpha$ is shared by the whole genome and $\beta^{g}$ is gene-specific.  We force the size factor to be 1 for all cells and use the same procedure as \texttt{EBSeq} to estimate the shape parameter $\sigma_g$. Namely, we have
+Following  \cite{ref:Leng}, we assume a prior distribution on $q_g^I : q_g^I | \alpha, \beta^{g} \sim Beta(\alpha, \beta^{g}).$ The hyperparameter $\alpha$ is shared by the whole genome and $\beta^{g}$ is gene-specific.  We force the size factor to be 1 for all cells and use the same procedure as \texttt{EBSeq} to estimate the shape parameter $\sigma_g$. Namely, we have
 \begin{enumerate}
 \item gene-level sample mean $m_g = \frac{1}{n}\sum_{s = 1}^n X_{g,s}$, where $n = n_1 + n_2$ is the total number of cells \\
 \item average of sample variances over subtypes $v_g = \frac{1}{K} \sum_{I = 1}^K v_g^I$.\\
@@ -235,7 +235,7 @@ contrast to a full root-finding step used by \verb+EBSeq+.
 
 \subsubsection{modalClust}
 
-In this section, we review and extend Dahl's modal clustering procedure  (Dahl 2009).
+In this section, we review and extend Dahl's modal clustering procedure  (\cite{ref:dahl}).
 This extension is part of the default cell clustering method of \verb+scDDboost+.
 It operates on data from one gene at a time, and extends to Poisson-distributed observations
 the modal-clust procedure.
@@ -360,7 +360,7 @@ We plot the ARI (adjusted RAND index) between the randomly generated clustering 
 substantial variation in the distribution of cell partitions.
 
 We also check validity of random weighting by comparing it to Dirichlet-process-based 
-clustering (Jara et al. 2011)  on  a simulated dataset. 
+clustering (\cite{JSSv040i05})  on  a simulated dataset. 
 We simulate one-dimensional data $X$ from a mixture of 5 normal distributions with different means and same variance ($\mu = (-6,-2,0,2,10), \sigma = 1$). 
 We compare clustering results between random weighting and Bayesian clustering 
 using the Dirichlet process prior (using  \verb+DPpackage+) 
