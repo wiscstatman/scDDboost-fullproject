@@ -157,15 +157,16 @@ to improve their operating characteristics.
 Assessing the magnitude and statistical significance of changes in gene
 expression associated with changes in cellular condition has been a central
 statistical problem in genomics. New tools specific to
-the single-cell RNAseq data structure, including \verb+MAST+
+the single-cell RNA-seq data structure, including \verb+MAST+
 (\cite{ref:MAST}), \verb+scDD+ (\cite{ref:scDD}), and \verb+D3E+ (\cite{ref:d3e}),
 have been deployed to address this problem.
 These tools respond
-to scRNAseq characteristics, such as high prevalence of zero counts and
+to scRNA-seq characteristics, such as high prevalence of zero counts and
 gene-level multimodality, but they do not fully exploit cellular-subtype
-information.  We address this limitation, aiming to increase the power to detect differential distribution.
-The proposed method measures changes in a gene's marginal mixture distribution, and
-acquires sensitivity to a wide variety of distributional effects by how it integrates commonalities gene-level data for learned cellular subtypes.  It is implemented in  software 
+information.  Our proposed method to 
+to measures changes in a gene's marginal mixture distribution 
+acquires sensitivity to a variety of distributional effects by how it integrates 
+gene-level data with estimated cellular subtypes.  It is implemented in  software 
 in the R package \verb+scDDboost+~\footnote{http://github.com/wiscstatman/scDDboost/}.
 
 Through the compositional model underlying \verb+scDDboost+, subtypes inferred by clustering 
@@ -200,7 +201,7 @@ The color panel provides insight into
 why \verb+scDDboost+ has identified these genes.  For this data set, four cellular subtypes 
 were identified in the first step of \verb+scDDboost+ (colors red, blue, green, and orange). 
 These subtypes have changed in their proportions between G1 and G2/M;  there is a lower proportion 
-of red cells and a greater proportion of orange cells in G2/M. These proportion shifts, 
+of red cells and a greater proportion of orange cells in G2/M, for example. These proportion shifts, 
 which are inferred from genome-wide data, stabilize gene-specific statistics that measure 
 changes between conditions in the mixture distribution of expression, and thereby increase power.  
 We note that \verb+scDDboost+ 
@@ -257,7 +258,7 @@ Material document.
 \section{Modeling}
 \subsection{Data structure, sampling model, and parameters}
 
-In modeling scRNASeq data, we
+In modeling scRNA-seq data, we
 imagine that each cell $c$ falls into one of $K>1$ classes, which we think of as
 subtypes or subpopulations of cells. For notation, $z_c=k$ means that cell $c$ is of subtype $k$, with the vector $z=(z_c)$ recording
 the states of all sampled cells.  Knowledge of this class structure
@@ -275,7 +276,7 @@ t^j_k = t^j_k(y,z) = \sum_c 1[y_c=j, z_c=k]
 denote the number of cells of subtype $k$ in condition $j$
 and $X_{g,c}$ denote
 the normalized expression of gene $g$ in cell $c$. This is one entry
-in a typically large genes by cells data matrix $X$.  Thus, the data structure entails an expression matrix
+in a typically large genes-by-cells data matrix $X$.  Thus, the data structure entails an expression matrix
 $X$, a treatment label vector $y$, and a vector $z$ of latent subtype labels.
 
 
@@ -301,7 +302,7 @@ in the underlying composition of cell types; i.e.,
 owing to $\phi \neq \psi$.  We suppose that cells of any given subtype $k$ will
 present data according to a distribution reflecting technical 
 and biological variation specific to that class of cells, regardless of the 
-the condition $y_c$ of the cell.   Some care is needed in this, as an overly
+condition $y_c$ of the cell.   Some care is needed in this, as an overly
 broad cell subtype (e.g., {\em epithelial cells}) could have
 further subtypes that show differential response to some treatment, for example,
 and so cellular condition (treatment) would then affect the distribution of 
@@ -312,7 +313,7 @@ heterogeneity. A  risk in this approach is that $K$ could approach $n$, as if
 every cell were  its own subtype.  We find, however,
 that data sets often encountered do not display this theoretical phenomenon
 when considering a broad class of within-subtype expression distributions.
-We revisit the issue in Section~4, but for now, we proceed assuming 
+We revisit the issue in Section~5, but for now, we proceed assuming 
 that cellular condition affects the composition of subtypes but not the distribution of expression
 within a subtype.
 
