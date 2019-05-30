@@ -521,14 +521,15 @@ as the default clustering method in \texttt{scDDboost}, and customize the cell-c
 %\todo{is K-mediods used over SC3/CIDR/ZIFA because it's easier to carry out randomized clusterings? Or why?}
 The first assembles gene-level information by cluster-based-similarity partitioning~(\cite{ref:cspa}).
  Separately at each gene,   modal clustering (\cite{ref:dahl} and Supplementary Material Section~2.2.2) partitions the cells, and
-then we define dissimilarity between cells as the Manhattan distance of those gene specific partition labels.
+then we define dissimilarity between cells as the Manhattan distance between gene-specific 
+partition labels.
 A second measure defines dissimilarity by one minus the 
 Pearson correlation between cells, which is computationally inexpensive,
 less sensitive to outliers than Euclidean distance, and effective at detecting cellular clusters in 
 scRNA-seq~(\cite{Cor}).
- For the default clustering in~\verb+scDDboost+, we combine these 
-two measures by a weighted average, 
-with  $w_C = \frac{\sigma_P}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_C$. where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster-based distance and Pearson-correlation distance, respectively.  The software allows 
+The default clustering in~\verb+scDDboost+ combines these 
+two measures by weighted average, 
+with  $w_C = \frac{\sigma_P}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_C$, where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster-based distance and Pearson-correlation distance, respectively.  The software allows 
 other distances; in any case 
 the final distance matrix is denoted $D=\left( d_{i,j} \right)$. 
 
@@ -551,13 +552,13 @@ Averaging over results from randomized clusterings
 
 
 Computations become more intensive the larger is the number $K$ of cell subtypes. Version 1.0 of 
-\verb+scDDboost+ is restricted to $K\leq 9$, and we consider further computational
+\verb+scDDboost+ is restricted to $K\leq 9$; we consider further computational
 strategies in Section~5. Inferentially, 
  taking $K$ to be too large may inflate the false positive rate (Supplementary Figure S11).
  The approach
 taken in \verb+scDDboost+ is to set $K$ using the validity score~(\cite{selK}), which measures 
-changes in within-cluster sum of squares as we increase $K$.  Our specific implementation is in
-Supplementary Material Section 2.2.4.
+changes in within-cluster sum of squares as we increase $K$.  Our implementation,  in
+Supplementary Material Section 2.2.4, shows good operating characteristics in simulation.
 
 
 \subsection{$P(A_\pi|y,z)$}
@@ -784,7 +785,7 @@ uncertainty in the block-specific means (see Supplementary Material Section 2.2.
 Through its gene-level mixing model,
 \verb+EBseq+ also gives estimates of $\{ P(M_{g,\pi}|z) \}$: the proportions of genes governed by any of the 
 different patterns $\pi$ of equivalent/differential expression among subtypes. With these estimates 
-and~(\ref{eq:ebseq}) we compute by Bayes' rule:
+and~(\ref{eq:ebseq}) we compute by Bayes's rule:
 \begin{eqnarray*}
 P(M_{g,\pi}|X,z) \propto P(M_{g,\pi}|z) \, \prod_{b \in \pi} f(X_{g,b}).
 \end{eqnarray*}
@@ -948,12 +949,12 @@ is able to detect biologically meaningful changes in the expression distribution
 
 Run time complexity of \texttt{scDDboost} is dominated by the cost of clustering cells and of running \texttt{EBSeq} to measure differences between subtypes. 
 Recall the notation that $n$ for number of cells, $G$ for number of genes and $K$ for number of subtypes. 
-Our distance-based clustering  $n$ cells measuring $G$ genes requires on the order of $G \times n^2$ operations (see Supplementary Material Section 2.2.2).
-Further, \texttt{EBSeq} uses sum of counts within each subtype for each gene to compute its density kernel, and there are Bell$(K)$ differential patterns to compute,
+Our distance-based clustering of  $n$ cells measuring $G$ genes requires on the order of $G \times n^2$ operations (see Supplementary Material Section 2.2.2).
+Further, \texttt{EBSeq} uses summed counts within each subtype for each gene to compute its density kernel, and there are Bell$(K)$ differential patterns to compute,
 where Bell counts the partitions of $K$.  
 Our implementation \texttt{scDDboost} efficiently deals with large $n$ under moderate $K$.  We have imposed the computational limit  $K \leq 9$ in
  \verb+scDDboost+ (v. 1.0).  In a typical case involving 20000 genes and 200 cells,
- under 50 times of randomized distances \verb+scDDboost+  is relatively efficient for $K \leq 6$ requiring
+ using 50 of randomized distances, \verb+scDDboost+  is relatively efficient for $K \leq 6$ requiring
  less than 15 CPU minutes on, for example, a quad-core 2.2 GHz Intel Core i7 with 16 Gb of RAM.
  The same data might require 10 to 20 CPU hours when $K=9$.  In Section~5 we mention some opportunities to improve this speed.
 
@@ -1032,7 +1033,7 @@ Several approximations present themselves that may redress the problem, since,
 in the mixture model context, only patterns $\pi$ corresponding to relatively probable expression-change
 patterns over subtypes have a big impact on the final posterior inference.   Even resolving this
 bottleneck there are advantages to having $K$ small compared to $n$.  Numerical experiments (see Supplement)
-show increased false discoveries when $K$ is over-estimated.  But even accurate estimation with large $K$ would
+show increased false discoveries when $K$ is over-estimated.  But accurate estimation with large $K$ would
 not be expected to provide much improved power, since that depends on accurate estimation of subtypes and their
 frequencies which relies on $K$ being relatively small compared to $n$.
 
