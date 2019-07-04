@@ -73,7 +73,7 @@ r_q DATA::cal_r(MatrixXd& data,const VectorXi& conditions, const VectorXd& sf){
            
         }
     
-    whole_mean = cond_mean.rowwise().mean();
+//    whole_mean = cond_mean.rowwise().mean();
     
     VectorXd var(G);
     var = cond_var.rowwise().mean();
