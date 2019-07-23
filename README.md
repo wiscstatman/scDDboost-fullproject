@@ -9,4 +9,4 @@ To install the package:
 1. Once you have clone the repo, R CMD build Rpackage 
 2. then using R CMD INSTALL scDDboost_2.0.tar.gz
 
-
+A brief tutorial and data examples can be found at Rpackage/vignette/scDDb.pdf. 
