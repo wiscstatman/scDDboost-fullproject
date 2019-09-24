@@ -139,7 +139,7 @@ for( b in 1:B )
 
 ## process
 
-library(mclust) ## looks at lots of clusterings and summarizes
+library(mcclust) ## looks at lots of clusterings and summarizes
 
 diag(ABayes) <- 1; diag(Aboot) <- 1 ## removing some numerical inaccuracies
 mode.bayes <- minbinder(ABayes)$cl
