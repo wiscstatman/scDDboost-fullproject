@@ -1,5 +1,0 @@
-
-# directory for a numerical experiment on the type of 
-# random weights to use in averaging
-
-# started May 23, 2018
