@@ -1,5 +1,6 @@
 ###cases of 4 subtypes. set seed 10, pat phi_1 + phi_2 = psi_1 + psi_2
-
+# at server
+root_DIR = "~/data" 
 params = est_param(root_DIR,10)
 save_DIR = "~/simulation_data/K4/"
 
