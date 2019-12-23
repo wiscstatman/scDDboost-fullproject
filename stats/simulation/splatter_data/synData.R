@@ -228,9 +228,9 @@ synData <- function(loc, scale, params, patP, save_DIR,
                                 
       for(j in 1:K)
       {
-          if(phi[i] == psi[i])
+          if(phi[j] == psi[j])
           {
-              eq = c(eq, i)
+              eq = c(eq, j)
           }
       }
       ###get index of DD genes
