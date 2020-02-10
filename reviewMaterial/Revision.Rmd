@@ -29,7 +29,7 @@ as they did for synthetic data sets.
 
 
 ## Reviewer 2
-
+### Questions not sure
 1.How does the model behave when both the proportions and the means are different? The calculation p7 (before the key issue) should be detailed. What hypotheses on $f_{g,k}$ allow this result ?
 The distribution can remain the same even both proportions and means changed. 
 We assume the only parameter differs $f_{g,k}$ for $k$ is the mean. 
@@ -42,13 +42,13 @@ We assume the only parameter differs $f_{g,k}$ for $k$ is the mean.}
 \textcolor{blue}{For the fixed shape parameter of NB among groups, we performed tests on each gene....}
 
 
-## Question about sensitivity to clustering
+### Question about sensitivity to clustering
 3.For the clustering, the authors should better justify their choice. The results seem to be strongly related to the clustering method.
 
 \textcolor{blue}{We have tried different clustering method, sc3 on 3 datasets, (EBTAB2805, GSE45719, GSE79102). 
-the correlation coefficients of the local fdr are 0.92,0.94, 0.96. Our method is not very sensitive to the clustering methods.}
+the correlation coefficients of the local fdr are 0.92,0.94,0.96. Our method is not very sensitive to the clustering methods.}
 
-## Questions for simulations
+### Questions for simulations
 
 Finally for the simulation part, the data generation should be explained and it would be nice to have criteria evaluating the difficulty of the simulated datasets. For example $K=12$ seems very
 difficult, and $K=7$ also (On Figure S7, some ROC curves are closed to the first bisector.
@@ -56,7 +56,7 @@ Moreover on this plot, configurations are not precised).
 
 \textcolor{blue}{More detailed information of simulation has been placed in the supplementary material, those pca plots showed that groups are collapsed together when there are more groups, which make all the methods difficult to detect DD genes. In addition, we have fixed number of cells(400) so more number of groups will decrease the number of cells per group which makes it harder to detect the change between groups also mixing of more groups weaken the overall signal between conditions.}
 
-## Questions for simulations
+### Questions for simulations
 The results on Figures 4 and 5 are questionable. ScDDboost has the best TPR and a FDR closed to 0, whereas this latter should be controled at 5%. DESeq2 seems to better control the trade-off. Can the authors comment this remark ? In general, I am very surprised by the very small number of replicate datasets per scenario. Is it possible to increase it and to use boxplots and ROC curves to summary the results instead of one figure for the TPR and one figure for the FDR ?
 
 \textcolor{blue}{We have done more replicates for each simulation setting, now we have 10 replicates under each settings. And we have similar results as before. (add plots later)\\
