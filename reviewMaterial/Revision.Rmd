@@ -19,7 +19,30 @@ Which is key observation we proposed in the paper and we propose an empirical Ba
 
 (2) Single cell RNA-seq data often have lots of zeros. I was wondering how well the mixture of multinomial distributions really fit the data. Some plots that show the model fits would be useful.
 
-\textcolor{blue}{We are using mixture of negative binomial to model the counts instead of multinomial distributions. Mixture of NB are flexible to approximate a lot of distributions. Specifically, NB can approximate constant 0 by arbitrary accuracy. As we know the density of $P(X = 0) = 1 - p$ and $P(X > 0) = p$ given $X \sim \text{NB}(1,p)$. Further, scRNA-seq data tends to be overdispersed so that many people are using NB to model it. (cite DESeq2, cite Normalization and variance stabilization of single-cell RNA-seq data using regularized negative binomial regression). Also, the empirical data (EMTAB2805, GSE45719) showed that more than 80\% of genes their nonzero counts are overdispersed. In addition, we using goodness of fit test to check whether NB fits well at each gene for each group. (will add some plots here for the p values)}
+\textcolor{blue}{We are using mixture of negative binomial to model the counts instead of multinomial distributions. Mixture of NB are flexible to approximate a lot of distributions. Specifically, NB can approximate constant 0 by arbitrary accuracy. As we know the density of $P(X = 0) = 1 - p$ and $P(X > 0) = p$ given $X \sim \text{NB}(1,p)$. Further, scRNA-seq data tends to be overdispersed so that many people are using NB to model it. (cite DESeq2, cite Normalization and variance stabilization of single-cell RNA-seq data using regularized negative binomial regression). Also, the empirical data (EMTAB2805, GSE45719) showed that more than 80\% of genes their nonzero counts are overdispersed. In addition, given our estimated group labels, we test whether there is a strong evidence to reject fitting NB model at each group. Given the cells from same group, we excluded those genes with more than 70\% of 0s, as we know NB can approximate 0 well. For the remaining genes, we do the goodness of fit tests following the procedure proposed in the paper "Pearson-type goodness-of-fit test with
+bootstrap maximum likelihood
+estimation(Guosheng Yin,Yanyuan Ma)". We found very few genes would reject the negative binomial model
+}
+```{r,echo=FALSE}
+load("EMTAB2805_NBfit.RData")
+
+par(mfrow = c(3,2))
+hist(padj[[1]],main = "EMTAB2805 - Group 1", xlab = "BH adjusted pvalue")
+hist(padj[[2]],main = "Group 2",xlab = "BH adjusted pvalue")
+hist(padj[[3]],main = "Group 3",xlab = "BH adjusted pvalue")
+hist(padj[[4]],main = "Group 4",xlab = "BH adjusted pvalue")
+hist(padj[[5]],main = "Group 5",xlab = "BH adjusted pvalue")
+
+load("GSE45719_NBfit.RData")
+par(mfrow = c(2,2))
+hist(padj[[1]],main = "GSE45719 - Group 1", xlab = "BH adjusted pvalue")
+hist(padj[[2]],main = "Group 2",xlab = "BH adjusted pvalue")
+hist(padj[[3]],main = "Group 3",xlab = "BH adjusted pvalue")
+hist(padj[[4]],main = "Group 4",xlab = "BH adjusted pvalue")
+```
+
+
+
 
 ### Questions not sure 
 
