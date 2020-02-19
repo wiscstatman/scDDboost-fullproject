@@ -82,7 +82,20 @@ Finally for the simulation part, the data generation should be explained and it 
 difficult, and $K=7$ also (On Figure S7, some ROC curves are closed to the first bisector.
 Moreover on this plot, configurations are not precised).
 
-\textcolor{blue}{More detailed information of simulation has been placed in the supplementary material, those pca plots showed that groups are collapsed together when there are more groups, which make all the methods difficult to detect DD genes. In addition, we have fixed number of cells(400) so more number of groups will decrease the number of cells per group which makes it harder to detect the change between groups also mixing of more groups weaken the overall signal between conditions.}
+\textcolor{blue}{More detailed information of simulation has been placed in the supplementary material, those pca plots showed that groups are collapsed together when there are more groups, which make all the methods difficult to detect DD genes. In addition, we have fixed number of cells(400) so more number of groups will decrease the number of cells per group which makes it harder to detect the change between groups also mixing of more groups weaken the overall signal between conditions.
+Further to show the difficulty of each simulation settings, we do a t-test on each gene and present a boxplot for every simulation settings. It is easier to detect DD genes if they having small p values compare to those of ED genes, we ordered the boxplot by the same order of the simulation graph in the paper (Fig 4)}
+
+```{r, echo = F,warning=F}
+library(ggplot2)
+load(file = "tscore.RData")
+
+p = ggplot(DF,aes(x = Labels, y = scores, fill = DDlabels)) + geom_boxplot()
+nm = c("12/-0.1/0.3", "7/-0.1/0.3", "12/0.1/0.4", "12/0.3/0.5", "7/0.1/0.4",
+      "3/-0.1/0.3", "7/-0.1/1", "12/-0.1/1", "3/0.1/0.4", "7/0.3/0.5", "3/0.3/0.5", "3/-0.1/1")
+
+p + xlab("datasets") + ylab("p value from t test") + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1))  +
+  scale_fill_discrete(name = "",labels = c("DD", "ED") ) + scale_x_discrete(labels= nm)
+```
 
 ### Questions for simulations
 The results on Figures 4 and 5 are questionable. ScDDboost has the best TPR and a FDR closed to 0, whereas this latter should be controled at 5%. DESeq2 seems to better control the trade-off. Can the authors comment this remark ? In general, I am very surprised by the very small number of replicate datasets per scenario. Is it possible to increase it and to use boxplots and ROC curves to summary the results instead of one figure for the TPR and one figure for the FDR ?
