@@ -23,23 +23,7 @@ Which is key observation we proposed in the paper and we propose an empirical Ba
 bootstrap maximum likelihood
 estimation(Guosheng Yin,Yanyuan Ma)". We found very few genes would reject the negative binomial model
 }
-```{r,echo=FALSE}
-load("EMTAB2805_NBfit.RData")
-
-par(mfrow = c(3,2))
-hist(padj[[1]],main = "EMTAB2805 - Group 1", xlab = "BH adjusted pvalue")
-hist(padj[[2]],main = "Group 2",xlab = "BH adjusted pvalue")
-hist(padj[[3]],main = "Group 3",xlab = "BH adjusted pvalue")
-hist(padj[[4]],main = "Group 4",xlab = "BH adjusted pvalue")
-hist(padj[[5]],main = "Group 5",xlab = "BH adjusted pvalue")
-
-load("GSE45719_NBfit.RData")
-par(mfrow = c(2,2))
-hist(padj[[1]],main = "GSE45719 - Group 1", xlab = "BH adjusted pvalue")
-hist(padj[[2]],main = "Group 2",xlab = "BH adjusted pvalue")
-hist(padj[[3]],main = "Group 3",xlab = "BH adjusted pvalue")
-hist(padj[[4]],main = "Group 4",xlab = "BH adjusted pvalue")
-```
+![](Revision_files/figure-latex/unnamed-chunk-1-1.pdf)<!-- --> ![](Revision_files/figure-latex/unnamed-chunk-1-2.pdf)<!-- --> 
 
 
 
@@ -85,17 +69,7 @@ Moreover on this plot, configurations are not precised).
 \textcolor{blue}{More detailed information of simulation has been placed in the supplementary material, those pca plots showed that groups are collapsed together when there are more groups, which make all the methods difficult to detect DD genes. In addition, we have fixed number of cells(400) so more number of groups will decrease the number of cells per group which makes it harder to detect the change between groups also mixing of more groups weaken the overall signal between conditions.
 Further to show the difficulty of each simulation settings, we do a t-test on each gene and present a boxplot for every simulation settings. It is easier to detect DD genes if they having small p values compare to those of ED genes, we ordered the boxplot by the same order of the simulation graph in the paper (Fig 4)}
 
-```{r, echo = F,warning=F}
-library(ggplot2)
-load(file = "tscore.RData")
-
-p = ggplot(DF,aes(x = Labels, y = scores, fill = DDlabels)) + geom_boxplot()
-nm = c("12/-0.1/0.3", "7/-0.1/0.3", "12/0.1/0.4", "12/0.3/0.5", "7/0.1/0.4",
-      "3/-0.1/0.3", "7/-0.1/1", "12/-0.1/1", "3/0.1/0.4", "7/0.3/0.5", "3/0.3/0.5", "3/-0.1/1")
-
-p + xlab("datasets") + ylab("p value from t test") + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1))  +
-  scale_fill_discrete(name = "",labels = c("DD", "ED") ) + scale_x_discrete(labels= nm)
-```
+![](Revision_files/figure-latex/unnamed-chunk-2-1.pdf)<!-- --> 
 
 ### Questions for simulations
 The results on Figures 4 and 5 are questionable. ScDDboost has the best TPR and a FDR closed to 0, whereas this latter should be controled at 5%. DESeq2 seems to better control the trade-off. Can the authors comment this remark ? In general, I am very surprised by the very small number of replicate datasets per scenario. Is it possible to increase it and to use boxplots and ROC curves to summary the results instead of one figure for the TPR and one figure for the FDR ?
@@ -103,47 +77,7 @@ The results on Figures 4 and 5 are questionable. ScDDboost has the best TPR and 
 \textcolor{blue}{We have done more replicates for each simulation setting, now we have 10 replicates under each settings. And we have similar results as before. (add plots later)\\
 Our method is not a trade-off for more power by using FDR.}
 
-```{r,echo = F}
-load("sim_p.RData")
-library(ggplot2)
+![](Revision_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
 
-#True positive rate, False positive rate, FDR order from K = 3, 7, 12 and (0.1,0.4), (-0.1, 0.3), (0.3, 0.5) , (-0.1,1)
-
-
-NM = c("3/0.1/0.4","3/-0.1/0.3","3/0.3/0.5","3/-0.1/1","7/0.1/0.4","7/-0.1/0.3","7/0.3/0.5","7/-0.1/1","12/0.1/0.4","12/-0.1/0.3","12/0.3/0.5","12/-0.1/1")
-
-
-
-#pdf("simuTPR.pdf", height = 6, width = 10)
-par(mar=c(7,5,4,1)+.1)
-ORD = order(TP_scb)
-plot(TP_scb[ORD], type = "b", lwd = 4, col = "green",
-     ylab = "", xaxt = 'n', xlab = "", ylim = c(-0.04,0.55))
-mtext("TPR", side=2, line=2.2, cex=1.2, yaxt = 'n')
-lines(TP_des[ORD] , type = "b", lwd = 4, col = "red")
-lines( TP_sc[ORD] , type = "b", lwd = 4, col = "blue")
-lines( TP_mst[ORD] , type = "b", lwd = 4)
-axis(1, at=1:12, labels = NM[ORD],cex.axis= 1.2, las = 2)
-legend("topleft", legend=c("MAST", "DESeq2", "scDD", "scDDboost"),
-       col=c("black", "red", "blue","green"),lty = 1, cex = 1.2,lwd = 4)
-#dev.off()
-
-
-```
-
-```{r, echo = F}
-#pdf("simuFDR.pdf", height = 6, width = 10)
-par(mar=c(7,5,4,1)+.1)
-plot(FDR_scb[ORD], type = "b", lwd = 4, col = "green",
-ylab = "", xaxt = 'n', xlab = "", ylim = c(-0.025 / 2,0.15))
-abline(a=0.05,b=0,lwd = 4,lty = 2,col = "orange")
-mtext("FDR", side=2, line=2.2, cex=1.2, yaxt = 'n')
-lines(FDR_des[ORD] , type = "b", lwd = 4, col = "red")
-lines( FDR_sc[ORD] , type = "b", lwd = 4, col = "blue")
-lines( FDR_mst[ORD] , type = "b", lwd = 4)
-axis(1, at=1:12, labels = NM[ORD],cex.axis= 1.2, las = 2)
-legend("topleft", legend=c("MAST", "DESeq2", "scDD", "scDDboost"),
-col=c("black", "red", "blue","green"),lty = 1, cex = 1.2,lwd = 4)
-#dev.off()
-```
+![](Revision_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
 
