@@ -55,7 +55,7 @@ as they did for synthetic data sets.
 ### Questions not sure
 1.How does the model behave when both the proportions and the means are different? The calculation p7 (before the key issue) should be detailed. What hypotheses on $f_{g,k}$ allow this result ?
 
-\textcolor{blue}{When both the proportions and the means are different, the distributions of the two conditions can be the same or different. Namely, for those subgroups having the same mean, even the proportions changed as long as their aggregation remained the same across conditions, it will not lead to differential distributions. 
+\textcolor{blue}{When both the proportions and the means are different, the distributions of the two conditions can be the same or different. Namely, for those subgroups having the same mean, even the proportions changed as long as their aggregation remained the same across conditions, it will not lead to differential distributions. Theorem 1 gives the sufficient and necessary condition for what kind of change of means and proportions in order to have the same distribution.\\
 We assume the only parameter differs $f_{g,k}$ for $k$ is the mean. That is for the negative binomial model, we have subgroup dependent mean parameters and shared shape parameter.}
 
 2.It is assumed that the shape parameter is constant and independent to the population classes. Is it a realistic hypothesis ? What is it impact on the results ? Is it possible to relax this hypothesis to consider a shape parameter depending on $k$ ? A discussion on this hypothesis should be added in the discussion.
