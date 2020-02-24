@@ -98,8 +98,8 @@ p + xlab("datasets") + ylab("p value from t test") + theme_bw() + theme(axis.tex
 ### Questions for simulations
 The results on Figures 4 and 5 are questionable. ScDDboost has the best TPR and a FDR closed to 0, whereas this latter should be controled at 5%. DESeq2 seems to better control the trade-off. Can the authors comment this remark ? In general, I am very surprised by the very small number of replicate datasets per scenario. Is it possible to increase it and to use boxplots and ROC curves to summary the results instead of one figure for the TPR and one figure for the FDR ?
 
-\textcolor{blue}{We have done more replicates for each simulation setting, now we have 10 replicates under each settings. And we have similar results as before. (add plots later)\\
-Our method is not a trade-off for more power by using FDR.}
+\textcolor{blue}{We have done more replicates for each simulation setting, now we have 10 replicates under each settings. And we have similar results as before. \\
+Our method is not a trade-off for more power by inflating the FDR. The splatter simulation having the subgroup structure for cells, which make our model appropriate to be applied}
 
 ```{r,echo = F}
 load("sim_p.RData")
