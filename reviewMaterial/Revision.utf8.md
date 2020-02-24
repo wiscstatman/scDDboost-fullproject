@@ -38,8 +38,8 @@ as they did for synthetic data sets.
 ## Reviewer 2
 ### Questions not sure
 1.How does the model behave when both the proportions and the means are different? The calculation p7 (before the key issue) should be detailed. What hypotheses on $f_{g,k}$ allow this result ?
-The distribution can remain the same even both proportions and means changed. 
-We assume the only parameter differs $f_{g,k}$ for $k$ is the mean. 
+When both the proportions and the means are different, the distributions of the two conditions can be the same or different. Namely, for those subgroups having the same mean, even the proportions changed as long as their aggregation remained the same across conditions, it will not lead to differential distributions. 
+We assume the only parameter differs $f_{g,k}$ for $k$ is the mean. That is for the negative binomial model, we have subgroup dependent mean parameters and shared shape parameter.
 
 \textcolor{blue}{The distribution can remain the same even both proportions and means changed. 
 We assume the only parameter differs $f_{g,k}$ for $k$ is the mean.}
@@ -50,7 +50,7 @@ We assume the only parameter differs $f_{g,k}$ for $k$ is the mean.}
 The testing procedure is following: the null hypothesis is for different groups having the same shape parameter. Under the null we pool the data and find the MLE and obtain it's condifence interval by fisher information. Under alternative, we use MLE to obtain point estimator of shape parameter separately at each group. If there is at least one group's point estimator being outside of the confidence interval, we flagged the corresponding gene. We run the test on the GSE75748. We found 1185 out of 19097 genes (6.2\%) having been identified as genes with hetergenous shape parameters. 
 So for the majority of genes, it is ok to assume a shared shape parameter across groups.
 Further, our aim is to infer the distribution pattern of mixing components. If for some genes and some groups both mean and shape parameters are different. It may still be ok only testing the change pattern of means. Among those 1185 flagged genes, 690 of them also shows differential means for its max posterior given by EBSeq, which further reduce the effects of unequal shape parameter.
-We also run the same procedure on GSE45719. We found 3\% genes having been flagged and 73\% among them are also having differential means between groups. I would say overall the proportion of genes may be affected by the same shape parameter assumption is low 
+We also run the same procedure on GSE45719. We found 3\% genes having been flagged and 73\% among them are also having differential means between groups. I would say overall the proportion of genes may be affected by the same shape parameter assumption is low. It is possible to extend with group dependent shape parameter, but for the shape parameter, the density involves gamma function of it, which make us difficult to find an explicit form of the posterior of shape parameters. 
 }
 
 
