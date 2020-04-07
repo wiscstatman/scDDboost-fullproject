@@ -90,7 +90,7 @@ The testing procedure is following: the null hypothesis is for different groups 
 So for the majority of genes, it is ok to assume a shared shape parameter across groups.
 Further, our aim is to infer the distribution pattern of mixing components. If for some genes and some groups both mean and shape parameters are different. It may still be ok only testing the change pattern of means. Among those 1185 flagged genes, 690 of them also shows differential means for its max posterior given by EBSeq, which further reduce the effects of unequal shape parameter.
 We also run the same procedure on GSE45719. We found 3\% genes having been flagged and 73\% among them are also having differential means between groups. I would say overall the proportion of genes may be affected by the same shape parameter assumption is low. It is possible to extend with group dependent shape parameter, but for the shape parameter, the density involves gamma function of it, which make us difficult to find an explicit form of the posterior of shape parameters. 
-}
+**maybe add a couple of sentences to the concluding remarks as an area for further experiment, with results noted and added to supplement**}
 
 
 ### Question about sensitivity to clustering
