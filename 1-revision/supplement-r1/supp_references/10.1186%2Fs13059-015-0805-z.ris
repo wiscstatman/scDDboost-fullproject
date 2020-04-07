@@ -1,0 +1,16 @@
+TY  - JOUR
+AU  - Pierson, Emma
+AU  - Yau, Christopher
+PY  - 2015
+DA  - 2015/11/02
+TI  - ZIFA: Dimensionality reduction for zero-inflated single-cell gene expression analysis
+JO  - Genome Biology
+SP  - 241
+VL  - 16
+IS  - 1
+AB  - Single-cell RNA-seq data allows insight into normal cellular function and various disease states through molecular characterization of gene expression on the single cell level. Dimensionality reduction of such high-dimensional data sets is essential for visualization and analysis, but single-cell RNA-seq data are challenging for classical dimensionality-reduction methods because of the prevalence of dropout events, which lead to zero-inflated data. Here, we develop a dimensionality-reduction method, (Z)ero (I)nflated (F)actor (A)nalysis (ZIFA), which explicitly models the dropout characteristics, and show that it improves modeling accuracy on simulated and biological data sets.
+SN  - 1474-760X
+UR  - https://doi.org/10.1186/s13059-015-0805-z
+DO  - 10.1186/s13059-015-0805-z
+ID  - Pierson2015
+ER  - 

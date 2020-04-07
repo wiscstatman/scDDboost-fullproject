@@ -1,0 +1,26 @@
+TY  - JOUR
+DB  - PMC
+AU  - Anders, Simon
+AU  - Huber, Wolfgang
+T1  - Differential expression analysis for sequence count data
+SN  - 1465-6906
+SN  - 1465-6914
+Y1  - 2010
+PY  - 2010/10/27
+PY  - 2010/04/20/received
+PY  - 2010/07/22/revised
+PY  - 2010/10/27/accepted
+AB  - High-throughput sequencing assays such as RNA-Seq, ChIP-Seq or barcode counting provide quantitative readouts in the form of count data. To infer differential signal in such data correctly and with good statistical power, estimation of data variability throughout the dynamic range and a suitable error model are required. We propose a method based on the negative binomial distribution, with variance and mean linked by local regression and present an implementation, DESeq, as an R/Bioconductor package. 
+SP  - R106
+EP  - R106
+VL  - 11
+IS  - 10
+U1  - gb-2010-11-10-r106[PII]
+DO  - 10.1186/gb-2010-11-10-r106
+AN  - PMC3218662
+UR  - http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3218662/
+U1  - 20979621[pmid]
+J1  - Genome Biol
+JF  - Genome Biology
+PB  - BioMed Central
+ER  - 

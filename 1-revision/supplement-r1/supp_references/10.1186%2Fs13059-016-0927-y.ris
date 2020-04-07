@@ -1,0 +1,16 @@
+TY  - JOUR
+AU  - Bacher, Rhonda
+AU  - Kendziorski, Christina
+PY  - 2016
+DA  - 2016/04/07
+TI  - Design and computational analysis of single-cell RNA-sequencing experiments
+JO  - Genome Biology
+SP  - 63
+VL  - 17
+IS  - 1
+AB  - Single-cell RNA-sequencing (scRNA-seq) has emerged as a revolutionary tool that allows us to address scientific questions that eluded examination just a few years ago. With the advantages of scRNA-seq come computational challenges that are just beginning to be addressed. In this article, we highlight the computational methods available for the design and analysis of scRNA-seq experiments, their advantages and disadvantages in various settings, the open questions for which novel methods are needed, and expected future developments in this exciting area.
+SN  - 1474-760X
+UR  - https://doi.org/10.1186/s13059-016-0927-y
+DO  - 10.1186/s13059-016-0927-y
+ID  - Bacher2016
+ER  - 
