@@ -1,0 +1,37 @@
+
+TY  - JOUR
+AB  - Many statistical problems involve data from thousands of parallel 
+      cases. Each case has some associated effect size, and most cases will 
+      have no effect. It is often important to estimate the effect size and 
+      the local or tail-area false discovery rate for each case. Most 
+      current methods do this separately, and most are designed for normal 
+      data. This paper uses an empirical Bayes mixture model approach to 
+      estimate both quantities together for exponential family data. The 
+      proposed method yields simple, interpretable models that can still be 
+      used nonparametrically. It can also estimate an empirical null and 
+      incorporate it fully into the model. The method outperforms existing 
+      effect size and false discovery rate estimation procedures in normal 
+      data simulations; it nearly acheives the Bayes error for effect size 
+      estimation. The method is implemented in an R package (mixfdr), freely
+      available from CRAN. 
+AU  - Muralidharan, Omkar
+DA  - 2010/03
+DO  - 10.1214/09-AOAS276
+EP  - 438
+IS  - 1
+JA  - Ann. Appl. Stat.
+KW  - Empirical Bayes
+KW  - false discovery rate
+KW  - effect size estimation
+KW  - empirical null
+KW  - mixture prior
+LA  - en
+PB  - The Institute of Mathematical Statistics
+PY  - 2010
+SN  - 1932-6157
+SP  - 422
+TI  - An empirical Bayes mixture method for effect size and false discovery rate estimation
+UR  - https://projecteuclid.org:443/euclid.aoas/1273584461
+VL  - 4
+ER  - 
+

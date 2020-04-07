@@ -1,0 +1,7 @@
+
+
+Finak, G., McDavid, A., Yajima, M., Deng, J., Gersuk, V., Shalek, A.K., Slichter, C.K., Miller, H.W., McElrath, M.J., Prlic, M. and Linsley, P.S., 2015. MAST: a flexible statistical framework for assessing transcriptional changes and characterizing heterogeneity in single-cell RNA sequencing data. Genome biology, 16(1), p.278.
+
+Huang, M., Wang, J., Torre, E., Dueck, H., Shaffer, S., Bonasio, R., Murray, J.I., Raj, A., Li, M. and Zhang, N.R., 2018. SAVER: gene expression recovery for single-cell RNA sequencing. Nature methods, 15(7), p.539.
+
+McDavid, A., Gottardo, R., Simon, N. and Drton, M., 2016. Graphical Models for Zero-Inflated Single Cell Gene Expression. arXiv preprint arXiv:1610.05857.

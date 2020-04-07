@@ -1,0 +1,16 @@
+TY  - JOUR
+T1  - Markovian Modeling of Gene-Product Synthesis
+AU  - Peccoud, J.
+AU  - Ycart, B.
+JO  - Theoretical Population Biology
+VL  - 48
+IS  - 2
+SP  - 222
+EP  - 234
+PY  - 1995
+DA  - 1995/10/01/
+SN  - 0040-5809
+DO  - https://doi.org/10.1006/tpbi.1995.1027
+UR  - http://www.sciencedirect.com/science/article/pii/S0040580985710271
+AB  - We propose a Markovian model for the gene induction process. This model is a particular case of a birth-and-death process in Markovian environment. The environment is represented by the state of the gene (active or inactive). The protein population size is ruled by the birth-and-death process. Proteins can be produced by the gene when it is activated (birth). They can disappear as well due to their denaturation (death). The distribution of the protein number is computed explicitly for both the transient and stationary cases. It is shown that three out of the four parameters of the model can be estimated from an observed sample of protein numbers collected during the stationary regime.
+ER  - 
