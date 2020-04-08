@@ -113,9 +113,10 @@ This supplement is organized to match the sectioning of the main document.   In 
 
 \subsection{R package}
 
-We developed a R package \texttt{scDDboost} providing clustering of cells, EBSeq and final 
-DD posterior probabilities. 
-Details can be found at github site \url {https://github.com/wiscstatman/scDDboost}
+ R package \texttt{scDDboost} has tools for an end-to-end analysis of differential distribution
+via the proposed methodology. This includes clustering of unlabeled cells, \verb+EBSeq+ to assess
+ probabilities of DE mean patterns among clusters,  and final DD posterior probabilities. 
+See \url {https://github.com/wiscstatman/scDDboost}
 
 
 
@@ -124,14 +125,14 @@ Details can be found at github site \url {https://github.com/wiscstatman/scDDboo
 \subsection{Data Structure, Sampling Model, and Parameters}
 
 
-
 \begin{proof}[Proof of Theorem 2]
-Recall $\theta = (\phi, \psi, \mu, \sigma)$.
-Through the graphical structure of our model (Figure 3), given
-$n_1$ and $n_2$  numbers of cells within each condition,  we 
-note that $z^1, z^2$ are multinomial draws, also  given $\phi$ and $\psi$. 
-Also given $z$, $X_{g,c}$ is sampled through a negative binomial distribution 
-that depends on the group $z_c$ and gene-level parameters, but not the sample labels $y$.
+Recall the parameters $\theta = (\phi, \psi, \mu, \sigma)$ and
+the dependence structure among variables indicated in the directed  graph in Figure~3. 
+We observe cell (sample) labels $y_c$, which accumulate into sample sizes $n_1$ and $n_2$
+ (numbers of cells within each condition).  Conditionally on these labels (and counts)
+ subtype count vectors $z^1, z^2$ are multinomial draws given frequencies $\phi$ and $\psi$.
+Given subtype of a cell, measured expression  $X_{g,c}$ follows   a  negative binomial distribution 
+with mean depending on the gene and on the cell subtype.
 Thus $P(X,y,z | \theta) = P(y, z | \phi,\psi ) P(X | z, \mu, \sigma)$. 
 Further, $(\mu,\sigma)$ and $(\phi, \psi)$ are taken independent a priori given pattern $\pi$.
 By Bayes's rule (and always conditioning on $\pi$), 
