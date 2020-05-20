@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  20 MAY 2020 15:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  20 MAY 2020 15:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1601,10 +1601,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1242.
  ) 
 Here is how much of TeX's memory you used:
- 29656 strings out of 492649
- 559247 string characters out of 6129622
+ 29655 strings out of 492649
+ 559225 string characters out of 6129622
  642408 words of memory out of 5000000
- 32876 multiletter control sequences out of 15000+600000
+ 32875 multiletter control sequences out of 15000+600000
  572073 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,13n,77p,10425b,563s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1622,7 +1622,7 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkkn-r1.pdf (31 pages, 718713 bytes).
+Output written on mkkn-r1.pdf (31 pages, 718706 bytes).
 PDF statistics:
  637 PDF objects out of 1000 (max. 8388607)
  564 compressed objects within 6 object streams
