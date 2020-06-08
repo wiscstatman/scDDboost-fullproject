@@ -1,0 +1,99 @@
+
+From Jeff Morris 12/15/2019
+
+Major revision: AoAS1906-007
+
+Dear Michael Newton,
+
+Thank you for submitting your paper "A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-CELL RNA-SEQ DATA" for possible publication in Annals of Applied Statistics.
+It has now been carefully reviewed and my decision is: Revision required.
+
+My comments are the following:
+Thank you for submitting your manuscript to The Annals of Applied Statistics. Two reviewers, and associate editor, and I have reviewed it carefully. Reports are given in the links below.
+
+
+All four of us agree that this is a well-written paper on an interesting and timely topic – detecting differential expression from scRNAseq data.  We also agree the approach taken has merit and appears to yield good results. We find the methods to be well-motivated by a specific data set and clinical problem, and the manuscript goes into details of the application in motivation and analysis which is essential for AOAS. 
+
+However, a number of points have been raised in the review.  The reviewers and AE point out several concerns that would have to be addressed before a final assessment of suitability for publication.
+
+To summarize some of the key points:
+
+1.      Questions about modeling assumptions and their impact: There are several questions about the modeling assumptions made that were raised by reviewers in terms of aptness, flexibility, and sensitivity.  These include the choice of clustering method, assumption of same number of clusters in both conditions, common independent shape parameters, model fit of mixture especially considering the abundance of zeros.  These assumptions should be better justified, sensitivity assessed and where possible/appropriate the model allowed to accommodate the extra flexibility.
+
+2.      Comparison to other methods in real data and simulation:
+The comparison with existing methods needs more details, with more detailed discussion of results and better description of simulation construction as well as description of more and less difficult scenarios.  Also, the comparison should be extended to the real data analysis and results discussed, highlighting what if anything was detected by the authors approach that would not have been found with alternatives.
+
+These and other issues are identified in the reports. The comments are intended to be constructive, and I hope you will find them useful in that regard.
+
+In my opinion, a revision that fully addresses them would be considerably improved and hence more likely to be favorably received. But all four of us are impressed by your work, so I certainly hope that you will undertake a revision accordingly. Please be advised that I can make no guarantees about acceptance at this time. The AE and I hope that you can satisfactorily
+address these issues, but the inclusion of a real data application and discussion of results provided by your method are absolutely essential
+
+If you do choose to revise, please include point-by-point responses to the comments in the reports (you can be upload them as a single additional "Supplementary File").
+
+Thank you for submitting your manuscript to AOAS. I hope the reviews will be useful to you and look forward to seeing a revision. Thank you again for your interest in AOAS.
+
+Reviewer 1 report:
+This paper proposes hierarchical models for identifying genes that shows different distributions between two conditions based on single cell RNA-seq data. The key of the proposed methods is to allow subtypes of cells in each condition- these subtypes obtained by first based existing clustering methods for cells based on gene expression profiles.  Overall, the paper was well motivated and presented with statistical rigorousness.  I have the following comments:
+
+(1)     One key assumption they made is that the number of cell clusters in both conditions is the same (K). This does not allow the scenarios where different conditions may have different cell subtypes (e.g., normal versus controls). Of course, if the cell types are different, then all genes should have different distributions.  Should not they first decide whether this is the case?
+(2)     Single cell RNA-seq data often have lots of zeros. I was wondering how well the mixture of multinomial distributions really fit the data. Some plots that show the model fits would be useful.
+(3)     For the transcriptional bursting data analysis,  some comparisons with other methods such as MAST, DESEQ2, scDD would be useful, as they did for synthetic data sets.
+
+Reviewer 2 report:
+Review on « A compositional model to assess expression changes from single-cell RNA-seq data » submitted by X. Ma et al.
+
+This manuscript deals with a new type of molecular data. Instead of measuring gene expression at tissue level with the RNA-seq technology, the single-cell technology allows to measure gene
+expression at a cell level (scRNA-seq data), which is more resolutive.
+
+The first analysis performed on RNA-seq experiment is the differential analysis aiming at finding gene altered in their expression when two conditions are compared. The goal of this manuscript is to formulate the same question with scRNA-seq data.
+
+The question and the model proposed to answer are interesting. Nevertheless some explanations and informations missing.
+
+Please find below my major concerns.
+
+The biological objective of the method is not clearly explained in the introduction. It is indicated
+only at the end of page 6 with the definitions of differentially distributed and equivalently
+distributed. I think that it should be announced in the introduction as well as the fact that they work with a mixture of negative binomial distributions. I would also like to have more explanations about the link between the concept « differentially distributed » and the differential analysis. For me, it is not very clear that the concept « differentially distributed » answers the questions of the biologists.
+
+The authors should also discuss other possible methods to answer this biological question, as well as tests based on kernels.
+
+Concerning the model,
+1.      How does the model behave when both the proportions and the means are different ? The calculation p7 (before the key issue) should be detailed. What hypotheses on $f_{g,k}$ allow this result ?
+2.      It is assumed that the shape parameter is constant and independent to the population classes. Is it a realistic hypothesis ? What is it impact on the results ? Is it possible to relax this hypothesis to consider a shape parameter depending on $k$ ? A discussion on this hypothesis should be added in the discussion.
+3.      For the clustering, the authors should better justify their choice. The results seem to be strongly related to the clustering method.
+
+Finally for the simulation part, the data generation should be explained and it would be nice to have criteria evaluating the difficulty of the simulated datasets. For example $K=12$ seems very
+difficult, and $K=7$ also (On Figure S7, some ROC curves are closed to the first bisector.
+Moreover on this plot, configurations are not precised).
+
+The results on Figures 4 and 5 are questionable. ScDDboost has the best TPR and a FDR closed to 0, whereas this latter should be controled at 5%. DESeq2 seems to better control the trade-off. Can the authors comment this remark ? In general, I am very surprised by the very small number of replicate datasets per scenario. Is it possible to increase it and to use boxplots and ROC curves to summary the results instead of one figure for the TPR and one figure for the FDR ?
+
+In addition to these comments you may also find review reports posted on EJMS.
+
+To submit your revision, please log in to EJMS and submit it
+as a revised file to original submission. Please also include
+a detailed description of how you addressed all the points raised
+by the reviewers.
+
+IMPORTANT NOTICE CONCERNING FIGURES: Printing figures in color adds significantly to the production cost of the journal.   While color may be used in the online publication, we will use color in the printed version only when essential to the display. Please use dashed/dotted lines or symbols where possible and avoid referring to colors in the text and the figure caption.
+
+If you have been asked to modify the title of your submission, or if the order of author names has changed, please contact Geri Mattson at mattsonpublishingservices@comcast.net so that the submission’s metadata can be updated.
+
+Thank you for considering The Annals of Applied Statistics as a venue for your work.
+
+Sincerely,
+Jeffrey S Morris
+Editor, The Annals of Applied Statistics
+
+
+Submission URL: https://www.e-publications.org/ims/submission/AOAS/
+
+Title:
+A COMPOSITIONAL MODEL TO ASSESS EXPRESSION CHANGES FROM SINGLE-CELL RNA-SEQ DATA
+
+Authors:
+Xiuyu Ma, Keegan Korthauer (0000-0002-4565-1654), Christina Kendziorski (0000-0002-0700-6267), Michael A. Newton (0000-0001-9038-878X)
+
+Abstract:
+On the problem of scoring genes for evidence of changes in the distribution of single-cell expression, we introduce an empirical Bayesian mixture approach and evaluate its operating characteristics in a range of numerical experiments. The proposed approach leverages cell-subtype structure revealed in cluster analysis in order to boost gene-level information on expression changes. Cell clustering informs gene-level analysis through a specially-constructed prior distribution over pairs
+of multinomial probability vectors; this prior meshes with available model-based tools that score patterns of differential expression over multiple subtypes. We derive an explicit formula for the posterior probability that a gene has the same distribution in two cellular conditions, allowing for a gene-specific mixture over subtypes in each condition. Advantage is gained by the compositional structure of the model, in which a host of gene-specific mixture components are allowed, but also in which the mixing proportions are constrained at the whole cell level. This structure leads to a novel form of information sharing through which the cell-clustering results support gene- level scoring of differential distribution. The result, according to our numerical experiments, is improved sensitivity compared to several standard approaches for detecting distributional expression changes.
