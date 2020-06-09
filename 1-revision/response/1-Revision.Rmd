@@ -36,9 +36,13 @@ The comparison with existing methods needs more details, with more detailed disc
 
 
 \textcolor{blue}{It is not an assumption for number of clusters to be same across two conditions. Our method pooled cells from both conditions first and identified a global clustering for all the cells, the number of clusters ($K$) is for the global clustering. These two conditions can have different number of clusters given that one condition can have zero proportion of cells from a cluster.
-For example, $K = 3$, there are 3 clusters (labelled as A, B, C) globally. Condition 1 having 3 types, 60\% from A, 30\% from B and 10\% from C, while condition 2 only have 2 types 50\% from B and 50\% from C.}
+For example, $K = 3$, there are 3 clusters (labelled as A, B, C) globally. Condition 1 having 3 types, 60\% from A, 30\% from B and 10\% from C, while condition 2 only have 2 types 50\% from B and 50\% from C.
+In the paper, the first paragraph at page 6 also explained the hypothesis that cellular subtypes are determined by cells having same distributed transcripts within that subtype rather than the biological type of that cell. 
+We also modified the context at page 6 to remind the reader that subtypes are not condition specific
+}
 \textcolor{blue}{It is not necessary that different cell types will induce different distributions over the whole genome. Actually the major proportion of genes should still have equivalent distribution. 
-Which is key observation we proposed in the paper and we propose an empirical Bayesian framework with a specifically constructed prior to handle the scenario when both means and proportions changed. **add a sentence to clarify on page 6 middle; also note language on page 7 to deal with this case**} 
+Which is key observation we proposed in the paper and we propose an empirical Bayesian framework with a specifically constructed prior to handle the scenario when both means and proportions changed. 
+**add a sentence to clarify on page 6 middle; also note language on page 7 to deal with this case**} 
 
 ### Questions about fitting data with mixture of NB
 
@@ -80,12 +84,12 @@ as they did for synthetic data sets.
 ### Questions not sure
 1.How does the model behave when both the proportions and the means are different? The calculation p7 (before the key issue) should be detailed. What hypotheses on $f_{g,k}$ allow this result ?
 
-\textcolor{blue}{When both the proportions and the means are different, the distributions of the two conditions can be the same or different. Namely, for those subgroups having the same mean, even the proportions changed as long as their aggregation remained the same across conditions, it will not lead to differential distributions. Theorem 1 gives the sufficient and necessary condition for what kind of change of means and proportions in order to have the same distribution.\\
+\textcolor{blue}{When both the proportions and the means are different, the distributions of the two conditions can be the same or different. Namely, for those subgroups having the same mean, even the proportions changed as long as their aggregation remained the same across conditions, it will not lead to differential distributions. Theorem 1 gives the sufficient and necessary condition for what kind of change of means and proportions in order to have the same distribution.
 We assume the only parameter differs $f_{g,k}$ for $k$ is the mean. That is for the negative binomial model, we have subgroup dependent mean parameters and shared shape parameter.}
-
+\newline
 2.It is assumed that the shape parameter is constant and independent to the population classes. Is it a realistic hypothesis ? What is it impact on the results ? Is it possible to relax this hypothesis to consider a shape parameter depending on $k$ ? A discussion on this hypothesis should be added in the discussion.
 
-\textcolor{blue}{For the fixed shape parameter of NB among groups, we performed tests on each gene.\\
+\textcolor{blue}{For the fixed shape parameter of NB among groups, we performed tests on each gene.\newline
 The testing procedure is following: the null hypothesis is that all groups having the same shape parameter. Assuming we have $K$ groups. Denote the distribution of transcripts at group $i$, gene $g$ as $f_{g,i}$. 
 Under the null, $f_{g,i} \sim$ NB$(r,q_i)$.
 We pool the data and use the joint likelihood to obtain the MLE
