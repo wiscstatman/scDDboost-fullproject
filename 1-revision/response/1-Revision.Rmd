@@ -92,7 +92,7 @@ We pool the data and use the joint likelihood to obtain the MLE
 and condifence interval of $r$.\\
 Under alternative, $f_{g,i} \sim$ NB$(r_i,q_i)$.
 We obtain the MLE of the group specific $r_i$.
-If there is at least one MLE of $r_i$ being outside of the 95% confidence interval of the shape parameter $r$ pooling all groups, we flagged the corresponding gene. We run the test on the GSE75748. We found 1185 out of 19097 genes (6.2\%) having been identified as genes with hetergenous shape parameters. Among those 1185 genes, 555 of them have estimated posterior of being DD bigger than 0.95. To further investigate whether those 555 genes are false postitives,
+If there is at least one MLE of $r_i$ being outside of the 95\% confidence interval of the shape parameter $r$ pooling all groups, we flagged the corresponding gene. We run the test on the GSE75748. We found 1185 out of 19097 genes (6.2\%) having been identified as genes with hetergenous shape parameters. Among those 1185 genes, 555 of them have estimated posterior of being DD bigger than 0.95. To further investigate whether those 555 genes are false postitives,
 we perform two sample t-test on whole genome with FDR correction, 544 out of tnose 555 genes have adjusted p value smaller than 0.05.
 We conclude that for the majority of genes, it is ok to assume a shared shape parameter across groups and even when the model is inappropriate, we are likely not to introduce higher false discovery rate.
 We also run the same procedure on GSE45719. We found 1447 (3\%) genes having been flagged and 977 of them have estimated posterior of being DD > 0.95. Similarly, we perform t-test with FDR correction to found that 892 among those 977 genes also have adjusted p value < 0.05. 
