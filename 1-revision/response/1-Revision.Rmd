@@ -40,6 +40,7 @@ For example, $K = 3$, there are 3 clusters (labelled as A, B, C) globally. Condi
 In the paper, the first paragraph at page 6 also explained the hypothesis that cellular subtypes are determined by cells having same distributed transcripts within that subtype rather than the biological type of that cell. 
 We also modified the context at page 6 to remind the reader that subtypes are not condition specific
 }
+\newline
 \textcolor{blue}{It is not necessary that different cell types will induce different distributions over the whole genome. Actually the major proportion of genes should still have equivalent distribution. 
 Which is key observation we proposed in the paper and we propose an empirical Bayesian framework with a specifically constructed prior to handle the scenario when both means and proportions changed. 
 **add a sentence to clarify on page 6 middle; also note language on page 7 to deal with this case**} 
@@ -93,7 +94,7 @@ We assume the only parameter differs $f_{g,k}$ for $k$ is the mean. That is for 
 The testing procedure is following: the null hypothesis is that all groups having the same shape parameter. Assuming we have $K$ groups. Denote the distribution of transcripts at group $i$, gene $g$ as $f_{g,i}$. 
 Under the null, $f_{g,i} \sim$ NB$(r,q_i)$.
 We pool the data and use the joint likelihood to obtain the MLE
-and condifence interval of $r$.\\
+and condifence interval of $r$.\newline
 Under alternative, $f_{g,i} \sim$ NB$(r_i,q_i)$.
 We obtain the MLE of the group specific $r_i$.
 If there is at least one MLE of $r_i$ being outside of the 95\% confidence interval of the shape parameter $r$ pooling all groups, we flagged the corresponding gene. We run the test on the GSE75748. We found 1185 out of 19097 genes (6.2\%) having been identified as genes with hetergenous shape parameters. Among those 1185 genes, 555 of them have estimated posterior of being DD bigger than 0.95. To further investigate whether those 555 genes are false postitives,
