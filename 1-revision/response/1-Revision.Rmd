@@ -150,36 +150,38 @@ NM = c("3/0.1/0.4","3/-0.1/0.3","3/0.3/0.5","3/-0.1/1","7/0.1/0.4","7/-0.1/0.3",
 
 
 
-#pdf("simuTPR.pdf", height = 6, width = 10)
+#pdf("~/Desktop/simuTPR.pdf", height = 6, width = 10)
 par(mar=c(7,5,4,1)+.1)
 ORD = order(TP_scb)
-plot(TP_scb[ORD], type = "b", lwd = 4, col = "green",
+linewidth = 3
+plot(TP_scb[ORD], type = "b", lwd = linewidth, col = "green",
      ylab = "", xaxt = 'n', xlab = "", ylim = c(-0.04,0.55))
 mtext("TPR", side=2, line=2.2, cex=1.2, yaxt = 'n')
-lines(TP_des[ORD] , type = "b", lwd = 4, col = "red")
-lines( TP_sc[ORD] , type = "b", lwd = 4, col = "blue")
-lines( TP_mst[ORD] , type = "b", lwd = 4)
+lines(TP_des[ORD] , type = "b", lwd = linewidth, col = "red")
+lines( TP_sc[ORD] , type = "b", lwd = linewidth, col = "blue")
+lines( TP_mst[ORD] , type = "b", lwd = linewidth)
 axis(1, at=1:12, labels = NM[ORD],cex.axis= 1.2, las = 2)
 legend("topleft", legend=c("MAST", "DESeq2", "scDD", "scDDboost"),
-       col=c("black", "red", "blue","green"),lty = 1, cex = 1.2,lwd = 4)
+       col=c("black", "red", "blue","green"),lty = 1, cex = 1.2,lwd = linewidth)
 #dev.off()
 
 
 ```
 
 ```{r, echo = F}
-#pdf("simuFDR.pdf", height = 6, width = 10)
+#pdf("~/Desktop/simuFDR.pdf", height = 6, width = 10)
 par(mar=c(7,5,4,1)+.1)
-plot(FDR_scb[ORD], type = "b", lwd = 4, col = "green",
+linewidth = 3
+plot(FDR_scb[ORD], type = "b", lwd = linewidth, col = "green",
 ylab = "", xaxt = 'n', xlab = "", ylim = c(-0.025 / 2,0.15))
-abline(a=0.05,b=0,lwd = 4,lty = 2,col = "orange")
+abline(a=0.05,b=0,lwd = linewidth,lty = 2,col = "orange")
 mtext("FDR", side=2, line=2.2, cex=1.2, yaxt = 'n')
-lines(FDR_des[ORD] , type = "b", lwd = 4, col = "red")
-lines( FDR_sc[ORD] , type = "b", lwd = 4, col = "blue")
-lines( FDR_mst[ORD] , type = "b", lwd = 4)
+lines(FDR_des[ORD] , type = "b", lwd = linewidth, col = "red")
+lines( FDR_sc[ORD] , type = "b", lwd = linewidth, col = "blue")
+lines( FDR_mst[ORD] , type = "b", lwd = linewidth)
 axis(1, at=1:12, labels = NM[ORD],cex.axis= 1.2, las = 2)
 legend("topleft", legend=c("MAST", "DESeq2", "scDD", "scDDboost"),
-col=c("black", "red", "blue","green"),lty = 1, cex = 1.2,lwd = 4)
+col=c("black", "red", "blue","green"),lty = 1, cex = 1.2,lwd = linewidth)
 #dev.off()
 ```
 
