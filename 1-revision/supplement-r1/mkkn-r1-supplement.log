@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  26 JUN 2020 17:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  26 JUN 2020 17:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1264,11 +1264,9 @@ n/12 , \OML/zplm/m/it/12 ^^V\OT1/pplx/m/n/12 , \OML/zplm/m/it/12 ^^[\OT1/zplm/m
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 173.
+(amsmath)                 on input line 164.
 
-[2
 
-]
 Overfull \hbox (10.58109pt too wide) in paragraph at lines 177--178
 []\OT1/pplx/m/n/12 Following [][]Leng et al.[][] ([][]2013[][]), we as-sume a p
 rior dis-tri-bu-tion on $\OML/zplm/m/it/12 q[] \OT1/zplm/m/n/12 : \OML/zplm/m/i
@@ -1288,7 +1286,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 180--181
 
  []
 
+[2
 
+]
 Underfull \hbox (badness 10000) in paragraph at lines 181--182
 
  []
@@ -1313,16 +1313,12 @@ Package pdftex.def Info: Figs/lrt.pdf  used on input line 230.
 LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <9> not available
 (Font)              Font shape `OT1/pplx/b/n' tried instead on input line 231.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
 Overfull \hbox (4.26pt too wide) in paragraph at lines 238--242
 [][]\OT1/cmtt/m/n/12 scDDboost[]\OT1/pplx/m/n/12 . It op-er-ates on data from o
 ne gene at a time, and ex-tends to Poisson-distributed
  []
 
-[4] [5 <./Figs/lrt.pdf>]
+[4 <./Figs/lrt.pdf>]
 Overfull \hbox (13.9108pt too wide) in paragraph at lines 286--288
 []\OT1/pplx/m/n/12 if $\OML/zplm/m/it/12 X[]$ \OT1/pplx/m/n/12 and $\OML/zplm/m
 /it/12 X[]$ \OT1/pplx/m/n/12 are over-lap-ping, with-out loss of gen-er-al-ity,
@@ -1330,25 +1326,23 @@ Overfull \hbox (13.9108pt too wide) in paragraph at lines 286--288
 zplm/m/it/12 <$
  []
 
+[5]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 339.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 339.
+
 [6]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 339.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 339.
-
 <Figs/ARI.pdf, id=141, 505.89pt x 505.89pt>
 File: Figs/ARI.pdf Graphic file (type pdf)
 <use Figs/ARI.pdf>
 Package pdftex.def Info: Figs/ARI.pdf  used on input line 349.
 (pdftex.def)             Requested size: 354.12057pt x 354.12057pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[7]
-<Figs/try7-g.pdf, id=152, 505.89pt x 505.89pt>
+ [7 <./Figs/ARI.pdf>]
+<Figs/try7-g.pdf, id=157, 505.89pt x 505.89pt>
 File: Figs/try7-g.pdf Graphic file (type pdf)
 <use Figs/try7-g.pdf>
 Package pdftex.def Info: Figs/try7-g.pdf  used on input line 375.
@@ -1365,7 +1359,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 385.
 
-[8 <./Figs/ARI.pdf>] [9 <./Figs/try7-g.pdf>] [10] [11]
+[8] [9 <./Figs/try7-g.pdf>] [10]
 Overfull \hbox (15.209pt too wide) in paragraph at lines 531--541
 \OT1/pplx/m/n/12 mul-ti-ply-ing them with $\OML/zplm/m/it/12 A[]\OT1/pplx/m/n/1
 2 , \OML/zplm/m/it/12 A[]$ \OT1/pplx/m/n/12 and $\OML/zplm/m/it/12 A[]$\OT1/ppl
@@ -1384,19 +1378,18 @@ Overfull \hbox (103.17686pt too wide) in alignment at lines 541--545
  [][][] []
  []
 
+[11]
 <Figs/pca3.pdf, id=193, 578.16pt x 361.35pt>
 File: Figs/pca3.pdf Graphic file (type pdf)
 <use Figs/pca3.pdf>
 Package pdftex.def Info: Figs/pca3.pdf  used on input line 569.
 (pdftex.def)             Requested size: 375.80544pt x 234.87471pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 <Figs/pca7.pdf, id=194, 578.16pt x 361.35pt>
 File: Figs/pca7.pdf Graphic file (type pdf)
 <use Figs/pca7.pdf>
 Package pdftex.def Info: Figs/pca7.pdf  used on input line 579.
 (pdftex.def)             Requested size: 375.80544pt x 234.87471pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1416,7 +1409,7 @@ Package pdftex.def Info: Figs/simu_wadist.pdf  used on input line 594.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12] [13 <./Figs/pca3.pdf> <./Figs/pca7.pdf>] [14 <./Figs/pca12.pdf> <./Figs/si
+[12 <./Figs/pca3.pdf>] [13 <./Figs/pca7.pdf> <./Figs/pca12.pdf>] [14 <./Figs/si
 mu_wadist.pdf>]
 <Figs/Roc_supp.pdf, id=268, 505.89pt x 505.89pt>
 File: Figs/Roc_supp.pdf Graphic file (type pdf)
@@ -1654,6 +1647,9 @@ Package rerunfilecheck Info: File `mkkn-r1-supplement.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1094.
  ) 
 Here is how much of TeX's memory you used:
@@ -1677,7 +1673,7 @@ exmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2018/texmf
 nts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/typ
 e1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/
 palatino/uplri8a.pfb>
-Output written on mkkn-r1-supplement.pdf (23 pages, 1106642 bytes).
+Output written on mkkn-r1-supplement.pdf (23 pages, 1105340 bytes).
 PDF statistics:
  494 PDF objects out of 1000 (max. 8388607)
  413 compressed objects within 5 object streams

@@ -160,19 +160,19 @@ $ P\left(A_\pi \cap M_{g,\pi} |X,y,z \right) =  P\left(A_\pi |y,z \right) \,
 \subsubsection{EBSeq}
 Here we recall some key elements from \cite{ref:Leng} on the model behind \texttt{EBSeq},
 which we adapt to get $P(M_{g,\pi} | X, z)$.  Suppose we have $K$ subtypes, let $X_g^I = X_{g, 1}^I, \cdots , X_{g, S_1}^I$ 
-denote transcripts at gene $g$ from subtype $I, I = 1, \cdots, K$.  The \texttt{EBSeq} model assumes that counts within subtype $I$ are distributed as Negative Binomial:
-$X_{g, s}^I | r_{g,s}, q_g^I \sim NB(r_{g,s}, q_g^I)$. 
+denote transcripts at gene $g$ from subtype $I, I = 1, \cdots, K$.  The \texttt{EBSeq} model assumes that normalized counts within subtype $I$ are distributed as Negative Binomial:
+$X_{g, s}^I | \sigma_g, q_g^I \sim NB(\sigma_{g}, q_g^I)$ with density  $P(X_{g,s}^I | \sigma_g, q_g^I ) = {X_{g,s} + \sigma_g - 1 \choose X_{g,s} }(1 - q_g^I)^{X_{g,s}^I} (q_g^I)^{\sigma_g}$
 
 
-** recall what an NB distribution is, without all the scripts **
+%** recall what an NB distribution is, without all the scripts **
 
-Due to sample-specific size factor in the raw counts, r is made sample-specific. However, we are dealing with normalized counts rather than raw counts in \texttt{EBSeq}, we instead make $r$ shared at gene level across all samples, i.e. 
-$X_{g, s}^I | \sigma_g, q_g^I \sim NB(\sigma_g, q_g^I)$
+%Due to sample-specific size factor in the raw counts, r is made sample-specific. However, we are dealing with normalized counts rather than raw counts in \texttt{EBSeq}, we instead make $r$ shared at gene level across all samples, i.e. 
+%$X_{g, s}^I | \sigma_g, q_g^I \sim NB(\sigma_g, q_g^I)$
 
-\begin{eqnarray*}
-P(X_{g,s}^I | \sigma_g, q_g^I ) = {X_{g,s} + \sigma_g - 1 \choose X_{g,s} }(1 - q_g^I)^{X_{g,s}^I} (q_g^I)^{\sigma_g}
-\end{eqnarray*}
-and $\mu_{g,s}^I = \sigma_g(1 - q_g^I) / q_g^I$; For ease in later deriving the density kernel $f$, we use $q$ rather than $\mu$ to parameterize the NB.  %\sigma_{g,s}^I = r_{g,s}(1 - q_g^I)/ (q_g^I)^2.$
+%\begin{eqnarray*}
+%P(X_{g,s}^I | \sigma_g, q_g^I ) = {X_{g,s} + \sigma_g - 1 \choose X_{g,s} }(1 - q_g^I)^{X_{g,s}^I} (q_g^I)^{\sigma_g}
+%\end{eqnarray*}
+%and $\mu_{g,s}^I = \sigma_g(1 - q_g^I) / q_g^I$; For ease in later deriving the density kernel $f$, we use $q$ rather than $\mu$ to parameterize the NB.  %\sigma_{g,s}^I = r_{g,s}(1 - q_g^I)/ (q_g^I)^2.$
 
 Following  \cite{ref:Leng}, we assume a prior distribution on $q_g^I : q_g^I | \alpha, \beta^{g} \sim Beta(\alpha, \beta^{g}).$ The hyperparameter $\alpha$ is shared by the whole genome and $\beta^{g}$ is gene-specific.  We force the size factor to be 1 for all cells and use the same procedure as \texttt{EBSeq} to estimate the shape parameter $\sigma_g$. Namely, we have
 \begin{enumerate}
