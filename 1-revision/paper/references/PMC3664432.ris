@@ -1,0 +1,27 @@
+TY  - JOUR
+DB  - PubMed
+AU  - Yin, Guosheng
+AU  - Ma, Yanyuan
+T1  - Pearson-type goodness-of-fit test with bootstrap maximum likelihood estimation
+LA  - eng
+SN  - 1935-7524
+SN  - 1935-7524
+Y1  - 2013
+AB  - The Pearson test statistic is constructed by partitioning the data into bins and computing the difference between the observed and expected counts in these bins. If the maximum likelihood estimator (MLE) of the original data is used, the statistic generally does not follow a chi-squared distribution or any explicit distribution. We propose a bootstrap-based modification of the Pearson test statistic to recover the chi-squared distribution. We compute the observed and expected counts in the partitioned bins by using the MLE obtained from a bootstrap sample. This bootstrap-sample MLE adjusts exactly the right amount of randomness to the test statistic, and recovers the chi-squared distribution. The bootstrap chi-squared test is easy to implement, as it only requires fitting exactly the same model to the bootstrap data to obtain the corresponding MLE, and then constructs the bin counts based on the original data. We examine the test size and power of the new model diagnostic procedure using simulation studies and illustrate it with a real data set.
+SP  - 412
+EP  - 427
+VL  - 7
+AN  - 23720703
+UR  - https://pubmed.ncbi.nlm.nih.gov/23720703
+DO  - 10.1214/13-EJS773
+L2  - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3664432/
+U1  - 23720703[pmid]
+U2  - PMC3664432[pmcid]
+J2  - Electron J Stat
+JF  - Electronic journal of statistics
+KW  - Asymptotic distribution
+KW  - bootstrap sample
+KW  - hypothesis testing
+KW  - maximum likelihood estimator
+KW  - model diagnostics
+ER  - 

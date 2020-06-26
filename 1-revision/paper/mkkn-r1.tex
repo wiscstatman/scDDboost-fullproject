@@ -19,8 +19,7 @@
 \DeclareCaptionFont{small}{\footnotesize}
 \DeclareCaptionFont{blue}{\color{blue}} 
 \DeclareCaptionFont{bf}{\bfseries}
-\renewcommand{\tablename}{Appendix Table}
-\renewcommand{\thetable}{A\arabic{table}}
+
 \captionsetup[figure]{format=myformat,labelfont={blue,bf,small},font=small}
 \usepackage{booktabs}% http://ctan.org/pkg/booktabs
 
@@ -960,7 +959,6 @@ Our implementation \texttt{scDDboost} efficiently deals with large $n$ under mod
 
 \subsection{\textcolor{red}{Diagnostics}}
 
-
 \textcolor{red}{
 \begin{enumerate}
 \item number of subtypes $K$
@@ -968,7 +966,83 @@ Our implementation \texttt{scDDboost} efficiently deals with large $n$ under mod
 \item constant shape assumption
 \item clustering method
 \end{enumerate}
+
+\subsubsection{number of subtypes $K$}
+
+
+\subsubsection{negative binomial assumption}
+
+We assumed the marginal distribution of transcripts are mixture of negative binomial(NB) distributed. 
+In addition to being motivated by the subtype intuition, mixture model can approximate a wide variety of distributions and
+many other literatures used NB to model transcripts (\cite{ref:Des},\cite{Chen:2018aa}). 
+Further, we study the goodness of NB fitting at two data sets EMTAB2805 and GSE45719. 
+Given the estimated subtype label, we test NB fitting for each subtype by an adjusted Pearson-type goodness-of-fit test(\cite{Yin:2013aa}).
+Figure \ref{fig:nb} presents the cumulative distribution of the fdr adjusted p values under each subtype. 
+We observe that for most genes the p values are big across all subtypes. 
+Let $\mathcal{N}_{0.05}$ be the set of genes having at least one fdr adjusted p value on one subtype less than 0.05.
+Let $\mathcal{D}_{0.05}$ be the set of genes identified as DD genes by our method at 0.05 local fdr.
+Let $\mathcal{T}_{0.05}$ be the set of genes identified by two sample t test with fdr correction at 0.05 threshold. 
+Let $N_g$ be the number of genes. 
+Table \ref{tab:nb} demonstrates that most DD genes identified by our method are also confirmed by t test among those genes where NB distribution may not be appropriate
+\begin{table}[htbp]
+  \begin{center}
+  %\topcaption{Table captions are better up top} % requires the topcapt package
+  \begin{tabular}{@{} lcccr @{}} % Column formatting, @{} suppresses leading/trailing space
+      \toprule
+      %\multicolumn{2}{c}{Item} \\
+      \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
+      Data Set   & $|\mathcal{N}_{0.05}|$ &
+      $|\mathcal{D}_{0.05} \cap \mathcal{N}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{N}_{0.05} \cap \mathcal{T}_{0.05}|$ & $N_g$  \\
+      \midrule
+      EMTAB2805   & 983 & 194 & 142 & 45686\\          
+      GSE45719   & 1237 & 505 & 464 & 45686\\
+      
+      \bottomrule
+  \end{tabular}
+  \caption{number of positives at genes against NB distribution}
+  \label{tab:nb}
+  \end{center}
+\end{table}
+
+
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{Figs/nbfit.pdf}
+  \caption{Cumulative distribution functions for subtype specific fdr adjusted p values of goodness of fit for NB distribution at two data sets, different colors are correspond to different subtypes}
+  \label{fig:nb}
+\end{figure}
+
 }
+
+\subsubsection{constant shape assumption}
+We assume distributions of transcripts from different subtypes share a common shape parameter, the only difference between subtypes is the average expression level.
+It may not be sufficient to capture all the subtle changes between subtypes but the sensitivities are limited due to the common shape assumption, 
+it is unlikely we would inflate the FDR even when some genes present evidence against this assumption. 
+We use the likelihood ratio test(LRT) to study the validity of constant shape.
+The viability of LRT is studied using simulation in the supplementary file. 
+Let $\mathcal{R}_{0.05}$ be the set of genes having fdr adjusted p value less than 0.05. 
+Under those genes against constant shape assumption, Table \ref{tab:cs} demonstrates that most DD genes identified by our method are also confirmed by t test.
+
+\begin{table}[htbp]
+  \begin{center}
+  %\topcaption{Table captions are better up top} % requires the topcapt package
+  \begin{tabular}{@{} lcccr @{}} % Column formatting, @{} suppresses leading/trailing space
+      \toprule
+      %\multicolumn{2}{c}{Item} \\
+      \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
+      Data Set   & $|\mathcal{R}_{0.05}|$ &
+      $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05} \cap \mathcal{T}_{0.05}|$ & $N_g$   \\
+      \midrule
+      GSE75748   & 8605 & 2390 & 2020 & 19097\\          
+      GSE45719   & 7454 & 2562 & 2402 & 45686\\
+      
+      \bottomrule
+  \end{tabular}
+  \caption{number of positives at genes against constant shape parameter across subtypes}
+  \label{tab:cs}
+  \end{center}
+\end{table}
+
+\subsubsection{clustering method}
 
 
 
@@ -1065,7 +1139,8 @@ and US  National Science Foundation grant 1740707.
 \newpage
 
 %%\appendix
- 
+\renewcommand{\tablename}{Appendix Table}
+\renewcommand{\thetable}{A\arabic{table}}
 \section*{Appendix}
 
 \subsection*{Proof of Theorem 1}

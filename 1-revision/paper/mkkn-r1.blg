@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2019)
+This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: mkkn-r1.aux
 The style file: imsart-nameyear.bst
@@ -13,53 +13,53 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ./references/wlr_ref.bib
 Warning--string name "aug" is undefined
---line 636 of file ./references/wlr_ref.bib
+--line 661 of file ./references/wlr_ref.bib
 Warning--string name "mar" is undefined
---line 681 of file ./references/wlr_ref.bib
+--line 706 of file ./references/wlr_ref.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty booktitle in Little2017PathBasedSC
 Warning--empty booktitle in selK
-You've used 49 entries,
+You've used 50 entries,
             5204 wiz_defined-function locations,
-            1288 strings with 20387 characters,
-and the built_in function-call counts, 374754 in all, are:
-= -- 58050
-> -- 1202
-< -- 75
-+ -- 15708
-- -- 397
-* -- 25978
-:= -- 56486
-add.period$ -- 189
-call.type$ -- 49
-change.case$ -- 271
-chr.to.int$ -- 49
-cite$ -- 51
-duplicate$ -- 2447
-empty$ -- 20573
-format.name$ -- 1776
-if$ -- 87715
+            1297 strings with 20631 characters,
+and the built_in function-call counts, 378989 in all, are:
+= -- 58784
+> -- 1216
+< -- 77
++ -- 16026
+- -- 403
+* -- 26171
+:= -- 57173
+add.period$ -- 193
+call.type$ -- 50
+change.case$ -- 277
+chr.to.int$ -- 50
+cite$ -- 52
+duplicate$ -- 2477
+empty$ -- 20720
+format.name$ -- 1795
+if$ -- 88774
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 579
-num.names$ -- 217
-pop$ -- 1734
+newline$ -- 591
+num.names$ -- 222
+pop$ -- 1753
 preamble$ -- 1
-purify$ -- 173
+purify$ -- 177
 quote$ -- 0
-skip$ -- 33648
+skip$ -- 34078
 stack$ -- 0
-substring$ -- 62764
-swap$ -- 1069
-text.length$ -- 441
+substring$ -- 63224
+swap$ -- 1079
+text.length$ -- 450
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1268
+type$ -- 1294
 warning$ -- 2
-while$ -- 674
+while$ -- 688
 width$ -- 0
-write$ -- 1166
+write$ -- 1190
 (There were 4 warnings)

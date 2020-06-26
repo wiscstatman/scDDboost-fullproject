@@ -1,4 +1,4 @@
-\begin{thebibliography}{49}
+\begin{thebibliography}{50}
 % BibTex style file: imsart-nameyear.bst, 2017-11-03
 % Default style options (sort=1,type=nameyear).
 % Used options (sort=1,type=nameyear).
@@ -838,6 +838,20 @@
 \btitle{On the Identifiability of Finite Mixtures}.
 \bvolume{39}
 \bpages{209--214}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Yin and Ma}{2013}]{Yin:2013aa}
+\begin{barticle}[author]
+\bauthor{\bsnm{Yin},~\bfnm{Guosheng}\binits{G.}} \AND
+  \bauthor{\bsnm{Ma},~\bfnm{Yanyuan}\binits{Y.}}
+(\byear{2013}).
+\btitle{Pearson-type goodness-of-fit test with bootstrap maximum likelihood
+  estimation}.
+\bjournal{Electronic journal of statistics}
+\bvolume{7}
+\bpages{412--427}.
+\bdoi{10.1214/13-EJS773}
 \end{barticle}
 \endbibitem
 
