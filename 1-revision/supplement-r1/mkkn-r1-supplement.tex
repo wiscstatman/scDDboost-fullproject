@@ -224,8 +224,9 @@ we use in each cycle a single gradient ascent step for $\alpha$ and $\beta^g$, i
 contrast to a full root-finding step used by \verb+EBSeq+. 
 
 \subsection{Likelihood ratio test for common shape parameter}
-We have null hypothesis $$H_0: \sigma_1 = 
-\sigma_2 = \dots = \sigma_K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to verify the validity of the test. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). Then test statistic and corresponding p value is recorded. We repeat the procedure for 100 times. Figure \ref{fig:lrt} shows that the p value is roughly uniform distributed
+Let $\sigma^k$ be the shape parameter from subtype $k$
+We have null hypothesis $$H_0: \sigma^1 = 
+\sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to verify the validity of the test. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). Then test statistic and corresponding p value is recorded. We repeat the procedure for 100 times. Figure \ref{fig:lrt} shows that the p value is roughly uniform distributed
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/lrt.pdf}
   \caption{cumulative distribution for p values of LRT}
