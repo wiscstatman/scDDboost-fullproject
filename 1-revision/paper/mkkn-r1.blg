@@ -13,53 +13,53 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ./references/wlr_ref.bib
 Warning--string name "aug" is undefined
---line 661 of file ./references/wlr_ref.bib
+--line 691 of file ./references/wlr_ref.bib
 Warning--string name "mar" is undefined
---line 706 of file ./references/wlr_ref.bib
+--line 736 of file ./references/wlr_ref.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty booktitle in Little2017PathBasedSC
 Warning--empty booktitle in selK
-You've used 50 entries,
+You've used 51 entries,
             5204 wiz_defined-function locations,
-            1297 strings with 20631 characters,
-and the built_in function-call counts, 378989 in all, are:
-= -- 58784
-> -- 1216
-< -- 77
-+ -- 16026
-- -- 403
-* -- 26171
-:= -- 57173
-add.period$ -- 193
-call.type$ -- 50
-change.case$ -- 277
+            1303 strings with 20761 characters,
+and the built_in function-call counts, 386592 in all, are:
+= -- 59958
+> -- 1239
+< -- 78
++ -- 16346
+- -- 409
+* -- 26701
+:= -- 58322
+add.period$ -- 197
+call.type$ -- 51
+change.case$ -- 282
 chr.to.int$ -- 50
-cite$ -- 52
-duplicate$ -- 2477
-empty$ -- 20720
-format.name$ -- 1795
-if$ -- 88774
-int.to.chr$ -- 1
+cite$ -- 53
+duplicate$ -- 2527
+empty$ -- 21140
+format.name$ -- 1829
+if$ -- 90553
+int.to.chr$ -- 2
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 591
-num.names$ -- 222
-pop$ -- 1753
+newline$ -- 603
+num.names$ -- 226
+pop$ -- 1783
 preamble$ -- 1
-purify$ -- 177
+purify$ -- 180
 quote$ -- 0
-skip$ -- 34078
+skip$ -- 34760
 stack$ -- 0
-substring$ -- 63224
-swap$ -- 1079
-text.length$ -- 450
+substring$ -- 64504
+swap$ -- 1101
+text.length$ -- 459
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1294
+type$ -- 1320
 warning$ -- 2
-while$ -- 688
+while$ -- 701
 width$ -- 0
-write$ -- 1190
+write$ -- 1214
 (There were 4 warnings)

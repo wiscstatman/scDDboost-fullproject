@@ -1046,10 +1046,10 @@ Under those genes against constant shape assumption, Table \ref{tab:cs} demonstr
 We use distance based clustering method, where two distance matrices are combined. 
 One is based on gene level modal clustering, which provides robust estimations when outliers are presented. 
 The other is correlation based, which has been demonstrate to outperform the Euclidean distance(\cite{Kim:2018}).
-After the distance is obtained, we perform K-medoids for clustering, where the sizes of clusters are more balanced compare to hierarchical clustering.
+After the distance is obtained, we perform K-medoids for clustering, where the sizes of clusters are balanced and unlikely to have a cluster with a lot more cells than others.
 
 Our results are averaged over randomly generated clusterings and thus is not sensitive to the choice of the input clustering method.
-Further, we redeployed \texttt{scDDboost} in examples (data sets EBTAB2805, GSE45719) but using clustering method sc3 in place of the default method.
+Further, we redeployed \texttt{scDDboost} in examples (data sets EBTAB2805, GSE45719) but using clustering method \texttt{sc3} in place of the default method.
 Let $p_o$ be the proportions of commonly identified genes among the top 2000.
 \begin{table}[htbp]
   \begin{center}

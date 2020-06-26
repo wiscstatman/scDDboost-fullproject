@@ -1,4 +1,4 @@
-\begin{thebibliography}{50}
+\begin{thebibliography}{51}
 % BibTex style file: imsart-nameyear.bst, 2017-11-03
 % Default style options (sort=1,type=nameyear).
 % Used options (sort=1,type=nameyear).
@@ -359,7 +359,7 @@
 \end{barticle}
 \endbibitem
 
-\bibitem[\protect\citeauthoryear{Kim et~al.}{2018}]{Cor}
+\bibitem[\protect\citeauthoryear{Kim et~al.}{2018a}]{Cor}
 \begin{barticle}[author]
 \bauthor{\bsnm{Kim},~\bfnm{Taiyun}\binits{T.}},
   \bauthor{\bsnm{Chen},~\bfnm{Irene~Rui}\binits{I.~R.}},
@@ -367,10 +367,27 @@
   \bauthor{\bsnm{Wang},~\bfnm{Andy Yi-Yang}\binits{A.~Y.-Y.}},
   \bauthor{\bsnm{Yang},~\bfnm{Jean Yee~Hwa}\binits{J.~Y.~H.}} \AND
   \bauthor{\bsnm{Yang},~\bfnm{Pengyi}\binits{P.}}
-(\byear{2018}).
+(\byear{2018}a).
 \btitle{Impact of similarity metrics on single-cell RNA-seq data clustering}.
 \bjournal{Briefings in Bioinformatics}
 \bpages{bby076}.
+\bdoi{10.1093/bib/bby076}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Kim et~al.}{2018b}]{Kim:2018}
+\begin{barticle}[author]
+\bauthor{\bsnm{Kim},~\bfnm{Taiyun}\binits{T.}},
+  \bauthor{\bsnm{Chen},~\bfnm{Irene~Rui}\binits{I.~R.}},
+  \bauthor{\bsnm{Lin},~\bfnm{Yingxin}\binits{Y.}},
+  \bauthor{\bsnm{Wang},~\bfnm{Andy Yi-Yang}\binits{A.~Y.-Y.}},
+  \bauthor{\bsnm{Yang},~\bfnm{Jean Yee~Hwa}\binits{J.~Y.~H.}} \AND
+  \bauthor{\bsnm{Yang},~\bfnm{Pengyi}\binits{P.}}
+(\byear{2018}b).
+\btitle{{Impact of similarity metrics on single-cell RNA-seq data clustering}}.
+\bjournal{Briefings in Bioinformatics}
+\bvolume{20}
+\bpages{2316-2326}.
 \bdoi{10.1093/bib/bby076}
 \end{barticle}
 \endbibitem
