@@ -81,6 +81,7 @@ This supplement is organized to match the sectioning of the main document.   In 
     \begin{list}{}{}
     \item Proof of Theorem 2
     \end{list}
+  \item Likelihood ratio test for common shape parameter
   \item Method Structure and Clustering 
     \begin{list}{}{}
     \item \verb+EBSeq+
@@ -221,6 +222,15 @@ In the optimization for determining the hyperparameters
 $(\alpha, \beta^g, p)$, we use EM for the mixing proportions and
 we use in each cycle a single gradient ascent step for $\alpha$ and $\beta^g$, in 
 contrast to a full root-finding step used by \verb+EBSeq+. 
+
+\subsection{Likelihood ratio test for common shape parameter}
+We have null hypothesis $$H_0: \sigma_1 = 
+\sigma_2 = \dots = \sigma_K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to verify the validity of the test. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). Then test statistic and corresponding p value is recorded. We repeat the procedure for 100 times. Figure \ref{fig:lrt} shows that the p value is roughly uniform distributed
+\begin{figure}[h!]
+  \includegraphics[ width = 0.8\textwidth]{Figs/lrt.pdf}
+  \caption{cumulative distribution for p values of LRT}
+  \label{fig:lrt}
+\end{figure}
 
 
 \subsubsection{modalClust}
@@ -538,6 +548,9 @@ we have $C_\pi =  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
 \end{proof}
 
 
+
+
+
 \section{Numerical Experiments}
 
 \subsection{Synthetic Data}
@@ -556,7 +569,7 @@ and the distributional change of transcripts becomes difficult to detect.
   \includegraphics[ width = 0.8\textwidth]{Figs/pca3.pdf}
   \caption{First two principal components of transcripts under different parameters for simulated data. 
   Horizontal axis refers to first component, vertical axis refers to second component.
-  Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation, each setting has 2 replicates.
+  Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation, each setting has 10 replicates.
   From left to right, the associated hyper-parameters are (0.1,0.4), (-0.1,0.3), (0.3,0.5), (-0.1,1). Here we have 3 subtypes}
   \label{fig:pca1}
 \end{figure}
@@ -590,10 +603,10 @@ For simulation cases with parameters in the format: number of clusters / shape /
   
 \clearpage
 
-ROC curves for the simulated data in Supplementary Figure \ref{fig:roc}. Each sub-figure is averaged over two replicates under the same parameters setting. \texttt{scDDboost} tends to outperform other methods .
+ROC curves for the simulated data in Supplementary Figure \ref{fig:roc}. Each sub-figure is averaged over ten replicates under the same parameters setting. \texttt{scDDboost} tends to outperform other methods .
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/Roc_supp.pdf}
-  \caption{Roc curve of the 12 simulation settings, under each setting, TPR and FPR are averaged over two replicates, generally \texttt{scDDboost} performs better than other methods}
+  \caption{Roc curve of the 12 simulation settings, under each setting, TPR and FPR are averaged over ten replicates, generally \texttt{scDDboost} performs better than other methods}
   \label{fig:roc}
 \end{figure}
 
