@@ -165,8 +165,15 @@ gene-level multimodality, but they do not fully exploit cellular-subtype
 information.  Our proposed method 
  measures changes in a gene's marginal mixture distribution  and
 acquires sensitivity to a variety of distributional effects by how it integrates 
-gene-level data with estimated cellular subtypes.  It is implemented in  software 
-in the R package \verb+scDDboost+~\footnote{http://github.com/wiscstatman/scDDboost/}.
+gene-level data with estimated cellular subtypes.  
+From input data, the associated R package 
+\verb+scDDboost+~\footnote{http://github.com/wiscstatman/scDDboost/}
+aims to prioritize genes according to evidence that their expression distribution is different
+between the two cellular conditions in view.
+%It is implemented in  software 
+%in the R package \verb+scDDboost+~\footnote{http://github.com/wiscstatman/scDDboost/}.
+
+%in the R package \verb+scDDboost+~\footnote{http://github.com/wiscstatman/scDDboost/}.
 
 Through the compositional model underlying \verb+scDDboost+, subtypes inferred by clustering 
 inform the analysis of gene-level expression.  The proposed methodology merges two lines of computation
