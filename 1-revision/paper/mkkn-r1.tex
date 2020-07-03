@@ -1032,7 +1032,9 @@ it is unlikely we would inflate the FDR even when some genes present evidence ag
 We use the likelihood ratio test(LRT) to study the validity of constant shape.
 The viability of LRT is studied using simulation in the supplementary file. 
 Let $\mathcal{R}_{0.05}$ be the set of genes having fdr adjusted p value less than 0.05. 
-Under those genes against constant shape assumption, Table \ref{tab:cs} demonstrates that most DD genes identified by our method are also confirmed by t test.
+Under those genes against constant shape assumption, 
+Let $\mathcal{E}_{0.05}$ be the union genes identified by t-test, DESeq2, MAST and scDD.
+Table \ref{tab:cs} demonstrates that most DD genes identified by our method are also confirmed by t test.
 
 \begin{table}[htbp]
   \begin{center}
@@ -1042,10 +1044,10 @@ Under those genes against constant shape assumption, Table \ref{tab:cs} demonstr
       %\multicolumn{2}{c}{Item} \\
       \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
       Data Set   & $|\mathcal{R}_{0.05}|$ &
-      $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05} \cap \mathcal{T}_{0.05}|$ & $N_g$   \\
+      $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05} \cap \mathcal{E}_{0.05}|$ & $N_g$   \\
       \midrule
-      GSE75748   & 8605 & 2390 & 2020 & 19097\\          
-      GSE45719   & 7454 & 2562 & 2402 & 45686\\
+      GSE75748   & 8605 & 2390 & 2331 & 19097\\          
+      GSE45719   & 7454 & 2562 & 2529 & 45686\\
       
       \bottomrule
   \end{tabular}
