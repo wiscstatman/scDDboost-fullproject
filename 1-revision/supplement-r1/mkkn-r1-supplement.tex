@@ -81,13 +81,14 @@ This supplement is organized to match the sectioning of the main document.   In 
     \begin{list}{}{}
     \item Proof of Theorem 2
     \end{list}
-  \item Likelihood ratio test for common shape parameter
   \item Method Structure and Clustering 
     \begin{list}{}{}
     \item \verb+EBSeq+
     \item \verb+modalClust+
     \item Randomized $K-$means
     \item Selecting $K$
+    \item Negative binomial fitting
+    \item Likelihood ratio test for common shape parameter
     \end{list}
   \item Double Dirichlet Mixture
     \begin{list}{}{}
@@ -223,15 +224,6 @@ $(\alpha, \beta^g, p)$, we use EM for the mixing proportions and
 we use in each cycle a single gradient ascent step for $\alpha$ and $\beta^g$, in 
 contrast to a full root-finding step used by \verb+EBSeq+. 
 
-\subsection{Likelihood ratio test for common shape parameter}
-Let $\sigma^k$ be the shape parameter from subtype $k$
-We have null hypothesis $$H_0: \sigma^1 = 
-\sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to verify the validity of the test. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). Then test statistic and corresponding p value is recorded. We repeat the procedure for 100 times. Figure \ref{fig:lrt} shows that the p value is roughly uniform distributed
-\begin{figure}[h!]
-  \includegraphics[ width = 0.8\textwidth]{Figs/lrt.pdf}
-  \caption{cumulative distribution for p values of LRT}
-  \label{fig:lrt}
-\end{figure}
 
 
 \subsubsection{modalClust}
@@ -398,6 +390,26 @@ and this trend stabilizes when $K$ is sufficiently big. We select the first $K$ 
 We set the default value of  $\epsilon$ to be 1, as we found this yields good performance in 
 simulation. 
 
+\subsection{Likelihood ratio test for common shape parameter}
+Let $\sigma^k$ be the shape parameter from subtype $k$
+We have null hypothesis $$H_0: \sigma^1 = 
+\sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to verify the validity of the test. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). Then test statistic and corresponding p value is recorded. We repeat the procedure for 100 times. Figure \ref{fig:lrt} shows that the p value is roughly uniform distributed
+\begin{figure}[h!]
+  \includegraphics[ width = 0.8\textwidth]{Figs/lrt.pdf}
+  \caption{cumulative distribution for p values of LRT}
+  \label{fig:lrt}
+\end{figure}
+
+
+\subsection{Negative binomial fitting}
+
+For those genes against NB assumption and uniquely identified by \texttt{scDDboost}. From Fig \ref{fig:s11} we found they are somewhat different.
+Further we test difference between proportions of zeros on those genes by using t-test and it is favorable for not identical proportions with p values 0.02
+\begin{figure}[h]
+\includegraphics[width = 0.7\textwidth]{Figs/NBgene.pdf}
+\caption{violin plot of the 57 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt{scDDboost}}
+\label{fig:s11}
+\end{figure}
 
 
 \subsection{Double Dirichlet Mixture}
