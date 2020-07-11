@@ -1,7 +1,8 @@
 
-Manuscript, supplementary material, R package, and additional codes for scDDboost,
+Manuscript, supplementary material, and additional codes for scDDboost,
 a methodology for scoring changes in the distribution of single-cell expression data.
 
+The scDDboost R package is maintained at http://github.com/wiscstatman/scDDboost/
 
 Due the limititation of file size, empirical data are available at:
 

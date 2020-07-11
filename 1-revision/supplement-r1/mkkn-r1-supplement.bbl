@@ -1,0 +1,378 @@
+\begin{thebibliography}{17}
+% BibTex style file: imsart-nameyear.bst, 2017-11-03
+% Default style options (sort=1,type=nameyear).
+% Used options (sort=1,type=nameyear).
+
+\bibitem[\protect\citeauthoryear{Buettner et~al.}{2015}]{EMTAB}
+\begin{barticle}[author]
+\bauthor{\bsnm{Buettner},~\bfnm{Florian}\binits{F.}},
+  \bauthor{\bsnm{Natarajan},~\bfnm{Kedar~N}\binits{K.~N.}},
+  \bauthor{\bsnm{Casale},~\bfnm{F~Paolo}\binits{F.~P.}},
+  \bauthor{\bsnm{Proserpio},~\bfnm{Valentina}\binits{V.}},
+  \bauthor{\bsnm{Scialdone},~\bfnm{Antonio}\binits{A.}},
+  \bauthor{\bsnm{Theis},~\bfnm{Fabian~J}\binits{F.~J.}},
+  \bauthor{\bsnm{Teichmann},~\bfnm{Sarah~A}\binits{S.~A.}},
+  \bauthor{\bsnm{Marioni},~\bfnm{John~C}\binits{J.~C.}} \AND
+  \bauthor{\bsnm{Stegle},~\bfnm{Oliver}\binits{O.}}
+(\byear{2015}).
+\btitle{Computational analysis of cell-to-cell heterogeneity in single-cell
+  RNA-sequencing data reveals hidden subpopulations of cells}.
+\bjournal{Nature Biotechnology}
+\bvolume{33}
+\bpages{155 EP -}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Chu et~al.}{2016}]{chu}
+\begin{barticle}[author]
+\bauthor{\bsnm{Chu},~\bfnm{Li-Fang}\binits{L.-F.}},
+  \bauthor{\bsnm{Leng},~\bfnm{Ning}\binits{N.}},
+  \bauthor{\bsnm{Zhang},~\bfnm{Jue}\binits{J.}},
+  \bauthor{\bsnm{Hou},~\bfnm{Zhonggang}\binits{Z.}},
+  \bauthor{\bsnm{Mamott},~\bfnm{Daniel}\binits{D.}},
+  \bauthor{\bsnm{Vereide},~\bfnm{David~T.}\binits{D.~T.}},
+  \bauthor{\bsnm{Choi},~\bfnm{Jeea}\binits{J.}},
+  \bauthor{\bsnm{Kendziorski},~\bfnm{Christina}\binits{C.}},
+  \bauthor{\bsnm{Stewart},~\bfnm{Ron}\binits{R.}} \AND
+  \bauthor{\bsnm{Thomson},~\bfnm{James~A.}\binits{J.~A.}}
+(\byear{2016}).
+\btitle{Single-cell RNA-seq reveals novel regulators of human embryonic stem
+  cell differentiation to definitive endoderm}.
+\bjournal{Genome Biology}
+\bvolume{17}
+\bpages{173}.
+\bdoi{10.1186/s13059-016-1033-x}.
+\bid{Chu2016}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Dahl}{2009}]{ref:dahl}
+\begin{barticle}[author]
+\bauthor{\bsnm{Dahl},~\bfnm{David~B.}\binits{D.~B.}}
+(\byear{2009}).
+\btitle{Modal clustering in a class of product partition models}.
+\bjournal{Bayesian Anal.}
+\bvolume{4}
+\bpages{243--264}.
+\bdoi{10.1214/09-BA409}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Darmanis et~al.}{2017}]{Darmanis}
+\begin{barticle}[author]
+\bauthor{\bsnm{Darmanis},~\bfnm{Spyros}\binits{S.}},
+  \bauthor{\bsnm{Sloan},~\bfnm{Steven~A}\binits{S.~A.}},
+  \bauthor{\bsnm{Croote},~\bfnm{Derek}\binits{D.}},
+  \bauthor{\bsnm{Mignardi},~\bfnm{Marco}\binits{M.}},
+  \bauthor{\bsnm{Chernikova},~\bfnm{Sophia}\binits{S.}},
+  \bauthor{\bsnm{Samghababi},~\bfnm{Peyman}\binits{P.}},
+  \bauthor{\bsnm{Zhang},~\bfnm{Ye}\binits{Y.}},
+  \bauthor{\bsnm{Neff},~\bfnm{Norma}\binits{N.}},
+  \bauthor{\bsnm{Kowarsky},~\bfnm{Mark}\binits{M.}},
+  \bauthor{\bsnm{Caneda},~\bfnm{Christine}\binits{C.}},
+  \bauthor{\bsnm{Li},~\bfnm{Gordon}\binits{G.}},
+  \bauthor{\bsnm{Chang},~\bfnm{Steven~D}\binits{S.~D.}},
+  \bauthor{\bsnm{Connolly},~\bfnm{Ian~David}\binits{I.~D.}},
+  \bauthor{\bsnm{Li},~\bfnm{Yingmei}\binits{Y.}},
+  \bauthor{\bsnm{Barres},~\bfnm{Ben~A}\binits{B.~A.}},
+  \bauthor{\bsnm{Gephart},~\bfnm{Melanie~Hayden}\binits{M.~H.}} \AND
+  \bauthor{\bsnm{Quake},~\bfnm{Stephen~R}\binits{S.~R.}}
+(\byear{2017}).
+\btitle{Single-Cell RNA-Seq Analysis of Infiltrating Neoplastic Cells at the
+  Migrating Front of Human Glioblastoma}.
+\bjournal{Cell reports}
+\bvolume{21}
+\bpages{1399--1410}.
+\bdoi{10.1016/j.celrep.2017.10.030}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Deng et~al.}{2014}]{Deng193}
+\begin{barticle}[author]
+\bauthor{\bsnm{Deng},~\bfnm{Qiaolin}\binits{Q.}},
+  \bauthor{\bsnm{Ramsk{\"o}ld},~\bfnm{Daniel}\binits{D.}},
+  \bauthor{\bsnm{Reinius},~\bfnm{Bj{\"o}rn}\binits{B.}} \AND
+  \bauthor{\bsnm{Sandberg},~\bfnm{Rickard}\binits{R.}}
+(\byear{2014}).
+\btitle{Single-Cell RNA-Seq Reveals Dynamic, Random Monoallelic Gene Expression
+  in Mammalian Cells}.
+\bjournal{Science}
+\bvolume{343}
+\bpages{193--196}.
+\bdoi{10.1126/science.1245316}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Engel et~al.}{2016}]{Engel}
+\begin{barticle}[author]
+\bauthor{\bsnm{Engel},~\bfnm{Isaac}\binits{I.}},
+  \bauthor{\bsnm{Seumois},~\bfnm{Gr{\'e}gory}\binits{G.}},
+  \bauthor{\bsnm{Chavez},~\bfnm{Lukas}\binits{L.}},
+  \bauthor{\bsnm{Samaniego-Castruita},~\bfnm{Daniela}\binits{D.}},
+  \bauthor{\bsnm{White},~\bfnm{Brandie}\binits{B.}},
+  \bauthor{\bsnm{Chawla},~\bfnm{Ashu}\binits{A.}},
+  \bauthor{\bsnm{Mock},~\bfnm{Dennis}\binits{D.}},
+  \bauthor{\bsnm{Vijayanand},~\bfnm{Pandurangan}\binits{P.}} \AND
+  \bauthor{\bsnm{Kronenberg},~\bfnm{Mitchell}\binits{M.}}
+(\byear{2016}).
+\btitle{Innate-like functions of natural killer T cell subsets result from
+  highly divergent gene programs}.
+\bjournal{Nature Immunology}
+\bvolume{17}
+\bpages{728 EP -}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Guo et~al.}{2015}]{Guo}
+\begin{barticle}[author]
+\bauthor{\bsnm{Guo},~\bfnm{Fan}\binits{F.}},
+  \bauthor{\bsnm{Yan},~\bfnm{Liying}\binits{L.}},
+  \bauthor{\bsnm{Guo},~\bfnm{Hongshan}\binits{H.}},
+  \bauthor{\bsnm{Li},~\bfnm{Lin}\binits{L.}},
+  \bauthor{\bsnm{Hu},~\bfnm{Boqiang}\binits{B.}},
+  \bauthor{\bsnm{Zhao},~\bfnm{Yangyu}\binits{Y.}},
+  \bauthor{\bsnm{Yong},~\bfnm{Jun}\binits{J.}},
+  \bauthor{\bsnm{Hu},~\bfnm{Yuqiong}\binits{Y.}},
+  \bauthor{\bsnm{Wang},~\bfnm{Xiaoye}\binits{X.}},
+  \bauthor{\bsnm{Wei},~\bfnm{Yuan}\binits{Y.}},
+  \bauthor{\bsnm{Wang},~\bfnm{Wei}\binits{W.}},
+  \bauthor{\bsnm{Li},~\bfnm{Rong}\binits{R.}},
+  \bauthor{\bsnm{Yan},~\bfnm{Jie}\binits{J.}},
+  \bauthor{\bsnm{Zhi},~\bfnm{Xu}\binits{X.}},
+  \bauthor{\bsnm{Zhang},~\bfnm{Yan}\binits{Y.}},
+  \bauthor{\bsnm{Jin},~\bfnm{Hongyan}\binits{H.}},
+  \bauthor{\bsnm{Zhang},~\bfnm{Wenxin}\binits{W.}},
+  \bauthor{\bsnm{Hou},~\bfnm{Yu}\binits{Y.}},
+  \bauthor{\bsnm{Zhu},~\bfnm{Ping}\binits{P.}},
+  \bauthor{\bsnm{Li},~\bfnm{Jingyun}\binits{J.}},
+  \bauthor{\bsnm{Zhang},~\bfnm{Ling}\binits{L.}},
+  \bauthor{\bsnm{Liu},~\bfnm{Sirui}\binits{S.}},
+  \bauthor{\bsnm{Ren},~\bfnm{Yixin}\binits{Y.}},
+  \bauthor{\bsnm{Zhu},~\bfnm{Xiaohui}\binits{X.}},
+  \bauthor{\bsnm{Wen},~\bfnm{Lu}\binits{L.}},
+  \bauthor{\bsnm{Gao},~\bfnm{Yi~Qin}\binits{Y.~Q.}},
+  \bauthor{\bsnm{Tang},~\bfnm{Fuchou}\binits{F.}} \AND
+  \bauthor{\bsnm{Qiao},~\bfnm{Jie}\binits{J.}}
+(\byear{2015}).
+\btitle{The Transcriptome and DNA Methylome Landscapes of Human Primordial Germ
+  Cells}.
+\bjournal{Cell}
+\bvolume{161}
+\bpages{1437--1452}.
+\bdoi{10.1016/j.cell.2015.05.015}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Jara et~al.}{2011}]{JSSv040i05}
+\begin{barticle}[author]
+\bauthor{\bsnm{Jara},~\bfnm{Alejandro}\binits{A.}},
+  \bauthor{\bsnm{Hanson},~\bfnm{Timothy}\binits{T.}},
+  \bauthor{\bsnm{Quintana},~\bfnm{Fernando}\binits{F.}},
+  \bauthor{\bsnm{Müller},~\bfnm{Peter}\binits{P.}} \AND
+  \bauthor{\bsnm{Rosner},~\bfnm{Gary}\binits{G.}}
+(\byear{2011}).
+\btitle{DPpackage: Bayesian Semi- and Nonparametric Modeling in R}.
+\bjournal{Journal of Statistical Software, Articles}
+\bvolume{40}
+\bpages{1--30}.
+\bdoi{10.18637/jss.v040.i05}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Kiselev et~al.}{2017}]{sc3}
+\begin{barticle}[author]
+\bauthor{\bsnm{Kiselev},~\bfnm{Vladimir~Yu}\binits{V.~Y.}},
+  \bauthor{\bsnm{Kirschner},~\bfnm{Kristina}\binits{K.}},
+  \bauthor{\bsnm{Schaub},~\bfnm{Michael~T}\binits{M.~T.}},
+  \bauthor{\bsnm{Andrews},~\bfnm{Tallulah}\binits{T.}},
+  \bauthor{\bsnm{Yiu},~\bfnm{Andrew}\binits{A.}},
+  \bauthor{\bsnm{Chandra},~\bfnm{Tamir}\binits{T.}},
+  \bauthor{\bsnm{Natarajan},~\bfnm{Kedar~N}\binits{K.~N.}},
+  \bauthor{\bsnm{Reik},~\bfnm{Wolf}\binits{W.}},
+  \bauthor{\bsnm{Barahona},~\bfnm{Mauricio}\binits{M.}},
+  \bauthor{\bsnm{Green},~\bfnm{Anthony~R}\binits{A.~R.}} \AND
+  \bauthor{\bsnm{Hemberg},~\bfnm{Martin}\binits{M.}}
+(\byear{2017}).
+\btitle{SC3: consensus clustering of single-cell RNA-seq data}.
+\bjournal{Nature Methods}
+\bvolume{14}
+\bpages{483 EP -}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Lane et~al.}{2017}]{Lane}
+\begin{barticle}[author]
+\bauthor{\bsnm{Lane},~\bfnm{Keara}\binits{K.}},
+  \bauthor{\bsnm{Van~Valen},~\bfnm{David}\binits{D.}},
+  \bauthor{\bsnm{DeFelice},~\bfnm{Mialy~M.}\binits{M.~M.}},
+  \bauthor{\bsnm{Macklin},~\bfnm{Derek~N.}\binits{D.~N.}},
+  \bauthor{\bsnm{Kudo},~\bfnm{Takamasa}\binits{T.}},
+  \bauthor{\bsnm{Jaimovich},~\bfnm{Ariel}\binits{A.}},
+  \bauthor{\bsnm{Carr},~\bfnm{Ambrose}\binits{A.}},
+  \bauthor{\bsnm{Meyer},~\bfnm{Tobias}\binits{T.}},
+  \bauthor{\bsnm{Pe'er},~\bfnm{Dana}\binits{D.}},
+  \bauthor{\bsnm{Boutet},~\bfnm{St{\'e}phane~C.}\binits{S.~C.}} \AND
+  \bauthor{\bsnm{Covert},~\bfnm{Markus~W.}\binits{M.~W.}}
+(\byear{2017}).
+\btitle{Measuring Signaling and RNA-Seq in the Same Cell Links Gene Expression
+  to Dynamic Patterns of NF-ÎºB Activation}.
+\bjournal{Cell Systems}
+\bvolume{4}
+\bpages{458--469.e5}.
+\bdoi{https://doi.org/10.1016/j.cels.2017.03.010}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Leng et~al.}{2013}]{ref:Leng}
+\begin{barticle}[author]
+\bauthor{\bsnm{Leng},~\bfnm{Ning}\binits{N.}},
+  \bauthor{\bsnm{Dawson},~\bfnm{John~A.}\binits{J.~A.}},
+  \bauthor{\bsnm{Thomson},~\bfnm{James~A.}\binits{J.~A.}},
+  \bauthor{\bsnm{Ruotti},~\bfnm{Victor}\binits{V.}},
+  \bauthor{\bsnm{Rissman},~\bfnm{Anna~I.}\binits{A.~I.}},
+  \bauthor{\bsnm{Smits},~\bfnm{Bart M.~G.}\binits{B.~M.~G.}},
+  \bauthor{\bsnm{Haag},~\bfnm{Jill~D.}\binits{J.~D.}},
+  \bauthor{\bsnm{Gould},~\bfnm{Michael~N.}\binits{M.~N.}},
+  \bauthor{\bsnm{Stewart},~\bfnm{Ron~M.}\binits{R.~M.}} \AND
+  \bauthor{\bsnm{Kendziorski},~\bfnm{Christina}\binits{C.}}
+(\byear{2013}).
+\btitle{EBSeq: an empirical Bayes hierarchical model for inference in RNA-seq
+  experiments}.
+\bjournal{Bioinformatics}
+\bvolume{29}
+\bpages{1035-1043}.
+\bdoi{10.1093/bioinformatics/btt087}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Leng et~al.}{2015}]{oscope}
+\begin{barticle}[author]
+\bauthor{\bsnm{Leng},~\bfnm{Ning}\binits{N.}},
+  \bauthor{\bsnm{Chu},~\bfnm{Li-Fang}\binits{L.-F.}},
+  \bauthor{\bsnm{Barry},~\bfnm{Chris}\binits{C.}},
+  \bauthor{\bsnm{Li},~\bfnm{Yuan}\binits{Y.}},
+  \bauthor{\bsnm{Choi},~\bfnm{Jeea}\binits{J.}},
+  \bauthor{\bsnm{Li},~\bfnm{Xiaomao}\binits{X.}},
+  \bauthor{\bsnm{Jiang},~\bfnm{Peng}\binits{P.}},
+  \bauthor{\bsnm{Stewart},~\bfnm{Ron~M}\binits{R.~M.}},
+  \bauthor{\bsnm{Thomson},~\bfnm{James~A}\binits{J.~A.}} \AND
+  \bauthor{\bsnm{Kendziorski},~\bfnm{Christina}\binits{C.}}
+(\byear{2015}).
+\btitle{Oscope identifies oscillatory genes in unsynchronized single-cell
+  RNA-seq experiments}.
+\bjournal{Nature Methods}
+\bvolume{12}
+\bpages{947 EP -}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Li and ping Chen}{2007}]{ineq}
+\begin{binproceedings}[author]
+\bauthor{\bsnm{Li},~\bfnm{Xin}\binits{X.}} \AND \bauthor{\bparticle{ping}
+  \bsnm{Chen},~\bfnm{Chao}\binits{C.}}
+(\byear{2007}).
+\btitle{Inequalities for the gamma function}.
+In \bbooktitle{2007), Art. 28. [ONLINE: http://jipam.vu.edu.au/
+  article.php?sid=842}.
+\end{binproceedings}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Ray and Turi}{2000}]{selK}
+\begin{binproceedings}[author]
+\bauthor{\bsnm{Ray},~\bfnm{Siddheswar}\binits{S.}} \AND
+  \bauthor{\bsnm{Turi},~\bfnm{Rose~H.}\binits{R.~H.}}
+(\byear{2000}).
+\btitle{Determination of Number of Clusters in K-Means Clustering and
+  Application in Colour Image Segmentation}.
+\end{binproceedings}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Shalek et~al.}{2014}]{Shalek}
+\begin{barticle}[author]
+\bauthor{\bsnm{Shalek},~\bfnm{Alex~K.}\binits{A.~K.}},
+  \bauthor{\bsnm{Satija},~\bfnm{Rahul}\binits{R.}},
+  \bauthor{\bsnm{Shuga},~\bfnm{Joe}\binits{J.}},
+  \bauthor{\bsnm{Trombetta},~\bfnm{John~J.}\binits{J.~J.}},
+  \bauthor{\bsnm{Gennert},~\bfnm{Dave}\binits{D.}},
+  \bauthor{\bsnm{Lu},~\bfnm{Diana}\binits{D.}},
+  \bauthor{\bsnm{Chen},~\bfnm{Peilin}\binits{P.}},
+  \bauthor{\bsnm{Gertner},~\bfnm{Rona~S.}\binits{R.~S.}},
+  \bauthor{\bsnm{Gaublomme},~\bfnm{Jellert~T.}\binits{J.~T.}},
+  \bauthor{\bsnm{Yosef},~\bfnm{Nir}\binits{N.}},
+  \bauthor{\bsnm{Schwartz},~\bfnm{Schraga}\binits{S.}},
+  \bauthor{\bsnm{Fowler},~\bfnm{Brian}\binits{B.}},
+  \bauthor{\bsnm{Weaver},~\bfnm{Suzanne}\binits{S.}},
+  \bauthor{\bsnm{Wang},~\bfnm{Jing}\binits{J.}},
+  \bauthor{\bsnm{Wang},~\bfnm{Xiaohui}\binits{X.}},
+  \bauthor{\bsnm{Ding},~\bfnm{Ruihua}\binits{R.}},
+  \bauthor{\bsnm{Raychowdhury},~\bfnm{Raktima}\binits{R.}},
+  \bauthor{\bsnm{Friedman},~\bfnm{Nir}\binits{N.}},
+  \bauthor{\bsnm{Hacohen},~\bfnm{Nir}\binits{N.}},
+  \bauthor{\bsnm{Park},~\bfnm{Hongkun}\binits{H.}},
+  \bauthor{\bsnm{May},~\bfnm{Andrew~P.}\binits{A.~P.}} \AND
+  \bauthor{\bsnm{Regev},~\bfnm{Aviv}\binits{A.}}
+(\byear{2014}).
+\btitle{Single-cell RNA-seq reveals dynamic paracrine control of cellular
+  variation}.
+\bjournal{Nature}
+\bvolume{510}
+\bpages{363 EP -}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Tasic et~al.}{2016}]{Tasic}
+\begin{barticle}[author]
+\bauthor{\bsnm{Tasic},~\bfnm{Bosiljka}\binits{B.}},
+  \bauthor{\bsnm{Menon},~\bfnm{Vilas}\binits{V.}},
+  \bauthor{\bsnm{Nguyen},~\bfnm{Thuc~Nghi}\binits{T.~N.}},
+  \bauthor{\bsnm{Kim},~\bfnm{Tae~Kyung}\binits{T.~K.}},
+  \bauthor{\bsnm{Jarsky},~\bfnm{Tim}\binits{T.}},
+  \bauthor{\bsnm{Yao},~\bfnm{Zizhen}\binits{Z.}},
+  \bauthor{\bsnm{Levi},~\bfnm{Boaz}\binits{B.}},
+  \bauthor{\bsnm{Gray},~\bfnm{Lucas~T}\binits{L.~T.}},
+  \bauthor{\bsnm{Sorensen},~\bfnm{Staci~A}\binits{S.~A.}},
+  \bauthor{\bsnm{Dolbeare},~\bfnm{Tim}\binits{T.}},
+  \bauthor{\bsnm{Bertagnolli},~\bfnm{Darren}\binits{D.}},
+  \bauthor{\bsnm{Goldy},~\bfnm{Jeff}\binits{J.}},
+  \bauthor{\bsnm{Shapovalova},~\bfnm{Nadiya}\binits{N.}},
+  \bauthor{\bsnm{Parry},~\bfnm{Sheana}\binits{S.}},
+  \bauthor{\bsnm{Lee},~\bfnm{Changkyu}\binits{C.}},
+  \bauthor{\bsnm{Smith},~\bfnm{Kimberly}\binits{K.}},
+  \bauthor{\bsnm{Bernard},~\bfnm{Amy}\binits{A.}},
+  \bauthor{\bsnm{Madisen},~\bfnm{Linda}\binits{L.}},
+  \bauthor{\bsnm{Sunkin},~\bfnm{Susan~M}\binits{S.~M.}},
+  \bauthor{\bsnm{Hawrylycz},~\bfnm{Michael}\binits{M.}},
+  \bauthor{\bsnm{Koch},~\bfnm{Christof}\binits{C.}} \AND
+  \bauthor{\bsnm{Zeng},~\bfnm{Hongkui}\binits{H.}}
+(\byear{2016}).
+\btitle{Adult mouse cortical cell taxonomy revealed by single cell
+  transcriptomics}.
+\bjournal{Nature Neuroscience}
+\bvolume{19}
+\bpages{335 EP -}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Trapnell et~al.}{2014}]{Trapnell}
+\begin{barticle}[author]
+\bauthor{\bsnm{Trapnell},~\bfnm{Cole}\binits{C.}},
+  \bauthor{\bsnm{Cacchiarelli},~\bfnm{Davide}\binits{D.}},
+  \bauthor{\bsnm{Grimsby},~\bfnm{Jonna}\binits{J.}},
+  \bauthor{\bsnm{Pokharel},~\bfnm{Prapti}\binits{P.}},
+  \bauthor{\bsnm{Li},~\bfnm{Shuqiang}\binits{S.}},
+  \bauthor{\bsnm{Morse},~\bfnm{Michael}\binits{M.}},
+  \bauthor{\bsnm{Lennon},~\bfnm{Niall~J}\binits{N.~J.}},
+  \bauthor{\bsnm{Livak},~\bfnm{Kenneth~J}\binits{K.~J.}},
+  \bauthor{\bsnm{Mikkelsen},~\bfnm{Tarjei~S}\binits{T.~S.}} \AND
+  \bauthor{\bsnm{Rinn},~\bfnm{John~L}\binits{J.~L.}}
+(\byear{2014}).
+\btitle{The dynamics and regulators of cell fate decisions are revealed by
+  pseudotemporal ordering of single cells}.
+\bjournal{Nature biotechnology}
+\bvolume{32}
+\bpages{381--386}.
+\bdoi{10.1038/nbt.2859}
+\end{barticle}
+\endbibitem
+
+\end{thebibliography}

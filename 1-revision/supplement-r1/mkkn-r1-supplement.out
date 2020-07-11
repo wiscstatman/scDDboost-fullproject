@@ -7,9 +7,12 @@
 \BOOKMARK [3][-]{subsubsection.2.2.2}{modalClust}{subsection.2.2}% 7
 \BOOKMARK [3][-]{subsubsection.2.2.3}{Randomized K-means}{subsection.2.2}% 8
 \BOOKMARK [3][-]{subsubsection.2.2.4}{Selecting K}{subsection.2.2}% 9
-\BOOKMARK [2][-]{subsection.2.3}{Double Dirichlet Mixture}{section.2}% 10
-\BOOKMARK [1][-]{section.3}{Numerical Experiments}{}% 11
-\BOOKMARK [2][-]{subsection.3.1}{Synthetic Data}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.2}{Empirical Study}{section.3}% 13
-\BOOKMARK [2][-]{subsection.3.3}{Robustness}{section.3}% 14
-\BOOKMARK [1][-]{section.4}{Posterior consistency}{}% 15
+\BOOKMARK [2][-]{subsection.2.3}{Likelihood ratio test for common shape parameter}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.4}{Negative binomial fitting}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.5}{Double Dirichlet Mixture}{section.2}% 12
+\BOOKMARK [1][-]{section.3}{Numerical Experiments}{}% 13
+\BOOKMARK [2][-]{subsection.3.1}{Synthetic Data}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.2}{Empirical Study}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.3}{Robustness}{section.3}% 16
+\BOOKMARK [1][-]{section.4}{Posterior consistency}{}% 17
+\BOOKMARK [1][-]{section*.18}{References}{}% 18

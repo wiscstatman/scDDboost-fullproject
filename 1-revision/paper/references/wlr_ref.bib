@@ -1,12 +1,52 @@
 %% This BibTeX bibliography file was created using BibDesk.
 %% http://bibdesk.sourceforge.net/
 
-%% Created for Xiuyu Ma at 2019-05-22 12:38:39 -0500 
+%% Created for Xiuyu Ma at 2020-06-26 14:38:57 -0400 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
+@article{Kim:2018,
+    author = {Kim, Taiyun and Chen, Irene Rui and Lin, Yingxin and Wang, Andy Yi-Yang and Yang, Jean Yee Hwa and Yang, Pengyi},
+    title = "{Impact of similarity metrics on single-cell RNA-seq data clustering}",
+    journal = {Briefings in Bioinformatics},
+    volume = {20},
+    number = {6},
+    pages = {2316-2326},
+    year = {2018},
+    month = {08},
+    abstract = "{Advances in high-throughput sequencing on single-cell gene expressions [single-cell RNA sequencing (scRNA-seq)] have enabled transcriptome profiling on individual cells from complex samples. A common goal in scRNA-seq data analysis is to discover and characterise cell types, typically through clustering methods. The quality of the clustering therefore plays a critical role in biological discovery. While numerous clustering algorithms have been proposed for scRNA-seq data, fundamentally they all rely on a similarity metric for categorising individual cells. Although several studies have compared the performance of various clustering algorithms for scRNA-seq data, currently there is no benchmark of different similarity metrics and their influence on scRNA-seq data clustering. Here, we compared a panel of similarity metrics on clustering a collection of annotated scRNA-seq datasets. Within each dataset, a stratified subsampling procedure was applied and an array of evaluation measures was employed to assess the similarity metrics. This produced a highly reliable and reproducible consensus on their performance assessment. Overall, we found that correlation-based metrics (e.g. Pearson?s correlation) outperformed distance-based metrics (e.g. Euclidean distance). To test if the use of correlation-based metrics can benefit the recently published clustering techniques for scRNA-seq data, we modified a state-of-the-art kernel-based clustering algorithm (SIMLR) using Pearson?s correlation as a similarity measure and found significant performance improvement over Euclidean distance on scRNA-seq data clustering. These findings demonstrate the importance of similarity metrics in clustering scRNA-seq data and highlight Pearson?s correlation as a favourable choice. Further comparison on different scRNA-seq library preparation protocols suggests that they may also affect clustering performance. Finally, the benchmarking framework is available at http://www.maths.usyd.edu.au/u/SMS/bioinformatics/software.html.}",
+    issn = {1477-4054},
+    doi = {10.1093/bib/bby076},
+    url = {https://doi.org/10.1093/bib/bby076},
+    eprint = {https://academic.oup.com/bib/article-pdf/20/6/2316/31789357/bby076.pdf},
+}
 
+
+@article{Yin:2013aa,
+	Abstract = {The Pearson test statistic is constructed by partitioning the data into bins and computing the difference between the observed and expected counts in these bins. If the maximum likelihood estimator (MLE) of the original data is used, the statistic generally does not follow a chi-squared distribution or any explicit distribution. We propose a bootstrap-based modification of the Pearson test statistic to recover the chi-squared distribution. We compute the observed and expected counts in the partitioned bins by using the MLE obtained from a bootstrap sample. This bootstrap-sample MLE adjusts exactly the right amount of randomness to the test statistic, and recovers the chi-squared distribution. The bootstrap chi-squared test is easy to implement, as it only requires fitting exactly the same model to the bootstrap data to obtain the corresponding MLE, and then constructs the bin counts based on the original data. We examine the test size and power of the new model diagnostic procedure using simulation studies and illustrate it with a real data set.},
+	An = {23720703},
+	Author = {Yin, Guosheng and Ma, Yanyuan},
+	Date-Added = {2020-06-26 14:38:46 -0400},
+	Date-Modified = {2020-06-26 14:38:46 -0400},
+	Db = {PubMed},
+	Doi = {10.1214/13-EJS773},
+	Isbn = {1935-7524; 1935-7524},
+	J2 = {Electron J Stat},
+	Journal = {Electronic journal of statistics},
+	Keywords = {Asymptotic distribution; bootstrap sample; hypothesis testing; maximum likelihood estimator; model diagnostics},
+	L2 = {https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3664432/},
+	La = {eng},
+	Pages = {412--427},
+	Title = {Pearson-type goodness-of-fit test with bootstrap maximum likelihood estimation},
+	Ty = {JOUR},
+	U1 = {23720703{$[$}pmid{$]$}},
+	U2 = {PMC3664432{$[$}pmcid{$]$}},
+	Url = {https://pubmed.ncbi.nlm.nih.gov/23720703},
+	Volume = {7},
+	Year = {2013},
+	Bdsk-Url-1 = {https://pubmed.ncbi.nlm.nih.gov/23720703},
+	Bdsk-Url-2 = {https://doi.org/10.1214/13-EJS773}}
 
 @article{Chen:2018aa,
 	Abstract = {Read counting and unique molecular identifier (UMI) counting are the principal gene expression quantification schemes used in single-cell RNA-sequencing (scRNA-seq) analysis. By using multiple scRNA-seq datasets, we reveal distinct distribution differences between these schemes and conclude that the negative binomial model is a good approximation for UMI counts, even in heterogeneous populations. We further propose a novel differential expression analysis algorithm based on a negative binomial model with independent dispersions in each group (NBID). Our results show that this properly controls the FDR and achieves better power for UMI counts when compared to other recently developed packages for scRNA-seq analysis.},
@@ -661,14 +701,14 @@
 	Url = {https://doi.org/10.1186/s12859-016-0944-6},
 	Volume = {17},
 	Year = {2016},
-	Bdsk-File-1 = {YnBsaXN0MDDUAQIDBAUGJCVYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoKgHCBMUFRYaIVUkbnVsbNMJCgsMDxJXTlMua2V5c1pOUy5vYmplY3RzViRjbGFzc6INDoACgAOiEBGABIAFgAdccmVsYXRpdmVQYXRoWWFsaWFzRGF0YV5ubWV0aC4yNzcxLnJpc9IXCxgZV05TLmRhdGFPEQF+AAAAAAF+AAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAAAAAAAAQkQAAf////8Obm1ldGguMjc3MS5yaXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/////wAAAAAAAAAAAAAAAAABAAIAAAogY3UAAAAAAAAAAAAAAAAACnJlZmVyZW5jZXMAAgBBLzpVc2Vyczp4aXV5dW1hOkRlc2t0b3A6c2NERGJvb3N0OnBhcGVyOnJlZmVyZW5jZXM6bm1ldGguMjc3MS5yaXMAAA4AHgAOAG4AbQBlAHQAaAAuADIANwA3ADEALgByAGkAcwAPABoADABNAGEAYwBpAG4AdABvAHMAaAAgAEgARAASAD9Vc2Vycy94aXV5dW1hL0Rlc2t0b3Avc2NERGJvb3N0L3BhcGVyL3JlZmVyZW5jZXMvbm1ldGguMjc3MS5yaXMAABMAAS8AABUAAgAO//8AAIAG0hscHR5aJGNsYXNzbmFtZVgkY2xhc3Nlc11OU011dGFibGVEYXRhox0fIFZOU0RhdGFYTlNPYmplY3TSGxwiI1xOU0RpY3Rpb25hcnmiIiBfEA9OU0tleWVkQXJjaGl2ZXLRJidUcm9vdIABAAgAEQAaACMALQAyADcAQABGAE0AVQBgAGcAagBsAG4AcQBzAHUAdwCEAI4AnQCiAKoCLAIuAjMCPgJHAlUCWQJgAmkCbgJ7An4CkAKTApgAAAAAAAACAQAAAAAAAAAoAAAAAAAAAAAAAAAAAAACmg==},
+	Bdsk-File-1 = {YnBsaXN0MDDSAQIDBFxyZWxhdGl2ZVBhdGhZYWxpYXNEYXRhXm5tZXRoLjI3NzEucmlzTxEBygAAAAABygACAAAMTWFjaW50b3NoIEhEAAAAAAAAAAAAAAAAAAAAAAAAAEJEAAH/////Dm5tZXRoLjI3NzEucmlzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8AAAAAAAAAAAAAAAAAAQACAAAKIGN1AAAAAAAAAAAAAAAAAApyZWZlcmVuY2VzAAIAZy86VXNlcnM6eGl1eXVtYTpEZXNrdG9wOnNjRERib29zdFBhcGVyOnNjRERib29zdC1mdWxscHJvamVjdDoxLXJldmlzaW9uOnBhcGVyOnJlZmVyZW5jZXM6bm1ldGguMjc3MS5yaXMAAA4AHgAOAG4AbQBlAHQAaAAuADIANwA3ADEALgByAGkAcwAPABoADABNAGEAYwBpAG4AdABvAHMAaAAgAEgARAASAGVVc2Vycy94aXV5dW1hL0Rlc2t0b3Avc2NERGJvb3N0UGFwZXIvc2NERGJvb3N0LWZ1bGxwcm9qZWN0LzEtcmV2aXNpb24vcGFwZXIvcmVmZXJlbmNlcy9ubWV0aC4yNzcxLnJpcwAAEwABLwAAFQACAA7//wAAAAgADQAaACQAMwAAAAAAAAIBAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAIB},
 	Bdsk-Url-1 = {https://doi.org/10.1186/s12859-016-0944-6},
 	Bdsk-Url-2 = {http://dx.doi.org/10.1186/s12859-016-0944-6}}
 
 @article{cspa,
 	Date-Added = {2018-01-23 19:44:59 +0000},
 	Date-Modified = {2018-01-23 19:45:52 +0000},
-	Bdsk-File-1 = {YnBsaXN0MDDUAQIDBAUGJCVYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoKgHCBMUFRYaIVUkbnVsbNMJCgsMDxJXTlMua2V5c1pOUy5vYmplY3RzViRjbGFzc6INDoACgAOiEBGABIAFgAdccmVsYXRpdmVQYXRoWWFsaWFzRGF0YV8QIC4uLy4uLy4uLy4uL0Rvd25sb2Fkcy85NDQ5MzUuYmli0hcLGBlXTlMuZGF0YU8RAToAAAAAAToAAgAADE1hY2ludG9zaCBIRAAAAAAAAAAAAAAAAAAAAAAAAABCRAAB/////wo5NDQ5MzUuYmliAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAAAAAAAAAAAQAAgAACiBjdQAAAAAAAAAAAAAAAAAJRG93bmxvYWRzAAACACQvOlVzZXJzOnhpdXl1bWE6RG93bmxvYWRzOjk0NDkzNS5iaWIADgAWAAoAOQA0ADQAOQAzADUALgBiAGkAYgAPABoADABNAGEAYwBpAG4AdABvAHMAaAAgAEgARAASACJVc2Vycy94aXV5dW1hL0Rvd25sb2Fkcy85NDQ5MzUuYmliABMAAS8AABUAAgAO//8AAIAG0hscHR5aJGNsYXNzbmFtZVgkY2xhc3Nlc11OU011dGFibGVEYXRhox0fIFZOU0RhdGFYTlNPYmplY3TSGxwiI1xOU0RpY3Rpb25hcnmiIiBfEA9OU0tleWVkQXJjaGl2ZXLRJidUcm9vdIABAAgAEQAaACMALQAyADcAQABGAE0AVQBgAGcAagBsAG4AcQBzAHUAdwCEAI4AsQC2AL4B/AH+AgMCDgIXAiUCKQIwAjkCPgJLAk4CYAJjAmgAAAAAAAACAQAAAAAAAAAoAAAAAAAAAAAAAAAAAAACag==}}
+	Bdsk-File-1 = {YnBsaXN0MDDSAQIDBFxyZWxhdGl2ZVBhdGhZYWxpYXNEYXRhXxAmLi4vLi4vLi4vLi4vLi4vLi4vRG93bmxvYWRzLzk0NDkzNS5iaWJPEQE6AAAAAAE6AAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAAAAAAAAQkQAAf////8KOTQ0OTM1LmJpYgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/////wAAAAAAAAAAAAAAAAAGAAIAAAogY3UAAAAAAAAAAAAAAAAACURvd25sb2FkcwAAAgAkLzpVc2Vyczp4aXV5dW1hOkRvd25sb2Fkczo5NDQ5MzUuYmliAA4AFgAKADkANAA0ADkAMwA1AC4AYgBpAGIADwAaAAwATQBhAGMAaQBuAHQAbwBzAGgAIABIAEQAEgAiVXNlcnMveGl1eXVtYS9Eb3dubG9hZHMvOTQ0OTM1LmJpYgATAAEvAAAVAAIADv//AAAACAANABoAJABNAAAAAAAAAgEAAAAAAAAABQAAAAAAAAAAAAAAAAAAAYs=}}
 
 @article{ref:cspa,
 	Acmid = {944935},
@@ -876,7 +916,7 @@
 	Url = {http://dx.doi.org/10.1038/nmeth.4236},
 	Volume = {14},
 	Year = {2017},
-	Bdsk-File-1 = {YnBsaXN0MDDUAQIDBAUGJCVYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoKgHCBMUFRYaIVUkbnVsbNMJCgsMDxJXTlMua2V5c1pOUy5vYmplY3RzViRjbGFzc6INDoACgAOiEBGABIAFgAdccmVsYXRpdmVQYXRoWWFsaWFzRGF0YV8QD25yaS4yMDE3Ljc2LnJpc9IXCxgZV05TLmRhdGFPEQGAAAAAAAGAAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAAAAAAAAQkQAAf////8PbnJpLjIwMTcuNzYucmlzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/////wAAAAAAAAAAAAAAAAABAAIAAAogY3UAAAAAAAAAAAAAAAAACnJlZmVyZW5jZXMAAgBCLzpVc2Vyczp4aXV5dW1hOkRlc2t0b3A6c2NERGJvb3N0OnBhcGVyOnJlZmVyZW5jZXM6bnJpLjIwMTcuNzYucmlzAA4AIAAPAG4AcgBpAC4AMgAwADEANwAuADcANgAuAHIAaQBzAA8AGgAMAE0AYQBjAGkAbgB0AG8AcwBoACAASABEABIAQFVzZXJzL3hpdXl1bWEvRGVza3RvcC9zY0REYm9vc3QvcGFwZXIvcmVmZXJlbmNlcy9ucmkuMjAxNy43Ni5yaXMAEwABLwAAFQACAA7//wAAgAbSGxwdHlokY2xhc3NuYW1lWCRjbGFzc2VzXU5TTXV0YWJsZURhdGGjHR8gVk5TRGF0YVhOU09iamVjdNIbHCIjXE5TRGljdGlvbmFyeaIiIF8QD05TS2V5ZWRBcmNoaXZlctEmJ1Ryb290gAEACAARABoAIwAtADIANwBAAEYATQBVAGAAZwBqAGwAbgBxAHMAdQB3AIQAjgCgAKUArQIxAjMCOAJDAkwCWgJeAmUCbgJzAoACgwKVApgCnQAAAAAAAAIBAAAAAAAAACgAAAAAAAAAAAAAAAAAAAKf},
+	Bdsk-File-1 = {YnBsaXN0MDDSAQIDBFxyZWxhdGl2ZVBhdGhZYWxpYXNEYXRhXxAPbnJpLjIwMTcuNzYucmlzTxEBzAAAAAABzAACAAAMTWFjaW50b3NoIEhEAAAAAAAAAAAAAAAAAAAAAAAAAEJEAAH/////D25yaS4yMDE3Ljc2LnJpcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8AAAAAAAAAAAAAAAAAAQACAAAKIGN1AAAAAAAAAAAAAAAAAApyZWZlcmVuY2VzAAIAaC86VXNlcnM6eGl1eXVtYTpEZXNrdG9wOnNjRERib29zdFBhcGVyOnNjRERib29zdC1mdWxscHJvamVjdDoxLXJldmlzaW9uOnBhcGVyOnJlZmVyZW5jZXM6bnJpLjIwMTcuNzYucmlzAA4AIAAPAG4AcgBpAC4AMgAwADEANwAuADcANgAuAHIAaQBzAA8AGgAMAE0AYQBjAGkAbgB0AG8AcwBoACAASABEABIAZlVzZXJzL3hpdXl1bWEvRGVza3RvcC9zY0REYm9vc3RQYXBlci9zY0REYm9vc3QtZnVsbHByb2plY3QvMS1yZXZpc2lvbi9wYXBlci9yZWZlcmVuY2VzL25yaS4yMDE3Ljc2LnJpcwATAAEvAAAVAAIADv//AAAACAANABoAJAA2AAAAAAAAAgEAAAAAAAAABQAAAAAAAAAAAAAAAAAAAgY=},
 	Bdsk-Url-1 = {http://dx.doi.org/10.1038/nmeth.4236}}
 
 @article{ref:MAST,
