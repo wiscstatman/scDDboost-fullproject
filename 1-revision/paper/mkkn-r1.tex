@@ -1017,11 +1017,11 @@ Table \ref{tab:nb} demonstrates that most DD genes identified by our method are 
 \end{table}
 
 
-\begin{figure}[h!]
-  \includegraphics[width=\linewidth]{Figs/nbfit.pdf}
-  \caption{Cumulative distribution functions for subtype specific fdr adjusted p values of goodness of fit for NB distribution at two data sets, different colors are correspond to different subtypes}
-  \label{fig:nb}
-\end{figure}
+%\begin{figure}[h!]
+%  \includegraphics[width=\linewidth]{Figs/nbfit.pdf}
+%  \caption{Cumulative distribution functions for subtype specific fdr adjusted p values of goodness of fit for NB distribution at two data sets, different colors are correspond to different subtypes}
+%  \label{fig:nb}
+%\end{figure}
 
 }
 
@@ -1064,19 +1064,19 @@ After the distance is obtained, we perform K-medoids for clustering, where the s
 
 Our results are averaged over randomly generated clusterings and thus is not sensitive to the choice of the input clustering method.
 Further, we redeployed \texttt{scDDboost} in examples (data sets EBTAB2805, GSE45719) but using clustering method \texttt{sc3} in place of the default method.
-Let $p_o$ be the proportions of commonly identified genes among the top 1000.
+Let $p_o$ be the proportions of commonly identified genes among the top 1000 and $n_{DD}$ be the number of DD genes. Further inference based on default clustering method tends to give conservative result and have a lot in common with \texttt{sc3}
 \begin{table}[htbp]
   \begin{center}
   %\topcaption{Table captions are better up top} % requires the topcapt package
-  \begin{tabular}{@{} lcr @{}} % Column formatting, @{} suppresses leading/trailing space
+  \begin{tabular}{@{} lccccr @{}} % Column formatting, @{} suppresses leading/trailing space
       \toprule
       %\multicolumn{2}{c}{Item} \\
       \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
       Data Set   & cor &
-      $p_o$  \\
+      $p_o$ & $n_{DD}$ default & $n_{DD}$ by sc3 & commonly identified\\
       \midrule
-      EMTAB2805  & 0.93 & 80\%\\          
-      GSE45719   & 0.94 & 75\%\\
+      EMTAB2805  & 0.93 & 80\% & 3334 & 3725 & 2913\\          
+      GSE45719   & 0.94 & 75\% & 4805 & 7591 & 4851\\
       \bottomrule
   \end{tabular}
   \caption{similar local FDR under two clustering methods}
