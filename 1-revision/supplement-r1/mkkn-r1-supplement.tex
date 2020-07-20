@@ -403,12 +403,28 @@ We have null hypothesis $$H_0: \sigma^1 =
 
 \subsection{Negative binomial fitting}
 
-For those genes against NB assumption and uniquely identified by \texttt{scDDboost}. From Fig \ref{fig:s11} we found they are somewhat different.
-Further we test difference between proportions of zeros on those genes by using t-test and it is favorable for not identical proportions with p values 0.02
+Given the estimated subtype label, we test NB fitting for each subtype by an adjusted Pearson-type goodness-of-fit test(\cite{Yin:2013aa}).
+Figure \ref{fig:nb} presents the cumulative distribution of the fdr adjusted p values under each subtype. 
+
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{Figs/nbfit.pdf}
+  \caption{Cumulative distribution functions for subtype specific fdr adjusted p values of goodness of fit for NB distribution at two data sets, different colors are correspond to different subtypes}
+  \label{fig:nb}
+\end{figure}
+
+We found that the distribution functions are right skewed and only for a small proportions of genes that NB assumption may be inappropriate
+Further,
+for those genes against NB assumption and uniquely identified by \texttt{scDDboost}. From Fig \ref{fig:s11}, and Fig \ref{fig:s12} we found that they are somewhat different.
 \begin{figure}[h]
 \includegraphics[width = 0.7\textwidth]{Figs/NBgene.pdf}
-\caption{violin plot of the 57 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt{scDDboost}}
+\caption{Data set EMTAB2805, violin plot of the 57 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt{scDDboost}}
 \label{fig:s11}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width = 0.5\textwidth]{Figs/NBgene2.pdf}
+\caption{Data set GSE45719, violin plot of the 13 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt{scDDboost}}
+\label{fig:s12}
 \end{figure}
 
 

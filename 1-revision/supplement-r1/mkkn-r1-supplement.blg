@@ -12,49 +12,51 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ./supp_references/wlr_ref.bib
+Warning--I didn't find a database entry for "JSSv040i05"
+Warning--I didn't find a database entry for "ineq"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty booktitle in selK
-You've used 17 entries,
+You've used 16 entries,
             5204 wiz_defined-function locations,
-            1000 strings with 12153 characters,
-and the built_in function-call counts, 193025 in all, are:
-= -- 28320
-> -- 641
-< -- 19
-+ -- 5511
-- -- 193
-* -- 15429
-:= -- 28285
-add.period$ -- 59
-call.type$ -- 17
-change.case$ -- 87
-chr.to.int$ -- 17
-cite$ -- 18
-duplicate$ -- 1259
-empty$ -- 12239
-format.name$ -- 992
-if$ -- 43868
+            998 strings with 12014 characters,
+and the built_in function-call counts, 186516 in all, are:
+= -- 27296
+> -- 621
+< -- 18
++ -- 5193
+- -- 188
+* -- 15012
+:= -- 27291
+add.period$ -- 57
+call.type$ -- 16
+change.case$ -- 82
+chr.to.int$ -- 16
+cite$ -- 17
+duplicate$ -- 1212
+empty$ -- 11897
+format.name$ -- 963
+if$ -- 42319
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 198
-num.names$ -- 71
-pop$ -- 795
+newline$ -- 189
+num.names$ -- 67
+pop$ -- 759
 preamble$ -- 1
-purify$ -- 53
+purify$ -- 50
 quote$ -- 0
-skip$ -- 16300
+skip$ -- 15698
 stack$ -- 0
-substring$ -- 36813
-swap$ -- 614
-text.length$ -- 153
+substring$ -- 35803
+swap$ -- 596
+text.length$ -- 144
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 444
+type$ -- 416
 warning$ -- 1
-while$ -- 225
+while$ -- 212
 width$ -- 0
-write$ -- 401
-(There was 1 warning)
+write$ -- 380
+(There were 3 warnings)
