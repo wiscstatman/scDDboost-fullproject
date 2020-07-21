@@ -989,13 +989,13 @@ In addition to being motivated by the subtype intuition, mixture model can appro
 many other literatures used NB to model transcripts (\cite{ref:Des},\cite{Chen:2018aa}). 
 Further, we study the goodness of NB fitting at two data sets EMTAB2805 and GSE45719. 
 Given the estimated subtype label, we test NB fitting for each subtype by an adjusted Pearson-type goodness-of-fit test(\cite{Yin:2013aa}).
-Figure \ref{fig:nb} presents the cumulative distribution of the fdr adjusted p values under each subtype. 
-We observe that for most genes the p values are big across all subtypes. 
+We investigated the distribution of the p values and observed that a few genes having evidence against the NB assumption(supplementary 2.4). 
 Let $\mathcal{N}_{0.05}$ be the set of genes having at least one fdr adjusted p value on one subtype less than 0.05.
 Let $\mathcal{D}_{0.05}$ be the set of genes identified as DD genes by our method at 0.05 local fdr.
-Let $\mathcal{T}_{0.05}$ be the set of genes identified by two sample t test with fdr correction at 0.05 threshold. 
+Let $\mathcal{U}_{0.05}$ be the union of genes identified by other methods(t-test,MAST,DESeq2,scDD) with fdr correction at 0.05 threshold. 
 Let $N_g$ be the number of genes. 
-Table \ref{tab:nb} demonstrates that most DD genes identified by our method are also confirmed by t test among those genes where NB distribution may not be appropriate
+Table \ref{tab:nb} demonstrates among those non-NB genes, most DD identified by our method are also confirmed by other tests 
+Further we investigate the part uniquely identified by \texttt{scDDboost} and observed distributional differences (supplementary 2.4)
 \begin{table}[htbp]
   \begin{center}
   %\topcaption{Table captions are better up top} % requires the topcapt package
@@ -1004,10 +1004,10 @@ Table \ref{tab:nb} demonstrates that most DD genes identified by our method are 
       %\multicolumn{2}{c}{Item} \\
       \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
       Data Set   & $|\mathcal{N}_{0.05}|$ &
-      $|\mathcal{D}_{0.05} \cap \mathcal{N}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{N}_{0.05} \cap \mathcal{T}_{0.05}|$ & $N_g$  \\
+      $|\mathcal{D}_{0.05} \cap \mathcal{N}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{N}_{0.05} \cap \mathcal{U}_{0.05}|$ & $N_g$  \\
       \midrule
-      EMTAB2805   &593 & 122 & 90 & 45686\\          
-      GSE45719   & 528 & 212 & 198 & 45686\\
+      EMTAB2805   &593 & 137 & 80 & 45686\\          
+      GSE45719   & 528 & 198 & 185 & 45686\\
       
       \bottomrule
   \end{tabular}
@@ -1017,11 +1017,6 @@ Table \ref{tab:nb} demonstrates that most DD genes identified by our method are 
 \end{table}
 
 
-%\begin{figure}[h!]
-%  \includegraphics[width=\linewidth]{Figs/nbfit.pdf}
-%  \caption{Cumulative distribution functions for subtype specific fdr adjusted p values of goodness of fit for NB distribution at two data sets, different colors are correspond to different subtypes}
-%  \label{fig:nb}
-%\end{figure}
 
 }
 
@@ -1033,9 +1028,8 @@ We use the likelihood ratio test(LRT) to study the validity of constant shape.
 The viability of LRT is studied using simulation in the supplementary file. 
 Let $\mathcal{R}_{0.05}$ be the set of genes having fdr adjusted p value less than 0.05. 
 Under those genes against constant shape assumption, 
-Let $\mathcal{E}_{0.05}$ be the union genes identified by t-test, DESeq2, MAST and scDD.
-Table \ref{tab:cs} demonstrates that most DD genes identified by our method are also confirmed by t test.
-
+Let $\mathcal{U}_{0.05}$ be the union genes identified by t-test, DESeq2, MAST and scDD.
+Table \ref{tab:cs} demonstrates that most DD genes identified by our method are also confirmed by other tests. 
 \begin{table}[htbp]
   \begin{center}
   %\topcaption{Table captions are better up top} % requires the topcapt package
@@ -1044,7 +1038,7 @@ Table \ref{tab:cs} demonstrates that most DD genes identified by our method are 
       %\multicolumn{2}{c}{Item} \\
       \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
       Data Set   & $|\mathcal{R}_{0.05}|$ &
-      $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05} \cap \mathcal{E}_{0.05}|$ & $N_g$   \\
+      $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05} \cap \mathcalU}_{0.05}|$ & $N_g$   \\
       \midrule
       GSE75748   & 8605 & 2390 & 2331 & 19097\\          
       GSE45719   & 7454 & 2562 & 2529 & 45686\\
