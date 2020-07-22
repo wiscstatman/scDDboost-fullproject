@@ -116,6 +116,18 @@ for(i in 1:nrow(data_counts)){
 
 t_pval = p.adjust(tpval,"fdr")
 
+## ks-test p values
+kpval = rep(0,nrow(data_counts))
+for(i in 1:nrow(data_counts)){
+    x = data_counts[i,which(cd == 1)]
+    y = data_counts[i,which(cd == 2)]
+    fit = ks.test(x,y)
+    kpval[i] = fit$p.value
+}
+
+k_pval = p.adjust(kpval,"fdr")
+
+
 
 ###############################################################################
 
@@ -128,7 +140,7 @@ load("NBfit1.RData")
 ###  p values are adjusted by pooling all cluster specific p values together and do the BH procedure. 
 
 # p_scDDboost: posterior of being DD 
-# t_pval,p_deseq2,p_mast,p_scdd, adjusted p value for t-test,deseq2, mast and scDD
+# t_pval, k_pval,p_deseq2,p_mast,p_scdd, adjusted p value for t-test,ks test, deseq2, mast and scDD
 
 # data_counts, transcripts matrix
 # cd, condition label
@@ -172,13 +184,12 @@ for(i in 1:nG){
 
 
 tWHICH = which(t_pval < 0.05)
-
+kWHICH = which(k_pval < 0.05)
 tWHICH1 = which(p_mast < 0.05)
 tWHICH2 = which(p_scdd < 0.05)
 tWHICH3 = which(p_deseq2 < 0.05)
 
-UNION = union(tWHICH3,union(tWHICH2,union(tWHICH,tWHICH1)))
-
+UNION = union(kWHICH,union(tWHICH3,union(tWHICH2,union(tWHICH,tWHICH1))))
 
 
 sWHICH = intersect(which(p_scDDboost > 0.95), which(WHICH == 1))
