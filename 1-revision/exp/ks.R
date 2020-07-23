@@ -79,3 +79,17 @@ sum(k_genes %in% intersect(uni_genes,cell_cycle_genes))
 k_genes[which(k_genes %in% intersect(uni_genes,cell_cycle_genes) == T)]
 
 ## they are not the 3 genes we found support for DD in G1 vs G2/M
+
+
+## 237 genes find by ks also cell-cycle related
+
+sum(k_genes %in% cell_cycle_genes)
+
+## while scDDboost found 409 cell-cycle related genes
+sum(scDDb_genes %in% cell_cycle_genes)
+
+## excluding those union found by MAST,DESeq2,scDD and t-test
+## ks test find 2 cell-cycle related genes
+sum(setdiff(k_genes,U_genes) %in% cell_cycle_genes)
+
+
