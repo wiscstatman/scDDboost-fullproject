@@ -87,8 +87,8 @@ This supplement is organized to match the sectioning of the main document.   In 
     \item \verb+modalClust+
     \item Randomized $K-$means
     \item Selecting $K$
-    \item Negative binomial fitting
     \item Likelihood ratio test for common shape parameter
+    \item Negative binomial fitting
     \end{list}
   \item Double Dirichlet Mixture
     \begin{list}{}{}
@@ -100,6 +100,7 @@ This supplement is organized to match the sectioning of the main document.   In 
    \item Synthetic data, \verb+splatter+
    \item Empirical study, \verb+conquer+ and Null case
    \item Robustness
+   \item Inference based on sc3
    \end{itemize}
 \item Posterior consistency
   \begin{itemize}
@@ -780,6 +781,13 @@ not lead to overestimating $K$.
 \end{figure}
 
 \clearpage
+
+\subsection{Inference base on \texttt{SC3}}
+
+Five data sets (EMTAB2805, GSE64016, GSE93818, GSE74596, GSE71585) are used to check the negative control for our method appling sc3 for clustering. 
+We use same procedure to generate null case. Namely,
+cells from one condition are randomly split to two groups under each data set, thus for any gene, there is no distributional change between the two groups. 
+For each data set, five randomly splits are used. We observed zero positives for our method, thus \texttt{scDDboost} can still control the FDR given different clustering method.
 
 %\subsection{Bursting parameters}
 
