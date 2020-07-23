@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  23 JUL 2020 00:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  23 JUL 2020 01:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1106,6 +1106,9 @@ LaTeX Warning: Label `k1thanks' multiply defined.
 
 LaTeX Warning: Label `k2thanks' multiply defined.
 
+
+LaTeX Warning: Label `nullperm' multiply defined.
+
 )
 \openout1 = `mkkn-r1.aux'.
 
@@ -1396,20 +1399,20 @@ File: Figs/fdrCounts.pdf Graphic file (type pdf)
 <use Figs/fdrCounts.pdf>
 Package pdftex.def Info: Figs/fdrCounts.pdf  used on input line 874.
 (pdftex.def)             Requested size: 288.0011pt x 179.99637pt.
- [18 <./Figs/DD95.pdf> <./Figs/fdrCounts.pdf>]
-<Figs/shift.pdf, id=431, 650.43pt x 216.81pt>
+ [18 <./Figs/DD95.pdf>]
+<Figs/shift.pdf, id=424, 650.43pt x 216.81pt>
 File: Figs/shift.pdf Graphic file (type pdf)
 <use Figs/shift.pdf>
 Package pdftex.def Info: Figs/shift.pdf  used on input line 895.
 (pdftex.def)             Requested size: 323.9978pt x 108.00111pt.
-
-[19 <./Figs/shift.pdf>]
-<Figs/D3E_box.pdf, id=454, 505.89pt x 505.89pt>
+ [19 <./Figs/fdrCounts.pdf>]
+<Figs/D3E_box.pdf, id=447, 505.89pt x 505.89pt>
 File: Figs/D3E_box.pdf Graphic file (type pdf)
 <use Figs/D3E_box.pdf>
 Package pdftex.def Info: Figs/D3E_box.pdf  used on input line 948.
 (pdftex.def)             Requested size: 306.0022pt x 306.00648pt.
- [20 <./Figs/D3E_box.pdf>]
+
+[20 <./Figs/shift.pdf>] [21 <./Figs/D3E_box.pdf>]
 Runaway argument?
 { \begin {enumerate} \item number of subtypes $K$ \item negative bino\ETC.
 ./mkkn-r1.tex:976: Paragraph ended before \@textcolor was complete.
@@ -1426,7 +1429,6 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 978.
 
-[21]
 ./mkkn-r1.tex:1023: Too many }'s.
 l.1023 }
         
@@ -1439,16 +1441,15 @@ l.1043 ...} \cap \mathcal{R}_{0.05} \cap \mathcalU
 l.1043 ... \cap \mathcal{R}_{0.05} \cap \mathcalU}
                                                   _{0.05}|$ & $N_g$   \\
 ? 
-
+[22]
 Overfull \hbox (6.97914pt too wide) in paragraph at lines 1056--1060
  \OT1/pplx/m/n/10.95 3.5.4.\OT1/pplx/m/it/10.95 clustering method.[][] \OT1/ppl
 x/m/n/10.95 We use dis-tance based clus-ter-ing method, where
  []
 
-[22]
 ./mkkn-r1.tex:1082: Undefined control sequence.
-l.1082 ...o run \texttt{scDDboost} based on \textt
-                                                  {sc3} on null case data se...
+l.1082 We also run \texttt{scDDboost} with \textt
+                                                 {sc3} on null case data set...
 
 ? 
 [23] [24]
@@ -1458,7 +1459,7 @@ Overfull \hbox (4.08498pt too wide) in paragraph at lines 1153--1162
 /10.95 , since
  []
 
-
+[25]
 Overfull \hbox (27.13661pt too wide) in paragraph at lines 1167--1170
 \OT1/pplx/m/n/10.95 tional In-sti-tutes of Health grants P50 DE026787, P30CA145
 20-45, R01 GM102756,
@@ -1498,7 +1499,6 @@ Type  H <return>  for immediate help.
 l.92 \bid{Chu2016}
                   
 ? 
-[25]
 
 ./mkkn-r1.bbl:148: Package xkeyval Error: `Delmans2016' undefined in families `
 bid'.
@@ -1510,6 +1510,7 @@ Type  H <return>  for immediate help.
 l.148 \bid{Delmans2016}
                        
 ? 
+[26]
 
 ./mkkn-r1.bbl:238: Package xkeyval Error: `Finak2015' undefined in families `bi
 d'.
@@ -1543,7 +1544,7 @@ Type  H <return>  for immediate help.
 l.432 \bid{Korthauer2016}
                          
 ? 
-[26] (/usr/local/texlive/2018/texmf-dist/tex/latex/ucs/data/uni-3.def
+(/usr/local/texlive/2018/texmf-dist/tex/latex/ucs/data/uni-3.def
 File: uni-3.def 2013/05/13 UCS: Unicode data U+0300..U+03FF
 )
 ./mkkn-r1.bbl:451: Undefined control sequence.
@@ -1552,6 +1553,7 @@ File: uni-3.def 2013/05/13 UCS: Unicode data U+0300..U+03FF
 l.451   to Dynamic Patterns of NF-κB Activation}
                                                  .
 ? 
+[27]
 
 ./mkkn-r1.bbl:526: Package xkeyval Error: `Lin2017' undefined in families `bid'
 .
@@ -1585,7 +1587,7 @@ Type  H <return>  for immediate help.
 l.681 \bid{Pierson2015}
                        
 ? 
-[27]
+
 Underfull \hbox (badness 2221) in paragraph at lines 817--836
 []\OT1/pplx/m/sc/9 Trapnell, C.\OT1/pplx/m/n/9 , \OT1/pplx/m/sc/9 Cac-chiarelli
 , D.\OT1/pplx/m/n/9 , \OT1/pplx/m/sc/9 Grimsby, J.\OT1/pplx/m/n/9 , \OT1/pplx/m
@@ -1593,6 +1595,7 @@ Underfull \hbox (badness 2221) in paragraph at lines 817--836
 T1/pplx/m/sc/9 Morse, M.\OT1/pplx/m/n/9 ,
  []
 
+[28]
 
 ./mkkn-r1.bbl:887: Package xkeyval Error: `Zappia2017' undefined in families `b
 id'.
@@ -1604,13 +1607,13 @@ Type  H <return>  for immediate help.
 l.887 \bid{Zappia2017}
                       
 ? 
-) [28]
+) [29]
 Overfull \hbox (6.77095pt too wide) in paragraph at lines 1225--1241
  []\OT1/pplx/m/it/10.95 Randomizing dis-tances for ap-prox-i-mate pos-te-rior i
 n-fer-ence. \OT1/pplx/m/n/10.95 One way to frame
  []
 
-[29] [30]
+[30] [31]
 Underfull \hbox (badness 10000) in paragraph at lines 1325--1325
 []|[][]\OT1/pplx/m/n/6 Darmanis et al.[][]
  []
@@ -1620,7 +1623,7 @@ Overfull \hbox (43.833pt too wide) in paragraph at lines 1311--1327
  [][] 
  []
 
-[31] [32] [33
+[32] [33] [34
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1368.
@@ -1641,13 +1644,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1368.
  ) 
 Here is how much of TeX's memory you used:
- 29687 strings out of 492649
- 559702 string characters out of 6129622
- 642724 words of memory out of 5000000
+ 29688 strings out of 492649
+ 559709 string characters out of 6129622
+ 642602 words of memory out of 5000000
  32893 multiletter control sequences out of 15000+600000
  573883 words of font info for 129 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,13n,77p,10425b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,13n,77p,10425b,565s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -1662,10 +1665,10 @@ ist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2018/texmf-dist/font
 s/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/pa
 latino/uplri8a.pfb>
-Output written on mkkn-r1.pdf (33 pages, 728697 bytes).
+Output written on mkkn-r1.pdf (34 pages, 729052 bytes).
 PDF statistics:
- 688 PDF objects out of 1000 (max. 8388607)
- 612 compressed objects within 7 object streams
- 160 named destinations out of 1000 (max. 500000)
+ 691 PDF objects out of 1000 (max. 8388607)
+ 614 compressed objects within 7 object streams
+ 161 named destinations out of 1000 (max. 500000)
  240 words of extra memory for PDF output out of 10000 (max. 10000000)
 
