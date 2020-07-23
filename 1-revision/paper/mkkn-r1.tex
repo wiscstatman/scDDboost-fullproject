@@ -1060,7 +1060,7 @@ After the distance is obtained, we perform K-medoids for clustering, where the s
 
 Our results are averaged over randomly generated clusterings and thus is not sensitive to the choice of the input clustering method.
 Further, we redeployed \texttt{scDDboost} in examples (data sets EBTAB2805, GSE45719) but using clustering method \texttt{sc3} in place of the default method.
-Let $p_o$ be the proportions of commonly identified genes among the top 1000 and $n_{DD}$ be the number of DD genes. Further inference based on default clustering method tends to give conservative result and have a lot in common with \texttt{sc3}
+Let $p_o$ be the proportions of commonly identified genes among the top 1000 and $n_{DD}$ be the number of DD genes. Further inference based on default clustering method tends to give conservative result and have a lot in common with \texttt{sc3}. 
 \begin{table}[htbp]
   \begin{center}
   %\topcaption{Table captions are better up top} % requires the topcapt package
@@ -1079,7 +1079,8 @@ Let $p_o$ be the proportions of commonly identified genes among the top 1000 and
   \label{tab:dist}
   \end{center}
 \end{table}
-
+We also run \texttt{scDDboost} based on \textt{sc3} on null case data sets used in Figure~\label{nullperm}. 
+We observe very few positives and conclude that our method does not inflate type-I error with different clustering method.(supplementary 3.4)
 
 
 \section{Asymptotics of the Double Dirichlet Mixture}
