@@ -79,6 +79,7 @@ This supplement is organized to match the sectioning of the main document.   In 
  \begin{itemize}
   \item Data Structure, Sampling Model, and Parameters
     \begin{list}{}{}
+    \item Demonstrating {\em key issue}
     \item Proof of Theorem 2
     \end{list}
   \item Method Structure and Clustering 
@@ -126,6 +127,35 @@ See \url {https://github.com/wiscstatman/scDDboost}
 \section{Modeling}
 
 \subsection{Data Structure, Sampling Model, and Parameters}
+
+\noindent
+\textcolor{red}{{\bf Illustrating key issue:}}
+
+\textcolor{red}{Consider an example as in Figure 2 [main] wherein there are $K=7$ subtypes having 
+proportions $\phi=(\phi_1, \cdots, \phi_7)$ in one condition and proportions 
+$\psi = (\psi_1, \cdots, \psi_7)$ in the other.  Though $\phi \neq \psi$, the marginal
+distribution of data at one gene may not differ between the conditions; this depends on
+ties that may exist in the seven component distributions.  For demonstration's sake, suppose
+that there are three unique component distributions among the seven, say $\alpha(x), \beta(x)$,
+and $\gamma(x)$, and suppose there ties:
+\begin{eqnarray*}
+\alpha &=& f_{g,3} = f_{g,4} \\
+\beta  &=& f_{g,2}= f_{g,5} = f_{g,6} \\
+\gamma &=& f_{g,1} = f_{g,7}. 
+\end{eqnarray*}
+These represent the lack of differential expression between subtypes within each block, but
+differences between blocks.  Let's work out the marginal distribution of data in the first
+condition, $f^1_g(x)$, noting the proportion constraints in Figure~2:
+\begin{eqnarray*}
+f^1_g(x) &=& \sum_{k=1}^7 \phi_k f_{g,k} (x) \\
+       &=& (\phi_3+\phi_4) \alpha(x) + (\phi_2+\phi_5+\phi_6) \beta(x) + (\phi_1+\phi_7) \gamma(x) \\
+   & = & \Phi_{3,4} \alpha(x) + \Phi_{2,5,6} \beta(x) + \Phi_{1,7} \gamma(x) \\
+   &=&  \Psi_{3,4} \alpha(x) + \Psi_{2,5,6} \beta(x) + \Psi_{1,7} \gamma(x) \\
+   &=& f^2_g(x) .
+\end{eqnarray*}
+To reiterate the key issue, a gene that does not distinguish several subtypes (ties in
+the component distributions) does not distinguish the conditions even if there are 
+different overall proportions, as long as certain aggregate proportions are unaltered.}
 
 
 \begin{proof}[Proof of Theorem 2]
