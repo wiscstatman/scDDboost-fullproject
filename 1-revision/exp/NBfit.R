@@ -202,6 +202,24 @@ length(intersect(UNION,sWHICH))
 
 
 
+## plot for ecdf of raw p values (supplementary figure S4)
+
+
+pvalAll = c()
+gp = c()
+for(i in 1:K){
+    pvalAll = c(pvalAll,pval[[i]])
+    gp = c(gp,rep(i,length(pval[[i]])))
+}
+
+df = data.frame(x = pvalAll, cluster = as.factor(gp))
+
+
+ggplot(df, aes(x,color = cluster)) + stat_ecdf(geom = "step") + xlab("p values") + ylab("empirical CDF") + theme_classic()
+
+
+
+
 
 
 ### similar for another dataset NBfit2.RData (GSE45719)
