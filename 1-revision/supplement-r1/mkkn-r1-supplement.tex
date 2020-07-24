@@ -409,11 +409,11 @@ Figure \ref{fig:nb} presents the cumulative distribution of the fdr adjusted p v
 
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{Figs/nbfit.pdf}
-  \caption{Cumulative distribution functions for subtype specific fdr adjusted p values of goodness of fit for NB distribution at two data sets, different colors are correspond to different subtypes}
+  \caption{Cumulative distribution functions for subtype specific unadjusted p values of goodness of fit for NB distribution at two data sets(left is EMTAB2805, right is GSE45719), different colors are correspond to different subtypes}
   \label{fig:nb}
 \end{figure}
-
-We found that the distribution functions are right skewed and only for a small proportions of genes that NB assumption may be inappropriate
+Based on the empirical CDF, 
+we found that the p values are likely to be uniformly distributed and only for a small proportions of genes that NB assumption may be inappropriate
 Further,
 for those genes against NB assumption and uniquely identified by \texttt{scDDboost}. From Fig \ref{fig:s11}, and Fig \ref{fig:s12} we found that they are somewhat different.
 \begin{figure}[h]
