@@ -9,6 +9,15 @@ library(scDDboost)
 library(MASS)
 library(DESeq2)
 
+lsz = function (pDD, FDR = 0.01)
+{
+    ee <- 1 - pDD
+    oe <- sort(ee)
+    or = order(ee)
+    ff <- cumsum(oe)/(1:length(oe))
+    return(or[which(ff < FDR)])
+}
+
 
 ### data (EMTAB2805)
 
