@@ -527,7 +527,6 @@ conditional on an estimate of the subtype labels.
 
 We invoke $K-$medoids (\cite{kmedoids}) 
 as the default clustering method in \texttt{scDDboost}, and customize the cell-cell distance by integrating two measures.  
-%\todo{is K-mediods used over SC3/CIDR/ZIFA because it's easier to carry out randomized clusterings? Or why?}
 The first assembles gene-level information by cluster-based-similarity partitioning~(\cite{ref:cspa}).
  Separately at each gene,   modal clustering (\cite{ref:dahl} and Supplementary Material Section~2.2.2) partitions the cells, and
 then we define dissimilarity between cells as the Manhattan distance between gene-specific 
@@ -540,7 +539,8 @@ The default clustering in~\verb+scDDboost+ combines these
 two measures by weighted average, 
 with  $w_C = \frac{\sigma_P}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_C$, where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster-based distance and Pearson-correlation distance, respectively.  The software allows 
 other distances; in any case 
-the final distance matrix is denoted $D=\left( d_{i,j} \right)$. 
+the final distance matrix is denoted $D=\left( d_{i,j} \right)$. \textcolor{red}{**numerical
+experiments..which ones...also used SC3 [cite]**}.
 
 Any clustering method  entails classification errors, and so $\hat z_c \neq z_c$ for some cells. To mitigate
 the effects of this uncertainty, \texttt{scDDboost} averages output probabilities from \textsc{scDDboost-core} over

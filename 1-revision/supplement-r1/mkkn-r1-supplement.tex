@@ -128,23 +128,25 @@ See \url {https://github.com/wiscstatman/scDDboost}
 
 \subsection{Data Structure, Sampling Model, and Parameters}
 
-\noindent
-\textcolor{red}{{\bf Illustrating key issue:}}
+\subsubsection*{\textcolor{red}{{\bf Illustrating key issue:}}}
 
 \textcolor{red}{Consider an example as in Figure 2 [main] wherein there are $K=7$ subtypes having 
-proportions $\phi=(\phi_1, \cdots, \phi_7)$ in one condition and proportions 
+proportions $\phi=(\phi_1, \cdots, \phi_7)$ in one condition and different proportions 
 $\psi = (\psi_1, \cdots, \psi_7)$ in the other.  Though $\phi \neq \psi$, the marginal
 distribution of data at one gene may not differ between the conditions; this depends on
 ties that may exist in the seven component distributions.  For demonstration's sake, suppose
-that there are three unique component distributions among the seven, say $\alpha(x), \beta(x)$,
-and $\gamma(x)$, and suppose there ties:
+that there are three distinct component distributions among the seven, say $\alpha(x), \beta(x)$,
+and $\gamma(x)$, and suppose there are ties:
 \begin{eqnarray*}
 \alpha &=& f_{g,3} = f_{g,4} \\
 \beta  &=& f_{g,2}= f_{g,5} = f_{g,6} \\
 \gamma &=& f_{g,1} = f_{g,7}. 
 \end{eqnarray*}
-These represent the lack of differential expression between subtypes within each block, but
-differences between blocks.  Let's work out the marginal distribution of data in the first
+These ties represent the lack of differential expression between subtypes within each block, but
+there are differences between blocks since $\alpha$, $\beta$, and $\gamma$ are all different. 
+For the negative binomial model assumed in main, equalities and inequalities of component distributions corresponds to equalities and inequalities of component means, as the shape is assumed constant 
+within each gene.
+ Let's work out the marginal distribution of data in the first
 condition, $f^1_g(x)$, noting the proportion constraints in Figure~2:
 \begin{eqnarray*}
 f^1_g(x) &=& \sum_{k=1}^7 \phi_k f_{g,k} (x) \\
@@ -153,7 +155,7 @@ f^1_g(x) &=& \sum_{k=1}^7 \phi_k f_{g,k} (x) \\
    &=&  \Psi_{3,4} \alpha(x) + \Psi_{2,5,6} \beta(x) + \Psi_{1,7} \gamma(x) \\
    &=& f^2_g(x) .
 \end{eqnarray*}
-To reiterate the key issue, a gene that does not distinguish several subtypes (ties in
+To reiterate the key issue, a gene that does not distinguish several subtypes (it has ties in
 the component distributions) does not distinguish the conditions even if there are 
 different overall proportions, as long as certain aggregate proportions are unaltered.}
 
