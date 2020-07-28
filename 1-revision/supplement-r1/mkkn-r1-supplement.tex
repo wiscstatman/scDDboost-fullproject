@@ -148,7 +148,7 @@ and $\gamma(x)$, and suppose there are ties:
 \end{eqnarray*}
 These ties represent the lack of differential expression between subtypes within each block, but
 there are differences between blocks since $\alpha$, $\beta$, and $\gamma$ are all different. 
-For the negative binomial model assumed in main, equalities and inequalities of component distributions corresponds to equalities and inequalities of component means, as the shape is assumed constant 
+For the negative binomial model assumed in main, equalities and inequalities of component distributions correspond to equalities and inequalities of component means, as the shape is assumed constant 
 within each gene.
  Let's work out the marginal distribution of data in the first
 condition, $f^1_g(x)$, noting the proportion constraints in Figure~2:
@@ -442,7 +442,7 @@ In any case, we note here that $K$ affects the posterior probability of DD (PDD)
 To demonstrate the change of PDD over different $K$, we present an example using dataset
 GSE75748. When we increase $K$, the variance of the differential term $\text{PDD}_{K + 1} - \text{PDD}_K$ keeps decreasing and PDD keeps increasing. Our selection criterion (K = 5) happens to choose $K$ such that change between $\text{PDD}_{K + 1}$ and $\text{PDD}_K$ is small while not inflating PDD. We generally obtain stable validity score and PDD simultaneously (Supplementary Figure~\ref{fig:rwk}). In addition, the random weighting scheme helps by smoothing PDD (Supplementary Figure~\ref{fig:s10}).
 
-\texttt{scDDboost} as the potential to lose FDR control if $K$ is not maintained at
+\texttt{scDDboost} may lose FDR control if $K$ is not maintained at
 a sufficiently small value.  Supplementary Figure~\ref{fig:lfdr} shows what happens as $K$ increases
 in one case, other factors staying constant.
 In our simulation study, we note that the validity score method was always conservative, and did
@@ -609,11 +609,12 @@ Considering the normalizing factors for densities $f_1,f_2$ and $f_3$, and multi
 we have $C_\pi =  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
  \, p_\pi( t^1_{\pi}, t^2_{\pi} | y ) \omega_\pi$.  Consequently, we have 
  \begin{eqnarray*}
- (\phi,\psi)|y,z  \sim {\mbox {\rm DDM}}\left[ \omega^{\rm post}=(\omega^{\rm post}_\pi), \alpha^1 + t^1, \alpha^2 + t^2  \right] \text{ and } \omega^{\rm post}_\pi \propto 
+ (\phi,\psi)|y,z  &\sim& {\mbox {\rm DDM}}\left[ \omega^{\rm post}=(\omega^{\rm post}_\pi), \alpha^1 + t^1, \alpha^2 + t^2  \right]  \qquad {\mbox {\rm and}} \\
+   \omega^{\rm post}_\pi &\propto &
  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
- \, p_\pi( t^1_{\pi}, t^2_{\pi} | y ) \, \omega_\pi.
+ \, p_\pi( t^1_{\pi}, t^2_{\pi} | y ) \, \omega_\pi.\\
  \end{eqnarray*}
- Notice in DDM, we restricted $\beta = \alpha^1 + \alpha^2$.
+ Notice in DDM, we restrict $\beta = \alpha^1 + \alpha^2$.
 
 \end{proof}
 
@@ -780,7 +781,8 @@ GSE79102null & patient1 & 26, 25 & human\\
 
 \subsection{Bursting parameters}
 
-***nothing additional to report**
+Relevant material is reported in the  main paper. This empty subsection is included to maintain labeling consistency.
+
 
 %D3E\citep{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset GSE71585\\
 
@@ -874,14 +876,15 @@ GSE79102null & patient1 & 26, 25 & human\\
 
 \subsection{Time complexity}
 
-**nothing additional to repoort}
+Relevant material is reported in the  main paper. This empty subsection is included to maintain labeling consistency.
 
-\subsection{Diagnostics}
+\subsection{\textcolor{red}{Diagnostics}}
 
 
-\subsubsection{Negative binomial assumption}
+\subsubsection{\textcolor{red}}Negative binomial assumption}}
 
-Given the estimated subtype label, we test NB fitting for each subtype by an adjusted Pearson-type goodness-of-fit test(\cite{Yin:2013aa}).
+Given the estimated subtype label, we test NB fitting for each subtype by an adjusted Pearson-type goodness-of-fit 
+test~(\cite{Yin:2013aa}).
 Figure \ref{fig:nb} presents the cumulative distribution of the fdr adjusted p values under each subtype.
 
 \begin{figure}[h!]
@@ -906,11 +909,11 @@ for those genes against NB assumption and uniquely identified by \texttt{scDDboo
 \end{figure}
 
 
-\subsubsection{Constant shape assumption}
+\subsubsection{\textcolor{red}{Constant shape assumption: Likelihood ratio test}}
 
-
-\noindent
-{\bf Likelihood ratio test:} Let $\sigma^k$ be the shape parameter from subtype $k$
+As implemented, \texttt{scDDboost} treats the negative binomial mixture components as having constant shape
+within each gene.  Here we investigate this assumption.
+Let $\sigma^k$ be the shape parameter from subtype $k$
 We have null hypothesis $$H_0: \sigma^1 =
 \sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to verify the validity of the test. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). Then test statistic and corresponding p value is recorded. We repeat the procedure for 100 times. Figure \ref{fig:lrt} shows that the p value is roughly uniform distributed
 \begin{figure}[h!]
@@ -919,24 +922,27 @@ We have null hypothesis $$H_0: \sigma^1 =
   \label{fig:lrt}
 \end{figure}
 
+**?? results in main??**
 
 
 
-\subsubsection{Clustering}
+\subsubsection{\textcolor{red}{Clustering}}
 
+\textcolor{red}{ How sensitive are \texttt{scDDboost} results to the particular clustering methodology?  To investigate, we
+applied the sc3 clustering method in place of the default in several  numerical experiments.
 
-Five data sets (EMTAB2805, GSE64016, GSE93818, GSE74596, GSE71585) are used to check the negative control for our method appling sc3 for clustering.
-We use same procedure to generate null case. Namely,
-cells from one condition are randomly split to two groups under each data set, thus for any gene, there is no distributional change between the two groups.
-For each data set, five randomly splits are used. We observed zero positives for our method, thus \texttt{scDDboost} can still control the FDR given different clustering method.
+Following the original negative control experiment (main Figure 7), we applied \texttt{scDDboost} on each of five random
+splits of a number of data sets.  In this case, we used five data sets: EMTAB2805, GSE64016, GSE93818, GSE74596, GSE71585.
+ We observed zero positives by \texttt{scDDboost} at a 5\% FDR call rate.
 
-
-
-**?anything else on sc3**
-
-%\noindent
-%{\bf Proofs:}
-
+We also checked \texttt{scDDboost} with sc3 in the simulation study (compare to Figures 4, 6, main). 
+Here 5 replicate data sets were drawn in each setting. Supplementary Figure~\ref{fig:sc3fdr} shows that FDR is 
+well controlled for the null genes. }
+\begin{figure}[h!]
+  \includegraphics[ width = 0.5\textwidth]{Figs/sc3-FDR.pdf}
+  \caption{FDR for simulation data sets, when using \texttt{scDDboost} with sc3 clustering}
+  \label{fig:sc3fdr}
+\end{figure}
 
 
 
