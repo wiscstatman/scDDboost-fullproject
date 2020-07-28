@@ -929,26 +929,12 @@ Five data sets (EMTAB2805, GSE64016, GSE93818, GSE74596, GSE71585) are used to c
 We use same procedure to generate null case. Namely,
 cells from one condition are randomly split to two groups under each data set, thus for any gene, there is no distributional change between the two groups.
 For each data set, five randomly splits are used. We observed zero positives for our method, thus \texttt{scDDboost} can still control the FDR given different clustering method.
-We also check FDR on simulation, five datasets from simulation are used
-
-\begin{table}[htbp]
-  \begin{center}
-  %\topcaption{Table captions are better up top} % requires the topcapt package
-  \begin{tabular}{@{} lccccr @{}} % Column formatting, @{} suppresses leading/trailing space
-      \toprule
-      %\multicolumn{2}{c}{Item} \\
-      \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
-      Data Set   & cor &
-      $p_o$ & $n_{DD}$ default & $n_{DD}$ by sc3 & commonly identified\\
-      \midrule
-      EMTAB2805  & 0.93 & 80\% & 3334 & 3725 & 2913\\          
-      GSE45719   & 0.94 & 75\% & 4805 & 7591 & 4851\\
-      \bottomrule
-  \end{tabular}
-  \caption{similar local FDR under two clustering methods}
-  \label{tab:dist}
-  \end{center}
-\end{table}
+We also check FDR on simulation, five datasets from simulation are used and we found that FDR is well controlled. \texttt{scDDboost} control FDR regardless of the input clustering methods.
+\begin{figure}[h!]
+  \includegraphics[ width = 0.5\textwidth]{Figs/sc3-FDR.pdf}
+  \caption{FDR for simulation data sets, when using \texttt{scDDboost} with sc3 clustering}
+  \label{fig:sc3fdr}
+\end{figure}
 
 %\noindent
 %{\bf Proofs:}
