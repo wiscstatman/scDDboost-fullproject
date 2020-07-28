@@ -625,11 +625,22 @@ we have $C_\pi =  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
 \section{Numerical Experiments}
 
 \subsection{Synthetic Data}
-In this section we look more closely at the synthetic data generated using \verb+splatter+.
+
+\textcolor{red}
+{In this section we look more closely at the synthetic data generated using \verb+splatter+.}
+\textcolor{red}{
+\verb+splatter+ take three parameters, the number of groups(clusters) and a pair of hyperparameters.
+To evaluate performance on the data sets with small number of clusters to relative large number of clusters, 
+we consider the cases when the number of clusters is 3,7 and 12. }
+\textcolor{red}{
+For the choice of the hyperparamter pair, we use two settings suggested by \verb+splatter+, which are (0.1,0.4) and (-0.1,0.3). 
+However, those settings induce weak signal for DD and all methods have low power.
+For the sake of comparison between different DD methods, we amplify the evidence of DD by introducing two more hyperparameter pairs (0.3,0.5) and (-0.1,1).}
+
+
 We use PCA plots to show the subtle changes underlying each subtype of simulated data and 
 we demonstrate consistency of estimated distributional changes based on \texttt{scDDboost} and Wasserstein distance.
 Finally, ROC curves illustrate that \verb+scDDboost+ has favorable operating characteristics. 
-
 
 We first look at the PCA plots of the simulated data (Supplementary Figure \ref{fig:pca1}, \ref{fig:pca2}, \ref{fig:pca3}). %\todo{Figs S3-S5 missing axis labels}
 For $K = 7 \text{ and } 12$, in each scenario there were some subtypes nested in the 2d PCA projection %\todo{Do they separate in higher order PCs?}
@@ -935,7 +946,8 @@ splits of a number of data sets.  In this case, we used five data sets: EMTAB280
  We observed zero positives by \texttt{scDDboost} at a 5\% FDR call rate.
 We also checked \texttt{scDDboost} with sc3 in the simulation study (compare to Figures 4, 6, main). 
 Here 5 replicate data sets were drawn in each setting. Supplementary Figure~\ref{fig:sc3fdr} shows that FDR is 
-well controlled for the null genes.}
+well controlled for the null genes.
+}
 \begin{figure}[h!]
   \includegraphics[ width = 0.5\textwidth]{Figs/sc3-FDR.pdf}
   \caption{FDR for simulation data sets, when using \texttt{scDDboost} with sc3 clustering}
