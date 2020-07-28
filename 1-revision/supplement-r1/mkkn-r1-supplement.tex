@@ -62,7 +62,7 @@ Authors: Ma, Korthauer, Kendziorski, and Newton
 
 \vspace{.2in}
 \noindent
-Version:  \today
+Version:  \today.  Additions over the original version (May 30, 2019) are indicated in \textcolor{red}{red}.
 
 \vspace{.4in}
 
@@ -78,7 +78,7 @@ This supplement is organized to match the sectioning of the main document.   In 
  \begin{itemize}
   \item 2.1 Data Structure, Sampling Model, and Parameters
     \begin{list}{}{}
-    \item Illustrating {\em key issue}
+    \item \textcolor{red}{Illustrating {\em key issue}}
     \item Proof of Theorem 2
     \end{list}
   \item 2.2 Method Structure and Clustering 
@@ -100,11 +100,11 @@ This supplement is organized to match the sectioning of the main document.   In 
    \item 3.2 Empirical study, \verb+conquer+ and Null case
    \item 3.3 Bursting
    \item 3.4 Time complexity
-   \item 3.5 Diagnostics
+   \item \textcolor{red}{3.5 Diagnostics}
     \begin{itemize}
-    \item Negative binomial assumption
-    \item Constant shape assumption
-    \item Clustering 
+    \item \textcolor{red}{Negative binomial assumption}
+    \item \textcolor{red}{Constant shape assumption}
+    \item \textcolor{red}{Clustering}
     \end{itemize}
    \end{itemize}
 \item Posterior consistency
@@ -881,21 +881,21 @@ Relevant material is reported in the  main paper. This empty subsection is inclu
 \subsection{\textcolor{red}{Diagnostics}}
 
 
-\subsubsection{\textcolor{red}}Negative binomial assumption}}
+\subsubsection{\textcolor{red}{Negative binomial assumption}}
 
-Given the estimated subtype label, we test NB fitting for each subtype by an adjusted Pearson-type goodness-of-fit 
-test~(\cite{Yin:2013aa}).
-Figure \ref{fig:nb} presents the cumulative distribution of the fdr adjusted p values under each subtype.
-
+\textcolor{red}{We deploy a Pearson-type goodness-of-fit test~(\cite{Yin:2013aa}) to check the adequacy of the
+negative binomial (NB) assumption in cell clusters from two data sets (EMTAB2805 and GSE45719).
+Supplementary Figure \ref{fig:nb} presents the cumulative distribution of test p-values under each subtype, and
+indicates relatively little lack of fit.}
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{Figs/nbfit.pdf}
   \caption{Cumulative distribution functions for subtype specific unadjusted p values of goodness of fit for NB distribution at two data sets(left is EMTAB2805, right is GSE45719), different colors are correspond to different subtypes}
   \label{fig:nb}
 \end{figure}
-Based on the empirical CDF,
-we found that the p values are likely to be uniformly distributed and only for a small proportions of genes that NB assumption may be inappropriate
-Further,
-for those genes against NB assumption and uniquely identified by \texttt{scDDboost}. From Fig \ref{fig:s11}, and Fig \ref{fig:s12} we found that they are somewhat different.
+\textcolor{red}{ Among genes that demonstrate non-NB behavior, we find that most are handled the same way by \texttt{scDDboost}
+as by the standard comparison methods in terms of DD calls at 5\% FDR.  
+ Supplementary Figures \ref{fig:s11}, and \ref{fig:s12} display data from genes that show non-NB behavior
+and also are uniquely identified by \texttt{scDDboost} as being DD.   }
 \begin{figure}[h]
 \includegraphics[width = 0.7\textwidth]{Figs/NBgene.pdf}
 \caption{Data set EMTAB2805, violin plot of the 57 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt{scDDboost}}
@@ -911,11 +911,11 @@ for those genes against NB assumption and uniquely identified by \texttt{scDDboo
 
 \subsubsection{\textcolor{red}{Constant shape assumption: Likelihood ratio test}}
 
-As implemented, \texttt{scDDboost} treats the negative binomial mixture components as having constant shape
+\textcolor{red}{As implemented, \texttt{scDDboost} treats the negative binomial mixture components as having constant shape
 within each gene.  Here we investigate this assumption.
 Let $\sigma^k$ be the shape parameter from subtype $k$
 We have null hypothesis $$H_0: \sigma^1 =
-\sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to verify the validity of the test. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). Then test statistic and corresponding p value is recorded. We repeat the procedure for 100 times. Figure \ref{fig:lrt} shows that the p value is roughly uniform distributed
+\sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to verify the validity of the test. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). Then test statistic and corresponding p value is recorded. We repeat the procedure for 100 times. Figure \ref{fig:lrt} shows that the p value is roughly uniform distributed}
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/lrt.pdf}
   \caption{cumulative distribution for p values of LRT}
@@ -928,16 +928,14 @@ We have null hypothesis $$H_0: \sigma^1 =
 
 \subsubsection{\textcolor{red}{Clustering}}
 
-\textcolor{red}{ How sensitive are \texttt{scDDboost} results to the particular clustering methodology?  To investigate, we
+\textcolor{red}{How sensitive are \texttt{scDDboost} results to the particular clustering methodology?  To investigate, we
 applied the sc3 clustering method in place of the default in several  numerical experiments.
-
 Following the original negative control experiment (main Figure 7), we applied \texttt{scDDboost} on each of five random
 splits of a number of data sets.  In this case, we used five data sets: EMTAB2805, GSE64016, GSE93818, GSE74596, GSE71585.
  We observed zero positives by \texttt{scDDboost} at a 5\% FDR call rate.
-
 We also checked \texttt{scDDboost} with sc3 in the simulation study (compare to Figures 4, 6, main). 
 Here 5 replicate data sets were drawn in each setting. Supplementary Figure~\ref{fig:sc3fdr} shows that FDR is 
-well controlled for the null genes. }
+well controlled for the null genes.}
 \begin{figure}[h!]
   \includegraphics[ width = 0.5\textwidth]{Figs/sc3-FDR.pdf}
   \caption{FDR for simulation data sets, when using \texttt{scDDboost} with sc3 clustering}
