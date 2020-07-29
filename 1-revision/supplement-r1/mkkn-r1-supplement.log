@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  29 JUL 2020 11:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  29 JUL 2020 11:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1318,11 +1318,7 @@ Package pdftex.def Info: Figs/ARI.pdf  used on input line 396.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-Package natbib Warning: Citation `JSSv040i05' on page 7 undefined on input line
- 415.
-
-<Figs/try7-g.pdf, id=138, 505.89pt x 505.89pt>
+<Figs/try7-g.pdf, id=140, 505.89pt x 505.89pt>
 File: Figs/try7-g.pdf Graphic file (type pdf)
 <use Figs/try7-g.pdf>
 Package pdftex.def Info: Figs/try7-g.pdf  used on input line 425.
@@ -1331,18 +1327,18 @@ Package pdftex.def Info: Figs/try7-g.pdf  used on input line 425.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [7] [8 <./Figs/ARI.pdf>]
-<Figs/Kchange.png, id=171, 767.86874pt x 244.915pt>
+<Figs/Kchange.png, id=174, 767.86874pt x 244.915pt>
 File: Figs/Kchange.png Graphic file (type png)
 <use Figs/Kchange.png>
 Package pdftex.def Info: Figs/Kchange.png  used on input line 476.
 (pdftex.def)             Requested size: 469.75502pt x 149.83142pt.
  [9 <./Figs/try7-g.pdf>]
-<Figs/rw.pdf, id=187, 495.8525pt x 212.795pt>
+<Figs/rw.pdf, id=190, 495.8525pt x 212.795pt>
 File: Figs/rw.pdf Graphic file (type pdf)
 <use Figs/rw.pdf>
 Package pdftex.def Info: Figs/rw.pdf  used on input line 482.
 (pdftex.def)             Requested size: 328.82707pt x 141.11725pt.
-<Figs/breakFDR.pdf, id=188, 505.89pt x 505.89pt>
+<Figs/breakFDR.pdf, id=191, 505.89pt x 505.89pt>
 File: Figs/breakFDR.pdf Graphic file (type pdf)
 <use Figs/breakFDR.pdf>
 Package pdftex.def Info: Figs/breakFDR.pdf  used on input line 489.
@@ -1371,7 +1367,7 @@ Overfull \hbox (6.0441pt too wide) in paragraph at lines 675--681
 es be-tween splatter-simulated
  []
 
-<Figs/pca3.pdf, id=241, 578.16pt x 361.35pt>
+<Figs/pca3.pdf, id=244, 578.16pt x 361.35pt>
 File: Figs/pca3.pdf Graphic file (type pdf)
 <use Figs/pca3.pdf>
 Package pdftex.def Info: Figs/pca3.pdf  used on input line 690.
@@ -1379,7 +1375,7 @@ Package pdftex.def Info: Figs/pca3.pdf  used on input line 690.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Figs/pca7.pdf, id=242, 578.16pt x 361.35pt>
+<Figs/pca7.pdf, id=245, 578.16pt x 361.35pt>
 File: Figs/pca7.pdf Graphic file (type pdf)
 <use Figs/pca7.pdf>
 Package pdftex.def Info: Figs/pca7.pdf  used on input line 701.
@@ -1387,7 +1383,7 @@ Package pdftex.def Info: Figs/pca7.pdf  used on input line 701.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Figs/pca12.pdf, id=245, 578.16pt x 361.35pt>
+<Figs/pca12.pdf, id=248, 578.16pt x 361.35pt>
 File: Figs/pca12.pdf Graphic file (type pdf)
 <use Figs/pca12.pdf>
 Package pdftex.def Info: Figs/pca12.pdf  used on input line 707.
@@ -1395,7 +1391,7 @@ Package pdftex.def Info: Figs/pca12.pdf  used on input line 707.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Figs/simu_wadist.pdf, id=249, 505.89pt x 505.89pt>
+<Figs/simu_wadist.pdf, id=252, 505.89pt x 505.89pt>
 File: Figs/simu_wadist.pdf Graphic file (type pdf)
 <use Figs/simu_wadist.pdf>
 Package pdftex.def Info: Figs/simu_wadist.pdf  used on input line 721.
@@ -1403,7 +1399,7 @@ Package pdftex.def Info: Figs/simu_wadist.pdf  used on input line 721.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Figs/Roc_supp.pdf, id=251, 505.89pt x 505.89pt>
+<Figs/Roc_supp.pdf, id=254, 505.89pt x 505.89pt>
 File: Figs/Roc_supp.pdf Graphic file (type pdf)
 <use Figs/Roc_supp.pdf>
 Package pdftex.def Info: Figs/Roc_supp.pdf  used on input line 740.
@@ -1492,7 +1488,7 @@ Overfull \hbox (3.38347pt too wide) in paragraph at lines 761--778
  [][] 
  []
 
-<Figs/Fucci_wadist.pdf, id=367, 505.89pt x 505.89pt>
+<Figs/Fucci_wadist.pdf, id=370, 505.89pt x 505.89pt>
 File: Figs/Fucci_wadist.pdf Graphic file (type pdf)
 <use Figs/Fucci_wadist.pdf>
 Package pdftex.def Info: Figs/Fucci_wadist.pdf  used on input line 794.
@@ -1518,12 +1514,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 829--829
 [18
 
 ] [19 <./Figs/Fucci_wadist.pdf>]
-<Figs/nbfit.pdf, id=405, 505.89pt x 505.89pt>
+<Figs/nbfit.pdf, id=408, 505.89pt x 505.89pt>
 File: Figs/nbfit.pdf Graphic file (type pdf)
 <use Figs/nbfit.pdf>
 Package pdftex.def Info: Figs/nbfit.pdf  used on input line 952.
 (pdftex.def)             Requested size: 469.75502pt x 469.76265pt.
-<Figs/NBgene.pdf, id=408, 505.89pt x 505.89pt>
+<Figs/NBgene.pdf, id=411, 505.89pt x 505.89pt>
 File: Figs/NBgene.pdf Graphic file (type pdf)
 <use Figs/NBgene.pdf>
 Package pdftex.def Info: Figs/NBgene.pdf  used on input line 961.
@@ -1535,7 +1531,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Figs/NBgene2.pdf, id=409, 505.89pt x 505.89pt>
+<Figs/NBgene2.pdf, id=412, 505.89pt x 505.89pt>
 File: Figs/NBgene2.pdf Graphic file (type pdf)
 <use Figs/NBgene2.pdf>
 Package pdftex.def Info: Figs/NBgene2.pdf  used on input line 967.
@@ -1543,7 +1539,7 @@ Package pdftex.def Info: Figs/NBgene2.pdf  used on input line 967.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Figs/lrt.pdf, id=411, 505.89pt x 505.89pt>
+<Figs/lrt.pdf, id=414, 505.89pt x 505.89pt>
 File: Figs/lrt.pdf Graphic file (type pdf)
 <use Figs/lrt.pdf>
 Package pdftex.def Info: Figs/lrt.pdf  used on input line 981.
@@ -1551,7 +1547,7 @@ Package pdftex.def Info: Figs/lrt.pdf  used on input line 981.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Figs/sc3-FDR.pdf, id=413, 505.89pt x 505.89pt>
+<Figs/sc3-FDR.pdf, id=416, 505.89pt x 505.89pt>
 File: Figs/sc3-FDR.pdf Graphic file (type pdf)
 <use Figs/sc3-FDR.pdf>
 Package pdftex.def Info: Figs/sc3-FDR.pdf  used on input line 1001.
@@ -1568,12 +1564,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [20
 
-]
-
-Package natbib Warning: Citation `ineq' on page 21 undefined on input line 1018
-.
-
-[21 <./Figs/nbfit.pdf>] [22 <./Figs/NBgene.pdf>]
+] [21 <./Figs/nbfit.pdf>] [22 <./Figs/NBgene.pdf>]
 Overfull \hbox (0.89919pt too wide) in paragraph at lines 1057--1058
 []\OT1/pplx/m/n/12 Recall $\OML/zplm/m/it/12 ^^L[] \OT1/zplm/m/n/12 = \OML/zplm
 /m/it/12 ^^M[] \OT1/zplm/m/n/12 + \OML/zplm/m/it/12 ^^M[]$ \OT1/pplx/m/n/12 and
@@ -1613,7 +1604,7 @@ plm/m/n/12 ) = [][] \OML/zplm/m/it/12 ![] \OT1/pplx/m/n/12 1\OT1/zplm/m/n/12 [[
 ]]\OT1/pplx/m/n/12 .$
  []
 
-<Figs/overlap.png, id=478, 770.88pt x 443.6575pt>
+<Figs/overlap.png, id=484, 770.88pt x 443.6575pt>
 File: Figs/overlap.png Graphic file (type png)
 <use Figs/overlap.png>
 Package pdftex.def Info: Figs/overlap.png  used on input line 1179.
@@ -1640,17 +1631,13 @@ l.45 \bid{Chu2016}
 (/usr/local/texlive/2018/texmf-dist/tex/latex/ucs/data/uni-3.def
 File: uni-3.def 2013/05/13 UCS: Unicode data U+0300..U+03FF
 )
-./mkkn-r1-supplement.bbl:202: Undefined control sequence.
+./mkkn-r1-supplement.bbl:217: Undefined control sequence.
 \u-default-954 #1->\textkappa 
                               
-l.202   to Dynamic Patterns of NF-κB Activation}
+l.217   to Dynamic Patterns of NF-κB Activation}
                                                  .
 ? 
-)
-
-Package natbib Warning: There were undefined citations.
-
-[27]
+) [27]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1243.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 1243.
  (./mkkn-r1-supplement.aux)
@@ -1666,10 +1653,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1243.
  ) 
 Here is how much of TeX's memory you used:
- 29923 strings out of 492649
- 563467 string characters out of 6129622
- 652413 words of memory out of 5000000
- 33192 multiletter control sequences out of 15000+600000
+ 29932 strings out of 492649
+ 563573 string characters out of 6129622
+ 652480 words of memory out of 5000000
+ 33199 multiletter control sequences out of 15000+600000
  573207 words of font info for 130 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,16n,77p,10436b,526s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1686,10 +1673,10 @@ exmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2018/texmf
 nts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/typ
 e1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/
 palatino/uplri8a.pfb>
-Output written on mkkn-r1-supplement.pdf (27 pages, 1754865 bytes).
+Output written on mkkn-r1-supplement.pdf (27 pages, 1756643 bytes).
 PDF statistics:
- 556 PDF objects out of 1000 (max. 8388607)
- 463 compressed objects within 5 object streams
- 103 named destinations out of 1000 (max. 500000)
+ 562 PDF objects out of 1000 (max. 8388607)
+ 469 compressed objects within 5 object streams
+ 105 named destinations out of 1000 (max. 500000)
  234 words of extra memory for PDF output out of 10000 (max. 10000000)
 

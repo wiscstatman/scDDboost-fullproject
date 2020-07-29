@@ -1,4 +1,4 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{18}
 % BibTex style file: imsart-nameyear.bst, 2017-11-03
 % Default style options (sort=1,type=nameyear).
 % Used options (sort=1,type=nameyear).
@@ -163,6 +163,21 @@
 \end{barticle}
 \endbibitem
 
+\bibitem[\protect\citeauthoryear{Jara et~al.}{2011}]{DPpack}
+\begin{barticle}[author]
+\bauthor{\bsnm{Jara},~\bfnm{Alejandro}\binits{A.}},
+  \bauthor{\bsnm{Hanson},~\bfnm{Timothy}\binits{T.}},
+  \bauthor{\bsnm{Quintana},~\bfnm{Fernando}\binits{F.}},
+  \bauthor{\bsnm{M\"uller},~\bfnm{Peter}\binits{P.}} \AND
+  \bauthor{\bsnm{Rosner},~\bfnm{Gary}\binits{G.}}
+(\byear{2011}).
+\btitle{{DPpackage}: Bayesian Semi- and Nonparametric Modeling in {R}}.
+\bjournal{Journal of Statistical Software}
+\bvolume{40}
+\bpages{1--30}.
+\end{barticle}
+\endbibitem
+
 \bibitem[\protect\citeauthoryear{Kiselev et~al.}{2017}]{sc3}
 \begin{barticle}[author]
 \bauthor{\bsnm{Kiselev},~\bfnm{Vladimir~Yu}\binits{V.~Y.}},
@@ -248,6 +263,17 @@
 \bvolume{12}
 \bpages{947 EP -}.
 \end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Li and ping Chen}{2007}]{ineq}
+\begin{binproceedings}[author]
+\bauthor{\bsnm{Li},~\bfnm{Xin}\binits{X.}} \AND \bauthor{\bparticle{ping}
+  \bsnm{Chen},~\bfnm{Chao}\binits{C.}}
+(\byear{2007}).
+\btitle{Inequalities for the gamma function}.
+In \bbooktitle{2007), Art. 28. [ONLINE: http://jipam.vu.edu.au/
+  article.php?sid=842}.
+\end{binproceedings}
 \endbibitem
 
 \bibitem[\protect\citeauthoryear{Ray and Turi}{2000}]{selK}
