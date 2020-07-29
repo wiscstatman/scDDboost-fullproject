@@ -326,7 +326,7 @@ Then we need to show  at least one of the following happens
 \end{align}
 
 
-Let $a =$ max$\{X_{S_1}\}$, $b = $ min$\{X_{S_2}\}$ and $c = $ max$\{X_{S_2}\}$, we have $b < a < c$. $h_1 = \underset{i \in S_1}{\Sigma} X_i - a$ and $h_2 = \underset{i \in S_2}{\Sigma} X_i - b$, $n_1$ and $n_2$ are the number of elements in $S_1$ and $S_2$. Then
+Let $a =$ max$\{X_{S_1}\}$, $b = $ min$\{X_{S_2}\}$ and $c = $ max$\{X_{S_2}\}$, we have $b < a < c$. Let $h_1 = \underset{i \in S_1}{\Sigma} X_i - a$ and $h_2 = \underset{i \in S_2}{\Sigma} X_i - b$, $n_1$ and $n_2$ are the number of elements in $S_1$ and $S_2$. Then (1) can be equivalently expressed as 
 \begin{align*}
 f(X_{S_1^*}) f(X_{S_2^*}) &\geq f(X_{S_1}) f(X_{S_2})\\
 &\iff\\
@@ -338,7 +338,7 @@ f(X_{S_1^*}) f(X_{S_2^*}) &\geq f(X_{S_1}) f(X_{S_2})\\
 The left hand side of the above formula is $\text{LHS}_1 = \frac{(h_1 + b + \alpha)...(h_1 + a - 1 + \alpha)}{(h_2 + b + \alpha) ... (h_2 + a - 1 + \alpha)}$ by the property of Gamma function and that 
  $X_i$ are integers.
 
-Similarly,
+Similarly, (2) can be equivalently expressed as 
 \begin{align*}
 f(X_{S_1^{**}}) f(X_{S_2^{**}}) &\geq f(X_{S_1}) f(X_{S_2})\\
 &\iff\\
@@ -351,7 +351,7 @@ If $h_1 \leq h_2$, then $\text{LHS}_1 \leq (\frac{h_1 + a - 1 + \alpha}{h_2 + a 
 
 So if $\frac{h_1 + a - 1 + \alpha}{h_2 + a  - 1 + \alpha} \leq \frac{n_1 + \beta}{n_2 + \beta} $ then (1) holds, if $\frac{h_2 + c - 1 + \alpha}{h_1 + c  - 1 + \alpha} \leq \frac{n_2 + \beta}{n_1 + \beta}$ then (2) holds.
 
-We multiply those two inequalities, and find that $\frac{h_1 + a - 1 + \alpha}{h_2 + a  - 1 + \alpha}  \frac{h_2 + c - 1 + \alpha}{h_1 + c  - 1 + \alpha} = \frac{h_1 + a - 1 + \alpha}{h_1 + c  - 1 + \alpha}  \frac{h_2 + c - 1 + \alpha}{h_2 + a  - 1 + \alpha} \leq 1$ as $c > a$ and $h_1 \leq h_2$. But $\frac{n_1 + \beta}{n_2 + \beta} * \frac{n_2 + \beta}{n_1 + \beta} = 1$. Consequently at least one of (1) and (2) holds.
+We multiply those two inequalities, and find that $\frac{h_1 + a - 1 + \alpha}{h_2 + a  - 1 + \alpha}  \frac{h_2 + c - 1 + \alpha}{h_1 + c  - 1 + \alpha} = \frac{h_1 + a - 1 + \alpha}{h_1 + c  - 1 + \alpha}  \frac{h_2 + c - 1 + \alpha}{h_2 + a  - 1 + \alpha} \leq 1$ as $c > a$ and $h_1 \leq h_2$. But the right hand side $\frac{n_1 + \beta}{n_2 + \beta} * \frac{n_2 + \beta}{n_1 + \beta} = 1$. Consequently at least one of (1) and (2) holds.
 
 The proof for case $h_1 > h_2$ follows similarly.
 
