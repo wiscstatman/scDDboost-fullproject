@@ -62,7 +62,7 @@ Authors: Ma, Korthauer, Kendziorski, and Newton
 
 \vspace{.2in}
 \noindent
-Version:  \today.  Additions over the previous version are indicated in \textcolor{red}{red}.
+Version:  \today.  
 
 \vspace{.4in}
 
@@ -78,7 +78,7 @@ This supplement is organized to match the sectioning of the main document.   In 
  \begin{itemize}
   \item 2.1 Data Structure, Sampling Model, and Parameters
     \begin{list}{}{}
-    \item \textcolor{red}{Illustrating key issue}
+    \item {Illustrating key issue}
     \item Proof of Theorem 2
     \end{list}
   \item 2.2 Method Structure and Clustering 
@@ -100,11 +100,11 @@ This supplement is organized to match the sectioning of the main document.   In 
    \item 3.2 Empirical study, \verb+conquer+ and Null case
    \item 3.3 Bursting
    \item 3.4 Time complexity
-   \item \textcolor{red}{3.5 Diagnostics}
+   \item {3.5 Diagnostics}
     \begin{itemize}
-    \item \textcolor{red}{Negative binomial assumption}
-    \item \textcolor{red}{Constant shape assumption}
-    \item \textcolor{red}{Clustering}
+    \item {Negative binomial assumption}
+    \item {Constant shape assumption}
+    \item {Clustering}
     \end{itemize}
    \end{itemize}
 \item Posterior consistency
@@ -132,9 +132,9 @@ See \url {https://github.com/wiscstatman/scDDboost}
 
 \subsection{Data Structure, Sampling Model, and Parameters}
 
-\subsubsection*{\textcolor{red}{{\bf Illustrating key issue}}}
+\subsubsection*{{\bf Illustrating key issue}}
 
-\textcolor{red}{Consider an example as in Figure 2 [main] wherein there are $K=7$ subtypes having 
+{Consider an example as in Figure 2 [main] wherein there are $K=7$ subtypes having 
 proportions $\phi=(\phi_1, \cdots, \phi_7)$ in one condition and different proportions 
 $\psi = (\psi_1, \cdots, \psi_7)$ in the other.  Though $\phi \neq \psi$, the marginal
 distribution of data at one gene may not differ between the conditions; this depends on
@@ -649,52 +649,68 @@ we have $C_\pi =  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
 
 \subsection{Synthetic Data}
 
-\textcolor{red}
-{In this section we look more closely at the synthetic data generated using \verb+splatter+.}
-\textcolor{red}{
+**\textcolor{blue}{Xiuyu; we base so much on how we operate on splatter-generated data, it is unfortunate
+that we do not have even a basic description of the model driving splatter.  I invite you to write a few
+sentences here about that model; I think it is important for us to be able to say that the mixture model
+behind scDDboost is not the same as the model behind splatter...this is to our benefit when we see
+good operating characteristics;  the paragraph you added so far is helfpul, but it still requires that
+we go back to the Zappia paper to know anything about the model underlying splatter. I think we need 
+some sort of explanation in our paper. Thanks.}**
+
+In this section we look more closely at the synthetic data generated using \verb+splatter+.
 \verb+splatter+ take three parameters, the number of groups(clusters) and a pair of hyperparameters.
 To evaluate performance on the data sets with small number of clusters to relative large number of clusters, 
-we consider the cases when the number of clusters is 3,7 and 12. }
-\textcolor{red}{
-For the choice of the hyperparamter pair, we use two settings suggested by \verb+splatter+, which are (0.1,0.4) and (-0.1,0.3). 
+we consider the cases when the number of clusters is 3,7 and 12. 
+For the choice of the hyperparamter pair, we use two settings suggested by \verb+splatter+, which are (0.1,0.4) and (-0.1,0.3).  **\textcolor{blue}{what do these parameters control? what do they mean?}**
 However, those settings induce weak signal for DD and all methods have low power.
-For the sake of comparison between different DD methods, we amplify the evidence of DD by introducing two more hyperparameter pairs (0.3,0.5) and (-0.1,1).}
+For the sake of comparison between different DD methods, we amplify the evidence of DD by introducing two more hyperparameter pairs (0.3,0.5) and (-0.1,1).
 
 
-We use PCA plots to show the subtle changes underlying each subtype of simulated data and 
-we demonstrate consistency of estimated distributional changes based on \texttt{scDDboost} and Wasserstein distance.
-Finally, ROC curves illustrate that \verb+scDDboost+ has favorable operating characteristics. 
+PCA plots  provide a global (transcriptomic) view of 
+ changes between splatter-simulated subtypes:  Supplementary Figures \ref{fig:pca1}, \ref{fig:pca2}, \ref{fig:pca3} summarize the cases $K=3, 7,$ and $12$, respectively.  Parameter choices provide for some
+strong and some very weak differences.  \textcolor{blue}{**Xiuyu: I don't see what 
+distinguishes the top row of 4 PCA plots from the bottom row in each figure.  Here, I guess, we could
+have some clarity; perhaps it refers to a pair of hyperparameters, but I cannot tell.  Please advise. Thanks
+**}
 
-We first look at the PCA plots of the simulated data (Supplementary Figure \ref{fig:pca1}, \ref{fig:pca2}, \ref{fig:pca3}). %\todo{Figs S3-S5 missing axis labels}
-For $K = 7 \text{ and } 12$, in each scenario there were some subtypes nested in the 2d PCA projection %\todo{Do they separate in higher order PCs?}
-and the distributional change of transcripts becomes difficult to detect. 
-\texttt{scDDboost} benefits from the compositional structure and is more sensitive to those subtle changes.
+%we demonstrate consistency of estimated distributional changes based on \texttt{scDDboost} and Wasserstein distance.
+%Finally, ROC curves illustrate that \verb+scDDboost+ has favorable operating characteristics. 
+%We first look at the PCA plots of the simulated data (Supplementary Figure \ref{fig:pca1}, \ref{fig:pca2}, \ref{fig:pca3}). %\todo{Figs S3-S5 missing axis labels}
+%For $K = 7 \text{ and } 12$, in each scenario there were some subtypes nested in the 2d PCA projection %\todo{Do they separate in higher order PCs?}
+%and the distributional change of transcripts becomes difficult to detect. 
+%\texttt{scDDboost} benefits from the compositional structure and is more sensitive to those subtle changes.
 
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/pca3.pdf}
   \caption{First two principal components of transcripts under different parameters for simulated data. 
   Horizontal axis refers to first component, vertical axis refers to second component.
   Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation, each setting has 10 replicates.
-  From left to right, the associated hyper-parameters are (0.1,0.4), (-0.1,0.3), (0.3,0.5), (-0.1,1). Here we have 3 subtypes}
+  From left to right, the associated hyper-parameters are (0.1,0.4), (-0.1,0.3), (0.3,0.5), (-0.1,1). Here we have $K=3$ subtypes, with cells in each subtype marked with a common color. 
+  **\textcolor{blue}{what are top and bottom rows?**}}
   \label{fig:pca1}
 \end{figure}
 
 
 \begin{figure}[h!]
 \includegraphics[ width = 0.8\textwidth]{Figs/pca7.pdf}
-\caption{Similar plots as Supplementary Figure~\ref{fig:pca1}, but for 7 subtypes}
+\caption{Similar plots as Supplementary Figure~\ref{fig:pca1}, but for $K=7$ subtypes}
 \label{fig:pca2}
 \end{figure}
 
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/pca12.pdf}
-  \caption{Similar plots as Sumpplementary Figure~\ref{fig:pca1}, but for 12 subtypes}
+  \caption{Similar plots as Sumpplementary Figure~\ref{fig:pca1}, but for $K=12$ subtypes}
   \label{fig:pca3}
   \end{figure}
   
-  
-We observed consistent measurements of distributional change by \texttt{scDDboost} and Wasserstein distance  (Supplementary Figure \ref{fig:simu_wad}).
-Lower probabilities of equivalent distributed are associated with bigger distances.
+
+Supplementary Figure~\ref{fig:simu_wad} confirms that the probability scores from \texttt{scDDboost} are 
+associated with simpler measures on the magnitude of distributional change.  These plots compare
+equivalence probabilities to empirical Wasserstein distance \textcolor{blue}{**Xiuyu: please provide
+a citation to this metric**}
+
+%We observed consistent measurements of distributional change by \texttt{scDDboost} and Wasserstein distance  (Supplementary Figure \ref{fig:simu_wad}).
+%Lower probabilities of equivalent distributed are associated with bigger distances.
 \begin{figure}[h!]
 \includegraphics[width = 0.6\textwidth]{Figs/simu_wadist.pdf}
 \caption{$P(ED_g|X,y)$ given by scDDboost (horizontal) versus empirical Wasserstein distance (vertical). 
@@ -706,9 +722,14 @@ For simulation cases with parameters in the format: number of clusters / shape /
 
   
   
-\clearpage
 
-ROC curves for the simulated data in Supplementary Figure \ref{fig:roc}. Each sub-figure is averaged over ten replicates under the same parameters setting. \texttt{scDDboost} tends to outperform other methods .
+The main paper shows performance of \texttt{scDDboost} on simulated data
+ in terms of false positive rates and power
+at specific thresholds.  Alternatively, we may view it as more of a prediction problem and report
+receiver-operating-characteristic (ROC), as in 
+ Supplementary Figure \ref{fig:roc}. Each sub-figure corresponds to one of the parameter settings
+and  reports an average over ten replicates under the same parameters setting. 
+ \texttt{scDDboost} tends to outperform other methods.
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/Roc_supp.pdf}
   \caption{Roc curve of the 12 simulation settings, under each setting, TPR and FPR are averaged over ten replicates, generally \texttt{scDDboost} performs better than other methods}
@@ -912,24 +933,24 @@ Relevant material is reported in the  main paper. This empty subsection is inclu
 
 Relevant material is reported in the  main paper. This empty subsection is included to maintain labeling consistency.
 
-\subsection{\textcolor{red}{Diagnostics}}
+\subsection{Diagnostics}
 
 
-\subsubsection{\textcolor{red}{Negative binomial assumption}}
+\subsubsection{Negative binomial assumption}
 
-\textcolor{red}{We deploy a Pearson-type goodness-of-fit test~(\cite{Yin:2013aa}) to check the adequacy of the
+We deploy a Pearson-type goodness-of-fit test~(\cite{Yin:2013aa}) to check the adequacy of the
 negative binomial (NB) assumption in cell clusters from two data sets (EMTAB2805 and GSE45719).
 Supplementary Figure \ref{fig:nb} presents the cumulative distribution of test p-values under each subtype, and
-indicates relatively little lack of fit.}
+indicates relatively little lack of fit.
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{Figs/nbfit.pdf}
   \caption{Cumulative distribution functions for subtype specific unadjusted p values of goodness of fit for NB distribution at two data sets(left is EMTAB2805, right is GSE45719), different colors are correspond to different subtypes}
   \label{fig:nb}
 \end{figure}
-\textcolor{red}{ Among genes that demonstrate non-NB behavior, we find that most are handled the same way by \texttt{scDDboost}
+Among genes that demonstrate non-NB behavior, we find that most are handled the same way by \texttt{scDDboost}
 as by the standard comparison methods in terms of DD calls at 5\% FDR.  
  Supplementary Figures \ref{fig:s11}, and \ref{fig:s12} display data from genes that show non-NB behavior
-and also are uniquely identified by \texttt{scDDboost} as being DD.   }
+and also are uniquely identified by \texttt{scDDboost} as being DD.   
 \begin{figure}[h]
 \includegraphics[width = 0.7\textwidth]{Figs/NBgene.pdf}
 \caption{Data set EMTAB2805, violin plot of the 57 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt{scDDboost}}
@@ -943,13 +964,13 @@ and also are uniquely identified by \texttt{scDDboost} as being DD.   }
 \end{figure}
 
 
-\subsubsection{\textcolor{red}{Constant shape assumption: Likelihood ratio test}}
+\subsubsection{Constant shape assumption: Likelihood ratio test}
 
-\textcolor{red}{As implemented, \texttt{scDDboost} treats the negative binomial mixture components as having constant shape
+As implemented, \texttt{scDDboost} treats the negative binomial mixture components as having constant shape
 within each gene.  Here we investigate this assumption.
 Let $\sigma^k$ be the shape parameter from subtype $k$
 We have null hypothesis $$H_0: \sigma^1 =
-\sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to verify the validity of the test. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). Then test statistic and corresponding p value is recorded. We repeat the procedure for 100 times. Figure \ref{fig:lrt} shows that the p value is roughly uniform distributed}
+\sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to verify the validity of the test. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). Then test statistic and corresponding p value is recorded. We repeat the procedure for 100 times. Figure \ref{fig:lrt} shows that the p value is roughly uniform distributed
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/lrt.pdf}
   \caption{cumulative distribution for p values of LRT}
@@ -960,9 +981,9 @@ We have null hypothesis $$H_0: \sigma^1 =
 
 
 
-\subsubsection{\textcolor{red}{Clustering}}
+\subsubsection{Clustering}
 
-\textcolor{red}{How sensitive are \texttt{scDDboost} results to the particular clustering methodology?  To investigate, we
+How sensitive are \texttt{scDDboost} results to the particular clustering methodology?  To investigate, we
 applied the sc3 clustering method in place of the default in several  numerical experiments.
 Following the original negative control experiment (main Figure 7), we applied \texttt{scDDboost} on each of five random
 splits of a number of data sets.  In this case, we used five data sets: EMTAB2805, GSE64016, GSE93818, GSE74596, GSE71585.
@@ -970,7 +991,6 @@ splits of a number of data sets.  In this case, we used five data sets: EMTAB280
 We also checked \texttt{scDDboost} with sc3 in the simulation study (compare to Figures 4, 6, main). 
 Here 5 replicate data sets were drawn in each setting. Supplementary Figure~\ref{fig:sc3fdr} shows that FDR is 
 well controlled for the null genes.
-}
 \begin{figure}[h!]
   \includegraphics[ width = 0.5\textwidth]{Figs/sc3-FDR.pdf}
   \caption{FDR for simulation data sets, when using \texttt{scDDboost} with sc3 clustering}
