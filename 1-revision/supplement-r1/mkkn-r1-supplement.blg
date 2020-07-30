@@ -16,45 +16,45 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty booktitle in selK
-You've used 18 entries,
+You've used 19 entries,
             5204 wiz_defined-function locations,
-            1009 strings with 12364 characters,
-and the built_in function-call counts, 197319 in all, are:
-= -- 29060
-> -- 655
-< -- 21
-+ -- 5829
-- -- 199
-* -- 15625
-:= -- 28980
-add.period$ -- 62
-call.type$ -- 18
-change.case$ -- 93
-chr.to.int$ -- 18
-cite$ -- 19
-duplicate$ -- 1289
-empty$ -- 12392
-format.name$ -- 1011
-if$ -- 44939
+            1016 strings with 12579 characters,
+and the built_in function-call counts, 201279 in all, are:
+= -- 29756
+> -- 664
+< -- 22
++ -- 6144
+- -- 202
+* -- 15774
+:= -- 29630
+add.period$ -- 65
+call.type$ -- 19
+change.case$ -- 98
+chr.to.int$ -- 19
+cite$ -- 20
+duplicate$ -- 1314
+empty$ -- 12522
+format.name$ -- 1019
+if$ -- 45940
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 209
-num.names$ -- 76
-pop$ -- 815
+newline$ -- 220
+num.names$ -- 81
+pop$ -- 830
 preamble$ -- 1
-purify$ -- 57
+purify$ -- 60
 quote$ -- 0
-skip$ -- 16736
+skip$ -- 17155
 stack$ -- 0
-substring$ -- 37293
-swap$ -- 624
-text.length$ -- 162
+substring$ -- 37723
+swap$ -- 631
+text.length$ -- 171
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 470
+type$ -- 496
 warning$ -- 1
-while$ -- 239
+while$ -- 253
 width$ -- 0
-write$ -- 424
+write$ -- 447
 (There was 1 warning)

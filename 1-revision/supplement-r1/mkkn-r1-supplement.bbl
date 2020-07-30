@@ -1,4 +1,4 @@
-\begin{thebibliography}{18}
+\begin{thebibliography}{19}
 % BibTex style file: imsart-nameyear.bst, 2017-11-03
 % Default style options (sort=1,type=nameyear).
 % Used options (sort=1,type=nameyear).
@@ -100,6 +100,18 @@
 \bvolume{343}
 \bpages{193--196}.
 \bdoi{10.1126/science.1245316}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Dobrushin}{1972}]{dobrushin1972asymptotic}
+\begin{barticle}[author]
+\bauthor{\bsnm{Dobrushin},~\bfnm{Roland~L'vovich}\binits{R.~L.}}
+(\byear{1972}).
+\btitle{Asymptotic behavior of Gibbsian distributions for lattice systems and
+  its dependence on the form of the volume}.
+\bjournal{Theoretical and Mathematical Physics}
+\bvolume{12}
+\bpages{699--711}.
 \end{barticle}
 \endbibitem
 
