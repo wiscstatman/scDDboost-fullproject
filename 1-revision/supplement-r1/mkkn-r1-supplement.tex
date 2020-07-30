@@ -53,6 +53,7 @@
 \large
 \centerline{\bf Supplementary Material }
 
+\vspace{.1in}
 \noindent
 Main document: {\em A compositional model to assess expression changes from single-cell RNA-seq data}
 
@@ -102,7 +103,7 @@ This supplement is organized to match the sectioning of the main document.   In 
    \item 3.4 Time complexity
    \item {3.5 Diagnostics}
     \begin{itemize}
-    \item {Negative binomial assumption}
+    \item {Negative Binomial assumption}
     \item {Constant shape assumption}
     \item {Clustering}
     \end{itemize}
@@ -252,7 +253,7 @@ if we further treat the distinct $q$'s as independently drawn from the  common B
 where $h_k^{g}(X_g)$ = $P(X_g | M_{g,\pi_k},z)$ for the  associated pattern $\pi_k$.
 Then the marginal distribution of count vector $X_g$ is 
 $\overset{5}{\underset{k = 1}{\Sigma}} p_k h_k^{g}(X_g)$, 
-where the mixing mass $p_k = P(M_{g,\pi} | z)$ is shared by all genes. 
+where the mixing mass $p_k = P\left(M_{g,\pi_{k}} | z\right)$ is shared by all genes. 
 Then, the posterior probability of an expression pattern $k$ is obtained by:
 \begin{eqnarray*}
 \frac{p_k h^g_k(X_g)}{\overset{5}{\underset{l = 1}{\Sigma}} p_l h_l^{g}(X_g)}.
@@ -276,7 +277,7 @@ the modal-clust procedure.
 \noindent
 {\bf Product Partition Model (PPM)}:
 Let $X = (X_1, X_2, ...,X_n)$ be a vector of data (say at one gene). 
-Given a partition $\pi = \{S_1, \cdots, S_q\}$, where $S_i$ are disjoint subsets 
+Given a partition $\pi = \{S_1, \cdots, S_q\}$, where elements are disjoint subsets (i.e., blocks)
 of $\{1,2,\cdots,n\}$ and $\bigcup_{i = 1}^{q} S_i = \{1,2,\cdots,n\}$, a PPM 
 for $X$ entails
 \begin{eqnarray*}
@@ -285,7 +286,7 @@ p(X|\pi) = \overset{q}{\underset{i = 1}{\prod}}f(X_{S_i})
 where $X_{S_i}$ is the vector of observations corresponding to the items of component $S_i$. The component likelihood $f(X_{S})$ is defined for any non-empty component $S$ and can take many forms. 
 The partition $\pi$, which clusters cells,  is the parameter we are interested in.
 Other parameters that may have been involved in the model are integrated out.
-(Note the partition here has no relation to the partition of subtypes, as, e.g. in Figure~3.)
+(Note the partition here is not directly related to the partition of subtypes, as, e.g. in Figure~3.)
 
 When the prior distribution for a partition $\pi$  also takes a product form then so does the
 posterior.  We aim to compute
@@ -308,7 +309,7 @@ X_i | \pi, \lambda &\sim Poisson(X_i | \lambda_1\textbf{I}\{i\in S_1\} + \cdots 
 \end{align*}
 where $p(\pi)\propto \overset{q}{\underset{i = 1}{\prod}}\eta_0\Gamma(|S_i|)$. Integrate out $\lambda$, $f(X_{S})$ is obtained as:
 \begin{eqnarray*}
-f(X_{S}) = \frac{\beta^\alpha}{(|S| + \beta)^{\underset{i \in S}{\Sigma} X_i + \alpha}} \frac{\Gamma(\underset{i \in S}{\Sigma} X_i  + \alpha)}{\Gamma(\alpha)} \frac{1}{\underset{i \in S}{\prod }X_i}
+f(X_{S}) = \frac{\beta^\alpha}{(|S| + \beta)^{\underset{i \in S}{\Sigma} X_i + \alpha}} \frac{\Gamma\left(\underset{i \in S}{\Sigma} X_i  + \alpha\right)}{\Gamma(\alpha)} \frac{1}{\underset{i \in S}{\prod }X_i}
 \end{eqnarray*}
 To apply modal-clustering on Poisson-Gamma model, we need to show the kernel $f(X_S)$ satisfies the 
 non-overlapping condition.
@@ -337,7 +338,7 @@ f(X_{S_1^*}) f(X_{S_2^*}) &\geq f(X_{S_1}) f(X_{S_2})\\
 \frac{\Gamma(h_1 + a + \alpha)}{\Gamma(h_1 + b + \alpha)} \frac{\Gamma(h_2 + b + \alpha)}{\Gamma(h_2 + a + \alpha)} &\leq \left(\frac{n_1 + \beta}{n_2 + \beta}\right)^{a - b} \\
 \end{align*}
 
-The left hand side of the above formula is $\text{LHS}_1 = \frac{(h_1 + b + \alpha)...(h_1 + a - 1 + \alpha)}{(h_2 + b + \alpha) ... (h_2 + a - 1 + \alpha)}$ by the property of Gamma function and that 
+The leftlhand side of the above formula is $\text{LHS}_1 = \frac{(h_1 + b + \alpha)...(h_1 + a - 1 + \alpha)}{(h_2 + b + \alpha) ... (h_2 + a - 1 + \alpha)}$ by the property of Gamma function and that 
  $X_i$ are integers.
 
 Similarly, (2) can be equivalently expressed as 
@@ -353,7 +354,8 @@ If $h_1 \leq h_2$, then $\text{LHS}_1 \leq (\frac{h_1 + a - 1 + \alpha}{h_2 + a 
 
 So if $\frac{h_1 + a - 1 + \alpha}{h_2 + a  - 1 + \alpha} \leq \frac{n_1 + \beta}{n_2 + \beta} $ then (1) holds, if $\frac{h_2 + c - 1 + \alpha}{h_1 + c  - 1 + \alpha} \leq \frac{n_2 + \beta}{n_1 + \beta}$ then (2) holds.
 
-We multiply those two inequalities, and find that the left hand side $\frac{h_1 + a - 1 + \alpha}{h_2 + a  - 1 + \alpha}  \frac{h_2 + c - 1 + \alpha}{h_1 + c  - 1 + \alpha} = \frac{h_1 + a - 1 + \alpha}{h_1 + c  - 1 + \alpha}  \frac{h_2 + c - 1 + \alpha}{h_2 + a  - 1 + \alpha} \leq 1$ as $c > a$ and $h_1 \leq h_2$. But the right hand side $\frac{n_1 + \beta}{n_2 + \beta} \times \frac{n_2 + \beta}{n_1 + \beta} = 1$. Consequently at least one of (1) and (2) holds.
+We multiply those two inequalities, and find that the left hand side $\frac{h_1 + a - 1 + \alpha}{h_2 + a  - 1 + \alpha}  \times \frac{h_2 + c - 1 + \alpha}{h_1 + c  - 1 + \alpha} = \frac{h_1 + a - 1 + \alpha}{h_1 + c  - 1 + \alpha} \times  \frac{h_2 + c - 1 + \alpha}{h_2 + a  - 1 + \alpha} \leq 1$ as $c > a$ and $h_1 \leq h_2$. 
+But the right hand side $\frac{n_1 + \beta}{n_2 + \beta} \times \frac{n_2 + \beta}{n_1 + \beta} = 1$. Consequently at least one of (1) and (2) holds.
 
 The proof for case $h_1 > h_2$ follows similarly.
 
@@ -368,7 +370,7 @@ The proof for case $h_1 > h_2$ follows similarly.
 \subsubsection*{Randomized distances}
 
 \texttt{scDDboost} reports average posterior probabilities, where the averaging is taken over
- clusterings of cells induced from randomized distance matrices.  A Bayesian argument for this 
+ clusterings of cells induced from randomized-distance matrices.  A Bayesian argument for this 
 technique is presented in the Appendix.  Random distance $d^*_{i,j} = d_{i,j}/w_{i,j}$, where
 $w_{i,j}=e_i + e_j$ and the $\{e_i\}$ are random Gamma$( a/2,  a )$ deviates.   Parameter $a$
 is estimated by an empirical Bayes argument, using the deduction 
@@ -424,7 +426,7 @@ computation, and, in this case, tends to put more mass close to the data-generat
 
 \begin{figure}[h!]
 \includegraphics[scale = 0.9]{Figs/try7-g.pdf}
- \caption{Comparison between randomized distance  scheme and Dirichlet-process procedure. 
+ \caption{Comparison between randomized-distance  scheme and Dirichlet-process procedure. 
  Top: heatmap of probabilities that two elements belong to the same class given the whole data. Bottom: scatterplot of these posterior probabilities (left), and adjusted RAND index comparing to the underlying true class label (right).}
   \label{fig:simu}
 \end{figure}
@@ -602,7 +604,7 @@ such that
 \label{eq:la}
 v_i^1 = \sum_{j = 1}^t \alpha_j^i v_j^2 
 \end{eqnarray}
-If $b_j^2 \cap b_i^1 \neq \emptyset$, then $v_i^1 * v_j^2 > 0$ and we multiply $v_j^2$ on both sides of 
+If $b_j^2 \cap b_i^1 \neq \emptyset$, then $v_i^1  v_j^2 > 0$ and we multiply $v_j^2$ on both sides of 
 (\ref{eq:la}), we obtain $v_i^1  v_j^2 = \alpha_j^i (v_j^2)^2$, as $v_p^2  v_q^2 = 0 \text{ if } p\neq q$. This implies $\alpha_j^i > 0$. Consider $x = g(b_j^2\setminus b_i^1)$. We have $xv_i^1 = 0$ and multiply $x$ on both sides of (\ref{eq:la}) to obtain $\alpha_j^i v_j^2x = 0$. Thus $x$ must be the zero vector and $b_j^2\setminus b_i^1= \emptyset$, which implies $b_j^2 \subset b_i^1$. That is to say when $b_j^2 \cap b_i^1 \neq \emptyset$, $b_j^2$ must 
 be  a subset of $b_i^1$. So $b_i^1$ is the union of some blocks in $\pi_2$.  
  This implies $\pi_2$ is a refinement of $\pi_1$, which is  a contradiction.
@@ -650,7 +652,7 @@ we have $C_\pi =  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
 
 
 
-
+\clearpage
 
 \section{Numerical Experiments}
 
