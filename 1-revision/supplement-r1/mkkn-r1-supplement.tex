@@ -906,7 +906,7 @@ Relevant material is reported in the  main paper. This empty subsection is inclu
 %\end{align}
 %$c'$ is the total sum over all partitions $c' = \sum_{\pi}\prod_{b\in \pi}\frac{ \Gamma(\beta_b + t_b^1 + t_b^2)}{\Gamma(N(b) + t_b^1)\Gamma(N(b) + t_b^2)} \frac{\Gamma(N(b))}{\Gamma(2N(b))} $ And we have Theorem 4.\\
 
-%\begin{theorem} Let $n = min(n_1, n_2)$ be the smaller number of cells of two conditions and $n_1 = O(n_2)$ namely $\text{ln}(\frac{n_1}{n_2}) = 0$, and hyper parameters of DDM $\alpha^1, \alpha^2$ be vectors of constants, $\alpha_k^j \geq 1$, $\forall k, j$ and $\beta = \alpha^1 + \alpha^2$. Then if parameter $(\phi, \psi)\in \Omega\setminus Q $ we have 
+%\begin{theorem} Let $n = min(n_1, n_2)$ be the smaller number of cells of two conditions and $n_1 = O(n_2)$ namely $\log(\frac{n_1}{n_2}) = 0$, and hyper parameters of DDM $\alpha^1, \alpha^2$ be vectors of constants, $\alpha_k^j \geq 1$, $\forall k, j$ and $\beta = \alpha^1 + \alpha^2$. Then if parameter $(\phi, \psi)\in \Omega\setminus Q $ we have 
 %\begin{eqnarray*}
   %  p(A_{\pi} | y, z) \xrightarrow[n\rightarrow\infty]{\text{a.s.}}\left\{
     %            \begin{array}{ll}
@@ -1053,7 +1053,7 @@ Recall $ \omega^{\rm post}_\pi \propto
 f(\pi, t^1, t^2, \alpha, \beta) = \big[ \overset{2}{\underset{j = 1}{\prod}}\underset{b\in \pi}\prod \frac{1}{\prod_{k \in b}\Gamma(t_k^j + 1)}\frac{\prod_{k \in b}\Gamma(\alpha_k^j + t_k^j)}{\Gamma(t_b^j + \Sigma_{k\in b}\alpha_k^j)}\big ] \underset{b\in \pi}\prod \Gamma(\beta_b + t_b^1 + t_b^2) 
 \end{eqnarray*}
 For notational simplicity, we use the abbreviation $g(\pi), f(\pi)$ to substitute \\
-$g(\pi, \alpha, \beta, n_1, n_2),f(\pi, t^1, t^2, \alpha, \beta)$.  We take log on $\frac{\omega_{\pi_1}^{\text post}}{\omega_{\pi_2}^{\text post}}$, denote it as LR. $\text LR = \text{ln}g(\pi_1) - \text{ln}g(\pi_2) + \text{ln}f(\pi_1) - \text{ln}f(\pi_2)$. Denote $C(\pi_1, \pi_2, \alpha, \beta) = \text{ln}g(\pi_1) - \text{ln}g(\pi_2)$, $C(\pi_1, \pi_2, \alpha, \beta)$ does not change with sample size $n_1, n_2$ and is a constant determined by partition $\pi_1, \pi_2$ and hyper parameters $\alpha, \beta$.  For further convenience of notation let $h(x) = \text ln\Gamma(x)$ and $\gamma_b^j = \Sigma_{k\in b} \alpha_k^j$. Denote $R(\pi_1, \pi_2, t^1, t^2, \alpha, \beta) = \text{ln}f(\pi_1) - \text{ln}f(\pi_2)$. And removing the common part of $f(\pi_1)$ and $f(\pi_2)$, we have 
+$g(\pi, \alpha, \beta, n_1, n_2),f(\pi, t^1, t^2, \alpha, \beta)$.  We take log on $\frac{\omega_{\pi_1}^{\text post}}{\omega_{\pi_2}^{\text post}}$, denote it as LR. $\text LR = \log g(\pi_1) - \log g(\pi_2) + \log f(\pi_1) - \log f(\pi_2)$. Denote $C(\pi_1, \pi_2, \alpha, \beta) = \log g(\pi_1) - \log g(\pi_2)$, $C(\pi_1, \pi_2, \alpha, \beta)$ does not change with sample size $n_1, n_2$ and is a constant determined by partition $\pi_1, \pi_2$ and hyper parameters $\alpha, \beta$.  For further convenience of notation let $h(x) = \log \Gamma(x)$ and $\gamma_b^j = \Sigma_{k\in b} \alpha_k^j$. Denote $R(\pi_1, \pi_2, t^1, t^2, \alpha, \beta) = \log f(\pi_1) - \log f(\pi_2)$. And removing the common part of $f(\pi_1)$ and $f(\pi_2)$, we have 
 \begin{eqnarray*}
 R(\pi_1, \pi_2, t^1, t^2, \alpha, \beta) = d(\pi_1, t^1, t^2, \alpha, \beta) - d(\pi_2, t^1, t^2, \alpha, \beta)\\
 \end{eqnarray*}
@@ -1063,40 +1063,42 @@ d(\pi, t^1, t^2, \alpha, \beta) = \underset{b\in \pi}\Sigma h(\beta_b + t_b^1 + 
 \end{eqnarray*}
 
 
-Recall $\beta_b = \gamma_b^1 + \gamma_b^2$ and from Lemma 2, $(x - c)\text{ln}(x) - x + 1 \leq h(x) \leq (x - 1/2)\text{ln}(x) - x + 1$ we have 
+Recall $\beta_b = \gamma_b^1 + \gamma_b^2$ and from Lemma 2, $(x - c)\log(x) - x + 1 \leq h(x) \leq (x - 1/2)\log(x) - x + 1$ we have 
 \begin{align}
-d(\pi, t^1, t^2, \alpha, \beta) &\geq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - c) \text{ln}(\beta_b  + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - 1/2) \text{ln}(t_b^j + \gamma_b^j) + N(\pi)\\
-d(\pi, t^1, t^2, \alpha, \beta) &\leq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - 1 / 2) \text{ln}(\beta_b  + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - c) \text{ln}(t_b^j + \gamma_b^j) + N(\pi)
+d(\pi, t^1, t^2, \alpha, \beta) &\geq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - c) \log(\beta_b  + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - 1/2) 
+\log(t_b^j + \gamma_b^j) + N(\pi)\\
+d(\pi, t^1, t^2, \alpha, \beta) &\leq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - 1 / 2) \log(\beta_b  + t_b^1 + t_b^2) - \overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - c) 
+\log(t_b^j + \gamma_b^j) + N(\pi)
 \end{align}
 
 
 \begin{eqnarray*}
-\text{RHS of (4)} = \Sigma_b \big[ (t_b^1 + \gamma_b^1) \text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1})
- + (t_b^2 + \gamma_b^2) \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2})\\
- + (1 - c) \text{ln}(\beta_b + t_b^1 + t_b^2) 
-  - 1/2(\text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))\big] + N(\pi)
+\text{RHS of (4)} = \Sigma_b \big[ (t_b^1 + \gamma_b^1) \log(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1})
+ + (t_b^2 + \gamma_b^2) \log(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2})\\
+ + (1 - c) \log(\beta_b + t_b^1 + t_b^2) 
+  - 1/2(\log(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \log(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))\big] + N(\pi)
 \end{eqnarray*}
 
-By Taylor expansion at $x= 1$, $\text{ln}(x + 1) = \text{ln}2 + 1/2(x - 1) - 1/8(x - 1)^2 + g(\xi) (x - 1)^3$, where $g(\xi)$ is the reminder term of form $\frac{1}{3(1+\xi)^3}$ for $ 0 < \xi < x$
+By Taylor expansion at $x= 1$, $\log(x + 1) = \log(2) + 1/2(x - 1) - 1/8(x - 1)^2 + g(\xi) (x - 1)^3$, where $g(\xi)$ is the reminder term of form $\frac{1}{3(1+\xi)^3}$ for $ 0 < \xi < x$
 For a fixed $n_1, n_2$, we have 
 
 \begin{eqnarray*}
-\text{RHS of (4)} = (n_1 + n_2) \text{ln}2  - \Sigma_{b\in\pi}(1/8 (X_b^1 + X_b^2)\\
+\text{RHS of (4)} = (n_1 + n_2) \log(2)  - \Sigma_{b\in\pi}(1/8 (X_b^1 + X_b^2)\\
 + g(\xi_b) (Y_b^1 + Y_b^2) )+ T(\pi) + N(\pi)
 \end{eqnarray*}
 
 where $X_b^1 = \frac{(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2)^2}{t_b^1 + \gamma_b^1}$, $X_b^2 =  \frac{(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2)^2}{t_b^2 + \gamma_b^2}$,
 $Y_b^1 = \frac{(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2)^3}{(t_b^1 + \gamma_b^1)^2} $ , $Y_b^2 =  \frac{(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2)^3}{(t_b^2 + \gamma_b^2)^2}$
-and $T(\pi) = \Sigma_{b\in\pi}\big[(1 - c) \text{ln}(\beta_b + t_b^1 + t_b^2) 
-  - 1/2(\text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))\big]$\\
+and $T(\pi) = \Sigma_{b\in\pi}\big[(1 - c) \log(\beta_b + t_b^1 + t_b^2) 
+  - 1/2(\log(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \log(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))\big]$\\
 Similarly
 \begin{eqnarray*}
-\text{RHS of (5)} = (n_1 + n_2) \text{ln}2  -\Sigma_{b\in\pi}(1/8 (X_b^1 + X_b^2)\\
+\text{RHS of (5)} = (n_1 + n_2) \log(2)  -\Sigma_{b\in\pi}(1/8 (X_b^1 + X_b^2)\\
 + g(\xi_b) (Y_b^1 + Y_b^2)) + U(\pi) + N(\pi)
 \end{eqnarray*}
   
-$U(\pi) = \Sigma_{b\in\pi}\big[(2c - 1/2) \text{ln}(\beta_b + t_b^1 + t_b^2) 
-  - c(\text{ln}(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \text{ln}(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))\big]$\\
+$U(\pi) = \Sigma_{b\in\pi}\big[(2c - 1/2) \log(\beta_b + t_b^1 + t_b^2) 
+  - c(\log(1 + \frac{t_b^2 + \gamma_b^2}{t_b^1 + \gamma_b^1}) + \log(1 + \frac{t_b^1 + \gamma_b^1}{t_b^2 + \gamma_b^2}))\big]$\\
   
  Using above inequalities, we have 
  \begin{eqnarray*}
@@ -1109,8 +1111,8 @@ $U(\pi) = \Sigma_{b\in\pi}\big[(2c - 1/2) \text{ln}(\beta_b + t_b^1 + t_b^2)
  $Y_b^j =  \frac{((t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n}))^3 / \sqrt{n}}{((t_b^j + \gamma_b^j) /n)^2}$, by LLN the denominator goes to a constant and by CLT in the numerator $(t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n} \rightarrow (t_b^1 - t_b^2) / \sqrt{n} \rightarrow \sqrt{n}[(t_b^1 / n  - \Phi_b) - (t_b^2 / n - \Psi_b)]$, 
 which converges to a normally distributed random variable when $\Phi_b = \Psi_b$. So $Y_b^j$ is $o_p(1)$. Similarly,  $X_b^j =  \frac{((t_b^1 - t_b^2 + \gamma_b^1 - \gamma_b^2) / \sqrt{n})^2}{t_b^j + \gamma_b^j / n}$ is asymptotically gamma ($\chi$-square) distributed.
 $g(\xi_b)$ has bounded variance,
- $U(\pi_1) - T(\pi_2) = -\text{ln}(n)$ if $N(\pi_2) < N(\pi_1)$
- as $ \text{ln}(\beta_b + t_b^1 + t_b^2)  -  \text{ln}(\beta_{b'} + t_{b'}^1 + t_{b'}^2) =  \text{ln}(\frac{\beta_b + t_b^1 + t_b^2}{n})  -  \text{ln}(\frac{\beta_{b'} + t_{b'}^1 + t_{b'}^2}{n}) \rightarrow O(1) \quad a.s.$, which completes the proof.
+ $U(\pi_1) - T(\pi_2) = -\log(n)$ if $N(\pi_2) < N(\pi_1)$
+ as $ \log(\beta_b + t_b^1 + t_b^2)  -  \log(\beta_{b'} + t_{b'}^1 + t_{b'}^2) =  \log(\frac{\beta_b + t_b^1 + t_b^2}{n})  -  \log(\frac{\beta_{b'} + t_{b'}^1 + t_{b'}^2}{n}) \rightarrow O(1) \quad a.s.$, which completes the proof.
 
 %Recall $t^1 \sim \text{multinomial}(n_1, \phi)$, $t^2 \sim \text{multinomial}(n_2, \psi)$.
 
@@ -1138,10 +1140,10 @@ $g(\xi_b)$ has bounded variance,
 %and by lemma 3
 
 %\begin{eqnarray*}
-%d(\pi, t^1, t^2, \alpha, \beta) &\geq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - 1/2) \text{ln}(\beta_b  + t_b^1 + t_b^2) -\\ 
-%&\overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - 1/2) \text{ln}(t_b^j + \gamma_b^j) + \text{ln}(\sqrt{2\pi}) - 1\\
-%d(\pi, t^1, t^2, \alpha, \beta) &\leq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - 1/2) \text{ln}(\beta_b  + t_b^1 + t_b^2) -\\
-%&\overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - 1/2) \text{ln}(t_b^j + \gamma_b^j) + 1 - \text{ln}(\sqrt{2\pi})
+%d(\pi, t^1, t^2, \alpha, \beta) &\geq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - 1/2) \log(\beta_b  + t_b^1 + t_b^2) -\\ 
+%&\overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - 1/2) \log(t_b^j + \gamma_b^j) + \log(\sqrt{2\pi}) - 1\\
+%d(\pi, t^1, t^2, \alpha, \beta) &\leq \underset{b\in \pi}\Sigma (\beta_b + t_b^1 + t_b^2 - 1/2) \log(\beta_b  + t_b^1 + t_b^2) -\\
+%&\overset{2}{\underset{j = 1}{\Sigma}}\underset{b\in\pi}\Sigma (t_b^j + \gamma_b^j - 1/2) \log(t_b^j + \gamma_b^j) + 1 - \log(\sqrt{2\pi})
 %\end{eqnarray*}
 
 %\begin{eqnarray*}
