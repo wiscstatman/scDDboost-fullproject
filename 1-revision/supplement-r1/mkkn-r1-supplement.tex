@@ -379,8 +379,9 @@ P(d_{i,j} | a_0, a_1, d_0) = \frac{\Gamma(a_0 + a_1)}{\Gamma(a_0)\Gamma(a_1)} \f
 for parameters $a_0, a_1, $ and $d_0$, and recognizing $a = a_0+a_1$.  We estimate these parameters
 from the collection of observed distances $\{ d_{i,j} \}$.  First $d_0$ is estimated by the method
 of moments, noting $d_0=E( 1/d_{i,j} )/var[ 1/d_{i,j} ]$. 
-\textcolor{blue}{**Xiuyu: please check my restatement here; are these means/variances from the 
-distribution in (3)?**} Next we estimate $a_0$ and $a_1$ by 
+%\textcolor{blue}{**Xiuyu: please check my restatement here; are these means/variances from the 
+%distribution in (3)?**} 
+Next we estimate $a_0$ and $a_1$ by 
 optimization of a marginal log-likelihood using~(\ref{eq:margD}) and program \verb+nlminb+ in \verb+R+.
 We limit tolerance to avoid overflow issues. Supplementary Figure~\ref{fig:ARI} shows the level of 
 variation in clusterings produced by this randomized distance approach in 8 example data sets.
@@ -663,11 +664,19 @@ good operating characteristics;  the paragraph you added so far is helfpul, but 
 we go back to the Zappia paper to know anything about the model underlying splatter. I think we need 
 some sort of explanation in our paper. Thanks.}**
 
+
 In this section we look more closely at the synthetic data generated using \verb+splatter+.
-\verb+splatter+ take three parameters, the number of groups(clusters) and a pair of hyperparameters.
+\verb+splatter+ is a state of art simulation framework that approximates empirical data well.
+To make authentic data, gene expression of cells within the same group are generated through a multi-layer model, 
+Those layers considering the state of whether it is an outlier or dropout, library size(sequencing depth) and trended gene-wise dispersion, 
+which make the marginal expression distribution more complicate than the negative binomial model assumed by \verb+scDDboost+. 
+Input parameters for the multi-layer model are internally estimated using empirical data sets. 
+However, for generating data of multiple groups, 
+it requires user to provide a pair of location and scale parameters governing the intensity of DE for those signature genes that distinct each group. 
+In summary, \verb+splatter+ take three parameters, the number of groups(clusters) and a pair of the location and scale parameters for multi-group simulation.
 To evaluate performance on the data sets with small number of clusters to relative large number of clusters, 
 we consider the cases when the number of clusters is 3,7 and 12. 
-For the choice of the hyperparamter pair, we use two settings suggested by \verb+splatter+, which are (0.1,0.4) and (-0.1,0.3).  **\textcolor{blue}{what do these parameters control? what do they mean?}**
+For the choice of the hyperparamter pair, we use two settings suggested by \verb+splatter+, which are (0.1,0.4) and (-0.1,0.3). 
 However, those settings induce weak signal for DD and all methods have low power.
 For the sake of comparison between different DD methods, we amplify the evidence of DD by introducing two more hyperparameter pairs (0.3,0.5) and (-0.1,1).
 
