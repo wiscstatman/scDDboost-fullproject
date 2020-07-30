@@ -808,7 +808,9 @@ The proportionality is resolved by calculating over all partitions $\pi$.
 We used \verb+splatter+ (v. 1.2.0)  
 to generate synthetic scRNA-seq  data for which the DD status of genes is known~(\cite{ref:Zappia}), 
  thereby allowing us to 
-measure operating characteristics of \verb+scDDboost+.  Our hypothetical two-condition comparison involved
+measure operating characteristics of \verb+scDDboost+. 
+ \verb+splatter+ \textcolor{red}{ something more on this system and how it's different from  our model }. 
+Our hypothetical two-condition comparison involved
 17421 genes, 10\% of which exhibited actual shifts in distribution between two conditions. 
 We entertained 12 different parameter settings encoding these distributional shifts, 
 varying the number of subtypes $K$, the subtype frequency profiles $(\phi,\psi)$, as well
@@ -1043,7 +1045,7 @@ Table \ref{tab:cs} demonstrates that most DD genes identified by our method are 
       %\multicolumn{2}{c}{Item} \\
       \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
       Data Set   & $|\mathcal{R}_{0.05}|$ &
-      $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05} \cap \mathcalU}_{0.05}|$ & $N_g$   \\
+      $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05} \cap \mathcal{U}_{0.05}|$ & $N_g$   \\
       \midrule
       GSE75748   & 8605 & 2390 & 2331 & 19097\\          
       GSE45719   & 7454 & 2562 & 2529 & 45686\\
@@ -1082,7 +1084,7 @@ Let $p_o$ be the proportions of commonly identified genes among the top 1000 and
   \label{tab:dist}
   \end{center}
 \end{table}
-We also run \texttt{scDDboost} with \textt{sc3} on null case data sets used in Figure~\ref{nullperm} and simulation data. 
+We also run \texttt{scDDboost} with \texttt{sc3} on null case data sets used in Figure~\ref{nullperm} and simulation data. 
 We observe very few positives and conclude that our method does not inflate type-I error with different clustering method.(supplementary 3.5.3)
 
 
