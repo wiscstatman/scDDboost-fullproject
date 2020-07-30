@@ -683,10 +683,11 @@ For the sake of comparison between different DD methods, we amplify the evidence
 
 PCA plots  provide a global (transcriptomic) view of 
  changes between splatter-simulated subtypes:  Supplementary Figures \ref{fig:pca1}, \ref{fig:pca2}, \ref{fig:pca3} summarize the cases $K=3, 7,$ and $12$, respectively.  Parameter choices provide for some
-strong and some very weak differences.  \textcolor{blue}{**Xiuyu: I don't see what 
-distinguishes the top row of 4 PCA plots from the bottom row in each figure.  Here, I guess, we could
-have some clarity; perhaps it refers to a pair of hyperparameters, but I cannot tell.  Please advise. Thanks
-**}
+strong and some very weak differences.  
+%\textcolor{blue}{**Xiuyu: I don't see what 
+%distinguishes the top row of 4 PCA plots from the bottom row in each figure.  Here, I guess, we could
+%have some clarity; perhaps it refers to a pair of hyperparameters, but I cannot tell.  Please advise. Thanks
+%**}
 
 %we demonstrate consistency of estimated distributional changes based on \texttt{scDDboost} and Wasserstein distance.
 %Finally, ROC curves illustrate that \verb+scDDboost+ has favorable operating characteristics. 
@@ -699,9 +700,10 @@ have some clarity; perhaps it refers to a pair of hyperparameters, but I cannot 
   \includegraphics[ width = 0.8\textwidth]{Figs/pca3.pdf}
   \caption{First two principal components of transcripts under different parameters for simulated data. 
   Horizontal axis refers to first component, vertical axis refers to second component.
-  Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation, each setting has 10 replicates.
+  Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation. 
+  We choose 2 from the 10 replicates. The two rows are corresponding to 2 replicaes.  
   From left to right, the associated hyper-parameters are (0.1,0.4), (-0.1,0.3), (0.3,0.5), (-0.1,1). Here we have $K=3$ subtypes, with cells in each subtype marked with a common color. 
-  **\textcolor{blue}{what are top and bottom rows?**}}
+  }
   \label{fig:pca1}
 \end{figure}
 
