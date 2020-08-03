@@ -1,5 +1,6 @@
 ### fucci data analysis 
 library(scDDboost)
+library(ggplot2)
 load("Fucci.RData")
 
 ### content in the data ########
