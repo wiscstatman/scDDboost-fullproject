@@ -163,14 +163,14 @@ These tools respond
 to scRNA-seq characteristics, such as high prevalence of zero counts and
 gene-level multimodality, but they do not fully exploit cellular-subtype
 information \textcolor{red}{and therefore may be underpowered in some settings.  The proposed method,
-which measures changes in a gene's marginal sampling distribution, 
+which uses negative binomial mixtures and measures changes in a gene's marginal sampling distribution, 
 acquires sensitivity to a variety of distributional effects by how it integrates 
 gene-level data with estimated cellular subtypes.}
 From input data, the associated R package 
 \verb+scDDboost+~\footnote{http://github.com/wiscstatman/scDDboost/}
 prioritizes genes \textcolor{red}{with a local false-discovery rate against the 
 null hypothesis of no condition effect on the marginal sampling distribution.  The complement
-of this rate is an empirical Bayesian posterior probability of differential distribution. 
+of this rate is an empirical Bayesian posterior probability of differential distribution (DD). 
 By incorporating transciptomic information on cell subtypes, scDDboost leverages
 useful and previously untapped information on each gene's expression sampling distribution.}
 
@@ -540,7 +540,7 @@ scRNA-seq~(\cite{Cor}).
 The default clustering in~\verb+scDDboost+ combines these 
 two measures by weighted average, 
 with  $w_C = \frac{\sigma_P}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_C$, where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster-based distance and Pearson-correlation distance, respectively.  The software allows 
-other distances; in any case 
+other distances, \textcolor{red}{such as provided by SC3, which we use in some numerical experiments}; in any case 
 the final distance matrix is denoted $D=\left( d_{i,j} \right)$. 
 
 Any clustering method  entails classification errors, and so $\hat z_c \neq z_c$ for some cells. To mitigate
@@ -810,15 +810,23 @@ We used \verb+splatter+ (v. 1.2.0)
 to generate synthetic scRNA-seq  data for which the DD status of genes is known~(\cite{ref:Zappia}), 
  thereby allowing us to 
 measure operating characteristics of \verb+scDDboost+. 
- \verb+splatter+ \textcolor{red}{ something more on this system and how it's different from  our model }. 
+ \verb+splatter+ \textcolor{red}{is a widely cited generative system for simulating realistic
+single-cell RNA-seq data. It accounts for biological and technical sources of variation and is calibrated
+from a large number of published data sets. } 
 Our hypothetical two-condition comparison involved
-17421 genes, 10\% of which exhibited actual shifts in distribution between two conditions. 
+17421 genes, 10\% of which exhibited actual shifts in distribution between two conditions \textcolor{red}{
+how many cells per condition??**}.  
+\textcolor{red}{We adopted default settings of the primary variation parameters in splatter, and focused 
+our experiments on splatter parameters $(\theta, \gamma)$ (also called ** **) which encode distributional
+shifts and also the number $K$ of subtypes.  }
 We entertained 12 different parameter settings encoding these distributional shifts, 
-varying the number of subtypes $K$, the subtype frequency profiles $(\phi,\psi)$, as well
+\textcolor{red}{ varying the number of subtypes $K\in\{3,7,12\}$,  and splatter parameters $(\theta,\gamma)$ over
+four settings varying the signal differences between subtypes **?what about subytpe frequencies?**}
+the subtype frequency profiles $(\phi,\psi)$, as well
 as the  \verb+splatter+-specific parameters $\theta$ and $\gamma$ controlling location and scale characteristics
 of expression levels. These settings cover a range
 of scenarios we might expect to see in practice.  \textcolor{red}{Ten replicate data sets were simulated under each parameter setting.
-Note the sampling model induced by splatter is distinct from the more descriptive model 
+ The more mechanistic sampling model induced by splatter is distinct from the more descriptive model 
 underlying scDDboost.  We choose it to reflect anticipated technical and biological sources of 
 variation.  Further details are in Supplementary Material Section~3.1.}
 
@@ -827,6 +835,7 @@ of \verb+scDDboost+ compared to three other methodologies: \verb+MAST+ (v. 1.4.0
 \verb+DESeq2+ (v. 1.18.1). 
 \verb+scDDboost+ exhibits very good operating characteristics in this study, as it controls the 
 FDR in all cases while also delivering a relatively high rate of true positives in all cases.
+**comment on difficulty, referring to horizontal ordering and also t boxes in supp**
 
 
 \begin{figure}[H]
