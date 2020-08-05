@@ -1050,13 +1050,16 @@ Table \ref{tab:cs} demonstrates that most DD genes identified by our method are 
       \midrule
       GSE75748   & 8605 & 2390 & 2331 & 19097\\          
       GSE45719   & 7454 & 2562 & 2529 & 45686\\
-      
+      GSE64016   & 2800 & 468 & 335 & 19084\\
       \bottomrule
   \end{tabular}
   \caption{number of positives at genes against constant shape parameter across subtypes}
   \label{tab:cs}
   \end{center}
 \end{table}
+
+Further we checked the performance of \texttt{scDDboost} at splatter simulation when constant shape assumption is violated and found that our method still gave accurate inference and control the FDR.
+
 
 \subsubsection{clustering method}
 We use distance based clustering method, where two distance matrices are combined. 
