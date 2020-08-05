@@ -232,7 +232,7 @@ information.
  \caption{Genes involved in cell-cycle that are identified by scDDboost, but not standard approaches,
  as differentially distributed between cell-cycle phases G1 and G2/M in human embryonic stem cells. 
   Density estimates on the left show expression data (log2 scale)
-of three genes identified by scDDboost at 5\% FDR, but not similarly identified by MAST, scDD, and DESeq2.
+of three genes identified by scDDboost at 5\% FDR, but not similarly identified by MAST, scDD, \textcolor{red}{or}  DESeq2.
  Prior studies have shown that the expression
  of  BIRC5, CKAP2, and HMMR is dependent on the phase of cell-cycle,
  suggesting that these subtle shifts are not false positives. 
@@ -320,10 +320,10 @@ number of population classes $K$ in order to mitigate the problem of within-subt
 heterogeneity. A  risk in this approach is that $K$ could approach $n$, as if  
 every cell were  its own subtype.  We find, however,
 that data sets often encountered do not display this theoretical phenomenon
-when using a broad class of within-subtype expression distributions. Subtypes are
+when using a broad class of within-subtype expression distributions. \textcolor{red}{Subtypes are
 considered such 
 that cellular condition affects their composition but not the distribution of expression
-within a subtype.
+within a subtype.}
 
 Within the compositional model, let $f_{g,k}$ denote the sampling distribution
 of expression measurement $X_{g,c}$ assuming that cell $c$ is from subtype $k$.
