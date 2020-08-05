@@ -169,13 +169,10 @@ gene-level data with estimated cellular subtypes.
 From input data, the associated R package 
 \verb+scDDboost+~\footnote{http://github.com/wiscstatman/scDDboost/}
 aims to prioritize genes according to evidence that their expression distribution is different
-between the two cellular conditions in view. **add a sentence about KS as a suboptimal
-choice, but in the same direction of differential distributioon**
+between the two cellular conditions in view.  \textcolor{red}{The goal is to score genes
+by an empirical Bayesian posterior probability that the expression sampling distribution is different
+between these cellular conditions.}
 
-%It is implemented in  software 
-%in the R package \verb+scDDboost+~\footnote{http://github.com/wiscstatman/scDDboost/}.
-
-%in the R package \verb+scDDboost+~\footnote{http://github.com/wiscstatman/scDDboost/}.
 
 Through the compositional model underlying \verb+scDDboost+, subtypes inferred by clustering 
 inform the analysis of gene-level expression.  The proposed methodology merges two lines of computation
@@ -322,7 +319,7 @@ every cell were  its own subtype.  We find, however,
 that data sets often encountered do not display this theoretical phenomenon
 when using a broad class of within-subtype expression distributions. \textcolor{red}{Subtypes are
 considered such 
-that cellular condition affects their composition but not the distribution of expression
+that cellular condition affects their composition but not the sampling distribution of expression
 within a subtype.}
 
 Within the compositional model, let $f_{g,k}$ denote the sampling distribution
@@ -350,14 +347,13 @@ We seek methodology to prioritize genes for evidence
 of ${\rm DD}_g$.  Interestingly, even if we have evidence for condition effects
 on the subtype frequencies, it does not follow that a given
 gene will have $f^1_g \neq f^2_g$; that depends on whether or not the subtypes
-show the right pattern of {\em differential expression} at $g$, to use the 
+show the right pattern of differential expression at $g$, to use the 
 standard terminology from bulk RNA-seq.  For example, if two subtypes have 
 different frequencies between the two conditions ($\phi_1 \neq \psi_1$ and 
  $\phi_2 \neq \psi_2$) but the same aggregate frequency
-($\phi_1+\phi_2 = \psi_1 + \psi_2$),  and also  if $\mu_{g,1} = \mu_{g,2}$
-then, other things being equal, $f^1_g = f^2_g$ even though $\phi \neq \psi$. The fact
-is so central that we emphasize:
-**change mu's above to component densities, and refer to Supp calculation in 2.1**
+($\phi_1+\phi_2 = \psi_1 + \psi_2$),  and also  if components are equivalent, $f_{g,1} = f_{g,2}$,
+then, other things being equal, marginals $f^1_g = f^2_g$ even though $\phi \neq \psi$. 
+\textcolor{red}{Details confirming such equality are examplified further in Supplementary Material Section 2.1.} The fact is so central that we emphasize:
 
 
 \noindent
@@ -528,7 +524,7 @@ conditional on an estimate of the subtype labels.
 We invoke $K-$medoids (\cite{kmedoids}) 
 as the default clustering method in \texttt{scDDboost}, and customize the cell-cell distance by integrating two measures.  
 The first assembles gene-level information by cluster-based-similarity partitioning~(\cite{ref:cspa}).
- Separately at each gene,   modal clustering (\cite{ref:dahl} and Supplementary Material Section~2.2.2) partitions the cells, and
+ Separately at each gene,   modal clustering (\cite{ref:dahl} and Supplementary Material Section~2.2) partitions the cells, and
 then we define dissimilarity between cells as the Manhattan distance between gene-specific 
 partition labels.
 A second measure defines dissimilarity by one minus the 
@@ -539,8 +535,7 @@ The default clustering in~\verb+scDDboost+ combines these
 two measures by weighted average, 
 with  $w_C = \frac{\sigma_P}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_C$, where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster-based distance and Pearson-correlation distance, respectively.  The software allows 
 other distances; in any case 
-the final distance matrix is denoted $D=\left( d_{i,j} \right)$. \textcolor{red}{**numerical
-experiments..which ones...also used SC3 [cite]**}.
+the final distance matrix is denoted $D=\left( d_{i,j} \right)$. 
 
 Any clustering method  entails classification errors, and so $\hat z_c \neq z_c$ for some cells. To mitigate
 the effects of this uncertainty, \texttt{scDDboost} averages output probabilities from \textsc{scDDboost-core} over
@@ -567,7 +562,7 @@ strategies in Section~5. Inferentially,
  The approach
 taken in \verb+scDDboost+ is to set $K$ using the validity score~(\cite{selK}), which measures 
 changes in within-cluster sum of squares as we increase $K$.  Our implementation,  in
-Supplementary Material Section 2.2.4, shows good operating characteristics in simulation.
+Supplementary Material Section 2.2, shows good operating characteristics in simulation.
 
 
 \subsection{$P(A_\pi|y,z)$}
@@ -790,7 +785,7 @@ where $f$ is a customized density kernel.  In our case we use \verb+EBseq+ from~
 the sampling distribution of
  $X_{g,c}$ is negative binomial, and $f$ becomes a particular compound multivariate 
 negative binomial formed from integrating
-uncertainty in the block-specific means (see Supplementary Material Section 2.2.1).  
+uncertainty in the block-specific means (see Supplementary Material Section 2.2).  
 Through its gene-level mixing model,
 \verb+EBseq+ also gives estimates of $\{ P(M_{g,\pi}|z) \}$: the proportions of genes governed by any of the 
 different patterns $\pi$ of equivalent/differential expression among subtypes. With these estimates 
@@ -816,9 +811,10 @@ We entertained 12 different parameter settings encoding these distributional shi
 varying the number of subtypes $K$, the subtype frequency profiles $(\phi,\psi)$, as well
 as the  \verb+splatter+-specific parameters $\theta$ and $\gamma$ controlling location and scale characteristics
 of expression levels. These settings cover a range
-of scenarios we might expect to see in practice.  \textcolor{red}{Ten replicate data sets were simulated under each parameter setting.}
-Further details are in Supplementary Material Section~3.1.   
-\textcolor{blue}{make the point that splatter is a different model than scDDboost}
+of scenarios we might expect to see in practice.  \textcolor{red}{Ten replicate data sets were simulated under each parameter setting.
+Note the sampling model induced by splatter is distinct from the more descriptive model 
+underlying scDDboost.  We choose it to reflect anticipated technical and biological sources of 
+variation.  Further details are in Supplementary Material Section~3.1.}
 
 Figures~\ref{fig:sim1} and~\ref{fig:sim2} summarize the true positive rate and false discovery rate
 of \verb+scDDboost+ compared to three other methodologies: \verb+MAST+ (v. 1.4.0), \verb+scDD+ (v. 1.2.0), and 
