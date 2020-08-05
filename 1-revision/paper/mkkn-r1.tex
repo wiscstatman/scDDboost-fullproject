@@ -939,20 +939,21 @@ method for DE gene analysis rooted in modeling the bursting process. It
 considers transcripts as in the stationary distribution from an 
 experimentally validated stochastic process of single-cell gene expression (\cite{Peccoud:1995aa}). 
 Three mechanistic parameters (rate of promoter activation, rate of promoter inactivation, 
- and the conditional rate of transcription given an active  promoter) characterize the model, which allow
- distributional changes between conditions without changing the mean expression level.
-For genes identified as DD by \verb+scDDboost+ in dataset GSE71585, either uniquely or in common with
-comparison methods, Figure~\ref{fig:bursting} shows  changes of these bursting parameters. Interestingly, 
+ and the conditional rate of transcription given an active  promoter) characterize the model, which allows
+ distributional changes between conditions without changes in mean expression level.
+For genes identified as DD by \verb+scDDboost+ in dataset GSE71585, either uniquely or
+\textcolor{red}{in common with
+comparison methods MAST, scDD, and DESeq2}, 
+Figure~\ref{fig:bursting} shows  changes of these bursting parameters. Interestingly, 
  genes uniquely identified by \verb+scDDboost+ are associated with more 
-significant changes between estimated bursting parameters compared to commonly identified genes.
+significant changes between estimated bursting parameters \textcolor{red}{than genes that all methods identify}.
 This finding and similar findings on other data sets (not shown) provide some evidence that \verb+scDDboost+
 is able to detect biologically meaningful changes in the expression distribution.
-%\todo{how many points are in each boxplotin figure 9? }
-\textcolor{red}{add some language to clarify that other methods involved here in comparison}
 
 \begin{figure}[H]
 \includegraphics[width = 0.85\textwidth]{Figs/D3E_box.pdf}
-\caption{ Absolute values of log fold changes of bursting parameters tend to be larger for 1758 genes uniquely identified by scDDboost (red) compare to other 2983 genes (blue) at 5\% FDR}
+\caption{ Absolute values of log fold changes of bursting parameters tend to be larger for 1758 genes uniquely identified by scDDboost (red) compared to 2983 genes (blue) \textcolor{red}{that are  identified  at 5\% FDR by 
+scDDboost and other methods: MAST, scDD, and DESeq2.} }
  \label{fig:bursting}
 \end{figure}
 
@@ -998,7 +999,7 @@ Given the estimated subtype label, we test NB fitting for each subtype by an adj
 We investigated the distribution of the p values and observed that a few genes having evidence against the NB assumption(supplementary 2.4). 
 Let $\mathcal{N}_{0.05}$ be the set of genes having at least one fdr adjusted p value on one subtype less than 0.05.
 Let $\mathcal{D}_{0.05}$ be the set of genes identified as DD genes by our method at 0.05 local fdr.
-Let $\mathcal{U}_{0.05}$ be the union of genes identified by other methods(t-test,MAST,DESeq2,scDD) with fdr correction at 0.05 threshold. 
+Let $\mathcal{U}_{0.05}$ be the union of genes identified by other methods (t-test,MAST,DESeq2,scDD) with fdr correction at 0.05 threshold. 
 Let $N_g$ be the number of genes. 
 Table \ref{tab:nb} demonstrates among those non-NB genes, most DD identified by our method are also confirmed by other tests 
 Further we investigate the part uniquely identified by \texttt{scDDboost} and observed distributional differences (supplementary 2.4)
