@@ -162,16 +162,22 @@ have been deployed to address this problem.
 These tools respond
 to scRNA-seq characteristics, such as high prevalence of zero counts and
 gene-level multimodality, but they do not fully exploit cellular-subtype
-information.  Our proposed method 
- measures changes in a gene's marginal mixture distribution  and
+information \textcolor{red}{and therefore may be underpowered in some settings.  The proposed method,
+which measures changes in a gene's marginal sampling distribution, 
 acquires sensitivity to a variety of distributional effects by how it integrates 
-gene-level data with estimated cellular subtypes.  
+gene-level data with estimated cellular subtypes.}
 From input data, the associated R package 
 \verb+scDDboost+~\footnote{http://github.com/wiscstatman/scDDboost/}
-aims to prioritize genes according to evidence that their expression distribution is different
-between the two cellular conditions in view.  \textcolor{red}{The goal is to score genes
-by an empirical Bayesian posterior probability that the expression sampling distribution is different
-between these cellular conditions.}
+prioritizes genes \textcolor{red}{with a local false-discovery rate against the 
+null hypothesis of no condition effect on the marginal sampling distribution.  The complement
+of this rate is an empirical Bayesian posterior probability of differential distribution. 
+By incorporating transciptomic information on cell subtypes, scDDboost leverages
+useful and previously untapped information on each gene's expression sampling distribution.}
+
+%according to evidence that their expression distribution is different
+%between the two cellular conditions in view.  \textcolor{red}{The goal is to score genes
+%by an empirical Bayesian posterior probability that the expression sampling distribution differs
+%between these cellular conditions.}
 
 
 Through the compositional model underlying \verb+scDDboost+, subtypes inferred by clustering 
