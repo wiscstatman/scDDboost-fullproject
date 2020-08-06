@@ -817,12 +817,20 @@ Our hypothetical two-condition comparison involved
 17421 genes, 10\% of which exhibited actual shifts in distribution between two conditions.
 We have in total 400 cells and the number of cells per condition may vary a little due to the simulating process but is roughly 200. 
 \textcolor{red}{We adopted default settings of the primary variation parameters in splatter, and focused 
+<<<<<<< HEAD
+our experiments on splatter parameters $(\theta, \gamma)$ (also called location and scale parameter) which encode distributional
+shifts and also the number $K$ of subtypes.  }
+We entertained 12 different parameter settings encoding these distributional shifts, 
+\textcolor{red}{ varying the number of subtypes $K\in\{3,7,12\}$,  and splatter parameters $(\theta,\gamma)$ over
+four settings varying the signal differences between subtypes **?what about subytpe frequencies?**, ** the subtype frequencies are randomly generated satisfying some constraint, detail in supplementary**}
+=======
 our experiments on splatter location and scale parameters $(\theta, \gamma)$, 
 which encode distributional shifts, and also the number $K$ of subtypes.  }
 We entertained 12 different parameter settings 
 \textcolor{red}{ varying the number of subtypes $K\in\{3,7,12\}$,  and splatter parameters $(\theta,\gamma)$ 
 over
 four settings varying the signal differences between subtypes **?what about subytpe frequencies?**, ** the subtype frequencies are randomly generated satisfying some constraint**}
+>>>>>>> 552e15bf4f46cd33c02c8b2c52e8d0f9e35c92ff
 the subtype frequency profiles $(\phi,\psi)$, as well
 as the  \verb+splatter+-specific parameters $\theta$ and $\gamma$ controlling location and scale characteristics
 of expression levels. These settings cover a range
