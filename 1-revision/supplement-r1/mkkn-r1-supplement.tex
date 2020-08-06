@@ -685,22 +685,28 @@ and also $(0.1,0.4)$[default] to $(0.3,0.5)$.  These choices enable better resol
 In summary, \verb+splatter+ take three parameters, the number of subtypes $K$ and a
  pair of the location and scale parameters for multi-group simulation.
 To evaluate performance relative to the number of subtypes,
-we consider $K \in \{3,7,12\}$.
+we consider $K \in \{3,7,15\}$.
 For the location/scale pair, we use two settings suggested by \verb+splatter+, 
 which are (0.1,0.4) and (-0.1,0.3)  and two cases with stronger signal:
 (0.3,0.5) and (-0.1,1).
 
-For the frequencies of each subtypes, we have different constraint under different $K$. 
+\textcolor{red}{For the frequencies of each subtypes, we have different constraint under different $K$. 
 Let $(\phi_i,\psi_i)$ be the frequencies of subtype $i$ in condition 1 and 2.
 For $K = 3$, there is only one trivial constraint, $\phi_1 + \phi_2 + \phi_3 = 1 = \psi_1 + \psi_2 + \psi_3$.
 For $K = 7$, we have $\phi_1 + \phi_2 = \psi_1 + \psi_2, \phi_3 + \phi_4 + \phi_5 = \psi_3 + \psi_4 + \psi_5, \phi_6 + \phi_7 = \psi_6 + \psi_7$.
-And when $K = 12$, we have $\phi_1 + \phi_2 = \psi_1 + \psi_2, \phi_3 + \phi_4 + \phi_5 = \psi_3 + \psi_4 + \psi_5, \phi_6 + \phi_7 = \psi_6 + \psi_7$
- 
+And when $K = 15$, we have $\sum_{i = 1}^2 \phi_i = \sum_{i = 1}^2 \psi_i,\sum_{i = 3}^5 \phi_i = \sum_{i = 3}^5 \psi_i,
+\sum_{i = 6}^{10} \phi_i = \sum_{i = 6}^{10} \psi_i,\sum_{i = 11}^{15} \phi_i = \sum_{i = 11}^{15} \psi_i$.}
 
-PCA plots  provide a global (transcriptomic) view of 
- changes between splatter-simulated subtypes:  Supplementary Figures \ref{fig:pca1}, \ref{fig:pca2}, \ref{fig:pca3} summarize the cases $K=3, 7,$ and $12$, respectively.  Parameter choices provide for some
-strong and some very weak differences.   Rows correspond to two (sampled from 10) of the replicate
-data sets.
+\textcolor{red}{For the DE proportion, the DE simulation process in the splatter can be roughly viewed as a base mean is generated for a gene, then subtype-specific factors are used to adjust the base mean to subtype-specific, if a gene labeled as DE in one subtype, such factor will be different from 1. Otherwise, it is just 1 and the subtype-specific mean equals the base mean. 
+Unfortunately splatter only provide the DE proportion parameter to control the proportion of DE genes in one subtype rather than giving a parameter controlling the overall proportion of DD genes between conditions.
+Here we use 10\% as it is the default setting in splatter.}
+ 
+UMAP plots  provide a global (transcriptomic) view of 
+ changes between splatter-simulated subtypes:  Supplementary Figures~\ref{fig:umap}, summarize the case for $K=15$ subtypes.  Parameter choices provide for some
+strong and some very weak differences.  
+
+
+
 %\textcolor{blue}{**Xiuyu: I don't see what 
 %distinguishes the top row of 4 PCA plots from the bottom row in each figure.  Here, I guess, we could
 %have some clarity; perhaps it refers to a pair of hyperparameters, but I cannot tell.  Please advise. Thanks
@@ -714,28 +720,38 @@ data sets.
 %\texttt{scDDboost} benefits from the compositional structure and is more sensitive to those subtle changes.
 
 \begin{figure}[h!]
-  \includegraphics[ width = 0.8\textwidth]{Figs/pca3.pdf}
-  \caption{First two principal components of transcripts under different parameters for simulated data. 
-  Horizontal axis refers to first component, vertical axis refers to second component.
-  Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation. 
-   The two rows are corresponding to 2 from among 10 replicates.  
-  From left to right, the associated hyper-parameters are (0.1,0.4), (-0.1,0.3), (0.3,0.5), (-0.1,1). Here we have $K=3$ subtypes, with cells in each subtype marked with a common color. 
+  \includegraphics[ width = 0.8\textwidth]{Figs/UMAP.png}
+  \caption{UMAP of transcripts under different parameters for simulated data. 
+  Different parameters resulted in different degree of separation of subtypes.
+  Top left the hyper-parameters are  (-0.1,0.3), top right is (0.1,0.4). We can see many subtypes are nested with each other.
+  at the Bottom from left to right are (0.3?0.5?and (-0.1,1), where we have stronger signal and subtypes are more separated. 
+  We have $K= 15$ subtypes with cells in each subtype marked with a common color. 
   }
-  \label{fig:pca1}
+  \label{fig:umap}
+\end{figure}
+
+\textcolor{red}{We also use t-test to demonstrate the difficulty for different simulation settings.} 
+Figure~\ref{fig:t-s} present t-test results on one replicate for each setting. 
+\begin{figure}[h!]
+  \includegraphics[ width = 0.8\textwidth]{Figs/tscore.pdf}
+  \caption{for each settings, we randomly choose one data and plot the boxplot of p values by t-test at DD and ED genes. 
+  }
+  \label{fig:t-s}
 \end{figure}
 
 
-\begin{figure}[h!]
-\includegraphics[ width = 0.8\textwidth]{Figs/pca7.pdf}
-\caption{Similar plots as Supplementary Figure~\ref{fig:pca1}, but for $K=7$ subtypes}
-\label{fig:pca2}
-\end{figure}
 
-\begin{figure}[h!]
-  \includegraphics[ width = 0.8\textwidth]{Figs/pca12.pdf}
-  \caption{Similar plots as Sumpplementary Figure~\ref{fig:pca1}, but for $K=12$ subtypes}
-  \label{fig:pca3}
-  \end{figure}
+%\begin{figure}[h!]
+%\includegraphics[ width = 0.8\textwidth]{Figs/pca7.pdf}
+%\caption{Similar plots as Supplementary Figure~\ref{fig:pca1}, but for $K=7$ subtypes}
+%\label{fig:pca2}
+%\end{figure}
+
+%\begin{figure}[h!]
+%  \includegraphics[ width = 0.8\textwidth]{Figs/pca12.pdf}
+%  \caption{Similar plots as Sumpplementary Figure~\ref{fig:pca1}, but for $K=12$ subtypes}
+%  \label{fig:pca3}
+%  \end{figure}
   
 
 Supplementary Figure~\ref{fig:simu_wad} confirms that the probability scores from \texttt{scDDboost} are 
@@ -808,10 +824,10 @@ GSE84465 & neoplastic cells vs non-neoplastic cells & 1000, 1000 & human & \cite
 
 For the first 11 datasets in Supplementary Table \ref{table:1} we use all the cells within that condition under same batch.
 The last one is the largest dataset we explored containing 3589 cells and comparing neoplastic cells (1091 cells) vs non-neoplastic cells (2498 cells).
-We randomly sampled 1000 cells from each condition, because it takes a lot of time for \texttt{DESeq} and \texttt{scDD} to compute when using all the samples
+We randomly sampled 1000 cells from each condition, because it takes a lot of time for \texttt{DESeq2} and \texttt{scDD} to compute when using all the samples
 and we conjecture that 1000 cells each condition would be enough to represent the heterogeneity. %\todo{How different are results on a different random subset of 1000?}
 We run the comparison on those subsamples instead 
-and found \texttt{DESeq} identified significantly smaller numbers of positives than other methods. It is intuitive that we are more likely to encounter subtle changes
+and found \texttt{DESeq2} identified significantly smaller numbers of positives than other methods. It is intuitive that we are more likely to encounter subtle changes
 when we have large samples, and only considering mean shifts would have limited power. 
 
 We also observed consistent distributional change measurements by \texttt{scDDboost} and Wasserstein distance 
