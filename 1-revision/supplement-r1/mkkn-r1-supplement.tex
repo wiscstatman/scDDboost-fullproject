@@ -682,6 +682,12 @@ For the choice of the hyperparamter pair, we use two settings suggested by \verb
 However, those settings induce weak signal for DD and all methods have low power.
 For the sake of comparison between different DD methods, we amplify the evidence of DD by introducing two more hyperparameter pairs (0.3,0.5) and (-0.1,1).
 
+For the frequencies of each subtypes, we have different constraint under different $K$. 
+Let $(\phi_i,\psi_i)$ be the frequencies of subtype $i$ in condition 1 and 2.
+For $K = 3$, there is only one trivial constraint, $\phi_1 + \phi_2 + \phi_3 = 1 = \psi_1 + \psi_2 + \psi_3$.
+For $K = 7$, we have $\phi_1 + \phi_2 = \psi_1 + \psi_2, \phi_3 + \phi_4 + \phi_5 = \psi_3 + \psi_4 + \psi_5, \phi_6 + \phi_7 = \psi_6 + \psi_7$.
+And when $K = 12$, we have $\phi_1 + \phi_2 = \psi_1 + \psi_2, \phi_3 + \phi_4 + \phi_5 = \psi_3 + \psi_4 + \psi_5, \phi_6 + \phi_7 = \psi_6 + \psi_7$
+ 
 
 PCA plots  provide a global (transcriptomic) view of 
  changes between splatter-simulated subtypes:  Supplementary Figures \ref{fig:pca1}, \ref{fig:pca2}, \ref{fig:pca3} summarize the cases $K=3, 7,$ and $12$, respectively.  Parameter choices provide for some
