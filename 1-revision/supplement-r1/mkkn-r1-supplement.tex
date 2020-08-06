@@ -998,7 +998,7 @@ indicates relatively little lack of fit.
 \end{figure}
 Among genes that demonstrate non-NB behavior, we find that most are handled the same way by \texttt{scDDboost}
 as by the standard comparison methods in terms of DD calls at 5\% FDR.  
- Supplementary Figures \ref{fig:s11}, and \ref{fig:s12} display data from genes that show non-NB behavior
+ Supplementary Figures ~\ref{fig:s11} display data from genes that show non-NB behavior
 and also are uniquely identified by \texttt{scDDboost} as being DD.   
 \begin{figure}[h]
 \includegraphics[width = 0.7\textwidth]{Figs/NBgene.pdf}
@@ -1006,11 +1006,19 @@ and also are uniquely identified by \texttt{scDDboost} as being DD.
 \label{fig:s11}
 \end{figure}
 
+%\begin{figure}[h]
+%\includegraphics[width = 0.5\textwidth]{Figs/NBgene2.pdf}
+%\caption{Data set GSE45719, violin plot of the 13 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt{scDDboost}}
+%\label{fig:s12}
+%\end{figure}
+Apart from NB fitting test,
+we also investigate how well our model approximates the empirical values.
 \begin{figure}[h]
-\includegraphics[width = 0.5\textwidth]{Figs/NBgene2.pdf}
-\caption{Data set GSE45719, violin plot of the 13 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt{scDDboost}}
-\label{fig:s12}
+\includegraphics[width = 0.8\textwidth]{Figs/ecdf.pdf}
+\caption{Data set Fucci, random select 9 genes among genes having at least one positive transcripts, Red curve refers to empirical CDF of the gene transcripts, each green curve refers empirical CDF fitted on data simulated from our estimated mixture NB model. Here we present 10 fitted models for each gene under randomized clusterings.}
+\label{fig:cdf}
 \end{figure}
+
 
 
 \subsubsection{Constant shape assumption: Likelihood ratio test}
