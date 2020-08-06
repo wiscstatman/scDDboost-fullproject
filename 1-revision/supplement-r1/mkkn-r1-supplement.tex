@@ -658,8 +658,8 @@ we have $C_\pi =  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
 
 \subsection{Synthetic Data}
 
-\textcolor{red}{Here we look more closely at the synthetic data generated using splatter.
-Splatter is a state-of-the-art simulation framework to generate scRNA-seq data.
+Here we look more closely at the synthetic data from \verb+splatter+,
+ a state-of-the-art simulation framework to generate scRNA-seq data.
 Gene expression of cells within the same group is simulated through a multi-layer model, 
 The layers consider many factors, including
   outliers and dropout, library size (sequencing depth), and trended gene-wise dispersion. 
@@ -669,25 +669,25 @@ Parameters for splatter's multi-layer model may be set from empirical data sets,
 default settings in our experiments.  For generating data across multiple groups, 
 splattert requires user to provide a pair $(\theta,\gamma)$ of location and scale 
 parameters governing the intensity of DE for those signature genes that distinct each group.
-(These parameters are also denoted \bf{de.facLoc} and \bf{de.facScale}.)  We follow  the discussions at:}
+(These parameters are also denoted \bf{de.facLoc} and \bf{de.facScale}.)  We follow  the discussions at:
 \url{https://github.com/Oshlack/splatter-paper/blob/master/analysis/clustering.Rmd}
 and
 \url{https://github.com/Oshlack/splatter-paper/blob/master/analysis/simulations.Rmd}
-\textcolor{red}{ We take four settings for $(\theta, \gamma)$: two are defaults used in splatter  and a variation of each
-setting to inflate the differential signal: **list the four**}
+ We pick the two default settings for $(\theta,\gamma)$, 
+ as \verb+splatter+ argues they gave authentic simulated data under some criterion.
+We notice that the evidence of a true change  across conditions is very weak on these settings,
+ that all methods have low power. So we amplify the differential genes with two additional
+settings:  $(-0.1,0.3)$[default] -> $(-0.1,1)$ 
+and $(0.1,0.4)$[default] ->$(0.3,0.5)$.  These choices enable better resolution for methods comparison.
 
- so we pick those 2 default pairs of theta and gamma since splatter argued they gave authentic simulated data under some criterion.
-But we also notice that the evidence of a true DE gene being different across conditions on such settings is very weak that all methods have low power, so we amplify the DE genes by making another 2 pairs of theta and gamma via (-0.1,0.3)[default] -> (-0.1,1)
-and (0.1,0.4)[default] ->(0.3,0.5). Just for the sake of having better resolution comparing different methods. Thanks
 
-
-
-In summary, \verb+splatter+ take three parameters, the number of groups(clusters) and a pair of the location and scale parameters for multi-group simulation.
+In summary, \verb+splatter+ take three parameters, the number of clusters $K$ and a
+ pair of the location and scale parameters for multi-group simulation.
 To evaluate performance on the data sets with small number of clusters to relative large number of clusters, 
-we consider the cases when the number of clusters is 3,7 and 12. 
-For the choice of the hyperparamter pair, we use two settings suggested by \verb+splatter+, which are (0.1,0.4) and (-0.1,0.3). 
-However, those settings induce weak signal for DD and all methods have low power.
-For the sake of comparison between different DD methods, we amplify the evidence of DD by introducing two more hyperparameter pairs (0.3,0.5) and (-0.1,1).
+we consider $K \in \{3,7,12\}$.
+For the location/scale pair, we use two settings suggested by \verb+splatter+, 
+which are (0.1,0.4) and (-0.1,0.3)  and two cases with stronger signal:
+(0.3,0.5) and (-0.1,1).
 
 For the frequencies of each subtypes, we have different constraint under different $K$. 
 Let $(\phi_i,\psi_i)$ be the frequencies of subtype $i$ in condition 1 and 2.
