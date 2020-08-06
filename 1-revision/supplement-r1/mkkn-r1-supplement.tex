@@ -824,10 +824,10 @@ GSE84465 & neoplastic cells vs non-neoplastic cells & 1000, 1000 & human & \cite
 
 For the first 11 datasets in Supplementary Table \ref{table:1} we use all the cells within that condition under same batch.
 The last one is the largest dataset we explored containing 3589 cells and comparing neoplastic cells (1091 cells) vs non-neoplastic cells (2498 cells).
-We randomly sampled 1000 cells from each condition, because it takes a lot of time for \texttt{DESeq} and \texttt{scDD} to compute when using all the samples
+We randomly sampled 1000 cells from each condition, because it takes a lot of time for \texttt{DESeq2} and \texttt{scDD} to compute when using all the samples
 and we conjecture that 1000 cells each condition would be enough to represent the heterogeneity. %\todo{How different are results on a different random subset of 1000?}
 We run the comparison on those subsamples instead 
-and found \texttt{DESeq} identified significantly smaller numbers of positives than other methods. It is intuitive that we are more likely to encounter subtle changes
+and found \texttt{DESeq2} identified significantly smaller numbers of positives than other methods. It is intuitive that we are more likely to encounter subtle changes
 when we have large samples, and only considering mean shifts would have limited power. 
 
 We also observed consistent distributional change measurements by \texttt{scDDboost} and Wasserstein distance 
