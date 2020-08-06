@@ -659,26 +659,27 @@ we have $C_\pi =  p_\pi(t^1 | t^1_{\pi},y)\, p_\pi(t^2|  t^2_{\pi},y )
 \subsection{Synthetic Data}
 
 Here we look more closely at the synthetic data from \verb+splatter+,
- a state-of-the-art simulation framework to generate scRNA-seq data.
-Gene expression of cells within the same group is simulated through a multi-layer model, 
+ a state-of-the-art simulation framework to generate scRNA-seq data (\cite{ref:Zappia}).
+Gene expression of cells within the same group is simulated through a multi-layer model. 
 The layers consider many factors, including
   outliers and dropout, library size (sequencing depth), and trended gene-wise dispersion. 
 Internally there are Gamma and Poisson elements, but the layering induces marginal distributions
 that are more complex than the Negative Binomial.
 Parameters for splatter's multi-layer model may be set from empirical data sets, and we take the
 default settings in our experiments.  For generating data across multiple groups, 
-splattert requires user to provide a pair $(\theta,\gamma)$ of location and scale 
+\verb+splatter+ requires a pair $(\theta,\gamma)$ of location and scale 
 parameters governing the intensity of DE for those signature genes that distinct each group.
-(These parameters are also denoted \bf{de.facLoc} and \bf{de.facScale}.)  We follow  the discussions at:
+(These parameters are also denoted \textbf{de.facLoc} and \textbf{de.facScale}.)  
+We follow  the discussions at:
 \url{https://github.com/Oshlack/splatter-paper/blob/master/analysis/clustering.Rmd}
 and
-\url{https://github.com/Oshlack/splatter-paper/blob/master/analysis/simulations.Rmd}
+\url{https://github.com/Oshlack/splatter-paper/blob/master/analysis/simulations.Rmd}.
  We pick the two default settings for $(\theta,\gamma)$, 
  as \verb+splatter+ argues they gave authentic simulated data under some criterion.
-We notice that the evidence of a true change  across conditions is very weak on these settings,
+We notice that the evidence of a true change  across conditions is weak on these settings,
  that all methods have low power. So we amplify the differential genes with two additional
-settings:  $(-0.1,0.3)$[default] -> $(-0.1,1)$ 
-and $(0.1,0.4)$[default] ->$(0.3,0.5)$.  These choices enable better resolution for methods comparison.
+settings:  $(-0.1,0.3)$[default] to $(-0.1,1)$ 
+and also $(0.1,0.4)$[default] to $(0.3,0.5)$.  These choices enable better resolution for methods comparison.
 
 
 In summary, \verb+splatter+ take three parameters, the number of clusters $K$ and a
@@ -698,7 +699,8 @@ And when $K = 12$, we have $\phi_1 + \phi_2 = \psi_1 + \psi_2, \phi_3 + \phi_4 +
 
 PCA plots  provide a global (transcriptomic) view of 
  changes between splatter-simulated subtypes:  Supplementary Figures \ref{fig:pca1}, \ref{fig:pca2}, \ref{fig:pca3} summarize the cases $K=3, 7,$ and $12$, respectively.  Parameter choices provide for some
-strong and some very weak differences.  
+strong and some very weak differences.   Rows correspond to two (sampled from 10) of the replicate
+data sets.
 %\textcolor{blue}{**Xiuyu: I don't see what 
 %distinguishes the top row of 4 PCA plots from the bottom row in each figure.  Here, I guess, we could
 %have some clarity; perhaps it refers to a pair of hyperparameters, but I cannot tell.  Please advise. Thanks
@@ -716,7 +718,7 @@ strong and some very weak differences.
   \caption{First two principal components of transcripts under different parameters for simulated data. 
   Horizontal axis refers to first component, vertical axis refers to second component.
   Different parameters resulted in different degree of separation of subtypes. We have 4 different settings for hyper-parameters of simulation. 
-  We choose 2 from the 10 replicates. The two rows are corresponding to 2 replicaes.  
+   The two rows are corresponding to 2 from among 10 replicates.  
   From left to right, the associated hyper-parameters are (0.1,0.4), (-0.1,0.3), (0.3,0.5), (-0.1,1). Here we have $K=3$ subtypes, with cells in each subtype marked with a common color. 
   }
   \label{fig:pca1}
