@@ -1,0 +1,25 @@
+
+2020-07-30
+
+Hi Professor Newton,
+
+Yes, the splatter paper only presents the flowchart for simulating data for one group. So all the parameters in the terminology are estimated internally by those empirical data sets splatter used. 
+
+Those parameters theta and gamma we used in the main are different, they refer to the location and scale parameters controlling the DE level.
+
+In the splatter paper, they gave a brief description of how they simulating multiple groups in the "Simulating group" section, but they did not specifically denote those parameters used to stimulate DE genes.
+
+Reference for the theta and gamma we used can be found in the splatter paper github site, 
+
+https://github.com/Oshlack/splatter-paper/blob/master/analysis/clustering.Rmd
+
+and 
+
+https://github.com/Oshlack/splatter-paper/blob/master/analysis/simulations.Rmd
+
+where they name those parameters as de.facLoc and de.facScale. Those codes are used to reproduce the result in splatter paper,  so we pick those 2 default pairs of theta and gamma since splatter argued they gave authentic simulated data under some criterion. 
+But we also notice that the evidence of a true DE gene being different across conditions on such settings is very weak that all methods have low power, so we amplify the DE genes by making another 2 pairs of theta and gamma via (-0.1,0.3)[default] -> (-0.1,1)  
+and (0.1,0.4)[default] ->(0.3,0.5). Just for the sake of having better resolution comparing different methods. Thanks
+
+Best Regards,
+Xiuyu Ma
