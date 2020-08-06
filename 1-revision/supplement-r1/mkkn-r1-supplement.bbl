@@ -1,4 +1,4 @@
-\begin{thebibliography}{19}
+\begin{thebibliography}{20}
 % BibTex style file: imsart-nameyear.bst, 2017-11-03
 % Default style options (sort=1,type=nameyear).
 % Used options (sort=1,type=nameyear).
@@ -397,6 +397,22 @@ In \bbooktitle{2007), Art. 28. [ONLINE: http://jipam.vu.edu.au/
 \bvolume{7}
 \bpages{412--427}.
 \bdoi{10.1214/13-EJS773}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Zappia, Phipson and
+  Oshlack}{2017}]{ref:Zappia}
+\begin{barticle}[author]
+\bauthor{\bsnm{Zappia},~\bfnm{Luke}\binits{L.}},
+  \bauthor{\bsnm{Phipson},~\bfnm{Belinda}\binits{B.}} \AND
+  \bauthor{\bsnm{Oshlack},~\bfnm{Alicia}\binits{A.}}
+(\byear{2017}).
+\btitle{Splatter: simulation of single-cell RNA sequencing data}.
+\bjournal{Genome Biology}
+\bvolume{18}
+\bpages{174}.
+\bdoi{10.1186/s13059-017-1305-0}.
+\bid{Zappia2017}
 \end{barticle}
 \endbibitem
 

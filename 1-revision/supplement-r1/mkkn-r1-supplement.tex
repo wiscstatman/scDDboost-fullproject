@@ -685,21 +685,21 @@ and also $(0.1,0.4)$[default] to $(0.3,0.5)$.  These choices enable better resol
 In summary, \verb+splatter+ take three parameters, the number of subtypes $K$ and a
  pair of the location and scale parameters for multi-group simulation.
 To evaluate performance relative to the number of subtypes,
-we consider $K \in \{3,7,12\}$.
+we consider $K \in \{3,7,15\}$.
 For the location/scale pair, we use two settings suggested by \verb+splatter+, 
 which are (0.1,0.4) and (-0.1,0.3)  and two cases with stronger signal:
 (0.3,0.5) and (-0.1,1).
 
-For the frequencies of each subtypes, we have different constraint under different $K$. 
+\textcolor{red}{For the frequencies of each subtypes, we have different constraint under different $K$. 
 Let $(\phi_i,\psi_i)$ be the frequencies of subtype $i$ in condition 1 and 2.
 For $K = 3$, there is only one trivial constraint, $\phi_1 + \phi_2 + \phi_3 = 1 = \psi_1 + \psi_2 + \psi_3$.
 For $K = 7$, we have $\phi_1 + \phi_2 = \psi_1 + \psi_2, \phi_3 + \phi_4 + \phi_5 = \psi_3 + \psi_4 + \psi_5, \phi_6 + \phi_7 = \psi_6 + \psi_7$.
 And when $K = 15$, we have $\sum_{i = 1}^2 \phi_i = \sum_{i = 1}^2 \psi_i,\sum_{i = 3}^5 \phi_i = \sum_{i = 3}^5 \psi_i,
-\sum_{i = 6}^{10} \phi_i = \sum_{i = 6}^{10} \psi_i,\sum_{i = 11}^{15} \phi_i = \sum_{i = 11}^{15} \psi_i$.
+\sum_{i = 6}^{10} \phi_i = \sum_{i = 6}^{10} \psi_i,\sum_{i = 11}^{15} \phi_i = \sum_{i = 11}^{15} \psi_i$.}
 
-For the DE proportion, the DE simulation process in the splatter can be roughly viewed as a base mean is generated for a gene, then subtype-specific factors are used to adjust the base mean to subtype-specific, if a gene labeled as DE in one subtype, such factor will be different from 1. Otherwise, it is just 1 and the subtype-specific mean equals the base mean. 
+\textcolor{red}{For the DE proportion, the DE simulation process in the splatter can be roughly viewed as a base mean is generated for a gene, then subtype-specific factors are used to adjust the base mean to subtype-specific, if a gene labeled as DE in one subtype, such factor will be different from 1. Otherwise, it is just 1 and the subtype-specific mean equals the base mean. 
 Unfortunately splatter only provide the DE proportion parameter to control the proportion of DE genes in one subtype rather than giving a parameter controlling the overall proportion of DD genes between conditions.
-Here we use 10\% as it is the default setting in splatter.
+Here we use 10\% as it is the default setting in splatter.}
  
 UMAP plots  provide a global (transcriptomic) view of 
  changes between splatter-simulated subtypes:  Supplementary Figures~\ref{fig:umap}, summarize the case for $K=15$ subtypes.  Parameter choices provide for some
@@ -730,7 +730,14 @@ strong and some very weak differences.
   \label{fig:umap}
 \end{figure}
 
-We also use t-test to demonstrate the difficulty for different simulation settings. 
+\textcolor{red}{We also use t-test to demonstrate the difficulty for different simulation settings.} 
+Figure~\ref{fig:t-s} present t-test results on one replicate for each setting. 
+\begin{figure}[h!]
+  \includegraphics[ width = 0.8\textwidth]{Figs/tscore.pdf}
+  \caption{for each settings, we randomly choose one data and plot the boxplot of p values by t-test at DD and ED genes. 
+  }
+  \label{fig:t-s}
+\end{figure}
 
 
 

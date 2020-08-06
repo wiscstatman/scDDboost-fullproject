@@ -49,10 +49,12 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Synthetic Data}{14}{subsection.3.1}}
 \@writefile{lof}{\contentsline {figure}{\numberline {S6}{\ignorespaces UMAP of transcripts under different parameters for simulated data. Different parameters resulted in different degree of separation of subtypes. Top left the hyper-parameters are (-0.1,0.3), top right is (0.1,0.4). We can see many subtypes are nested with each other. at the Bottom from left to right are (0.3?0.5?and (-0.1,1), where we have stronger signal and subtypes are more separated. We have $K= 15$ subtypes with cells in each subtype marked with a common color. \relax }}{15}{figure.caption.12}}
 \newlabel{fig:umap}{{S6}{15}{UMAP of transcripts under different parameters for simulated data. Different parameters resulted in different degree of separation of subtypes. Top left the hyper-parameters are (-0.1,0.3), top right is (0.1,0.4). We can see many subtypes are nested with each other. at the Bottom from left to right are (0.3?0.5?and (-0.1,1), where we have stronger signal and subtypes are more separated. We have $K= 15$ subtypes with cells in each subtype marked with a common color. \relax }{figure.caption.12}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {S7}{\ignorespaces $P(ED_g|X,y)$ given by scDDboost (horizontal) versus empirical Wasserstein distance (vertical). Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4 - 0.6, 0.6 - 0.8, 0.8 - 1. Simulation cases have splatter parameters in the format: number of clusters / location / scale\relax }}{16}{figure.caption.13}}
-\newlabel{fig:simu_wad}{{S7}{16}{$P(ED_g|X,y)$ given by scDDboost (horizontal) versus empirical Wasserstein distance (vertical). Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4 - 0.6, 0.6 - 0.8, 0.8 - 1. Simulation cases have splatter parameters in the format: number of clusters / location / scale\relax }{figure.caption.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {S8}{\ignorespaces Roc curve of the 12 simulation settings, under each setting, TPR and FPR are averaged over ten replicates, generally \texttt  {scDDboost} performs better than other methods\relax }}{17}{figure.caption.14}}
-\newlabel{fig:roc}{{S8}{17}{Roc curve of the 12 simulation settings, under each setting, TPR and FPR are averaged over ten replicates, generally \texttt {scDDboost} performs better than other methods\relax }{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {S7}{\ignorespaces for each settings, we randomly choose one data and plot the boxplot of p values by t-test at DD and ED genes. \relax }}{16}{figure.caption.13}}
+\newlabel{fig:t-s}{{S7}{16}{for each settings, we randomly choose one data and plot the boxplot of p values by t-test at DD and ED genes. \relax }{figure.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {S8}{\ignorespaces $P(ED_g|X,y)$ given by scDDboost (horizontal) versus empirical Wasserstein distance (vertical). Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4 - 0.6, 0.6 - 0.8, 0.8 - 1. Simulation cases have splatter parameters in the format: number of clusters / location / scale\relax }}{17}{figure.caption.14}}
+\newlabel{fig:simu_wad}{{S8}{17}{$P(ED_g|X,y)$ given by scDDboost (horizontal) versus empirical Wasserstein distance (vertical). Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4 - 0.6, 0.6 - 0.8, 0.8 - 1. Simulation cases have splatter parameters in the format: number of clusters / location / scale\relax }{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {S9}{\ignorespaces Roc curve of the 12 simulation settings, under each setting, TPR and FPR are averaged over ten replicates, generally \texttt  {scDDboost} performs better than other methods\relax }}{18}{figure.caption.15}}
+\newlabel{fig:roc}{{S9}{18}{Roc curve of the 12 simulation settings, under each setting, TPR and FPR are averaged over ten replicates, generally \texttt {scDDboost} performs better than other methods\relax }{figure.caption.15}{}}
 \citation{oscope}
 \citation{Lane}
 \citation{Shalek}
@@ -66,41 +68,41 @@
 \citation{Guo}
 \citation{chu}
 \citation{Darmanis}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Empirical Study}{18}{subsection.3.2}}
-\@writefile{lot}{\contentsline {table}{\numberline {S1}{\ignorespaces Datasets used for empirical study\relax }}{18}{table.caption.15}}
-\newlabel{table:1}{{S1}{18}{Datasets used for empirical study\relax }{table.caption.15}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {S9}{\ignorespaces $P(ED_g|X,y)$ given by scDDboost versus empirical Wasserstein distance. Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4 - 0.6, 0.6 - 0.8, 0.8 - 1, data used: FUCCI\relax }}{19}{figure.caption.16}}
-\newlabel{fig:wad}{{S9}{19}{$P(ED_g|X,y)$ given by scDDboost versus empirical Wasserstein distance. Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4 - 0.6, 0.6 - 0.8, 0.8 - 1, data used: FUCCI\relax }{figure.caption.16}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {S2}{\ignorespaces Datasets used for null cases, as cells are coming from same biological condition, there should not be any differential distributed genes, any positive call is false positive\relax }}{19}{table.caption.17}}
-\newlabel{table:2}{{S2}{19}{Datasets used for null cases, as cells are coming from same biological condition, there should not be any differential distributed genes, any positive call is false positive\relax }{table.caption.17}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Empirical Study}{19}{subsection.3.2}}
+\@writefile{lot}{\contentsline {table}{\numberline {S1}{\ignorespaces Datasets used for empirical study\relax }}{19}{table.caption.16}}
+\newlabel{table:1}{{S1}{19}{Datasets used for empirical study\relax }{table.caption.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {S10}{\ignorespaces $P(ED_g|X,y)$ given by scDDboost versus empirical Wasserstein distance. Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4 - 0.6, 0.6 - 0.8, 0.8 - 1, data used: FUCCI\relax }}{20}{figure.caption.17}}
+\newlabel{fig:wad}{{S10}{20}{$P(ED_g|X,y)$ given by scDDboost versus empirical Wasserstein distance. Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4 - 0.6, 0.6 - 0.8, 0.8 - 1, data used: FUCCI\relax }{figure.caption.17}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {S2}{\ignorespaces Datasets used for null cases, as cells are coming from same biological condition, there should not be any differential distributed genes, any positive call is false positive\relax }}{20}{table.caption.18}}
+\newlabel{table:2}{{S2}{20}{Datasets used for null cases, as cells are coming from same biological condition, there should not be any differential distributed genes, any positive call is false positive\relax }{table.caption.18}{}}
 \citation{Yin:2013aa}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Bursting parameters}{20}{subsection.3.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Time complexity}{20}{subsection.3.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Diagnostics}{20}{subsection.3.5}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.1}Negative binomial assumption}{20}{subsubsection.3.5.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.2}Constant shape assumption: Likelihood ratio test}{20}{subsubsection.3.5.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.3}Clustering}{20}{subsubsection.3.5.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Posterior consistency}{20}{section.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Bursting parameters}{21}{subsection.3.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Time complexity}{21}{subsection.3.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Diagnostics}{21}{subsection.3.5}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.1}Negative binomial assumption}{21}{subsubsection.3.5.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.2}Constant shape assumption: Likelihood ratio test}{21}{subsubsection.3.5.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.3}Clustering}{21}{subsubsection.3.5.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Posterior consistency}{21}{section.4}}
 \citation{ineq}
-\@writefile{lof}{\contentsline {figure}{\numberline {S10}{\ignorespaces Cumulative distribution functions for subtype specific unadjusted p values of goodness of fit for NB distribution at two data sets(left is EMTAB2805, right is GSE45719), different colors are correspond to different subtypes\relax }}{21}{figure.caption.18}}
-\newlabel{fig:nb}{{S10}{21}{Cumulative distribution functions for subtype specific unadjusted p values of goodness of fit for NB distribution at two data sets(left is EMTAB2805, right is GSE45719), different colors are correspond to different subtypes\relax }{figure.caption.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {S11}{\ignorespaces Data set EMTAB2805, violin plot of the 57 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt  {scDDboost}\relax }}{22}{figure.caption.19}}
-\newlabel{fig:s11}{{S11}{22}{Data set EMTAB2805, violin plot of the 57 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt {scDDboost}\relax }{figure.caption.19}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {S12}{\ignorespaces Data set GSE45719, violin plot of the 13 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt  {scDDboost}\relax }}{23}{figure.caption.20}}
-\newlabel{fig:s12}{{S12}{23}{Data set GSE45719, violin plot of the 13 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt {scDDboost}\relax }{figure.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {S13}{\ignorespaces cumulative distribution for p values of LRT\relax }}{24}{figure.caption.21}}
-\newlabel{fig:lrt}{{S13}{24}{cumulative distribution for p values of LRT\relax }{figure.caption.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {S14}{\ignorespaces FDR for simulation data sets, when using \texttt  {scDDboost} with sc3 clustering\relax }}{25}{figure.caption.22}}
-\newlabel{fig:sc3fdr}{{S14}{25}{FDR for simulation data sets, when using \texttt {scDDboost} with sc3 clustering\relax }{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {S11}{\ignorespaces Cumulative distribution functions for subtype specific unadjusted p values of goodness of fit for NB distribution at two data sets(left is EMTAB2805, right is GSE45719), different colors are correspond to different subtypes\relax }}{22}{figure.caption.19}}
+\newlabel{fig:nb}{{S11}{22}{Cumulative distribution functions for subtype specific unadjusted p values of goodness of fit for NB distribution at two data sets(left is EMTAB2805, right is GSE45719), different colors are correspond to different subtypes\relax }{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {S12}{\ignorespaces Data set EMTAB2805, violin plot of the 57 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt  {scDDboost}\relax }}{23}{figure.caption.20}}
+\newlabel{fig:s11}{{S12}{23}{Data set EMTAB2805, violin plot of the 57 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt {scDDboost}\relax }{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {S13}{\ignorespaces Data set GSE45719, violin plot of the 13 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt  {scDDboost}\relax }}{24}{figure.caption.21}}
+\newlabel{fig:s12}{{S13}{24}{Data set GSE45719, violin plot of the 13 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt {scDDboost}\relax }{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {S14}{\ignorespaces cumulative distribution for p values of LRT\relax }}{25}{figure.caption.22}}
+\newlabel{fig:lrt}{{S14}{25}{cumulative distribution for p values of LRT\relax }{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {S15}{\ignorespaces FDR for simulation data sets, when using \texttt  {scDDboost} with sc3 clustering\relax }}{26}{figure.caption.23}}
+\newlabel{fig:sc3fdr}{{S15}{26}{FDR for simulation data sets, when using \texttt {scDDboost} with sc3 clustering\relax }{figure.caption.23}{}}
 \bibstyle{imsart-nameyear}
 \bibdata{./supp_references/wlr_ref}
 \bibcite{EMTAB}{{1}{2015}{{Buettner et~al.}}{{}}}
 \bibcite{chu}{{2}{2016}{{Chu et~al.}}{{}}}
 \bibcite{ref:dahl}{{3}{2009}{{Dahl}}{{}}}
 \bibcite{Darmanis}{{4}{2017}{{Darmanis et~al.}}{{}}}
-\@writefile{lof}{\contentsline {figure}{\numberline {S15}{\ignorespaces Four subtypes of cells, simplexes of $(\phi ,\psi )$ satisfying different constraints.\relax }}{26}{figure.caption.23}}
-\newlabel{fig:issue}{{S15}{26}{Four subtypes of cells, simplexes of $(\phi ,\psi )$ satisfying different constraints.\relax }{figure.caption.23}{}}
-\@writefile{toc}{\contentsline {section}{References}{26}{section*.25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {S16}{\ignorespaces Four subtypes of cells, simplexes of $(\phi ,\psi )$ satisfying different constraints.\relax }}{27}{figure.caption.24}}
+\newlabel{fig:issue}{{S16}{27}{Four subtypes of cells, simplexes of $(\phi ,\psi )$ satisfying different constraints.\relax }{figure.caption.24}{}}
+\@writefile{toc}{\contentsline {section}{References}{27}{section*.26}}
 \bibcite{Deng193}{{5}{2014}{{Deng et~al.}}{{}}}
 \bibcite{dobrushin1972asymptotic}{{6}{1972}{{Dobrushin}}{{}}}
 \bibcite{Engel}{{7}{2016}{{Engel et~al.}}{{}}}
@@ -116,3 +118,4 @@
 \bibcite{Tasic}{{17}{2016}{{Tasic et~al.}}{{}}}
 \bibcite{Trapnell}{{18}{2014}{{Trapnell et~al.}}{{}}}
 \bibcite{Yin:2013aa}{{19}{2013}{{Yin and Ma}}{{}}}
+\bibcite{ref:Zappia}{{20}{2017}{{Zappia, Phipson and Oshlack}}{{}}}
