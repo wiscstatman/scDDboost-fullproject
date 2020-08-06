@@ -666,9 +666,9 @@ The layers consider many factors, including
 Internally there are Gamma and Poisson elements, but the layering induces marginal distributions
 that are more complex than the Negative Binomial.
 Parameters for splatter's multi-layer model may be set from empirical data sets, and we take the
-default settings in our experiments.  For generating data across multiple groups, 
+default settings in our experiments.  For generating data across multiple subtypes, 
 \verb+splatter+ requires a pair $(\theta,\gamma)$ of location and scale 
-parameters governing the intensity of DE for those signature genes that distinct each group.
+parameters governing the intensity of DE for those signature genes that distinguish the subtypes.
 (These parameters are also denoted \textbf{de.facLoc} and \textbf{de.facScale}.)  
 We follow  the discussions at:
 \url{https://github.com/Oshlack/splatter-paper/blob/master/analysis/clustering.Rmd}
@@ -676,15 +676,15 @@ and
 \url{https://github.com/Oshlack/splatter-paper/blob/master/analysis/simulations.Rmd}.
  We pick the two default settings for $(\theta,\gamma)$, 
  as \verb+splatter+ argues they gave authentic simulated data under some criterion.
-We notice that the evidence of a true change  across conditions is weak on these settings,
- that all methods have low power. So we amplify the differential genes with two additional
+We notice that the evidence of a true change  is weak on these settings,
+ leading to low power for all methods. So we amplify the differential genes with two additional
 settings:  $(-0.1,0.3)$[default] to $(-0.1,1)$ 
 and also $(0.1,0.4)$[default] to $(0.3,0.5)$.  These choices enable better resolution for methods comparison.
 
 
-In summary, \verb+splatter+ take three parameters, the number of clusters $K$ and a
+In summary, \verb+splatter+ take three parameters, the number of subtypes $K$ and a
  pair of the location and scale parameters for multi-group simulation.
-To evaluate performance on the data sets with small number of clusters to relative large number of clusters, 
+To evaluate performance relative to the number of subtypes,
 we consider $K \in \{3,7,12\}$.
 For the location/scale pair, we use two settings suggested by \verb+splatter+, 
 which are (0.1,0.4) and (-0.1,0.3)  and two cases with stronger signal:
