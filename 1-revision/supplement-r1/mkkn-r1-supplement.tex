@@ -1028,6 +1028,14 @@ We have null hypothesis $$H_0: \sigma^1 =
 We then use likelihood ratio test to identify genes against constant shape assumption and we investigate the positives among those genes. 
 Only a few genes uniquely called positive by \texttt{scDDboost} against constant shape assumption. 
 
+Specifically, we studied those non-constant shape genes on Fucci, though there is still some non-constant shape genes uniquely called as DD by \texttt{scDDboost}. 
+Figure~\ref{fig:NCS} showed that those non constant uniquely DD genes tends to have smaller p values comparing to other genes, which demonstrate some compatibility.
+
+\begin{figure}[h!]
+  \includegraphics[ width = 0.8\textwidth]{Figs/Fucci-NCS.pdf}
+  \caption{boxplot of FDR adjusted p values by other method, within each method left box only consider non constant shape genes but uniquely identified as DD by \texttt{scDDboost}, right box consider the whole genome}
+  \label{fig:NCS}
+\end{figure}
 
 
 \subsubsection{Clustering}
