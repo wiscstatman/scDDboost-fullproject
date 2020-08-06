@@ -973,71 +973,68 @@ scDDboost and other methods: MAST, scDD, and DESeq2.} }
 
 Run time complexity of \texttt{scDDboost} is dominated by the cost of clustering cells and of running \texttt{EBSeq} to measure differences between subtypes. 
 Recall the notation that $n$ for number of cells, $G$ for number of genes and $K$ for number of subtypes. 
-Our distance-based clustering of  $n$ cells measuring $G$ genes requires on the order of $G \times n^2$ operations (see Supplementary Material Section 2.2.2).
+Our distance-based clustering of  $n$ cells measuring $G$ genes requires on the order of $G \times n^2$ operations (see Supplementary Material Section 2.2).
 Further, \texttt{EBSeq} uses summed counts within each subtype for each gene to compute its density kernel, and there are Bell$(K)$ differential patterns to compute,
 where Bell counts the partitions of $K$.  
-Our implementation \texttt{scDDboost} efficiently deals with large $n$ under moderate $K$.  We have imposed the computational limit  $K \leq 9$ in
+ We impose the computational limit  $K \leq 9$ in
  \verb+scDDboost+ (v. 1.0).  In a typical case involving 20000 genes and 200 cells,
  using 50 of randomized distances, \verb+scDDboost+  is relatively efficient for $K \leq 6$ requiring
  less than 15 CPU minutes on, for example, a quad-core 2.2 GHz Intel Core i7 with 16 Gb of RAM.
  The same data might require 20 to 40 CPU hours when $K=9$.  In Section~5 we mention some opportunities to improve this speed.
 
+
 \subsection{\textcolor{red}{Diagnostics}}
 
-%\textcolor{red}{
-%\begin{enumerate}
-%\\item number of subtypes $K$
-%\\item negative binomial assumption
-%\\item constant shape assumption
-%\\item clustering method
-%\\end{enumerate}
+\textcolor{red}{As implemented, scDDboost uses a particular distance matrix to inform subtypes and 
+computes probabilities in a model for which expression is a mixture of constant-shape Negative Binomials.
+To check the effect of these assumptions we consider a variety of diagnostic calculations using
+the various data sets presented in Sections 3.1 and 3.2. We first point out that model mis-specification 
+may have a limited impact on Type-I error rates, as evidenced by the permutation study (Figure~7) and also
+the synthetic-data study (Figure~5), which does not encode the same modeling assumptions as scDDboost. }
 
-%\subsubsection{number of subtypes $K$}
-%Inspired by \citep{selK}, we consider a metric of goodness of clustering, defined as \verb validity = $\frac{\textbf{intra}}{\textbf{inter}}$,
-%where $\textbf{intra} = \frac{1}{N}\overset{K}{\underset{i = 1}{\Sigma}}\underset{x \in C_i}{\Sigma} ||x - z_i||^2$, 
-%$\textbf{inter} = \text{mean}( || z_i - z_j||^2), i,j = 1,2,...K$, and $z_i$ is the center (medoid) of cluster $i$. 
-%$\textbf{intra}$ and  $\textbf{inter}$ measure the compactness and separation of clustering. We select $K$ such that $\frac{\textbf{intra}}{\textbf{inter}} < 1$, 
-%namely the average distance within cluster is smaller than the average distance between clusters. 
+%\subsubsection{Negative Binomial}
 
+\textcolor{red}{To check the within-subtype Negative Binomial (NB) assumption, we deployed a bootstrap 
+goodness-of-fit test in three data sets\cite{Yin:2013aa}. Fewer than 1.5\% of genes show evidence against
+a within subtype NB assumption at a 5\% false discovery rate (Supplementary Material,
+**). Further, for most of these non-NB genes the inference drawn by scDDboost is the same as that
+drawn by various other methods.  For example, among 
+the cell-cycle genes identified by scDDboost (Figure 1) just one of them fails the NB test. **is
+there a fig in Supp?**; also, show latest plot of marginal fits..or maybe later.. }
 
-\subsubsection{Negative Binomial}
-
-We assumed the marginal distribution of transcripts are mixture of negative binomial(NB) distributed. 
-In addition to being motivated by the subtype intuition, mixture model can approximate a wide variety of distributions and
-many other literatures used NB to model transcripts (\cite{ref:Des},\cite{Chen:2018aa}). 
-Further, we study the goodness of NB fitting at two data sets EMTAB2805 and GSE45719. 
-Given the estimated subtype label, we test NB fitting for each subtype by an adjusted Pearson-type goodness-of-fit test(\cite{Yin:2013aa}).
-We investigated the distribution of the p values and observed that a few genes having evidence against the NB assumption(supplementary 2.4). 
-Let $\mathcal{N}_{0.05}$ be the set of genes having at least one fdr adjusted p value on one subtype less than 0.05.
-Let $\mathcal{D}_{0.05}$ be the set of genes identified as DD genes by our method at 0.05 local fdr.
-Let $\mathcal{U}_{0.05}$ be the union of genes identified by other methods (t-test,MAST,DESeq2,scDD) with fdr correction at 0.05 threshold. 
-Let $N_g$ be the number of genes. 
-Table \ref{tab:nb} demonstrates among those non-NB genes, most DD identified by our method are also confirmed by other tests 
-Further we investigate the part uniquely identified by \texttt{scDDboost} and observed distributional differences (supplementary 2.4)
-There is evidence that \texttt{scDDboost} is still valid even if the NB assumption are not favorable. For the Cell cycle data, we used for Figure~\ref{fig:whet}. 
-One of the two genes having evidence against the NB distribution while uniquely called DD by our method is cell-cycle related. 
-\begin{table}[htbp]
-  \begin{center}
-  %\topcaption{Table captions are better up top} % requires the topcapt package
-  \begin{tabular}{@{} lcccr @{}} % Column formatting, @{} suppresses leading/trailing space
-      \toprule
-      %\multicolumn{2}{c}{Item} \\
-      \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
-      Data Set   & $|\mathcal{N}_{0.05}|$ &
-      $|\mathcal{D}_{0.05} \cap \mathcal{N}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{N}_{0.05} \cap \mathcal{U}_{0.05}|$ & $N_g$  \\
-      \midrule
-      EMTAB2805   &593 & 137 & 80 & 45686\\          
-      GSE45719   & 528 & 198 & 185 & 45686\\
-      
-      \bottomrule
-  \end{tabular}
-  \caption{number of positives at genes against NB distribution}
-  \label{tab:nb}
-  \end{center}
-\end{table}
-
-
-
+%We assumed the marginal distribution of transcripts are mixture of negative binomial(NB) distributed. 
+%In addition to being motivated by the subtype intuition, mixture model can approximate a wide variety of distributions and
+%many other literatures used NB to model transcripts (\cite{ref:Des},\cite{Chen:2018aa}). 
+%Further, we study the goodness of NB fitting at two data sets EMTAB2805 and GSE45719. 
+%Given the estimated subtype label, we test NB fitting for each subtype by an adjusted Pearson-type goodness-of-fit test(\cite{Yin:2013aa}).
+%We investigated the distribution of the p values and observed that a few genes having evidence against the NB assumption(supplementary 2.4). 
+%Let $\mathcal{N}_{0.05}$ be the set of genes having at least one fdr adjusted p value on one subtype less than 0.05.
+%Let $\mathcal{D}_{0.05}$ be the set of genes identified as DD genes by our method at 0.05 local fdr.
+%Let $\mathcal{U}_{0.05}$ be the union of genes identified by other methods (t-test,MAST,DESeq2,scDD) with fdr correction at 0.05 threshold. 
+%Let $N_g$ be the number of genes. 
+%Table \ref{tab:nb} demonstrates among those non-NB genes, most DD identified by our method are also confirmed by other tests 
+%Further we investigate the part uniquely identified by \texttt{scDDboost} and observed distributional differences (supplementary 2.4)
+%There is evidence that \texttt{scDDboost} is still valid even if the NB assumption are not favorable. For the Cell cycle data, we used for Figure~\ref{fig:whet}. 
+%One of the two genes having evidence against the NB distribution while uniquely called DD by our method is cell-cycle related. 
+%\begin{table}[htbp]
+%  \begin{center}
+%  %\topcaption{Table captions are better up top} % requires the topcapt package
+%  \begin{tabular}{@{} lcccr @{}} % Column formatting, @{} suppresses leading/trailing space
+%      \toprule
+%      %\multicolumn{2}{c}{Item} \\
+%      \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
+%      Data Set   & $|\mathcal{N}_{0.05}|$ &
+%      $|\mathcal{D}_{0.05} \cap \mathcal{N}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{N}_{0.05} \cap \mathcal{U}_{0.05}|$ & $N_g$  \\
+%      \midrule
+%      EMTAB2805   &593 & 137 & 80 & 45686\\          
+%      GSE45719   & 528 & 198 & 185 & 45686\\
+%      
+%      \bottomrule
+%  \end{tabular}
+%  \caption{number of positives at genes against NB distribution}
+%  \label{tab:nb}
+%  \end{center}
+%\end{table}
 %}
 
 \subsubsection{constant shape assumption}
