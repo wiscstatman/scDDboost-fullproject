@@ -988,19 +988,29 @@ where Bell counts the partitions of $K$.
 \textcolor{red}{As implemented, scDDboost uses a particular distance matrix to inform subtypes and 
 computes probabilities in a model for which expression is a mixture of constant-shape Negative Binomials.
 To check the effect of these assumptions we consider a variety of diagnostic calculations using
-the various data sets presented in Sections 3.1 and 3.2. We first point out that model mis-specification 
+the data sets presented in Sections 3.1 and 3.2. We first point out that model mis-specification 
 may have a limited impact on Type-I error rates, as evidenced by the permutation study (Figure~7) and also
 the synthetic-data study (Figure~5), which does not encode the same modeling assumptions as scDDboost. }
 
 %\subsubsection{Negative Binomial}
 
 \textcolor{red}{To check the within-subtype Negative Binomial (NB) assumption, we deployed a bootstrap 
-goodness-of-fit test in three data sets\cite{Yin:2013aa}. Fewer than 1.5\% of genes show evidence against
-a within subtype NB assumption at a 5\% false discovery rate (Supplementary Material,
-**). Further, for most of these non-NB genes the inference drawn by scDDboost is the same as that
-drawn by various other methods.  For example, among 
-the cell-cycle genes identified by scDDboost (Figure 1) just one of them fails the NB test. **is
-there a fig in Supp?**; also, show latest plot of marginal fits..or maybe later.. }
+goodness-of-fit test in three data sets~(\cite{Yin:2013aa}). Fewer than 1.5\% of genes show evidence against
+a within subtype NB assumption at a 5\% false discovery rate. 
+ Further, for most of these non-NB genes the inference drawn by scDDboost is the same as that
+drawn by various other methods (Supplementary Material, Table **).   Among 
+the cell-cycle genes identified by scDDboost in the stem-cell example
+(Figure 1), just one of them fails the NB test. **is
+there a fig in Supp?**; }
+
+
+\textcolor{red}{The constant-shape assumption is  less well supported empirically, according to 
+a likelihood-ratio test that we developed (Supp Fig **).  More than 15\% of genes show 
+evidence against constant shape in the examples considered, though inference on differential
+distribution is only mildy affected  (Supplementary Table **; Figures **).  **Here's a good
+place to add figures showing the marginal fit for some genes**.  }
+
+\textcolor{red}{**on the clustering checks**}
 
 %We assumed the marginal distribution of transcripts are mixture of negative binomial(NB) distributed. 
 %In addition to being motivated by the subtype intuition, mixture model can approximate a wide variety of distributions and
@@ -1037,38 +1047,38 @@ there a fig in Supp?**; also, show latest plot of marginal fits..or maybe later.
 %\end{table}
 %}
 
-\subsubsection{constant shape assumption}
-We assume distributions of transcripts from different subtypes share a common shape parameter, the only difference between subtypes is the average expression level.
-It may not be sufficient to capture all the subtle changes between subtypes but the sensitivities are limited due to the common shape assumption, 
-it is unlikely we would inflate the FDR even when some genes present evidence against this assumption. 
-We use the likelihood ratio test(LRT) to study the validity of constant shape.
-The viability of LRT is studied using simulation in the supplementary file. 
-Let $\mathcal{R}_{0.05}$ be the set of genes having fdr adjusted p value less than 0.05. 
-Under those genes against constant shape assumption, 
-Let $\mathcal{U}_{0.05}$ be the union genes identified by t-test, DESeq2, MAST and scDD.
-Table \ref{tab:cs} demonstrates that most DD genes identified by our method are also confirmed by other tests. 
-\begin{table}[htbp]
-  \begin{center}
-  %\topcaption{Table captions are better up top} % requires the topcapt package
-  \begin{tabular}{@{} lcccr @{}} % Column formatting, @{} suppresses leading/trailing space
-      \toprule
-      %\multicolumn{2}{c}{Item} \\
-      \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
-      Data Set   & $|\mathcal{R}_{0.05}|$ &
-      $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05} \cap \mathcal{U}_{0.05}|$ & $N_g$   \\
-      \midrule
-      GSE75748   & 8605 & 2390 & 2331 & 19097\\          
-      GSE45719   & 7454 & 2562 & 2529 & 45686\\
-      GSE64016   & 2800 & 468 & 335 & 19084\\
-      \bottomrule
-  \end{tabular}
-  \caption{number of positives at genes against constant shape parameter across subtypes}
-  \label{tab:cs}
-  \end{center}
-\end{table}
-
-Further we checked the performance of \texttt{scDDboost} at splatter simulation when constant shape assumption is violated and found that our method still gave accurate inference and control the FDR.
-
+%\subsubsection{constant shape assumption}
+%We assume distributions of transcripts from different subtypes share a common shape parameter, the only difference between subtypes is the average expression level.
+%It may not be sufficient to capture all the subtle changes between subtypes but the sensitivities are limited due to the common shape assumption, 
+%it is unlikely we would inflate the FDR even when some genes present evidence against this assumption. 
+%We use the likelihood ratio test(LRT) to study the validity of constant shape.
+%The viability of LRT is studied using simulation in the supplementary file. 
+%Let $\mathcal{R}_{0.05}$ be the set of genes having fdr adjusted p value less than 0.05. 
+%Under those genes against constant shape assumption, 
+%Let $\mathcal{U}_{0.05}$ be the union genes identified by t-test, DESeq2, MAST and scDD.
+%Table \ref{tab:cs} demonstrates that most DD genes identified by our method are also confirmed by other tests. 
+%\begin{table}[htbp]
+%  \begin{center}
+%  %\topcaption{Table captions are better up top} % requires the topcapt package
+%  \begin{tabular}{@{} lcccr @{}} % Column formatting, @{} suppresses leading/trailing space
+%      \toprule
+%      %\multicolumn{2}{c}{Item} \\
+%      \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
+%      Data Set   & $|\mathcal{R}_{0.05}|$ &
+%      $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05} \cap \mathcal{U}_{0.05}|$ & $N_g$   \\
+%      \midrule
+%      GSE75748   & 8605 & 2390 & 2331 & 19097\\          
+%      GSE45719   & 7454 & 2562 & 2529 & 45686\\
+%      GSE64016   & 2800 & 468 & 335 & 19084\\
+%      \bottomrule
+%  \end{tabular}
+%  \caption{number of positives at genes against constant shape parameter across subtypes}
+%  \label{tab:cs}
+%  \end{center}
+%\end{table}
+%
+%Further we checked the performance of \texttt{scDDboost} at splatter simulation when constant shape assumption is violated and found that our method still gave accurate inference and control the FDR.
+%
 
 \subsubsection{clustering method}
 We use distance based clustering method, where two distance matrices are combined. 
