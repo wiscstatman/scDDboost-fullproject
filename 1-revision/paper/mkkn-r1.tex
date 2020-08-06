@@ -810,7 +810,7 @@ We used \verb+splatter+ (v. 1.2.0)
 to generate synthetic scRNA-seq  data for which the DD status of genes is known~(\cite{ref:Zappia}), 
  thereby allowing us to measure operating characteristics of \verb+scDDboost+ 
 \textcolor{red}{in a controlled setting}.
- \verb+splatter+ \textcolor{red}{is a generative system for simulating realistic
+ \textcolor{red}{Splatter is a generative system for simulating realistic
 single-cell RNA-seq data. It accounts for biological and technical sources of variation and is calibrated
 from a large number of published data sets. 
 Our hypothetical two-condition comparison involved $n=400$ cells and
@@ -824,7 +824,8 @@ for each of 3 different values for the number $K$ of subtypes, with composition 
 $\psi$ selected to account for various mixing possibilities. Ten replicate data sets were simulated
 on each scenario. 
  These 12 scenarios, encoded by $K/\theta/\gamma$, span  states with rather strong signals, like
-$3/-0.1/1$ to quite weak signals, like $12/0.1/0.4$.
+$3/-0.1/1$ to quite weak signals, like $12/0.1/0.4$. The principal components analysis in Supplementary
+Figures S6-S8 provide a view of the global separation between the subtypes.
  We note that the mechanistic sampling model induced by splatter is distinct from the descriptive model 
 underlying scDDboost.  We choose it to reflect anticipated technical and biological sources of 
 variation.  Further details are in Supplementary Material Section~3.1.}
