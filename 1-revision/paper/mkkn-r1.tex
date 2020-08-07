@@ -1008,7 +1008,7 @@ We also present violin plot of subsamples of unique DD genes by \texttt{scDDboos
 \textcolor{red}{The constant-shape assumption is less well supported empirically, according to 
 a likelihood-ratio test that we developed (Supp Fig S13).  More than 15\% of genes show 
 evidence against constant shape in the examples considered, though inference on differential
-distribution is only mildy affected  (Supplementary Table **; Figures **).  **Here's a good
+distribution is only mildy affected  (Supplementary Table S4; Figures **).  **Here's a good
 place to add figures showing the marginal fit for some genes**.  Figure~\ref{fig:cdf} shows the marginal fit by mixture NB for transcripts}
 
 \begin{figure}[h]
@@ -1019,73 +1019,8 @@ place to add figures showing the marginal fit for some genes**.  Figure~\ref{fig
 
 \textcolor{red}{**on the clustering checks**}
 
-%We assumed the marginal distribution of transcripts are mixture of negative binomial(NB) distributed. 
-%In addition to being motivated by the subtype intuition, mixture model can approximate a wide variety of distributions and
-%many other literatures used NB to model transcripts (\cite{ref:Des},\cite{Chen:2018aa}). 
-%Further, we study the goodness of NB fitting at two data sets EMTAB2805 and GSE45719. 
-%Given the estimated subtype label, we test NB fitting for each subtype by an adjusted Pearson-type goodness-of-fit test(\cite{Yin:2013aa}).
-%We investigated the distribution of the p values and observed that a few genes having evidence against the NB assumption(supplementary 2.4). 
-%Let $\mathcal{N}_{0.05}$ be the set of genes having at least one fdr adjusted p value on one subtype less than 0.05.
-%Let $\mathcal{D}_{0.05}$ be the set of genes identified as DD genes by our method at 0.05 local fdr.
-%Let $\mathcal{U}_{0.05}$ be the union of genes identified by other methods (t-test,MAST,DESeq2,scDD) with fdr correction at 0.05 threshold. 
-%Let $N_g$ be the number of genes. 
-%Table \ref{tab:nb} demonstrates among those non-NB genes, most DD identified by our method are also confirmed by other tests 
-%Further we investigate the part uniquely identified by \texttt{scDDboost} and observed distributional differences (supplementary 2.4)
-%There is evidence that \texttt{scDDboost} is still valid even if the NB assumption are not favorable. For the Cell cycle data, we used for Figure~\ref{fig:whet}. 
-%One of the two genes having evidence against the NB distribution while uniquely called DD by our method is cell-cycle related. 
-%\begin{table}[htbp]
-%  \begin{center}
-%  %\topcaption{Table captions are better up top} % requires the topcapt package
-%  \begin{tabular}{@{} lcccr @{}} % Column formatting, @{} suppresses leading/trailing space
-%      \toprule
-%      %\multicolumn{2}{c}{Item} \\
-%      \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
-%      Data Set   & $|\mathcal{N}_{0.05}|$ &
-%      $|\mathcal{D}_{0.05} \cap \mathcal{N}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{N}_{0.05} \cap \mathcal{U}_{0.05}|$ & $N_g$  \\
-%      \midrule
-%      EMTAB2805   &593 & 137 & 80 & 45686\\          
-%      GSE45719   & 528 & 198 & 185 & 45686\\
-%      
-%      \bottomrule
-%  \end{tabular}
-%  \caption{number of positives at genes against NB distribution}
-%  \label{tab:nb}
-%  \end{center}
-%\end{table}
-%}
 
-%\subsubsection{constant shape assumption}
-%We assume distributions of transcripts from different subtypes share a common shape parameter, the only difference between subtypes is the average expression level.
-%It may not be sufficient to capture all the subtle changes between subtypes but the sensitivities are limited due to the common shape assumption, 
-%it is unlikely we would inflate the FDR even when some genes present evidence against this assumption. 
-%We use the likelihood ratio test(LRT) to study the validity of constant shape.
-%The viability of LRT is studied using simulation in the supplementary file. 
-%Let $\mathcal{R}_{0.05}$ be the set of genes having fdr adjusted p value less than 0.05. 
-%Under those genes against constant shape assumption, 
-%Let $\mathcal{U}_{0.05}$ be the union genes identified by t-test, DESeq2, MAST and scDD.
-%Table \ref{tab:cs} demonstrates that most DD genes identified by our method are also confirmed by other tests. 
-%\begin{table}[htbp]
-%  \begin{center}
-%  %\topcaption{Table captions are better up top} % requires the topcapt package
-%  \begin{tabular}{@{} lcccr @{}} % Column formatting, @{} suppresses leading/trailing space
-%      \toprule
-%      %\multicolumn{2}{c}{Item} \\
-%      \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
-%      Data Set   & $|\mathcal{R}_{0.05}|$ &
-%      $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05} \cap \mathcal{U}_{0.05}|$ & $N_g$   \\
-%      \midrule
-%      GSE75748   & 8605 & 2390 & 2331 & 19097\\          
-%      GSE45719   & 7454 & 2562 & 2529 & 45686\\
-%      GSE64016   & 2800 & 468 & 335 & 19084\\
-%      \bottomrule
-%  \end{tabular}
-%  \caption{number of positives at genes against constant shape parameter across subtypes}
-%  \label{tab:cs}
-%  \end{center}
-%\end{table}
-%
-%Further we checked the performance of \texttt{scDDboost} at splatter simulation when constant shape assumption is violated and found that our method still gave accurate inference and control the FDR.
-%
+
 
 \subsubsection{clustering method}
 We use distance based clustering method, where two distance matrices are combined. 
