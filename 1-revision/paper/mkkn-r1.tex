@@ -184,7 +184,7 @@ Through the compositional model underlying \verb+scDDboost+, subtypes inferred b
 inform the analysis of gene-level expression.  The proposed methodology merges two lines of computation
 after cell clustering: one concerns patterns of differential expression among 
 the cellular subtypes, and here we take advantage of the powerful \verb+EBseq+ method for detecting
-patterns in negative-binomially-distributed expression data~(\cite{oscope}).  The second concerns 
+patterns in negative-binomially-distributed expression data~(\cite{ref:Leng}).  The second concerns 
 the counts of cells in various subtypes; for this we propose a Double-Dirichlet-Mixture distribution
 to model the pair of multinomial probability vectors for subtype counts in two experimental conditions.
 Further elements are developed, on the selection of the number of subtypes and on accounting for uncertainty in the cluster output,  in order to provide an end-to-end solution to the differential distribution
@@ -199,7 +199,7 @@ Figure~\ref{fig:whet} highlights the ability of \verb+scDDboost+ to sense subtyp
 and thus detect subtle gene expression changes between conditions.
 The three panels on the left compare expression from 91 human 
 stem cells known to be in the G1 phase of the cell cycle, as well as
-from 76 such cells known to be in the G2/M phase~(\cite{ref:Leng}) in three genes (BIRC5, HMMR, and CKAP2), which we happen to know from prior studies have differential activity between G1 and G2/M~(\cite{BIRC5,HMMR,RAD21}).  
+from 76 such cells known to be in the G2/M phase~(\cite{oscope}) in three genes (BIRC5, HMMR, and CKAP2), which we happen to know from prior studies have differential activity between G1 and G2/M~(\cite{BIRC5,HMMR,RAD21}).  
 Several standard statistical tools applied to the data behind Figure~\ref{fig:whet} do not find the observed
  differences in any of these genes
 to be statistically significant when controlling the false discovery rate (FDR) at 5\%,
@@ -223,17 +223,10 @@ information.
 
 
 \begin{figure}[H]
-%\vspace{-\parskip}
-%\minipage{0.36\textwidth}
-%\includegraphics[clip,width=\textwidth]{Figs/FucciDD.pdf}
-%\endminipage
-%\minipage{0.64\textwidth}
- %\includegraphics[clip,width=\textwidth]{Figs/HeatUni.png}
 \includegraphics[width=\textwidth]{Figs/Fig1.png}
-%\endminipage
 
  \caption{Genes involved in cell-cycle that are identified by scDDboost, but not standard approaches,
- as differentially distributed between cell-cycle phases G1 and G2/M in human embryonic stem cells. 
+ as differentially distributed between cell-cycle phases G1 and G2/M in human embryonic stem cells (GSE64016). 
   Density estimates on the left show expression data (log2 scale)
 of three genes identified by scDDboost at 5\% FDR, but not similarly identified by MAST, scDD, \textcolor{red}{or}  DESeq2.
  Prior studies have shown that the expression
@@ -1015,7 +1008,7 @@ Figure~\ref{fig:cdf} shows the marginal fit of randomly sample the genes by mixt
 
 \begin{figure}[h]
 \includegraphics[width = 0.8\textwidth]{Figs/ecdf.pdf}
-\caption{Data set GSE64016 **SAME AS FUCCI?**, random select 9 genes among genes having at least one positive transcripts, Green curve refers to empirical CDF of the gene transcripts, each light thin pink curve refers empirical CDF fitted on data simulated from our estimated mixture NB model. The dark thick pink curve represents the average estimation. Here we averaged estimations from 10 randomized clusterings. **REDUCE SPACE BETWEEN PANELS AND GENE NAME IN LOWER RIGHT WITHIN**}
+\caption{Data set GSE64016, random select 9 genes among genes having at least one positive transcripts, Green curve refers to empirical CDF of the gene transcripts, each light thin pink curve refers empirical CDF fitted on data simulated from our estimated mixture NB model. The dark thick pink curve represents the average estimation. Here we averaged estimations from 10 randomized clusterings. **REDUCE SPACE BETWEEN PANELS AND GENE NAME IN LOWER RIGHT WITHIN**}
 \label{fig:cdf}
 \end{figure}
 
