@@ -990,13 +990,13 @@ the synthetic-data study (Figure~5), which does not encode the same modeling ass
 
 \textcolor{red}{To check the within-subtype negative binomial (NB) assumption, we deployed a bootstrap 
 goodness-of-fit test in three data sets~(\cite{Yin:2013aa}). Fewer than 1.5\% of genes show evidence against
-a within subtype NB assumption at a 5\% false discovery rate. 
- Further, for most of these non-NB genes the inference drawn by scDDboost is the same as that
-drawn by various other methods (Supplementary Material, Table S3).   Among 
-the cell-cycle genes identified by scDDboost in the stem-cell example
-(Figure 1), just six of them fail the NB test, and only two genes against the NB assumption are uniquely called by \texttt{scDDboost}, further one of the two genes is cell-cycle related. **CLARIFY**
-We also present violin plot of subsamples of unique DD genes by \texttt{scDDboost} but against NB for one data set to show there are difference between conditions (Supplementary Material, Figure S12)
-}
+a within subtype NB assumption at a 5\% FDR.
+ Further, for most of these non-NB genes the inference drawn by \texttt{scDDboost} is the same as that
+drawn by various other methods (Supplementary Material, Table S3), and where there are differences the 
+\texttt{scDDboost} call is plausible (Supplementary Material, Figure S12).   Among 
+the  genes identified by \texttt{scDDboost} at 5\% FDR in the stem-cell example
+(recall Figure~1), just six of them fail the NB test, and two of these are uniquely called by \texttt{scDDboost}; 
+further, one of the two genes is cell-cycle related.  }
 
 
 \textcolor{red}{The constant-shape assumption is less well supported empirically, according to 
