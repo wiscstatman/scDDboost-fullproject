@@ -15,6 +15,13 @@ fitVal = function(x,clus,r,K){
   return(fit)
 }
 
+values_to_impute = function(x, impute_resolution = 100){
+    return(seq(
+    min(x)
+    , max(x)
+    , length.out = impute_resolution
+    ))
+}
 
 den = list()
 den_o = list()
