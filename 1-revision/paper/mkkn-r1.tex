@@ -998,14 +998,15 @@ the synthetic-data study (Figure~5), which does not encode the same modeling ass
 goodness-of-fit test in three data sets~(\cite{Yin:2013aa}). Fewer than 1.5\% of genes show evidence against
 a within subtype NB assumption at a 5\% false discovery rate. 
  Further, for most of these non-NB genes the inference drawn by scDDboost is the same as that
-drawn by various other methods (Supplementary Material, Table **).   Among 
+drawn by various other methods (Supplementary Material, Table S3).   Among 
 the cell-cycle genes identified by scDDboost in the stem-cell example
-(Figure 1), just one of them fails the NB test. **is
-there a fig in Supp?**; }
+(Figure 1), just six of them fails the NB test, and only two genes against the NB assumption are uniquely called by \texttt{scDDboost}, further one of the two genes is cell-cycle related.
+We also present violin plot of subsamples of unique DD genes by \texttt{scDDboost} but against NB for one data set to show there are difference between conditions (Supplementary Material, Figure S12)
+}
 
 
-\textcolor{red}{The constant-shape assumption is  less well supported empirically, according to 
-a likelihood-ratio test that we developed (Supp Fig **).  More than 15\% of genes show 
+\textcolor{red}{The constant-shape assumption is less well supported empirically, according to 
+a likelihood-ratio test that we developed (Supp Fig S13).  More than 15\% of genes show 
 evidence against constant shape in the examples considered, though inference on differential
 distribution is only mildy affected  (Supplementary Table **; Figures **).  **Here's a good
 place to add figures showing the marginal fit for some genes**.  Figure~\ref{fig:cdf} shows the marginal fit by mixture NB for transcripts}
