@@ -988,7 +988,44 @@ Relevant material is reported in the  main paper. This empty subsection is inclu
 \subsubsection{Negative binomial assumption}
 
 We deploy a Pearson-type goodness-of-fit test~(\cite{Yin:2013aa}) to check the adequacy of the
-negative binomial (NB) assumption in cell clusters from two data sets (EMTAB2805 and GSE45719).
+negative binomial (NB) assumption in cell clusters from three data sets (GSE64016, EMTAB2805 and GSE45719).
+
+%We assumed the marginal distribution of transcripts are mixture of negative binomial(NB) distributed. 
+%In addition to being motivated by the subtype intuition, mixture model can approximate a wide variety of distributions and
+%many other literatures used NB to model transcripts (\cite{ref:Des},\cite{Chen:2018aa}). 
+%Further, we study the goodness of NB fitting at two data sets EMTAB2805 and GSE45719. 
+Given the estimated subtype label, we test the goodness of fit for NB model.
+We investigated the distribution of the p values and observed that a few genes having evidence against the NB assumption 
+Let $\mathcal{N}_{0.05}$ be the set of genes having at least one fdr adjusted p value on one subtype less than 0.05.
+Let $\mathcal{D}_{0.05}$ be the set of genes identified as DD genes by our method at 0.05 local fdr.
+Let $\mathcal{U}_{0.05}$ be the union of genes identified by other methods (t-test,MAST,DESeq2,scDD) with fdr correction at 0.05 threshold. 
+Let $N_g$ be the number of genes. 
+Table \ref{tab:nb} demonstrates among those non-NB genes, most DD identified by our method are also confirmed by other tests 
+%Further we investigate the part uniquely identified by \texttt{scDDboost} and observed distributional differences (supplementary 2.4)
+Specifically, for the cell-cycle related data GSE64016, which is the data set we used for Figure 1 in the main paper. 
+Only two genes against NB assumption are uniquely called DD by \texttt{scDDboost}. Further,
+one of the two genes is cell-cycle related. 
+\begin{table}[htbp]
+  \begin{center}
+   \begin{tabular}{@{} lcccr @{}} % Column formatting, @{} suppresses leading/trailing space
+      \toprule
+%      %\multicolumn{2}{c}{Item} \\
+%%     \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
+     Data Set   & $|\mathcal{N}_{0.05}|$ &
+     $|\mathcal{D}_{0.05} \cap \mathcal{N}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{N}_{0.05} \cap \mathcal{U}_{0.05}|$ & $N_g$  \\
+     \midrule
+     EMTAB2805   &593 & 137 & 80 & 45686\\          
+     GSE45719   & 528 & 198 & 185 & 45686\\
+     GSE64016   & 6 & 4 & 2 & 19084\\     
+     \bottomrule
+ \end{tabular}
+ \caption{number of positives at genes against NB distribution}
+ \label{tab:nb}
+ \end{center}
+\end{table}
+}
+
+
 Supplementary Figure \ref{fig:nb} presents the cumulative distribution of test p-values under each subtype, and
 indicates relatively little lack of fit.
 \begin{figure}[h!]
@@ -1011,6 +1048,7 @@ and also are uniquely identified by \texttt{scDDboost} as being DD.
 %\caption{Data set GSE45719, violin plot of the 13 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt{scDDboost}}
 %\label{fig:s12}
 %\end{figure}
+
 
 
 
