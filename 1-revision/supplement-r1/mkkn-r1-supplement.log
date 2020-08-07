@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  6 AUG 2020 20:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  7 AUG 2020 13:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1363,23 +1363,23 @@ OMS/zplm/m/n/12 j\OML/zplm/m/it/12 y\OT1/zplm/m/n/12 )\OML/zplm/m/it/12 ![]$\OT
 
 [13]
 Overfull \hbox (31.84023pt too wide) in paragraph at lines 661--683
-\OT1/cmtt/m/n/12 analysis / clustering . Rmd$[][] \OT1/pplx/m/n/12 and [][]$\OT
-1/cmtt/m/n/12 https : / / github . com / Oshlack / splatter-[]paper / blob / ma
-ster /
+\OT1/cmtt/m/n/12 splatter-[]paper / blob / master / analysis / clustering . Rmd
+$[][] \OT1/pplx/m/n/12 and [][]$\OT1/cmtt/m/n/12 https : / / github . com / Osh
+lack /
  []
 
 <Figs/UMAP.png, id=246, 595.22375pt x 602.25pt>
 File: Figs/UMAP.png Graphic file (type png)
 <use Figs/UMAP.png>
-Package pdftex.def Info: Figs/UMAP.png  used on input line 723.
-(pdftex.def)             Requested size: 375.80544pt x 380.23738pt.
+Package pdftex.def Info: Figs/UMAP.png  used on input line 712.
+(pdftex.def)             Requested size: 399.29463pt x 404.00163pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 <Figs/tscore.pdf, id=248, 505.89pt x 505.89pt>
 File: Figs/tscore.pdf Graphic file (type pdf)
 <use Figs/tscore.pdf>
-Package pdftex.def Info: Figs/tscore.pdf  used on input line 736.
+Package pdftex.def Info: Figs/tscore.pdf  used on input line 726.
 (pdftex.def)             Requested size: 375.80544pt x 375.81166pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1387,144 +1387,141 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [14
 
 ]
-<Figs/simu_wadist.pdf, id=262, 505.89pt x 505.89pt>
+<Figs/simu_wadist.pdf, id=263, 505.89pt x 505.89pt>
 File: Figs/simu_wadist.pdf Graphic file (type pdf)
 <use Figs/simu_wadist.pdf>
-Package pdftex.def Info: Figs/simu_wadist.pdf  used on input line 764.
+Package pdftex.def Info: Figs/simu_wadist.pdf  used on input line 754.
 (pdftex.def)             Requested size: 281.85587pt x 281.86067pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Figs/Roc_supp.pdf, id=264, 505.89pt x 505.89pt>
+<Figs/Roc_supp.pdf, id=265, 505.89pt x 505.89pt>
 File: Figs/Roc_supp.pdf Graphic file (type pdf)
 <use Figs/Roc_supp.pdf>
-Package pdftex.def Info: Figs/Roc_supp.pdf  used on input line 783.
+Package pdftex.def Info: Figs/Roc_supp.pdf  used on input line 773.
 (pdftex.def)             Requested size: 375.80544pt x 375.81166pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [15 <./Figs/UMAP.png>] [16 <./Figs/tscore.pdf>] [17 <./Figs/simu_wadist.pdf>]
 [18 <./Figs/Roc_supp.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 806--806
+Underfull \hbox (badness 10000) in paragraph at lines 796--796
 []|\OT1/pplx/m/n/10 Number of
  []
 
 
-Overfull \hbox (10.63446pt too wide) in paragraph at lines 806--806
+Overfull \hbox (10.63446pt too wide) in paragraph at lines 796--796
 \OT1/pplx/m/n/10 cells/condition| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 808--808
+Underfull \hbox (badness 10000) in paragraph at lines 798--798
 []|\OT1/pplx/m/n/10 GSE48968-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 808--808
+Underfull \hbox (badness 10000) in paragraph at lines 798--798
 []|\OT1/pplx/m/n/10 ([][]Shalek
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 810--810
+Underfull \hbox (badness 10000) in paragraph at lines 800--800
 []|\OT1/pplx/m/n/10 ([][]Trapnell
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 812--812
+Underfull \hbox (badness 10000) in paragraph at lines 802--802
 []|\OT1/pplx/m/n/10 ([][]Buettner
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 813--813
+Underfull \hbox (badness 10000) in paragraph at lines 803--803
 []|\OT1/pplx/m/n/10 GSE71585-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 813--813
+Underfull \hbox (badness 10000) in paragraph at lines 803--803
 []|\OT1/pplx/m/n/10 Gad2tdTpositive vs
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 817--817
+Underfull \hbox (badness 10000) in paragraph at lines 807--807
 []|\OT1/pplx/m/n/10 Primordial Germ Cells,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 817--817
+Underfull \hbox (badness 10000) in paragraph at lines 807--807
 \OT1/pplx/m/n/10 ges-ta-tion vs So-matic Cells,
  []
 
 
-Underfull \hbox (badness 2027) in paragraph at lines 817--817
+Underfull \hbox (badness 2027) in paragraph at lines 807--807
 \OT1/pplx/m/n/10 de-vel-op-men-tal stage: 7 week
  []
 
 
-Underfull \hbox (badness 1052) in paragraph at lines 817--817
+Underfull \hbox (badness 1052) in paragraph at lines 807--807
 []|\OT1/pplx/m/n/10 ([][]Guo et al.[][],
  []
 
 
-Underfull \hbox (badness 1127) in paragraph at lines 818--818
+Underfull \hbox (badness 1127) in paragraph at lines 808--808
 []|\OT1/pplx/m/n/10 ([][]Chu et al.[][],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 819--819
+Underfull \hbox (badness 10000) in paragraph at lines 809--809
 []|\OT1/pplx/m/n/10 neoplastic cells vs non-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 819--819
+Underfull \hbox (badness 10000) in paragraph at lines 809--809
 []|\OT1/pplx/m/n/10 ([][]Darmanis
  []
 
 
-Overfull \hbox (3.38347pt too wide) in paragraph at lines 804--821
+Overfull \hbox (3.38347pt too wide) in paragraph at lines 794--811
  [][] 
  []
 
 <Figs/Fucci_wadist.pdf, id=342, 505.89pt x 505.89pt>
 File: Figs/Fucci_wadist.pdf Graphic file (type pdf)
 <use Figs/Fucci_wadist.pdf>
-Package pdftex.def Info: Figs/Fucci_wadist.pdf  used on input line 837.
+Package pdftex.def Info: Figs/Fucci_wadist.pdf  used on input line 827.
 (pdftex.def)             Requested size: 187.89914pt x 187.90196pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 855--855
+Underfull \hbox (badness 10000) in paragraph at lines 845--845
 []|\OT1/pplx/m/n/9 Number of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 864--864
+Underfull \hbox (badness 10000) in paragraph at lines 854--854
 []|\OT1/pplx/m/n/9 GSE48968-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 872--872
+Underfull \hbox (badness 10000) in paragraph at lines 862--862
 []|\OT1/pplx/m/n/9 GSE71585-
  []
 
 [19
 
 ] [20 <./Figs/Fucci_wadist.pdf>]
-./mkkn-r1-supplement.tex:1026: Too many }'s.
-l.1026 }
-        
-? 
 <Figs/nbfit.pdf, id=381, 505.89pt x 505.89pt>
 File: Figs/nbfit.pdf Graphic file (type pdf)
 <use Figs/nbfit.pdf>
-Package pdftex.def Info: Figs/nbfit.pdf  used on input line 1032.
+Package pdftex.def Info: Figs/nbfit.pdf  used on input line 1021.
 (pdftex.def)             Requested size: 469.75502pt x 469.76265pt.
 <Figs/NBgene.pdf, id=383, 505.89pt x 505.89pt>
 File: Figs/NBgene.pdf Graphic file (type pdf)
 <use Figs/NBgene.pdf>
-Package pdftex.def Info: Figs/NBgene.pdf  used on input line 1041.
+Package pdftex.def Info: Figs/NBgene.pdf  used on input line 1030.
 (pdftex.def)             Requested size: 328.82707pt x 328.8323pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1534,7 +1531,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <Figs/lrt.pdf, id=385, 505.89pt x 505.89pt>
 File: Figs/lrt.pdf Graphic file (type pdf)
 <use Figs/lrt.pdf>
-Package pdftex.def Info: Figs/lrt.pdf  used on input line 1064.
+Package pdftex.def Info: Figs/lrt.pdf  used on input line 1053.
 (pdftex.def)             Requested size: 375.80544pt x 375.81166pt.
 [21
 
@@ -1546,7 +1543,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <Figs/Fucci-NCS.pdf, id=407, 505.89pt x 505.89pt>
 File: Figs/Fucci-NCS.pdf Graphic file (type pdf)
 <use Figs/Fucci-NCS.pdf>
-Package pdftex.def Info: Figs/Fucci-NCS.pdf  used on input line 1100.
+Package pdftex.def Info: Figs/Fucci-NCS.pdf  used on input line 1089.
 (pdftex.def)             Requested size: 375.80544pt x 375.81166pt.
 
 
@@ -1555,10 +1552,10 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <Figs/sc3-FDR.pdf, id=409, 505.89pt x 505.89pt>
 File: Figs/sc3-FDR.pdf Graphic file (type pdf)
 <use Figs/sc3-FDR.pdf>
-Package pdftex.def Info: Figs/sc3-FDR.pdf  used on input line 1117.
+Package pdftex.def Info: Figs/sc3-FDR.pdf  used on input line 1106.
 (pdftex.def)             Requested size: 234.8775pt x 234.88132pt.
 
-Overfull \hbox (12.79802pt too wide) in paragraph at lines 1108--1121
+Overfull \hbox (12.79802pt too wide) in paragraph at lines 1097--1110
  \OT1/pplx/m/n/10.95 3.5.3.\OT1/pplx/m/it/10.95 Clustering.[][] \OT1/pplx/m/n/1
 2 How sen-si-tive are \OT1/cmtt/m/n/12 scDDboost \OT1/pplx/m/n/12 re-sults to t
 he par-tic-u-lar clus-ter-ing method-
@@ -1569,7 +1566,7 @@ he par-tic-u-lar clus-ter-ing method-
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [24 <./Figs/lrt.pdf>] [25 <./Figs/Fucci-NCS.pdf>]
-Overfull \hbox (33.30878pt too wide) in paragraph at lines 1161--1164
+Overfull \hbox (33.30878pt too wide) in paragraph at lines 1150--1153
 [] \OML/zplm/m/it/12 g\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 ^^Y[]\OT1/zplm/m/n/12
  ) + [] \OML/zplm/m/it/12 f\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 ^^Y[]\OT1/zplm/m
 /n/12 ) \OMS/zplm/m/n/12 ^^@ [] \OML/zplm/m/it/12 f\OT1/zplm/m/n/12 (\OML/zplm/
@@ -1585,12 +1582,12 @@ lm/m/it/12 ^^L\OT1/zplm/m/n/12 )$
  []
 
 
-Overfull \hbox (58.89581pt too wide) detected at line 1179
+Overfull \hbox (58.89581pt too wide) detected at line 1168
 []
  []
 
 [26 <./Figs/sc3-FDR.pdf>]
-Overfull \hbox (2.02768pt too wide) in paragraph at lines 1197--1202
+Overfull \hbox (2.02768pt too wide) in paragraph at lines 1186--1191
 []\OT1/pplx/m/n/12 where $\OML/zplm/m/it/12 X[] \OT1/zplm/m/n/12 = []$\OT1/pplx
 /m/n/12 , $\OML/zplm/m/it/12 X[] \OT1/zplm/m/n/12 = []$\OT1/pplx/m/n/12 , $\OML
 /zplm/m/it/12 Y[] \OT1/zplm/m/n/12 = []$ \OT1/pplx/m/n/12 , $\OML/zplm/m/it/12 
@@ -1598,12 +1595,12 @@ Y[] \OT1/zplm/m/n/12 = []$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1207--1209
+Underfull \hbox (badness 10000) in paragraph at lines 1196--1198
 
  []
 
 [27]
-Overfull \hbox (17.37845pt too wide) in paragraph at lines 1278--1280
+Overfull \hbox (17.37845pt too wide) in paragraph at lines 1267--1269
 []\OT1/pplx/m/n/12 Recall $[][] \OML/zplm/m/it/12 ![] \OT1/zplm/m/n/12 = \OT1/p
 plx/m/n/12 1$ and $\OML/zplm/m/it/12 P\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 A[]\O
 MS/zplm/m/n/12 j\OML/zplm/m/it/12 y\OT1/pplx/m/n/12 , \OML/zplm/m/it/12 z\OT1/z
@@ -1614,10 +1611,10 @@ plm/m/n/12 ) = [][] \OML/zplm/m/it/12 ![] \OT1/pplx/m/n/12 1\OT1/zplm/m/n/12 [[
 <Figs/overlap.png, id=468, 770.88pt x 443.6575pt>
 File: Figs/overlap.png Graphic file (type png)
 <use Figs/overlap.png>
-Package pdftex.def Info: Figs/overlap.png  used on input line 1297.
+Package pdftex.def Info: Figs/overlap.png  used on input line 1286.
 (pdftex.def)             Requested size: 385.43906pt x 221.8282pt.
 
-Overfull \hbox (1.79689pt too wide) in paragraph at lines 1301--1307
+Overfull \hbox (1.79689pt too wide) in paragraph at lines 1290--1296
 \OT1/pplx/m/n/12 In Sup-ple-men-tary Fig-ure [][]S16[][], there are four sub-ty
 pes, the rect-an-gle with ma-genta bound-
  []
@@ -1655,24 +1652,24 @@ l.415 \bid{Zappia2017}
                       
 ? 
 ) [29]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1361.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1361.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1350.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1350.
  (./mkkn-r1-supplement.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1361.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1361.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1350.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1350.
 
 Package rerunfilecheck Info: File `mkkn-r1-supplement.out' has not changed.
-(rerunfilecheck)             Checksum: 2153AB4E6C6D6A01A790D6ADEB4201CF;1145.
+(rerunfilecheck)             Checksum: 5395B586D520EDC6DB8662750E9AA536;1145.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1361.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1350.
  ) 
 Here is how much of TeX's memory you used:
  29939 strings out of 492649
  563685 string characters out of 6129622
- 652613 words of memory out of 5000000
+ 652624 words of memory out of 5000000
  33202 multiletter control sequences out of 15000+600000
  573207 words of font info for 130 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1690,7 +1687,7 @@ exmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2018/texmf
 nts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/typ
 e1/urw/palatino/uplr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/
 palatino/uplri8a.pfb>
-Output written on mkkn-r1-supplement.pdf (29 pages, 1642689 bytes).
+Output written on mkkn-r1-supplement.pdf (29 pages, 1617507 bytes).
 PDF statistics:
  548 PDF objects out of 1000 (max. 8388607)
  463 compressed objects within 5 object streams
