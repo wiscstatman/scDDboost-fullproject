@@ -22,6 +22,9 @@
 \citation{cancer}
 \citation{scs}
 \citation{Bacher2016}
+\citation{sc3}
+\citation{CIDR}
+\citation{ZIFA}
 \gdef\hy@title{A compositional model to assess expression changes from single-cell RNA-seq data}
 \thanksnewlabel{e1@email}{{ma79@wisc.edu}{1}}
 \thanksnewlabel{e4@email}{{keegan@jimmy.harvard.edu}{1}}
@@ -41,9 +44,6 @@
 \gdef\hy@keywords{}
 \gdef\author@num{4}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}}
-\citation{sc3}
-\citation{CIDR}
-\citation{ZIFA}
 \citation{ref:MAST}
 \citation{ref:scDD}
 \citation{ref:d3e}
@@ -86,10 +86,10 @@
 \citation{ref:dahl}
 \citation{Cor}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Method structure and clustering}{10}{subsection.2.2}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces \textsc  {scDDBoost-core}\relax }}{10}{algorithm.1}}
+\newlabel{alg:scDDcore}{{1}{10}{\textsc {scDDBoost-core}\relax }{algorithm.1}{}}
 \citation{selK}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces \textsc  {scDDBoost-core}\relax }}{11}{algorithm.1}}
-\newlabel{alg:scDDcore}{{1}{11}{\textsc {scDDBoost-core}\relax }{algorithm.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}$P(A_\pi |y,z)$}{12}{subsection.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}$P(A_\pi |y,z)$}{11}{subsection.2.3}}
 \newlabel{eq:ddmix}{{6}{12}{$P(A_\pi |y,z)$}{equation.2.6}{}}
 \newlabel{eq:onetoone}{{7}{12}{$P(A_\pi |y,z)$}{equation.2.7}{}}
 \newlabel{eq:doubledir}{{8}{12}{$P(A_\pi |y,z)$}{equation.2.8}{}}
@@ -124,20 +124,14 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces  Absolute values of log fold changes of bursting parameters tend to be larger for 1758 genes uniquely identified by scDDboost (red) compared to 2983 genes (blue) \leavevmode {\color  {red}that are identified at 5\% FDR by scDDboost and other methods: MAST, scDD, and DESeq2.} \relax }}{20}{figure.caption.9}}
 \newlabel{fig:bursting}{{9}{20}{Absolute values of log fold changes of bursting parameters tend to be larger for 1758 genes uniquely identified by scDDboost (red) compared to 2983 genes (blue) \textcolor {red}{that are identified at 5\% FDR by scDDboost and other methods: MAST, scDD, and DESeq2.} \relax }{figure.caption.9}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Time Complexity}{20}{subsection.3.4}}
-\citation{ref:Des}
-\citation{Chen:2018aa}
 \citation{Yin:2013aa}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}\leavevmode {\color  {red}Diagnostics}}{21}{subsection.3.5}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.1}Negative Binomial}{21}{subsubsection.3.5.1}}
 \citation{Kim:2018}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces number of positives at genes against NB distribution\relax }}{22}{table.caption.10}}
-\newlabel{tab:nb}{{1}{22}{number of positives at genes against NB distribution\relax }{table.caption.10}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.2}constant shape assumption}{22}{subsubsection.3.5.2}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces number of positives at genes against constant shape parameter across subtypes\relax }}{22}{table.caption.11}}
-\newlabel{tab:cs}{{2}{22}{number of positives at genes against constant shape parameter across subtypes\relax }{table.caption.11}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.3}clustering method}{22}{subsubsection.3.5.3}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces similar local FDR under two clustering methods\relax }}{23}{table.caption.12}}
-\newlabel{tab:dist}{{3}{23}{similar local FDR under two clustering methods\relax }{table.caption.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}\leavevmode {\color  {red}Diagnostics}}{21}{subsection.3.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Data set Fucci, random select 9 genes among genes having at least one positive transcripts, Green curve refers to empirical CDF of the gene transcripts, each light thin pink curve refers empirical CDF fitted on data simulated from our estimated mixture NB model. The dark thick pink curve represents the average estimation. Here we averaged estimations from 10 randomized clusterings.\relax }}{22}{figure.caption.10}}
+\newlabel{fig:cdf}{{10}{22}{Data set Fucci, random select 9 genes among genes having at least one positive transcripts, Green curve refers to empirical CDF of the gene transcripts, each light thin pink curve refers empirical CDF fitted on data simulated from our estimated mixture NB model. The dark thick pink curve represents the average estimation. Here we averaged estimations from 10 randomized clusterings.\relax }{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.1}clustering method}{22}{subsubsection.3.5.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces similar local FDR under two clustering methods\relax }}{23}{table.caption.11}}
+\newlabel{tab:dist}{{1}{23}{similar local FDR under two clustering methods\relax }{table.caption.11}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Asymptotics of the Double Dirichlet Mixture}{23}{section.4}}
 \citation{Haghverdi:2015aa}
 \citation{Little2017PathBasedSC}
@@ -155,9 +149,9 @@
 \bibcite{Darmanis}{{7}{2017}{{Darmanis et~al.}}{{}}}
 \bibcite{ref:d3e}{{8}{2016}{{Delmans and Hemberg}}{{}}}
 \bibcite{Deng193}{{9}{2014}{{Deng et~al.}}{{}}}
-\@writefile{toc}{\contentsline {section}{Acknowledgement}{25}{section*.14}}
-\@writefile{toc}{\contentsline {section}{References}{25}{section*.16}}
 \bibcite{RAD21}{{10}{2016}{{Dominguez et~al.}}{{}}}
+\@writefile{toc}{\contentsline {section}{Acknowledgement}{25}{section*.13}}
+\@writefile{toc}{\contentsline {section}{References}{25}{section*.15}}
 \bibcite{Efron:2007aa}{{11}{2007}{{Efron}}{{}}}
 \bibcite{Engel}{{12}{2016}{{Engel et~al.}}{{}}}
 \bibcite{ref:MAST}{{13}{2015}{{Finak et~al.}}{{}}}
@@ -200,7 +194,7 @@
 \bibcite{Yin:2013aa}{{50}{2013}{{Yin and Ma}}{{}}}
 \bibcite{ref:Zappia}{{51}{2017}{{Zappia, Phipson and Oshlack}}{{}}}
 \citation{yak68}
-\@writefile{toc}{\contentsline {section}{Appendix}{29}{section*.18}}
+\@writefile{toc}{\contentsline {section}{Appendix}{29}{section*.17}}
 \newlabel{eq:cprobs}{{13}{29}{Proof of Theorem 1}{equation.5.13}{}}
 \newlabel{eq:rw}{{14}{30}{Randomizing distances for approximate posterior inference}{equation.5.14}{}}
 \citation{Lane}
@@ -217,8 +211,8 @@
 \citation{Darmanis}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces \textsc  {scDDboost}\relax }}{31}{algorithm.2}}
 \newlabel{alg:scDDboost}{{2}{31}{\textsc {scDDboost}\relax }{algorithm.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {A4}{\ignorespaces Data sets used for the empirical study of scDDboost\relax }}{31}{table.caption.23}}
-\newlabel{table:1}{{A4}{31}{Data sets used for the empirical study of scDDboost\relax }{table.caption.23}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {A5}{\ignorespaces Single-condition data sets used in the random-splitting experiment.\relax }}{32}{table.caption.24}}
-\newlabel{table:2}{{A5}{32}{Single-condition data sets used in the random-splitting experiment.\relax }{table.caption.24}{}}
-\@writefile{toc}{\contentsline {section}{Author's addresses}{33}{section*.25}}
+\@writefile{lot}{\contentsline {table}{\numberline {A2}{\ignorespaces Data sets used for the empirical study of scDDboost\relax }}{31}{table.caption.22}}
+\newlabel{table:1}{{A2}{31}{Data sets used for the empirical study of scDDboost\relax }{table.caption.22}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {A3}{\ignorespaces Single-condition data sets used in the random-splitting experiment.\relax }}{32}{table.caption.23}}
+\newlabel{table:2}{{A3}{32}{Single-condition data sets used in the random-splitting experiment.\relax }{table.caption.23}{}}
+\@writefile{toc}{\contentsline {section}{Author's addresses}{33}{section*.24}}
