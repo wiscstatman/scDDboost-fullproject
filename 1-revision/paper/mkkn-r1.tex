@@ -1008,12 +1008,14 @@ We also present violin plot of subsamples of unique DD genes by \texttt{scDDboos
 \textcolor{red}{The constant-shape assumption is less well supported empirically, according to 
 a likelihood-ratio test that we developed (Supp Fig S13).  More than 15\% of genes show 
 evidence against constant shape in the examples considered, though inference on differential
-distribution is only mildy affected  (Supplementary Table S4; Figures **).  **Here's a good
-place to add figures showing the marginal fit for some genes**.  Figure~\ref{fig:cdf} shows the marginal fit by mixture NB for transcripts}
+distribution is only mildly affected  (Supplementary Table S4; Figures S13).  **Here's a good
+place to add figures showing the marginal fit for some genes**. 
+Even though sometimes the modeling assumption can be violated, the mixture NB still gave a good approximation. 
+Figure~\ref{fig:cdf} shows the marginal fit of randomly sample the genes by mixture NB for the stem-cell example(Figure 1) }
 
 \begin{figure}[h]
 \includegraphics[width = 0.8\textwidth]{Figs/ecdf.pdf}
-\caption{Data set Fucci, random select 9 genes among genes having at least one positive transcripts, Green curve refers to empirical CDF of the gene transcripts, each light thin pink curve refers empirical CDF fitted on data simulated from our estimated mixture NB model. The dark thick pink curve represents the average estimation. Here we averaged estimations from 10 randomized clusterings.}
+\caption{Data set GSE64016, random select 9 genes among genes having at least one positive transcripts, Green curve refers to empirical CDF of the gene transcripts, each light thin pink curve refers empirical CDF fitted on data simulated from our estimated mixture NB model. The dark thick pink curve represents the average estimation. Here we averaged estimations from 10 randomized clusterings.}
 \label{fig:cdf}
 \end{figure}
 
