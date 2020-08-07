@@ -23,6 +23,9 @@ values_to_impute = function(x, impute_resolution = 100){
     ))
 }
 
+
+K = 6
+
 den = list()
 den_o = list()
 for(i in 1:9){
