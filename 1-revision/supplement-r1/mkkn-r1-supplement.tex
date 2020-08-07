@@ -665,8 +665,8 @@ The layers consider many factors, including
   outliers and dropout, library size (sequencing depth), and trended gene-wise dispersion. 
 Internally there are Gamma and Poisson elements, but the layering induces marginal distributions
 that are more complex than the Negative Binomial.
-Parameters for splatter's multi-layer model may be set from empirical data sets, and we take the
-default settings in our experiments.  For generating data across multiple subtypes, 
+We take the default settings for the basic variation parameters in \verb+splatter+. 
+ For generating data across multiple subtypes, 
 \verb+splatter+ requires a pair $(\theta,\gamma)$ of location and scale 
 parameters governing the intensity of DE for those signature genes that distinguish the subtypes.
 (These parameters are also denoted \textbf{de.facLoc} and \textbf{de.facScale}.)  
@@ -708,21 +708,8 @@ UMAP plots  provide a global (transcriptomic) view of
 strong and some very weak differences.  
 
 
-
-%\textcolor{blue}{**Xiuyu: I don't see what 
-%distinguishes the top row of 4 PCA plots from the bottom row in each figure.  Here, I guess, we could
-%have some clarity; perhaps it refers to a pair of hyperparameters, but I cannot tell.  Please advise. Thanks
-%**}
-
-%we demonstrate consistency of estimated distributional changes based on \texttt{scDDboost} and Wasserstein distance.
-%Finally, ROC curves illustrate that \verb+scDDboost+ has favorable operating characteristics. 
-%We first look at the PCA plots of the simulated data (Supplementary Figure \ref{fig:pca1}, \ref{fig:pca2}, \ref{fig:pca3}). %\todo{Figs S3-S5 missing axis labels}
-%For $K = 7 \text{ and } 12$, in each scenario there were some subtypes nested in the 2d PCA projection %\todo{Do they separate in higher order PCs?}
-%and the distributional change of transcripts becomes difficult to detect. 
-%\texttt{scDDboost} benefits from the compositional structure and is more sensitive to those subtle changes.
-
 \begin{figure}[h!]
-  \includegraphics[ width = 0.8\textwidth]{Figs/UMAP.png}
+  \includegraphics[ width = 0.85\textwidth]{Figs/UMAP.png}
   \caption{UMAP of transcripts under different parameters for simulated data. 
   Different parameters resulted in different degree of separation of subtypes.
   Top left the hyper-parameters are  (-0.1,0.3), top right is (0.1,0.4). We can see many subtypes are nested with each other.
@@ -732,11 +719,12 @@ strong and some very weak differences.
   \label{fig:umap}
 \end{figure}
 
-\textcolor{red}{We also use t-test to demonstrate the difficulty for different simulation settings.} 
+To get simple measure of difficulty of the different simulation settings, 
+we use t-test and consider the distribution of t-test p-values for DD and ED genes in each case.
 Figure~\ref{fig:t-s} present t-test results on one replicate for each setting. 
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/tscore.pdf}
-  \caption{for each settings, we randomly choose one data and plot the boxplot of p values by t-test at DD and ED genes. 
+  \caption{For one replicate in each simulation setting, shown are p-values by t-test at DD and ED genes. 
   }
   \label{fig:t-s}
 \end{figure}
