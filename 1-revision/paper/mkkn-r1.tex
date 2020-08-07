@@ -986,15 +986,14 @@ where Bell counts the partitions of $K$.
 \subsection{\textcolor{red}{Diagnostics}}
 
 \textcolor{red}{As implemented, scDDboost uses a particular distance matrix to inform subtypes and 
-computes probabilities in a model for which expression is a mixture of constant-shape Negative Binomials.
+computes probabilities in a model for which expression is a mixture of constant-shape negative binomials.
 To check the effect of these assumptions we consider a variety of diagnostic calculations using
 the data sets presented in Sections 3.1 and 3.2. We first point out that model mis-specification 
 may have a limited impact on Type-I error rates, as evidenced by the permutation study (Figure~7) and also
 the synthetic-data study (Figure~5), which does not encode the same modeling assumptions as scDDboost. }
 
-%\subsubsection{Negative Binomial}
 
-\textcolor{red}{To check the within-subtype Negative Binomial (NB) assumption, we deployed a bootstrap 
+\textcolor{red}{To check the within-subtype negative binomial (NB) assumption, we deployed a bootstrap 
 goodness-of-fit test in three data sets~(\cite{Yin:2013aa}). Fewer than 1.5\% of genes show evidence against
 a within subtype NB assumption at a 5\% false discovery rate. 
  Further, for most of these non-NB genes the inference drawn by scDDboost is the same as that
@@ -1127,7 +1126,7 @@ searches all partitions of $K$ and encodes a hyper-parameter estimation algorith
 Several approximations present themselves that may redress the problem, since,
 in the mixture model context, only patterns $\pi$ corresponding to relatively probable expression-change
 patterns over subtypes have a big impact on the final posterior inference.   Even resolving this
-bottleneck there are advantages to having $K$ small compared to $n$.  Numerical experiments (see Supplement)
+bottleneck there are advantages to having $K$ small compared to $n$.  Numerical experiments 
 show increased false discoveries when $K$ is over-estimated.  But accurate estimation with large $K$ would
 not be expected to provide much improved power, since that depends on accurate estimation of subtypes and their
 frequencies which relies on $K$ being relatively small compared to $n$.
