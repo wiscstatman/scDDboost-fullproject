@@ -11,7 +11,7 @@
 \BOOKMARK [2][-]{subsection.3.4}{Time complexity}{section.3}% 11
 \BOOKMARK [2][-]{subsection.3.5}{Diagnostics}{section.3}% 12
 \BOOKMARK [3][-]{subsubsection.3.5.1}{Negative binomial assumption}{subsection.3.5}% 13
-\BOOKMARK [3][-]{subsubsection.3.5.2}{Constant shape assumption: Likelihood ratio test}{subsection.3.5}% 14
+\BOOKMARK [3][-]{subsubsection.3.5.2}{Constant shape assumption: likelihood ratio test}{subsection.3.5}% 14
 \BOOKMARK [3][-]{subsubsection.3.5.3}{Clustering}{subsection.3.5}% 15
 \BOOKMARK [1][-]{section.4}{Posterior consistency}{}% 16
 \BOOKMARK [1][-]{section*.28}{References}{}% 17
