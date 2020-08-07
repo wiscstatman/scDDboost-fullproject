@@ -163,7 +163,7 @@ These tools respond
 to scRNA-seq characteristics, such as high prevalence of zero counts and
 gene-level multimodality, but they do not fully exploit cellular-subtype
 information \textcolor{red}{and therefore may be underpowered in some settings.  The proposed method,
-which uses negative binomial mixtures and measures changes in a gene's marginal sampling distribution, 
+which uses negative binomial mixtures to measure changes in a gene's marginal sampling distribution, 
 acquires sensitivity to a variety of distributional effects by how it integrates 
 gene-level data with subtype information.}
 From input data, the associated R package 
@@ -814,7 +814,7 @@ to generate synthetic scRNA-seq  data for which the DD status of genes is known~
 single-cell RNA-seq data. It accounts for biological and technical sources of variation and is calibrated
 from a large number of published data sets. 
 Our hypothetical two-condition comparison involved $n=400$ cells and
-17421 genes, 10\% of which exhibited actual shifts in distribution between two conditions.
+17421 genes, 10\% of which exhibited actual shifts in distribution between two conditions. **FIX**
 To reflect common variation patterns, we adopted default settings of the primary parameters in 
 splatter, and focused our experiments on four settings of 
 splatter's location and scale parameters $(\theta, \gamma)$, which encode distributional
@@ -1000,7 +1000,7 @@ a within subtype NB assumption at a 5\% false discovery rate.
  Further, for most of these non-NB genes the inference drawn by scDDboost is the same as that
 drawn by various other methods (Supplementary Material, Table S3).   Among 
 the cell-cycle genes identified by scDDboost in the stem-cell example
-(Figure 1), just six of them fails the NB test, and only two genes against the NB assumption are uniquely called by \texttt{scDDboost}, further one of the two genes is cell-cycle related.
+(Figure 1), just six of them fail the NB test, and only two genes against the NB assumption are uniquely called by \texttt{scDDboost}, further one of the two genes is cell-cycle related. **CLARIFY**
 We also present violin plot of subsamples of unique DD genes by \texttt{scDDboost} but against NB for one data set to show there are difference between conditions (Supplementary Material, Figure S12)
 }
 
@@ -1011,11 +1011,11 @@ evidence against constant shape in the examples considered, though inference on 
 distribution is only mildly affected  (Supplementary Table S4; Figures S14).  **Here's a good
 place to add figures showing the marginal fit for some genes**. 
 Even though sometimes the modeling assumption can be violated, the mixture NB still gave a good approximation. 
-Figure~\ref{fig:cdf} shows the marginal fit of randomly sample the genes by mixture NB for the stem-cell example(Figure 1) }
+Figure~\ref{fig:cdf} shows the marginal fit of randomly sample the genes by mixture NB for the stem-cell example (Figure 1) }
 
 \begin{figure}[h]
 \includegraphics[width = 0.8\textwidth]{Figs/ecdf.pdf}
-\caption{Data set GSE64016, random select 9 genes among genes having at least one positive transcripts, Green curve refers to empirical CDF of the gene transcripts, each light thin pink curve refers empirical CDF fitted on data simulated from our estimated mixture NB model. The dark thick pink curve represents the average estimation. Here we averaged estimations from 10 randomized clusterings.}
+\caption{Data set GSE64016 **SAME AS FUCCI?**, random select 9 genes among genes having at least one positive transcripts, Green curve refers to empirical CDF of the gene transcripts, each light thin pink curve refers empirical CDF fitted on data simulated from our estimated mixture NB model. The dark thick pink curve represents the average estimation. Here we averaged estimations from 10 randomized clusterings. **REDUCE SPACE BETWEEN PANELS AND GENE NAME IN LOWER RIGHT WITHIN**}
 \label{fig:cdf}
 \end{figure}
 
