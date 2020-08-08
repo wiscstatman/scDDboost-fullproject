@@ -142,3 +142,21 @@ for(i in 1:9){
     
 }
 dev.off()
+
+
+
+## checking overdispersion
+
+## for example, see results from one randomized clustering
+
+j = 1
+for(i in 1:9){
+    x = data_counts[total[i],]
+    tmp = fitVal(x,clist[[j]],rlist[[j]][total[i]],K,alphaList[[j]],betaList[[j]][total[i]])
+    
+    print(paste0("fitted: ", sd(tmp)/ mean(tmp)))
+    print(paste0("observed: ",sd(x) / mean(x)))
+    print("*********")
+    print("   ")
+}
+
