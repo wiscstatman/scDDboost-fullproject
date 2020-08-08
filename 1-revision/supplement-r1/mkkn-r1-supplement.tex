@@ -200,7 +200,7 @@ $ P\left(A_\pi \cap M_{g,\pi} |X,y,z \right) =  P\left(A_\pi |y,z \right) \,
 Here we recall some key elements from \cite{ref:Leng} on the model behind \texttt{EBSeq},
 which we adapt to get $P(M_{g,\pi} | X, z)$.  Suppose we have $K$ subtypes, let $X_g^I = X_{g, 1}^I, \cdots , X_{g, S_1}^I$ 
 denote transcripts at gene $g$ from subtype $I, I = 1, \cdots, K$.  The \texttt{EBSeq} model assumes that normalized counts within subtype $I$ are distributed as Negative Binomial:
-$X_{g, s}^I | \sigma_g, q_g^I \sim NB(\sigma_{g}, q_g^I)$ with density  $P(X_{g,s}^I | \sigma_g, q_g^I ) = {X_{g,s} + \sigma_g - 1 \choose X_{g,s} }(1 - q_g^I)^{X_{g,s}^I} (q_g^I)^{\sigma_g}$
+$X_{g, s}^I | \sigma_g, q_g^I \sim NB(\sigma_{g}, q_g^I)$ with density  $P(X_{g,s}^I | \sigma_g, q_g^I ) = {X_{g,s}^I + \sigma_g - 1 \choose X_{g,s}^I }(1 - q_g^I)^{X_{g,s}^I} (q_g^I)^{\sigma_g}$
 
 
 %** recall what an NB distribution is, without all the scripts **
