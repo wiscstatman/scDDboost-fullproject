@@ -767,7 +767,7 @@ receiver-operating-characteristic (ROC), as in
 and  reports an average over ten replicates under the same parameters setting. 
  \texttt{scDDboost} tends to outperform other methods.
 \begin{figure}[h!]
-  \includegraphics[ width = 0.7\textwidth]{Figs/Roc_supp.pdf}
+  \includegraphics[ width = 0.9\textwidth]{Figs/Roc_supp.pdf}
   \caption{ROC curve in 12 simulation settings. In each setting, TPR and FPR are averaged over ten replicates, generally \texttt{scDDboost} performs better than other methods, orange dash line refers to y = x all panels show the unit square.}
   \label{fig:roc}
 \end{figure}
@@ -778,7 +778,8 @@ and  reports an average over ten replicates under the same parameters setting.
 
 \subsection{Empirical Study}
 
-In this section, we provide details of the empirical datasets and also demonstrate consistency to Wasserstein distance on one dataset FUCCI \citep{oscope}.
+In this section, we provide details of the empirical datasets and also demonstrate an empirical relationship
+ between \texttt{scDDboost} scores to the Wasserstein distance between two samples.
 
 
 \noindent
@@ -817,13 +818,14 @@ We run the comparison on those subsamples instead
 and found \texttt{DESeq2} identified significantly smaller numbers of positives than other methods. It is intuitive that we are more likely to encounter subtle changes
 when we have large samples, and only considering mean shifts would have limited power. 
 
-We also observed consistent distributional change measurements by \texttt{scDDboost} and Wasserstein distance 
+We observe an association empirically between 
+distributional change measurements by \texttt{scDDboost} and Wasserstein distance between samples
 (Supplementary Figure \ref{fig:wad}).
 
 \begin{figure}[h!]
 \includegraphics[width = 0.4\textwidth]{Figs/Fucci_wadist.pdf}
 \caption{$P(ED_g|X,y)$ given by scDDboost versus empirical Wasserstein distance. 
-Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4 - 0.6, 0.6 - 0.8, 0.8 - 1, data used: FUCCI}.
+Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0 - 0.2, 0.2 - 0.4, 0.4 - 0.6, 0.6 - 0.8, 0.8 - 1. This is taken from the stem-cell data: GSE64016}.
  \label{fig:wad}
 \end{figure}
 
@@ -832,38 +834,39 @@ Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0
 
 
 
-Datasets used for generating the Null cases  are shown in Supplementary Table \ref{table:2}.
+Datasets used for generating the null cases  are shown in Supplementary Table \ref{table:2}.
 
 \begin{table}[h!]
 \footnotesize
 \centering
 \begin{tabular}{ |p{3cm}|p{5cm}|p{3cm}|p{2cm}|}
 \hline
- Data set & Conditions & Number of cells/condition & Organism \\
+ Data set & Conditions & Number of cells & Organism \\
 \hline
 \hline
-GSE63818null & 7 week gestation  & 20,20 &mouse \\
+GSE63818null & 7 week gestation  & 40 &mouse \\
 \hline
-GSE75748null & DEC & 32, 32 & human\\
+GSE75748null & DEC & 64 & human\\
 \hline
-GSE94383null & T0 & 93, 93 & human \\
+GSE94383null & T0 & 186 & human \\
 \hline
-GSE48968-GPL13112null & BMDC (2h LPS stimulation) & 48,48 & mouse \\
+GSE48968-GPL13112null & BMDC (2h LPS stimulation) & 96 & mouse \\
 %\hline
-% GSE60749-GPL13112null & v6.5 mouse embryonic stem cells, culture conditions: 2i+LIF & 45,45 & mouse \\
+% GSE60749-GPL13112null & v6.5 mouse embryonic stem cells, culture conditions: 2i+LIF & 90 & mouse \\
  \hline
- GSE74596null & NKT1 & 23,23 & mouse\\
+ GSE74596null & NKT1 & 46 & mouse\\
  \hline
- EMTAB2805null & G1 & 48,48 & mouse\\
+ EMTAB2805null & G1 & 96 & mouse\\
  \hline
-GSE71585-GPL13112null &Gad2tdTpositive  & 40,40 & mouse \\
+GSE71585-GPL13112null &Gad2tdTpositive  & 80 & mouse \\
 \hline
-GSE64016null & G1 & 46,45 & human \\
+GSE64016null & G1 & 91 & human \\
 \hline
-GSE79102null & patient1 & 26, 25 & human\\
+GSE79102null & patient1 & 51 & human\\
 \hline
 \end{tabular}
-\caption{Datasets used for null cases, as cells are coming from same biological condition, there should not be any differential distributed genes, any positive call is false positive}
+\caption{Datasets used for null cases. Cells arise from one  biological condition in each case.  We 
+split randomly in half multiple times for negative control calculations, }
 \label{table:2}
 \end{table}
 
@@ -1032,8 +1035,8 @@ As implemented, \texttt{scDDboost} treats the negative binomial mixture componen
 within each gene.  Here we investigate this assumption.
 Let $\sigma^k$ be the shape parameter from subtype $k$.
 We have null hypothesis $$H_0: \sigma^1 =
-\sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to check the validity of the chi-square approximation. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). The test statistic and chi-square-based p-values are recorded, and this is . 
-repeated 100 times. Though the LRT with chi-square p-value is slightly liberal (Figure \ref{fig:lrt}),
+\sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to check the validity of the chi-square approximation. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). The test statistic and chi-square-based p-values are recorded, and this calculation 
+is  repeated 100 times. Though the LRT with chi-square p-value is slightly liberal (Figure \ref{fig:lrt}),
 \begin{figure}[h!]
   \includegraphics[ width = 0.7\textwidth]{Figs/lrt.pdf}
   \caption{Cumulative distribution for chi-square p-values of LRT in a null case shows a slight inflation 
@@ -1045,7 +1048,7 @@ we use it to flag genes that may violate the constant-shape assumption.
 Let $\mathcal{R}_{0.05}$ be the set of genes having BH-adjusted LRT p-value less than 0.05, and 
 let $\mathcal{U}_{0.05}$ be the union genes identified by t-test, DESeq2, MAST or scDD as differential between
 the two groups.
-Table \ref{tab:cs} demonstrates that most identified by \texttt{scDDboost} are also confirmed by other tests. 
+Table \ref{tab:cs} demonstrates that most genes identified by \texttt{scDDboost} as DD are also confirmed by other tests. 
 \begin{table}[htbp]
   \begin{center}
   %\topcaption{Table captions are better up top} % requires the topcapt package
