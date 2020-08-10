@@ -725,7 +725,8 @@ Figure~\ref{fig:t-s} present t-test results on one replicate for each setting.
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/tscore.pdf}
   \caption{For one replicate in each simulation setting, shown are p-values by t-test at DD and ED genes. 
-  }
+  This measures the degree of difficulty of the 12 simulation scenarios, with those on the left presenting
+a difficult challenge to identify altered genes.}
   \label{fig:t-s}
 \end{figure}
 
@@ -990,10 +991,10 @@ Let $\mathcal{N}_{0.05}$ be the set of genes having at least one fdr adjusted p 
 Let $\mathcal{D}_{0.05}$ be the set of genes identified as DD genes by our method at 0.05 local fdr.
 Let $\mathcal{U}_{0.05}$ be the union of genes identified by other methods (t-test,MAST,DESeq2,scDD) with fdr correction at 0.05 threshold. 
 Let $N_g$ be the number of genes. 
-Table \ref{tab:nb} demonstrates among those non-NB genes, most DD identified by our method are also confirmed by other tests 
+Table \ref{tab:nb} demonstrates among those non-NB genes, most DD identified by our method are also confirmed by other tests.
 %Further we investigate the part uniquely identified by \texttt{scDDboost} and observed distributional differences (supplementary 2.4)
-Specifically, for the cell-cycle related data GSE64016, which is the data set we used for Figure 1 in the main paper. 
-Only two genes against NB assumption are uniquely called DD by \texttt{scDDboost}. Further,
+For the stem-cell data GSE64016, which we used in Figure 1 in the main paper, 
+only two genes against NB assumption are uniquely called DD by \texttt{scDDboost}. Further,
 one of the two genes is cell-cycle related. 
 \begin{table}[htbp]
   \begin{center}
@@ -1015,30 +1016,22 @@ one of the two genes is cell-cycle related.
 \end{table}
 
 
-Supplementary Figure \ref{fig:nb} presents the cumulative distribution of test p-values under each subtype, and
+Supplementary Figure \ref{fig:nb} presents the cumulative distribution of goodness-of-fit test p-values under each subtype, and
 indicates relatively little lack of fit.
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{Figs/nbfit.pdf}
-  \caption{Cumulative distribution functions for subtype specific unadjusted p values of goodness of fit for NB distribution at two data sets(left is EMTAB2805, right is GSE45719), different colors are correspond to different subtypes}
+  \caption{Cumulative distribution functions for  p-values of goodness of fit for NB distribution at two data sets (left is EMTAB2805, right is GSE45719), with different colors corresponding to different subtypes}
   \label{fig:nb}
 \end{figure}
 Among genes that demonstrate non-NB behavior, we find that most are handled the same way by \texttt{scDDboost}
 as by the standard comparison methods in terms of DD calls at 5\% FDR.  
- Supplementary Figures ~\ref{fig:s11} display data from genes that show non-NB behavior
-and also are uniquely identified by \texttt{scDDboost} as being DD.   
+Group differences are evident (Supplementary Figures ~\ref{fig:s11}) even from genes that show non-NB behavior
+and that are uniquely identified by \texttt{scDDboost} as being DD.   
 \begin{figure}[h]
 \includegraphics[width = 0.7\textwidth]{Figs/NBgene.pdf}
 \caption{Data set EMTAB2805, violin plot of the 57 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt{scDDboost}}
 \label{fig:s11}
 \end{figure}
-
-%\begin{figure}[h]
-%\includegraphics[width = 0.5\textwidth]{Figs/NBgene2.pdf}
-%\caption{Data set GSE45719, violin plot of the 13 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt{scDDboost}}
-%\label{fig:s12}
-%\end{figure}
-
-
 
 
 
@@ -1048,19 +1041,22 @@ As implemented, \texttt{scDDboost} treats the negative binomial mixture componen
 within each gene.  Here we investigate this assumption.
 Let $\sigma^k$ be the shape parameter from subtype $k$
 We have null hypothesis $$H_0: \sigma^1 =
-\sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to verify the validity of the chi-square approximation. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). Then test statistic and corresponding p-value are recorded. We repeat the procedure 100 times. Figure \ref{fig:lrt} shows that the p value is roughly uniform distributed
+\sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to verify the validity of the chi-square approximation. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). The test statistic and chi-square-based p-values are recorded, and this is . 
+repeated 100 times. The LRT with chi-square p-value is slightly liberal, but (Figure \ref{fig:lrt}) we go on to use
+it to test goodness of the constant-shape assumption in several data sets.  
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/lrt.pdf}
-  \caption{Cumulative distribution for chi-square p-values of LRT in a null case}
+  \caption{Cumulative distribution for chi-square p-values of LRT in a null case shows a slight inflation 
+of type-I error for the goodness-of-fit test}
   \label{fig:lrt}
 \end{figure}
-We then use likelihood ratio test to identify genes against constant shape assumption and we investigate the positives among those genes. 
-Only a few genes uniquely called positive by \texttt{scDDboost} against constant shape assumption. 
+We use LRT to flag genes that seem to violate the constant-shape assumption.
+%Only a few genes uniquely called positive by \texttt{scDDboost} against constant shape assumption. 
 
-Let $\mathcal{R}_{0.05}$ be the set of genes having fdr adjusted p value less than 0.05. 
-Under those genes against constant shape assumption, 
-Let $\mathcal{U}_{0.05}$ be the union genes identified by t-test, DESeq2, MAST and scDD.
-Table \ref{tab:cs} demonstrates that most DD genes identified by our method are also confirmed by other tests. 
+Let $\mathcal{R}_{0.05}$ be the set of genes having BH-adjusted LRT p-value less than 0.05. 
+Let $\mathcal{U}_{0.05}$ be the union genes identified by t-test, DESeq2, MAST and scDD as differential between
+the two groups.
+Table \ref{tab:cs} demonstrates that most identified by \texttt{scDDboost} are also confirmed by other tests. 
 \begin{table}[htbp]
   \begin{center}
   %\topcaption{Table captions are better up top} % requires the topcapt package
@@ -1082,12 +1078,15 @@ Table \ref{tab:cs} demonstrates that most DD genes identified by our method are 
 \end{table}
 
 
-Specifically, we studied those non-constant shape genes on Fucci, though there is still some non-constant shape genes uniquely called as DD by \texttt{scDDboost}. 
-Figure~\ref{fig:NCS} showed that those non constant uniquely DD genes tends to have smaller p values comparing to other genes, which demonstrate some compatibility.
+We looked at teh non-constant-shape genes in the stem-cell example. 
+Though there is still some non-constant shape genes uniquely called as DD by \texttt{scDDboost}, 
+Figure~\ref{fig:NCS} shows that these genes tend to have smaller DD p-values by other methods, as
+compared to other genes, suggesting it is plausible that the DD detection is not a false call.
 
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/Fucci-NCS.pdf}
-  \caption{boxplot of FDR adjusted p values by other method, within each method left box only consider non constant shape genes but uniquely identified as DD by \texttt{scDDboost}, right box consider the whole genome}
+  \caption{Boxplot of FDR adjusted p-values by other methods, separated by non-constant shape genes uniquely identified
+by scDDboost (left) compared to the whole genome (right).  }
   \label{fig:NCS}
 \end{figure}
 
