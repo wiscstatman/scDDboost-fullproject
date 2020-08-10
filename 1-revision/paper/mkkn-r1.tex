@@ -1014,7 +1014,7 @@ is reasonably accurate in the stem-cell example.}
 Empirical CDF for observed data (green) vs. empirical CDF for expression levels simulated from the fitted NB mixture (pink) for
 data set GSE64016. The top 6 panels are genes randomly selected from those genes being identified as DD by \texttt{scDDboost} and not violating constant shape assumption; 
 the last three genes are randomly sampled from genes that fail the test of constant NB shape parameter. 
-Each thik pink curve is from one of the randomized distances; the
+Each thin pink curve is from one of the randomized distances; the
  the thicker pink curve represents pointwise averaging over 10 randomized distance matrices. Note horizontal scales
 differ among the panels, and  cells are pooled from the two conditions.}
 \label{fig:cdf}
@@ -1032,8 +1032,8 @@ The other is correlation based, which has been demonstrate to outperform the Euc
 After the distance is obtained, we perform K-medoids for clustering, where the sizes of clusters are balanced and unlikely to have a cluster with a lot more cells than others.
 
 Our results are averaged over randomly generated clusterings and thus is not sensitive to the choice of the input clustering method.
-Further, we redeployed \texttt{scDDboost} in examples (data sets EBTAB2805, GSE45719) but using clustering method \texttt{sc3} in place of the default method.
-Let $p_o$ be the proportions of commonly identified genes among the top 1000 and $n_{DD}$ be the number of DD genes. Further inference based on default clustering method tends to give conservative result and have a lot in common with \texttt{sc3}. 
+Further, we redeployed \texttt{scDDboost} in examples (data sets EBTAB2805, GSE45719) but using clustering method \texttt{SC3} in place of the default method.
+Let $p_o$ be the proportions of commonly identified genes among the top 1000 and $n_{DD}$ be the number of DD genes. Further inference based on default clustering method tends to give conservative result and have a lot in common with \texttt{SC3}. 
 \begin{table}[htbp]
   \begin{center}
   %\topcaption{Table captions are better up top} % requires the topcapt package
@@ -1042,7 +1042,7 @@ Let $p_o$ be the proportions of commonly identified genes among the top 1000 and
       %\multicolumn{2}{c}{Item} \\
       \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
       Data Set   & cor &
-      $p_o$ & $n_{DD}$ default & $n_{DD}$ by sc3 & commonly identified\\
+      $p_o$ & $n_{DD}$ default & $n_{DD}$ by SC3 & commonly identified\\
       \midrule
       EMTAB2805  & 0.93 & 80\% & 3334 & 3725 & 2913\\          
       GSE45719   & 0.94 & 75\% & 4805 & 7591 & 4851\\
@@ -1052,7 +1052,7 @@ Let $p_o$ be the proportions of commonly identified genes among the top 1000 and
   \label{tab:dist}
   \end{center}
 \end{table}
-We also run \texttt{scDDboost} with \texttt{sc3} on null case data sets used in Figure~\ref{nullperm} and simulation data. 
+We also run \texttt{scDDboost} with \texttt{SC3} on null case data sets used in Figure~\ref{nullperm} and simulation data. 
 We observe very few positives and conclude that our method does not inflate type-I error with different clustering method.(supplementary 3.5.3)
 
 
