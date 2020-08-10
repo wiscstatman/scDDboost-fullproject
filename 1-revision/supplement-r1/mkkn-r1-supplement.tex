@@ -972,23 +972,19 @@ Relevant material is reported in the  main paper. This empty subsection is inclu
 \subsection{Diagnostics}
 
 
-\subsubsection{Negative binomial assumption}
+\subsubsection*{Negative binomial assumption}
 
 We deploy a Pearson-type goodness-of-fit test~(\cite{Yin:2013aa}) to check the adequacy of the
-negative binomial (NB) assumption in cell clusters from three data sets (GSE64016, EMTAB2805 and GSE45719).
-
-%We assumed the marginal distribution of transcripts are mixture of negative binomial(NB) distributed. 
-%In addition to being motivated by the subtype intuition, mixture model can approximate a wide variety of distributions and
-%many other literatures used NB to model transcripts (\cite{ref:Des},\cite{Chen:2018aa}). 
-%Further, we study the goodness of NB fitting at two data sets EMTAB2805 and GSE45719. 
-Given the estimated subtype label, we test the goodness of fit for NB model.
-We investigated the distribution of the p values and observed that a few genes having evidence against the NB assumption 
-Let $\mathcal{N}_{0.05}$ be the set of genes having at least one fdr adjusted p value on one subtype less than 0.05.
-Let $\mathcal{D}_{0.05}$ be the set of genes identified as DD genes by our method at 0.05 local fdr.
-Let $\mathcal{U}_{0.05}$ be the union of genes identified by other methods (t-test,MAST,DESeq2,scDD) with fdr correction at 0.05 threshold. 
-Let $N_g$ be the number of genes. 
-Table \ref{tab:nb} demonstrates among those non-NB genes, most DD identified by our method are also confirmed by other tests.
-%Further we investigate the part uniquely identified by \texttt{scDDboost} and observed distributional differences (supplementary 2.4)
+negative binomial (NB) assumption in three data sets (GSE64016, EMTAB2805 and GSE45719).
+Given the estimated subtype label, we test the goodness of fit for NB model within subtype clusters.
+We investigated the distribution of the p-values 
+and observed that a few genes having evidence against the NB assumption 
+Let $\mathcal{N}_{0.05}$ be the set of genes having  FDR adjusted goodness-of-fit p-value (by BH) 
+ less than 0.05 on at least one subtype. We call these the non-NB genes.  Relating this to the DD calls,
+let $\mathcal{D}_{0.05}$ be the set of genes identified as DD genes by our method at 0.05 local FDR and
+let $\mathcal{U}_{0.05}$ be the union of genes identified by other methods (t-test, MAST, DESeq2, scDD) 
+with similar FDR control.
+Table \ref{tab:nb} demonstrates among the non-NB genes, most DD identified by our method are also confirmed by other tests, suggesting that model misspecification may not often lead to erroneous inferences.
 For the stem-cell data GSE64016, which we used in Figure 1 in the main paper, 
 only two genes against NB assumption are uniquely called DD by \texttt{scDDboost}. Further,
 one of the two genes is cell-cycle related. 
@@ -999,7 +995,7 @@ one of the two genes is cell-cycle related.
 %      %\multicolumn{2}{c}{Item} \\
 %%     \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
      Data Set   & $|\mathcal{N}_{0.05}|$ &
-     $|\mathcal{D}_{0.05} \cap \mathcal{N}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{N}_{0.05} \cap \mathcal{U}_{0.05}|$ & $N_g$  \\
+     $|\mathcal{D}_{0.05} \cap \mathcal{N}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{N}_{0.05} \cap \mathcal{U}_{0.05}|$ & $\#$ genes  \\
      \midrule
      EMTAB2805   &593 & 137 & 80 & 45686\\          
      GSE45719   & 528 & 198 & 185 & 45686\\
@@ -1012,10 +1008,9 @@ one of the two genes is cell-cycle related.
 \end{table}
 
 
-Supplementary Figure \ref{fig:nb} presents the cumulative distribution of goodness-of-fit test p-values under each subtype, and
-indicates relatively little lack of fit.
+Supplementary Figure \ref{fig:nb} presents the cumulative distribution of goodness-of-fit test p-values under each subtype, and also indicates relatively little lack of fit in these cases.
 \begin{figure}[h!]
-  \includegraphics[width=\linewidth]{Figs/nbfit.pdf}
+  \includegraphics[width=0.8\linewidth]{Figs/nbfit.pdf}
   \caption{Cumulative distribution functions for  p-values of goodness of fit for NB distribution at two data sets (left is EMTAB2805, right is GSE45719), with different colors corresponding to different subtypes}
   \label{fig:nb}
 \end{figure}
@@ -1024,20 +1019,20 @@ as by the standard comparison methods in terms of DD calls at 5\% FDR.
 Group differences are evident (Supplementary Figures ~\ref{fig:s11}) even from genes that show non-NB behavior
 and that are uniquely identified by \texttt{scDDboost} as being DD.   
 \begin{figure}[h]
-\includegraphics[width = 0.7\textwidth]{Figs/NBgene.pdf}
+\includegraphics[width = 0.9\textwidth]{Figs/NBgene.pdf}
 \caption{Data set EMTAB2805, violin plot of the 57 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt{scDDboost}}
 \label{fig:s11}
 \end{figure}
 
 
 
-\subsubsection{Constant shape assumption: likelihood ratio test}
+\subsubsection*{Constant shape assumption: likelihood ratio test}
 
 As implemented, \texttt{scDDboost} treats the negative binomial mixture components as having constant shape
 within each gene.  Here we investigate this assumption.
-Let $\sigma^k$ be the shape parameter from subtype $k$
+Let $\sigma^k$ be the shape parameter from subtype $k$.
 We have null hypothesis $$H_0: \sigma^1 =
-\sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to verify the validity of the chi-square approximation. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). The test statistic and chi-square-based p-values are recorded, and this is . 
+\sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to check the validity of the chi-square approximation. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). The test statistic and chi-square-based p-values are recorded, and this is . 
 repeated 100 times. The LRT with chi-square p-value is slightly liberal, but (Figure \ref{fig:lrt}) we go on to use
 it to test goodness of the constant-shape assumption in several data sets.  
 \begin{figure}[h!]
@@ -1050,7 +1045,7 @@ We use LRT to flag genes that seem to violate the constant-shape assumption.
 %Only a few genes uniquely called positive by \texttt{scDDboost} against constant shape assumption. 
 
 Let $\mathcal{R}_{0.05}$ be the set of genes having BH-adjusted LRT p-value less than 0.05. 
-Let $\mathcal{U}_{0.05}$ be the union genes identified by t-test, DESeq2, MAST and scDD as differential between
+Let $\mathcal{U}_{0.05}$ be the union genes identified by t-test, DESeq2, MAST or scDD as differential between
 the two groups.
 Table \ref{tab:cs} demonstrates that most identified by \texttt{scDDboost} are also confirmed by other tests. 
 \begin{table}[htbp]
@@ -1081,25 +1076,25 @@ compared to other genes, suggesting it is plausible that the DD detection is not
 
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/Fucci-NCS.pdf}
-  \caption{Boxplot of FDR adjusted p-values by other methods, separated by non-constant shape genes uniquely identified
+  \caption{Boxplots of FDR adjusted p-values by other methods, separated by non-constant shape genes uniquely identified
 by scDDboost (left) compared to the whole genome (right).  }
   \label{fig:NCS}
 \end{figure}
 
 
-\subsubsection{Clustering}
+\subsubsection*{Clustering}
 
 How sensitive are \texttt{scDDboost} results to the particular clustering methodology?  To investigate, we
-applied the sc3 clustering method in place of the default in several  numerical experiments.
+applied the SC3 clustering method in place of the default in several  numerical experiments.
 Following the original negative control experiment (main Figure 7), we applied \texttt{scDDboost} on each of five random
 splits of a number of data sets.  In this case, we used five data sets: EMTAB2805, GSE64016, GSE93818, GSE74596, GSE71585.
  We observed zero positives by \texttt{scDDboost} at a 5\% FDR call rate.
-We also checked \texttt{scDDboost} with sc3 in the simulation study (compare to Figures 4, 6, main). 
+We also ran \texttt{scDDboost} using SC3 in the simulation study (compare to Figures 5, main). 
 Here 5 replicate data sets were drawn in each setting. Supplementary Figure~\ref{fig:sc3fdr} shows that FDR is 
 well controlled for the null genes.
 \begin{figure}[h!]
   \includegraphics[ width = 0.5\textwidth]{Figs/sc3-FDR.pdf}
-  \caption{FDR for simulation data sets, when using \texttt{scDDboost} with sc3 clustering}
+  \caption{FDR by  simulation, when using \texttt{scDDboost} with SC3 clustering}
   \label{fig:sc3fdr}
 \end{figure}
 
