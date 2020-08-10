@@ -767,8 +767,8 @@ receiver-operating-characteristic (ROC), as in
 and  reports an average over ten replicates under the same parameters setting. 
  \texttt{scDDboost} tends to outperform other methods.
 \begin{figure}[h!]
-  \includegraphics[ width = 0.8\textwidth]{Figs/Roc_supp.pdf}
-  \caption{Roc curve of the 12 simulation settings, under each setting, TPR and FPR are averaged over ten replicates, generally \texttt{scDDboost} performs better than other methods, orange dash line refers to y = x and scale of axies are from 0 to 1}
+  \includegraphics[ width = 0.7\textwidth]{Figs/Roc_supp.pdf}
+  \caption{ROC curve in 12 simulation settings. In each setting, TPR and FPR are averaged over ten replicates, generally \texttt{scDDboost} performs better than other methods, orange dash line refers to y = x all panels show the unit square.}
   \label{fig:roc}
 \end{figure}
 
@@ -1033,19 +1033,17 @@ within each gene.  Here we investigate this assumption.
 Let $\sigma^k$ be the shape parameter from subtype $k$.
 We have null hypothesis $$H_0: \sigma^1 =
 \sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to check the validity of the chi-square approximation. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). The test statistic and chi-square-based p-values are recorded, and this is . 
-repeated 100 times. The LRT with chi-square p-value is slightly liberal, but (Figure \ref{fig:lrt}) we go on to use
-it to test goodness of the constant-shape assumption in several data sets.  
+repeated 100 times. Though the LRT with chi-square p-value is slightly liberal (Figure \ref{fig:lrt}),
 \begin{figure}[h!]
-  \includegraphics[ width = 0.8\textwidth]{Figs/lrt.pdf}
+  \includegraphics[ width = 0.7\textwidth]{Figs/lrt.pdf}
   \caption{Cumulative distribution for chi-square p-values of LRT in a null case shows a slight inflation 
 of type-I error for the goodness-of-fit test}
   \label{fig:lrt}
 \end{figure}
-We use LRT to flag genes that seem to violate the constant-shape assumption.
-%Only a few genes uniquely called positive by \texttt{scDDboost} against constant shape assumption. 
+we use it to flag genes that may violate the constant-shape assumption.
 
-Let $\mathcal{R}_{0.05}$ be the set of genes having BH-adjusted LRT p-value less than 0.05. 
-Let $\mathcal{U}_{0.05}$ be the union genes identified by t-test, DESeq2, MAST or scDD as differential between
+Let $\mathcal{R}_{0.05}$ be the set of genes having BH-adjusted LRT p-value less than 0.05, and 
+let $\mathcal{U}_{0.05}$ be the union genes identified by t-test, DESeq2, MAST or scDD as differential between
 the two groups.
 Table \ref{tab:cs} demonstrates that most identified by \texttt{scDDboost} are also confirmed by other tests. 
 \begin{table}[htbp]
@@ -1056,22 +1054,22 @@ Table \ref{tab:cs} demonstrates that most identified by \texttt{scDDboost} are a
       %\multicolumn{2}{c}{Item} \\
       \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
       Data Set   & $|\mathcal{R}_{0.05}|$ &
-      $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05} \cap \mathcal{U}_{0.05}|$ & $N_g$   \\
+      $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05}| $ & $|\mathcal{D}_{0.05} \cap \mathcal{R}_{0.05} \cap \mathcal{U}_{0.05}|$ & $\#$ genes   \\
       \midrule
       GSE75748   & 8605 & 2390 & 2331 & 19097\\          
       GSE45719   & 7454 & 2562 & 2529 & 45686\\
       GSE64016   & 2800 & 468 & 335 & 19084\\
       \bottomrule
   \end{tabular}
-  \caption{number of positives at genes against constant shape parameter across subtypes}
+  \caption{Number of DD calls in genes that violate the constant-shape test}
   \label{tab:cs}
   \end{center}
 \end{table}
 
 
-We looked at teh non-constant-shape genes in the stem-cell example. 
-Though there is still some non-constant shape genes uniquely called as DD by \texttt{scDDboost}, 
-Figure~\ref{fig:NCS} shows that these genes tend to have smaller DD p-values by other methods, as
+Looking more closely we focus on non-constant-shape genes in the stem-cell example. 
+Though some of these are  uniquely called as DD by \texttt{scDDboost}, 
+Figure~\ref{fig:NCS} shows that they tend to have smaller DD p-values by other methods, as
 compared to other genes, suggesting it is plausible that the DD detection is not a false call.
 
 \begin{figure}[h!]
