@@ -105,7 +105,7 @@ This supplement is organized to match the sectioning of the main document.   In 
     \begin{itemize}
     \item {Negative Binomial assumption}
     \item {Constant shape assumption}
-    \item {Clustering}
+    \item {Clustering distance}
     \end{itemize}
    \end{itemize}
 \item Posterior consistency
@@ -965,13 +965,15 @@ We deploy a Pearson-type goodness-of-fit test~(\cite{Yin:2013aa}) to check the a
 negative binomial (NB) assumption in three data sets (GSE64016, EMTAB2805 and GSE45719).
 Given the estimated subtype label, we test the goodness of fit for NB model within subtype clusters.
 We investigated the distribution of the p-values 
-and observed that a few genes having evidence against the NB assumption 
+and observed that some genes show evidence against the NB assumption.
 Let $\mathcal{N}_{0.05}$ be the set of genes having  FDR adjusted goodness-of-fit p-value (by BH) 
  less than 0.05 on at least one subtype. We call these the non-NB genes.  Relating this to the DD calls,
 let $\mathcal{D}_{0.05}$ be the set of genes identified as DD genes by our method at 0.05 local FDR and
 let $\mathcal{U}_{0.05}$ be the union of genes identified by other methods (t-test, MAST, DESeq2, scDD) 
 with similar FDR control.
-Supplementary Table \ref{tab:nb} demonstrates among the non-NB genes, most DD identified by our method are also confirmed by other tests, suggesting that model misspecification may not often lead to erroneous inferences.
+Supplementary Table \ref{tab:nb} demonstrates that among the non-NB genes, most called DD by 
+\texttt{scDDboost} 
+ are also confirmed by other tests, suggesting that model misspecification may not often lead to erroneous inferences.
 For the stem-cell data GSE64016, which we used in Figure 1 in the main paper, 
 only two genes against NB assumption are uniquely called DD by \texttt{scDDboost}. Further,
 one of the two genes is cell-cycle related. 
@@ -1004,11 +1006,11 @@ Supplementary Figure \ref{fig:nb} presents the cumulative distribution of goodne
 \end{figure}
 Among genes that demonstrate non-NB behavior, we find that most are handled the same way by \texttt{scDDboost}
 as by the standard comparison methods in terms of DD calls at 5\% FDR.  
-Group differences are evident (Supplementary Figures ~\ref{fig:s11}) even from genes that show non-NB behavior
-and that are uniquely identified by \texttt{scDDboost} as being DD.   
+Group differences are evident in genes that show non-NB behavior
+and that are uniquely identified by \texttt{scDDboost} as being DD (Supplementary Figure~\ref{fig:s11}).   
 \begin{figure}[h]
 \includegraphics[width = 0.9\textwidth]{Figs/NBgene.pdf}
-\caption{Data set EMTAB2805, violin plot of the 57 genes having evidence against negative binomial distribution assumption and uniquely called positive under \texttt{scDDboost}}
+\caption{Data set EMTAB2805, violin plot of the 57 genes having evidence against negative binomial distribution assumption and uniquely called DD by \texttt{scDDboost}}
 \label{fig:s11}
 \end{figure}
 
@@ -1020,7 +1022,8 @@ As implemented, \texttt{scDDboost} treats the negative binomial mixture componen
 within each gene.  Here we investigate this assumption.
 Let $\sigma^k$ be the shape parameter from subtype $k$.
 We have null hypothesis $$H_0: \sigma^1 =
-\sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to check the validity of the chi-square approximation. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). The test statistic and chi-square-based p-values are recorded, and this calculation 
+\sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We optimize numerically
+and consider the LRT to have an approximate chi-square distribution on the null.  We use simulation to check the validity of the chi-square approximation. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). The test statistic and chi-square-based p-values are recorded, and this calculation 
 is  repeated 100 times (Supplementary Figure~\ref{fig:lrt}). 
 Though the LRT with chi-square p-value is slightly liberal,
 \begin{figure}[h!]
@@ -1056,25 +1059,23 @@ Table \ref{tab:cs} demonstrates that most genes identified by \texttt{scDDboost}
 Though some of the non-constant shape genes  are  uniquely called as DD by \texttt{scDDboost}, 
 Figure~\ref{fig:NCS} shows that they tend to have smaller DD p-values by other methods, as
 compared to other genes, suggesting it is plausible that the DD detection is not a false call.
-
 \begin{figure}[h!]
   \includegraphics[ width = 0.8\textwidth]{Figs/Fucci-NCS.pdf}
   \caption{Boxplots of FDR adjusted p-values by other methods, separated by non-constant shape genes uniquely identified
 by scDDboost (left) compared to the whole genome (right).  }
   \label{fig:NCS}
 \end{figure}
-
-We see this phenomonon in the \verb+splatter+ simulation.
- We ran the LRT on the synthetic data, and roughly 1000 genes 
+We also see this phenomonon in the \verb+splatter+ simulation.
+ We ran the LRT on the synthetic data. Roughly 1000 genes 
 violate the constant-shape assumption in each case. 
 Among those 1000 genes, \texttt{scDDboost} on averaage identified 50 DD genes and on average 49 genes are true DD genes.  Thus lack of constant shape does not invalidate the DD inferences in the
 cases analyzed. 
 
 
-\subsubsection*{Clustering}
+\subsubsection*{Clustering distance}
 
-How sensitive are \texttt{scDDboost} results to the particular clustering methodology?  To investigate, we
-applied the SC3 clustering method in place of the default in several  numerical experiments.
+How sensitive are \texttt{scDDboost} results to the distance used by K-medoids clustering?  To investigate, we
+applied the SC3 distance in place of the default in several  numerical experiments.
 Following the original negative control experiment (main Figure 7), we applied \texttt{scDDboost} on each of five random
 splits of a number of data sets.  In this case, we used five data sets: EMTAB2805, GSE64016, GSE93818, GSE74596, GSE71585.
  We observed zero positives by \texttt{scDDboost} at a 5\% FDR call rate.
@@ -1089,7 +1090,7 @@ well controlled for the null genes.
 
  
 We redeployed \texttt{scDDboost} in data sets EBTAB2805, GSE45719, 
-but using clustering method \texttt{SC3} in place of the default method.
+but using \texttt{SC3} distance in place of the default distance.
 Let $p_o$ be the proportion of commonly identified genes among the top 1000 and $n_{DD}$ be the number of DD genes. 
 The default distance tends to post fewer genes than  \texttt{SC3}, though what is found by the default
 is mostly found by \texttt{SC3} (Supplementary Table~\ref{tab:dist}).
@@ -1107,7 +1108,8 @@ is mostly found by \texttt{SC3} (Supplementary Table~\ref{tab:dist}).
       GSE45719   & 0.94 & 75\% & 4805 & 7591 & 4851\\
       \bottomrule
   \end{tabular}
-  \caption{similar local FDR under two clustering methods}
+  \caption{Relation of findings from two different distance methods in two data sets (rows). cor denotes
+correlation of the scDDboost local FDR probabilities, and $n_{DD}$ is the number found DD at 5\% FDR.
   \label{tab:dist}
   \end{center}
 \end{table}
