@@ -1025,7 +1025,7 @@ We have null hypothesis $$H_0: \sigma^1 =
 \sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We optimize numerically
 and consider the LRT to have an approximate chi-square distribution on the null.  We use simulation to check the validity of the chi-square approximation. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). The test statistic and chi-square-based p-values are recorded, and this calculation 
 is  repeated 100 times (Supplementary Figure~\ref{fig:lrt}). 
-Though the LRT with chi-square p-value is slightly liberal,
+The LRT with chi-square p-value is approximately uniform on the null, and so
 \begin{figure}[h!]
   \includegraphics[ width = 0.7\textwidth]{Figs/lrt.pdf}
   \caption{Cumulative distribution for chi-square p-values of LRT in a null case shows a slight inflation 
@@ -1089,7 +1089,7 @@ well controlled for the null genes.
 \end{figure}
 
  
-We redeployed \texttt{scDDboost} in data sets EBTAB2805, GSE45719, 
+We redeployed \texttt{scDDboost} in several data sets, 
 but using \texttt{SC3} distance in place of the default distance.
 Let $p_o$ be the proportion of commonly identified genes among the top 1000 and $n_{DD}$ be the number of DD genes. 
 The default distance tends to post fewer genes than  \texttt{SC3}, though what is found by the default
