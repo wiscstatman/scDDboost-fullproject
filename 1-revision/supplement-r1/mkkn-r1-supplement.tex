@@ -1082,6 +1082,9 @@ by scDDboost (left) compared to the whole genome (right).  }
   \label{fig:NCS}
 \end{figure}
 
+It can also be validated from simulation, we run the likelihood ratio test for constant shape on the simulated data sets we used previously, and there are roughly 1000 genes violate the constant shape assumption. 
+Among those 1000 genes, \texttt{scDDboost} on averaage identified 50 DD genes and on average 49 genes are true DD genes. Thus our method control FDR even when the constant shape condition does not hold.
+
 
 \subsubsection*{Clustering}
 
