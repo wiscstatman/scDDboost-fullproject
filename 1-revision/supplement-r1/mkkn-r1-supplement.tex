@@ -1092,8 +1092,9 @@ well controlled for the null genes.
 We redeployed \texttt{scDDboost} in several data sets, 
 but using \texttt{SC3} distance in place of the default distance.
 Let $p_o$ be the proportion of commonly identified genes among the top 1000 and $n_{DD}$ be the number of DD genes. 
-The default distance tends to post fewer genes than  \texttt{SC3}, though what is found by the default
-is mostly found by \texttt{SC3} (Supplementary Table~\ref{tab:dist}).
+The clustering methods have some effects on the final list of DD genes but many of the top level called out gene are commonly identified(Supplementary Table~\ref{tab:dist}).
+%he default distance tends to post fewer genes than  \texttt{SC3}, though what is found by the default
+%is mostly found by \texttt{SC3} 
 \begin{table}[htbp]
   \begin{center}
   %\topcaption{Table captions are better up top} % requires the topcapt package
@@ -1101,16 +1102,15 @@ is mostly found by \texttt{SC3} (Supplementary Table~\ref{tab:dist}).
       \toprule
       %\multicolumn{2}{c}{Item} \\
       \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
-      Data Set   & cor &
+      Data Set   & 
       $p_o$ & $n_{DD}$ default & $n_{DD}$ by SC3 & commonly identified\\
       \midrule
-      EMTAB2805  & 0.93 & 80\% & 3334 & 3725 & 2913\\
-      GSE45719   & 0.94 & 75\% & 4851 & 7591 & 4805\\
-      GSE64016 & 0.33 & 80\% & 3395& 665 & 529\\
+      EMTAB2805   & 80\% & 3334 & 3725 & 2913\\
+      GSE45719    & 75\% & 4851 & 7591 & 4805\\
+      GSE64016  & 80\% & 3395& 665 & 529\\
       \bottomrule
   \end{tabular}
-  \caption{Relation of findings from two different distance methods in two data sets (rows). cor denotes
-correlation of the scDDboost local FDR probabilities, and $n_{DD}$ is the number found DD at 5\% FDR.
+  \caption{Relation of findings from two different distance methods in two data sets (rows). $n_{DD}$ is the number found DD at 5\% FDR.
 Notice that $p_o$ for GSE64016 is just $529 / 665$}
   \label{tab:dist}
   \end{center}
