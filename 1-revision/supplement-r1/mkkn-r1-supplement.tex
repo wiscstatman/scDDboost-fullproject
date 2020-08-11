@@ -411,7 +411,7 @@ variation in clusterings produced by this randomized distance approach in 8 exam
 
 We further check validity of randomized distances as a Bayesian approximation
   by comparing it to Dirichlet-process-based 
-clustering (\cite{DPpack})  on  a simulated dataset. 
+clustering (\cite{DPpack})  on  a simulated data set. 
 We simulate one-dimensional data $X$ from a mixture of 5 normal distributions with different means and same variance ($\mu = (-6,-2,0,2,10), \sigma = 1$). 
 We compare clustering results between randomized distances and Bayesian clustering 
 using the Dirichlet process prior (using  \verb+DPpackage+) 
@@ -461,7 +461,7 @@ but decrease the certainty of our inference on DE pattern.
 Empirically we find that taking $K \leq 10$ is often sufficient (Supplementary Table~\ref{table:1}).
 In any case, we note here that $K$ affects the posterior probability of DD (PDD).
 
-To demonstrate the change of PDD over different $K$, we present an example using dataset
+To demonstrate the change of PDD over different $K$, we present an example using data set
 GSE75748. When we increase $K$, the variance of the differential term $\text{PDD}_{K + 1} - \text{PDD}_K$ keeps decreasing and PDD keeps increasing. Our selection criterion (K = 5) happens to choose $K$ such that change between $\text{PDD}_{K + 1}$ and $\text{PDD}_K$ is small while not inflating PDD. We generally obtain stable validity score and PDD simultaneously (Supplementary Figure~\ref{fig:rwk}). In addition, the randomized distance 
 scheme helps by smoothing PDD (Supplementary Figure~\ref{fig:s10}).
 
@@ -473,13 +473,13 @@ not lead to overestimating $K$.
 
 \begin{figure}[h]
 \includegraphics[width = 1\textwidth]{Figs/Kchange.png}
-\caption{PDD change under different number of subtypes $K$ for dataset DEC-EC (GSE75748). We select $K = 4$, which also stabilize the PDD.}
+\caption{PDD change under different number of subtypes $K$ for data set DEC-EC (GSE75748). We select $K = 4$, which also stabilize the PDD.}
 \label{fig:rwk}
 \end{figure}
 
 \begin{figure}[h]
 \includegraphics[width = 0.7\textwidth]{Figs/rw.pdf}
-\caption{PDD under $K = 5$ vs. $K = 6$ for dataset DEC-EC (GSE75748). PDD without randomization (left) vs. PDD with randomization (right). \texttt{scDDboost} gained robustness through averaging over 
+\caption{PDD under $K = 5$ vs. $K = 6$ for data set DEC-EC (GSE75748). PDD without randomization (left) vs. PDD with randomization (right). \texttt{scDDboost} gained robustness through averaging over 
 randomized distances.}
 \label{fig:s10}
 \end{figure}
@@ -487,7 +487,7 @@ randomized distances.}
 \begin{figure}[h]
 \includegraphics[width = 0.5\textwidth]{Figs/breakFDR.pdf}
  \caption{We may lose FDR control when $K$ is too large.  Calculations here 
- use dataset EMTAB2805null (Table S2) and target 5\% FDR, which is not controlled when $K>6$
+ use data set EMTAB2805null (Table S2) and target 5\% FDR, which is not controlled when $K>6$
 But by the validity score method we would choose $K$ much smaller, as that score stabilizes when $K\geq3$. 
   \label{fig:lfdr}}
 \end{figure}
@@ -768,7 +768,8 @@ and  reports an average over ten replicates under the same parameters setting.
  \texttt{scDDboost} tends to outperform other methods.
 \begin{figure}[h!]
   \includegraphics[ width = 0.9\textwidth]{Figs/Roc_supp.pdf}
-  \caption{ROC curve in 12 simulation settings. In each setting, TPR and FPR are averaged over ten replicates, generally \texttt{scDDboost} performs better than other methods, orange dash line refers to y = x all panels show the unit square.}
+  \caption{ROC curve in 12 simulation settings. In each setting, TPR and FPR are averaged over ten replicates, generally \texttt{scDDboost} performs better than other methods, orange dashed line is the identity,
+and all panels show the unit square.}
   \label{fig:roc}
 \end{figure}
 
@@ -778,12 +779,12 @@ and  reports an average over ten replicates under the same parameters setting.
 
 \subsection{Empirical Study}
 
-In this section, we provide details of the empirical datasets and also demonstrate an empirical relationship
+In this section, we provide details of the empirical data sets and also demonstrate an empirical relationship
  between \texttt{scDDboost} scores to the Wasserstein distance between two samples.
 
 
 \noindent
-{\bf Data sets} Details for the datasets used in the empirical studies with the estimated number of subtypes $K$ are shown in Supplementary Table \ref{table:1}.
+{\bf Data sets} Details for the data sets used in the empirical studies with the estimated number of subtypes $K$ are shown in Supplementary Table \ref{table:1}.
 
 
 \begin{table}[h!]
@@ -806,12 +807,12 @@ GSE63818 & Primordial Germ Cells, develop- mental stage: 7 week gestation vs Som
 GSE75748 & DEC vs EC & 64, 64 & human & \citep{chu} & 5\\ \hline
 GSE84465 & neoplastic cells vs non-neoplastic cells & 1000, 1000 & human & \citep{Darmanis} & 9\\ \hline
 \end{tabular}
-\caption{Datasets used for empirical study}
+\caption{Data sets used for empirical study}
 \label{table:1}
 \end{table}
 
-For the first 11 datasets in Supplementary Table \ref{table:1} we use all the cells within that condition under same batch.
-The last one is the largest dataset we explored containing 3589 cells and comparing neoplastic cells (1091 cells) vs non-neoplastic cells (2498 cells).
+For the first 11 data sets in Supplementary Table \ref{table:1} we use all the cells within that condition under same batch.
+The last one is the largest data set we explored containing 3589 cells and comparing neoplastic cells (1091 cells) vs non-neoplastic cells (2498 cells).
 We randomly sampled 1000 cells from each condition, because it takes a lot of time for \texttt{DESeq2} and \texttt{scDD} to compute when using all the samples
 and we conjecture that 1000 cells each condition would be enough to represent the heterogeneity. %\todo{How different are results on a different random subset of 1000?}
 We run the comparison on those subsamples instead 
@@ -834,7 +835,7 @@ Genes associated with boxes from left to right having $P(ED_g|X,y)$ range from 0
 
 
 
-Datasets used for generating the null cases  are shown in Supplementary Table \ref{table:2}.
+Data sets used for generating the null cases  are shown in Supplementary Table \ref{table:2}.
 
 \begin{table}[h!]
 \footnotesize
@@ -865,7 +866,7 @@ GSE64016null & G1 & 91 & human \\
 GSE79102null & patient1 & 51 & human\\
 \hline
 \end{tabular}
-\caption{Datasets used for null cases. Cells arise from one  biological condition in each case.  We 
+\caption{Data sets used for null cases. Cells arise from one  biological condition in each case.  We 
 split randomly in half multiple times for negative control calculations, }
 \label{table:2}
 \end{table}
@@ -878,7 +879,7 @@ split randomly in half multiple times for negative control calculations, }
 Relevant material is reported in the  main paper. This empty subsection is included to maintain labeling consistency.
 
 
-%D3E\citep{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on dataset GSE71585\\
+%D3E\citep{ref:d3e} is a distributional method that can identify bursting parameters of transcripts. Rate of promoter activation, rate of promoter inactivation and the rate of transcription when the promoter is in the active state are estimated by D3E.  We investigate DD genes identified by scDDboost and their change of those three parameters on data set GSE71585\\
 
 %\begin{figure}[H]
 %\includegraphics[width = 1\textwidth]{Figs/d3eplot.pdf}
@@ -888,23 +889,6 @@ Relevant material is reported in the  main paper. This empty subsection is inclu
 %\caption{D3E method will estimate 3 bursting parameters probability of a gene being on (\textbf{a}) and off (\textbf{b}) and the expression rate when the gene expression is on (\textbf{c}), we plot the hexbin plot of probability of a gene being DD under out method v.s. the absolute value of log fold change of \textbf{a} , \textbf{b} and \textbf{c}  across the two conditions accordingly. The log fold change is scaled by dividing the largest log fold change so that ends up in a value between 0 and 1 Here we use the GSE71585 data }
 %\end{figure}
 
-
-
-%\begin{figure}[h!]
-%\vspace{-\parskip}
-%\minipage{0.33\textwidth}
-%  \includegraphics[clip,width=\textwidth]{Figs/act.png}
-%\endminipage
-%\minipage{0.33\textwidth}
-%  \includegraphics[clip,width=\textwidth]{Figs/in_act.png}
-%  \endminipage
- %\minipage{0.33\textwidth}
-%  \includegraphics[clip,width=\textwidth]{Figs/t_rate.png}
-%  \endminipage
-%\captionof{figure}{2D histogram for bursting parameters of DD genes identified by scDDboost from dataset EMTAB2805 estimated by D3E. Left panel  : comparison of rate of promoter activation between two conditions, similarly, middle panel  : rate of promoter inactivation and right panel: rate of transcription when the promoter is in the active state. We observe that difference between transcription rate is smaller compare to difference between the activation and inactivation rate.}
-%\end{figure}
-
-%We observed that DD genes identified by scDDboost tends to have similar transcription rate when the promoter is active across condition, while there are lots of variabilities in the action and inactivation rate. Estimations from D3E reveals that the major factor to drive DD genes are activation and inactivation rate (proportions of different subtyps), it make sense to consider mixture model like scDDboost.
 
 
 
@@ -987,7 +971,7 @@ Let $\mathcal{N}_{0.05}$ be the set of genes having  FDR adjusted goodness-of-fi
 let $\mathcal{D}_{0.05}$ be the set of genes identified as DD genes by our method at 0.05 local FDR and
 let $\mathcal{U}_{0.05}$ be the union of genes identified by other methods (t-test, MAST, DESeq2, scDD) 
 with similar FDR control.
-Table \ref{tab:nb} demonstrates among the non-NB genes, most DD identified by our method are also confirmed by other tests, suggesting that model misspecification may not often lead to erroneous inferences.
+Supplementary Table \ref{tab:nb} demonstrates among the non-NB genes, most DD identified by our method are also confirmed by other tests, suggesting that model misspecification may not often lead to erroneous inferences.
 For the stem-cell data GSE64016, which we used in Figure 1 in the main paper, 
 only two genes against NB assumption are uniquely called DD by \texttt{scDDboost}. Further,
 one of the two genes is cell-cycle related. 
@@ -1005,7 +989,8 @@ one of the two genes is cell-cycle related.
      GSE64016   & 6 & 4 & 2 & 19084\\     
      \bottomrule
  \end{tabular}
- \caption{number of positives at genes against NB distribution}
+ \caption{Number of DD genes in relation to the genes 
+ that fail the NB goodness-of-fit test.}
  \label{tab:nb}
  \end{center}
 \end{table}
@@ -1036,7 +1021,8 @@ within each gene.  Here we investigate this assumption.
 Let $\sigma^k$ be the shape parameter from subtype $k$.
 We have null hypothesis $$H_0: \sigma^1 =
 \sigma^2 = \dots = \sigma^K,$$ the test statistic is $2(l_1 - l_0)$, where $l_1$ is the log likelihood maximized over $r$ and $p$ given the data. $l_0$ is the log likelihood maximized under the $H_0$ constraint. We use simulation to check the validity of the chi-square approximation. We simulate 500 random variables that are NB(3,0.5) distributed and another 500 random variables with distribution NB(3,0.7). The test statistic and chi-square-based p-values are recorded, and this calculation 
-is  repeated 100 times. Though the LRT with chi-square p-value is slightly liberal (Figure \ref{fig:lrt}),
+is  repeated 100 times (Supplementary Figure~\ref{fig:lrt}). 
+Though the LRT with chi-square p-value is slightly liberal,
 \begin{figure}[h!]
   \includegraphics[ width = 0.7\textwidth]{Figs/lrt.pdf}
   \caption{Cumulative distribution for chi-square p-values of LRT in a null case shows a slight inflation 
@@ -1044,7 +1030,6 @@ of type-I error for the goodness-of-fit test}
   \label{fig:lrt}
 \end{figure}
 we use it to flag genes that may violate the constant-shape assumption.
-
 Let $\mathcal{R}_{0.05}$ be the set of genes having BH-adjusted LRT p-value less than 0.05, and 
 let $\mathcal{U}_{0.05}$ be the union genes identified by t-test, DESeq2, MAST or scDD as differential between
 the two groups.
@@ -1068,10 +1053,7 @@ Table \ref{tab:cs} demonstrates that most genes identified by \texttt{scDDboost}
   \label{tab:cs}
   \end{center}
 \end{table}
-
-
-Looking more closely we focus on non-constant-shape genes in the stem-cell example. 
-Though some of these are  uniquely called as DD by \texttt{scDDboost}, 
+Though some of the non-constant shape genes  are  uniquely called as DD by \texttt{scDDboost}, 
 Figure~\ref{fig:NCS} shows that they tend to have smaller DD p-values by other methods, as
 compared to other genes, suggesting it is plausible that the DD detection is not a false call.
 
@@ -1082,8 +1064,11 @@ by scDDboost (left) compared to the whole genome (right).  }
   \label{fig:NCS}
 \end{figure}
 
-It can also be validated from simulation, we run the likelihood ratio test for constant shape on the simulated data sets we used previously, and there are roughly 1000 genes violate the constant shape assumption. 
-Among those 1000 genes, \texttt{scDDboost} on averaage identified 50 DD genes and on average 49 genes are true DD genes. Thus our method control FDR even when the constant shape condition does not hold.
+We see this phenomonon in the \verb+splatter+ simulation.
+ We ran the LRT on the synthetic data, and roughly 1000 genes 
+violate the constant-shape assumption in each case. 
+Among those 1000 genes, \texttt{scDDboost} on averaage identified 50 DD genes and on average 49 genes are true DD genes.  Thus lack of constant shape does not invalidate the DD inferences in the
+cases analyzed. 
 
 
 \subsubsection*{Clustering}
