@@ -359,7 +359,7 @@
 \end{barticle}
 \endbibitem
 
-\bibitem[\protect\citeauthoryear{Kim et~al.}{2018a}]{Cor}
+\bibitem[\protect\citeauthoryear{Kim et~al.}{2018}]{Cor}
 \begin{barticle}[author]
 \bauthor{\bsnm{Kim},~\bfnm{Taiyun}\binits{T.}},
   \bauthor{\bsnm{Chen},~\bfnm{Irene~Rui}\binits{I.~R.}},
@@ -367,27 +367,10 @@
   \bauthor{\bsnm{Wang},~\bfnm{Andy Yi-Yang}\binits{A.~Y.-Y.}},
   \bauthor{\bsnm{Yang},~\bfnm{Jean Yee~Hwa}\binits{J.~Y.~H.}} \AND
   \bauthor{\bsnm{Yang},~\bfnm{Pengyi}\binits{P.}}
-(\byear{2018}a).
+(\byear{2018}).
 \btitle{Impact of similarity metrics on single-cell RNA-seq data clustering}.
 \bjournal{Briefings in Bioinformatics}
 \bpages{bby076}.
-\bdoi{10.1093/bib/bby076}
-\end{barticle}
-\endbibitem
-
-\bibitem[\protect\citeauthoryear{Kim et~al.}{2018b}]{Kim:2018}
-\begin{barticle}[author]
-\bauthor{\bsnm{Kim},~\bfnm{Taiyun}\binits{T.}},
-  \bauthor{\bsnm{Chen},~\bfnm{Irene~Rui}\binits{I.~R.}},
-  \bauthor{\bsnm{Lin},~\bfnm{Yingxin}\binits{Y.}},
-  \bauthor{\bsnm{Wang},~\bfnm{Andy Yi-Yang}\binits{A.~Y.-Y.}},
-  \bauthor{\bsnm{Yang},~\bfnm{Jean Yee~Hwa}\binits{J.~Y.~H.}} \AND
-  \bauthor{\bsnm{Yang},~\bfnm{Pengyi}\binits{P.}}
-(\byear{2018}b).
-\btitle{{Impact of similarity metrics on single-cell RNA-seq data clustering}}.
-\bjournal{Briefings in Bioinformatics}
-\bvolume{20}
-\bpages{2316-2326}.
 \bdoi{10.1093/bib/bby076}
 \end{barticle}
 \endbibitem
@@ -552,6 +535,19 @@
 \bpages{550}.
 \bdoi{10.1186/s13059-014-0550-8}.
 \bid{Love2014}
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{Ma, Kendziorski and Newton}{2020}]{Ma2020}
+\begin{barticle}[author]
+\bauthor{\bsnm{Ma},~\bfnm{Xiuyu}\binits{X.}},
+  \bauthor{\bsnm{Kendziorski},~\bfnm{Christina}\binits{C.}} \AND
+  \bauthor{\bsnm{Newton},~\bfnm{Michael~A.}\binits{M.~A.}}
+(\byear{2020}).
+\btitle{EBSeq: improving mixing computations for multi-group differential
+  expression analysis}.
+\bjournal{bioRxiv}.
+\bdoi{10.1101/2020.06.19.162180}
 \end{barticle}
 \endbibitem
 
