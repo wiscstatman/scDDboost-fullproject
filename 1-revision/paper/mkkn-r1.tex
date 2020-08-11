@@ -869,8 +869,8 @@ of the uniquely identified genes are likely not to be false positives.
 
 \begin{figure}[H]
 \includegraphics[width = 0.95\textwidth]{Figs/DD95.pdf}
- \caption{Proportion of DD genes at 5\% FDR threshold with respect to total number of genes identified by each method. Ranked by 
- scDDboost list size }
+ \caption{Proportion of DD genes at 5\% FDR threshold with respect to total number of genes identified by each method. 
+ Data sets are ordered by scDDboost list size. }
   \label{fig:es}
 \end{figure}
 
@@ -1002,11 +1002,11 @@ further, one of the two genes is cell-cycle related.  }
 \textcolor{red}{The constant-shape assumption is less well supported empirically, according to 
 a likelihood-ratio test that we developed (Supplementary Figure~S13).  More than 15\% of genes show 
 evidence against constant shape in the examples considered, though inference on differential
-distribution is only mildly affected  (Supplementary Table~S4; Figure~S14). 
-Even with evident model mis-specification, 
+distribution is only mildly affected  (Supplementary Table~S4; Figure~S14). We have similar findings 
+in the splatter-generated synthetic data.  Even with evident model mis-specification, 
 Figure~\ref{fig:cdf} shows that
   the marginal fit by \texttt{scDDboost}
-is reasonably accurate in the stem-cell example.}
+is reasonably accurate in the stem-cell example.  }
 
 \begin{figure}[h]
 \includegraphics[width = 0.85\textwidth]{Figs/ecdf.pdf}
@@ -1020,18 +1020,17 @@ differ among the panels, and  cells are pooled from the two conditions.}
 \label{fig:cdf}
 \end{figure}
 
-\textcolor{red}{**on the clustering checks**}
 
+\subsubsection*{\textcolor{red}{Choice of distance function}}
 
-
-
-\subsubsection{clustering method}
-We use distance based clustering method, where two distance matrices are combined. 
-One is based on gene level modal clustering, which provides robust estimations when outliers are presented. 
-The other is correlation based, which has been demonstrate to outperform the Euclidean distance(\cite{Kim:2018}).
-After the distance is obtained, we perform K-medoids for clustering, where the sizes of clusters are balanced and unlikely to have a cluster with a lot more cells than others.
-
-Our results are averaged over randomly generated clusterings and thus is not sensitive to the choice of the input clustering method.
+We propose distance-based clustering to convey subtype information (Section 2.2), and one may ask
+how sensitive are findings to the choice of distance function.  The randomization scheme mitigates variation
+associated with the specific partition of cells, but the choice of distance function does affect the computed
+probabilities.  To check this,  
+we repeated the numerical experiments in Section~3 using the SC3 distance in place of the default. 
+Importantly, Type~I error rates remain in control, as evidenced by the simulation study and the negative-control
+permutatation study (Supplementary Material, Figure S15).  **difference** Table S?.
+  
 Further, we redeployed \texttt{scDDboost} in examples (data sets EBTAB2805, GSE45719) but using clustering method \texttt{SC3} in place of the default method.
 Let $p_o$ be the proportions of commonly identified genes among the top 1000 and $n_{DD}$ be the number of DD genes. Further inference based on default clustering method tends to give conservative result and have a lot in common with \texttt{SC3}. 
 \begin{table}[htbp]
