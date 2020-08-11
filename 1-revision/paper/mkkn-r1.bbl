@@ -749,15 +749,18 @@
 \end{barticle}
 \endbibitem
 
-\bibitem[\protect\citeauthoryear{Soneson and Robinson}{2017}]{ref:Cq}
+\bibitem[\protect\citeauthoryear{Soneson and Robinson}{2018}]{ref:Cq}
 \begin{barticle}[author]
 \bauthor{\bsnm{Soneson},~\bfnm{Charlotte}\binits{C.}} \AND
-  \bauthor{\bsnm{Robinson},~\bfnm{Mark~D.}\binits{M.~D.}}
-(\byear{2017}).
-\btitle{Bias, Robustness And Scalability In Differential Expression Analysis Of
-  Single-Cell RNA-Seq Data}.
-\bjournal{bioRxiv}.
-\bdoi{10.1101/143289}
+  \bauthor{\bsnm{Robinson},~\bfnm{Mark~D}\binits{M.~D.}}
+(\byear{2018}).
+\btitle{Bias, robustness and scalability in single-cell differential expression
+  analysis}.
+\bjournal{Nature Methods}
+\bvolume{15}
+\bpages{255--261}.
+\bdoi{10.1038/nmeth.4612}.
+\bid{Soneson2018}
 \end{barticle}
 \endbibitem
 

@@ -1,41 +1,61 @@
 %% This BibTeX bibliography file was created using BibDesk.
 %% http://bibdesk.sourceforge.net/
 
-%% Created for Xiuyu Ma at 2020-06-26 14:38:57 -0400 
+%% Created for Xiuyu Ma at 2020-08-11 09:18:58 -0400 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
-@article {Ma2020,
-	author = {Ma, Xiuyu and Kendziorski, Christina and Newton, Michael A.},
-	title = {EBSeq: improving mixing computations for multi-group differential expression analysis},
-	elocation-id = {2020.06.19.162180},
-	year = {2020},
-	doi = {10.1101/2020.06.19.162180},
-	publisher = {Cold Spring Harbor Laboratory},
-	abstract = {EBSeq is a Bioconductor package designed to calculate empirical-Bayesian inference summaries from sequence-based gene-expression (RNA-Seq) data. It produces gene or isoform-specific scores that measure various patterns of differential expression among a set of sample groups, and is most commonly deployed to measure differential expression between two groups. Its use of local posterior probabilities from a fitted mixture model provides the data analyst a direct way to score the false discovery rate of any reported list of genes, and it is one of the only tools that can address local false discovery rates when analyzing multiple sample groups. Contemporary applications have increasing numbers of sample groups, and the algorithms deployed in EBSeq are neither space nor time efficient in this important case. We describe a version update utilizing code improvements and novel pruning and clustering algorithms in order to reduce the complexity of mixture computations. The algorithms are supported by a theoretical analysis and tested empirically on a variety of benchmark and synthetic data sets.Competing Interest StatementThe authors have declared no competing interest.},
-	URL = {https://www.biorxiv.org/content/early/2020/07/02/2020.06.19.162180},
-	eprint = {https://www.biorxiv.org/content/early/2020/07/02/2020.06.19.162180.full.pdf},
-	journal = {bioRxiv}
-}
 
+
+@article{ref:Cq,
+	Abstract = {An extensive evaluation of differential expression methods applied to single-cell expression data, using uniformly processed public data in the new conquer resource.},
+	Author = {Soneson, Charlotte and Robinson, Mark D},
+	Da = {2018/04/01},
+	Date-Added = {2020-08-11 09:18:47 -0400},
+	Date-Modified = {2020-08-11 09:18:54 -0400},
+	Doi = {10.1038/nmeth.4612},
+	Id = {Soneson2018},
+	Isbn = {1548-7105},
+	Journal = {Nature Methods},
+	Number = {4},
+	Pages = {255--261},
+	Title = {Bias, robustness and scalability in single-cell differential expression analysis},
+	Ty = {JOUR},
+	Url = {https://doi.org/10.1038/nmeth.4612},
+	Volume = {15},
+	Year = {2018},
+	Bdsk-Url-1 = {https://doi.org/10.1038/nmeth.4612}}
+
+@article{Ma2020,
+	Abstract = {EBSeq is a Bioconductor package designed to calculate empirical-Bayesian inference summaries from sequence-based gene-expression (RNA-Seq) data. It produces gene or isoform-specific scores that measure various patterns of differential expression among a set of sample groups, and is most commonly deployed to measure differential expression between two groups. Its use of local posterior probabilities from a fitted mixture model provides the data analyst a direct way to score the false discovery rate of any reported list of genes, and it is one of the only tools that can address local false discovery rates when analyzing multiple sample groups. Contemporary applications have increasing numbers of sample groups, and the algorithms deployed in EBSeq are neither space nor time efficient in this important case. We describe a version update utilizing code improvements and novel pruning and clustering algorithms in order to reduce the complexity of mixture computations. The algorithms are supported by a theoretical analysis and tested empirically on a variety of benchmark and synthetic data sets.Competing Interest StatementThe authors have declared no competing interest.},
+	Author = {Ma, Xiuyu and Kendziorski, Christina and Newton, Michael A.},
+	Doi = {10.1101/2020.06.19.162180},
+	Elocation-Id = {2020.06.19.162180},
+	Eprint = {https://www.biorxiv.org/content/early/2020/07/02/2020.06.19.162180.full.pdf},
+	Journal = {bioRxiv},
+	Publisher = {Cold Spring Harbor Laboratory},
+	Title = {EBSeq: improving mixing computations for multi-group differential expression analysis},
+	Url = {https://www.biorxiv.org/content/early/2020/07/02/2020.06.19.162180},
+	Year = {2020},
+	Bdsk-Url-1 = {https://www.biorxiv.org/content/early/2020/07/02/2020.06.19.162180},
+	Bdsk-Url-2 = {https://doi.org/10.1101/2020.06.19.162180}}
 
 @article{Kim:2018,
-    author = {Kim, Taiyun and Chen, Irene Rui and Lin, Yingxin and Wang, Andy Yi-Yang and Yang, Jean Yee Hwa and Yang, Pengyi},
-    title = "{Impact of similarity metrics on single-cell RNA-seq data clustering}",
-    journal = {Briefings in Bioinformatics},
-    volume = {20},
-    number = {6},
-    pages = {2316-2326},
-    year = {2018},
-    month = {08},
-    abstract = "{Advances in high-throughput sequencing on single-cell gene expressions [single-cell RNA sequencing (scRNA-seq)] have enabled transcriptome profiling on individual cells from complex samples. A common goal in scRNA-seq data analysis is to discover and characterise cell types, typically through clustering methods. The quality of the clustering therefore plays a critical role in biological discovery. While numerous clustering algorithms have been proposed for scRNA-seq data, fundamentally they all rely on a similarity metric for categorising individual cells. Although several studies have compared the performance of various clustering algorithms for scRNA-seq data, currently there is no benchmark of different similarity metrics and their influence on scRNA-seq data clustering. Here, we compared a panel of similarity metrics on clustering a collection of annotated scRNA-seq datasets. Within each dataset, a stratified subsampling procedure was applied and an array of evaluation measures was employed to assess the similarity metrics. This produced a highly reliable and reproducible consensus on their performance assessment. Overall, we found that correlation-based metrics (e.g. Pearson?s correlation) outperformed distance-based metrics (e.g. Euclidean distance). To test if the use of correlation-based metrics can benefit the recently published clustering techniques for scRNA-seq data, we modified a state-of-the-art kernel-based clustering algorithm (SIMLR) using Pearson?s correlation as a similarity measure and found significant performance improvement over Euclidean distance on scRNA-seq data clustering. These findings demonstrate the importance of similarity metrics in clustering scRNA-seq data and highlight Pearson?s correlation as a favourable choice. Further comparison on different scRNA-seq library preparation protocols suggests that they may also affect clustering performance. Finally, the benchmarking framework is available at http://www.maths.usyd.edu.au/u/SMS/bioinformatics/software.html.}",
-    issn = {1477-4054},
-    doi = {10.1093/bib/bby076},
-    url = {https://doi.org/10.1093/bib/bby076},
-    eprint = {https://academic.oup.com/bib/article-pdf/20/6/2316/31789357/bby076.pdf},
-}
-
+	Abstract = {{Advances in high-throughput sequencing on single-cell gene expressions [single-cell RNA sequencing (scRNA-seq)] have enabled transcriptome profiling on individual cells from complex samples. A common goal in scRNA-seq data analysis is to discover and characterise cell types, typically through clustering methods. The quality of the clustering therefore plays a critical role in biological discovery. While numerous clustering algorithms have been proposed for scRNA-seq data, fundamentally they all rely on a similarity metric for categorising individual cells. Although several studies have compared the performance of various clustering algorithms for scRNA-seq data, currently there is no benchmark of different similarity metrics and their influence on scRNA-seq data clustering. Here, we compared a panel of similarity metrics on clustering a collection of annotated scRNA-seq datasets. Within each dataset, a stratified subsampling procedure was applied and an array of evaluation measures was employed to assess the similarity metrics. This produced a highly reliable and reproducible consensus on their performance assessment. Overall, we found that correlation-based metrics (e.g. Pearson?s correlation) outperformed distance-based metrics (e.g. Euclidean distance). To test if the use of correlation-based metrics can benefit the recently published clustering techniques for scRNA-seq data, we modified a state-of-the-art kernel-based clustering algorithm (SIMLR) using Pearson?s correlation as a similarity measure and found significant performance improvement over Euclidean distance on scRNA-seq data clustering. These findings demonstrate the importance of similarity metrics in clustering scRNA-seq data and highlight Pearson?s correlation as a favourable choice. Further comparison on different scRNA-seq library preparation protocols suggests that they may also affect clustering performance. Finally, the benchmarking framework is available at http://www.maths.usyd.edu.au/u/SMS/bioinformatics/software.html.}},
+	Author = {Kim, Taiyun and Chen, Irene Rui and Lin, Yingxin and Wang, Andy Yi-Yang and Yang, Jean Yee Hwa and Yang, Pengyi},
+	Doi = {10.1093/bib/bby076},
+	Eprint = {https://academic.oup.com/bib/article-pdf/20/6/2316/31789357/bby076.pdf},
+	Issn = {1477-4054},
+	Journal = {Briefings in Bioinformatics},
+	Month = {08},
+	Number = {6},
+	Pages = {2316-2326},
+	Title = {{Impact of similarity metrics on single-cell RNA-seq data clustering}},
+	Url = {https://doi.org/10.1093/bib/bby076},
+	Volume = {20},
+	Year = {2018},
+	Bdsk-Url-1 = {https://doi.org/10.1093/bib/bby076}}
 
 @article{Yin:2013aa,
 	Abstract = {The Pearson test statistic is constructed by partitioning the data into bins and computing the difference between the observed and expected counts in these bins. If the maximum likelihood estimator (MLE) of the original data is used, the statistic generally does not follow a chi-squared distribution or any explicit distribution. We propose a bootstrap-based modification of the Pearson test statistic to recover the chi-squared distribution. We compute the observed and expected counts in the partitioned bins by using the MLE obtained from a bootstrap sample. This bootstrap-sample MLE adjusts exactly the right amount of randomness to the test statistic, and recovers the chi-squared distribution. The bootstrap chi-squared test is easy to implement, as it only requires fitting exactly the same model to the bootstrap data to obtain the corresponding MLE, and then constructs the bin counts based on the original data. We examine the test size and power of the new model diagnostic procedure using simulation studies and illustrate it with a real data set.},
@@ -1053,19 +1073,6 @@
 	Year = {2009},
 	Bdsk-Url-1 = {https://doi.org/10.1214/09-BA409},
 	Bdsk-Url-2 = {http://dx.doi.org/10.1214/09-BA409}}
-
-@article{ref:Cq,
-	Abstract = {Background: As single-cell RNA-seq (scRNA-seq) is becoming increasingly common, the amount of publicly available data grows rapidly, generating a useful resource for computational method development and extension of published results. Although processed data matrices are typically made available in public repositories, the procedure to obtain these varies widely between data sets, which may complicate reuse and cross-data set comparison. Moreover, while many statistical methods for performing differential expression analysis of scRNA-seq data are becoming available, their relative merits and the performance compared to methods developed for bulk RNA-seq data are not sufficiently well understood. Results: We present conquer, a collection of consistently processed, analysis-ready public single-cell RNA-seq data sets. Each data set has count and transcripts per million (TPM) estimates for genes and transcripts, as well as quality control and exploratory analysis reports. We use a subset of the data sets available in conquer to perform an extensive evaluation of the performance and characteristics of statistical methods for differential gene expression analysis, evaluating a total of 30 statistical approaches on both experimental and simulated scRNA-seq data. Conclusions: Considerable differences are found between the methods in terms of the number and characteristics of the genes that are called differentially expressed. Pre-filtering of lowly expressed genes can have important effects on the results, particularly for some of the methods originally developed for analysis of bulk RNA-seq data. Generally, however, methods developed for bulk RNA-seq analysis do not perform notably worse than those developed specifically for scRNA-seq.},
-	Author = {Soneson, Charlotte and Robinson, Mark D.},
-	Doi = {10.1101/143289},
-	Eprint = {https://www.biorxiv.org/content/early/2017/05/28/143289.full.pdf},
-	Journal = {bioRxiv},
-	Publisher = {Cold Spring Harbor Laboratory},
-	Title = {Bias, Robustness And Scalability In Differential Expression Analysis Of Single-Cell RNA-Seq Data},
-	Url = {https://www.biorxiv.org/content/early/2017/05/28/143289},
-	Year = {2017},
-	Bdsk-Url-1 = {https://www.biorxiv.org/content/early/2017/05/28/143289},
-	Bdsk-Url-2 = {http://dx.doi.org/10.1101/143289}}
 
 @article{ref:bayesC,
 	Abstract = {A Bayesian approach to the problem of comparing two multinomial distributions with k categories and a natural ordering of the categories is developed. Assuming independent Dirichlet priors, we obtain a convenient algorithm for computing the posterior probability that one distribution is stochastically larger than the other. The important special case k = 2 reduces to computing the posterior probability that one binomial proportion exceeds another. We consider the more general problem of finding the posterior distribution of the ratio of two such proportions.},
