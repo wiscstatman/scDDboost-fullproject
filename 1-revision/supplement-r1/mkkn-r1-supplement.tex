@@ -767,7 +767,7 @@ receiver-operating-characteristic (ROC), as in
 and  reports an average over ten replicates under the same parameters setting. 
  \texttt{scDDboost} tends to outperform other methods.
 \begin{figure}[h!]
-  \includegraphics[ width = 0.9\textwidth]{Figs/Roc_supp.pdf}
+  \includegraphics[ width = 0.9\textwidth]{Figs/ROC.pdf}
   \caption{ROC curve in 12 simulation settings. In each setting, TPR and FPR are averaged over ten replicates, generally \texttt{scDDboost} performs better than other methods, orange dashed line is the identity,
 and all panels show the unit square.}
   \label{fig:roc}
@@ -1105,11 +1105,13 @@ is mostly found by \texttt{SC3} (Supplementary Table~\ref{tab:dist}).
       $p_o$ & $n_{DD}$ default & $n_{DD}$ by SC3 & commonly identified\\
       \midrule
       EMTAB2805  & 0.93 & 80\% & 3334 & 3725 & 2913\\
-      GSE45719   & 0.94 & 75\% & 4805 & 7591 & 4851\\
+      GSE45719   & 0.94 & 75\% & 4851 & 7591 & 4805\\
+      GSE64016 & 0.33 & 80\% & 3395& 665 & 529\\
       \bottomrule
   \end{tabular}
   \caption{Relation of findings from two different distance methods in two data sets (rows). cor denotes
-correlation of the scDDboost local FDR probabilities, and $n_{DD}$ is the number found DD at 5\% FDR.}
+correlation of the scDDboost local FDR probabilities, and $n_{DD}$ is the number found DD at 5\% FDR.
+Notice that $p_o$ for GSE64016 is just $529 / 665$}
   \label{tab:dist}
   \end{center}
 \end{table}
