@@ -277,7 +277,7 @@
 \end{barticle}
 \endbibitem
 
-\bibitem[\protect\citeauthoryear{Li and Ping Chen}{2007}]{ineq}
+\bibitem[\protect\citeauthoryear{Li and ping Chen}{2007}]{ineq}
 \begin{binproceedings}[author]
 \bauthor{\bsnm{Li},~\bfnm{Xin}\binits{X.}} \AND \bauthor{\bparticle{ping}
   \bsnm{Chen},~\bfnm{Chao}\binits{C.}}
