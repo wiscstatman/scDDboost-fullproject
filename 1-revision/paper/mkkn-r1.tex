@@ -1023,37 +1023,14 @@ differ among the panels, and  cells are pooled from the two conditions.}
 
 \subsubsection*{\textcolor{red}{Choice of distance function}}
 
-We propose distance-based clustering to convey subtype information (Section 2.2), and one may ask
+\textcolor{red}{We propose distance-based clustering to convey subtype information (Section 2.2), and one may ask
 how sensitive are findings to the choice of distance function.  The randomization scheme mitigates variation
 associated with the specific partition of cells, but the choice of distance function does affect the computed
 probabilities.  To check this,  
 we repeated the numerical experiments in Section~3 using the SC3 distance in place of the default. 
 Importantly, Type~I error rates remain in control, as evidenced by the simulation study and the negative-control
-permutatation study (Supplementary Material, Figure S15).  **difference** Table S?.
-  
-Further, we redeployed \texttt{scDDboost} in examples (data sets EBTAB2805, GSE45719) but using clustering method \texttt{SC3} in place of the default method.
-Let $p_o$ be the proportions of commonly identified genes among the top 1000 and $n_{DD}$ be the number of DD genes. Further inference based on default clustering method tends to give conservative result and have a lot in common with \texttt{SC3}. 
-\begin{table}[htbp]
-  \begin{center}
-  %\topcaption{Table captions are better up top} % requires the topcapt package
-  \begin{tabular}{@{} lccccr @{}} % Column formatting, @{} suppresses leading/trailing space
-      \toprule
-      %\multicolumn{2}{c}{Item} \\
-      \cmidrule(r){1-5} % Partial rule. (r) trims the line a little bit on the right; (l) & (lr) also possible
-      Data Set   & cor &
-      $p_o$ & $n_{DD}$ default & $n_{DD}$ by SC3 & commonly identified\\
-      \midrule
-      EMTAB2805  & 0.93 & 80\% & 3334 & 3725 & 2913\\          
-      GSE45719   & 0.94 & 75\% & 4805 & 7591 & 4851\\
-      \bottomrule
-  \end{tabular}
-  \caption{similar local FDR under two clustering methods}
-  \label{tab:dist}
-  \end{center}
-\end{table}
-We also run \texttt{scDDboost} with \texttt{SC3} on null case data sets used in Figure~\ref{nullperm} and simulation data. 
-We observe very few positives and conclude that our method does not inflate type-I error with different clustering method.(supplementary 3.5.3)
-
+permutatation study (Supplementary Material, Figure S15).  There can be substantial differences in yeild at
+a given FDR control level (Supplementary Material, Table S5).}
 
 \section{Asymptotics of the Double Dirichlet Mixture}
 Summary statistics $P(A_\pi|y,z)$, from Section 2.3, are amenable to a first-order asymptotic analysis
