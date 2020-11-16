@@ -1,0 +1,37 @@
+TY  - JOUR
+DB  - PubMed
+AU  - Darmanis, Spyros
+AU  - Sloan, Steven A
+AU  - Croote, Derek
+AU  - Mignardi, Marco
+AU  - Chernikova, Sophia
+AU  - Samghababi, Peyman
+AU  - Zhang, Ye
+AU  - Neff, Norma
+AU  - Kowarsky, Mark
+AU  - Caneda, Christine
+AU  - Li, Gordon
+AU  - Chang, Steven D
+AU  - Connolly, Ian David
+AU  - Li, Yingmei
+AU  - Barres, Ben A
+AU  - Gephart, Melanie Hayden
+AU  - Quake, Stephen R
+T1  - Single-Cell RNA-Seq Analysis of Infiltrating Neoplastic Cells at the Migrating Front of Human Glioblastoma
+SN  - 2211-1247
+Y1  - 2017/10/31
+AB  - Glioblastoma (GBM) is the most common primary brain cancer in adults and is notoriously difficult to treat because of its diffuse nature. We performed single-cell RNA sequencing (RNA-seq) on 3,589 cells in a cohort of four patients. We obtained cells from the tumor core as well as surrounding peripheral tissue. Our analysis revealed cellular variation in the tumor's genome and transcriptome. We were also able to identify infiltrating neoplastic cells in regions peripheral to the core lesions. Despite the existence of significant heterogeneity among neoplastic cells, we found that infiltrating GBM cells share a consistent gene signature between patients, suggesting a common mechanism of infiltration. Additionally, in investigating the immunological response to the tumors, we found transcriptionally distinct myeloid cell populations residing in the tumor core and the surrounding peritumoral space. Our data provide a detailed dissection of GBM cell types, revealing an abundance of information about tumor formation and migration.
+SP  - 1399
+EP  - 1410
+VL  - 21
+IS  - 5
+AN  - 29091775
+UR  - https://www.ncbi.nlm.nih.gov/pubmed/29091775
+DO  - 10.1016/j.celrep.2017.10.030
+L2  - https://www.ncbi.nlm.nih.gov/pmc/PMC5810554/
+U1  - 29091775[pmid]
+U2  - PMC5810554[pmcid]
+U4  - S2211-1247(17)31462-6[PII]
+J1  - Cell Rep
+JF  - Cell reports
+ER  - 

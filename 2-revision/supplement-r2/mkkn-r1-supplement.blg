@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: mkkn-r1-supplement.aux
+The style file: imsart-nameyear.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: ./supp_references/wlr_ref.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty booktitle in selK
+You've used 20 entries,
+            5204 wiz_defined-function locations,
+            1025 strings with 12788 characters,
+and the built_in function-call counts, 206812 in all, are:
+= -- 30680
+> -- 683
+< -- 25
++ -- 6465
+- -- 211
+* -- 16083
+:= -- 30483
+add.period$ -- 70
+call.type$ -- 20
+change.case$ -- 105
+chr.to.int$ -- 20
+cite$ -- 21
+duplicate$ -- 1349
+empty$ -- 12759
+format.name$ -- 1046
+if$ -- 47282
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 0
+newline$ -- 233
+num.names$ -- 85
+pop$ -- 872
+preamble$ -- 1
+purify$ -- 65
+quote$ -- 0
+skip$ -- 17692
+stack$ -- 0
+substring$ -- 38473
+swap$ -- 644
+text.length$ -- 180
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 522
+warning$ -- 1
+while$ -- 268
+width$ -- 0
+write$ -- 472
+(There was 1 warning)

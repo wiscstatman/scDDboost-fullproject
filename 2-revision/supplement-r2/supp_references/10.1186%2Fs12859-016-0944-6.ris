@@ -1,0 +1,16 @@
+TY  - JOUR
+AU  - Delmans, Mihails
+AU  - Hemberg, Martin
+PY  - 2016
+DA  - 2016/02/29
+TI  - Discrete distributional differential expression (D3E) - a tool for gene expression analysis of single-cell RNA-seq data
+JO  - BMC Bioinformatics
+SP  - 110
+VL  - 17
+IS  - 1
+AB  - The advent of high throughput RNA-seq at the single-cell level has opened up new opportunities to elucidate the heterogeneity of gene expression. One of the most widespread applications of RNA-seq is to identify genes which are differentially expressed between two experimental conditions.
+SN  - 1471-2105
+UR  - https://doi.org/10.1186/s12859-016-0944-6
+DO  - 10.1186/s12859-016-0944-6
+ID  - Delmans2016
+ER  - 

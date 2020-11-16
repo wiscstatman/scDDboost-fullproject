@@ -1,0 +1,27 @@
+Provider: Silverchair
+Database: Oxford University Press
+Content: text/plain; charset="UTF-8"
+
+TY  - JOUR
+AU  - Newton, Michael A.
+AU  - Noueiry, Amine 
+AU  - Sarkar, Deepayan 
+AU  - Ahlquist, Paul 
+T1  - Detecting differential gene expression with a semiparametric hierarchical mixture method
+T2  - Biostatistics
+PY  - 2004
+Y1  - 2004/04/01/
+DO  - 10.1093/biostatistics/5.2.155
+JO  - Biostatistics
+JA  - biostatistics
+VL  - 5
+IS  - 2
+SP  - 155
+EP  - 176
+SN  - 1465-4644
+AB  -  Mixture modeling provides an effective approach to the differential expression problem in microarray data analysis. Methods based on fully parametric mixture models are available, but lack of fit in some examples indicates that more flexible models may be beneficial. Existing, more flexible, mixture models work at the level of one‐dimensional gene‐specific summary statistics, and so when there are relatively few measurements per gene these methods may not provide sensitive detectors of differential expression. We propose a hierarchical mixture model to provide methodology that is both sensitive in detecting differential expression and sufficiently flexible to account for the complex variability of normalized microarray data. EM‐based algorithms are used to fit both parametric and semiparametric versions of the model. We restrict attention to the two‐sample comparison problem; an experiment involving Affymetrix microarrays and yeast translation provides the motivating case study. Gene‐specific posterior probabilities of differential expression form the basis of statistical inference; they define short gene lists and false discovery rates. Compared to several competing methodologies, the proposed methodology exhibits good operating characteristics in a simulation study, on the analysis of spike‐in data, and in a cross‐validation calculation. 
+Y2  - 5/6/2019
+UR  - https://doi.org/10.1093/biostatistics/5.2.155
+ER  - 
+
+

@@ -1,0 +1,32 @@
+TY  - JOUR
+T1  - Measuring Signaling and RNA-Seq in the Same Cell Links Gene Expression to Dynamic Patterns of NF-κB Activation
+AU  - Lane, Keara
+AU  - Van Valen, David
+AU  - DeFelice, Mialy M.
+AU  - Macklin, Derek N.
+AU  - Kudo, Takamasa
+AU  - Jaimovich, Ariel
+AU  - Carr, Ambrose
+AU  - Meyer, Tobias
+AU  - Pe'er, Dana
+AU  - Boutet, Stéphane C.
+AU  - Covert, Markus W.
+JO  - Cell Systems
+VL  - 4
+IS  - 4
+SP  - 458
+EP  - 469.e5
+PY  - 2017
+DA  - 2017/04/26/
+SN  - 2405-4712
+DO  - https://doi.org/10.1016/j.cels.2017.03.010
+UR  - http://www.sciencedirect.com/science/article/pii/S2405471217301321
+KW  - NF-κB
+KW  - live-cell imaging
+KW  - signaling dynamics
+KW  - gene expression
+KW  - RNA-seq
+KW  - single-cell heterogeneity
+AB  - Summary
+Signaling proteins display remarkable cell-to-cell heterogeneity in their dynamic responses to stimuli, but the consequences of this heterogeneity remain largely unknown. For instance, the contribution of the dynamics of the innate immune transcription factor nuclear factor κB (NF-κB) to gene expression output is disputed. Here we explore these questions by integrating live-cell imaging approaches with single-cell sequencing technologies. We used this approach to measure both the dynamics of lipopolysaccharide-induced NF-κB activation and the global transcriptional response in the same individual cell. Our results identify multiple, distinct cytokine expression patterns that are correlated with NF-κB activation dynamics, establishing a functional role for NF-κB dynamics in determining cellular phenotypes. Applications of this approach to other model systems and single-cell sequencing technologies have significant potential for discovery, as it is now possible to trace cellular behavior from the initial stimulus, through the signaling pathways, down to genome-wide changes in gene expression, all inside of a single cell.
+ER  - 

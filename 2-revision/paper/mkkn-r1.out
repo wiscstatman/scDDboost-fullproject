@@ -1,0 +1,18 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Modeling}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Data structure, sampling model, and parameters}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Method structure and clustering}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{P\(A|y,z\)}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{P\(Mg,|X,z\)}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Numerical experiments}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Synthetic data}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Empirical study}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Bursting}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.4}{Time Complexity}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.5}{Diagnostics}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Asymptotics of the Double Dirichlet Mixture}{}% 13
+\BOOKMARK [1][-]{section.5}{Concluding remarks}{}% 14
+\BOOKMARK [1][-]{section*.13}{Acknowledgement}{}% 15
+\BOOKMARK [1][-]{section*.15}{References}{}% 16
+\BOOKMARK [1][-]{section*.17}{Appendix}{}% 17
+\BOOKMARK [1][-]{section*.24}{Author's addresses}{}% 18
