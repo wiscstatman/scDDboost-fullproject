@@ -163,20 +163,20 @@ have been deployed to address this problem.
 These tools respond
 to scRNA-seq characteristics, such as high prevalence of zero counts and
 gene-level multimodality, but they do not fully exploit cellular-subtype
-information \textcolor{red}{and therefore may be underpowered in some settings.  The proposed method,
+information \textcolor{black}{and therefore may be underpowered in some settings.  The proposed method,
 which uses negative binomial mixtures to measure changes in a gene's marginal sampling distribution, 
 acquires sensitivity to a variety of distributional effects by how it integrates 
 gene-level data with subtype information.}
 From input data, the associated R package 
 \verb+scDDboost+~\footnote{http://github.com/wiscstatman/scDDboost/}
-prioritizes genes \textcolor{red}{with a local false-discovery rate against the 
+prioritizes genes \textcolor{black}{with a local false-discovery rate against the 
 null hypothesis of no condition effect on the marginal sampling distribution.  The complement
 of this rate is an empirical Bayesian posterior probability of differential distribution (DD). 
 By incorporating transciptomic information on cell subtypes, scDDboost leverages
 useful and previously untapped information on each gene's expression sampling distribution.}
 
 %according to evidence that their expression distribution is different
-%between the two cellular conditions in view.  \textcolor{red}{The goal is to score genes
+%between the two cellular conditions in view.  \textcolor{black}{The goal is to score genes
 %by an empirical Bayesian posterior probability that the expression sampling distribution differs
 %between these cellular conditions.}
 
@@ -228,9 +228,9 @@ information.
 
  \caption{Genes involved in cell-cycle that are identified by scDDboost, but not standard approaches,
  as differentially distributed between cell-cycle phases G1 and G2/M in human embryonic stem cells 
-\textcolor{red}{(GSE64016)}. 
+\textcolor{black}{(GSE64016)}. 
   Density estimates on the left show expression data (log2 scale)
-of three genes identified by scDDboost at 5\% FDR, but not similarly identified by MAST, scDD, \textcolor{red}{or}  DESeq2.
+of three genes identified by scDDboost at 5\% FDR, but not similarly identified by MAST, scDD, \textcolor{black}{or}  DESeq2.
  Prior studies have shown that the expression
  of  BIRC5, CKAP2, and HMMR is dependent on the phase of cell-cycle,
  suggesting that these subtle shifts are not false positives. 
@@ -318,7 +318,7 @@ number of population classes $K$ in order to mitigate the problem of within-subt
 heterogeneity. A  risk in this approach is that $K$ could approach $n$, as if  
 every cell were  its own subtype.  We find, however,
 that data sets often encountered do not display this theoretical phenomenon
-when using a broad class of within-subtype expression distributions. \textcolor{red}{Subtypes are
+when using a broad class of within-subtype expression distributions. \textcolor{black}{Subtypes are
 considered such 
 that cellular condition affects their composition but not the sampling distribution of expression
 within a subtype.}
@@ -354,7 +354,7 @@ different frequencies between the two conditions ($\phi_1 \neq \psi_1$ and
  $\phi_2 \neq \psi_2$) but the same aggregate frequency
 ($\phi_1+\phi_2 = \psi_1 + \psi_2$),  and also  if components are equivalent, $f_{g,1} = f_{g,2}$,
 then, other things being equal, marginals $f^1_g = f^2_g$ even though $\phi \neq \psi$. 
-\textcolor{red}{Details confirming such equality are examplified further in Supplementary Material Section 2.1.} The fact is so central that we emphasize:
+\textcolor{black}{Details confirming such equality are examplified further in Supplementary Material Section 2.1.} The fact is so central that we emphasize:
 
 
 \noindent
@@ -535,7 +535,7 @@ scRNA-seq~(\cite{Cor}).
 The default clustering in~\verb+scDDboost+ combines these 
 two measures by weighted average, 
 with  $w_C = \frac{\sigma_P}{\sigma_C + \sigma_P}$ and $w_P = 1 - w_C$, where $w_C,\sigma_C, w_P, \sigma_P$ are the weights and standard deviations of cluster-based distance and Pearson-correlation distance, respectively.  The software allows 
-other distances, \textcolor{red}{such as provided by SC3, which we use in some numerical experiments}; in any case 
+other distances, \textcolor{black}{such as provided by SC3, which we use in some numerical experiments}; in any case 
 the final distance matrix is denoted $D=\left( d_{i,j} \right)$. 
 
 Any clustering method  entails classification errors, and so $\hat z_c \neq z_c$ for some cells. To mitigate
@@ -804,8 +804,8 @@ The proportionality is resolved by calculating over all partitions $\pi$.
 We used \verb+splatter+ (v. 1.2.0)  
 to generate synthetic scRNA-seq  data for which the DD status of genes is known~(\cite{ref:Zappia}), 
  thereby allowing us to measure operating characteristics of \verb+scDDboost+ 
-\textcolor{red}{in a controlled setting}.
- \textcolor{red}{Splatter is a generative system for simulating realistic
+\textcolor{black}{in a controlled setting}.
+ \textcolor{black}{Splatter is a generative system for simulating realistic
 single-cell RNA-seq data. It accounts for biological and technical sources of variation and is calibrated
 from a number of published data sets. 
 Our hypothetical two-condition comparison involved $n=400$ cells and
@@ -830,7 +830,7 @@ of \verb+scDDboost+ compared to three other methodologies: \verb+MAST+ (v. 1.4.0
 \verb+DESeq2+ (v. 1.18.1). 
 \verb+scDDboost+ exhibits very good operating characteristics in this study, as it controls the 
 FDR in all cases while also delivering a relatively high rate of true positives in all cases.
-\textcolor{red}{The beneficial sampling  properties are not limited to the 5\% FDR threshold, as indicated by
+\textcolor{black}{The beneficial sampling  properties are not limited to the 5\% FDR threshold, as indicated by
 receiver operator characteristic curves (Supplementary Figure~S9).}
 
 
@@ -847,7 +847,7 @@ receiver operator characteristic curves (Supplementary Figure~S9).}
 
 \begin{figure}[H]
   \includegraphics[width = 0.95\textwidth]{Figs/simuFDR.pdf}
-  \caption{False discovery rate (vertical) of methods in settings (horizontal, same order) from Figure~\ref{fig:sim1} }
+  \caption{False discovery rate (vertical) of methods in the synthetic-data settings (horizontal, same order) from Figure~\ref{fig:sim1}. FDR is approximated from the 12 replicate data sets in each scenario using the known generative hypothesis states. }
   \label{fig:sim2}
 \end{figure}
 
@@ -949,17 +949,17 @@ Three mechanistic parameters (rate of promoter activation, rate of promoter inac
  and the conditional rate of transcription given an active  promoter) characterize the model, which allows
  distributional changes between conditions without changes in mean expression level.
 For genes identified as DD by \verb+scDDboost+ in dataset GSE71585, either uniquely or
-\textcolor{red}{in common with
+\textcolor{black}{in common with
 comparison methods MAST, scDD, and DESeq2}, 
 Figure~\ref{fig:bursting} shows  changes of these bursting parameters. Interestingly, 
  genes uniquely identified by \verb+scDDboost+ are associated with more 
-significant changes between estimated bursting parameters \textcolor{red}{than genes that all methods identify}.
+significant changes between estimated bursting parameters \textcolor{black}{than genes that all methods identify}.
 This finding and similar findings on other data sets (not shown) provide some evidence that \verb+scDDboost+
 is able to detect biologically meaningful changes in the expression distribution.
 
 \begin{figure}[H]
 \includegraphics[width = 0.85\textwidth]{Figs/D3E_box.pdf}
-\caption{ Absolute values of log fold changes of bursting parameters tend to be larger for 1758 genes uniquely identified by scDDboost (red) compared to 2983 genes (blue) \textcolor{red}{that are  identified  at 5\% FDR by 
+\caption{ Absolute values of log fold changes of bursting parameters tend to be larger for 1758 genes uniquely identified by scDDboost (red) compared to 2983 genes (blue) \textcolor{black}{that are  identified  at 5\% FDR by 
 scDDboost and other methods: MAST, scDD, and DESeq2.} }
  \label{fig:bursting}
 \end{figure}
@@ -979,9 +979,9 @@ where Bell counts the partitions of $K$.
  The same data might require 20 to 40 CPU hours when $K=9$.  In Section~5 we mention some opportunities to improve this speed.
 
 
-\subsection{\textcolor{red}{Diagnostics}}
+\subsection{\textcolor{black}{Diagnostics}}
 
-\textcolor{red}{As implemented, scDDboost uses a particular distance matrix to inform subtypes and 
+\textcolor{black}{As implemented, scDDboost uses a particular distance matrix to inform subtypes and 
 computes probabilities in a model for which expression is a mixture of constant-shape negative binomials.
 To check the effect of these assumptions we consider a variety of diagnostic calculations using
 the data sets presented in Sections 3.1 and 3.2. We first point out that model mis-specification 
@@ -989,7 +989,7 @@ may have a limited impact on Type-I error rates, as evidenced by the permutation
 the synthetic-data study (Figure~5), which does not encode the same modeling assumptions as scDDboost. }
 
 
-\textcolor{red}{To check the within-subtype negative binomial (NB) assumption, we deployed a bootstrap 
+\textcolor{black}{To check the within-subtype negative binomial (NB) assumption, we deployed a bootstrap 
 goodness-of-fit test in three data sets~(\cite{Yin:2013aa}). Fewer than 1.5\% of genes show evidence against
 a within subtype NB assumption at a 5\% FDR.
  Further, for most of these non-NB genes the inference drawn by \texttt{scDDboost} is the same as that
@@ -1000,7 +1000,7 @@ the  genes identified by \texttt{scDDboost} at 5\% FDR in the stem-cell example
 further, one of the two genes is cell-cycle related.  }
 
 
-\textcolor{red}{The constant-shape assumption is less well supported empirically, according to 
+\textcolor{black}{The constant-shape assumption is less well supported empirically, according to 
 a likelihood-ratio test that we developed (Supplementary Figure~S13).  More than 15\% of genes show 
 evidence against constant shape in the examples considered, though inference on differential
 distribution is only mildly affected  (Supplementary Table~S4; Figure~S14). We have similar findings 
@@ -1012,7 +1012,7 @@ is reasonably accurate in the stem-cell example.  }
 \begin{figure}[h]
 \includegraphics[width = 0.85\textwidth]{Figs/ecdf.pdf}
 \caption{
-\textcolor{red}{Empirical CDF for observed data (green) compared to expression levels simulated from the fitted NB mixture (pink) for
+\textcolor{black}{Empirical CDF for observed data (green) compared to expression levels simulated from the fitted NB mixture (pink) for
 data set GSE64016. The top 6 panels are genes randomly selected from those genes being identified as DD by \texttt{scDDboost} and not violating constant shape assumption; 
 the last three genes are randomly sampled from genes that fail the test of constant NB shape parameter. 
 Each thin pink curve is from one of the randomized distances; the
@@ -1022,9 +1022,9 @@ differ among the panels, and  cells are pooled from the two conditions.}}
 \end{figure}
 
 
-\subsubsection*{\textcolor{red}{Choice of distance function}}
+\subsubsection*{\textcolor{black}{Choice of distance function}}
 
-\textcolor{red}{We propose distance-based clustering to convey subtype information (Section 2.2), and one may ask
+\textcolor{black}{We propose distance-based clustering to convey subtype information (Section 2.2), and one may ask
 how sensitive are findings to the choice of distance function.  The randomization scheme mitigates variation
 associated with the specific partition of cells, but the choice of distance function does affect the computed
 probabilities.  To check this,  
