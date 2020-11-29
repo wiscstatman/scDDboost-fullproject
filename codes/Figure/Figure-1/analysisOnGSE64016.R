@@ -1,3 +1,4 @@
+library(SingleCellExperiment)
 library(scDDboost)
 library(ggplot2)
 source("codesToRunOtherMethods/eval_MAST.R")
