@@ -2,20 +2,8 @@ library(ggplot2)
 library(ggpubr)
 library(scDDboost)
 
-### need to remove the # of first line in those txt file,(result from runD3E
 
-PATH = "./D3E_res/"
-filenames = list.files(PATH)
-d3eRes = list()
-i = 1
-for(FILE in filenames)
-{
-    d3eRes[[i]] = read.table(paste0(PATH,FILE), sep = "\t", header = T)
-    i = i + 1
-    
-}
-
-load("./DEC_EC.RData")
+load("DEC_EC.RData")
 genenames = rownames(data_counts)
 
 thre = 0.05
@@ -26,24 +14,8 @@ EDD_des = which(res_des$padj <  thre)
 EDDM = which(res_mast[,"hurdle","Pr(>Chisq)"] < thre)
 EDD_sc = which(res_scdd$combined.pvalue.adj < thre)
 
-for(I in 1:length(d3eRes))
-{
-    IND = genenames %in% d3eRes[[I]]$GeneID
-    
-    #IND = d3eRes[[I]]$GeneID %in% GeneB
-    tmp = which(IND)
-    d3eRes[[I]]$pB = newPDD[tmp]
-    d3eRes[[I]]$pD = res_des$padj[tmp]
-    d3eRes[[I]]$pM = p.adjust(res_mast[tmp,"hurdle","Pr(>Chisq)"],"fdr")
-    d3eRes[[I]]$pS = res_scdd$combined.pvalue.adj[tmp]
-    #tmp_control = which(!IND)
-#     d3eB[[I]] = d3eRes[[I]][tmp,]
-#     d3eB_C[[I]] = d3eRes[[I]][tmp_control,]
-}
-# d3eB = do.call(rbind,d3eB)
-# d3eB_C = do.call(rbind,d3eB_C)
-d3e = do.call(rbind,d3eRes)
 
+load("DEC_D3E.RData")
 
 ## boxplot for comparison
 WHICH1 = which(d3e$pB > 0.95)
