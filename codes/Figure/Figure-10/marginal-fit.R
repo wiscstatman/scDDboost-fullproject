@@ -1,42 +1,21 @@
-library(SingleCellExperiment)
-library(scDDboost)
 library(ggplot2)
 
-load("Fucci.RData")
 
-K = 6
+load("marginal.RData")
 
-#ccl = pam(D_c,K,diss = T)$clustering
-sz = rep(1,ncol(data_counts))
-iter = 10
-hp = rep(2, 1 + nrow(data_counts))
-hp[1] = 0.4
-Posp = pat(K)[[1]]
-stp1 = 1e-6
-stp2 = 1e-2
-gcl = 1:nrow(data_counts)
+## data_counts : transcripts matrix
+## clist: list of randomized clusters (in total 10 randomizations)
+## rlist: list of r estimated by EBSeq
+## alphaList: list of hyperparameter alpha estimated by EBSeq
+## betaListt: list of hyperparameter beta estimated by EBSeq
 
-alphaList = list()
-
-betaList = list()
-
-rlist = list()
-
-clist = list()
+## trouble: non-constant shape genes
+## total: selected genes
 
 
 
-for(i in 1:10){
-    cstar = genRClus(D_c, a, K, i)
-    clist[[i]] = cstar
-    res = EBS(data_counts, cstar, gcl, sz, iter, hp, Posp, stp1,
-                stp2)
-    
-    alphaList[[i]] = res$Alpha
-    betaList[[i]] = res$Beta
-    rlist[[i]] = res$r[,1]
-}
 
+## samples from mixture NB by estimation
 
 fitVal = function(x,clus,r,K,alpha,Beta){
     mn = tapply(x,clus,sum)
@@ -58,23 +37,45 @@ fitVal = function(x,clus,r,K,alpha,Beta){
     return(fit)
 }
 
+## for averging ecdf
+values_to_impute = function(x, impute_resolution = 100){
+    return(seq(
+    min(x)
+    , max(x)
+    , length.out = impute_resolution
+    ))
+}
 
-########### plot ###########
+
+## make transparent color
+
+t_col <- function(color, percent = 50, name = NULL) {
+  #      color = color name
+  #    percent = % transparency
+  #       name = an optional name for the color
+
+## Get RGB values for named color
+rgb.val <- col2rgb(color)
+
+## Make new color using input color as base and alpha set by transparency
+t.col <- rgb(rgb.val[1], rgb.val[2], rgb.val[3],
+             max = 255,
+             alpha = (100 - percent) * 255 / 100,
+             names = name)
+
+## Save the color
+invisible(t.col)
+}
 
 
 ## random sample 6 non zero genes
 
-set.seed(1600)
+set.seed(1200)
 
 rM = rowMeans(data_counts)
 
-#NZ = sample(which(rM > 0),6)
+NZ = sample(which(rM > 0),6)
 
-callout = lsz(newPDD,0.05)
-
-names(callout) = genenames[callout]
-
-NZ = sample(callout,6)
 
 ## random sample 3 non-constant shape genes
 names(trouble) = genenames[trouble]
@@ -82,6 +83,12 @@ NC = sample(trouble,3)
 
 
 total = c(NZ,NC)
+
+## 3 violate constant shape
+intersect(total,trouble)
+
+## 6 subtypes
+K = 6
 
 den = list()
 den_o = list()
@@ -96,6 +103,8 @@ for(i in 1:9){
     den[[i]] = local_den
 }
 
+
+pdf("ecdf.pdf")
 
 par(mfrow = c(3,3),mai = c(0.4, 0.3, 0.1, 0.1))
 
@@ -132,3 +141,22 @@ for(i in 1:9){
     lines(x = im, y = meanCDF,lwd = 2, col = "pink", type = "l")
     
 }
+dev.off()
+
+
+
+## checking overdispersion
+
+## for example, see results from one randomized clustering
+
+j = 1
+for(i in 1:9){
+    x = data_counts[total[i],]
+    tmp = fitVal(x,clist[[j]],rlist[[j]][total[i]],K,alphaList[[j]],betaList[[j]][total[i]])
+    
+    print(paste0("fitted: ", sd(tmp)/ mean(tmp)))
+    print(paste0("observed: ",sd(x) / mean(x)))
+    print("*********")
+    print("   ")
+}
+
