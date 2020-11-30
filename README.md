@@ -12,7 +12,7 @@ and
 
 https://www.dropbox.com/sh/xosn62czbubt72o/AACyvV9mJPnRBOHylHwFgk3xa?dl=0
 
-
+Codes for doing the analysis in table are presented at codes directory
 
 To install the package:
 ```R
