@@ -32,6 +32,7 @@ eval_scDDboost <- function(data_counts, cd, ncores,epi = 1,nrd = 50){
   
 }
 
+### function used to load simulation data and evaluate on MAST, DESeq2, scDD and scDDboost
 run_de = function(loc,scale,nrep, ncores, DIR, epi = 1){
   for(II in 1:nrep){
     if(loc < 0){
