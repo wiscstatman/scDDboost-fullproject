@@ -1,0 +1,27 @@
+
+TY  - JOUR
+T1  - On parametric empirical Bayes methods for comparing multiple groups using replicated gene expression profiles
+AU  - Kendziorski, C. M.
+AU  - Newton, M. A.
+AU  - Lan, H.
+AU  - Gould, M. N.
+Y1  - 2003/12/30
+PY  - 2003
+DA  - 2003/12/30
+N1  - doi: 10.1002/sim.1548
+DO  - 10.1002/sim.1548
+T2  - Statistics in Medicine
+JF  - Statistics in Medicine
+JO  - Statistics in Medicine
+JA  - Statist. Med.
+SP  - 3899
+EP  - 3914
+VL  - 22
+IS  - 24
+PB  - John Wiley & Sons, Ltd
+SN  - 0277-6715
+M3  - doi: 10.1002/sim.1548
+UR  - https://doi.org/10.1002/sim.1548
+Y2  - 2019/04/30
+N2  - Abstract DNA microarrays provide for unprecedented large-scale views of gene expression and, as a result, have emerged as a fundamental measurement tool in the study of diverse biological systems. Statistical questions abound, but many traditional data analytic approaches do not apply, in large part because thousands of individual genes are measured with relatively little replication. Empirical Bayes methods provide a natural approach to microarray data analysis because they can significantly reduce the dimensionality of an inference problem while compensating for relatively few replicates by using information across the array. We propose a general empirical Bayes modelling approach which allows for replicate expression profiles in multiple conditions. The hierarchical mixture model accounts for differences among genes in their average expression levels, differential expression for a given gene among cell types, and measurement fluctuations. Two distinct parameterizations are considered: a model based on Gamma distributed measurements and one based on log-normally distributed measurements. False discovery rate and related operating characteristics of the methodology are assessed in a simulation study. We also show how the posterior odds of differential expression in one version of the model is related to the ratio of the arithmetic mean to the geometric mean of the two sample means. The methodology is used in a study of mammary cancer in the rat, where four distinct patterns of expression are possible. Copyright ? 2003 John Wiley & Sons, Ltd.
+ER  - 

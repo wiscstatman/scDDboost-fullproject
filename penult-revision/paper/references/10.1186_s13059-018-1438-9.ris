@@ -1,0 +1,20 @@
+TY  - JOUR
+AU  - Chen, Wenan
+AU  - Li, Yan
+AU  - Easton, John
+AU  - Finkelstein, David
+AU  - Wu, Gang
+AU  - Chen, Xiang
+PY  - 2018
+DA  - 2018/05/31
+TI  - UMI-count modeling and differential expression analysis for single-cell RNA sequencing
+JO  - Genome Biology
+SP  - 70
+VL  - 19
+IS  - 1
+AB  - Read counting and unique molecular identifier (UMI) counting are the principal gene expression quantification schemes used in single-cell RNA-sequencing (scRNA-seq) analysis. By using multiple scRNA-seq datasets, we reveal distinct distribution differences between these schemes and conclude that the negative binomial model is a good approximation for UMI counts, even in heterogeneous populations. We further propose a novel differential expression analysis algorithm based on a negative binomial model with independent dispersions in each group (NBID). Our results show that this properly controls the FDR and achieves better power for UMI counts when compared to other recently developed packages for scRNA-seq analysis.
+SN  - 1474-760X
+UR  - https://doi.org/10.1186/s13059-018-1438-9
+DO  - 10.1186/s13059-018-1438-9
+ID  - Chen2018
+ER  - 

@@ -1,0 +1,23 @@
+TY  - JOUR
+T1  - Modeling Bi-modality Improves Characterization of Cell Cycle on Gene Expression in Single Cells
+A1  - McDavid, Andrew
+A1  - Dennis, Lucas
+A1  - Danaher, Patrick
+A1  - Finak, Greg
+A1  - Krouse, Michael
+A1  - Wang, Alice
+A1  - Webster, Philippa
+A1  - Beechem, Joseph
+A1  - Gottardo, Raphael
+Y1  - 2014/07/17
+N2  - Author Summary Recent technological advances have enabled the measurement of gene expression in individual cells, revealing that there is substantial variability in expression, even within a homogeneous cell population. In this paper, we develop new analytical methods that account for the intrinsic, stochastic nature of single cell expression in order to characterize the effect of cell cycle on gene expression at the single-cell level. Applying these methods to populations of asynchronously cycling cells, we are able to identify large numbers of genes with cell cycle-associated expression patterns. By measuring and adjusting for cellular-level factors, we are able to derive estimates of co-expressing gene networks that more closely reflect cellular-level processes as opposed to sample-level processes. We find that cell cycle phase only accounts for a modest amount of the overall variability of gene expression within an individual cell. The analytical methods demonstrated in this paper are universally applicable to single cell expression data and represent a promising tool to the scientific community.
+JF  - PLOS Computational Biology
+JA  - PLOS Computational Biology
+VL  - 10
+IS  - 7
+UR  - https://doi.org/10.1371/journal.pcbi.1003696
+SP  - e1003696
+EP  - 
+PB  - Public Library of Science
+M3  - doi:10.1371/journal.pcbi.1003696
+ER  - 
