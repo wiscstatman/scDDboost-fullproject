@@ -256,8 +256,8 @@ data available through \verb+conquer+ (\cite{ref:Cq}).  Additional numerical exp
 
 On manuscript organization, we present
 the modeling and methodology elements in Section~2, numerical experiments in Section~3,  asymptotic analysis in Section~4, and a discussion
-in Section~5.  We relegate some details to an appendix and many others to a Supplementary 
-Material document.
+in Section~5.  We relegate some details to an appendix and many others to supplementary 
+material.
 
 
 
@@ -354,7 +354,8 @@ different frequencies between the two conditions ($\phi_1 \neq \psi_1$ and
  $\phi_2 \neq \psi_2$) but the same aggregate frequency
 ($\phi_1+\phi_2 = \psi_1 + \psi_2$),  and also  if components are equivalent, $f_{g,1} = f_{g,2}$,
 then, other things being equal, marginals $f^1_g = f^2_g$ even though $\phi \neq \psi$. 
-\textcolor{black}{Details confirming such equality are examplified further in Supplementary Material Section 2.1.} The fact is so central that we emphasize:
+Details confirming such equality are examplified further in 
+Supplementary Material Section 2.1, \cite{Ma20}. The fact is so central that we emphasize:
 
 
 \noindent
@@ -525,7 +526,7 @@ conditional on an estimate of the subtype labels.
 We invoke $K-$medoids (\cite{kmedoids}) 
 as the default clustering method in \texttt{scDDboost}, and customize the cell-cell distance by integrating two measures.  
 The first assembles gene-level information by cluster-based-similarity partitioning~(\cite{ref:cspa}).
- Separately at each gene,   modal clustering (\cite{ref:dahl} and Supplementary Material Section~2.2) partitions the cells, and
+ Separately at each gene,   modal clustering (\cite{ref:dahl} and Supplementary Material Section~2.2, \cite{Ma20}) partitions the cells, and
 then we define dissimilarity between cells as the Manhattan distance between gene-specific 
 partition labels.
 A second measure defines dissimilarity by one minus the 
@@ -563,7 +564,7 @@ strategies in Section~5. Inferentially,
  The approach
 taken in \verb+scDDboost+ is to set $K$ using the validity score~(\cite{selK}), which measures 
 changes in within-cluster sum of squares as we increase $K$.  Our implementation,  in
-Supplementary Material Section 2.2, shows good operating characteristics in simulation.
+Supplementary Material Section 2.2, \cite{Ma20}, shows good operating characteristics in simulation.
 
 
 \subsection{$P(A_\pi|y,z)$}
@@ -786,7 +787,7 @@ where $f$ is a customized density kernel.  In our case we use \verb+EBseq+ from~
 the sampling distribution of
  $X_{g,c}$ is negative binomial, and $f$ becomes a particular compound multivariate 
 negative binomial formed from integrating
-uncertainty in the block-specific means (see Supplementary Material Section 2.2).  
+uncertainty in the block-specific means (see Supplementary Material Section 2.2, \cite{Ma20}).  
 Through its gene-level mixing model,
 \verb+EBseq+ also gives estimates of $\{ P(M_{g,\pi}|z) \}$: the proportions of genes governed by any of the 
 different patterns $\pi$ of equivalent/differential expression among subtypes. With these estimates 
@@ -804,8 +805,8 @@ The proportionality is resolved by calculating over all partitions $\pi$.
 We used \verb+splatter+ (v. 1.2.0)  
 to generate synthetic scRNA-seq  data for which the DD status of genes is known~(\cite{ref:Zappia}), 
  thereby allowing us to measure operating characteristics of \verb+scDDboost+ 
-\textcolor{black}{in a controlled setting}.
- \textcolor{black}{Splatter is a generative system for simulating realistic
+in a controlled setting.
+Splatter is a generative system for simulating realistic
 single-cell RNA-seq data. It accounts for biological and technical sources of variation and is calibrated
 from a number of published data sets. 
 Our hypothetical two-condition comparison involved $n=400$ cells and
@@ -823,7 +824,7 @@ $3/-0.1/1$ to quite weak signals, like $15/0.1/0.4$.  Supplementary
 Figures S6 and S7 provide a view of the global separation between the subtypes and the degree of difficulty of 
 the inference task.  We note that the mechanistic sampling model induced by splatter is distinct from the descriptive model 
 underlying scDDboost.  We choose it to reflect anticipated technical and biological sources of 
-variation.  Further details are in Supplementary Material Section~3.1.}
+variation.  Further details are in Supplementary Material Section~3.1,\cite{Ma20}.
 
 Figures~\ref{fig:sim1} and~\ref{fig:sim2} summarize the true positive rate and false discovery rate
 of \verb+scDDboost+ compared to three other methodologies: \verb+MAST+ (v. 1.4.0), \verb+scDD+ (v. 1.2.0), and 
@@ -916,24 +917,6 @@ functions of the log-scale size statistic for all genes
  identified by scDDboost (red) compared to other DD genes (blue), at 5\% FDR.}
   \label{fig:shift}
 \end{figure}
-%\todo{axes labels missing in fig 8}
-% Datasets used for demonstration from left to right are GSE71585, GSE64016, EMTAB2805.
-
-
-
-%\begin{figure}[H]
-%\includegraphics[width = 0.7\textwidth]{Figs/nullpdd_box.pdf}
-% \caption{PDD of the same datasets used in Figure 7, we have types of PDD, the purple box is the PDD calculated by using the proportion of DE patterns inferred from the whole genome.  
-% The magenta box is the PDD using the trivial proportion of DE pattern (i.e. all DE patterns between subtypes have same probabilities), basically we do not borrow information from other genes. 
-% In the null case, we observed lower PDD when using information from the whole genome and this is consistent with the underlying ED structure. 
-% Recall in Figure 7, genes uniquely identified by scDDboost tend to associate with DE pattern with large size. From the null case such behavior could make our PDD more correct}
-%  \label{fig:EBSeq}
-%\end{figure}
-%**{\em Xiuyu, please improve the figure on PDD and put into Supplementary.  We can put some summary sentences
-%here if they fit well. The point may go better in the discussion section.} **
-
-
-
 
 
 \subsection{Bursting}
@@ -969,7 +952,7 @@ scDDboost and other methods: MAST, scDD, and DESeq2.} }
 
 Run time complexity of \texttt{scDDboost} is dominated by the cost of clustering cells and of running \texttt{EBSeq} to measure differences between subtypes. 
 Recall the notation that $n$ for number of cells, $G$ for number of genes and $K$ for number of subtypes. 
-Our distance-based clustering of  $n$ cells measuring $G$ genes requires on the order of $G \times n^2$ operations (see Supplementary Material Section 2.2).
+Our distance-based clustering of  $n$ cells measuring $G$ genes requires on the order of $G \times n^2$ operations (see Supplementary Material Section 2.2, \cite{Ma20}).
 Further, \texttt{EBSeq} uses summed counts within each subtype for each gene to compute its density kernel, and there are Bell$(K)$ differential patterns to compute,
 where Bell counts the partitions of $K$.  
  We impose the computational limit  $K \leq 9$ in
@@ -993,8 +976,8 @@ the synthetic-data study (Figure~5), which does not encode the same modeling ass
 goodness-of-fit test in three data sets~(\cite{Yin:2013aa}). Fewer than 1.5\% of genes show evidence against
 a within subtype NB assumption at a 5\% FDR.
  Further, for most of these non-NB genes the inference drawn by \texttt{scDDboost} is the same as that
-drawn by various other methods (Supplementary Material, Table S3), and where there are differences the 
-\texttt{scDDboost} call is plausible (Supplementary Material, Figure S12).   Among 
+drawn by various other methods (Supplementary Table S3), and where there are differences the 
+\texttt{scDDboost} call is plausible (Supplementary Figure S12).   Among 
 the  genes identified by \texttt{scDDboost} at 5\% FDR in the stem-cell example
 (recall Figure~1), just six of them fail the NB test, and two of these are uniquely called by \texttt{scDDboost}; 
 further, one of the two genes is cell-cycle related.  }
@@ -1030,8 +1013,8 @@ associated with the specific partition of cells, but the choice of distance func
 probabilities.  To check this,  
 we repeated the numerical experiments in Section~3 using the SC3 distance in place of the default. 
 Importantly, Type~I error rates remain in control, as evidenced by the simulation study and the negative-control
-permutatation study (Supplementary Material, Figure S15).  There can be substantial differences in yeild at
-a given FDR control level (Supplementary Material, Table S5).}
+permutatation study (Supplementary Figure S15).  There can be substantial differences in yeild at
+a given FDR control level (Supplementary Table S5).}
 
 \section{Asymptotics of the Double Dirichlet Mixture}
 Summary statistics $P(A_\pi|y,z)$, from Section 2.3, are amenable to a first-order asymptotic analysis
@@ -1066,7 +1049,7 @@ $\pi^* = \pi^*(\phi,\psi)$, such that
 \label{eq:notQ}
 A_{\pi^*} = \bigcap_{\pi \in H(\phi,\psi)} A_\pi.
 \end{eqnarray}
-This always happens when $K \leq 3$.  In Supplementary Material Section~4 we characterize 
+This always happens when $K \leq 3$.  In Supplementary Material Section~4, \cite{Ma20}, we characterize 
 the exceptional set of states where~(\ref{eq:notQ}) does not hold.  Notably, if~(\ref{eq:notQ}) does hold for
 state $(\phi,\psi)$, then for any $\pi \in H(\phi,\psi)$, using Theorem~4 and~(\ref{eq:mainfinding}), we have
 \begin{eqnarray*}
@@ -1104,7 +1087,7 @@ since it allows great flexibility in the form of each gene/condition-specific ex
 searches all partitions of $K$ and encodes a hyper-parameter estimation algorithm that scales poorly with $K$.
 Several approximations present themselves that may redress the problem, since,
 in the mixture model context, only patterns $\pi$ corresponding to relatively probable expression-change
-patterns over subtypes have a big impact on the final posterior inference~(\cite{Ma2020}).   Even resolving this
+patterns over subtypes have a big impact on the final posterior inference~\cite{Ma2020}.   Even resolving this
 bottleneck there are advantages to having $K$ small compared to $n$.  Numerical experiments 
 show increased false discoveries when $K$ is over-estimated.  But accurate estimation with large $K$ would
 not be expected to provide much improved power, since that depends on accurate estimation of subtypes and their
@@ -1116,7 +1099,7 @@ frequencies which relies on $K$ being relatively small compared to $n$.
 \section*{Acknowledgement}
 This research was supported in part by US National Institutes of Health grants 
 P50 DE026787, P30CA14520-45, R01 GM102756, U54AI117924, 
-and US  National Science Foundation grant 1740707.
+and US  National Science Foundation grant 1740707. We thank the associate editor and referees for very helpful comments.
 
 %\bibliographystyle{IEEEtran}
 %\bibliographystyle {plainnat}
@@ -1209,7 +1192,7 @@ P( d_{i,j}^* \leq c | D )  \approx  P( \delta_{i,j} \leq c | D).
 In other words, the randomized distance procedure is providing approximate posterior draws of the underlying
 distance matrix.  In spite of limitations of this procedure for full Bayesian inference, it provides
 an elementary scheme to account for uncertainty in subtype allocations.  Numerical experiments
-in Supplementary Material make comparisons to a full, Dirichlet-process-based, posterior analysis.
+in the supplement make comparisons to a full, Dirichlet-process-based, posterior analysis.
 
 
 %In this section, we gave an intuitive justification for consistency between bayesian framework clustering analysis and random weighting procedure. A full bayesian analysis for clustering needs to specify the density of data given the partition. Specifically, in single cell analysis we need to know the density of transcripts of genes given the partitions which requires understanding of co-expression and dependence between genes. Instead of trying to untangle the mystery behind the dependence of genes, we consider following approximation
